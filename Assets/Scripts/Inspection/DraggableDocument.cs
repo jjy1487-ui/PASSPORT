@@ -1,0 +1,35 @@
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+/// <summary>
+/// 책상 위 서류를 마우스로 끌어 옮길 수 있게 한다(여권을 직접 만지는 느낌).
+/// 카드 루트에 부착. 배경 Image가 레이캐스트 타깃이어야 한다.
+/// </summary>
+public sealed class DraggableDocument : MonoBehaviour, IBeginDragHandler, IDragHandler
+{
+    private RectTransform _rt;
+    private Canvas _canvas;
+
+    private void Awake()
+    {
+        _rt = transform as RectTransform;
+        _canvas = GetComponentInParent<Canvas>();
+    }
+
+    /// <summary>끌기 시작 시 맨 앞으로 올린다.</summary>
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        transform.SetAsLastSibling();
+    }
+
+    /// <summary>포인터 이동량만큼 위치를 옮긴다(캔버스 스케일 보정).</summary>
+    public void OnDrag(PointerEventData eventData)
+    {
+        if (_rt == null)
+        {
+            return;
+        }
+        float scale = (_canvas != null && _canvas.scaleFactor > 0f) ? _canvas.scaleFactor : 1f;
+        _rt.anchoredPosition += eventData.delta / scale;
+    }
+}
