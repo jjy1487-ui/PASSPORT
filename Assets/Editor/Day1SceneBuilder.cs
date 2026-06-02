@@ -85,6 +85,19 @@ public static class Day1SceneBuilder
         TMP_Text slotCounter = AddText(hudBg, "SlotCounterText", "1 / 7", 26, new Vector2(0.74f, 0.10f), new Vector2(0.99f, 0.90f), font, TextAlignmentOptions.Left);
         slotCounter.color = Color.white; slotCounter.fontStyle = FontStyles.Bold;
 
+        // ── 점수 HUD(골드 HUD 바로 아래, 별도 바 — 점수 ≠ 돈, 색으로도 구분: Score/Blue) ──
+        RectTransform scoreBg = NewUI("ScorePanel", root, new Vector2(0.60f, 0.825f), new Vector2(0.990f, 0.900f));
+        AddImage(scoreBg, new Color(0f, 0f, 0f, 0.62f));
+        TMP_Text scoreLabel = AddText(scoreBg, "ScoreLabel", "점수", 20, new Vector2(0.04f, 0.10f), new Vector2(0.28f, 0.90f), font, TextAlignmentOptions.Left);
+        scoreLabel.color = new Color(0.45f, 0.65f, 0.85f); scoreLabel.fontStyle = FontStyles.Bold;
+        TMP_Text scoreText = AddText(scoreBg, "ScoreText", "0", 26, new Vector2(0.30f, 0.10f), new Vector2(0.62f, 0.90f), font, TextAlignmentOptions.Left);
+        scoreText.color = new Color(0.231f, 0.510f, 0.769f); scoreText.fontStyle = FontStyles.Bold; // #3B82C4
+        TMP_Text scoreDelta = AddText(scoreBg, "ScoreDelta", "", 20, new Vector2(0.64f, 0.10f), new Vector2(0.98f, 0.90f), font, TextAlignmentOptions.Left);
+        scoreDelta.color = new Color(0.231f, 0.510f, 0.769f);
+        ScoreHudView scoreHud = scoreBg.gameObject.AddComponent<ScoreHudView>();
+        Wire(scoreHud, "_scoreText", scoreText);
+        Wire(scoreHud, "_deltaText", scoreDelta);
+
         // ── 서류 영역 (책상: 드래그로 펼치고, 거치 슬롯에 놓으면 접힘) ──
         RectTransform docArea = NewUI("DocumentArea", root, new Vector2(0.32f, 0.06f), new Vector2(0.985f, 0.66f));
         AddImage(docArea, new Color(1f, 1f, 1f, 0.03f)); // 펼침 영역(책상). 거의 투명
@@ -294,6 +307,15 @@ public static class Day1SceneBuilder
         Wire(customerView, "_nameText", custName);
         Wire(customerView, "_infoText", custInfo);
 
+        // ── 호칭·아이템 획득 피드백(토스트 + 보유 목록 패널) ──
+        BuildRewardFeedback(root, font);
+
+        // ── 엔딩 화면(조기/누적/점수구간 모두) — 강제 모달, 닫기 X 우상단 ──
+        BuildEndingPanel(root, font);
+
+        // ── 고급 분기 선택지 패널(범죄자 뇌물/테러 상담/사이비/연예인·정치인) ──
+        BuildAdvancedBranchPanel(root, controller, font);
+
         // ── 보조검사기(X-ray / 지문) — 버튼 2개(데스크 도구 영역) + 결과 패널 2개 ──
         ScanResultPanel xrayPanel = BuildScanPanel(root, "XrayPanel", "X-ray 검사",
             ScanResultPanel.ScanKind.Xray, controller, font);
@@ -498,6 +520,96 @@ public static class Day1SceneBuilder
         Wire(view, "_dateText", dateText);
         Wire(view, "_todaySelectable", todaySel);
         return view;
+    }
+
+    // 호칭·아이템 토스트 + 보유 목록 패널(열기 버튼 좌하단 도구바 근처). 닫기 = X 우상단.
+    private static void BuildRewardFeedback(Transform parent, TMP_FontAsset font)
+    {
+        // 토스트(상단 중앙, 비활성 시작)
+        RectTransform toast = NewUI("RewardToast", parent, new Vector2(0.32f, 0.90f), new Vector2(0.60f, 0.965f));
+        AddImage(toast, new Color(0.10f, 0.30f, 0.18f, 0.95f));
+        TMP_Text toastText = AddText(toast, "ToastText", "", 20, new Vector2(0.04f, 0f), new Vector2(0.96f, 1f), font, TextAlignmentOptions.Center);
+        toastText.color = new Color(0.85f, 1f, 0.85f); toastText.fontStyle = FontStyles.Bold;
+        toast.gameObject.SetActive(false);
+
+        // 보유 목록 열기 버튼(좌하단 도구바, 검사기 버튼 우측)
+        Button openBtn = MakeButton(parent, "InventoryButton", "보유", 16, new Vector2(0.155f, 0.025f), new Vector2(0.215f, 0.085f), font, new Color(0.30f, 0.28f, 0.20f));
+
+        // 보유 목록 패널(중앙, 비활성 시작)
+        RectTransform listRt = NewUI("InventoryPanel", parent, new Vector2(0.32f, 0.25f), new Vector2(0.68f, 0.75f));
+        AddImage(listRt, new Color(0.10f, 0.12f, 0.16f, 0.96f));
+        TMP_Text listTitle = AddText(listRt, "Title", "획득 보상", 28, new Vector2(0.05f, 0.86f), new Vector2(0.80f, 0.97f), font, TextAlignmentOptions.Left);
+        listTitle.fontStyle = FontStyles.Bold; listTitle.color = new Color(1f, 0.9f, 0.6f);
+        Button listClose = MakeButton(listRt, "CloseButton", "X", 22, new Vector2(0.88f, 0.86f), new Vector2(0.97f, 0.97f), font, new Color(0.60f, 0.18f, 0.18f));
+        TMP_Text listText = AddText(listRt, "ListText", "", 18, new Vector2(0.06f, 0.06f), new Vector2(0.94f, 0.84f), font, TextAlignmentOptions.TopLeft);
+        listText.color = Color.white;
+        listRt.gameObject.SetActive(false);
+
+        // 컴포넌트는 전용 호스트에 부착(토스트 코루틴 호스트 — 토스트가 꺼져도 살아있어야 함).
+        GameObject host = new GameObject("RewardFeedback", typeof(RectTransform));
+        host.transform.SetParent(parent, false);
+        RewardFeedbackView view = host.AddComponent<RewardFeedbackView>();
+        Wire(view, "_toastRoot", toast.gameObject);
+        Wire(view, "_toastText", toastText);
+        Wire(view, "_listRoot", listRt.gameObject);
+        Wire(view, "_listText", listText);
+        Wire(view, "_openButton", openBtn);
+        Wire(view, "_closeButton", listClose);
+    }
+
+    // 엔딩 패널(강제 모달). 엔딩명/유형배지/설명+최종점수/호칭, 닫기 X 우상단.
+    private static void BuildEndingPanel(Transform parent, TMP_FontAsset font)
+    {
+        // 전체 화면 Backdrop(강제 모달 — 클릭으로 안 닫힘)
+        RectTransform rt = NewUI("EndingPanel", parent, Vector2.zero, Vector2.one);
+        AddImage(rt, new Color(0.02f, 0.03f, 0.05f, 0.92f));
+
+        RectTransform frame = NewUI("Frame", rt, new Vector2(0.25f, 0.22f), new Vector2(0.75f, 0.78f));
+        AddImage(frame, new Color(0.10f, 0.12f, 0.16f, 0.98f));
+
+        TMP_Text typeBadge = AddText(frame, "TypeBadge", "엔딩", 20, new Vector2(0.06f, 0.84f), new Vector2(0.50f, 0.94f), font, TextAlignmentOptions.Left);
+        typeBadge.color = new Color(0.55f, 0.85f, 1f); typeBadge.fontStyle = FontStyles.Bold;
+        Button close = MakeButton(frame, "CloseButton", "X", 22, new Vector2(0.88f, 0.85f), new Vector2(0.97f, 0.95f), font, new Color(0.60f, 0.18f, 0.18f));
+        TMP_Text nameText = AddText(frame, "EndingName", "엔딩명", 40, new Vector2(0.06f, 0.62f), new Vector2(0.94f, 0.82f), font, TextAlignmentOptions.Center);
+        nameText.color = new Color(1f, 0.9f, 0.6f); nameText.fontStyle = FontStyles.Bold;
+        TMP_Text descText = AddText(frame, "EndingDesc", "", 20, new Vector2(0.08f, 0.08f), new Vector2(0.92f, 0.60f), font, TextAlignmentOptions.TopLeft);
+        descText.color = Color.white;
+
+        EndingPanel panel = rt.gameObject.AddComponent<EndingPanel>();
+        Wire(panel, "_root", rt.gameObject);
+        Wire(panel, "_nameText", nameText);
+        Wire(panel, "_descText", descText);
+        Wire(panel, "_typeBadgeText", typeBadge);
+        Wire(panel, "_closeButton", close);
+        rt.gameObject.SetActive(false);
+    }
+
+    // 고급 분기 선택지 패널(좌=긍정/수령, 우=거부/신고; 닫기 X 우상단). 컨트롤러 OnCustomerChanged 로 자동 표시.
+    private static void BuildAdvancedBranchPanel(Transform parent, InspectionController controller, TMP_FontAsset font)
+    {
+        RectTransform rt = NewUI("AdvancedBranchPanel", parent, new Vector2(0.34f, 0.42f), new Vector2(0.78f, 0.64f));
+        AddImage(rt, new Color(0.12f, 0.10f, 0.14f, 0.96f));
+
+        TMP_Text prompt = AddText(rt, "Prompt", "", 20, new Vector2(0.05f, 0.55f), new Vector2(0.82f, 0.92f), font, TextAlignmentOptions.TopLeft);
+        prompt.color = new Color(1f, 0.92f, 0.8f);
+        Button close = MakeButton(rt, "CloseButton", "X", 22, new Vector2(0.88f, 0.80f), new Vector2(0.97f, 0.93f), font, new Color(0.50f, 0.25f, 0.25f));
+
+        // 좌 = 긍정/수령(승인 그린 톤), 우 = 거부/신고(거절 레드 톤) — 통과=좌/거절=우 규약.
+        Button left = MakeButton(rt, "LeftChoice", "선택", 22, new Vector2(0.05f, 0.10f), new Vector2(0.48f, 0.42f), font, new Color(0.18f, 0.45f, 0.30f));
+        Button right = MakeButton(rt, "RightChoice", "선택", 22, new Vector2(0.52f, 0.10f), new Vector2(0.95f, 0.42f), font, new Color(0.62f, 0.16f, 0.13f));
+        TMP_Text leftLabel = left.transform.Find("Label").GetComponent<TMP_Text>();
+        TMP_Text rightLabel = right.transform.Find("Label").GetComponent<TMP_Text>();
+
+        AdvancedBranchPanel panel = rt.gameObject.AddComponent<AdvancedBranchPanel>();
+        Wire(panel, "_controller", controller);
+        Wire(panel, "_root", rt.gameObject);
+        Wire(panel, "_promptText", prompt);
+        Wire(panel, "_leftButton", left);
+        Wire(panel, "_leftLabel", leftLabel);
+        Wire(panel, "_rightButton", right);
+        Wire(panel, "_rightLabel", rightLabel);
+        Wire(panel, "_closeButton", close);
+        rt.gameObject.SetActive(false);
     }
 
     // ───────── 헬퍼 ─────────

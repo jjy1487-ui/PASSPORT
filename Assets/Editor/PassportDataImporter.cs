@@ -39,6 +39,9 @@ public static class PassportDataImporter
         { "reward", typeof(RewardTable) },
         { "ending", typeof(EndingTable) },
         { "score_model", typeof(ScoreModelTable) },
+        // 260602 분기표 (2번째 소스 xlsx). 시트 없으면 LoadOrCreate가 빈 .asset 만들지 않게 아래서 가드.
+        { "character_score", typeof(CharacterScoreTable) },
+        { "character_payout", typeof(CharacterPayoutTable) },
     };
 
     [MenuItem("Tools/Passport/Import Data")]
@@ -96,10 +99,20 @@ public static class PassportDataImporter
         WireDatabase(db, created);
         EditorUtility.SetDirty(db);
 
+        // ── 런타임 Resources 사본 동기화 ──
+        // GameDatabaseProvider가 Resources/GameData/GameDatabase 를 로드한다.
+        // 사본도 같은 테이블 .asset(GUID 동일)을 참조하도록 항상 재연결해 둔다(idempotent).
+        var runtimeDb = LoadOrCreateRuntimeDatabase();
+        if (runtimeDb != null)
+        {
+            WireDatabase(runtimeDb, created);
+            EditorUtility.SetDirty(runtimeDb);
+        }
+
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 
-        Debug.Log($"[PassportDataImporter] 완료: 시트 {sheetCount}개, 행 {rowCount}개 -> {OutDir}/*.asset (GameDatabase 연결됨)");
+        Debug.Log($"[PassportDataImporter] 완료: 시트 {sheetCount}개, 행 {rowCount}개 -> {OutDir}/*.asset (GameDatabase + Resources 사본 연결됨)");
     }
 
     /// <summary>JSON 시트 -> SO(columns + rows) 채우기. 키-값 그대로 보존.</summary>
@@ -156,6 +169,14 @@ public static class PassportDataImporter
         var existing = AssetDatabase.LoadAssetAtPath(path, soType) as DataTableAsset;
         if (existing != null) return existing;
 
+        // 기존 파일이 있는데 위 로드가 null이면 m_Script 미연결(fileID:0) 등으로
+        // 타입 매핑이 깨진 상태(P0). 파일을 지우고 올바른 타입으로 재생성한다.
+        if (File.Exists(path))
+        {
+            AssetDatabase.DeleteAsset(path);
+            Debug.LogWarning($"[PassportDataImporter] 손상 .asset 재생성(m_Script 미연결 추정): {path}");
+        }
+
         var so = (DataTableAsset)ScriptableObject.CreateInstance(soType);
         AssetDatabase.CreateAsset(so, path);
         return so;
@@ -164,6 +185,24 @@ public static class PassportDataImporter
     private static GameDatabase LoadOrCreateDatabase()
     {
         string path = $"{OutDir}/GameDatabase.asset";
+        var existing = AssetDatabase.LoadAssetAtPath<GameDatabase>(path);
+        if (existing != null) return existing;
+        var db = ScriptableObject.CreateInstance<GameDatabase>();
+        AssetDatabase.CreateAsset(db, path);
+        return db;
+    }
+
+    private const string RuntimeDbDir = "Assets/Resources/GameData";
+
+    /// <summary>런타임 로드용 Resources 사본. 없으면 생성, 있으면 재사용(GUID 유지).</summary>
+    private static GameDatabase LoadOrCreateRuntimeDatabase()
+    {
+        if (!AssetDatabase.IsValidFolder("Assets/Resources"))
+            AssetDatabase.CreateFolder("Assets", "Resources");
+        if (!AssetDatabase.IsValidFolder(RuntimeDbDir))
+            AssetDatabase.CreateFolder("Assets/Resources", "GameData");
+
+        string path = $"{RuntimeDbDir}/GameDatabase.asset";
         var existing = AssetDatabase.LoadAssetAtPath<GameDatabase>(path);
         if (existing != null) return existing;
         var db = ScriptableObject.CreateInstance<GameDatabase>();
@@ -192,6 +231,8 @@ public static class PassportDataImporter
         db.reward = Get<RewardTable>(t, "reward");
         db.ending = Get<EndingTable>(t, "ending");
         db.scoreModel = Get<ScoreModelTable>(t, "score_model");
+        db.characterScore = Get<CharacterScoreTable>(t, "character_score");
+        db.characterPayout = Get<CharacterPayoutTable>(t, "character_payout");
     }
 
     private static T Get<T>(Dictionary<string, DataTableAsset> t, string key) where T : DataTableAsset

@@ -1,0 +1,905 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252a4172032a15343bf535d90af31a11, type: 3}
+  m_Name: DialogueCaseTable
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueCaseTable
+  sheetName: dialogue_case
+  columns:
+  - key: dialogue_case_id
+    label: "\uB300\uD654 \uD750\uB984 ID"
+    type: int
+  - key: schedule_id
+    label: "\uC77C\uC815 ID"
+    type: int
+  - key: customer_id
+    label: "\uACE0\uAC1D ID"
+    type: int
+  - key: case_type
+    label: "\uC0C1\uD669 \uC720\uD615"
+    type: varchar(30)
+  - key: character_type
+    label: "\uCE90\uB9AD\uD130 \uC720\uD615"
+    type: varchar(30)
+  - key: document_type
+    label: "\uBB38\uC11C \uC885\uB958"
+    type: varchar(20)
+  - key: doc_valid
+    label: "\uBB38\uC11C \uC815\uC0C1 \uC5EC\uBD80"
+    type: varchar(10)
+  - key: violation_field
+    label: "\uC704\uBC18 \uD56D\uBAA9"
+    type: varchar(30)
+  - key: game_result
+    label: "\uD310\uC815 \uACB0\uACFC"
+    type: varchar(30)
+  - key: reject_count
+    label: "\uAC70\uC808 \uD69F\uC218"
+    type: int
+  rows:
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 1
+    - 1
+    - 1
+    - "\uC785\uC7A5"
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - '-'
+    - "\uC5C6\uC74C"
+    - '-'
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 2
+    - 1
+    - 1
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC815\uC0C1 \uC2B9\uC778"
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 3
+    - 1
+    - 1
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC798\uBABB \uAC70\uC808"
+    - 1
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 4
+    - 1
+    - 1
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC798\uBABB \uAC70\uC808"
+    - 2
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 5
+    - 1
+    - 1
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC798\uBABB \uAC70\uC808"
+    - 3
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 6
+    - 2
+    - 2
+    - "\uC785\uC7A5"
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - '-'
+    - "\uC5C6\uC74C"
+    - '-'
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 7
+    - 2
+    - 2
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uBE44\uC815\uC0C1"
+    - "\uB9CC\uB8CC\uC77C"
+    - "\uC815\uC0C1 \uAC70\uC808"
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 8
+    - 2
+    - 2
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uBE44\uC815\uC0C1"
+    - "\uBE44\uC790"
+    - "\uC798\uBABB \uD5C8\uAC00"
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 9
+    - 2
+    - 2
+    - "\uC5EC\uAD8C \uC5C6\uC74C"
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uBE44\uC815\uC0C1"
+    - "\uC5EC\uAD8C \uC5C6\uC74C"
+    - "\uC815\uC0C1 \uAC70\uC808"
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 10
+    - 3
+    - 3
+    - "\uC785\uC7A5"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - '-'
+    - "\uC5C6\uC74C"
+    - '-'
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 11
+    - 3
+    - 3
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC815\uC0C1 \uC2B9\uC778"
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 12
+    - 3
+    - 3
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC798\uBABB \uAC70\uC808"
+    - 1
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 13
+    - 3
+    - 3
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC798\uBABB \uAC70\uC808"
+    - 2
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 14
+    - 3
+    - 3
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC798\uBABB \uAC70\uC808"
+    - 3
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 15
+    - 3
+    - 3
+    - "\uC5EC\uAD8C \uC5C6\uC74C"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uBE44\uC815\uC0C1"
+    - "\uC5EC\uAD8C \uC5C6\uC74C"
+    - "\uC815\uC0C1 \uAC70\uC808"
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 16
+    - 4
+    - 4
+    - "\uC785\uC7A5"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - '-'
+    - "\uC5C6\uC74C"
+    - '-'
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 17
+    - 4
+    - 4
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC815\uC0C1 \uC2B9\uC778"
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 18
+    - 4
+    - 4
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC798\uBABB \uAC70\uC808"
+    - 1
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 19
+    - 4
+    - 4
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC798\uBABB \uAC70\uC808"
+    - 2
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 20
+    - 4
+    - 4
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC798\uBABB \uAC70\uC808"
+    - 3
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 21
+    - 5
+    - 5
+    - "\uC785\uC7A5"
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - '-'
+    - "\uC5C6\uC74C"
+    - '-'
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 22
+    - 5
+    - 5
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC815\uC0C1 \uC2B9\uC778"
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 23
+    - 5
+    - 5
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC798\uBABB \uAC70\uC808"
+    - 1
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 24
+    - 5
+    - 5
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC798\uBABB \uAC70\uC808"
+    - 2
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 25
+    - 5
+    - 5
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC798\uBABB \uAC70\uC808"
+    - 3
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 26
+    - 5
+    - 5
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uBE44\uC815\uC0C1"
+    - "\uC131\uBCC4"
+    - "\uC815\uC0C1 \uAC70\uC808"
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 27
+    - 5
+    - 5
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uBE44\uC815\uC0C1"
+    - "\uC131\uBCC4"
+    - "\uC798\uBABB \uD5C8\uAC00"
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 28
+    - 5
+    - 5
+    - "\uC5EC\uAD8C \uC5C6\uC74C"
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uBE44\uC815\uC0C1"
+    - "\uC5EC\uAD8C \uC5C6\uC74C"
+    - "\uC815\uC0C1 \uAC70\uC808"
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 29
+    - 6
+    - 6
+    - "\uC785\uC7A5"
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - '-'
+    - "\uC5C6\uC74C"
+    - '-'
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 30
+    - 6
+    - 6
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uBE44\uC815\uC0C1"
+    - "\uBC1C\uAE09\uAD6D"
+    - "\uC815\uC0C1 \uAC70\uC808"
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 31
+    - 6
+    - 6
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uBE44\uC815\uC0C1"
+    - "\uBC1C\uAE09\uAD6D"
+    - "\uC798\uBABB \uD5C8\uAC00"
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 32
+    - 7
+    - 7
+    - "\uC785\uC7A5"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - '-'
+    - "\uC5C6\uC74C"
+    - '-'
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 33
+    - 7
+    - 7
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC815\uC0C1 \uC2B9\uC778"
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 34
+    - 7
+    - 7
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC798\uBABB \uAC70\uC808"
+    - 1
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 35
+    - 7
+    - 7
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC798\uBABB \uAC70\uC808"
+    - 2
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 36
+    - 7
+    - 7
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uC815\uC0C1"
+    - "\uC5C6\uC74C"
+    - "\uC798\uBABB \uAC70\uC808"
+    - 3
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 37
+    - 7
+    - 7
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uBE44\uC815\uC0C1"
+    - "\uC5EC\uAD8C\uBC88\uD638"
+    - "\uC815\uC0C1 \uAC70\uC808"
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 38
+    - 7
+    - 7
+    - "\uC77C\uBC18 \uC2EC\uC0AC"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uBE44\uC815\uC0C1"
+    - "\uC5EC\uAD8C\uBC88\uD638"
+    - "\uC798\uBABB \uD5C8\uAC00"
+    - 0
+  - keys:
+    - dialogue_case_id
+    - schedule_id
+    - customer_id
+    - case_type
+    - character_type
+    - document_type
+    - doc_valid
+    - violation_field
+    - game_result
+    - reject_count
+    values:
+    - 39
+    - 7
+    - 7
+    - "\uC785\uAD6D \uB3C4\uC7A5 \uC5C6\uC74C"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C"
+    - "\uBE44\uC815\uC0C1"
+    - "\uC785\uAD6D \uB3C4\uC7A5 \uC5C6\uC74C"
+    - "\uC815\uC0C1 \uAC70\uC808"
+    - 0

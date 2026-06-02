@@ -12,6 +12,7 @@
       "age": 36,
       "spriteRef": "spr_c013",
       "characterType": "검역 대상자(PCR)",
+      "defectVariant": "1-D 모두 미비",
       "correctResult": "정상 거절",
       "documents": [
         {
@@ -313,6 +314,7 @@
       "age": 43,
       "spriteRef": "spr_c005",
       "characterType": "진상 고객",
+      "defectVariant": "",
       "correctResult": "정상 거절",
       "documents": [
         {
@@ -531,6 +533,7 @@
       "age": 32,
       "spriteRef": "spr_c014",
       "characterType": "검역 대상자(PCR)",
+      "defectVariant": "1-A",
       "correctResult": "정상 승인",
       "documents": [
         {
@@ -826,6 +829,7 @@
       "age": 35,
       "spriteRef": "spr_c019",
       "characterType": "검역 대상자(PCR)",
+      "defectVariant": "1-B 출국X/만료",
       "correctResult": "정상 거절",
       "documents": [
         {
@@ -1127,6 +1131,7 @@
       "age": 34,
       "spriteRef": "spr_c027",
       "characterType": "외국인 관광객",
+      "defectVariant": "출국X",
       "correctResult": "정상 거절",
       "documents": [
         {
@@ -1389,6 +1394,7 @@
       "age": 41,
       "spriteRef": "spr_c001",
       "characterType": "일반 고객",
+      "defectVariant": "",
       "correctResult": "정상 승인",
       "documents": [
         {
@@ -1601,6 +1607,7 @@
       "age": 28,
       "spriteRef": "spr_c021",
       "characterType": "성형 의심 고객",
+      "defectVariant": "",
       "correctResult": "정상 승인",
       "documents": [
         {

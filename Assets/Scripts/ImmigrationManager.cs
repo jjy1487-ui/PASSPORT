@@ -28,9 +28,19 @@ public sealed class ImmigrationManager : MonoBehaviour
 
     private readonly GameDataLoader _loader = new GameDataLoader();
     private Day1Data _data;
+    private bool _endingTriggered; // 조기/최종 엔딩 1회 보장
 
     /// <summary>현재 진행 중인 일차(1~14).</summary>
     public int CurrentDay { get; private set; }
+
+    /// <summary>
+    /// 엔딩이 결정되면 발행(엔딩 결과). UI(3단계)가 구독해 엔딩 화면으로 전환한다.
+    /// 조기엔딩(#11~#14)·누적엔딩(#15/#16 임계치)·14일 종료 점수구간 모두 이 이벤트로 통지된다.
+    /// </summary>
+    public event System.Action<EndingResult> OnEndingResolved;
+
+    /// <summary>마지막으로 결정된 엔딩(없으면 IsValid=false). UI 가 폴링용으로도 사용 가능.</summary>
+    public EndingResult LastEnding { get; private set; }
 
     private void OnEnable()
     {
@@ -46,10 +56,49 @@ public sealed class ImmigrationManager : MonoBehaviour
         {
             inspectionController.OnDayCompleted -= HandleDayCompleted;
         }
+        if (_economy != null)
+        {
+            _economy.OnEarlyEndingTriggered -= HandleEarlyEnding;
+        }
+    }
+
+    private ScoreEconomyManager _economy;
+
+    /// <summary>점수·경제 매니저가 씬에 없으면 런타임 생성하고 조기엔딩 트리거를 구독한다.</summary>
+    private void EnsureEconomy()
+    {
+        _economy = ScoreEconomyManager.Instance;
+        if (_economy == null)
+        {
+            var go = new GameObject("ScoreEconomyManager");
+            _economy = go.AddComponent<ScoreEconomyManager>();
+        }
+        _economy.OnEarlyEndingTriggered -= HandleEarlyEnding;
+        _economy.OnEarlyEndingTriggered += HandleEarlyEnding;
+    }
+
+    /// <summary>조기/누적 엔딩 트리거(#11~#16) 수신 → 발동 조건 충족 시 즉시 엔딩.</summary>
+    private void HandleEarlyEnding(string eventId)
+    {
+        if (_endingTriggered) return;
+        EndingResult e = EndingResolver.ResolveEarly(eventId, ScoreEconomyManager.Instance);
+        if (e.IsValid) RaiseEnding(e);
+    }
+
+    private void RaiseEnding(EndingResult e)
+    {
+        if (_endingTriggered) return;
+        _endingTriggered = true;
+        LastEnding = e;
+        Debug.Log($"[ImmigrationManager] 엔딩 결정: {e.endingId} ({e.endingName}) type={e.endingType} trigger={e.triggerKey}");
+        OnEndingResolved?.Invoke(e);
+        // 엔딩 화면 전환은 UI(3단계) 가 OnEndingResolved 를 구독해 처리한다.
     }
 
     private void Start()
     {
+        EnsureEconomy(); // 점수·경제 매니저 보장 + 조기엔딩 구독
+
         CurrentDay = Mathf.Clamp(startDay, FirstDay, LastDay);
         BeginDay(CurrentDay, resetGold: true);
 
@@ -80,8 +129,12 @@ public sealed class ImmigrationManager : MonoBehaviour
     {
         if (completedDay >= LastDay)
         {
-            // TODO(엔딩): 점수 정산·ending 테이블 score_min~score_max 구간 분기로 엔딩 화면 연결.
-            Debug.Log($"[ImmigrationManager] 전체 일정({LastDay}일) 종료. 엔딩 처리 대기(TODO).");
+            // 14일 종료: 누적 점수 → ending 구간 분기. 조기엔딩이 이미 발동했으면 그대로 둔다.
+            if (!_endingTriggered)
+            {
+                int finalScore = ScoreEconomyManager.Instance != null ? ScoreEconomyManager.Instance.Score : 0;
+                RaiseEnding(EndingResolver.ResolveByScore(finalScore));
+            }
             return;
         }
 

@@ -31,13 +31,14 @@
 - **대화 3회 재심사 루프**(SHARED-CONVENTIONS 4-A): 정상 고객을 잘못 거절 시 손님 항의 → reject_count++ → 재심사, **최대 3회**(3 도달 시 강제 정정 통과). 점수·돈은 "확정" 시 1회만. ← **"수행 안 되던" 핵심, 구현 필요.**
 - UI: PC 가로 1920×1080. 닫기=X·우상단, 통과=좌/거절=우 고정. 색·간격은 UITheme(SO). 단축키 통과 F·거절 J·도구 1/2/3.
 
-## data-tools 단계 (코드 작성 완료, Unity 검증 보류) — 2026-06-02
+## data-tools 단계 (코드 작성 + Unity 검증 완료) — 2026-06-02
 > xlsx 수집 방식 **확정(사용자 승인)**: Python → 중간 JSON → C# 임포터 (NPOI/EPPlus DLL 아님).
 - `Tools/DataImport/xlsx_to_json.py` — 19시트 → 단일 `Assets/GameData/_source/GameData.source.json`.
   시트별 헤더 레이아웃 3종(relational row3=영문 / flat row1=영문 / config 한글헤더) 자동 감지, snake_case 키 보존, 한글 label·자료형은 `columns` meta로 보존. idempotent.
 - `Tools/DataImport/validate_data.py` — 무결성 검증 → `_validation_report.md`. **오류 0건**(98건 채움, FK 유효, 확률 0~1).
 - `Assets/Scripts/Data/` — `DataCore.cs`(Verdict, FieldMeta, DataRow 키-값, DataTableAsset 베이스), `DataTables.cs`(19테이블 SO), `GameDatabase.cs`(단일 진입점), `RuntimeModels.cs`(DocumentInstance/InspectionCase 형 정의, 생성은 gameplay).
 - `Assets/Editor/` — `PassportDataImporter.cs`(메뉴 `Tools/Passport/Import Data`, JSON→.asset 19개+GameDatabase, idempotent), `MiniJson.cs`(의존성 없는 파서).
+- **Unity 검증 완료(2026-06-02, `produc_build_reecture@06710393` 연결됨)**: `Tools/Passport/Import Data` 실행 → 로그 "시트 19개, 행 452개 -> Assets/GameData/*.asset (GameDatabase 연결됨)", 컴파일/런타임 Error 0. `Assets/GameData/`에 19개 `~Table.asset` + `GameDatabase.asset` 생성, GameDatabase가 19개 테이블 전부 유효 guid로 참조(null 0건). → **gameplay 단계 진입 가능.**
 - 기존 `Assets/Scripts/Inspection/` day1.json 프로토타입은 **건드리지 않음**(gameplay/ui 소유). SO 타입명은 `~Table`로 분리해 충돌 회피.
 
 ### gameplay가 반드시 반영할 데이터 특수 케이스
@@ -112,10 +113,29 @@
 - **검증(Play)**: 좌측하단 "오늘: 2026-06-0X"(일차별), 오늘↔여권만료 2031=유효, 오늘↔비자만료 2023=만료됨, 오늘↔발급일=발급 완료. 컴파일 Error 0.
 - **(갱신) 대조 멘트 통일**: 만료됨/유효/발급완료 특수 문구 제거 → **일치/불일치/관련없음**으로 통일(문서·필드 안 가림). 날짜 규칙: 만료류는 오늘≤날짜→일치(유효범위 내)/지나면 불일치; 발급류는 날짜≤오늘→일치/미래면 불일치; 날짜 아닌 필드→관련 없음. 검증: 여권만료2031=일치, 비자만료2023=불일치, 발급일과거=일치, 여권번호=관련없음.
 
+## 신규 캐릭터별 점수·금액표 전체 구현 (4단계 완료·45테스트 GREEN) — 2026-06-02
+> 팀원 추가 엑셀 `Downloads\여권주세요_날짜별_방문고객_랜덤정리_금액표추가_캐릭터선지추가_260602.xlsx`(5시트) 반영.
+> 시트 ①날짜별요약 ②슬롯별배치 ③표기해석 = 기존 day_schedule와 중복(불일치 0, 참고용). ④금액표 ⑤점수표 = 신규 데이터.
+> **사용자 확정: 오판 처리 = 섞기(점수 A안 고정감점 / 돈 B안 절반벌금, 엑셀 원본 그대로).**
+- **1단계 데이터(data-tools)**: ④⑤를 관계형 테이블 2종으로 스키마화. 자유서술 분기 → **branch_key enum 41종**. 조인키 (character_type, doc_state, defect_variant, branch_key)[+visit_round 사이비].
+  - 신규 SO: `CharacterScoreTable`(83행: score/title/event_id), `CharacterPayoutTable`(62행: base_tier/bounty/payout/item_drop/early_ending). `Tools/DataImport/{branch_normalize.py,BRANCH_CATALOG.md}`, `xlsx_to_json.py` 2소스화(21시트). SHARED-CONVENTIONS §3.9 등재.
+  - baked day JSON에 `defectVariant` 기록(98건 중 28건: 관광객 출국X/분실, 검역 1-A~1-D) — `CustomerData.defectVariant` 필드 + `build_days.py` 확장. #15/#16 변이 식별용.
+- **2단계 게임플레이**: `Assets/Scripts/Manager/` 신설 — `BranchKeys`, `BranchKeyResolver`(Resolve/ResolveAdvanced, defectVariant 연결됨), `ScoreEconomyManager`(점수≠돈 싱글톤, A안+B안 동시), `EndingResolver`(조기#11~14/누적#15·16/점수구간), `GameProgressSave`, `GameDatabaseProvider`. `InspectionController.SettleCustomer`(확정 1회 정산, 3회 루프 보존), `ImmigrationManager` 14일 엔딩 정산.
+- **3단계 UI**: `Assets/Scripts/Inspection/` 신설 — `ScoreHudView`(점수 HUD), `RewardFeedbackView`(호칭·아이템), `EndingPanel`(엔딩화면), `AdvancedBranchPanel`(고급 분기 선택지). `Day1SceneBuilder`에 생성·바인딩 추가(회귀방지). 메뉴 `Tools/Inspection/Build Day1 Scene` 빌드 성공, Play 런타임 에러 0.
+- **4단계 QA**: `Assets/Tests/Editor/` 6파일. **EditMode 45/45 PASS**(결정론·A안B안·변이매칭#15#16·3회루프 단일정산·엔딩분기·페이싱).
+- **잡은 P0 버그(치명)**: `DataTables.cs`에 SO 21클래스 몰빵 → 첫 클래스(CustomerTable)만 m_Script 연결, 나머지 20개 `.asset`이 `m_Script:{fileID:0}`→런타임 NULL→캐릭터 테이블 전부 사일런트 폴백. **수정: 1파일=1클래스로 분리(`Assets/Scripts/Data/Tables/*.cs` 20개)** + 임포터 손상자산 자가치유. ⚠️ 규약화 권고: SHARED-CONVENTIONS에 "SO 1파일=1클래스" 추가 필요(편집권한 막혀 미반영).
+- **잡은 P1 버그**: `EndingResolver`가 빈 score_min/max 행을 와일드카드로 오매칭 → `TryGetBand`(빈값/파싱실패 제외)+클램프 가드. 조기/누적 엔딩은 점수밴드와 독립.
+- ⚠️ **남은 결정/TODO**:
+  - ✅ **(밸런스 결정 — 옵션1 적용·검증 완료, 2026-06-02)**: 팀원 점수표 값은 보존, **EndingTable 점수구간 10행만 새 분포에 맞춰 재산정**. 정밀 시뮬(0%=−800/60%=−74/70%=+82/80%=+230/90%=+402/100%=+577, QA `PacingSimulationTests`와 일치). 새 구간: 전설[540,∞]/청렴[400,539]/만인의귀감[250,399]/우수사원[80,249]/평범[1,79]/나쁘진않았어[−120,0]/미숙[−280,−121]/진로고민[−440,−281]/해고[−640,−441]/형사처벌[−∞,−641]. **70%→우수사원·100%→전설 정합 확인.** 반영=`xlsx_to_json.py`의 `ENDING_SCORE_BANDS` 오버라이드(ending_id 1~10만, 재생성에도 보존·idempotent). 옛 평면공식(2450×정확도−1470)은 폐기(참고 리포트만). EditMode **45/45 GREEN**(낡은 경계 테스트 1건 새 구간으로 갱신).
+  - **P2 데이터 누락(기획/팀원 채울 것)**: 점수표에 `성형 의심 고객/normal`(approve_correct, reject_wrong) 행 없음. 테러범·범죄자 단순 approve/reject 기본판정 행 없음(시나리오 분기만) — 의도 여부 확인. *임의 생성 금지.* (취업체류자는 QA 오인, 행 완비됨.)
+  - 누적엔딩 임계치 `EndingResolver.CumulativeThreshold=3` 임의값 — 데이터화 검토.
+  - 신규 캐릭터(사이비/꼬마)는 `appears_round1=false`라 14일 미등장 — 2회차 콘텐츠. AdvancedBranchPanel은 등장 시 자동작동하도록 와이어됨.
+  - 씬 `startDay`는 빌드 직후 상태 — 정식 플레이 전 1 확인/저장 권장.
+
 ## 미해결 / 다음 단계
-0. **⚠️ Unity 인스턴스 주의**: mcp-unity에 연결된 인스턴스가 **`D:/My project`(무관 프로젝트)** 뿐이었음. 우리 프로젝트는 Unity에 안 열려 있어 **컴파일·Play 검증 불가**. → 이 프로젝트를 Unity에서 열어 브리지 연결 후 검증. (디스크 코드/데이터는 정상. 14일 데이터 경로는 python으로 전수 검증: 98손님, 대화 도달성·서류 불변식 문제 0건.)
+0. ✅ **Unity 연결 해소(2026-06-02)**: 이제 `produc_build_reecture@06710393`(Unity 6000.4.6f1)가 mcp-unity에 연결됨 — 컴파일/Play 검증 가능. (디스크 코드/데이터는 정상. 14일 데이터 경로는 python으로 전수 검증: 98손님, 대화 도달성·서류 불변식 문제 0건.)
 1. (진행 중) GitHub 기본 브랜치를 `재영`으로 변경 — Settings→Branches에서 수동.
-2. **(선택) data-tools SO 검증**: 메뉴 `Tools/Passport/Import Data` 1회 실행 → `Assets/GameData/*.asset` 19개 + `GameDatabase.asset` 생성 확인. (14일 JSON 경로와는 독립 — 당장 게임 동작엔 불필요)
+2. ✅ **data-tools SO 검증 완료**: `Tools/Passport/Import Data` 실행 → `Assets/GameData/*.asset` 19개 + `GameDatabase.asset` 생성·19테이블 참조 확인. (위 data-tools 단계 참조)
 3. 구현 순서(의존 방향): **data-tools(코드 완료) → gameplay → ui → qa**
    - gameplay: `GameDatabase` SO 하나 참조 → 변조 엔진(seed 결정론, `defect_rule.target_field`로 `fields[key]` 1곳 교체) → 판정 → **대화 3회 루프** → 점수/돈 정산. (위 특수 케이스 반영)
    - ui: UI-CONVENTIONS 기준으로 검사 데스크 + 재심사 루프 표시.

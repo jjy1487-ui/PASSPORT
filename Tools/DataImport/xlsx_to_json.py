@@ -29,6 +29,12 @@ except ImportError:
 DEFAULT_XLSX = r"C:\Users\chris\Downloads\여권_정리_updated.xlsx"
 DEFAULT_OUT = r"C:\Users\chris\Documents\produc_build_reecture\Assets\GameData\_source\GameData.source.json"
 
+# 2번째 소스: 캐릭터별 점수표/금액표(분기 정규화). 19시트 파이프라인과 독립.
+# 존재하면 character_payout / character_score 두 시트를 추가 편입(없으면 스킵).
+EXTRA_XLSX = r"C:\Users\chris\Downloads\여권주세요_날짜별_방문고객_랜덤정리_금액표추가_캐릭터선지추가_260602.xlsx"
+EXTRA_PAYOUT_SHEET = "캐릭터별 분기별 지급 금액표(1회차기준)"
+EXTRA_SCORE_SHEET = "캐릭터별 분기점 점수표(단순화)"
+
 # ── 시트 헤더 레이아웃 분류 ─────────────────────────────────
 # A: row1=PK/FK, row2=type, row3=영문컬럼, row4=한글, row5+=data
 # B: row1=영문컬럼(한글 괄호), row2+=data  (type/한글행 없음)
@@ -57,6 +63,10 @@ SHEET_LAYOUT = {
     "fake_value_pool": LAYOUT_B,
     "document_requirement": LAYOUT_B,
     "score_model": LAYOUT_C,
+    # 캐릭터 분기표는 이제 메인 엑셀에 관계형(4행 헤더)으로 편입됨(append_character_sheets.py).
+    # 메인에 있으면 이걸 1차 소스로 읽고, 없을 때만 EXTRA_XLSX 폴백.
+    "character_payout": LAYOUT_A,
+    "character_score": LAYOUT_A,
 }
 
 
@@ -192,6 +202,46 @@ def read_layout_c(ws):
     return {"columns": cols, "rows": rows}
 
 
+# ── 엔딩 점수밴드 오버라이드(밸런스 옵션1, 260602) ─────────────
+#  캐릭터별 점수표(character_score)가 만드는 실제 누적 점수 분포에 맞춰
+#  엔딩 점수구간(ending_id 1~10) 경계를 재산정한다. 캐릭터별 점수 값 자체는 불변.
+#  근거 곡선(14일 98손님, 앞에서부터 정답): 0%=-800,50%=-207,60%=-74,70%=82,80%=230,90%=402,100%=577.
+#  앵커: 70%→우수 사원, 100%→전설(상단 개방), 손익분기 0→나쁘진 않았어, 최저≈-800(하단 개방).
+#  ending_id 11~23(조기/누적/히든, score_min/max=null)은 건드리지 않는다.
+#  idempotent: xlsx 어떤 값이 와도 1~10은 이 표로 덮어쓴다(재생성에도 보존).
+ENDING_SCORE_BANDS = {
+    "1":  ("540",     "100000"),   # 전설의 검문관 (상단 개방)
+    "2":  ("400",     "539"),      # 청렴한 검문관
+    "3":  ("250",     "399"),      # 만인의 귀감
+    "4":  ("80",      "249"),      # 우수 사원        (70%≈82)
+    "5":  ("1",       "79"),       # 평범한 검문관
+    "6":  ("-120",    "0"),        # 나쁘진 않았어    (손익분기 0)
+    "7":  ("-280",    "-121"),     # 미숙한 직원
+    "8":  ("-440",    "-281"),     # 진로 고민
+    "9":  ("-640",    "-441"),     # 넌 해고야
+    "10": ("-100000", "-641"),     # 형사 처벌        (하단 개방)
+}
+
+def apply_ending_band_override(result, warnings):
+    """ending 시트 rows 중 ending_id 1~10의 score_min/score_max만 재산정.
+    11~23(null 구간)은 손대지 않는다. 시트/행이 없으면 경고만 남기고 스킵."""
+    sheet = result["sheets"].get("ending")
+    if sheet is None:
+        warnings.append("ending 밴드 오버라이드 스킵: ending 시트 없음")
+        return
+    applied = 0
+    for r in sheet.get("rows", []):
+        eid = str(r.get("ending_id"))
+        if eid in ENDING_SCORE_BANDS:
+            mn, mx = ENDING_SCORE_BANDS[eid]
+            r["score_min"] = mn
+            r["score_max"] = mx
+            applied += 1
+    if applied != len(ENDING_SCORE_BANDS):
+        warnings.append("ending 밴드 오버라이드: 적용 %d/%d (일부 ending_id 행 없음)"
+                        % (applied, len(ENDING_SCORE_BANDS)))
+
+
 def main():
     xlsx = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_XLSX
     out = sys.argv[2] if len(sys.argv) > 2 else DEFAULT_OUT
@@ -219,17 +269,64 @@ def main():
         data["layout"] = layout
         result["sheets"][title] = data
 
-    # 기대 시트 누락 체크
+    # 기대 시트 누락 체크 (character_* 는 EXTRA 폴백 가능하므로 여기선 제외)
     for expected in SHEET_LAYOUT:
+        if expected in ("character_payout", "character_score"):
+            continue
         if expected not in result["sheets"]:
             warnings.append("기대 시트 누락: %s" % expected)
+
+    # ── 캐릭터 점수표/금액표: 메인 우선, EXTRA_XLSX 폴백 ──────────────
+    # 정책(260602): 메인 엑셀에 character_payout/character_score 시트가 편입됨 → 그걸 1차 소스로 사용(위 루프에서 이미 읽음).
+    # 메인에 없을 때만 팀원 별도 파일(EXTRA_XLSX)에서 분기 정규화로 보충(이중소스 충돌 방지: 메인이 단일 진실).
+    have_main_payout = "character_payout" in result["sheets"]
+    have_main_score = "character_score" in result["sheets"]
+    if have_main_payout:
+        warnings.append("character_payout: 메인 엑셀 1차 소스 사용(EXTRA 무시)")
+    if have_main_score:
+        warnings.append("character_score: 메인 엑셀 1차 소스 사용(EXTRA 무시)")
+
+    extra = sys.argv[3] if len(sys.argv) > 3 else EXTRA_XLSX
+    if (not have_main_payout or not have_main_score) and os.path.exists(extra):
+        try:
+            import branch_normalize as bn
+            ewb = openpyxl.load_workbook(extra, data_only=True)
+            extra_titles = set(ws.title for ws in ewb.worksheets)
+            if not have_main_payout:  # 메인에 없을 때만 폴백
+                if EXTRA_PAYOUT_SHEET in extra_titles:
+                    rows = list(ewb[EXTRA_PAYOUT_SHEET].iter_rows(values_only=True))
+                    rows = [[norm_cell(c) for c in r] for r in rows]
+                    result["sheets"]["character_payout"] = bn.build_payout(rows)
+                    warnings.append("character_payout: EXTRA 폴백 사용(메인 시트 없음)")
+                else:
+                    warnings.append("extra 금액표 시트 누락: %s" % EXTRA_PAYOUT_SHEET)
+            if not have_main_score:  # 메인에 없을 때만 폴백
+                if EXTRA_SCORE_SHEET in extra_titles:
+                    rows = list(ewb[EXTRA_SCORE_SHEET].iter_rows(values_only=True))
+                    rows = [[norm_cell(c) for c in r] for r in rows]
+                    result["sheets"]["character_score"] = bn.build_score(rows)
+                    warnings.append("character_score: EXTRA 폴백 사용(메인 시트 없음)")
+                else:
+                    warnings.append("extra 점수표 시트 누락: %s" % EXTRA_SCORE_SHEET)
+        except Exception as e:
+            warnings.append("extra xlsx 처리 실패: %s" % e)
+    elif not have_main_payout or not have_main_score:
+        warnings.append("extra xlsx 없음(폴백 불가): %s" % extra)
+
+    # 엔딩 점수밴드 재산정(밸런스 옵션1) — 시트 읽은 뒤, 출력 전. idempotent.
+    apply_ending_band_override(result, warnings)
 
     result["warnings"] = warnings
 
     os.makedirs(os.path.dirname(out), exist_ok=True)
-    # 키 순서 안정화(idempotent): rows는 입력 순서 유지, 시트는 SHEET_LAYOUT 순서로 재정렬
+    # 키 순서 안정화(idempotent): rows는 입력 순서 유지, 시트는 SHEET_LAYOUT 순서로 재정렬.
+    # 2번째 소스의 신규 시트(character_payout/character_score)는 19시트 뒤에 고정 순서로 붙인다.
+    EXTRA_ORDER = ["character_payout", "character_score"]
     ordered = {}
     for name in SHEET_LAYOUT:
+        if name in result["sheets"]:
+            ordered[name] = result["sheets"][name]
+    for name in EXTRA_ORDER:
         if name in result["sheets"]:
             ordered[name] = result["sheets"][name]
     result["sheets"] = ordered

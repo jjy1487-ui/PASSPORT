@@ -39,4 +39,8 @@ public class GameDatabase : ScriptableObject
     public RewardTable reward;
     public EndingTable ending;
     public ScoreModelTable scoreModel;
+
+    [Header("캐릭터 분기 점수/금액 (260602 분기표)")]
+    public CharacterScoreTable characterScore;
+    public CharacterPayoutTable characterPayout;
 }

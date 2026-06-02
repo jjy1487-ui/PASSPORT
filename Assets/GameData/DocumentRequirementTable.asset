@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3912131598f4e674d909319882ec6d15, type: 3}
+  m_Name: DocumentRequirementTable
+  m_EditorClassIdentifier: Assembly-CSharp::DocumentRequirementTable
+  sheetName: document_requirement
+  columns:
+  - key: req_id
+    label: 
+    type: 
+  - key: document_type
+    label: "\uC11C\uB958"
+    type: 
+  - key: day_from
+    label: 
+    type: 
+  - key: day_to
+    label: 
+    type: 
+  - key: applies_to
+    label: "\uB300\uC0C1\uC870\uAC74"
+    type: 
+  - key: note
+    label: "\uC124\uBA85"
+    type: 
+  rows:
+  - keys:
+    - req_id
+    - document_type
+    - day_from
+    - day_to
+    - applies_to
+    - note
+    values:
+    - 1
+    - "\uC5EC\uAD8C"
+    - 1
+    - 14
+    - "\uC804\uC6D0"
+    - "\uD56D\uC0C1 \uD544\uC218"
+  - keys:
+    - req_id
+    - document_type
+    - day_from
+    - day_to
+    - applies_to
+    - note
+    values:
+    - 2
+    - "\uBE44\uC790"
+    - 3
+    - 14
+    - "\uC678\uAD6D \uAD6D\uC801\uC790 (nationality != KOR)"
+    - "\uD55C\uAD6D\uC778 \uBA74\uC81C"
+  - keys:
+    - req_id
+    - document_type
+    - day_from
+    - day_to
+    - applies_to
+    - note
+    values:
+    - 3
+    - "PCR\uAC80\uC0AC\uC11C"
+    - 5
+    - 7
+    - "\uC804\uC6D0 (\uAC80\uC5ED \uAD6C\uAC04)"
+    - "\uBC29\uC5ED \uAE30\uAC04\uC5D0\uB9CC \uC694\uAD6C"
+  - keys:
+    - req_id
+    - document_type
+    - day_from
+    - day_to
+    - applies_to
+    - note
+    values:
+    - 4
+    - "\uCDE8\uC5C5\uC99D\uBE59"
+    - 8
+    - 14
+    - "\uCDE8\uC5C5/\uC7A5\uAE30 \uCCB4\uB958\uC790 (character_type \u2208 {\uCDE8\uC5C5\uCCB4\uB958\uC790,\uC7A5\uAE30\uCCB4\uB958\uC790})"
+    - "\uAD00\uAD11\uAC1D \uB4F1 \uBA74\uC81C"

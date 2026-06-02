@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572469a84e5cd214a8a04bb583c56c57, type: 3}
+  m_Name: NewsTable
+  m_EditorClassIdentifier: Assembly-CSharp::NewsTable
+  sheetName: news
+  columns:
+  - key: news_id
+    label: "\uB274\uC2A4 ID"
+    type: int
+  - key: day
+    label: "\uC77C\uCC28"
+    type: int
+  - key: news_title
+    label: "\uB274\uC2A4 \uC81C\uBAA9"
+    type: varchar(100)
+  - key: news_content
+    label: "\uB274\uC2A4 \uB0B4\uC6A9"
+    type: varchar(1000)
+  - key: icon_ref
+    label: "\uC544\uC774\uCF58 \uC2A4\uD504\uB77C\uC774\uD2B8"
+    type: varchar(50)
+  rows:
+  - keys:
+    - news_id
+    - day
+    - news_title
+    - news_content
+    - icon_ref
+    values:
+    - 1
+    - 1
+    - "\uC778\uCC9C\uACF5\uD56D \uBCF4\uC548 \uB4F1\uAE09 \uC0C1\uD5A5"
+    - "\uBC95\uBB34\uBD80\uAC00 \uC624\uB298\uBD80\uD130 \uC778\uCC9C\uAD6D\uC81C\uACF5\uD56D\uC758
+      \uCD9C\uC785\uAD6D \uC2EC\uC0AC \uBCF4\uC548 \uB4F1\uAE09\uC744 \uD55C \uB2E8\uACC4
+      \uC0C1\uD5A5\uD588\uB2E4. \uBAA8\uB4E0 \uC785\uAD6D\uC790\uC758 \uC5EC\uAD8C
+      \uC9C4\uC704 \uC5EC\uBD80\uB97C \uB354\uC6B1 \uCCA0\uC800\uD788 \uD655\uC778\uD560
+      \uAC83\uC744 \uC2EC\uC0AC\uAD00\uB4E4\uC5D0\uAC8C \uB2F9\uBD80\uD588\uB2E4."
+    - spr_news_001
+  - keys:
+    - news_id
+    - day
+    - news_title
+    - news_content
+    - icon_ref
+    values:
+    - 2
+    - 1
+    - "\uC704\uC870 \uC5EC\uAD8C \uC801\uBC1C \uAE09\uC99D"
+    - "\uCD5C\uADFC \uD55C \uB2EC\uAC04 \uC704\uC870 \uC5EC\uAD8C \uC801\uBC1C \uAC74\uC218\uAC00
+      \uC804\uC6D4 \uB300\uBE44 \uB450 \uBC30\uB85C \uC99D\uAC00\uD588\uB2E4. \uB2F9\uAD6D\uC740
+      \uC815\uAD50\uD574\uC9C4 \uC704\uC870 \uC218\uBC95\uC5D0 \uAC01\uBCC4\uD55C
+      \uC8FC\uC758\uB97C \uC694\uCCAD\uD588\uB2E4."
+    - spr_news_002
+  - keys:
+    - news_id
+    - day
+    - news_title
+    - news_content
+    - icon_ref
+    values:
+    - 3
+    - 2
+    - "\uD574\uC678 \uB2E8\uCCB4 \uAD00\uAD11\uAC1D \uC785\uAD6D \uC99D\uAC00"
+    - "\uC5F0\uD734\uB97C \uB9DE\uC544 \uC678\uAD6D\uC778 \uB2E8\uCCB4 \uAD00\uAD11\uAC1D\uC758
+      \uC785\uAD6D\uC774 \uD06C\uAC8C \uB298\uC5C8\uB2E4. \uACF5\uD56D \uCE21\uC740
+      \uC785\uAD6D \uC2EC\uC0AC \uB300\uAE30 \uC2DC\uAC04\uC774 \uAE38\uC5B4\uC9C8
+      \uC218 \uC788\uB2E4\uACE0 \uC548\uB0B4\uD588\uB2E4."
+    - spr_news_003
+  - keys:
+    - news_id
+    - day
+    - news_title
+    - news_content
+    - icon_ref
+    values:
+    - 4
+    - 3
+    - "\uBD84\uC2E4 \uC5EC\uAD8C \uB3C4\uC6A9 \uC8FC\uC758\uBCF4"
+    - "\uBD84\uC2E4 \uC2E0\uACE0\uB41C \uC5EC\uAD8C\uC744 \uB3C4\uC6A9\uD55C \uC785\uAD6D
+      \uC2DC\uB3C4\uAC00 \uC787\uB530\uB974\uACE0 \uC788\uB2E4. \uC2EC\uC0AC\uAD00\uC740
+      \uC5EC\uAD8C \uC0AC\uC9C4\uACFC \uBCF8\uC778 \uC77C\uCE58 \uC5EC\uBD80\uB97C
+      \uBC18\uB4DC\uC2DC \uD655\uC778\uD574\uC57C \uD55C\uB2E4."
+    - spr_news_004
+  - keys:
+    - news_id
+    - day
+    - news_title
+    - news_content
+    - icon_ref
+    values:
+    - 5
+    - 4
+    - "\uC5EC\uAD8C \uB9CC\uB8CC \uAE30\uC900 \uBCC0\uACBD \uC548\uB0B4"
+    - "\uBC95\uBB34\uBD80\uB294 \uC785\uAD6D\uC77C \uAE30\uC900 \uC720\uD6A8\uAE30\uAC04\uC774
+      6\uAC1C\uC6D4 \uBBF8\uB9CC\uC778 \uC5EC\uAD8C\uC758 \uC785\uAD6D \uC2EC\uC0AC
+      \uAE30\uC900\uC744 \uAC15\uD654\uD55C\uB2E4\uACE0 \uBC1C\uD45C\uD588\uB2E4."
+    - spr_news_005

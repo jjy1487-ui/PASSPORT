@@ -20,10 +20,8 @@ public sealed class InspectionController : MonoBehaviour
     [SerializeField] private GameObject _dayCompleteRoot;
 
     private const int MaxWrongReject = 3; // 오거부 3회 후 강제 통과
-    private const int CorrectBonus = 10;  // 정답 보너스
-    private const int WrongPenalty = 15;  // 오판 벌금
 
-    private int _gold;
+    private int _gold; // HUD 표시 캐시(실제 누적은 ScoreEconomyManager.Money)
 
     private Day1Data _data;
     private int _index;
@@ -70,6 +68,16 @@ public sealed class InspectionController : MonoBehaviour
 
     /// <summary>현재 손님의 지문 검사 결과(없으면 null). 검사기 UI 표시·대조용 — 판정에는 영향 없음.</summary>
     public ScanData CurrentFingerprint => Current?.fingerprint;
+
+    /// <summary>현재 손님의 character_type(없으면 null). 고급 분기 선택지 UI 표시·게이팅용 — 판정에는 영향 없음.</summary>
+    public string CurrentCharacterType => Current?.characterType;
+
+    /// <summary>현재 손님의 defect_variant(없으면 null). 고급 분기 키 산출용 — 판정에는 영향 없음.</summary>
+    public string CurrentDefectVariant => Current?.defectVariant;
+
+    /// <summary>현재 손님의 정답 판정 상태(정상 손님이면 normal, 불량이면 defect). 고급 분기 doc_state 산출용.</summary>
+    public string CurrentDocState =>
+        Current != null ? (Current.correctResult == GameResults.Approve ? DocStates.Normal : DocStates.Defect) : null;
 
     /// <summary>지금 '대화/심문' 버튼으로 대사를 요청할 수 있는가(재생 중이 아니고 요청 케이스 존재).</summary>
     public bool CanRequestDialogue =>
@@ -137,7 +145,10 @@ public sealed class InspectionController : MonoBehaviour
 
         _data = data;
         _index = 0;
-        if (resetGold) _gold = 0;
+        // 골드는 ScoreEconomyManager.Money 가 권위. 매니저가 있으면 그 값을 HUD 캐시에 반영한다.
+        var mgr = ScoreEconomyManager.Instance;
+        if (mgr != null) _gold = mgr.Money;
+        else if (resetGold) _gold = 0;
         UpdateGold();
         if (_dayCompleteRoot != null) _dayCompleteRoot.SetActive(false);
         ShowCustomer(0);
@@ -202,13 +213,11 @@ public sealed class InspectionController : MonoBehaviour
 
         bool shouldApprove = c.correctResult == GameResults.Approve;
 
-        // 골드 정산(정답 보너스 / 오판 벌금)
-        _gold += (approve == shouldApprove) ? CorrectBonus : -WrongPenalty;
-        UpdateGold();
-
         if (approve == shouldApprove)
         {
-            // 정답: 정상 승인 / 정상 거절 케이스 재생 후 진행
+            // 정답: 정상 승인 / 정상 거절. 확정 → 정산(점수≠돈, 캐릭터별 테이블).
+            //  정상 손님을 (재거절 끝에) 승인한 경우 wrongRejectCount 가 분기에 반영된다.
+            SettleCustomer(c, approve, _wrongRejectCount, forcedPass: false);
             DialogueCaseData ok = FindCase(c, c.correctResult, -1);
             PlayThen(ok, AdvanceNext);
         }
@@ -219,11 +228,13 @@ public sealed class InspectionController : MonoBehaviour
             DialogueCaseData wrong = FindCase(c, GameResults.WrongReject, _wrongRejectCount);
             if (_wrongRejectCount >= MaxWrongReject || wrong == null)
             {
+                // 강제 통과 = 정정 입국. 확정 시점 1회만 정산(루프 중 중복 금지).
+                SettleCustomer(c, approved: true, _wrongRejectCount, forcedPass: true);
                 PlayThen(wrong, AdvanceNext); // 강제 통과
             }
             else
             {
-                // 같은 손님 재시도 허용(도장 자국 지움)
+                // 같은 손님 재시도 허용(도장 자국 지움). 아직 미확정 → 정산하지 않는다.
                 PlayThen(wrong, () =>
                 {
                     if (_documentView != null) _documentView.ClearStamps();
@@ -233,10 +244,32 @@ public sealed class InspectionController : MonoBehaviour
         }
         else
         {
-            // 오허가(거부해야 하는데 승인): 피드백 후 진행(MVP 패널티 없음)
+            // 오허가(거부해야 하는데 승인): 확정 → 오판 정산.
+            SettleCustomer(c, approve, _wrongRejectCount, forcedPass: false);
             DialogueCaseData wrong = FindCase(c, GameResults.WrongApprove, -1);
             PlayThen(wrong, AdvanceNext);
         }
+    }
+
+    /// <summary>
+    /// 한 손님 확정 시 1회 정산. branch_key 산출 → ScoreEconomyManager 가 점수/돈/호칭/아이템/조기엔딩 처리.
+    /// ScoreEconomyManager 가 없으면(테스트/씬 미배치) 조용히 스킵하고 기존 동작을 유지한다.
+    /// </summary>
+    private void SettleCustomer(CustomerData c, bool approved, int wrongRejectCount, bool forcedPass)
+    {
+        bool shouldApprove = c.correctResult == GameResults.Approve;
+        bool wasCorrect = (approved == shouldApprove) || forcedPass;
+
+        var mgr = ScoreEconomyManager.Instance;
+        if (mgr == null) return; // 씬에 매니저가 없으면 점수/경제 비활성(기존 동작 유지)
+
+        BranchResult branch = BranchKeyResolver.Resolve(
+            c.correctResult, approved, wrongRejectCount, forcedPass, c.characterType, c.defectVariant);
+        mgr.Settle(c.characterType, branch, wasCorrect);
+
+        // HUD 골드 캐시 동기화(표시용).
+        _gold = mgr.Money;
+        UpdateGold();
     }
 
     private void PlayThen(DialogueCaseData dialogueCase, System.Action onComplete)

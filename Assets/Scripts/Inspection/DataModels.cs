@@ -28,6 +28,7 @@ public sealed class CustomerData
     public int age;
     public string spriteRef;      // 후일 실제 초상 스프라이트 키
     public string characterType;
+    public string defectVariant;  // 결함/상태 세부 분기 키(BRANCH_CATALOG 어휘: 예 관광객 "분실"/"출국X", 전염병 "1-A"~"1-D"). 정상/변이 없으면 "". 데이터 운반용(로직 변경 없음).
     public string correctResult;  // "정상 승인" | "정상 거절"
     public DocumentData[] documents;
     public DialogueCaseData[] dialogueCases;

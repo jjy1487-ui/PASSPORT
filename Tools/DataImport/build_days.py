@@ -94,6 +94,46 @@ def tag_fields(fields):
 # document_requirement 의 취업증빙 대상 캐릭터 유형(실제 DB 표기)
 EMPLOYMENT_TYPES = {"취업체류자", "장기체류자"}
 PCR_TYPE = "검역 대상자(PCR)"
+TOURIST_TYPE = "외국인 관광객"
+
+
+# ── defect_variant 결정 (BRANCH_CATALOG 어휘 정합, baked 데이터로 도출 가능한 변이만) ──
+# 같은 branch_key 라도 변이별 점수가 다른 캐릭터는 변이를 day JSON 에 기록해야
+# 게임플레이 BranchKeyResolver 가 character_score/payout 을 정확히 조인한다.
+# baked 데이터로 결정 가능한 변이만 채우고(관광객·검역 대상자 PCR),
+# 그 외(성형/테러/연예인/현자 등 런타임 상태머신 결과)는 "" 로 둔다(게임플레이가 결정).
+#
+# 어휘 출처: Tools/DataImport/BRANCH_CATALOG.md (character_score.defect_variant 와 1:1).
+def resolve_defect_variant(character_type, is_normal, corruption_type, target_field):
+    """주입된 결함(corruption_type/target_field)으로부터 defect_variant 키를 도출.
+    도출 불가/대상 아님이면 "" 반환. corruption_type 은 실제 적용된 단일 타입."""
+    ct = (corruption_type or "").strip().upper()
+    tf = (target_field or "").strip()
+
+    # 검역 대상자(PCR): normal=1-A, 결함은 corruption 으로 1-B/1-C/1-D 구분
+    if character_type == PCR_TYPE:
+        if is_normal:
+            return "1-A"
+        if ct == "POSITIVE":          # 양성 = 백신 미접종/감염
+            return "1-C 백신X"
+        if ct == "MISSING":           # 결과 누락 = 모두 미비
+            return "1-D 모두 미비"
+        if ct in ("FORGE_SOURCE", "EXPIRE"):  # 위조/만료 = 출국X/만료
+            return "1-B 출국X/만료"
+        return ""
+
+    # 외국인 관광객: 발급국 위조/도용 = 분실, 만료(체류 초과) = 출국X
+    if character_type == TOURIST_TYPE:
+        if is_normal:
+            return ""
+        if ct == "ALTER_FIELD" and tf == "nationality":
+            return "분실"
+        if ct == "EXPIRE":
+            return "출국X"
+        return ""
+
+    # 그 외 캐릭터: baked 로 도출 불가(런타임 상태머신 결과) → 게임플레이가 결정.
+    return ""
 
 
 # ── 결정론적 resolve ─────────────────────────────────────────
@@ -569,6 +609,8 @@ def build():
                 })
 
             violation_label = None
+            applied_ct = ""   # 실제 적용된 corruption_type (defect_variant 도출용)
+            applied_tf = ""   # 실제 적용된 target_field
 
             if is_normal:
                 stats["normal"] += 1
@@ -620,6 +662,8 @@ def build():
                             target_doc["violationField"] = vlabel
                             violation_label = vlabel
                             applied = True
+                            applied_ct = ct
+                            applied_tf = tf
                             stats["defects"][rule["rule_id"]] = stats["defects"].get(rule["rule_id"], 0) + 1
                 if not applied:
                     # 결함 주입 실패(요구 서류에 결함서류가 없거나 NONE) → 여권 만료로 폴백
@@ -627,7 +671,15 @@ def build():
                     pdoc["variant"] = "비정상"
                     pdoc["violationField"] = "만료일"
                     violation_label = "만료일"
+                    applied_ct = "EXPIRE"
+                    applied_tf = "expiry_date"
                     stats["defects"]["fallback"] = stats["defects"].get("fallback", 0) + 1
+
+            # defect_variant 도출(baked 로 가능한 변이만; 그 외 ""→게임플레이 결정)
+            defect_variant = resolve_defect_variant(ctype, is_normal, applied_ct, applied_tf)
+            if defect_variant:
+                stats.setdefault("variants", {})
+                stats["variants"][defect_variant] = stats["variants"].get(defect_variant, 0) + 1
 
             day_customers.append({
                 "customerId": int(cid),
@@ -640,6 +692,7 @@ def build():
                 "age": int(cust["age"]),
                 "spriteRef": cust["sprite_ref"],
                 "characterType": ctype,
+                "defectVariant": defect_variant,   # baked 변이 키(없으면 ""). 게임플레이가 branch 조인에 사용.
                 "correctResult": "정상 승인" if is_normal else "정상 거절",
                 "documents": documents,
                 "dialogueCases": make_dialogue_cases(
@@ -681,6 +734,8 @@ def write_report(report):
         lines.append(f"## day{day}: 손님 7 (정상 {st['normal']} / 비정상 {st['abnormal']})")
         if st["defects"]:
             lines.append("  결함 분포: " + json.dumps(st["defects"], ensure_ascii=False))
+        if st.get("variants"):
+            lines.append("  변이 분포: " + json.dumps(st["variants"], ensure_ascii=False))
     with open(os.path.join(os.path.dirname(__file__), "build_days_report.txt"),
               "w", encoding="utf-8") as f:
         f.write("\n".join(lines))

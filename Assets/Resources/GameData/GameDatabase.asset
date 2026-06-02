@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386d91d637f22884bab584dae8281aca, type: 3}
+  m_Name: GameDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::GameDatabase
+  customer: {fileID: 11400000, guid: 2f8fc408c16fca548ba2a2760a7b6ef3, type: 2}
+  passport: {fileID: 11400000, guid: c38811ad90f689348b0c1f9c04ddd44a, type: 2}
+  visa: {fileID: 11400000, guid: 3a8c38ce02fe9cc40a65a507fcc5aae9, type: 2}
+  pcrTest: {fileID: 11400000, guid: 3e719f73694e1d448aa57102caf2fde1, type: 2}
+  employmentCert: {fileID: 11400000, guid: c11fe42274e3e6a4e8759fc620cf4221, type: 2}
+  daySchedule: {fileID: 11400000, guid: 154a23c21779a20418ea28f96f66ee5e, type: 2}
+  documentRequirement: {fileID: 11400000, guid: f68f0ae8b1d13ec438548ebd8e658a67, type: 2}
+  ruleBook: {fileID: 11400000, guid: 4e079e6970c39aa48b467cadb92b7d74, type: 2}
+  news: {fileID: 11400000, guid: ee446a7b04495a4459d5aa07fc25cd84, type: 2}
+  defectRule: {fileID: 11400000, guid: dff06151c83612345ae9b81443feca5e, type: 2}
+  fakeValuePool: {fileID: 11400000, guid: 33d500d9656dd4d4a80fd86f859918d9, type: 2}
+  xray: {fileID: 11400000, guid: 3d717e3b64484fd4a8bfdd3686b0fad8, type: 2}
+  fingerprint: {fileID: 11400000, guid: f17d294eb98ed7149b53da8c866bcb0e, type: 2}
+  dialogueCase: {fileID: 11400000, guid: f165a36bb4294da42ba4db8f537f11a5, type: 2}
+  dialogueLine: {fileID: 11400000, guid: 17d9a7ced6e397d48b91d1959eb88af1, type: 2}
+  shop: {fileID: 11400000, guid: 751af770bcc89c347b03c4d73db0625d, type: 2}
+  reward: {fileID: 11400000, guid: 98d6974aa3f645944aa77a27874cd155, type: 2}
+  ending: {fileID: 11400000, guid: 0857109b7c58ca94b8cde52a619b78ec, type: 2}
+  scoreModel: {fileID: 11400000, guid: 4e60acad6d856fe45a1ab54a6fa2139e, type: 2}
+  characterScore: {fileID: 11400000, guid: 02ff32e7821734f4eb345de717db29d6, type: 2}
+  characterPayout: {fileID: 11400000, guid: 9b36c37d74c6ff64aa57626f21c95a11, type: 2}

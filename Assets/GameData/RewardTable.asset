@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b0d23e68cd4264ebd9e006d6cb07e1, type: 3}
+  m_Name: RewardTable
+  m_EditorClassIdentifier: Assembly-CSharp::RewardTable
+  sheetName: reward
+  columns:
+  - key: reward_id
+    label: "\uBCF4\uC0C1 ID"
+    type: int
+  - key: reward_type
+    label: "\uBCF4\uC0C1 \uC720\uD615"
+    type: varchar(30)
+  - key: trigger_type
+    label: "\uD2B8\uB9AC\uAC70 \uD0C0\uC785"
+    type: varchar(30)
+  - key: trigger_condition
+    label: "\uBC1C\uB3D9 \uC870\uAC74"
+    type: varchar(300)
+  - key: amount
+    label: "\uAE08\uC561"
+    type: int
+  - key: related_ending_id
+    label: "\uC5F0\uACC4 \uC5D4\uB529 ID"
+    type: int
+  - key: memo
+    label: "\uBE44\uACE0"
+    type: varchar(200)
+  rows:
+  - keys:
+    - reward_id
+    - reward_type
+    - trigger_type
+    - trigger_condition
+    - amount
+    - related_ending_id
+    - memo
+    values:
+    - 1
+    - "\uC77C\uAE09"
+    - DAILY_BASE
+    - "\uD558\uB8E8 \uADFC\uBB34 \uC885\uB8CC \uC2DC \uAE30\uBCF8 \uC9C0\uAE09"
+    - 100
+    - 
+    - "\uC77C\uC77C \uACE0\uC815 \uAE09\uC5EC"
+  - keys:
+    - reward_id
+    - reward_type
+    - trigger_type
+    - trigger_condition
+    - amount
+    - related_ending_id
+    - memo
+    values:
+    - 2
+    - "\uC815\uB2F5 \uBCF4\uB108\uC2A4"
+    - JUDGE_CORRECT
+    - "\uC62C\uBC14\uB978 \uC2B9\uC778/\uAC70\uBD80 \uD310\uC815 1\uAC74\uB2F9"
+    - 10
+    - 
+    - "\uC2EC\uC0AC \uC815\uD655\uB3C4 \uBCF4\uC0C1"
+  - keys:
+    - reward_id
+    - reward_type
+    - trigger_type
+    - trigger_condition
+    - amount
+    - related_ending_id
+    - memo
+    values:
+    - 3
+    - "\uC624\uD310 \uBC8C\uAE08"
+    - JUDGE_WRONG
+    - "\uC798\uBABB\uB41C \uC2B9\uC778/\uAC70\uBD80 \uD310\uC815 1\uAC74\uB2F9"
+    - -15
+    - 
+    - "\uC74C\uC218: \uCC28\uAC10"
+  - keys:
+    - reward_id
+    - reward_type
+    - trigger_type
+    - trigger_condition
+    - amount
+    - related_ending_id
+    - memo
+    values:
+    - 4
+    - "\uC801\uBC1C \uBCF4\uB108\uC2A4"
+    - DETECTION
+    - "\uC704\uC870 \uC11C\uB958\xB7\uBC00\uC218\xB7\uC9C0\uBA85\uC218\uBC30 \uC801\uBC1C
+      \uC2DC"
+    - 30
+    - 
+    - "X-ray/\uC9C0\uBB38 \uC801\uBC1C \uD3EC\uD568"
+  - keys:
+    - reward_id
+    - reward_type
+    - trigger_type
+    - trigger_condition
+    - amount
+    - related_ending_id
+    - memo
+    values:
+    - 5
+    - "\uBB34\uC0AC\uACE0 \uBCF4\uB108\uC2A4"
+    - PERFECT_DAY
+    - "\uB2F9\uC77C \uC624\uD310 0\uAC74 \uB2EC\uC131 \uC2DC"
+    - 50
+    - 
+    - "\uD37C\uD399\uD2B8 \uB370\uC774"
+  - keys:
+    - reward_id
+    - reward_type
+    - trigger_type
+    - trigger_condition
+    - amount
+    - related_ending_id
+    - memo
+    values:
+    - 6
+    - "\uACBD\uACE0 \uBC8C\uAE08"
+    - WARNING
+    - "\uACFC\uBC18\uC218(4\uAC74+) \uC624\uD310\uC73C\uB85C \uACBD\uACE0 \uBC1C\uC0DD"
+    - -50
+    - 17
+    - "\uC5D4\uB529 #17 \uC5F0\uACC4"
+  - keys:
+    - reward_id
+    - reward_type
+    - trigger_type
+    - trigger_condition
+    - amount
+    - related_ending_id
+    - memo
+    values:
+    - 7
+    - "\uD2B9\uBCC4 \uBCF4\uC0C1"
+    - SPECIAL_EVENT
+    - "\uD2B9\uC815 \uC0AC\uAC74 \uD574\uACB0\xB7\uD788\uB4E0 \uC870\uAC74 \uB2EC\uC131"
+    - 80
+    - 
+    - "\uC774\uBCA4\uD2B8\uC131 \uC9C0\uAE09"

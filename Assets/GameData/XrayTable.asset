@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eb209ecd74d9a44aefca774b13cd66, type: 3}
+  m_Name: XrayTable
+  m_EditorClassIdentifier: Assembly-CSharp::XrayTable
+  sheetName: xray
+  columns:
+  - key: xray_id
+    label: X-ray ID
+    type: int
+  - key: customer_id
+    label: "\uACE0\uAC1D ID"
+    type: int
+  - key: result
+    label: "\uAC80\uC0AC \uACB0\uACFC"
+    type: varchar(20)
+  - key: detected_item
+    label: "\uD0D0\uC9C0 \uBB3C\uD488"
+    type: varchar(50)
+  - key: hidden_location
+    label: "\uC740\uB2C9 \uC704\uCE58"
+    type: varchar(50)
+  rows:
+  - keys:
+    - xray_id
+    - customer_id
+    - result
+    - detected_item
+    - hidden_location
+    values:
+    - 1
+    - 9
+    - "\uC801\uBC1C"
+    - "\uB9C8\uC57D"
+    - "\uBCF5\uBD80"
+  - keys:
+    - xray_id
+    - customer_id
+    - result
+    - detected_item
+    - hidden_location
+    values:
+    - 2
+    - 11
+    - "\uC801\uBC1C"
+    - "\uD3ED\uBC1C\uBB3C \uBD80\uD488"
+    - "\uB2E4\uB9AC"
+  - keys:
+    - xray_id
+    - customer_id
+    - result
+    - detected_item
+    - hidden_location
+    values:
+    - 3
+    - 34
+    - "\uC704\uD5D8"
+    - "\uD3ED\uBC1C\uBB3C \uC758\uC2EC \uBD80\uD488"
+    - "\uC218\uD558\uBB3C \uC774\uC911 \uBC14\uB2E5"

@@ -40,3 +40,7 @@ desktop.ini
 *.apk
 *.aab
 *.unitypackage
+
+# Python
+__pycache__/
+*.pyc

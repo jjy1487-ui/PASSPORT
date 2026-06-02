@@ -12,6 +12,7 @@
       "age": 34,
       "spriteRef": "spr_c027",
       "characterType": "외국인 관광객",
+      "defectVariant": "출국X",
       "correctResult": "정상 거절",
       "documents": [
         {
@@ -274,6 +275,7 @@
       "age": 41,
       "spriteRef": "spr_c001",
       "characterType": "일반 고객",
+      "defectVariant": "",
       "correctResult": "정상 승인",
       "documents": [
         {
@@ -486,6 +488,7 @@
       "age": 30,
       "spriteRef": "spr_c012",
       "characterType": "성형 의심 고객",
+      "defectVariant": "",
       "correctResult": "정상 승인",
       "documents": [
         {
@@ -698,6 +701,7 @@
       "age": 42,
       "spriteRef": "spr_c029",
       "characterType": "진상 고객",
+      "defectVariant": "",
       "correctResult": "정상 승인",
       "documents": [
         {
@@ -910,6 +914,7 @@
       "age": 35,
       "spriteRef": "spr_c002",
       "characterType": "일반 고객",
+      "defectVariant": "",
       "correctResult": "정상 승인",
       "documents": [
         {
@@ -1122,6 +1127,7 @@
       "age": 28,
       "spriteRef": "spr_c021",
       "characterType": "성형 의심 고객",
+      "defectVariant": "",
       "correctResult": "정상 거절",
       "documents": [
         {
@@ -1340,6 +1346,7 @@
       "age": 47,
       "spriteRef": "spr_c003",
       "characterType": "외국인 관광객",
+      "defectVariant": "출국X",
       "correctResult": "정상 거절",
       "documents": [
         {

@@ -26,6 +26,7 @@ public class MainMenuManager : MonoBehaviour
     public void OnStartGame()
     {
         if (isTransitioning) return;
+        GameProgressSave.Clear();              // 새 게임: 누적 점수/돈/호칭/아이템/엔딩카운터 초기화
         PlayerPrefs.SetInt(SAVE_KEY, 1);
         PlayerPrefs.SetInt("CurrentDay", 1);  // 1일차 시작
         PlayerPrefs.Save();

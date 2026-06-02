@@ -1,0 +1,784 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9884dfcad594372458759a0f3d8cc9b7, type: 3}
+  m_Name: CustomerTable
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerTable
+  sheetName: customer
+  columns:
+  - key: customer_id
+    label: "\uACE0\uAC1D ID"
+    type: int
+  - key: name_kr
+    label: "\uD55C\uAE00 \uC774\uB984"
+    type: varchar(30)
+  - key: name_en
+    label: "\uC601\uBB38 \uC774\uB984"
+    type: varchar(60)
+  - key: nationality
+    label: "\uAD6D\uC801"
+    type: varchar(30)
+  - key: gender
+    label: "\uC131\uBCC4"
+    type: varchar(10)
+  - key: birth_date
+    label: "\uC0DD\uB144\uC6D4\uC77C"
+    type: date
+  - key: age
+    label: "\uB098\uC774"
+    type: int
+  - key: sprite_ref
+    label: "\uCE90\uB9AD\uD130 \uC774\uBBF8\uC9C0 \uCC38\uC870"
+    type: varchar(50)
+  - key: character_type
+    label: "\uCE90\uB9AD\uD130 \uC720\uD615"
+    type: varchar(30)
+  rows:
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 1
+    - "\uAE40\uBBFC\uC900"
+    - KIM MINJUN
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uB0A8\uC131"
+    - 1985-03-15
+    - 41
+    - spr_c001
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 2
+    - "\uC774\uC9C0\uC740"
+    - LEE JIEUN
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5EC\uC131"
+    - 1990-07-22
+    - 35
+    - spr_c002
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 3
+    - "\uCCB8 \uC6E8\uC774"
+    - CHEN WEI
+    - "\uC911\uAD6D(CHN)"
+    - "\uB0A8\uC131"
+    - 1978-11-08
+    - 47
+    - spr_c003
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 4
+    - "\uB9C8\uB9AC\uC544 \uAC00\uB974\uC2DC\uC544"
+    - MARIA GARCIA
+    - "\uC2A4\uD398\uC778(ESP)"
+    - "\uC5EC\uC131"
+    - 1995-02-28
+    - 31
+    - spr_c004
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 5
+    - "\uBC15\uCCA0\uC218"
+    - PARK CHEOLSU
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uB0A8\uC131"
+    - 1982-09-14
+    - 43
+    - spr_c005
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 6
+    - "\uCD5C\uC11C\uC5F0"
+    - CHOI SEOYEON
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5EC\uC131"
+    - 1988-06-30
+    - 37
+    - spr_c006
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 7
+    - "\uD53C\uC5D0\uB974 \uB4A4\uD401"
+    - PIERRE DUPONT
+    - "\uD504\uB791\uC2A4(FRA)"
+    - "\uB0A8\uC131"
+    - 1993-12-05
+    - 32
+    - spr_c007
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 8
+    - "\uC874 \uCE74\uD130"
+    - JOHN CARTER
+    - "\uBBF8\uAD6D(USA)"
+    - "\uB0A8\uC131"
+    - 1980-05-20
+    - 45
+    - spr_c008
+    - "\uBC94\uC8C4\uC790(\uC678\uAD6D \uB3C4\uD53C\uC790)"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 9
+    - "\uAC15\uB3C4\uC2DD"
+    - KANG DOSIK
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uB0A8\uC131"
+    - 1987-03-11
+    - 38
+    - spr_c009
+    - "\uBC94\uC8C4\uC790(\uAD6D\uB0B4 \uC720\uC785\uC790)"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 10
+    - "\uC724\uC11C\uB9B0"
+    - YOON SEORIN
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5EC\uC131"
+    - 1991-08-08
+    - 34
+    - spr_c010
+    - "\uBC94\uC8C4\uC790(\uC131\uD615\uC218\uC220)"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 11
+    - "\uB77C\uC2DC\uB4DC \uCE78"
+    - RASHID KHAN
+    - "\uD30C\uD0A4\uC2A4\uD0C4(PAK)"
+    - "\uB0A8\uC131"
+    - 1984-01-02
+    - 41
+    - spr_c011
+    - "\uD14C\uB7EC\uBC94"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 12
+    - "\uC815\uC720\uB098"
+    - JEONG YUNA
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5EC\uC131"
+    - 1996-04-12
+    - 30
+    - spr_c012
+    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 13
+    - "\uC751\uC6B0\uC60C \uBC18"
+    - NGUYEN VAN
+    - "\uBCA0\uD2B8\uB0A8(VNM)"
+    - "\uB0A8\uC131"
+    - 1989-09-03
+    - 36
+    - spr_c013
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 14
+    - "\uC0AC\uB77C \uBC00\uB7EC"
+    - SARAH MILLER
+    - "\uC601\uAD6D(GBR)"
+    - "\uC5EC\uC131"
+    - 1993-07-19
+    - 32
+    - spr_c014
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 15
+    - "\uD55C\uC9C0\uC6D0"
+    - HAN JIWON
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5EC\uC131"
+    - 1998-02-25
+    - 28
+    - spr_c015
+    - "\uD2B9\uC218(\uC5F0\uC608\uC778)\u2605"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 16
+    - "\uC624\uD604\uC11D"
+    - OH HYUNSEOK
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uB0A8\uC131"
+    - 1955-06-01
+    - 70
+    - spr_c016
+    - "\uD2B9\uC218(\uD604\uC790)\u2605"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 17
+    - "\uC724\uC815\uD638"
+    - YOON JEONGHO
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uB0A8\uC131"
+    - 1965-10-10
+    - 60
+    - spr_c017
+    - "\uD2B9\uC218(\uC815\uCE58\uC778)\u2605"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 18
+    - "\uCCB8 \uB9AC"
+    - CHEN LI
+    - "\uC911\uAD6D(CHN)"
+    - "\uB0A8\uC131"
+    - 1986-05-30
+    - 39
+    - spr_c018
+    - "\uC7A5\uAE30\uCCB4\uB958\uC790"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 19
+    - "\uB77C\uC9C0\uBE0C \uBA54\uD0C0"
+    - RAJIV MEHTA
+    - "\uC778\uB3C4(IND)"
+    - "\uB0A8\uC131"
+    - 1990-12-12
+    - 35
+    - spr_c019
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 20
+    - "\uD55C\uB9CC\uC218"
+    - HAN MANSU
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uB0A8\uC131"
+    - 1979-05-05
+    - 47
+    - spr_c020
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 21
+    - "\uC11C\uC9C0\uD638"
+    - SEO JIHO
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5EC\uC131"
+    - 1997-11-20
+    - 28
+    - spr_c021
+    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 22
+    - "\uBC15\uC9C0\uD6C8"
+    - PARK JIHOON
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uB0A8\uC131"
+    - 1990-01-20
+    - 36
+    - spr_c022
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 23
+    - "\uC1A1\uD558\uB298"
+    - SONG HANEUL
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5EC\uC131"
+    - 1993-04-09
+    - 33
+    - spr_c023
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 24
+    - "\uC784\uB3C4\uD604"
+    - IM DOHYUN
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uB0A8\uC131"
+    - 1986-08-17
+    - 39
+    - spr_c024
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 25
+    - "\uC5D0\uBC00\uB9AC \uD074\uB77C\uD06C"
+    - EMILY CLARK
+    - "\uC601\uAD6D(GBR)"
+    - "\uC5EC\uC131"
+    - 1994-03-03
+    - 32
+    - spr_c025
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 26
+    - "\uB2E4\uB098\uCE74 \uD558\uB8E8\uD1A0"
+    - TANAKA HARUTO
+    - "\uC77C\uBCF8(JPN)"
+    - "\uB0A8\uC131"
+    - 1989-11-25
+    - 36
+    - spr_c026
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 27
+    - "\uD638\uC138 \uBAA8\uB784\uB808\uC2A4"
+    - JOSE MORALES
+    - "\uBA55\uC2DC\uCF54(MEX)"
+    - "\uB0A8\uC131"
+    - 1991-06-14
+    - 34
+    - spr_c027
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 28
+    - "\uC624\uB9CC\uC11D"
+    - OH MANSEOK
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uB0A8\uC131"
+    - 1975-02-11
+    - 51
+    - spr_c028
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 29
+    - "\uBC30\uC218\uC815"
+    - BAE SUJEONG
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5EC\uC131"
+    - 1983-09-30
+    - 42
+    - spr_c029
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 30
+    - "\uB178\uAC00\uC740"
+    - NOH GAEUN
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5EC\uC131"
+    - 1999-05-05
+    - 27
+    - spr_c030
+    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 31
+    - "\uCE74\uBC00\uB77C \uC0B0\uD1A0\uC2A4"
+    - CAMILA SANTOS
+    - "\uBE0C\uB77C\uC9C8(BRA)"
+    - "\uC5EC\uC131"
+    - 1992-07-07
+    - 33
+    - spr_c031
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 32
+    - "\uC544\uD750\uBA54\uB4DC \uD558\uC0B0"
+    - AHMED HASSAN
+    - "\uC774\uC9D1\uD2B8(EGY)"
+    - "\uB0A8\uC131"
+    - 1988-10-19
+    - 37
+    - spr_c032
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 33
+    - "\uB9B0 \uBA54\uC774"
+    - LIN MEI
+    - "\uB300\uB9CC(TWN)"
+    - "\uC5EC\uC131"
+    - 1995-12-01
+    - 30
+    - spr_c033
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 34
+    - "\uC720\uC2A4\uD504 \uC54C\uB9AC"
+    - YUSUF ALI
+    - "\uC2DC\uB9AC\uC544(SYR)"
+    - "\uB0A8\uC131"
+    - 1982-03-22
+    - 44
+    - spr_c034
+    - "\uD14C\uB7EC\uBC94"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 35
+    - "\uB77C\uC6B0\uB77C \uD398\uB808\uC2A4"
+    - LAURA PEREZ
+    - "\uD544\uB9AC\uD540(PHL)"
+    - "\uC5EC\uC131"
+    - 1990-06-18
+    - 35
+    - spr_c035
+    - "\uCDE8\uC5C5\uCCB4\uB958\uC790"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 36
+    - "\uB4DC\uBBF8\uD2B8\uB9AC \uC774\uBC14\uB178\uD504"
+    - DMITRI IVANOV
+    - "\uB7EC\uC2DC\uC544(RUS)"
+    - "\uB0A8\uC131"
+    - 1985-02-09
+    - 41
+    - spr_c036
+    - "\uCDE8\uC5C5\uCCB4\uB958\uC790"
+  - keys:
+    - customer_id
+    - name_kr
+    - name_en
+    - nationality
+    - gender
+    - birth_date
+    - age
+    - sprite_ref
+    - character_type
+    values:
+    - 37
+    - "\uC555\uB458\uB77C \uCE74\uB9BC"
+    - ABDULLAH KARIM
+    - "\uBC29\uAE00\uB77C\uB370\uC2DC(BGD)"
+    - "\uB0A8\uC131"
+    - 1988-11-30
+    - 37
+    - spr_c037
+    - "\uCDE8\uC5C5\uCCB4\uB958\uC790"

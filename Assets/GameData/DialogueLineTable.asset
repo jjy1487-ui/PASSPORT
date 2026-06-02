@@ -1,0 +1,1278 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a81f6170d8eb644fa293b32f80a133f, type: 3}
+  m_Name: DialogueLineTable
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueLineTable
+  sheetName: dialogue_line
+  columns:
+  - key: line_id
+    label: "\uB77C\uC778 ID"
+    type: int
+  - key: dialogue_case_id
+    label: "\uB300\uD654 \uD750\uB984 ID"
+    type: int
+  - key: line_order
+    label: "\uB300\uC0AC \uC21C\uC11C"
+    type: int
+  - key: speaker
+    label: "\uD654\uC790"
+    type: varchar(20)
+  - key: text_kr
+    label: "\uD55C\uAE00 \uB300\uC0AC"
+    type: varchar(500)
+  rows:
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 1
+    - 1
+    - 1
+    - "\uCE90\uB9AD\uD130"
+    - "\uC548\uB155\uD558\uC138\uC694, \uC5EC\uAE30 \uC5EC\uAD8C \uB4DC\uB9B4\uAC8C\uC694."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 2
+    - 1
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uC5EC\uAD8C \uD655\uC778 \uBD80\uD0C1\uB4DC\uB9BD\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 3
+    - 2
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uD655\uC778 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4. \uC9C0\uB098\uAC00\uC154\uB3C4
+      \uB429\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 4
+    - 2
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uAC10\uC0AC\uD569\uB2C8\uB2E4. \uC990\uAC70\uC6B4 \uD558\uB8E8 \uB418\uC138\uC694!"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 5
+    - 3
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uC8C4\uC1A1\uD558\uC9C0\uB9CC \uC785\uAD6D\uC740 \uC5B4\uB835\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 6
+    - 3
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uC5B4..? \uC5B4\uB514\uAC00 \uC798\uBABB\uB41C \uBD80\uBD84\uC774 \uC788\uB098\uC694?"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 7
+    - 4
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uD655\uC778\uD588\uB294\uB370 \uC785\uAD6D\uC774 \uC5B4\uB824\uC6B0\uC2E4
+      \uAC83 \uAC19\uC2B5\uB2C8\uB2E4. \uC774\uC720\uB294 \uC54C\uB824\uB4DC\uB9B4
+      \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 8
+    - 4
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uBD84\uBA85 \uC81C\uB300\uB85C \uB2E4 \uCC59\uACBC\uC5B4\uC694. \uB2E4\uC2DC
+      \uD55C \uBC88 \uD655\uC778\uD574 \uC8FC\uC138\uC694."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 9
+    - 5
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uC8C4\uC1A1\uD569\uB2C8\uB2E4\uB9CC \uC9C0\uB098\uAC08 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.
+      \uC591\uD574 \uBD80\uD0C1\uB4DC\uB9BD\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 10
+    - 5
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uC544\uB2C8, \uBB50 \uB54C\uBB38\uC5D0 \uC785\uAD6D\uC774 \uC548 \uB41C\uB2E4\uB294
+      \uAC70\uC608\uC694? \uB2E4\uC2DC \uC81C\uB300\uB85C \uD655\uC778\uD558\uC138\uC694!"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 11
+    - 5
+    - 3
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uACE0\uAC1D\uB2D8 \uC11C\uB958 \uD655\uC778\uB418\uC154\uC11C \uBC14\uB85C
+      \uC9C0\uB098\uAC00\uC2DC\uBA74 \uB420 \uAC83 \uAC19\uC2B5\uB2C8\uB2E4. \uC815\uB9D0
+      \uC8C4\uC1A1\uD569\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 12
+    - 5
+    - 4
+    - "\uCE90\uB9AD\uD130"
+    - "\uD558... \uB124 \uC54C\uACA0\uC2B5\uB2C8\uB2E4. \uAF3C\uAF3C\uD788 \uAC80\uD1A0
+      \uC880 \uD574 \uC8FC\uC138\uC694."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 13
+    - 6
+    - 1
+    - "\uCE90\uB9AD\uD130"
+    - "\uC548\uB155\uD558\uC138\uC694! \uC88B\uC740 \uC544\uCE68\uC774\uC5D0\uC694."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 14
+    - 6
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uC5EC\uAE30 \uC5EC\uAD8C \uB4DC\uB9B4\uAC8C\uC694."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 15
+    - 7
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uACE0\uAC1D\uB2D8 \uC5EC\uAD8C\uC758 \uB9CC\uB8CC\uC77C\uC774 \uC9C0\uB0AC\uC2B5\uB2C8\uB2E4.
+      \uC720\uD6A8\uAE30\uAC04\uC774 \uB9CC\uB8CC\uB41C \uC5EC\uAD8C\uC73C\uB85C\uB294
+      \uC785\uAD6D\uC774 \uC5B4\uB835\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 16
+    - 7
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uC557, \uC81C\uAC00 \uD655\uC778\uC744 \uBABB \uD588\uB124\uC694. \uC8C4\uC1A1\uD569\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 17
+    - 8
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uD655\uC778 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4. \uC9C0\uB098\uAC00\uC154\uB3C4
+      \uB429\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 18
+    - 8
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uAC10\uC0AC\uD569\uB2C8\uB2E4. \uC548\uB155\uD788 \uACC4\uC138\uC694!"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 19
+    - 9
+    - 1
+    - "\uCE90\uB9AD\uD130"
+    - "\uC548\uB155\uD558\uC138\uC694! \uC88B\uC740 \uC544\uCE68\uC774\uC5D0\uC694."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 20
+    - 9
+    - 2
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uACE0\uAC1D\uB2D8, \uC5EC\uAD8C\uC740 \uC5B4\uB514 \uC788\uC73C\uC2DC\uC8E0?"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 21
+    - 9
+    - 3
+    - "\uCE90\uB9AD\uD130"
+    - "\uC5EC\uAD8C\uC774 \uC5B4\uB528\uB354\uB77C... \uB450\uACE0 \uC628 \uAC83
+      \uAC19\uC740\uB370\uC694."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 22
+    - 9
+    - 4
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uC5EC\uAD8C\uC774 \uC5C6\uC73C\uC2DC\uBA74 \uC785\uAD6D\uC774 \uC5B4\uB835\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 23
+    - 9
+    - 5
+    - "\uCE90\uB9AD\uD130"
+    - "\uD070\uC77C\uB0AC\uB124... \uC8C4\uC1A1\uD569\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 24
+    - 10
+    - 1
+    - "\uCE90\uB9AD\uD130"
+    - Hello! Nice to meet you!
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 25
+    - 10
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - Here is my passport.
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 26
+    - 11
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uD655\uC778 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4. \uC9C0\uB098\uAC00\uC154\uB3C4
+      \uB429\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 27
+    - 11
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - Thank you! Have a nice day!
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 28
+    - 12
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uC8C4\uC1A1\uD558\uC9C0\uB9CC \uC785\uAD6D\uC740 \uC5B4\uB835\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 29
+    - 12
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "What? \uBD84\uBA85 \uC11C\uB958\uB97C \uB2E4 \uCC59\uAE34 \uAC83 \uAC19\uC558\uB294\uB370\uC694?"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 30
+    - 13
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uD655\uC778\uD588\uB294\uB370 \uC785\uAD6D\uC774 \uC5B4\uB824\uC6B0\uC2E4
+      \uAC83 \uAC19\uC2B5\uB2C8\uB2E4. \uC774\uC720\uB294 \uC54C\uB824\uB4DC\uB9B4
+      \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 31
+    - 13
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "Really? \uAF3C\uAF3C\uD558\uAC8C \uB2E4 \uD655\uC778\uD558\uACE0 \uC628 \uAC74\uB370
+      \uB2E4\uC2DC \uD55C \uBC88 \uD655\uC778\uD574 \uC918\uC694."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 32
+    - 14
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uC8C4\uC1A1\uD569\uB2C8\uB2E4\uB9CC \uC9C0\uB098\uAC08 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.
+      \uC591\uD574 \uBD80\uD0C1\uB4DC\uB9BD\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 33
+    - 14
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "No way... \uC774\uD574\uD560 \uC218 \uC5C6\uC5B4\uC694. \uC65C \uB4E4\uC5B4\uAC08
+      \uC218 \uC5C6\uB294 \uAC70\uC608\uC694?"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 34
+    - 14
+    - 3
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uACE0\uAC1D\uB2D8 \uC11C\uB958 \uD655\uC778\uB418\uC154\uC11C \uBC14\uB85C
+      \uC9C0\uB098\uAC00\uC2DC\uBA74 \uB420 \uAC83 \uAC19\uC2B5\uB2C8\uB2E4. \uC815\uB9D0
+      \uC8C4\uC1A1\uD569\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 35
+    - 14
+    - 4
+    - "\uCE90\uB9AD\uD130"
+    - "\uAE30\uBD84\uC774 \uC548 \uC88B\uC544\uC694. You are so rude."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 36
+    - 15
+    - 1
+    - "\uCE90\uB9AD\uD130"
+    - Hello! Nice to meet you!
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 37
+    - 15
+    - 2
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uACE0\uAC1D\uB2D8, \uC5EC\uAD8C\uC740 \uC5B4\uB514 \uC788\uC73C\uC2DC\uC8E0?"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 38
+    - 15
+    - 3
+    - "\uCE90\uB9AD\uD130"
+    - "My passport... \uC624\uB9C8\uC774\uAC13, \uC5EC\uAD8C\uC774 \uC5C6\uC5B4\uC9C4
+      \uAC83 \uAC19\uC544\uC694."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 39
+    - 15
+    - 4
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uC5EC\uAD8C\uC774 \uC5C6\uC73C\uC2DC\uBA74 \uC785\uAD6D\uC774 \uC5B4\uB835\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 40
+    - 15
+    - 5
+    - "\uCE90\uB9AD\uD130"
+    - "OMG... \uC774\uB7F0 \uC2E4\uC218\uB97C \uD558\uB2E4\uB2C8. \uC8C4\uC1A1\uD569\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 41
+    - 16
+    - 1
+    - "\uCE90\uB9AD\uD130"
+    - "\uC548\uB155\uD558\uC138\uC694! \uC5EC\uD589 \uC640\uC11C \uB108\uBB34 \uC2E0\uB098\uC694!"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 42
+    - 16
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uC5EC\uAD8C \uC5EC\uAE30 \uC788\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 43
+    - 17
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uD655\uC778 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4. \uC9C0\uB098\uAC00\uC154\uB3C4
+      \uB429\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 44
+    - 17
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uAC10\uC0AC\uD569\uB2C8\uB2E4. \uD55C\uAD6D \uB108\uBB34 \uC88B\uC544\uC694!"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 45
+    - 18
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uC8C4\uC1A1\uD558\uC9C0\uB9CC \uC785\uAD6D\uC740 \uC5B4\uB835\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 46
+    - 18
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "What? \uBD84\uBA85 \uC11C\uB958\uB97C \uB2E4 \uCC59\uAE34 \uAC83 \uAC19\uC558\uB294\uB370\uC694?"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 47
+    - 19
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uD655\uC778\uD588\uB294\uB370 \uC785\uAD6D\uC774 \uC5B4\uB824\uC6B0\uC2E4
+      \uAC83 \uAC19\uC2B5\uB2C8\uB2E4. \uC774\uC720\uB294 \uC54C\uB824\uB4DC\uB9B4
+      \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 48
+    - 19
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "Really? \uAF3C\uAF3C\uD558\uAC8C \uB2E4 \uD655\uC778\uD558\uACE0 \uC628 \uAC74\uB370
+      \uB2E4\uC2DC \uD55C \uBC88 \uD655\uC778\uD574 \uC918\uC694."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 49
+    - 20
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uC8C4\uC1A1\uD569\uB2C8\uB2E4\uB9CC \uC9C0\uB098\uAC08 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.
+      \uC591\uD574 \uBD80\uD0C1\uB4DC\uB9BD\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 50
+    - 20
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "No way... \uC774\uD574\uD560 \uC218 \uC5C6\uC5B4\uC694. \uC65C \uB4E4\uC5B4\uAC08
+      \uC218 \uC5C6\uB294 \uAC70\uC608\uC694?"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 51
+    - 20
+    - 3
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uACE0\uAC1D\uB2D8 \uC11C\uB958 \uD655\uC778\uB418\uC154\uC11C \uBC14\uB85C
+      \uC9C0\uB098\uAC00\uC2DC\uBA74 \uB420 \uAC83 \uAC19\uC2B5\uB2C8\uB2E4. \uC815\uB9D0
+      \uC8C4\uC1A1\uD569\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 52
+    - 20
+    - 4
+    - "\uCE90\uB9AD\uD130"
+    - "\uAE30\uBD84\uC774 \uC548 \uC88B\uC544\uC694. You are so rude."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 53
+    - 21
+    - 1
+    - "\uCE90\uB9AD\uD130"
+    - "\uBE68\uB9AC \uB3C4\uC7A5\uC774\uB098 \uCC0D\uACE0 \uBCF4\uB0B4\uC918."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 54
+    - 21
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uC5EC\uAD8C \uB0C8\uC73C\uB2C8\uAE4C \uBE68\uB9AC \uCC98\uB9AC\uD574."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 55
+    - 22
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uD655\uC778 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4. \uC9C0\uB098\uAC00\uC154\uB3C4
+      \uB429\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 56
+    - 22
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uC77C\uCC98\uB9AC \uD558\uB098\uB294 \uBE68\uB77C\uC11C \uB9D8\uC5D0 \uB4DC\uB124."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 57
+    - 23
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uC8C4\uC1A1\uD558\uC9C0\uB9CC \uC785\uAD6D\uC740 \uC5B4\uB835\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 58
+    - 23
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uBB34\uC2A8 \uC18C\uB9AC\uC57C? \uC11C\uB958\uC5D0 \uC798\uBABB\uB41C \uBD80\uBD84\uC774
+      \uC5C6\uB294\uB370!"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 59
+    - 24
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uD655\uC778\uD588\uB294\uB370 \uC785\uAD6D\uC774 \uC5B4\uB824\uC6B0\uC2E4
+      \uAC83 \uAC19\uC2B5\uB2C8\uB2E4. \uC774\uC720\uB294 \uC54C\uB824\uB4DC\uB9B4
+      \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 60
+    - 24
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uB208\uC744 \uC5B4\uB514\uC5D0 \uB454 \uAC70\uC57C? \uC11C\uB958 \uB2E4 \uB9DE\uAC8C
+      \uCC59\uACBC\uC796\uC544!"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 61
+    - 25
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uC8C4\uC1A1\uD569\uB2C8\uB2E4\uB9CC \uC9C0\uB098\uAC08 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.
+      \uC591\uD574 \uBD80\uD0C1\uB4DC\uB9BD\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 62
+    - 25
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uC9C4\uC9DC \uBBF8\uCE58\uACA0\uB124! \uB2E4\uC2DC \uC81C\uB300\uB85C \uD655\uC778\uD574!"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 63
+    - 25
+    - 3
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uACE0\uAC1D\uB2D8 \uC11C\uB958 \uD655\uC778\uB418\uC154\uC11C \uBC14\uB85C
+      \uC9C0\uB098\uAC00\uC2DC\uBA74 \uB420 \uAC83 \uAC19\uC2B5\uB2C8\uB2E4. \uC815\uB9D0
+      \uC8C4\uC1A1\uD569\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 64
+    - 25
+    - 4
+    - "\uCE90\uB9AD\uD130"
+    - "\uC9C4\uC791 \uC774\uB7F4 \uAC83\uC774\uC9C0. \uB0B4\uAC00 \uAF2D \uBBFC\uC6D0
+      \uB123\uC744 \uAC70\uC57C!"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 65
+    - 26
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uACE0\uAC1D\uB2D8 \uC5EC\uAD8C\uC758 \uC131\uBCC4 \uC815\uBCF4\uAC00 \uBCF8\uC778\uACFC
+      \uC77C\uCE58\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uC785\uAD6D\uC774 \uC5B4\uB835\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 66
+    - 26
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uC9C4\uC9DC \uC0AC\uB78C \uBE61\uBE61\uD558\uAC8C \uAD6C\uB124. \uB354\uB7EC\uC6CC\uC11C
+      \uADF8\uB0E5 \uAC00\uACE0 \uB9CC\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 67
+    - 27
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uD655\uC778 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4. \uC9C0\uB098\uAC00\uC154\uB3C4
+      \uB429\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 68
+    - 27
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uC77C\uCC98\uB9AC \uD558\uB098\uB294 \uBE68\uB77C\uC11C \uB9D8\uC5D0 \uB4DC\uB124."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 69
+    - 28
+    - 1
+    - "\uCE90\uB9AD\uD130"
+    - "\uBE68\uB9AC \uAC80\uC0AC\uD574."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 70
+    - 28
+    - 2
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uACE0\uAC1D\uB2D8, \uC5EC\uAD8C\uC740 \uC5B4\uB514 \uC788\uC73C\uC2DC\uC8E0?"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 71
+    - 28
+    - 3
+    - "\uCE90\uB9AD\uD130"
+    - "\uC5B4? \uC5EC\uAD8C\uC774 \uC5B4\uB528\uC9C0? \uADF8\uB0E5 \uBCF4\uB0B4\uC8FC\uBA74
+      \uC548 \uB3FC?"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 72
+    - 28
+    - 4
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uC5EC\uAD8C \uC5C6\uC774\uB294 \uC785\uAD6D\uC774 \uBD88\uAC00\uD569\uB2C8\uB2E4.
+      \uC591\uD574 \uBD80\uD0C1\uB4DC\uB9BD\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 73
+    - 28
+    - 5
+    - "\uCE90\uB9AD\uD130"
+    - "\uC9C4\uC9DC \uC735\uD1B5\uC131 \uC5C6\uC774 \uC77C\uD558\uB124. \uB410\uC5B4!"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 74
+    - 29
+    - 1
+    - "\uCE90\uB9AD\uD130"
+    - "\uC548\uB155\uD558\uC138\uC694, \uC5EC\uAE30 \uC5EC\uAD8C \uB4DC\uB9B4\uAC8C\uC694."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 75
+    - 29
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uC5EC\uAD8C \uD655\uC778 \uBD80\uD0C1\uB4DC\uB9BD\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 76
+    - 30
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uACE0\uAC1D\uB2D8 \uC5EC\uAD8C\uC758 MRZ \uCF54\uB4DC\uC640 \uC5EC\uAD8C\uBC88\uD638\uAC00
+      \uC77C\uCE58\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uC785\uAD6D\uC774 \uC5B4\uB835\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 77
+    - 30
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uC557..! \uC81C\uAC00 \uCC29\uAC01\uD588\uB124\uC694. \uC8C4\uC1A1\uD569\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 78
+    - 31
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uD655\uC778 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4. \uC9C0\uB098\uAC00\uC154\uB3C4
+      \uB429\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 79
+    - 31
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "\uAC10\uC0AC\uD569\uB2C8\uB2E4. \uC990\uAC70\uC6B4 \uD558\uB8E8 \uB418\uC138\uC694!"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 80
+    - 32
+    - 1
+    - "\uCE90\uB9AD\uD130"
+    - Hello! Nice to meet you!
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 81
+    - 32
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - Here is my passport.
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 82
+    - 33
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uD655\uC778 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4. \uC9C0\uB098\uAC00\uC154\uB3C4
+      \uB429\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 83
+    - 33
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - Thank you! Have a nice day!
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 84
+    - 34
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uC8C4\uC1A1\uD558\uC9C0\uB9CC \uC785\uAD6D\uC740 \uC5B4\uB835\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 85
+    - 34
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "What? \uBD84\uBA85 \uC11C\uB958\uB97C \uB2E4 \uCC59\uAE34 \uAC83 \uAC19\uC558\uB294\uB370\uC694?"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 86
+    - 35
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uD655\uC778\uD588\uB294\uB370 \uC785\uAD6D\uC774 \uC5B4\uB824\uC6B0\uC2E4
+      \uAC83 \uAC19\uC2B5\uB2C8\uB2E4. \uC774\uC720\uB294 \uC54C\uB824\uB4DC\uB9B4
+      \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 87
+    - 35
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "Really? \uAF3C\uAF3C\uD558\uAC8C \uB2E4 \uD655\uC778\uD558\uACE0 \uC628 \uAC74\uB370
+      \uB2E4\uC2DC \uD55C \uBC88 \uD655\uC778\uD574 \uC918\uC694."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 88
+    - 36
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uC8C4\uC1A1\uD569\uB2C8\uB2E4\uB9CC \uC9C0\uB098\uAC08 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.
+      \uC591\uD574 \uBD80\uD0C1\uB4DC\uB9BD\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 89
+    - 36
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "No way... \uC774\uD574\uD560 \uC218 \uC5C6\uC5B4\uC694. \uC65C \uB4E4\uC5B4\uAC08
+      \uC218 \uC5C6\uB294 \uAC70\uC608\uC694?"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 90
+    - 36
+    - 3
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uACE0\uAC1D\uB2D8 \uC11C\uB958 \uD655\uC778\uB418\uC154\uC11C \uBC14\uB85C
+      \uC9C0\uB098\uAC00\uC2DC\uBA74 \uB420 \uAC83 \uAC19\uC2B5\uB2C8\uB2E4. \uC815\uB9D0
+      \uC8C4\uC1A1\uD569\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 91
+    - 36
+    - 4
+    - "\uCE90\uB9AD\uD130"
+    - "\uAE30\uBD84\uC774 \uC548 \uC88B\uC544\uC694. You are so rude."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 92
+    - 37
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uACE0\uAC1D\uB2D8 \uC5EC\uAD8C\uBC88\uD638 \uD615\uC2DD\uC774 \uBC1C\uAE09
+      \uAD6D\uAC00\uC640 \uC77C\uCE58\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uC785\uAD6D\uC774
+      \uC5B4\uB835\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 93
+    - 37
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - Oh... I am sorry. I think I made a mistake.
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 94
+    - 38
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uD655\uC778 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4. \uC9C0\uB098\uAC00\uC154\uB3C4
+      \uB429\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 95
+    - 38
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - Thank you! Have a nice day!
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 96
+    - 39
+    - 1
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uACE0\uAC1D\uB2D8, \uC785\uAD6D \uB3C4\uC7A5\uC774 \uB204\uB77D\uB418\uC5B4
+      \uC788\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 97
+    - 39
+    - 2
+    - "\uCE90\uB9AD\uD130"
+    - "What? \uB3C4\uC7A5\uC774 \uC5C6\uC5B4\uC694?"
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 98
+    - 39
+    - 3
+    - "\uC2EC\uC0AC\uAD00"
+    - "\uB3C4\uC7A5\uC774 \uB204\uB77D\uB420 \uACBD\uC6B0 \uC785\uAD6D\uC774 \uC5B4\uB835\uC2B5\uB2C8\uB2E4."
+  - keys:
+    - line_id
+    - dialogue_case_id
+    - line_order
+    - speaker
+    - text_kr
+    values:
+    - 99
+    - 39
+    - 4
+    - "\uCE90\uB9AD\uD130"
+    - "OMG... \uC54C\uACA0\uC5B4\uC694. \uB3CC\uC544\uAC00 \uBCFC\uAC8C\uC694."
