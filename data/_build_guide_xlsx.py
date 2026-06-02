@@ -406,6 +406,7 @@ for verdict, target, reason in merge:
 for w, col in zip([20, 40, 55], "ABC"):
     ws.column_dimensions[col].width = w
 
-out = "테이블_설명서.xlsx"
+import os
+out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "테이블_설명서.xlsx")
 wb.save(out)
 print("saved", out)
