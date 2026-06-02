@@ -42,19 +42,33 @@ public sealed class ImmigrationManager : MonoBehaviour
     /// <summary>마지막으로 결정된 엔딩(없으면 IsValid=false). UI 가 폴링용으로도 사용 가능.</summary>
     public EndingResult LastEnding { get; private set; }
 
+    private bool _controllerSubscribed; // OnDayCompleted 중복 구독 방지
+
     private void OnEnable()
     {
-        if (inspectionController != null)
-        {
-            inspectionController.OnDayCompleted += HandleDayCompleted;
-        }
+        WireController();
+    }
+
+    /// <summary>
+    /// InspectionController 의 OnDayCompleted 구독을 보장한다(멱등).
+    /// 씬에서 인스펙터 바인딩 시 OnEnable 시점에 컨트롤러가 이미 존재하지만,
+    /// 코드/테스트가 inspectionController 를 OnEnable 이후에 주입하는 경우에도
+    /// BeginDay/EnsureEconomy 진입 시 다시 호출되어 구독이 누락되지 않도록 한다.
+    /// 구독이 빠지면 14일차 마지막 손님 후 엔딩 정산 체인이 끊긴다.
+    /// </summary>
+    private void WireController()
+    {
+        if (inspectionController == null || _controllerSubscribed) return;
+        inspectionController.OnDayCompleted += HandleDayCompleted;
+        _controllerSubscribed = true;
     }
 
     private void OnDisable()
     {
-        if (inspectionController != null)
+        if (inspectionController != null && _controllerSubscribed)
         {
             inspectionController.OnDayCompleted -= HandleDayCompleted;
+            _controllerSubscribed = false;
         }
         if (_economy != null)
         {
@@ -75,6 +89,10 @@ public sealed class ImmigrationManager : MonoBehaviour
         }
         _economy.OnEarlyEndingTriggered -= HandleEarlyEnding;
         _economy.OnEarlyEndingTriggered += HandleEarlyEnding;
+
+        // 컨트롤러가 같은 정산 허브를 쓰도록 명시 주입(전역 Instance 해석 타이밍에 의존하지 않음).
+        WireController();
+        if (inspectionController != null) inspectionController.SetEconomy(_economy);
     }
 
     /// <summary>조기/누적 엔딩 트리거(#11~#16) 수신 → 발동 조건 충족 시 즉시 엔딩.</summary>
@@ -117,8 +135,10 @@ public sealed class ImmigrationManager : MonoBehaviour
         }
 
         CurrentDay = day;
+        WireController(); // 구독 누락 방지(늦은 주입 대비, 멱등)
         if (inspectionController != null)
         {
+            if (_economy != null) inspectionController.SetEconomy(_economy);
             inspectionController.Initialize(_data, resetGold);
         }
         Debug.Log($"[ImmigrationManager] {day}일차 시작");

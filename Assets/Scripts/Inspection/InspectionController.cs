@@ -23,9 +23,19 @@ public sealed class InspectionController : MonoBehaviour
 
     private int _gold; // HUD 표시 캐시(실제 누적은 ScoreEconomyManager.Money)
 
+    // 정산 허브 참조. 진행 매니저가 명시 주입(SetEconomy)하면 그 인스턴스를 우선 사용하고,
+    // 없으면 전역 싱글톤(ScoreEconomyManager.Instance)으로 폴백한다.
+    // (씬 로드 타이밍/테스트 주입 순서로 Instance 해석이 흔들려도 정산이 누락되지 않게 한다.)
+    private ScoreEconomyManager _economy;
+    private ScoreEconomyManager Economy => _economy != null ? _economy : ScoreEconomyManager.Instance;
+
+    /// <summary>진행 매니저가 정산 허브를 주입한다(없으면 전역 싱글톤 폴백). UI 직접 참조 아님.</summary>
+    public void SetEconomy(ScoreEconomyManager economy) => _economy = economy;
+
     private Day1Data _data;
     private int _index;
     private int _wrongRejectCount;
+    private bool _customerSettled; // 현재 손님 확정 정산 1회 가드(중복 정산·이중 진행 방지)
     private readonly List<string> _dialogueLog = new List<string>(); // 현재 손님의 대화 기록(표시용 문자열)
     private readonly List<DialogueLineData> _dialogueLines = new List<DialogueLineData>(); // 구조 라인(대조 단서용)
 
@@ -146,7 +156,7 @@ public sealed class InspectionController : MonoBehaviour
         _data = data;
         _index = 0;
         // 골드는 ScoreEconomyManager.Money 가 권위. 매니저가 있으면 그 값을 HUD 캐시에 반영한다.
-        var mgr = ScoreEconomyManager.Instance;
+        var mgr = Economy;
         if (mgr != null) _gold = mgr.Money;
         else if (resetGold) _gold = 0;
         UpdateGold();
@@ -169,6 +179,7 @@ public sealed class InspectionController : MonoBehaviour
 
         CustomerData c = _data.customers[index];
         _wrongRejectCount = 0;
+        _customerSettled = false;
         _dialogueLog.Clear();
         _dialogueLines.Clear();
         _requestableCase = null;
@@ -260,16 +271,50 @@ public sealed class InspectionController : MonoBehaviour
         bool shouldApprove = c.correctResult == GameResults.Approve;
         bool wasCorrect = (approved == shouldApprove) || forcedPass;
 
-        var mgr = ScoreEconomyManager.Instance;
-        if (mgr == null) return; // 씬에 매니저가 없으면 점수/경제 비활성(기존 동작 유지)
-
         BranchResult branch = BranchKeyResolver.Resolve(
             c.correctResult, approved, wrongRejectCount, forcedPass, c.characterType, c.defectVariant);
-        mgr.Settle(c.characterType, branch, wasCorrect);
+        SettleBranch(c.characterType, branch, wasCorrect);
+    }
+
+    /// <summary>
+    /// 손님 1명 확정 정산을 한 번만 수행한다(중복 가드). 기본 판정과 고급 분기가 같은 손님을
+    /// 이중 정산하지 않도록 _customerSettled 로 1회 보장한다. 매니저 없으면 조용히 스킵.
+    /// </summary>
+    private void SettleBranch(string characterType, BranchResult branch, bool wasCorrect)
+    {
+        if (_customerSettled) return; // 이미 확정된 손님 — 중복 정산 금지
+        _customerSettled = true;
+
+        var mgr = Economy;
+        if (mgr == null) return; // 씬에 매니저가 없으면 점수/경제 비활성(기존 동작 유지)
+
+        mgr.Settle(characterType, branch, wasCorrect);
 
         // HUD 골드 캐시 동기화(표시용).
         _gold = mgr.Money;
         UpdateGold();
+    }
+
+    /// <summary>
+    /// 고급 분기 패널(특수 캐릭터 선택지)이 선택을 확정하면 호출한다.
+    /// 해당 손님을 그 branch_key 로 **1회 정산**하고 다음 손님으로 진행시킨다.
+    /// 기본 판정(도장)과 동일하게 InspectionController 가 진행 권위를 갖는다 → 특수 캐릭터에서 진행이 막히지 않는다.
+    /// 이미 도장 등으로 확정된 손님이면 정산은 가드되고 진행만 보장한다.
+    /// </summary>
+    /// <param name="branchKey">AdvancedBranchPanel 이 고른 BranchKeys.* 키.</param>
+    /// <param name="wasCorrect">정확도 집계용 정답 여부(정의 선택=정답).</param>
+    public void SubmitAdvancedDecision(string branchKey, bool wasCorrect)
+    {
+        CustomerData c = Current;
+        if (c == null) return;
+        if (_judgmentPanel != null) _judgmentPanel.SetReady(false);
+
+        string docState = c.correctResult == GameResults.Approve ? DocStates.Normal : DocStates.Defect;
+        BranchResult branch = BranchKeyResolver.ResolveAdvanced(docState, branchKey, c.defectVariant);
+        SettleBranch(c.characterType, branch, wasCorrect);
+
+        DialogueCaseData ok = FindCase(c, c.correctResult, -1);
+        PlayThen(ok, AdvanceNext);
     }
 
     private void PlayThen(DialogueCaseData dialogueCase, System.Action onComplete)
@@ -331,6 +376,28 @@ public sealed class InspectionController : MonoBehaviour
         // 진행 매니저(ImmigrationManager 등)에 일자 완료 통지. UI 직접 참조 없음.
         OnDayCompleted?.Invoke(CurrentDay);
     }
+
+    // ── 테스트 훅(통합 PlayMode 테스트 전용) ─────────────────────
+    // 프로덕션 흐름은 JudgmentPanel.OnDecision → HandleDecision 으로 동일하게 탄다.
+    // 테스트가 JudgmentPanel 없이도 판정을 주입하고 진행 상태를 관찰할 수 있게 최소 노출한다.
+
+    /// <summary>현재 표시 중인 손님 인덱스(0-base). 손님 없으면 customers.Length.</summary>
+    public int CurrentSlotIndex => _index;
+
+    /// <summary>현재 일차 손님 수(데이터 없으면 0).</summary>
+    public int CustomerCount => _data != null && _data.customers != null ? _data.customers.Length : 0;
+
+    /// <summary>일자완료 패널이 떠 있는가(= 마지막 손님까지 끝났는가).</summary>
+    public bool IsDayComplete => _dayCompleteRoot != null && _dayCompleteRoot.activeSelf;
+
+    /// <summary>지금 판정 입력을 받을 수 있는 손님이 있는가(테스트 진행 가드).</summary>
+    public bool HasActiveCustomer => Current != null;
+
+    /// <summary>
+    /// 테스트 전용: JudgmentPanel.OnDecision 과 동일한 경로로 판정을 주입한다.
+    /// 실제 프로덕션 흐름(HandleDecision)을 그대로 호출하므로 분기/정산/대화 루프가 동일하게 작동한다.
+    /// </summary>
+    public void TestSubmitDecision(bool approve) => HandleDecision(approve);
 
     private static DialogueCaseData FindCaseByType(CustomerData c, string caseType)
     {

@@ -63,9 +63,20 @@ public sealed class AdvancedBranchPanel : MonoBehaviour
         if (_closeButton != null) _closeButton.onClick.RemoveListener(Hide);
     }
 
+    /// <summary>
+    /// 고급 분기 기능 활성화 플래그. 현재 false — 특수 캐릭터(연예인/정치인/범죄자/테러범/사이비)도
+    /// 일반 판정(통과/거절)으로만 진행한다. 이 패널이 5일차 연예인부터 정상 판정을 가로막아
+    /// 게임이 막혔으므로(=4일차까지만 됨) 분기 UI가 완성될 때까지 끈다.
+    /// 분기 연출/세부 결과가 완성되면 true 로 되돌리면 OnCustomerChanged 시점에 다시 작동한다.
+    /// </summary>
+    private const bool AdvancedBranchesEnabled = false;
+
     private void HandleCustomerChanged()
     {
         _hasChoices = false;
+        // 기능 비활성: 어떤 캐릭터든 패널을 띄우지 않고 일반 판정 흐름에 맡긴다(진행 막힘 방지).
+        if (!AdvancedBranchesEnabled) { Hide(); return; }
+
         string type = _controller != null ? _controller.CurrentCharacterType : null;
         if (string.IsNullOrEmpty(type)) { Hide(); return; }
 
@@ -134,30 +145,21 @@ public sealed class AdvancedBranchPanel : MonoBehaviour
     private void ChooseLeft() => Commit(_left);
     private void ChooseRight() => Commit(_right);
 
-    /// <summary>선택 확정 → branch_key 를 매니저에 전달(정산). UI 는 결과를 계산하지 않는다.</summary>
+    /// <summary>
+    /// 선택 확정 → branch_key 를 InspectionController 에 전달한다.
+    /// 컨트롤러가 정산(1회 가드)과 **다음 손님 진행**을 모두 수행하므로 특수 캐릭터에서 진행이 막히지 않는다.
+    /// (이전 구현은 매니저에 직접 정산만 하고 진행을 호출하지 않아 5일차 연예인에서 게임이 멈췄다.)
+    /// UI 는 결과를 계산하지 않는다 — branch_key 전달만 한다(규약 5장).
+    /// </summary>
     private void Commit(Choice choice)
     {
         if (!_hasChoices || _controller == null) { Hide(); return; }
 
-        var mgr = ScoreEconomyManager.Instance;
-        if (mgr == null)
-        {
-            Debug.LogWarning("[AdvancedBranchPanel] ScoreEconomyManager.Instance 없음 — 정산 생략.");
-            Hide();
-            return;
-        }
-
-        string docState = _controller.CurrentDocState ?? DocStates.Defect;
-        string variant = _controller.CurrentDefectVariant;
-        string charType = _controller.CurrentCharacterType;
-
-        // 정답 여부는 매니저 정확도 집계용 — 고급 분기는 "정의 선택(거부/신고/적발)"을 정답으로 본다.
+        // 정답 여부는 정확도 집계용 — 고급 분기는 "정의 선택(거부/신고/적발)"을 정답으로 본다.
         bool wasCorrect = IsJusticeKey(choice.branchKey);
 
-        BranchResult branch = BranchKeyResolver.ResolveAdvanced(docState, choice.branchKey, variant);
-        mgr.Settle(charType, branch, wasCorrect);
-
         Hide();
+        _controller.SubmitAdvancedDecision(choice.branchKey, wasCorrect);
     }
 
     /// <summary>정의(거부/신고/적발) 계열 키인가 — 정확도 집계용 표시값(판정 권위는 데이터 점수표).</summary>
