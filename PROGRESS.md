@@ -113,6 +113,16 @@
 - **검증(Play)**: 좌측하단 "오늘: 2026-06-0X"(일차별), 오늘↔여권만료 2031=유효, 오늘↔비자만료 2023=만료됨, 오늘↔발급일=발급 완료. 컴파일 Error 0.
 - **(갱신) 대조 멘트 통일**: 만료됨/유효/발급완료 특수 문구 제거 → **일치/불일치/관련없음**으로 통일(문서·필드 안 가림). 날짜 규칙: 만료류는 오늘≤날짜→일치(유효범위 내)/지나면 불일치; 발급류는 날짜≤오늘→일치/미래면 불일치; 날짜 아닌 필드→관련 없음. 검증: 여권만료2031=일치, 비자만료2023=불일치, 발급일과거=일치, 여권번호=관련없음.
 
+## UI 노출 시점/위치 확정 반영 (사용자 지시) — 2026-06-02
+> 점수·돈·호칭·아이템의 "보여주는 시점/위치"를 변경(누적 로직 불변, 표시만). 빌드·45테스트·Play 검증 완료.
+- **점수=플레이 중 완전 비공개**: 실시간 ScoreHudView 씬에서 제거(씬 확인 0개). 14일차 합산 → 엔딩 화면에만.
+- **돈=일일 정산에만**: 상시 골드 HUD 제거. 일자완료 패널 `DaySettlementView`에 "오늘 번 돈/누적 잔액"(점수는 미포함).
+- **호칭=메인메뉴 '업적' 버튼**: `MainMenuManager.OnAchievement`→`TitleAchievementPanel`(GameProgressSave 영속 호칭). 플레이 중 토스트 제거.
+- **아이템=좌상단 상시**: `ItemIndicatorView`(씬 확인 1개). 토스트 대신 상시 위젯.
+- **진행 흐름 변경(게임플레이)**: `ImmigrationManager.HandleDayCompleted` 자동 다음날 진행 제거 → 정산 패널에서 **"다음 날" 버튼(`OnNextDayButton`)** 으로만 진행. 조기/14일 엔딩 시 버튼 무시 가드(`_endingTriggered`). Day1SceneBuilder가 NextDayButton 생성·영구바인딩.
+- 신규/수정: `Inspection/{ItemIndicatorView,DaySettlementView}.cs`, `TitleAchievementPanel.cs`, `RewardFeedbackView.cs`(호칭/아이템 토스트 제거), `GameProgressSave.cs`(읽기 헬퍼), `Day1SceneBuilder.cs`, `MainMenuManager.cs`, `ImmigrationManager.cs`.
+- ⚠️ 미커밋(이 섹션 작업분) — 다음 커밋 대상.
+
 ## 신규 캐릭터별 점수·금액표 전체 구현 (4단계 완료·45테스트 GREEN) — 2026-06-02
 > 팀원 추가 엑셀 `Downloads\여권주세요_날짜별_방문고객_랜덤정리_금액표추가_캐릭터선지추가_260602.xlsx`(5시트) 반영.
 > 시트 ①날짜별요약 ②슬롯별배치 ③표기해석 = 기존 day_schedule와 중복(불일치 0, 참고용). ④금액표 ⑤점수표 = 신규 데이터.

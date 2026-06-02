@@ -1,7 +1,9 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -10,6 +12,10 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] CanvasGroup fadePanel;
     [SerializeField] float fadeInDuration = 0.8f;
     [SerializeField] float fadeOutDuration = 0.5f;
+
+    [Header("업적(호칭) 패널")]
+    [Tooltip("비워두면 첫 열람 시 런타임으로 자동 생성한다.")]
+    [SerializeField] TitleAchievementPanel achievementPanel;
 
     const string SAVE_KEY = "HasSaveData";
 
@@ -35,7 +41,110 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnAchievement()
     {
-        // placeholder
+        if (achievementPanel == null) achievementPanel = BuildAchievementPanel();
+        if (achievementPanel != null) achievementPanel.Toggle();
+    }
+
+    /// <summary>
+    /// 업적(호칭) 패널을 런타임으로 생성한다(메인 메뉴 씬에 수동 배치가 없을 때 폴백).
+    /// UI-CONVENTIONS: 중앙 모달, 닫기 = X 우상단, malgun 폰트.
+    /// </summary>
+    TitleAchievementPanel BuildAchievementPanel()
+    {
+        Canvas canvas = FindFirstObjectByType<Canvas>();
+        if (canvas == null)
+        {
+            Debug.LogWarning("[MainMenuManager] Canvas 를 찾지 못해 업적 패널을 생성할 수 없습니다.");
+            return null;
+        }
+        TMP_FontAsset font = FindMalgunFont();
+
+        GameObject rootGo = NewUI("AchievementPanel", canvas.transform, Vector2.zero, Vector2.one);
+        // 반투명 딤(클릭으로 안 닫힘 — 닫기는 X/Esc)
+        AddImage(rootGo, new Color(0.02f, 0.03f, 0.05f, 0.85f));
+
+        GameObject frame = NewUI("Frame", rootGo.transform, new Vector2(0.30f, 0.22f), new Vector2(0.70f, 0.78f));
+        AddImage(frame, new Color(0.10f, 0.12f, 0.16f, 0.98f));
+
+        TMP_Text title = AddText(frame.transform, "Title", "업적 — 호칭", 30,
+            new Vector2(0.06f, 0.86f), new Vector2(0.80f, 0.96f), font, TextAlignmentOptions.Left);
+        title.fontStyle = FontStyles.Bold; title.color = new Color(1f, 0.9f, 0.6f);
+
+        Button close = MakeButton(frame.transform, "CloseButton", "X", 22,
+            new Vector2(0.88f, 0.86f), new Vector2(0.97f, 0.96f), font, new Color(0.60f, 0.18f, 0.18f));
+
+        TMP_Text list = AddText(frame.transform, "ListText", "", 20,
+            new Vector2(0.07f, 0.08f), new Vector2(0.93f, 0.84f), font, TextAlignmentOptions.TopLeft);
+        list.color = Color.white;
+
+        TitleAchievementPanel panel = rootGo.AddComponent<TitleAchievementPanel>();
+        // 런타임 생성이라 SerializedObject 없이 private 필드를 직접 주입한다.
+        AssignPrivate(panel, "_root", rootGo);
+        AssignPrivate(panel, "_listText", list);
+        AssignPrivate(panel, "_closeButton", close);
+        rootGo.SetActive(false);
+        return panel;
+    }
+
+    // ── 런타임 UI 헬퍼(메인 메뉴 빌더 부재 → 자체 생성) ──
+    static void AssignPrivate(object target, string field, object value)
+    {
+        var f = target.GetType().GetField(field,
+            System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+        if (f != null) f.SetValue(target, value);
+        else Debug.LogWarning($"[MainMenuManager] 필드 {field} 를 찾지 못했습니다.");
+    }
+
+    static GameObject NewUI(string name, Transform parent, Vector2 aMin, Vector2 aMax)
+    {
+        var go = new GameObject(name, typeof(RectTransform));
+        go.transform.SetParent(parent, false);
+        var rt = go.GetComponent<RectTransform>();
+        rt.anchorMin = aMin; rt.anchorMax = aMax;
+        rt.offsetMin = Vector2.zero; rt.offsetMax = Vector2.zero;
+        return go;
+    }
+
+    static Image AddImage(GameObject go, Color c)
+    {
+        var img = go.AddComponent<Image>();
+        img.color = c;
+        return img;
+    }
+
+    static TMP_Text AddText(Transform parent, string name, string text, float size,
+        Vector2 aMin, Vector2 aMax, TMP_FontAsset font, TextAlignmentOptions align)
+    {
+        var go = NewUI(name, parent, aMin, aMax);
+        var t = go.AddComponent<TextMeshProUGUI>();
+        t.text = text; t.fontSize = size; t.alignment = align; t.color = Color.white;
+        if (font != null) t.font = font;
+        return t;
+    }
+
+    static Button MakeButton(Transform parent, string name, string label, float size,
+        Vector2 aMin, Vector2 aMax, TMP_FontAsset font, Color bg)
+    {
+        var go = NewUI(name, parent, aMin, aMax);
+        var img = go.AddComponent<Image>();
+        img.color = bg;
+        var btn = go.AddComponent<Button>();
+        btn.targetGraphic = img;
+        var t = AddText(go.transform, "Label", label, size, Vector2.zero, Vector2.one, font, TextAlignmentOptions.Center);
+        t.color = Color.white;
+        return btn;
+    }
+
+    static TMP_FontAsset FindMalgunFont()
+    {
+        // 한글 폰트(malgun) 우선. 로드된 폰트 중 이름에 malgun 포함을 찾고, 없으면 기본 폰트.
+        var fonts = Resources.FindObjectsOfTypeAll<TMP_FontAsset>();
+        foreach (var fa in fonts)
+        {
+            if (fa == null || fa.name == null) continue;
+            if (fa.name.ToLowerInvariant().Contains("malgun")) return fa;
+        }
+        return TMP_Settings.defaultFontAsset;
     }
 
     public void OnEnding()

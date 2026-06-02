@@ -21,6 +21,15 @@ public static class GameProgressSave
     /// <summary>저장된 진행이 있는가.</summary>
     public static bool HasSave() => PlayerPrefs.HasKey(KScore);
 
+    /// <summary>
+    /// 영속 저장된 보유 호칭 목록(회차 넘어 유지되는 세이브값). 매니저 인스턴스가 없는
+    /// 메인 메뉴 씬에서 업적 패널이 직접 읽기 위한 읽기 전용 헬퍼. 저장 없으면 빈 목록.
+    /// </summary>
+    public static List<string> LoadTitles() => Split(PlayerPrefs.GetString(KTitles, ""));
+
+    /// <summary>영속 저장된 보유 아이템 목록(읽기 전용). 저장 없으면 빈 목록.</summary>
+    public static List<string> LoadItems() => Split(PlayerPrefs.GetString(KItems, ""));
+
     /// <summary>현재 상태를 PlayerPrefs 에 저장.</summary>
     public static void SaveFrom(ScoreEconomyManager m)
     {

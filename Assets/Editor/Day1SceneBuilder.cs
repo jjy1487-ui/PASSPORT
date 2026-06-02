@@ -68,35 +68,29 @@ public static class Day1SceneBuilder
         Wire(dialogueView, "_bodyText", body);
         Wire(dialogueView, "_nextButton", nextBtn);
 
-        // ── 우측 상단 HUD: 어두운 배경판 + 골드 + 진행 순서 ──
-        RectTransform hudBg = NewUI("HudPanel", root, new Vector2(0.60f, 0.905f), new Vector2(0.990f, 0.990f));
+        // ── 우측 상단 HUD: 진행 순서만 표시 ──
+        //  요구 1: 점수는 플레이 중 표시 안 함(엔딩에만) → 점수 HUD 미생성.
+        //  요구 2: 돈은 상시 표시 안 함(일일 정산에만) → 골드 HUD 미생성.
+        RectTransform hudBg = NewUI("HudPanel", root, new Vector2(0.78f, 0.905f), new Vector2(0.990f, 0.990f));
         AddImage(hudBg, new Color(0f, 0f, 0f, 0.62f)); // 어두운 반투명 배경
 
-        Image goldIcon = AddImage(NewUI("GoldIcon", hudBg, new Vector2(0.02f, 0.10f), new Vector2(0.22f, 0.90f)), Color.white);
-        goldIcon.sprite = LoadSprite("Assets/Images/UI/gold.png"); goldIcon.preserveAspect = true;
-        TMP_Text goldText = AddText(hudBg, "GoldText", "0", 26, new Vector2(0.23f, 0.10f), new Vector2(0.48f, 0.90f), font, TextAlignmentOptions.Left);
-        goldText.color = new Color(0.95f, 0.85f, 0.3f); goldText.fontStyle = FontStyles.Bold;
-
-        RectTransform divider = NewUI("Divider", hudBg, new Vector2(0.50f, 0.15f), new Vector2(0.52f, 0.85f));
-        AddImage(divider, new Color(1f, 1f, 1f, 0.35f));
-
-        Image peopleIcon = AddImage(NewUI("PeopleIcon", hudBg, new Vector2(0.53f, 0.10f), new Vector2(0.73f, 0.90f)), Color.white);
+        Image peopleIcon = AddImage(NewUI("PeopleIcon", hudBg, new Vector2(0.05f, 0.10f), new Vector2(0.32f, 0.90f)), Color.white);
         peopleIcon.sprite = LoadSprite("Assets/Images/UI/people.png"); peopleIcon.preserveAspect = true;
-        TMP_Text slotCounter = AddText(hudBg, "SlotCounterText", "1 / 7", 26, new Vector2(0.74f, 0.10f), new Vector2(0.99f, 0.90f), font, TextAlignmentOptions.Left);
+        TMP_Text slotCounter = AddText(hudBg, "SlotCounterText", "1 / 7", 26, new Vector2(0.36f, 0.10f), new Vector2(0.97f, 0.90f), font, TextAlignmentOptions.Left);
         slotCounter.color = Color.white; slotCounter.fontStyle = FontStyles.Bold;
 
-        // ── 점수 HUD(골드 HUD 바로 아래, 별도 바 — 점수 ≠ 돈, 색으로도 구분: Score/Blue) ──
-        RectTransform scoreBg = NewUI("ScorePanel", root, new Vector2(0.60f, 0.825f), new Vector2(0.990f, 0.900f));
-        AddImage(scoreBg, new Color(0f, 0f, 0f, 0.62f));
-        TMP_Text scoreLabel = AddText(scoreBg, "ScoreLabel", "점수", 20, new Vector2(0.04f, 0.10f), new Vector2(0.28f, 0.90f), font, TextAlignmentOptions.Left);
-        scoreLabel.color = new Color(0.45f, 0.65f, 0.85f); scoreLabel.fontStyle = FontStyles.Bold;
-        TMP_Text scoreText = AddText(scoreBg, "ScoreText", "0", 26, new Vector2(0.30f, 0.10f), new Vector2(0.62f, 0.90f), font, TextAlignmentOptions.Left);
-        scoreText.color = new Color(0.231f, 0.510f, 0.769f); scoreText.fontStyle = FontStyles.Bold; // #3B82C4
-        TMP_Text scoreDelta = AddText(scoreBg, "ScoreDelta", "", 20, new Vector2(0.64f, 0.10f), new Vector2(0.98f, 0.90f), font, TextAlignmentOptions.Left);
-        scoreDelta.color = new Color(0.231f, 0.510f, 0.769f);
-        ScoreHudView scoreHud = scoreBg.gameObject.AddComponent<ScoreHudView>();
-        Wire(scoreHud, "_scoreText", scoreText);
-        Wire(scoreHud, "_deltaText", scoreDelta);
+        // ── 좌상단 아이템 인디케이터(상시 표시, 작게) — 요구 4 ──
+        //  좌상단 정렬: [오늘 날짜] 바로 아래에 배치(겹침 회피). 날짜=0.945~0.985, 아이템=0.78~0.935.
+        RectTransform itemBg = NewUI("ItemIndicator", root, new Vector2(0.012f, 0.780f), new Vector2(0.175f, 0.935f));
+        AddImage(itemBg, new Color(0f, 0f, 0f, 0.55f));
+        TMP_Text itemTitle = AddText(itemBg, "ItemTitle", "아이템", 14, new Vector2(0.05f, 0.86f), new Vector2(0.95f, 0.98f), font, TextAlignmentOptions.Left);
+        itemTitle.color = new Color(0.85f, 0.80f, 0.55f); itemTitle.fontStyle = FontStyles.Bold;
+        TMP_Text itemList = AddText(itemBg, "ItemList", "", 14, new Vector2(0.05f, 0.02f), new Vector2(0.97f, 0.84f), font, TextAlignmentOptions.TopLeft);
+        itemList.color = new Color(0.95f, 0.93f, 0.85f);
+        ItemIndicatorView itemView = itemBg.gameObject.AddComponent<ItemIndicatorView>();
+        Wire(itemView, "_root", itemBg.gameObject);
+        Wire(itemView, "_itemsText", itemList);
+        itemBg.gameObject.SetActive(false); // 아이템 0개면 숨김(컴포넌트가 갱신 시 토글)
 
         // ── 서류 영역 (책상: 드래그로 펼치고, 거치 슬롯에 놓으면 접힘) ──
         RectTransform docArea = NewUI("DocumentArea", root, new Vector2(0.32f, 0.06f), new Vector2(0.985f, 0.66f));
@@ -284,10 +278,30 @@ public static class Day1SceneBuilder
             Wire(draggableHandset, "_logPopup", logPopup);
         }
 
-        // ── 1일차 완료 패널 ──
-        RectTransform dayDone = NewUI("DayCompletePanel", root, new Vector2(0.33f, 0.40f), new Vector2(0.67f, 0.60f));
-        AddImage(dayDone, new Color(0f, 0f, 0f, 0.8f));
-        AddText(dayDone, "DoneText", "1일차 완료", 44, Vector2.zero, Vector2.one, font, TextAlignmentOptions.Center);
+        // ── 일자 완료(일일 정산) 패널 — 요구 2: 돈은 여기서만 노출(점수는 넣지 않음) ──
+        RectTransform dayDone = NewUI("DayCompletePanel", root, new Vector2(0.33f, 0.34f), new Vector2(0.67f, 0.66f));
+        AddImage(dayDone, new Color(0f, 0f, 0f, 0.85f));
+        AddText(dayDone, "DoneText", "일자 완료", 40, new Vector2(0.05f, 0.74f), new Vector2(0.95f, 0.95f), font, TextAlignmentOptions.Center);
+
+        AddText(dayDone, "EarnedLabel", "오늘 번 돈", 20, new Vector2(0.10f, 0.52f), new Vector2(0.50f, 0.66f), font, TextAlignmentOptions.Left)
+            .color = new Color(0.85f, 0.82f, 0.6f);
+        TMP_Text earnedText = AddText(dayDone, "EarnedValue", "+0", 26, new Vector2(0.50f, 0.52f), new Vector2(0.90f, 0.66f), font, TextAlignmentOptions.Right);
+        earnedText.color = new Color(0.831f, 0.627f, 0.090f); earnedText.fontStyle = FontStyles.Bold; // Money/Gold #D4A017
+
+        AddText(dayDone, "BalanceLabel", "누적 잔액", 20, new Vector2(0.10f, 0.36f), new Vector2(0.50f, 0.50f), font, TextAlignmentOptions.Left)
+            .color = new Color(0.85f, 0.82f, 0.6f);
+        TMP_Text balanceText = AddText(dayDone, "BalanceValue", "0", 26, new Vector2(0.50f, 0.36f), new Vector2(0.90f, 0.50f), font, TextAlignmentOptions.Right);
+        balanceText.color = new Color(0.831f, 0.627f, 0.090f); balanceText.fontStyle = FontStyles.Bold;
+
+        DaySettlementView settlement = dayDone.gameObject.AddComponent<DaySettlementView>();
+        Wire(settlement, "_earnedText", earnedText);
+        Wire(settlement, "_balanceText", balanceText);
+
+        // "다음 날" 진행 버튼 — 패널 우하단(진행 버튼 관례). onClick 은 mgr 발견 후 아래에서 바인딩.
+        // 패널 토글은 게임플레이가 처리하므로 버튼은 SetActive 를 만지지 않는다.
+        Button nextDayBtn = MakeButton(dayDone, "NextDayButton", "다음 날", 24,
+            new Vector2(0.60f, 0.06f), new Vector2(0.90f, 0.22f), font, new Color(0.231f, 0.510f, 0.769f)); // Score/Blue 계열 진행색
+        // _controller 는 컨트롤러 생성 후 아래에서 와이어링한다.
         dayDone.gameObject.SetActive(false);
 
         // ── 컨트롤러 ──
@@ -298,10 +312,10 @@ public static class Day1SceneBuilder
         Wire(controller, "_dialogueView", dialogueView);
         Wire(controller, "_judgmentPanel", judgment);
         Wire(controller, "_slotCounterText", slotCounter);
-        Wire(controller, "_goldText", goldText);
+        // 골드 상시 HUD 제거(요구 2) — _goldText 는 와이어링하지 않는다(컨트롤러 null 체크로 무시됨).
         if (draggableHandset != null) Wire(draggableHandset, "_controller", controller); // 헤드셋 → 컨트롤러 후기 와이어링
-        // HudPanel 자식 탐색으로 자동 와이어링됨(slotCounter/goldText 변수가 직접 참조)
         Wire(controller, "_dayCompleteRoot", dayDone.gameObject);
+        Wire(settlement, "_controller", controller); // 일일 정산 → 일자 완료 통지 구독
 
         Wire(customerView, "_portraitPlaceholder", portrait);
         Wire(customerView, "_nameText", custName);
@@ -372,6 +386,8 @@ public static class Day1SceneBuilder
             BindButton(canvasT, "NewsButton", mgr, "OnNewsButton");
             BindButton(canvasT, "RulebookButton", mgr, "OnRulebookButton");
             BindButton(canvasT, "HandsetButton", mgr, "OnHandsetButton");
+            // 일자완료 패널의 "다음 날" 버튼(패널 하위에 중첩되어 이름 검색 대신 직접 참조로 바인딩).
+            BindButtonDirect(nextDayBtn, mgr, "OnNextDayButton");
         }
         else
         {
@@ -502,10 +518,11 @@ public static class Day1SceneBuilder
         return srb;
     }
 
-    // 오늘 날짜 패널(좌측하단, 작게) + 클릭 대조 소스(attr="today"). 검사기 버튼 바로 위.
+    // 오늘 날짜 패널(좌상단 최상단, 작게) + 클릭 대조 소스(attr="today").
+    //  좌상단 정렬: 화면 최상단 좌측. 바로 아래에 아이템 인디케이터(0.78~0.935)가 온다(겹침 회피).
     private static TodayDateView BuildTodayDateView(Transform parent, InspectionController controller, TMP_FontAsset font)
     {
-        RectTransform rt = NewUI("TodayDatePanel", parent, new Vector2(0.015f, 0.090f), new Vector2(0.160f, 0.130f));
+        RectTransform rt = NewUI("TodayDatePanel", parent, new Vector2(0.012f, 0.945f), new Vector2(0.150f, 0.985f));
         AddImage(rt, new Color(0.10f, 0.12f, 0.16f, 0.85f));
 
         // 날짜 텍스트(작게, 한 줄)
@@ -522,35 +539,28 @@ public static class Day1SceneBuilder
         return view;
     }
 
-    // 호칭·아이템 토스트 + 보유 목록 패널(열기 버튼 좌하단 도구바 근처). 닫기 = X 우상단.
+    // 보유 아이템 목록 패널(열기 버튼 좌하단 도구바 근처). 닫기 = X 우상단.
+    //  호칭 토스트/아이템 토스트는 제거됨(요구 3·4). 호칭은 메인 메뉴 업적 패널, 아이템은 좌상단 상시 위젯.
     private static void BuildRewardFeedback(Transform parent, TMP_FontAsset font)
     {
-        // 토스트(상단 중앙, 비활성 시작)
-        RectTransform toast = NewUI("RewardToast", parent, new Vector2(0.32f, 0.90f), new Vector2(0.60f, 0.965f));
-        AddImage(toast, new Color(0.10f, 0.30f, 0.18f, 0.95f));
-        TMP_Text toastText = AddText(toast, "ToastText", "", 20, new Vector2(0.04f, 0f), new Vector2(0.96f, 1f), font, TextAlignmentOptions.Center);
-        toastText.color = new Color(0.85f, 1f, 0.85f); toastText.fontStyle = FontStyles.Bold;
-        toast.gameObject.SetActive(false);
-
-        // 보유 목록 열기 버튼(좌하단 도구바, 검사기 버튼 우측)
-        Button openBtn = MakeButton(parent, "InventoryButton", "보유", 16, new Vector2(0.155f, 0.025f), new Vector2(0.215f, 0.085f), font, new Color(0.30f, 0.28f, 0.20f));
+        // 보유 목록 열기 버튼(좌상단, 아이템 인디케이터 바로 아래로 이동 — 아이템 관련 UI를 좌상단에 모음).
+        //  날짜=0.945~0.985, 아이템 위젯=0.78~0.935, '보유' 버튼=0.735~0.775(겹침 회피, 세로 정렬).
+        Button openBtn = MakeButton(parent, "InventoryButton", "보유", 16, new Vector2(0.012f, 0.735f), new Vector2(0.095f, 0.775f), font, new Color(0.30f, 0.28f, 0.20f));
 
         // 보유 목록 패널(중앙, 비활성 시작)
         RectTransform listRt = NewUI("InventoryPanel", parent, new Vector2(0.32f, 0.25f), new Vector2(0.68f, 0.75f));
         AddImage(listRt, new Color(0.10f, 0.12f, 0.16f, 0.96f));
-        TMP_Text listTitle = AddText(listRt, "Title", "획득 보상", 28, new Vector2(0.05f, 0.86f), new Vector2(0.80f, 0.97f), font, TextAlignmentOptions.Left);
+        TMP_Text listTitle = AddText(listRt, "Title", "보유 아이템", 28, new Vector2(0.05f, 0.86f), new Vector2(0.80f, 0.97f), font, TextAlignmentOptions.Left);
         listTitle.fontStyle = FontStyles.Bold; listTitle.color = new Color(1f, 0.9f, 0.6f);
         Button listClose = MakeButton(listRt, "CloseButton", "X", 22, new Vector2(0.88f, 0.86f), new Vector2(0.97f, 0.97f), font, new Color(0.60f, 0.18f, 0.18f));
         TMP_Text listText = AddText(listRt, "ListText", "", 18, new Vector2(0.06f, 0.06f), new Vector2(0.94f, 0.84f), font, TextAlignmentOptions.TopLeft);
         listText.color = Color.white;
         listRt.gameObject.SetActive(false);
 
-        // 컴포넌트는 전용 호스트에 부착(토스트 코루틴 호스트 — 토스트가 꺼져도 살아있어야 함).
+        // 컴포넌트는 전용 호스트에 부착(패널이 꺼져도 살아있어야 함).
         GameObject host = new GameObject("RewardFeedback", typeof(RectTransform));
         host.transform.SetParent(parent, false);
         RewardFeedbackView view = host.AddComponent<RewardFeedbackView>();
-        Wire(view, "_toastRoot", toast.gameObject);
-        Wire(view, "_toastText", toastText);
         Wire(view, "_listRoot", listRt.gameObject);
         Wire(view, "_listText", listText);
         Wire(view, "_openButton", openBtn);
@@ -720,6 +730,27 @@ public static class Day1SceneBuilder
         if (action != null)
         {
             UnityEventTools.AddPersistentListener(btn.onClick, action);
+        }
+    }
+
+    // 이름 검색 없이 직접 Button 참조에 ImmigrationManager 메서드를 영구 리스너로 바인딩(중첩 패널용).
+    private static void BindButtonDirect(Button btn, ImmigrationManager mgr, string method)
+    {
+        if (btn == null) { Debug.LogWarning($"[Day1SceneBuilder] BindButtonDirect: 버튼이 null ({method})"); return; }
+
+        // 기존 영구 리스너 제거 후 단일 바인딩
+        for (int i = btn.onClick.GetPersistentEventCount() - 1; i >= 0; i--)
+        {
+            UnityEventTools.RemovePersistentListener(btn.onClick, i);
+        }
+        UnityAction action = System.Delegate.CreateDelegate(typeof(UnityAction), mgr, method) as UnityAction;
+        if (action != null)
+        {
+            UnityEventTools.AddPersistentListener(btn.onClick, action);
+        }
+        else
+        {
+            Debug.LogWarning($"[Day1SceneBuilder] BindButtonDirect: {method} 델리게이트 생성 실패");
         }
     }
 

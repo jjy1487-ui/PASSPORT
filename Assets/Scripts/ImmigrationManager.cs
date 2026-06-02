@@ -138,19 +138,32 @@ public sealed class ImmigrationManager : MonoBehaviour
             return;
         }
 
-        // 같은 씬 재사용: 다음 일차 데이터 로드 → 컨트롤러 재초기화(골드 누적 유지).
-        // 현재는 즉시 진행. 완료 패널의 "다음 날" 버튼을 쓰려면 OnNextDayButton 을 바인딩한다.
-        BeginDay(completedDay + 1, resetGold: false);
+        // 14일 미만: 자동 진행하지 않는다. InspectionController.ShowDayComplete 가 띄운
+        // 일자완료(정산) 패널을 그대로 유지한 채 "다음 날" 버튼(→ OnNextDayButton) 입력을 기다린다.
+        // 이렇게 해야 유저가 "오늘 번 돈/누적 잔액"을 정산 패널에서 확인한 뒤 진행한다.
+        // 패널 비활성화는 다음 날 BeginDay() 시작 시 일괄 처리된다(InspectionController.Initialize).
+        Debug.Log($"[ImmigrationManager] day{completedDay} 정산 대기 — '다음 날' 버튼(OnNextDayButton) 입력 대기.");
     }
 
-    /// <summary>완료 패널 "다음 날" 버튼용(선택). 현재 일차 다음으로 진행.</summary>
+    /// <summary>
+    /// 일자완료(정산) 패널의 "다음 날" 버튼에 바인딩되는 공개 메서드.
+    /// 정산 패널 확인 후 호출되어 다음 일차를 시작한다(골드 누적 유지).
+    /// 엔딩이 이미 발동(조기/누적/14일)했으면 무시한다.
+    /// </summary>
     public void OnNextDayButton()
     {
+        if (_endingTriggered)
+        {
+            Debug.Log("[ImmigrationManager] 엔딩 발동 상태 — '다음 날' 입력 무시.");
+            return;
+        }
         if (CurrentDay >= LastDay)
         {
             Debug.Log("[ImmigrationManager] 더 진행할 일차가 없습니다(전체 종료).");
             return;
         }
+        // BeginDay → InspectionController.Initialize 가 _dayCompleteRoot.SetActive(false) 로
+        // 정산 패널을 닫고 새 일차 첫 손님을 띄운다.
         BeginDay(CurrentDay + 1, resetGold: false);
     }
 
