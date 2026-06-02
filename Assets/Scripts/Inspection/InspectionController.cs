@@ -28,10 +28,81 @@ public sealed class InspectionController : MonoBehaviour
     private Day1Data _data;
     private int _index;
     private int _wrongRejectCount;
-    private readonly List<string> _dialogueLog = new List<string>(); // 현재 손님의 대화 기록
+    private readonly List<string> _dialogueLog = new List<string>(); // 현재 손님의 대화 기록(표시용 문자열)
+    private readonly List<DialogueLineData> _dialogueLines = new List<DialogueLineData>(); // 구조 라인(대조 단서용)
 
-    /// <summary>음성기록 팝업용: 현재 손님이 한 대화 목록.</summary>
+    // 대화 요청 버튼용: 현재 손님의 "다시 들을 수 있는" 대사 케이스(입장/오거부 항의 등).
+    // PlayThen 으로 흐른 마지막 케이스를 보관해 두고, 요청 시 그대로 재생한다.
+    private DialogueCaseData _requestableCase;
+    private bool _dialoguePlaying;
+
+    /// <summary>현재 일차의 마지막 손님까지 끝나면 발행(인자: 방금 끝난 일차). 진행 매니저가 구독.</summary>
+    public event System.Action<int> OnDayCompleted;
+
+    /// <summary>현재 로드된 일차(데이터의 day). 데이터 없으면 0.</summary>
+    public int CurrentDay => _data != null ? _data.day : 0;
+
+    /// <summary>오늘 날짜 기준일(day1 = 2026-06-01). 이후 하루씩 증가.</summary>
+    private static readonly System.DateTime DateBase = new System.DateTime(2026, 6, 1);
+
+    /// <summary>
+    /// 오늘 날짜("yyyy-MM-dd"). 기준일에 (현재 day - 1)일을 더한다(day1=2026-06-01).
+    /// 런타임 계산 — 데이터 변경 없음. 일차당 고정(손님이 바뀌어도 같은 날 동일).
+    /// 표시·대조 보조용 — 판정/점수에 영향 없음. 데이터 없으면 빈 문자열.
+    /// </summary>
+    public string CurrentDate =>
+        _data != null ? DateBase.AddDays(System.Math.Max(0, _data.day - 1)).ToString("yyyy-MM-dd") : string.Empty;
+
+    /// <summary>음성기록 팝업용: 현재 손님이 한 대화 목록(표시용 문자열).</summary>
     public IReadOnlyList<string> GetDialogueLog() => _dialogueLog;
+
+    /// <summary>음성기록 팝업용(대조): 현재 손님이 한 대화의 구조 라인(claim 포함, 순서대로).</summary>
+    public IReadOnlyList<DialogueLineData> GetDialogueLines() => _dialogueLines;
+
+    /// <summary>대화 요청 버튼 활성 상태가 바뀌면 발행(버튼 뷰가 구독).</summary>
+    public event System.Action<bool> OnRequestableChanged;
+
+    /// <summary>현재 손님이 바뀌면 발행(검사기 버튼/패널이 구독해 갱신). 손님 없으면 false 시점에도 발행될 수 있음.</summary>
+    public event System.Action OnCustomerChanged;
+
+    /// <summary>현재 손님의 X-ray 검사 결과(없으면 null). 검사기 UI 표시·대조용 — 판정에는 영향 없음.</summary>
+    public ScanData CurrentXray => Current?.xray;
+
+    /// <summary>현재 손님의 지문 검사 결과(없으면 null). 검사기 UI 표시·대조용 — 판정에는 영향 없음.</summary>
+    public ScanData CurrentFingerprint => Current?.fingerprint;
+
+    /// <summary>지금 '대화/심문' 버튼으로 대사를 요청할 수 있는가(재생 중이 아니고 요청 케이스 존재).</summary>
+    public bool CanRequestDialogue =>
+        !_dialoguePlaying && _requestableCase != null
+        && _requestableCase.lines != null && _requestableCase.lines.Length > 0;
+
+    /// <summary>
+    /// 플레이어가 '대화/심문' 버튼을 눌렀을 때 호출. 현재 상태에 맞는 대사(입장/오거부 항의 등)를
+    /// 다시 재생한다. 판정·오거부 루프·점수 로직은 건드리지 않는다(요청은 재생만).
+    /// </summary>
+    public void RequestDialogue()
+    {
+        if (!CanRequestDialogue) return;
+
+        DialogueCaseData c = _requestableCase;
+        _dialoguePlaying = true;
+        RaiseRequestable();
+        if (_dialogueView != null)
+        {
+            _dialogueView.Play(c, () =>
+            {
+                _dialoguePlaying = false;
+                RaiseRequestable();
+            });
+        }
+        else
+        {
+            _dialoguePlaying = false;
+            RaiseRequestable();
+        }
+    }
+
+    private void RaiseRequestable() => OnRequestableChanged?.Invoke(CanRequestDialogue);
 
     private void OnEnable()
     {
@@ -49,8 +120,14 @@ public sealed class InspectionController : MonoBehaviour
         }
     }
 
-    /// <summary>데이터를 받아 1일차를 시작한다.</summary>
-    public void Initialize(Day1Data data)
+    /// <summary>데이터를 받아 해당 일차를 시작한다(첫날: 골드 초기화).</summary>
+    public void Initialize(Day1Data data) => Initialize(data, true);
+
+    /// <summary>
+    /// 데이터를 받아 해당 일차를 시작한다.
+    /// resetGold=false 면 누적 골드를 유지(2일차 이후 재초기화용).
+    /// </summary>
+    public void Initialize(Day1Data data, bool resetGold)
     {
         if (data == null || data.customers == null || data.customers.Length == 0)
         {
@@ -60,7 +137,7 @@ public sealed class InspectionController : MonoBehaviour
 
         _data = data;
         _index = 0;
-        _gold = 0;
+        if (resetGold) _gold = 0;
         UpdateGold();
         if (_dayCompleteRoot != null) _dayCompleteRoot.SetActive(false);
         ShowCustomer(0);
@@ -82,6 +159,11 @@ public sealed class InspectionController : MonoBehaviour
         CustomerData c = _data.customers[index];
         _wrongRejectCount = 0;
         _dialogueLog.Clear();
+        _dialogueLines.Clear();
+        _requestableCase = null;
+        _dialoguePlaying = false;
+        RaiseRequestable();
+        OnCustomerChanged?.Invoke();
 
         if (_customerView != null) _customerView.Show(c);
         if (_documentView != null) _documentView.Show(c.documents);
@@ -160,13 +242,26 @@ public sealed class InspectionController : MonoBehaviour
     private void PlayThen(DialogueCaseData dialogueCase, System.Action onComplete)
     {
         AppendLog(dialogueCase);
+
+        // 이 케이스를 "요청 가능한 대사"로 보관(입장/오거부 항의 등 현재 손님 맥락 대사).
+        _requestableCase = dialogueCase;
+        _dialoguePlaying = true;
+        RaiseRequestable();
+
+        System.Action wrapped = () =>
+        {
+            _dialoguePlaying = false;
+            RaiseRequestable();
+            onComplete?.Invoke();
+        };
+
         if (_dialogueView != null)
         {
-            _dialogueView.Play(dialogueCase, onComplete);
+            _dialogueView.Play(dialogueCase, wrapped);
         }
         else
         {
-            onComplete?.Invoke();
+            wrapped();
         }
     }
 
@@ -181,6 +276,7 @@ public sealed class InspectionController : MonoBehaviour
         foreach (DialogueLineData ln in arr)
         {
             _dialogueLog.Add(ln.speaker + ": " + ln.text);
+            _dialogueLines.Add(ln);
         }
     }
 
@@ -196,7 +292,11 @@ public sealed class InspectionController : MonoBehaviour
         if (_dialogueView != null) _dialogueView.Hide();
         if (_judgmentPanel != null) _judgmentPanel.SetReady(false);
         if (_dayCompleteRoot != null) _dayCompleteRoot.SetActive(true);
-        Debug.Log("[InspectionController] 1일차 완료");
+        OnCustomerChanged?.Invoke(); // 손님 종료 → 검사기 패널/버튼 비활성화
+        Debug.Log($"[InspectionController] {CurrentDay}일차 완료");
+
+        // 진행 매니저(ImmigrationManager 등)에 일자 완료 통지. UI 직접 참조 없음.
+        OnDayCompleted?.Invoke(CurrentDay);
     }
 
     private static DialogueCaseData FindCaseByType(CustomerData c, string caseType)

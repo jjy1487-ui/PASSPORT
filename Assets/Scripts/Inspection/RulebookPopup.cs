@@ -3,8 +3,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-/// <summary>1일차 규정집 팝업. 이전/다음으로 규정 넘김, 닫기로 종료. 비활성 시작.</summary>
-public sealed class RulebookPopup : MonoBehaviour
+/// <summary>
+/// 1일차 규정집 팝업. 이전/다음으로 규정 넘김, 닫기로 종료. 비활성 시작.
+/// 현재 규정을 클릭 가능한 대조 항목(attr=rule.attr, value="" → 관련성만)으로 노출한다(ICrossCheckProvider).
+/// </summary>
+public sealed class RulebookPopup : MonoBehaviour, ICrossCheckProvider
 {
     [Header("UI 참조")]
     [SerializeField] private GameObject _root;
@@ -15,8 +18,14 @@ public sealed class RulebookPopup : MonoBehaviour
     [SerializeField] private Button _nextButton;
     [SerializeField] private Button _closeButton;
 
+    [Header("교차 대조 항목(선택)")]
+    [SerializeField] private CrossCheckItemView _ruleSelectable; // 현재 규정을 대조 항목으로(관련성 표시)
+
     private IReadOnlyList<RuleData> _items;
     private int _index;
+
+    /// <summary>selectable 구성 변경 통지.</summary>
+    public event System.Action OnSelectablesChanged;
 
     private void Awake()
     {
@@ -46,6 +55,7 @@ public sealed class RulebookPopup : MonoBehaviour
     public void Close()
     {
         if (_root != null) _root.SetActive(false);
+        OnSelectablesChanged?.Invoke();
     }
 
     private void Prev()
@@ -69,5 +79,27 @@ public sealed class RulebookPopup : MonoBehaviour
         if (_titleText != null) _titleText.text = item.title;
         if (_contentText != null) _contentText.text = item.content;
         if (_pageText != null) _pageText.text = $"{_index + 1} / {_items.Count}";
+
+        // 현재 규정을 대조 항목으로(값 비교 없음 → 관련성만). attr 없으면 비활성.
+        if (_ruleSelectable != null)
+        {
+            bool hasAttr = !string.IsNullOrEmpty(item.attr);
+            _ruleSelectable.gameObject.SetActive(hasAttr);
+            if (hasAttr)
+            {
+                string label = string.IsNullOrEmpty(item.relatedField) ? item.title : item.relatedField;
+                _ruleSelectable.Bind("규정", item.attr, string.Empty, label, $"규정: {label}");
+            }
+        }
+
+        OnSelectablesChanged?.Invoke();
+    }
+
+    // ── ICrossCheckProvider ──────────────────────────────────────
+    public IEnumerable<ICrossCheckSelectable> GetSelectables()
+    {
+        if (_root == null || !_root.activeInHierarchy) yield break;
+        if (_ruleSelectable != null && _ruleSelectable.gameObject.activeInHierarchy)
+            yield return _ruleSelectable;
     }
 }

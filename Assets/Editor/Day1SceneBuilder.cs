@@ -45,6 +45,12 @@ public static class Day1SceneBuilder
         custInfo.color = new Color(0.3f, 0.3f, 0.35f);
         CustomerView customerView = custArea.gameObject.AddComponent<CustomerView>();
 
+        // 교차 대조용 selectable: 이름(attr=name)·얼굴(attr=face). 초상 영역에 클릭 위젯 2개.
+        CrossCheckItemView custNameSel = MakeItemView(custName.rectTransform, "NameSelectable", font);
+        CrossCheckItemView custFaceSel = MakeItemView(portrait.rectTransform, "FaceSelectable", font, "얼굴");
+        Wire(customerView, "_nameSelectable", custNameSel);
+        Wire(customerView, "_faceSelectable", custFaceSel);
+
         // ── 말풍선(손님 대사) — 크고 잘 보이게 ──
         RectTransform bubble = NewUI("SpeechBubble", root, new Vector2(0.30f, 0.68f), new Vector2(0.74f, 0.90f));
         AddImage(bubble, new Color(1f, 1f, 0.97f, 0.97f));
@@ -107,6 +113,27 @@ public static class Day1SceneBuilder
         cardBody.color = new Color(0.1f, 0.1f, 0.1f);
         AddLayoutElement(cardBody.gameObject, 360);
 
+        // 필드 행 템플릿(클릭 대조용). 비활성 템플릿 → 런타임에 fields 컨테이너로 fields[]만큼 복제.
+        RectTransform fieldRow = NewUI("FieldRowTemplate", fields, Vector2.zero, Vector2.one);
+        Image fieldRowHit = AddImage(fieldRow, new Color(1f, 1f, 1f, 0f)); // 투명 raycast(버튼 타겟)
+        fieldRowHit.raycastTarget = true;
+        AddLayoutElement(fieldRow.gameObject, 30);
+        Image fieldHighlight = AddImage(NewUI("Highlight", fieldRow, Vector2.zero, Vector2.one), new Color(0.231f, 0.510f, 0.769f, 0.45f));
+        fieldHighlight.raycastTarget = false;
+        fieldHighlight.gameObject.SetActive(false);
+        TMP_Text fieldLabel = AddText(fieldRow, "Label", "라벨", 15, new Vector2(0f, 0f), new Vector2(0.46f, 1f), font, TextAlignmentOptions.Left);
+        fieldLabel.color = new Color(0.30f, 0.30f, 0.35f); fieldLabel.raycastTarget = false;
+        TMP_Text fieldValue = AddText(fieldRow, "Value", "값", 15, new Vector2(0.46f, 0f), new Vector2(1f, 1f), font, TextAlignmentOptions.Left);
+        fieldValue.color = new Color(0.1f, 0.1f, 0.1f); fieldValue.fontStyle = FontStyles.Bold; fieldValue.raycastTarget = false;
+        Button fieldBtn = fieldRow.gameObject.AddComponent<Button>();
+        fieldBtn.targetGraphic = fieldRowHit;
+        DocumentFieldView fieldView = fieldRow.gameObject.AddComponent<DocumentFieldView>();
+        Wire(fieldView, "_labelText", fieldLabel);
+        Wire(fieldView, "_valueText", fieldValue);
+        Wire(fieldView, "_button", fieldBtn);
+        Wire(fieldView, "_highlight", fieldHighlight);
+        fieldRow.gameObject.SetActive(false); // 템플릿은 비활성(복제본만 활성)
+
         // 도장 자국(펼친 여권 종이 위, 비활성)
         RectTransform stampRt = NewUI("StampImprint", openView, new Vector2(0.10f, 0.28f), new Vector2(0.90f, 0.58f));
         TMP_Text stampText = AddText(stampRt, "StampText", "입국 허가", 40, Vector2.zero, Vector2.one, font, TextAlignmentOptions.Center);
@@ -127,6 +154,8 @@ public static class Day1SceneBuilder
         Wire(cardView, "_background", paper);
         Wire(cardView, "_typeHeader", cardHeader);
         Wire(cardView, "_bodyText", cardBody);
+        Wire(cardView, "_fieldContainer", fields);
+        Wire(cardView, "_fieldTemplate", fieldView);
         Wire(cardView, "_closedImage", closedImg);
         Wire(cardView, "_closedLabel", closedLabel);
         Wire(cardView, "_stampRoot", stampRt.gameObject);
@@ -179,9 +208,19 @@ public static class Day1SceneBuilder
         Wire(judgment, "_rejectStampButton", rejectBtn);
 
         // ── 뉴스 팝업 ──
-        NewsPopup newsPopup = BuildListPopup<NewsPopup>(root, "NewsPanel", "뉴스", font, out _);
+        NewsPopup newsPopup = BuildListPopup<NewsPopup>(root, "NewsPanel", "뉴스", font, out RectTransform newsRt);
+        // 뉴스 claim 단서 컨테이너 + 템플릿(우하단 영역)
+        BuildClaimList(newsRt, font, out Transform newsClaimC, out CrossCheckItemView newsClaimTpl);
+        Wire(newsPopup, "_claimContainer", newsClaimC);
+        Wire(newsPopup, "_claimTemplate", newsClaimTpl);
+
         // ── 규정집 팝업 ──
-        RulebookPopup rulePopup = BuildListPopup<RulebookPopup>(root, "RulebookPanel", "규정집", font, out _);
+        RulebookPopup rulePopup = BuildListPopup<RulebookPopup>(root, "RulebookPanel", "규정집", font, out RectTransform ruleRt);
+        // 규정 1건을 대조 항목으로(관련성). 하단 영역에 단일 위젯.
+        RectTransform ruleSelArea = NewUI("RuleSelectable", ruleRt, new Vector2(0.22f, 0.16f), new Vector2(0.78f, 0.21f));
+        CrossCheckItemView ruleSel = MakeItemView(ruleSelArea, "Item", font, "규정");
+        ruleSel.gameObject.SetActive(false);
+        Wire(rulePopup, "_ruleSelectable", ruleSel);
 
         // ── 대화 기록 팝업 — DocumentArea 위에 꽉 채워 표시 ──
         RectTransform logRt = NewUI("DialogueLogPanel", docArea, Vector2.zero, Vector2.one);
@@ -189,12 +228,24 @@ public static class Day1SceneBuilder
         TMP_Text logTitle = AddText(logRt, "Title", "대화 기록", 26, new Vector2(0.04f, 0.88f), new Vector2(0.82f, 0.98f), font, TextAlignmentOptions.Left);
         logTitle.fontStyle = FontStyles.Bold; logTitle.color = new Color(1f, 0.9f, 0.6f);
         Button logClose = MakeButton(logRt, "CloseButton", "X", 22, new Vector2(0.88f, 0.89f), new Vector2(0.99f, 0.99f), font, new Color(0.60f, 0.18f, 0.18f));
-        TMP_Text logText = AddText(logRt, "LogText", "", 17, new Vector2(0.04f, 0.04f), new Vector2(0.96f, 0.87f), font, TextAlignmentOptions.TopLeft);
+        // 일반 라인(비-단서)은 상단, 단서 위젯은 하단 컨테이너에 쌓는다.
+        TMP_Text logText = AddText(logRt, "LogText", "", 17, new Vector2(0.04f, 0.46f), new Vector2(0.96f, 0.87f), font, TextAlignmentOptions.TopLeft);
         logText.color = Color.white;
+        // claim 단서 컨테이너 + 템플릿
+        RectTransform logClaimArea = NewUI("ClaimContainer", logRt, new Vector2(0.04f, 0.04f), new Vector2(0.96f, 0.44f));
+        VerticalLayoutGroup lcv = logClaimArea.gameObject.AddComponent<VerticalLayoutGroup>();
+        lcv.spacing = 6; lcv.padding = new RectOffset(4, 4, 4, 4);
+        lcv.childControlWidth = true; lcv.childControlHeight = true;
+        lcv.childForceExpandWidth = true; lcv.childForceExpandHeight = false;
+        CrossCheckItemView logClaimTpl = MakeItemView(NewUI("ClaimTemplate", logClaimArea, Vector2.zero, Vector2.one), "Item", font, "단서");
+        AddLayoutElement(logClaimTpl.gameObject, 36);
+        logClaimTpl.gameObject.SetActive(false);
         DialogueLogPopup logPopup = logRt.gameObject.AddComponent<DialogueLogPopup>();
         Wire(logPopup, "_root", logRt.gameObject);
         Wire(logPopup, "_logText", logText);
         Wire(logPopup, "_closeButton", logClose);
+        Wire(logPopup, "_claimContainer", logClaimArea);
+        Wire(logPopup, "_claimTemplate", logClaimTpl);
         logRt.gameObject.SetActive(false);
 
         // ── 헤드셋 — 기존 HandsetButton 이미지를 headset.png 스프라이트로 교체 ──
@@ -242,6 +293,50 @@ public static class Day1SceneBuilder
         Wire(customerView, "_portraitPlaceholder", portrait);
         Wire(customerView, "_nameText", custName);
         Wire(customerView, "_infoText", custInfo);
+
+        // ── 보조검사기(X-ray / 지문) — 버튼 2개(데스크 도구 영역) + 결과 패널 2개 ──
+        ScanResultPanel xrayPanel = BuildScanPanel(root, "XrayPanel", "X-ray 검사",
+            ScanResultPanel.ScanKind.Xray, controller, font);
+        ScanResultPanel fpPanel = BuildScanPanel(root, "FingerprintPanel", "지문 대조",
+            ScanResultPanel.ScanKind.Fingerprint, controller, font);
+
+        // 검사기 버튼(데스크 도구 영역 — 헤드셋/뉴스/규정 버튼 근처, 화면 좌하단 도구바).
+        // 기본 잠금 — _crossCheck 참조는 컨트롤러 생성 후 아래에서 와이어링한다.
+        ScanRequestButton xrayBtn = BuildScanButton(root, "XrayButton", "X-ray", new Vector2(0.015f, 0.025f), new Vector2(0.075f, 0.085f),
+            controller, xrayPanel, font, new Color(0.20f, 0.35f, 0.55f));
+        ScanRequestButton fpBtn = BuildScanButton(root, "FingerprintButton", "지문", new Vector2(0.085f, 0.025f), new Vector2(0.145f, 0.085f),
+            controller, fpPanel, font, new Color(0.30f, 0.30f, 0.40f));
+
+        // ── 오늘 날짜(좌측하단, 작게) + 클릭 대조 소스 ──
+        TodayDateView todayView = BuildTodayDateView(root, controller, font);
+
+        // ── 교차 대조(연결선 + 컨트롤러) ──
+        // 연결선 연출(점선 + 깜빡임). 최상단에 그려져야 하므로 root 마지막 자식.
+        RectTransform xcRoot = NewUI("CrossCheckConnector", root, Vector2.zero, Vector2.one);
+        RectTransform dash = NewUI("Dash", xcRoot, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f));
+        Image dashImg = AddImage(dash, new Color(0.231f, 0.510f, 0.769f));
+        dash.sizeDelta = new Vector2(10f, 3f);
+        TMP_Text xcLabel = AddText(xcRoot, "ResultLabel", "", 22, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), font, TextAlignmentOptions.Center);
+        xcLabel.rectTransform.sizeDelta = new Vector2(160f, 40f);
+        xcLabel.fontStyle = FontStyles.Bold;
+        CrossCheckConnectorView connector = xcRoot.gameObject.AddComponent<CrossCheckConnectorView>();
+        Wire(connector, "_root", xcRoot);
+        Wire(connector, "_dashLine", dash);
+        Wire(connector, "_dashImage", dashImg);
+        Wire(connector, "_resultLabel", xcLabel);
+        Wire(connector, "_canvasRect", canvas.GetComponent<RectTransform>());
+        xcRoot.gameObject.SetActive(false);
+
+        RectTransform xcObj = NewUI("CrossCheckController", root, Vector2.zero, Vector2.zero);
+        CrossCheckController crossCheck = xcObj.gameObject.AddComponent<CrossCheckController>();
+        Wire(crossCheck, "_documentView", documentView);
+        Wire(crossCheck, "_connectorView", connector);
+        // 추가 공급자: 캐릭터/뉴스/규정/대화/보조검사(X-ray·지문)(ICrossCheckProvider 구현 MonoBehaviour 배열).
+        WireArray(crossCheck, "_extraProviders", new Component[] { customerView, newsPopup, rulePopup, logPopup, xrayPanel, fpPanel, todayView });
+
+        // 스캔 버튼 잠금 해제 트리거 소스 와이어링(컨트롤러 생성 후).
+        if (xrayBtn != null) Wire(xrayBtn, "_crossCheck", crossCheck);
+        if (fpBtn != null) Wire(fpBtn, "_crossCheck", crossCheck);
 
         // ── ImmigrationManager 와이어링 + 버튼 onClick ──
         ImmigrationManager mgr = Object.FindFirstObjectByType<ImmigrationManager>();
@@ -291,6 +386,118 @@ public static class Day1SceneBuilder
         Wire(comp, "_closeButton", close);
         rt.gameObject.SetActive(false);
         return comp;
+    }
+
+    // 클릭 가능한 대조 항목 위젯(라벨 + 버튼 + 선택 하이라이트)을 만든다.
+    private static CrossCheckItemView MakeItemView(RectTransform parent, string name, TMP_FontAsset font, string label = "")
+    {
+        RectTransform rt = NewUI(name, parent, Vector2.zero, Vector2.one);
+        // 선택 하이라이트(비활성 시작)
+        RectTransform hi = NewUI("Highlight", rt, Vector2.zero, Vector2.one);
+        Image hiImg = AddImage(hi, new Color(0.231f, 0.510f, 0.769f, 0.45f));
+        hi.gameObject.SetActive(false);
+        // 라벨
+        TMP_Text t = AddText(rt, "Label", label, 16, Vector2.zero, Vector2.one, font, TextAlignmentOptions.Center);
+        t.color = Color.white;
+        // 투명 버튼(클릭 영역)
+        Image clickImg = AddImage(NewUI("Hit", rt, Vector2.zero, Vector2.one), new Color(1f, 1f, 1f, 0f));
+        Button btn = clickImg.gameObject.AddComponent<Button>();
+        btn.targetGraphic = clickImg;
+
+        CrossCheckItemView v = rt.gameObject.AddComponent<CrossCheckItemView>();
+        Wire(v, "_labelText", t);
+        Wire(v, "_button", btn);
+        Wire(v, "_highlight", hiImg);
+        return v;
+    }
+
+    // 팝업 하단에 claim 단서 컨테이너(VerticalLayoutGroup)와 비활성 템플릿을 만든다.
+    private static void BuildClaimList(RectTransform popup, TMP_FontAsset font, out Transform container, out CrossCheckItemView template)
+    {
+        RectTransform area = NewUI("ClaimContainer", popup, new Vector2(0.06f, 0.04f), new Vector2(0.94f, 0.2f));
+        VerticalLayoutGroup vlg = area.gameObject.AddComponent<VerticalLayoutGroup>();
+        vlg.spacing = 6; vlg.padding = new RectOffset(4, 4, 4, 4);
+        vlg.childControlWidth = true; vlg.childControlHeight = true;
+        vlg.childForceExpandWidth = true; vlg.childForceExpandHeight = false;
+        CrossCheckItemView tpl = MakeItemView(NewUI("ClaimTemplate", area, Vector2.zero, Vector2.one), "Item", font, "단서");
+        AddLayoutElement(tpl.gameObject, 34);
+        tpl.gameObject.SetActive(false);
+        container = area;
+        template = tpl;
+    }
+
+    // 보조검사 결과 패널(제목/결과/세부/추가 + 닫기 X + claim 대조 항목 1개). 비활성 시작.
+    private static ScanResultPanel BuildScanPanel(Transform parent, string name, string titleDefault,
+        ScanResultPanel.ScanKind kind, InspectionController controller, TMP_FontAsset font)
+    {
+        RectTransform rt = NewUI(name, parent, new Vector2(0.30f, 0.30f), new Vector2(0.70f, 0.70f));
+        AddImage(rt, new Color(0.10f, 0.12f, 0.16f, 0.96f));
+
+        TMP_Text title = AddText(rt, "Title", titleDefault, 30, new Vector2(0.05f, 0.84f), new Vector2(0.82f, 0.96f), font, TextAlignmentOptions.Left);
+        title.fontStyle = FontStyles.Bold; title.color = new Color(0.55f, 0.85f, 1f);
+        // 닫기 = X, 우상단(UI 규약)
+        Button close = MakeButton(rt, "CloseButton", "X", 22, new Vector2(0.88f, 0.85f), new Vector2(0.97f, 0.96f), font, new Color(0.60f, 0.18f, 0.18f));
+
+        TMP_Text result = AddText(rt, "ResultText", "결과: -", 24, new Vector2(0.06f, 0.66f), new Vector2(0.94f, 0.80f), font, TextAlignmentOptions.Left);
+        result.color = new Color(1f, 0.85f, 0.5f); result.fontStyle = FontStyles.Bold;
+        TMP_Text detail = AddText(rt, "DetailText", "-", 20, new Vector2(0.06f, 0.52f), new Vector2(0.94f, 0.66f), font, TextAlignmentOptions.Left);
+        detail.color = Color.white;
+        TMP_Text extra = AddText(rt, "ExtraText", "-", 20, new Vector2(0.06f, 0.40f), new Vector2(0.94f, 0.52f), font, TextAlignmentOptions.Left);
+        extra.color = Color.white;
+
+        // claim 대조 항목 1개(하단 중앙). 비활성 시작 → 데이터에 claim 있을 때만 노출.
+        RectTransform claimArea = NewUI("ClaimSelectable", rt, new Vector2(0.18f, 0.10f), new Vector2(0.82f, 0.20f));
+        CrossCheckItemView claimSel = MakeItemView(claimArea, "Item", font, "단서");
+        claimSel.gameObject.SetActive(false);
+
+        ScanResultPanel panel = rt.gameObject.AddComponent<ScanResultPanel>();
+        Wire(panel, "_controller", controller);
+        WireEnum(panel, "_kind", (int)kind);
+        Wire(panel, "_root", rt.gameObject);
+        Wire(panel, "_titleText", title);
+        Wire(panel, "_resultText", result);
+        Wire(panel, "_detailText", detail);
+        Wire(panel, "_extraText", extra);
+        Wire(panel, "_closeButton", close);
+        Wire(panel, "_claimSelectable", claimSel);
+        rt.gameObject.SetActive(false);
+        return panel;
+    }
+
+    // 검사기 버튼(토글). 기본 잠금 — 데이터 없거나 미해제 시 흐리게(CanvasGroup) + 비활성.
+    // _crossCheck 는 컨트롤러 생성 후 별도로 와이어링한다(생성 순서 의존).
+    private static ScanRequestButton BuildScanButton(Transform parent, string name, string label,
+        Vector2 anchorMin, Vector2 anchorMax, InspectionController controller, ScanResultPanel panel,
+        TMP_FontAsset font, Color bg)
+    {
+        Button btn = MakeButton(parent, name, label, 18, anchorMin, anchorMax, font, bg);
+        CanvasGroup cg = btn.gameObject.AddComponent<CanvasGroup>();
+        ScanRequestButton srb = btn.gameObject.AddComponent<ScanRequestButton>();
+        Wire(srb, "_controller", controller);
+        Wire(srb, "_panel", panel);
+        Wire(srb, "_button", btn);
+        Wire(srb, "_canvasGroup", cg);
+        return srb;
+    }
+
+    // 오늘 날짜 패널(좌측하단, 작게) + 클릭 대조 소스(attr="today"). 검사기 버튼 바로 위.
+    private static TodayDateView BuildTodayDateView(Transform parent, InspectionController controller, TMP_FontAsset font)
+    {
+        RectTransform rt = NewUI("TodayDatePanel", parent, new Vector2(0.015f, 0.090f), new Vector2(0.160f, 0.130f));
+        AddImage(rt, new Color(0.10f, 0.12f, 0.16f, 0.85f));
+
+        // 날짜 텍스트(작게, 한 줄)
+        TMP_Text dateText = AddText(rt, "DateText", "오늘: -", 14, Vector2.zero, Vector2.one, font, TextAlignmentOptions.Center);
+        dateText.color = new Color(0.95f, 0.92f, 0.7f);
+
+        // 클릭 대조 selectable: 패널 전체를 클릭 영역으로(SourceType="오늘", attr="today").
+        CrossCheckItemView todaySel = MakeItemView(rt, "TodaySelectable", font, "");
+
+        TodayDateView view = rt.gameObject.AddComponent<TodayDateView>();
+        Wire(view, "_controller", controller);
+        Wire(view, "_dateText", dateText);
+        Wire(view, "_todaySelectable", todaySel);
+        return view;
     }
 
     // ───────── 헬퍼 ─────────
@@ -352,6 +559,36 @@ public static class Day1SceneBuilder
             return;
         }
         prop.objectReferenceValue = value;
+        so.ApplyModifiedPropertiesWithoutUndo();
+    }
+
+    private static void WireEnum(Component comp, string fieldName, int enumValue)
+    {
+        SerializedObject so = new SerializedObject(comp);
+        SerializedProperty prop = so.FindProperty(fieldName);
+        if (prop == null)
+        {
+            Debug.LogWarning($"[Day1SceneBuilder] {comp.GetType().Name}.{fieldName} 열거형 프로퍼티를 찾지 못했습니다.");
+            return;
+        }
+        prop.enumValueIndex = enumValue;
+        so.ApplyModifiedPropertiesWithoutUndo();
+    }
+
+    private static void WireArray(Component comp, string fieldName, Component[] values)
+    {
+        SerializedObject so = new SerializedObject(comp);
+        SerializedProperty prop = so.FindProperty(fieldName);
+        if (prop == null || !prop.isArray)
+        {
+            Debug.LogWarning($"[Day1SceneBuilder] {comp.GetType().Name}.{fieldName} 배열 프로퍼티를 찾지 못했습니다.");
+            return;
+        }
+        prop.arraySize = values.Length;
+        for (int i = 0; i < values.Length; i++)
+        {
+            prop.GetArrayElementAtIndex(i).objectReferenceValue = values[i];
+        }
         so.ApplyModifiedPropertiesWithoutUndo();
     }
 

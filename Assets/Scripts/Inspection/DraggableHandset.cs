@@ -50,7 +50,7 @@ public sealed class DraggableHandset : MonoBehaviour, IBeginDragHandler, IDragHa
 
         if (inZone && _controller != null && _logPopup != null)
         {
-            _logPopup.Open(_controller.GetDialogueLog());
+            _logPopup.OpenLines(_controller.GetDialogueLines());
         }
 
         // 항상 제자리로 복귀

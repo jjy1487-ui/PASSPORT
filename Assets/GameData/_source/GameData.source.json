@@ -1,0 +1,4805 @@
+{
+ "source_file": "여권_정리_updated.xlsx",
+ "sheets": {
+  "customer": {
+   "columns": [
+    {
+     "key": "customer_id",
+     "type": "int",
+     "label": "고객 ID"
+    },
+    {
+     "key": "name_kr",
+     "type": "varchar(30)",
+     "label": "한글 이름"
+    },
+    {
+     "key": "name_en",
+     "type": "varchar(60)",
+     "label": "영문 이름"
+    },
+    {
+     "key": "nationality",
+     "type": "varchar(30)",
+     "label": "국적"
+    },
+    {
+     "key": "gender",
+     "type": "varchar(10)",
+     "label": "성별"
+    },
+    {
+     "key": "birth_date",
+     "type": "date",
+     "label": "생년월일"
+    },
+    {
+     "key": "age",
+     "type": "int",
+     "label": "나이"
+    },
+    {
+     "key": "sprite_ref",
+     "type": "varchar(50)",
+     "label": "캐릭터 이미지 참조"
+    },
+    {
+     "key": "character_type",
+     "type": "varchar(30)",
+     "label": "캐릭터 유형"
+    }
+   ],
+   "rows": [
+    {
+     "customer_id": "1",
+     "name_kr": "김민준",
+     "name_en": "KIM MINJUN",
+     "nationality": "대한민국(KOR)",
+     "gender": "남성",
+     "birth_date": "1985-03-15",
+     "age": "41",
+     "sprite_ref": "spr_c001",
+     "character_type": "일반 고객"
+    },
+    {
+     "customer_id": "2",
+     "name_kr": "이지은",
+     "name_en": "LEE JIEUN",
+     "nationality": "대한민국(KOR)",
+     "gender": "여성",
+     "birth_date": "1990-07-22",
+     "age": "35",
+     "sprite_ref": "spr_c002",
+     "character_type": "일반 고객"
+    },
+    {
+     "customer_id": "3",
+     "name_kr": "첸 웨이",
+     "name_en": "CHEN WEI",
+     "nationality": "중국(CHN)",
+     "gender": "남성",
+     "birth_date": "1978-11-08",
+     "age": "47",
+     "sprite_ref": "spr_c003",
+     "character_type": "외국인 관광객"
+    },
+    {
+     "customer_id": "4",
+     "name_kr": "마리아 가르시아",
+     "name_en": "MARIA GARCIA",
+     "nationality": "스페인(ESP)",
+     "gender": "여성",
+     "birth_date": "1995-02-28",
+     "age": "31",
+     "sprite_ref": "spr_c004",
+     "character_type": "외국인 관광객"
+    },
+    {
+     "customer_id": "5",
+     "name_kr": "박철수",
+     "name_en": "PARK CHEOLSU",
+     "nationality": "대한민국(KOR)",
+     "gender": "남성",
+     "birth_date": "1982-09-14",
+     "age": "43",
+     "sprite_ref": "spr_c005",
+     "character_type": "진상 고객"
+    },
+    {
+     "customer_id": "6",
+     "name_kr": "최서연",
+     "name_en": "CHOI SEOYEON",
+     "nationality": "대한민국(KOR)",
+     "gender": "여성",
+     "birth_date": "1988-06-30",
+     "age": "37",
+     "sprite_ref": "spr_c006",
+     "character_type": "일반 고객"
+    },
+    {
+     "customer_id": "7",
+     "name_kr": "피에르 뒤퐁",
+     "name_en": "PIERRE DUPONT",
+     "nationality": "프랑스(FRA)",
+     "gender": "남성",
+     "birth_date": "1993-12-05",
+     "age": "32",
+     "sprite_ref": "spr_c007",
+     "character_type": "외국인 관광객"
+    },
+    {
+     "customer_id": "8",
+     "name_kr": "존 카터",
+     "name_en": "JOHN CARTER",
+     "nationality": "미국(USA)",
+     "gender": "남성",
+     "birth_date": "1980-05-20",
+     "age": "45",
+     "sprite_ref": "spr_c008",
+     "character_type": "범죄자(외국 도피자)"
+    },
+    {
+     "customer_id": "9",
+     "name_kr": "강도식",
+     "name_en": "KANG DOSIK",
+     "nationality": "대한민국(KOR)",
+     "gender": "남성",
+     "birth_date": "1987-03-11",
+     "age": "38",
+     "sprite_ref": "spr_c009",
+     "character_type": "범죄자(국내 유입자)"
+    },
+    {
+     "customer_id": "10",
+     "name_kr": "윤서린",
+     "name_en": "YOON SEORIN",
+     "nationality": "대한민국(KOR)",
+     "gender": "여성",
+     "birth_date": "1991-08-08",
+     "age": "34",
+     "sprite_ref": "spr_c010",
+     "character_type": "범죄자(성형수술)"
+    },
+    {
+     "customer_id": "11",
+     "name_kr": "라시드 칸",
+     "name_en": "RASHID KHAN",
+     "nationality": "파키스탄(PAK)",
+     "gender": "남성",
+     "birth_date": "1984-01-02",
+     "age": "41",
+     "sprite_ref": "spr_c011",
+     "character_type": "테러범"
+    },
+    {
+     "customer_id": "12",
+     "name_kr": "정유나",
+     "name_en": "JEONG YUNA",
+     "nationality": "대한민국(KOR)",
+     "gender": "여성",
+     "birth_date": "1996-04-12",
+     "age": "30",
+     "sprite_ref": "spr_c012",
+     "character_type": "성형 의심 고객"
+    },
+    {
+     "customer_id": "13",
+     "name_kr": "응우옌 반",
+     "name_en": "NGUYEN VAN",
+     "nationality": "베트남(VNM)",
+     "gender": "남성",
+     "birth_date": "1989-09-03",
+     "age": "36",
+     "sprite_ref": "spr_c013",
+     "character_type": "검역 대상자(PCR)"
+    },
+    {
+     "customer_id": "14",
+     "name_kr": "사라 밀러",
+     "name_en": "SARAH MILLER",
+     "nationality": "영국(GBR)",
+     "gender": "여성",
+     "birth_date": "1993-07-19",
+     "age": "32",
+     "sprite_ref": "spr_c014",
+     "character_type": "검역 대상자(PCR)"
+    },
+    {
+     "customer_id": "15",
+     "name_kr": "한지원",
+     "name_en": "HAN JIWON",
+     "nationality": "대한민국(KOR)",
+     "gender": "여성",
+     "birth_date": "1998-02-25",
+     "age": "28",
+     "sprite_ref": "spr_c015",
+     "character_type": "특수(연예인)★"
+    },
+    {
+     "customer_id": "16",
+     "name_kr": "오현석",
+     "name_en": "OH HYUNSEOK",
+     "nationality": "대한민국(KOR)",
+     "gender": "남성",
+     "birth_date": "1955-06-01",
+     "age": "70",
+     "sprite_ref": "spr_c016",
+     "character_type": "특수(현자)★"
+    },
+    {
+     "customer_id": "17",
+     "name_kr": "윤정호",
+     "name_en": "YOON JEONGHO",
+     "nationality": "대한민국(KOR)",
+     "gender": "남성",
+     "birth_date": "1965-10-10",
+     "age": "60",
+     "sprite_ref": "spr_c017",
+     "character_type": "특수(정치인)★"
+    },
+    {
+     "customer_id": "18",
+     "name_kr": "첸 리",
+     "name_en": "CHEN LI",
+     "nationality": "중국(CHN)",
+     "gender": "남성",
+     "birth_date": "1986-05-30",
+     "age": "39",
+     "sprite_ref": "spr_c018",
+     "character_type": "장기체류자"
+    },
+    {
+     "customer_id": "19",
+     "name_kr": "라지브 메타",
+     "name_en": "RAJIV MEHTA",
+     "nationality": "인도(IND)",
+     "gender": "남성",
+     "birth_date": "1990-12-12",
+     "age": "35",
+     "sprite_ref": "spr_c019",
+     "character_type": "검역 대상자(PCR)"
+    },
+    {
+     "customer_id": "20",
+     "name_kr": "한만수",
+     "name_en": "HAN MANSU",
+     "nationality": "대한민국(KOR)",
+     "gender": "남성",
+     "birth_date": "1979-05-05",
+     "age": "47",
+     "sprite_ref": "spr_c020",
+     "character_type": "진상 고객"
+    },
+    {
+     "customer_id": "21",
+     "name_kr": "서지호",
+     "name_en": "SEO JIHO",
+     "nationality": "대한민국(KOR)",
+     "gender": "여성",
+     "birth_date": "1997-11-20",
+     "age": "28",
+     "sprite_ref": "spr_c021",
+     "character_type": "성형 의심 고객"
+    },
+    {
+     "customer_id": "22",
+     "name_kr": "박지훈",
+     "name_en": "PARK JIHOON",
+     "nationality": "대한민국(KOR)",
+     "gender": "남성",
+     "birth_date": "1990-01-20",
+     "age": "36",
+     "sprite_ref": "spr_c022",
+     "character_type": "일반 고객"
+    },
+    {
+     "customer_id": "23",
+     "name_kr": "송하늘",
+     "name_en": "SONG HANEUL",
+     "nationality": "대한민국(KOR)",
+     "gender": "여성",
+     "birth_date": "1993-04-09",
+     "age": "33",
+     "sprite_ref": "spr_c023",
+     "character_type": "일반 고객"
+    },
+    {
+     "customer_id": "24",
+     "name_kr": "임도현",
+     "name_en": "IM DOHYUN",
+     "nationality": "대한민국(KOR)",
+     "gender": "남성",
+     "birth_date": "1986-08-17",
+     "age": "39",
+     "sprite_ref": "spr_c024",
+     "character_type": "일반 고객"
+    },
+    {
+     "customer_id": "25",
+     "name_kr": "에밀리 클라크",
+     "name_en": "EMILY CLARK",
+     "nationality": "영국(GBR)",
+     "gender": "여성",
+     "birth_date": "1994-03-03",
+     "age": "32",
+     "sprite_ref": "spr_c025",
+     "character_type": "외국인 관광객"
+    },
+    {
+     "customer_id": "26",
+     "name_kr": "다나카 하루토",
+     "name_en": "TANAKA HARUTO",
+     "nationality": "일본(JPN)",
+     "gender": "남성",
+     "birth_date": "1989-11-25",
+     "age": "36",
+     "sprite_ref": "spr_c026",
+     "character_type": "외국인 관광객"
+    },
+    {
+     "customer_id": "27",
+     "name_kr": "호세 모랄레스",
+     "name_en": "JOSE MORALES",
+     "nationality": "멕시코(MEX)",
+     "gender": "남성",
+     "birth_date": "1991-06-14",
+     "age": "34",
+     "sprite_ref": "spr_c027",
+     "character_type": "외국인 관광객"
+    },
+    {
+     "customer_id": "28",
+     "name_kr": "오만석",
+     "name_en": "OH MANSEOK",
+     "nationality": "대한민국(KOR)",
+     "gender": "남성",
+     "birth_date": "1975-02-11",
+     "age": "51",
+     "sprite_ref": "spr_c028",
+     "character_type": "진상 고객"
+    },
+    {
+     "customer_id": "29",
+     "name_kr": "배수정",
+     "name_en": "BAE SUJEONG",
+     "nationality": "대한민국(KOR)",
+     "gender": "여성",
+     "birth_date": "1983-09-30",
+     "age": "42",
+     "sprite_ref": "spr_c029",
+     "character_type": "진상 고객"
+    },
+    {
+     "customer_id": "30",
+     "name_kr": "노가은",
+     "name_en": "NOH GAEUN",
+     "nationality": "대한민국(KOR)",
+     "gender": "여성",
+     "birth_date": "1999-05-05",
+     "age": "27",
+     "sprite_ref": "spr_c030",
+     "character_type": "성형 의심 고객"
+    },
+    {
+     "customer_id": "31",
+     "name_kr": "카밀라 산토스",
+     "name_en": "CAMILA SANTOS",
+     "nationality": "브라질(BRA)",
+     "gender": "여성",
+     "birth_date": "1992-07-07",
+     "age": "33",
+     "sprite_ref": "spr_c031",
+     "character_type": "검역 대상자(PCR)"
+    },
+    {
+     "customer_id": "32",
+     "name_kr": "아흐메드 하산",
+     "name_en": "AHMED HASSAN",
+     "nationality": "이집트(EGY)",
+     "gender": "남성",
+     "birth_date": "1988-10-19",
+     "age": "37",
+     "sprite_ref": "spr_c032",
+     "character_type": "검역 대상자(PCR)"
+    },
+    {
+     "customer_id": "33",
+     "name_kr": "린 메이",
+     "name_en": "LIN MEI",
+     "nationality": "대만(TWN)",
+     "gender": "여성",
+     "birth_date": "1995-12-01",
+     "age": "30",
+     "sprite_ref": "spr_c033",
+     "character_type": "검역 대상자(PCR)"
+    },
+    {
+     "customer_id": "34",
+     "name_kr": "유스프 알리",
+     "name_en": "YUSUF ALI",
+     "nationality": "시리아(SYR)",
+     "gender": "남성",
+     "birth_date": "1982-03-22",
+     "age": "44",
+     "sprite_ref": "spr_c034",
+     "character_type": "테러범"
+    },
+    {
+     "customer_id": "35",
+     "name_kr": "라우라 페레스",
+     "name_en": "LAURA PEREZ",
+     "nationality": "필리핀(PHL)",
+     "gender": "여성",
+     "birth_date": "1990-06-18",
+     "age": "35",
+     "sprite_ref": "spr_c035",
+     "character_type": "취업체류자"
+    },
+    {
+     "customer_id": "36",
+     "name_kr": "드미트리 이바노프",
+     "name_en": "DMITRI IVANOV",
+     "nationality": "러시아(RUS)",
+     "gender": "남성",
+     "birth_date": "1985-02-09",
+     "age": "41",
+     "sprite_ref": "spr_c036",
+     "character_type": "취업체류자"
+    },
+    {
+     "customer_id": "37",
+     "name_kr": "압둘라 카림",
+     "name_en": "ABDULLAH KARIM",
+     "nationality": "방글라데시(BGD)",
+     "gender": "남성",
+     "birth_date": "1988-11-30",
+     "age": "37",
+     "sprite_ref": "spr_c037",
+     "character_type": "취업체류자"
+    }
+   ],
+   "layout": "relational"
+  },
+  "day_schedule": {
+   "columns": [
+    {
+     "key": "schedule_id",
+     "type": "int",
+     "label": "일정 ID"
+    },
+    {
+     "key": "day",
+     "type": "int",
+     "label": "일차"
+    },
+    {
+     "key": "slot",
+     "type": "int",
+     "label": "등장 순서"
+    },
+    {
+     "key": "customer_id",
+     "type": "int",
+     "label": "고객 ID"
+    },
+    {
+     "key": "valid_chance",
+     "type": "float",
+     "label": "정상 확률"
+    }
+   ],
+   "rows": [
+    {
+     "schedule_id": "1",
+     "day": "1",
+     "slot": "1",
+     "customer_id": "1",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "2",
+     "day": "1",
+     "slot": "2",
+     "customer_id": "2",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "3",
+     "day": "1",
+     "slot": "3",
+     "customer_id": "3",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "4",
+     "day": "1",
+     "slot": "4",
+     "customer_id": "4",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "5",
+     "day": "1",
+     "slot": "5",
+     "customer_id": "5",
+     "valid_chance": "0.7"
+    },
+    {
+     "schedule_id": "6",
+     "day": "1",
+     "slot": "6",
+     "customer_id": "6",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "7",
+     "day": "1",
+     "slot": "7",
+     "customer_id": "7",
+     "valid_chance": "0.7"
+    },
+    {
+     "schedule_id": "8",
+     "day": "2",
+     "slot": "1",
+     "customer_id": "22",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "9",
+     "day": "2",
+     "slot": "2",
+     "customer_id": "20",
+     "valid_chance": "0.75"
+    },
+    {
+     "schedule_id": "10",
+     "day": "2",
+     "slot": "3",
+     "customer_id": "25",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "11",
+     "day": "2",
+     "slot": "4",
+     "customer_id": "23",
+     "valid_chance": "0.85"
+    },
+    {
+     "schedule_id": "12",
+     "day": "2",
+     "slot": "5",
+     "customer_id": "24",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "13",
+     "day": "2",
+     "slot": "6",
+     "customer_id": "26",
+     "valid_chance": "0.5"
+    },
+    {
+     "schedule_id": "14",
+     "day": "2",
+     "slot": "7",
+     "customer_id": "28",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "15",
+     "day": "3",
+     "slot": "1",
+     "customer_id": "27",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "16",
+     "day": "3",
+     "slot": "2",
+     "customer_id": "1",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "17",
+     "day": "3",
+     "slot": "3",
+     "customer_id": "12",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "18",
+     "day": "3",
+     "slot": "4",
+     "customer_id": "29",
+     "valid_chance": "0.75"
+    },
+    {
+     "schedule_id": "19",
+     "day": "3",
+     "slot": "5",
+     "customer_id": "2",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "20",
+     "day": "3",
+     "slot": "6",
+     "customer_id": "21",
+     "valid_chance": "0.7"
+    },
+    {
+     "schedule_id": "21",
+     "day": "3",
+     "slot": "7",
+     "customer_id": "3",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "22",
+     "day": "4",
+     "slot": "1",
+     "customer_id": "5",
+     "valid_chance": "0.75"
+    },
+    {
+     "schedule_id": "23",
+     "day": "4",
+     "slot": "2",
+     "customer_id": "6",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "24",
+     "day": "4",
+     "slot": "3",
+     "customer_id": "4",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "25",
+     "day": "4",
+     "slot": "4",
+     "customer_id": "30",
+     "valid_chance": "0.7"
+    },
+    {
+     "schedule_id": "26",
+     "day": "4",
+     "slot": "5",
+     "customer_id": "20",
+     "valid_chance": "0.75"
+    },
+    {
+     "schedule_id": "27",
+     "day": "4",
+     "slot": "6",
+     "customer_id": "22",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "28",
+     "day": "4",
+     "slot": "7",
+     "customer_id": "7",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "29",
+     "day": "5",
+     "slot": "1",
+     "customer_id": "28",
+     "valid_chance": "0.75"
+    },
+    {
+     "schedule_id": "30",
+     "day": "5",
+     "slot": "2",
+     "customer_id": "15",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "31",
+     "day": "5",
+     "slot": "3",
+     "customer_id": "13",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "32",
+     "day": "5",
+     "slot": "4",
+     "customer_id": "12",
+     "valid_chance": "0.7"
+    },
+    {
+     "schedule_id": "33",
+     "day": "5",
+     "slot": "5",
+     "customer_id": "14",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "34",
+     "day": "5",
+     "slot": "6",
+     "customer_id": "19",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "35",
+     "day": "5",
+     "slot": "7",
+     "customer_id": "23",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "36",
+     "day": "6",
+     "slot": "1",
+     "customer_id": "31",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "37",
+     "day": "6",
+     "slot": "2",
+     "customer_id": "29",
+     "valid_chance": "0.75"
+    },
+    {
+     "schedule_id": "38",
+     "day": "6",
+     "slot": "3",
+     "customer_id": "32",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "39",
+     "day": "6",
+     "slot": "4",
+     "customer_id": "24",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "40",
+     "day": "6",
+     "slot": "5",
+     "customer_id": "33",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "41",
+     "day": "6",
+     "slot": "6",
+     "customer_id": "25",
+     "valid_chance": "0.5"
+    },
+    {
+     "schedule_id": "42",
+     "day": "6",
+     "slot": "7",
+     "customer_id": "26",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "43",
+     "day": "7",
+     "slot": "1",
+     "customer_id": "13",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "44",
+     "day": "7",
+     "slot": "2",
+     "customer_id": "5",
+     "valid_chance": "0.75"
+    },
+    {
+     "schedule_id": "45",
+     "day": "7",
+     "slot": "3",
+     "customer_id": "14",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "46",
+     "day": "7",
+     "slot": "4",
+     "customer_id": "19",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "47",
+     "day": "7",
+     "slot": "5",
+     "customer_id": "27",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "48",
+     "day": "7",
+     "slot": "6",
+     "customer_id": "1",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "49",
+     "day": "7",
+     "slot": "7",
+     "customer_id": "21",
+     "valid_chance": "0.7"
+    },
+    {
+     "schedule_id": "50",
+     "day": "8",
+     "slot": "1",
+     "customer_id": "2",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "51",
+     "day": "8",
+     "slot": "2",
+     "customer_id": "20",
+     "valid_chance": "0.75"
+    },
+    {
+     "schedule_id": "52",
+     "day": "8",
+     "slot": "3",
+     "customer_id": "3",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "53",
+     "day": "8",
+     "slot": "4",
+     "customer_id": "18",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "54",
+     "day": "8",
+     "slot": "5",
+     "customer_id": "16",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "55",
+     "day": "8",
+     "slot": "6",
+     "customer_id": "4",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "56",
+     "day": "8",
+     "slot": "7",
+     "customer_id": "30",
+     "valid_chance": "0.7"
+    },
+    {
+     "schedule_id": "57",
+     "day": "9",
+     "slot": "1",
+     "customer_id": "28",
+     "valid_chance": "0.75"
+    },
+    {
+     "schedule_id": "58",
+     "day": "9",
+     "slot": "2",
+     "customer_id": "6",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "59",
+     "day": "9",
+     "slot": "3",
+     "customer_id": "7",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "60",
+     "day": "9",
+     "slot": "4",
+     "customer_id": "17",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "61",
+     "day": "9",
+     "slot": "5",
+     "customer_id": "12",
+     "valid_chance": "0.7"
+    },
+    {
+     "schedule_id": "62",
+     "day": "9",
+     "slot": "6",
+     "customer_id": "25",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "63",
+     "day": "9",
+     "slot": "7",
+     "customer_id": "35",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "64",
+     "day": "10",
+     "slot": "1",
+     "customer_id": "23",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "65",
+     "day": "10",
+     "slot": "2",
+     "customer_id": "29",
+     "valid_chance": "0.75"
+    },
+    {
+     "schedule_id": "66",
+     "day": "10",
+     "slot": "3",
+     "customer_id": "21",
+     "valid_chance": "0.7"
+    },
+    {
+     "schedule_id": "67",
+     "day": "10",
+     "slot": "4",
+     "customer_id": "26",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "68",
+     "day": "10",
+     "slot": "5",
+     "customer_id": "24",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "69",
+     "day": "10",
+     "slot": "6",
+     "customer_id": "5",
+     "valid_chance": "0.75"
+    },
+    {
+     "schedule_id": "70",
+     "day": "10",
+     "slot": "7",
+     "customer_id": "36",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "71",
+     "day": "11",
+     "slot": "1",
+     "customer_id": "10",
+     "valid_chance": "0.3"
+    },
+    {
+     "schedule_id": "72",
+     "day": "11",
+     "slot": "2",
+     "customer_id": "1",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "73",
+     "day": "11",
+     "slot": "3",
+     "customer_id": "3",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "74",
+     "day": "11",
+     "slot": "4",
+     "customer_id": "20",
+     "valid_chance": "0.75"
+    },
+    {
+     "schedule_id": "75",
+     "day": "11",
+     "slot": "5",
+     "customer_id": "30",
+     "valid_chance": "0.7"
+    },
+    {
+     "schedule_id": "76",
+     "day": "11",
+     "slot": "6",
+     "customer_id": "37",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "77",
+     "day": "11",
+     "slot": "7",
+     "customer_id": "2",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "78",
+     "day": "12",
+     "slot": "1",
+     "customer_id": "6",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "79",
+     "day": "12",
+     "slot": "2",
+     "customer_id": "7",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "80",
+     "day": "12",
+     "slot": "3",
+     "customer_id": "8",
+     "valid_chance": "0.3"
+    },
+    {
+     "schedule_id": "81",
+     "day": "12",
+     "slot": "4",
+     "customer_id": "28",
+     "valid_chance": "0.75"
+    },
+    {
+     "schedule_id": "82",
+     "day": "12",
+     "slot": "5",
+     "customer_id": "12",
+     "valid_chance": "0.7"
+    },
+    {
+     "schedule_id": "83",
+     "day": "12",
+     "slot": "6",
+     "customer_id": "35",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "84",
+     "day": "12",
+     "slot": "7",
+     "customer_id": "22",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "85",
+     "day": "13",
+     "slot": "1",
+     "customer_id": "11",
+     "valid_chance": "0.25"
+    },
+    {
+     "schedule_id": "86",
+     "day": "13",
+     "slot": "2",
+     "customer_id": "23",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "87",
+     "day": "13",
+     "slot": "3",
+     "customer_id": "26",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "88",
+     "day": "13",
+     "slot": "4",
+     "customer_id": "36",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "89",
+     "day": "13",
+     "slot": "5",
+     "customer_id": "29",
+     "valid_chance": "0.75"
+    },
+    {
+     "schedule_id": "90",
+     "day": "13",
+     "slot": "6",
+     "customer_id": "21",
+     "valid_chance": "0.7"
+    },
+    {
+     "schedule_id": "91",
+     "day": "13",
+     "slot": "7",
+     "customer_id": "27",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "92",
+     "day": "14",
+     "slot": "1",
+     "customer_id": "1",
+     "valid_chance": "1"
+    },
+    {
+     "schedule_id": "93",
+     "day": "14",
+     "slot": "2",
+     "customer_id": "3",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "94",
+     "day": "14",
+     "slot": "3",
+     "customer_id": "9",
+     "valid_chance": "0.3"
+    },
+    {
+     "schedule_id": "95",
+     "day": "14",
+     "slot": "4",
+     "customer_id": "34",
+     "valid_chance": "0.25"
+    },
+    {
+     "schedule_id": "96",
+     "day": "14",
+     "slot": "5",
+     "customer_id": "30",
+     "valid_chance": "0.7"
+    },
+    {
+     "schedule_id": "97",
+     "day": "14",
+     "slot": "6",
+     "customer_id": "4",
+     "valid_chance": "0"
+    },
+    {
+     "schedule_id": "98",
+     "day": "14",
+     "slot": "7",
+     "customer_id": "37",
+     "valid_chance": "1"
+    }
+   ],
+   "layout": "relational"
+  },
+  "passport": {
+   "columns": [
+    {
+     "key": "passport_id",
+     "type": "int",
+     "label": "여권 ID"
+    },
+    {
+     "key": "customer_id",
+     "type": "int",
+     "label": "고객 ID"
+    },
+    {
+     "key": "passport_no",
+     "type": "varchar(30)",
+     "label": "여권 번호"
+    },
+    {
+     "key": "name_en",
+     "type": "varchar(60)",
+     "label": "영문 이름"
+    },
+    {
+     "key": "gender",
+     "type": "varchar(10)",
+     "label": "성별"
+    },
+    {
+     "key": "birth_date",
+     "type": "date",
+     "label": "생년월일"
+    },
+    {
+     "key": "nationality",
+     "type": "varchar(30)",
+     "label": "국적"
+    },
+    {
+     "key": "issue_date",
+     "type": "date",
+     "label": "발급일"
+    },
+    {
+     "key": "expiry_date",
+     "type": "date",
+     "label": "만료일"
+    },
+    {
+     "key": "photo_ref",
+     "type": "varchar(50)",
+     "label": "사진 참조"
+    }
+   ],
+   "rows": [
+    {
+     "passport_id": "1",
+     "customer_id": "1",
+     "passport_no": "AB1234567",
+     "name_en": "KIM<<MINJUN",
+     "gender": "남성",
+     "birth_date": "1985-03-15",
+     "nationality": "KOR",
+     "issue_date": "2020-01-01",
+     "expiry_date": "2030-01-01",
+     "photo_ref": "photo_1"
+    },
+    {
+     "passport_id": "3",
+     "customer_id": "3",
+     "passport_no": "CN5551234",
+     "name_en": "CHEN<<WEI",
+     "gender": "남성",
+     "birth_date": "1978-11-08",
+     "nationality": "CHN",
+     "issue_date": "2021-06-01",
+     "expiry_date": "2031-06-01",
+     "photo_ref": "photo_3"
+    },
+    {
+     "passport_id": "4",
+     "customer_id": "4",
+     "passport_no": "ES3334455",
+     "name_en": "GARCIA<<MARIA",
+     "gender": "여성",
+     "birth_date": "1995-02-28",
+     "nationality": "ESP",
+     "issue_date": "2022-03-01",
+     "expiry_date": "2032-03-01",
+     "photo_ref": "photo_4"
+    },
+    {
+     "passport_id": "5",
+     "customer_id": "5",
+     "passport_no": "EG7778899",
+     "name_en": "PARK<<CHEOLSU",
+     "gender": "남성",
+     "birth_date": "1982-09-14",
+     "nationality": "KOR",
+     "issue_date": "2019-12-01",
+     "expiry_date": "2029-12-01",
+     "photo_ref": "photo_5"
+    },
+    {
+     "passport_id": "8",
+     "customer_id": "7",
+     "passport_no": "FR6667788",
+     "name_en": "DUPONT<<PIERRE",
+     "gender": "남성",
+     "birth_date": "1993-12-05",
+     "nationality": "FRA",
+     "issue_date": "2023-01-01",
+     "expiry_date": "2033-01-01",
+     "photo_ref": "photo_7"
+    },
+    {
+     "passport_id": "10",
+     "customer_id": "8",
+     "passport_no": "US1008936",
+     "name_en": "JOHN<<CARTER",
+     "gender": "남성",
+     "birth_date": "1980-05-20",
+     "nationality": "USA",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c8"
+    },
+    {
+     "passport_id": "12",
+     "customer_id": "9",
+     "passport_no": "KO1010053",
+     "name_en": "KANG<<DOSIK",
+     "gender": "남성",
+     "birth_date": "1987-03-11",
+     "nationality": "KOR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c9"
+    },
+    {
+     "passport_id": "14",
+     "customer_id": "10",
+     "passport_no": "KO1011170",
+     "name_en": "YOON<<SEORIN",
+     "gender": "여성",
+     "birth_date": "1991-08-08",
+     "nationality": "KOR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c10"
+    },
+    {
+     "passport_id": "16",
+     "customer_id": "11",
+     "passport_no": "PA1012287",
+     "name_en": "RASHID<<KHAN",
+     "gender": "남성",
+     "birth_date": "1984-01-02",
+     "nationality": "PAK",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c11"
+    },
+    {
+     "passport_id": "18",
+     "customer_id": "12",
+     "passport_no": "KO1013404",
+     "name_en": "JEONG<<YUNA",
+     "gender": "여성",
+     "birth_date": "1996-04-12",
+     "nationality": "KOR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c12"
+    },
+    {
+     "passport_id": "20",
+     "customer_id": "13",
+     "passport_no": "VN1014521",
+     "name_en": "NGUYEN<<VAN",
+     "gender": "남성",
+     "birth_date": "1989-09-03",
+     "nationality": "VNM",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c13"
+    },
+    {
+     "passport_id": "21",
+     "customer_id": "14",
+     "passport_no": "GB1015638",
+     "name_en": "SARAH<<MILLER",
+     "gender": "여성",
+     "birth_date": "1993-07-19",
+     "nationality": "GBR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c14"
+    },
+    {
+     "passport_id": "22",
+     "customer_id": "15",
+     "passport_no": "KO1016755",
+     "name_en": "HAN<<JIWON",
+     "gender": "여성",
+     "birth_date": "1998-02-25",
+     "nationality": "KOR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c15"
+    },
+    {
+     "passport_id": "23",
+     "customer_id": "16",
+     "passport_no": "KO1017872",
+     "name_en": "OH<<HYUNSEOK",
+     "gender": "남성",
+     "birth_date": "1955-06-01",
+     "nationality": "KOR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c16"
+    },
+    {
+     "passport_id": "24",
+     "customer_id": "17",
+     "passport_no": "KO1018989",
+     "name_en": "YOON<<JEONGHO",
+     "gender": "남성",
+     "birth_date": "1965-10-10",
+     "nationality": "KOR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c17"
+    },
+    {
+     "passport_id": "25",
+     "customer_id": "18",
+     "passport_no": "CH1020106",
+     "name_en": "CHEN<<LI",
+     "gender": "남성",
+     "birth_date": "1986-05-30",
+     "nationality": "CHN",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c18"
+    },
+    {
+     "passport_id": "26",
+     "customer_id": "19",
+     "passport_no": "IN1021223",
+     "name_en": "RAJIV<<MEHTA",
+     "gender": "남성",
+     "birth_date": "1990-12-12",
+     "nationality": "IND",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c19"
+    },
+    {
+     "passport_id": "27",
+     "customer_id": "20",
+     "passport_no": "KO1022340",
+     "name_en": "HAN<<MANSU",
+     "gender": "남성",
+     "birth_date": "1979-05-05",
+     "nationality": "KOR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c20"
+    },
+    {
+     "passport_id": "29",
+     "customer_id": "21",
+     "passport_no": "KO1023457",
+     "name_en": "SEO<<JIHO",
+     "gender": "여성",
+     "birth_date": "1997-11-20",
+     "nationality": "KOR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c21"
+    },
+    {
+     "passport_id": "31",
+     "customer_id": "22",
+     "passport_no": "KO1024574",
+     "name_en": "PARK<<JIHOON",
+     "gender": "남성",
+     "birth_date": "1990-01-20",
+     "nationality": "KOR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c22"
+    },
+    {
+     "passport_id": "33",
+     "customer_id": "23",
+     "passport_no": "KO1025691",
+     "name_en": "SONG<<HANEUL",
+     "gender": "여성",
+     "birth_date": "1993-04-09",
+     "nationality": "KOR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c23"
+    },
+    {
+     "passport_id": "35",
+     "customer_id": "24",
+     "passport_no": "KO1026808",
+     "name_en": "IM<<DOHYUN",
+     "gender": "남성",
+     "birth_date": "1986-08-17",
+     "nationality": "KOR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c24"
+    },
+    {
+     "passport_id": "37",
+     "customer_id": "25",
+     "passport_no": "GB1027925",
+     "name_en": "EMILY<<CLARK",
+     "gender": "여성",
+     "birth_date": "1994-03-03",
+     "nationality": "GBR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c25"
+    },
+    {
+     "passport_id": "39",
+     "customer_id": "26",
+     "passport_no": "JP1029042",
+     "name_en": "TANAKA<<HARUTO",
+     "gender": "남성",
+     "birth_date": "1989-11-25",
+     "nationality": "JPN",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c26"
+    },
+    {
+     "passport_id": "41",
+     "customer_id": "27",
+     "passport_no": "ME1030159",
+     "name_en": "JOSE<<MORALES",
+     "gender": "남성",
+     "birth_date": "1991-06-14",
+     "nationality": "MEX",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c27"
+    },
+    {
+     "passport_id": "43",
+     "customer_id": "28",
+     "passport_no": "KO1031276",
+     "name_en": "OH<<MANSEOK",
+     "gender": "남성",
+     "birth_date": "1975-02-11",
+     "nationality": "KOR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c28"
+    },
+    {
+     "passport_id": "45",
+     "customer_id": "29",
+     "passport_no": "KO1032393",
+     "name_en": "BAE<<SUJEONG",
+     "gender": "여성",
+     "birth_date": "1983-09-30",
+     "nationality": "KOR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c29"
+    },
+    {
+     "passport_id": "47",
+     "customer_id": "30",
+     "passport_no": "KO1033510",
+     "name_en": "NOH<<GAEUN",
+     "gender": "여성",
+     "birth_date": "1999-05-05",
+     "nationality": "KOR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c30"
+    },
+    {
+     "passport_id": "49",
+     "customer_id": "31",
+     "passport_no": "BR1034627",
+     "name_en": "CAMILA<<SANTOS",
+     "gender": "여성",
+     "birth_date": "1992-07-07",
+     "nationality": "BRA",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c31"
+    },
+    {
+     "passport_id": "50",
+     "customer_id": "32",
+     "passport_no": "EG1035744",
+     "name_en": "AHMED<<HASSAN",
+     "gender": "남성",
+     "birth_date": "1988-10-19",
+     "nationality": "EGY",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c32"
+    },
+    {
+     "passport_id": "51",
+     "customer_id": "33",
+     "passport_no": "TW1036861",
+     "name_en": "LIN<<MEI",
+     "gender": "여성",
+     "birth_date": "1995-12-01",
+     "nationality": "TWN",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c33"
+    },
+    {
+     "passport_id": "52",
+     "customer_id": "34",
+     "passport_no": "SY1037978",
+     "name_en": "YUSUF<<ALI",
+     "gender": "남성",
+     "birth_date": "1982-03-22",
+     "nationality": "SYR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c34"
+    },
+    {
+     "passport_id": "54",
+     "customer_id": "35",
+     "passport_no": "PH1039095",
+     "name_en": "LAURA<<PEREZ",
+     "gender": "여성",
+     "birth_date": "1990-06-18",
+     "nationality": "PHL",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c35"
+    },
+    {
+     "passport_id": "55",
+     "customer_id": "36",
+     "passport_no": "RU1040212",
+     "name_en": "DMITRI<<IVANOV",
+     "gender": "남성",
+     "birth_date": "1985-02-09",
+     "nationality": "RUS",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c36"
+    },
+    {
+     "passport_id": "56",
+     "customer_id": "37",
+     "passport_no": "BG1041329",
+     "name_en": "ABDULLAH<<KARIM",
+     "gender": "남성",
+     "birth_date": "1988-11-30",
+     "nationality": "BGD",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c37"
+    },
+    {
+     "passport_id": "57",
+     "customer_id": "2",
+     "passport_no": "KO1002234",
+     "name_en": "LEE<<JIEUN",
+     "gender": "여성",
+     "birth_date": "1990-07-22",
+     "nationality": "KOR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c2"
+    },
+    {
+     "passport_id": "58",
+     "customer_id": "6",
+     "passport_no": "KO1006702",
+     "name_en": "CHOI<<SEOYEON",
+     "gender": "여성",
+     "birth_date": "1988-06-30",
+     "nationality": "KOR",
+     "issue_date": "2021-05-01",
+     "expiry_date": "2031-05-01",
+     "photo_ref": "photo_c6"
+    }
+   ],
+   "layout": "relational"
+  },
+  "visa": {
+   "columns": [
+    {
+     "key": "visa_id",
+     "type": "int",
+     "label": "비자 ID"
+    },
+    {
+     "key": "customer_id",
+     "type": "int",
+     "label": "고객 ID"
+    },
+    {
+     "key": "visa_no",
+     "type": "varchar(30)",
+     "label": "비자 번호"
+    },
+    {
+     "key": "visa_type",
+     "type": "varchar(20)",
+     "label": "비자 종류"
+    },
+    {
+     "key": "nationality",
+     "type": "varchar(30)",
+     "label": "국적"
+    },
+    {
+     "key": "issue_date",
+     "type": "date",
+     "label": "발급일"
+    },
+    {
+     "key": "expiry_date",
+     "type": "date",
+     "label": "만료일"
+    },
+    {
+     "key": "entry_type",
+     "type": "varchar(20)",
+     "label": "입국 횟수"
+    },
+    {
+     "key": "memo",
+     "type": "varchar(200)",
+     "label": "비고"
+    }
+   ],
+   "rows": [
+    {
+     "visa_id": "1",
+     "customer_id": "3",
+     "visa_no": "V-CN-2023001",
+     "visa_type": "관광",
+     "nationality": "CHN",
+     "issue_date": "2023-05-01",
+     "expiry_date": "2023-11-01",
+     "entry_type": "단수",
+     "memo": "첸웨이 정상 관광비자"
+    },
+    {
+     "visa_id": "3",
+     "customer_id": "4",
+     "visa_no": "V-ESP-3932",
+     "visa_type": "관광",
+     "nationality": "ESP",
+     "issue_date": "2025-09-01",
+     "expiry_date": "2027-09-01",
+     "entry_type": "단수",
+     "memo": "외국인 정상 비자"
+    },
+    {
+     "visa_id": "4",
+     "customer_id": "7",
+     "visa_no": "V-FRA-6131",
+     "visa_type": "관광",
+     "nationality": "FRA",
+     "issue_date": "2025-09-01",
+     "expiry_date": "2027-09-01",
+     "entry_type": "단수",
+     "memo": "외국인 정상 비자"
+    },
+    {
+     "visa_id": "5",
+     "customer_id": "8",
+     "visa_no": "V-USA-6864",
+     "visa_type": "관광",
+     "nationality": "USA",
+     "issue_date": "2025-09-01",
+     "expiry_date": "2027-09-01",
+     "entry_type": "단수",
+     "memo": "외국인 정상 비자"
+    },
+    {
+     "visa_id": "6",
+     "customer_id": "11",
+     "visa_no": "V-PAK-9063",
+     "visa_type": "관광",
+     "nationality": "PAK",
+     "issue_date": "2025-09-01",
+     "expiry_date": "2027-09-01",
+     "entry_type": "단수",
+     "memo": "외국인 정상 비자"
+    },
+    {
+     "visa_id": "7",
+     "customer_id": "13",
+     "visa_no": "V-VNM-1529",
+     "visa_type": "관광",
+     "nationality": "VNM",
+     "issue_date": "2025-09-01",
+     "expiry_date": "2027-09-01",
+     "entry_type": "단수",
+     "memo": "외국인 정상 비자"
+    },
+    {
+     "visa_id": "8",
+     "customer_id": "14",
+     "visa_no": "V-GBR-2262",
+     "visa_type": "관광",
+     "nationality": "GBR",
+     "issue_date": "2025-09-01",
+     "expiry_date": "2027-09-01",
+     "entry_type": "단수",
+     "memo": "외국인 정상 비자"
+    },
+    {
+     "visa_id": "9",
+     "customer_id": "18",
+     "visa_no": "V-CHN-5194",
+     "visa_type": "장기체류",
+     "nationality": "CHN",
+     "issue_date": "2025-09-01",
+     "expiry_date": "2027-09-01",
+     "entry_type": "단수",
+     "memo": "외국인 정상 비자"
+    },
+    {
+     "visa_id": "10",
+     "customer_id": "19",
+     "visa_no": "V-IND-5927",
+     "visa_type": "관광",
+     "nationality": "IND",
+     "issue_date": "2025-09-01",
+     "expiry_date": "2027-09-01",
+     "entry_type": "단수",
+     "memo": "외국인 정상 비자"
+    },
+    {
+     "visa_id": "11",
+     "customer_id": "25",
+     "visa_no": "V-GBR-1325",
+     "visa_type": "관광",
+     "nationality": "GBR",
+     "issue_date": "2025-09-01",
+     "expiry_date": "2027-09-01",
+     "entry_type": "단수",
+     "memo": "외국인 정상 비자"
+    },
+    {
+     "visa_id": "12",
+     "customer_id": "26",
+     "visa_no": "V-JPN-2058",
+     "visa_type": "관광",
+     "nationality": "JPN",
+     "issue_date": "2025-09-01",
+     "expiry_date": "2027-09-01",
+     "entry_type": "단수",
+     "memo": "외국인 정상 비자"
+    },
+    {
+     "visa_id": "13",
+     "customer_id": "27",
+     "visa_no": "V-MEX-2791",
+     "visa_type": "관광",
+     "nationality": "MEX",
+     "issue_date": "2025-09-01",
+     "expiry_date": "2027-09-01",
+     "entry_type": "단수",
+     "memo": "외국인 정상 비자"
+    },
+    {
+     "visa_id": "14",
+     "customer_id": "31",
+     "visa_no": "V-BRA-5723",
+     "visa_type": "관광",
+     "nationality": "BRA",
+     "issue_date": "2025-09-01",
+     "expiry_date": "2027-09-01",
+     "entry_type": "단수",
+     "memo": "외국인 정상 비자"
+    },
+    {
+     "visa_id": "15",
+     "customer_id": "32",
+     "visa_no": "V-EGY-6456",
+     "visa_type": "관광",
+     "nationality": "EGY",
+     "issue_date": "2025-09-01",
+     "expiry_date": "2027-09-01",
+     "entry_type": "단수",
+     "memo": "외국인 정상 비자"
+    },
+    {
+     "visa_id": "16",
+     "customer_id": "33",
+     "visa_no": "V-TWN-7189",
+     "visa_type": "관광",
+     "nationality": "TWN",
+     "issue_date": "2025-09-01",
+     "expiry_date": "2027-09-01",
+     "entry_type": "단수",
+     "memo": "외국인 정상 비자"
+    },
+    {
+     "visa_id": "17",
+     "customer_id": "34",
+     "visa_no": "V-SYR-7922",
+     "visa_type": "관광",
+     "nationality": "SYR",
+     "issue_date": "2025-09-01",
+     "expiry_date": "2027-09-01",
+     "entry_type": "단수",
+     "memo": "외국인 정상 비자"
+    },
+    {
+     "visa_id": "23",
+     "customer_id": "35",
+     "visa_no": "V-PHL-8655",
+     "visa_type": "취업",
+     "nationality": "PHL",
+     "issue_date": "2025-06-01",
+     "expiry_date": "2027-06-01",
+     "entry_type": "복수",
+     "memo": "취업 정상 비자"
+    },
+    {
+     "visa_id": "24",
+     "customer_id": "36",
+     "visa_no": "V-RUS-9388",
+     "visa_type": "취업",
+     "nationality": "RUS",
+     "issue_date": "2025-06-01",
+     "expiry_date": "2027-06-01",
+     "entry_type": "복수",
+     "memo": "취업 정상 비자"
+    },
+    {
+     "visa_id": "25",
+     "customer_id": "37",
+     "visa_no": "V-BGD-1121",
+     "visa_type": "취업",
+     "nationality": "BGD",
+     "issue_date": "2025-06-01",
+     "expiry_date": "2027-06-01",
+     "entry_type": "복수",
+     "memo": "취업 정상 비자"
+    }
+   ],
+   "layout": "relational"
+  },
+  "pcr_test": {
+   "columns": [
+    {
+     "key": "pcr_id",
+     "type": "int",
+     "label": "PCR ID"
+    },
+    {
+     "key": "customer_id",
+     "type": "int",
+     "label": "고객 ID"
+    },
+    {
+     "key": "test_no",
+     "type": "varchar(30)",
+     "label": "검사 번호"
+    },
+    {
+     "key": "test_date",
+     "type": "date",
+     "label": "검사일"
+    },
+    {
+     "key": "result",
+     "type": "varchar(20)",
+     "label": "검사 결과"
+    },
+    {
+     "key": "valid_until",
+     "type": "date",
+     "label": "유효 기한"
+    },
+    {
+     "key": "lab_name",
+     "type": "varchar(50)",
+     "label": "검사 기관"
+    },
+    {
+     "key": "memo",
+     "type": "varchar(200)",
+     "label": "비고"
+    }
+   ],
+   "rows": [
+    {
+     "pcr_id": "1",
+     "customer_id": "4",
+     "test_no": "PCR-ES-2024A",
+     "test_date": "2024-03-10",
+     "result": "음성",
+     "valid_until": "2024-03-13",
+     "lab_name": "인천공항검사센터",
+     "memo": "마리아 정상 음성"
+    },
+    {
+     "pcr_id": "3",
+     "customer_id": "1",
+     "test_no": "PCR-001",
+     "test_date": "2026-05-25",
+     "result": "Negative",
+     "valid_until": "2026-06-12",
+     "lab_name": "국립검역소",
+     "memo": "정상 PCR(음성)"
+    },
+    {
+     "pcr_id": "4",
+     "customer_id": "5",
+     "test_no": "PCR-005",
+     "test_date": "2026-05-25",
+     "result": "Negative",
+     "valid_until": "2026-06-12",
+     "lab_name": "국립검역소",
+     "memo": "정상 PCR(음성)"
+    },
+    {
+     "pcr_id": "5",
+     "customer_id": "12",
+     "test_no": "PCR-012",
+     "test_date": "2026-05-25",
+     "result": "Negative",
+     "valid_until": "2026-06-12",
+     "lab_name": "국립검역소",
+     "memo": "정상 PCR(음성)"
+    },
+    {
+     "pcr_id": "6",
+     "customer_id": "13",
+     "test_no": "PCR-013",
+     "test_date": "2026-05-25",
+     "result": "Negative",
+     "valid_until": "2026-06-12",
+     "lab_name": "국립검역소",
+     "memo": "정상 PCR(음성)"
+    },
+    {
+     "pcr_id": "7",
+     "customer_id": "14",
+     "test_no": "PCR-014",
+     "test_date": "2026-05-25",
+     "result": "Negative",
+     "valid_until": "2026-06-12",
+     "lab_name": "국립검역소",
+     "memo": "정상 PCR(음성)"
+    },
+    {
+     "pcr_id": "8",
+     "customer_id": "15",
+     "test_no": "PCR-015",
+     "test_date": "2026-05-25",
+     "result": "Negative",
+     "valid_until": "2026-06-12",
+     "lab_name": "국립검역소",
+     "memo": "정상 PCR(음성)"
+    },
+    {
+     "pcr_id": "9",
+     "customer_id": "19",
+     "test_no": "PCR-019",
+     "test_date": "2026-05-25",
+     "result": "Negative",
+     "valid_until": "2026-06-12",
+     "lab_name": "국립검역소",
+     "memo": "정상 PCR(음성)"
+    },
+    {
+     "pcr_id": "10",
+     "customer_id": "21",
+     "test_no": "PCR-021",
+     "test_date": "2026-05-25",
+     "result": "Negative",
+     "valid_until": "2026-06-12",
+     "lab_name": "국립검역소",
+     "memo": "정상 PCR(음성)"
+    },
+    {
+     "pcr_id": "11",
+     "customer_id": "23",
+     "test_no": "PCR-023",
+     "test_date": "2026-05-25",
+     "result": "Negative",
+     "valid_until": "2026-06-12",
+     "lab_name": "국립검역소",
+     "memo": "정상 PCR(음성)"
+    },
+    {
+     "pcr_id": "12",
+     "customer_id": "24",
+     "test_no": "PCR-024",
+     "test_date": "2026-05-25",
+     "result": "Negative",
+     "valid_until": "2026-06-12",
+     "lab_name": "국립검역소",
+     "memo": "정상 PCR(음성)"
+    },
+    {
+     "pcr_id": "13",
+     "customer_id": "25",
+     "test_no": "PCR-025",
+     "test_date": "2026-05-25",
+     "result": "Negative",
+     "valid_until": "2026-06-12",
+     "lab_name": "국립검역소",
+     "memo": "정상 PCR(음성)"
+    },
+    {
+     "pcr_id": "14",
+     "customer_id": "26",
+     "test_no": "PCR-026",
+     "test_date": "2026-05-25",
+     "result": "Negative",
+     "valid_until": "2026-06-12",
+     "lab_name": "국립검역소",
+     "memo": "정상 PCR(음성)"
+    },
+    {
+     "pcr_id": "15",
+     "customer_id": "27",
+     "test_no": "PCR-027",
+     "test_date": "2026-05-25",
+     "result": "Negative",
+     "valid_until": "2026-06-12",
+     "lab_name": "국립검역소",
+     "memo": "정상 PCR(음성)"
+    },
+    {
+     "pcr_id": "16",
+     "customer_id": "28",
+     "test_no": "PCR-028",
+     "test_date": "2026-05-25",
+     "result": "Negative",
+     "valid_until": "2026-06-12",
+     "lab_name": "국립검역소",
+     "memo": "정상 PCR(음성)"
+    },
+    {
+     "pcr_id": "17",
+     "customer_id": "29",
+     "test_no": "PCR-029",
+     "test_date": "2026-05-25",
+     "result": "Negative",
+     "valid_until": "2026-06-12",
+     "lab_name": "국립검역소",
+     "memo": "정상 PCR(음성)"
+    },
+    {
+     "pcr_id": "18",
+     "customer_id": "31",
+     "test_no": "PCR-031",
+     "test_date": "2026-05-25",
+     "result": "Negative",
+     "valid_until": "2026-06-12",
+     "lab_name": "국립검역소",
+     "memo": "정상 PCR(음성)"
+    },
+    {
+     "pcr_id": "19",
+     "customer_id": "32",
+     "test_no": "PCR-032",
+     "test_date": "2026-05-25",
+     "result": "Negative",
+     "valid_until": "2026-06-12",
+     "lab_name": "국립검역소",
+     "memo": "정상 PCR(음성)"
+    },
+    {
+     "pcr_id": "20",
+     "customer_id": "33",
+     "test_no": "PCR-033",
+     "test_date": "2026-05-25",
+     "result": "Negative",
+     "valid_until": "2026-06-12",
+     "lab_name": "국립검역소",
+     "memo": "정상 PCR(음성)"
+    }
+   ],
+   "layout": "relational"
+  },
+  "employment_cert": {
+   "columns": [
+    {
+     "key": "employment_id",
+     "type": "int",
+     "label": "취업증빙 ID"
+    },
+    {
+     "key": "customer_id",
+     "type": "int",
+     "label": "고객 ID"
+    },
+    {
+     "key": "cert_no",
+     "type": "varchar(30)",
+     "label": "증빙 번호"
+    },
+    {
+     "key": "company_name",
+     "type": "varchar(50)",
+     "label": "고용 회사"
+    },
+    {
+     "key": "job_title",
+     "type": "varchar(30)",
+     "label": "직종"
+    },
+    {
+     "key": "issue_date",
+     "type": "date",
+     "label": "발급일"
+    },
+    {
+     "key": "expiry_date",
+     "type": "date",
+     "label": "만료일"
+    }
+   ],
+   "rows": [
+    {
+     "employment_id": "1",
+     "customer_id": "7",
+     "cert_no": "EMP-FR-2023X",
+     "company_name": "삼성전자",
+     "job_title": "엔지니어",
+     "issue_date": "2023-01-15",
+     "expiry_date": "2025-01-15"
+    },
+    {
+     "employment_id": "3",
+     "customer_id": "18",
+     "cert_no": "EMP-018",
+     "company_name": "대성물류(주)",
+     "job_title": "물류 관리자",
+     "issue_date": "2025-03-01",
+     "expiry_date": "2027-03-01"
+    },
+    {
+     "employment_id": "4",
+     "customer_id": "35",
+     "cert_no": "EMP-035",
+     "company_name": "한빛전자(주)",
+     "job_title": "생산 라인",
+     "issue_date": "2025-04-01",
+     "expiry_date": "2027-04-01"
+    },
+    {
+     "employment_id": "6",
+     "customer_id": "36",
+     "cert_no": "EMP-036",
+     "company_name": "동방건설(주)",
+     "job_title": "현장 기술자",
+     "issue_date": "2025-02-01",
+     "expiry_date": "2027-02-01"
+    },
+    {
+     "employment_id": "8",
+     "customer_id": "37",
+     "cert_no": "EMP-037",
+     "company_name": "서해수산(주)",
+     "job_title": "가공 작업",
+     "issue_date": "2025-01-01",
+     "expiry_date": "2027-01-01"
+    }
+   ],
+   "layout": "relational"
+  },
+  "dialogue_case": {
+   "columns": [
+    {
+     "key": "dialogue_case_id",
+     "type": "int",
+     "label": "대화 흐름 ID"
+    },
+    {
+     "key": "schedule_id",
+     "type": "int",
+     "label": "일정 ID"
+    },
+    {
+     "key": "customer_id",
+     "type": "int",
+     "label": "고객 ID"
+    },
+    {
+     "key": "case_type",
+     "type": "varchar(30)",
+     "label": "상황 유형"
+    },
+    {
+     "key": "character_type",
+     "type": "varchar(30)",
+     "label": "캐릭터 유형"
+    },
+    {
+     "key": "document_type",
+     "type": "varchar(20)",
+     "label": "문서 종류"
+    },
+    {
+     "key": "doc_valid",
+     "type": "varchar(10)",
+     "label": "문서 정상 여부"
+    },
+    {
+     "key": "violation_field",
+     "type": "varchar(30)",
+     "label": "위반 항목"
+    },
+    {
+     "key": "game_result",
+     "type": "varchar(30)",
+     "label": "판정 결과"
+    },
+    {
+     "key": "reject_count",
+     "type": "int",
+     "label": "거절 횟수"
+    }
+   ],
+   "rows": [
+    {
+     "dialogue_case_id": "1",
+     "schedule_id": "1",
+     "customer_id": "1",
+     "case_type": "입장",
+     "character_type": "일반 고객",
+     "document_type": "여권",
+     "doc_valid": "-",
+     "violation_field": "없음",
+     "game_result": "-",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "2",
+     "schedule_id": "1",
+     "customer_id": "1",
+     "case_type": "일반 심사",
+     "character_type": "일반 고객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "정상 승인",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "3",
+     "schedule_id": "1",
+     "customer_id": "1",
+     "case_type": "일반 심사",
+     "character_type": "일반 고객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "잘못 거절",
+     "reject_count": "1"
+    },
+    {
+     "dialogue_case_id": "4",
+     "schedule_id": "1",
+     "customer_id": "1",
+     "case_type": "일반 심사",
+     "character_type": "일반 고객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "잘못 거절",
+     "reject_count": "2"
+    },
+    {
+     "dialogue_case_id": "5",
+     "schedule_id": "1",
+     "customer_id": "1",
+     "case_type": "일반 심사",
+     "character_type": "일반 고객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "잘못 거절",
+     "reject_count": "3"
+    },
+    {
+     "dialogue_case_id": "6",
+     "schedule_id": "2",
+     "customer_id": "2",
+     "case_type": "입장",
+     "character_type": "일반 고객",
+     "document_type": "여권",
+     "doc_valid": "-",
+     "violation_field": "없음",
+     "game_result": "-",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "7",
+     "schedule_id": "2",
+     "customer_id": "2",
+     "case_type": "일반 심사",
+     "character_type": "일반 고객",
+     "document_type": "여권",
+     "doc_valid": "비정상",
+     "violation_field": "만료일",
+     "game_result": "정상 거절",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "8",
+     "schedule_id": "2",
+     "customer_id": "2",
+     "case_type": "일반 심사",
+     "character_type": "일반 고객",
+     "document_type": "여권",
+     "doc_valid": "비정상",
+     "violation_field": "비자",
+     "game_result": "잘못 허가",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "9",
+     "schedule_id": "2",
+     "customer_id": "2",
+     "case_type": "여권 없음",
+     "character_type": "일반 고객",
+     "document_type": "여권",
+     "doc_valid": "비정상",
+     "violation_field": "여권 없음",
+     "game_result": "정상 거절",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "10",
+     "schedule_id": "3",
+     "customer_id": "3",
+     "case_type": "입장",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "-",
+     "violation_field": "없음",
+     "game_result": "-",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "11",
+     "schedule_id": "3",
+     "customer_id": "3",
+     "case_type": "일반 심사",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "정상 승인",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "12",
+     "schedule_id": "3",
+     "customer_id": "3",
+     "case_type": "일반 심사",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "잘못 거절",
+     "reject_count": "1"
+    },
+    {
+     "dialogue_case_id": "13",
+     "schedule_id": "3",
+     "customer_id": "3",
+     "case_type": "일반 심사",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "잘못 거절",
+     "reject_count": "2"
+    },
+    {
+     "dialogue_case_id": "14",
+     "schedule_id": "3",
+     "customer_id": "3",
+     "case_type": "일반 심사",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "잘못 거절",
+     "reject_count": "3"
+    },
+    {
+     "dialogue_case_id": "15",
+     "schedule_id": "3",
+     "customer_id": "3",
+     "case_type": "여권 없음",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "비정상",
+     "violation_field": "여권 없음",
+     "game_result": "정상 거절",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "16",
+     "schedule_id": "4",
+     "customer_id": "4",
+     "case_type": "입장",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "-",
+     "violation_field": "없음",
+     "game_result": "-",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "17",
+     "schedule_id": "4",
+     "customer_id": "4",
+     "case_type": "일반 심사",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "정상 승인",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "18",
+     "schedule_id": "4",
+     "customer_id": "4",
+     "case_type": "일반 심사",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "잘못 거절",
+     "reject_count": "1"
+    },
+    {
+     "dialogue_case_id": "19",
+     "schedule_id": "4",
+     "customer_id": "4",
+     "case_type": "일반 심사",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "잘못 거절",
+     "reject_count": "2"
+    },
+    {
+     "dialogue_case_id": "20",
+     "schedule_id": "4",
+     "customer_id": "4",
+     "case_type": "일반 심사",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "잘못 거절",
+     "reject_count": "3"
+    },
+    {
+     "dialogue_case_id": "21",
+     "schedule_id": "5",
+     "customer_id": "5",
+     "case_type": "입장",
+     "character_type": "진상 고객",
+     "document_type": "여권",
+     "doc_valid": "-",
+     "violation_field": "없음",
+     "game_result": "-",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "22",
+     "schedule_id": "5",
+     "customer_id": "5",
+     "case_type": "일반 심사",
+     "character_type": "진상 고객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "정상 승인",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "23",
+     "schedule_id": "5",
+     "customer_id": "5",
+     "case_type": "일반 심사",
+     "character_type": "진상 고객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "잘못 거절",
+     "reject_count": "1"
+    },
+    {
+     "dialogue_case_id": "24",
+     "schedule_id": "5",
+     "customer_id": "5",
+     "case_type": "일반 심사",
+     "character_type": "진상 고객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "잘못 거절",
+     "reject_count": "2"
+    },
+    {
+     "dialogue_case_id": "25",
+     "schedule_id": "5",
+     "customer_id": "5",
+     "case_type": "일반 심사",
+     "character_type": "진상 고객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "잘못 거절",
+     "reject_count": "3"
+    },
+    {
+     "dialogue_case_id": "26",
+     "schedule_id": "5",
+     "customer_id": "5",
+     "case_type": "일반 심사",
+     "character_type": "진상 고객",
+     "document_type": "여권",
+     "doc_valid": "비정상",
+     "violation_field": "성별",
+     "game_result": "정상 거절",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "27",
+     "schedule_id": "5",
+     "customer_id": "5",
+     "case_type": "일반 심사",
+     "character_type": "진상 고객",
+     "document_type": "여권",
+     "doc_valid": "비정상",
+     "violation_field": "성별",
+     "game_result": "잘못 허가",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "28",
+     "schedule_id": "5",
+     "customer_id": "5",
+     "case_type": "여권 없음",
+     "character_type": "진상 고객",
+     "document_type": "여권",
+     "doc_valid": "비정상",
+     "violation_field": "여권 없음",
+     "game_result": "정상 거절",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "29",
+     "schedule_id": "6",
+     "customer_id": "6",
+     "case_type": "입장",
+     "character_type": "일반 고객",
+     "document_type": "여권",
+     "doc_valid": "-",
+     "violation_field": "없음",
+     "game_result": "-",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "30",
+     "schedule_id": "6",
+     "customer_id": "6",
+     "case_type": "일반 심사",
+     "character_type": "일반 고객",
+     "document_type": "여권",
+     "doc_valid": "비정상",
+     "violation_field": "발급국",
+     "game_result": "정상 거절",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "31",
+     "schedule_id": "6",
+     "customer_id": "6",
+     "case_type": "일반 심사",
+     "character_type": "일반 고객",
+     "document_type": "여권",
+     "doc_valid": "비정상",
+     "violation_field": "발급국",
+     "game_result": "잘못 허가",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "32",
+     "schedule_id": "7",
+     "customer_id": "7",
+     "case_type": "입장",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "-",
+     "violation_field": "없음",
+     "game_result": "-",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "33",
+     "schedule_id": "7",
+     "customer_id": "7",
+     "case_type": "일반 심사",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "정상 승인",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "34",
+     "schedule_id": "7",
+     "customer_id": "7",
+     "case_type": "일반 심사",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "잘못 거절",
+     "reject_count": "1"
+    },
+    {
+     "dialogue_case_id": "35",
+     "schedule_id": "7",
+     "customer_id": "7",
+     "case_type": "일반 심사",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "잘못 거절",
+     "reject_count": "2"
+    },
+    {
+     "dialogue_case_id": "36",
+     "schedule_id": "7",
+     "customer_id": "7",
+     "case_type": "일반 심사",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "정상",
+     "violation_field": "없음",
+     "game_result": "잘못 거절",
+     "reject_count": "3"
+    },
+    {
+     "dialogue_case_id": "37",
+     "schedule_id": "7",
+     "customer_id": "7",
+     "case_type": "일반 심사",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "비정상",
+     "violation_field": "여권번호",
+     "game_result": "정상 거절",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "38",
+     "schedule_id": "7",
+     "customer_id": "7",
+     "case_type": "일반 심사",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "비정상",
+     "violation_field": "여권번호",
+     "game_result": "잘못 허가",
+     "reject_count": "0"
+    },
+    {
+     "dialogue_case_id": "39",
+     "schedule_id": "7",
+     "customer_id": "7",
+     "case_type": "입국 도장 없음",
+     "character_type": "외국인 관광객",
+     "document_type": "여권",
+     "doc_valid": "비정상",
+     "violation_field": "입국 도장 없음",
+     "game_result": "정상 거절",
+     "reject_count": "0"
+    }
+   ],
+   "layout": "relational"
+  },
+  "dialogue_line": {
+   "columns": [
+    {
+     "key": "line_id",
+     "type": "int",
+     "label": "라인 ID"
+    },
+    {
+     "key": "dialogue_case_id",
+     "type": "int",
+     "label": "대화 흐름 ID"
+    },
+    {
+     "key": "line_order",
+     "type": "int",
+     "label": "대사 순서"
+    },
+    {
+     "key": "speaker",
+     "type": "varchar(20)",
+     "label": "화자"
+    },
+    {
+     "key": "text_kr",
+     "type": "varchar(500)",
+     "label": "한글 대사"
+    }
+   ],
+   "rows": [
+    {
+     "line_id": "1",
+     "dialogue_case_id": "1",
+     "line_order": "1",
+     "speaker": "캐릭터",
+     "text_kr": "안녕하세요, 여기 여권 드릴게요."
+    },
+    {
+     "line_id": "2",
+     "dialogue_case_id": "1",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "여권 확인 부탁드립니다."
+    },
+    {
+     "line_id": "3",
+     "dialogue_case_id": "2",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "확인 완료되었습니다. 지나가셔도 됩니다."
+    },
+    {
+     "line_id": "4",
+     "dialogue_case_id": "2",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "감사합니다. 즐거운 하루 되세요!"
+    },
+    {
+     "line_id": "5",
+     "dialogue_case_id": "3",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "죄송하지만 입국은 어렵습니다."
+    },
+    {
+     "line_id": "6",
+     "dialogue_case_id": "3",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "어..? 어디가 잘못된 부분이 있나요?"
+    },
+    {
+     "line_id": "7",
+     "dialogue_case_id": "4",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "확인했는데 입국이 어려우실 것 같습니다. 이유는 알려드릴 수 없습니다."
+    },
+    {
+     "line_id": "8",
+     "dialogue_case_id": "4",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요."
+    },
+    {
+     "line_id": "9",
+     "dialogue_case_id": "5",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "죄송합니다만 지나갈 수 없습니다. 양해 부탁드립니다."
+    },
+    {
+     "line_id": "10",
+     "dialogue_case_id": "5",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요!"
+    },
+    {
+     "line_id": "11",
+     "dialogue_case_id": "5",
+     "line_order": "3",
+     "speaker": "심사관",
+     "text_kr": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
+    },
+    {
+     "line_id": "12",
+     "dialogue_case_id": "5",
+     "line_order": "4",
+     "speaker": "캐릭터",
+     "text_kr": "하... 네 알겠습니다. 꼼꼼히 검토 좀 해 주세요."
+    },
+    {
+     "line_id": "13",
+     "dialogue_case_id": "6",
+     "line_order": "1",
+     "speaker": "캐릭터",
+     "text_kr": "안녕하세요! 좋은 아침이에요."
+    },
+    {
+     "line_id": "14",
+     "dialogue_case_id": "6",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "여기 여권 드릴게요."
+    },
+    {
+     "line_id": "15",
+     "dialogue_case_id": "7",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "고객님 여권의 만료일이 지났습니다. 유효기간이 만료된 여권으로는 입국이 어렵습니다."
+    },
+    {
+     "line_id": "16",
+     "dialogue_case_id": "7",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "앗, 제가 확인을 못 했네요. 죄송합니다."
+    },
+    {
+     "line_id": "17",
+     "dialogue_case_id": "8",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "확인 완료되었습니다. 지나가셔도 됩니다."
+    },
+    {
+     "line_id": "18",
+     "dialogue_case_id": "8",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "감사합니다. 안녕히 계세요!"
+    },
+    {
+     "line_id": "19",
+     "dialogue_case_id": "9",
+     "line_order": "1",
+     "speaker": "캐릭터",
+     "text_kr": "안녕하세요! 좋은 아침이에요."
+    },
+    {
+     "line_id": "20",
+     "dialogue_case_id": "9",
+     "line_order": "2",
+     "speaker": "심사관",
+     "text_kr": "고객님, 여권은 어디 있으시죠?"
+    },
+    {
+     "line_id": "21",
+     "dialogue_case_id": "9",
+     "line_order": "3",
+     "speaker": "캐릭터",
+     "text_kr": "여권이 어딨더라... 두고 온 것 같은데요."
+    },
+    {
+     "line_id": "22",
+     "dialogue_case_id": "9",
+     "line_order": "4",
+     "speaker": "심사관",
+     "text_kr": "여권이 없으시면 입국이 어렵습니다."
+    },
+    {
+     "line_id": "23",
+     "dialogue_case_id": "9",
+     "line_order": "5",
+     "speaker": "캐릭터",
+     "text_kr": "큰일났네... 죄송합니다."
+    },
+    {
+     "line_id": "24",
+     "dialogue_case_id": "10",
+     "line_order": "1",
+     "speaker": "캐릭터",
+     "text_kr": "Hello! Nice to meet you!"
+    },
+    {
+     "line_id": "25",
+     "dialogue_case_id": "10",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "Here is my passport."
+    },
+    {
+     "line_id": "26",
+     "dialogue_case_id": "11",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "확인 완료되었습니다. 지나가셔도 됩니다."
+    },
+    {
+     "line_id": "27",
+     "dialogue_case_id": "11",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "Thank you! Have a nice day!"
+    },
+    {
+     "line_id": "28",
+     "dialogue_case_id": "12",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "죄송하지만 입국은 어렵습니다."
+    },
+    {
+     "line_id": "29",
+     "dialogue_case_id": "12",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "What? 분명 서류를 다 챙긴 것 같았는데요?"
+    },
+    {
+     "line_id": "30",
+     "dialogue_case_id": "13",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "확인했는데 입국이 어려우실 것 같습니다. 이유는 알려드릴 수 없습니다."
+    },
+    {
+     "line_id": "31",
+     "dialogue_case_id": "13",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "Really? 꼼꼼하게 다 확인하고 온 건데 다시 한 번 확인해 줘요."
+    },
+    {
+     "line_id": "32",
+     "dialogue_case_id": "14",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "죄송합니다만 지나갈 수 없습니다. 양해 부탁드립니다."
+    },
+    {
+     "line_id": "33",
+     "dialogue_case_id": "14",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "No way... 이해할 수 없어요. 왜 들어갈 수 없는 거예요?"
+    },
+    {
+     "line_id": "34",
+     "dialogue_case_id": "14",
+     "line_order": "3",
+     "speaker": "심사관",
+     "text_kr": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
+    },
+    {
+     "line_id": "35",
+     "dialogue_case_id": "14",
+     "line_order": "4",
+     "speaker": "캐릭터",
+     "text_kr": "기분이 안 좋아요. You are so rude."
+    },
+    {
+     "line_id": "36",
+     "dialogue_case_id": "15",
+     "line_order": "1",
+     "speaker": "캐릭터",
+     "text_kr": "Hello! Nice to meet you!"
+    },
+    {
+     "line_id": "37",
+     "dialogue_case_id": "15",
+     "line_order": "2",
+     "speaker": "심사관",
+     "text_kr": "고객님, 여권은 어디 있으시죠?"
+    },
+    {
+     "line_id": "38",
+     "dialogue_case_id": "15",
+     "line_order": "3",
+     "speaker": "캐릭터",
+     "text_kr": "My passport... 오마이갓, 여권이 없어진 것 같아요."
+    },
+    {
+     "line_id": "39",
+     "dialogue_case_id": "15",
+     "line_order": "4",
+     "speaker": "심사관",
+     "text_kr": "여권이 없으시면 입국이 어렵습니다."
+    },
+    {
+     "line_id": "40",
+     "dialogue_case_id": "15",
+     "line_order": "5",
+     "speaker": "캐릭터",
+     "text_kr": "OMG... 이런 실수를 하다니. 죄송합니다."
+    },
+    {
+     "line_id": "41",
+     "dialogue_case_id": "16",
+     "line_order": "1",
+     "speaker": "캐릭터",
+     "text_kr": "안녕하세요! 여행 와서 너무 신나요!"
+    },
+    {
+     "line_id": "42",
+     "dialogue_case_id": "16",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "여권 여기 있습니다."
+    },
+    {
+     "line_id": "43",
+     "dialogue_case_id": "17",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "확인 완료되었습니다. 지나가셔도 됩니다."
+    },
+    {
+     "line_id": "44",
+     "dialogue_case_id": "17",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "감사합니다. 한국 너무 좋아요!"
+    },
+    {
+     "line_id": "45",
+     "dialogue_case_id": "18",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "죄송하지만 입국은 어렵습니다."
+    },
+    {
+     "line_id": "46",
+     "dialogue_case_id": "18",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "What? 분명 서류를 다 챙긴 것 같았는데요?"
+    },
+    {
+     "line_id": "47",
+     "dialogue_case_id": "19",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "확인했는데 입국이 어려우실 것 같습니다. 이유는 알려드릴 수 없습니다."
+    },
+    {
+     "line_id": "48",
+     "dialogue_case_id": "19",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "Really? 꼼꼼하게 다 확인하고 온 건데 다시 한 번 확인해 줘요."
+    },
+    {
+     "line_id": "49",
+     "dialogue_case_id": "20",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "죄송합니다만 지나갈 수 없습니다. 양해 부탁드립니다."
+    },
+    {
+     "line_id": "50",
+     "dialogue_case_id": "20",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "No way... 이해할 수 없어요. 왜 들어갈 수 없는 거예요?"
+    },
+    {
+     "line_id": "51",
+     "dialogue_case_id": "20",
+     "line_order": "3",
+     "speaker": "심사관",
+     "text_kr": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
+    },
+    {
+     "line_id": "52",
+     "dialogue_case_id": "20",
+     "line_order": "4",
+     "speaker": "캐릭터",
+     "text_kr": "기분이 안 좋아요. You are so rude."
+    },
+    {
+     "line_id": "53",
+     "dialogue_case_id": "21",
+     "line_order": "1",
+     "speaker": "캐릭터",
+     "text_kr": "빨리 도장이나 찍고 보내줘."
+    },
+    {
+     "line_id": "54",
+     "dialogue_case_id": "21",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "여권 냈으니까 빨리 처리해."
+    },
+    {
+     "line_id": "55",
+     "dialogue_case_id": "22",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "확인 완료되었습니다. 지나가셔도 됩니다."
+    },
+    {
+     "line_id": "56",
+     "dialogue_case_id": "22",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "일처리 하나는 빨라서 맘에 드네."
+    },
+    {
+     "line_id": "57",
+     "dialogue_case_id": "23",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "죄송하지만 입국은 어렵습니다."
+    },
+    {
+     "line_id": "58",
+     "dialogue_case_id": "23",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "무슨 소리야? 서류에 잘못된 부분이 없는데!"
+    },
+    {
+     "line_id": "59",
+     "dialogue_case_id": "24",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "확인했는데 입국이 어려우실 것 같습니다. 이유는 알려드릴 수 없습니다."
+    },
+    {
+     "line_id": "60",
+     "dialogue_case_id": "24",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "눈을 어디에 둔 거야? 서류 다 맞게 챙겼잖아!"
+    },
+    {
+     "line_id": "61",
+     "dialogue_case_id": "25",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "죄송합니다만 지나갈 수 없습니다. 양해 부탁드립니다."
+    },
+    {
+     "line_id": "62",
+     "dialogue_case_id": "25",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "진짜 미치겠네! 다시 제대로 확인해!"
+    },
+    {
+     "line_id": "63",
+     "dialogue_case_id": "25",
+     "line_order": "3",
+     "speaker": "심사관",
+     "text_kr": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
+    },
+    {
+     "line_id": "64",
+     "dialogue_case_id": "25",
+     "line_order": "4",
+     "speaker": "캐릭터",
+     "text_kr": "진작 이럴 것이지. 내가 꼭 민원 넣을 거야!"
+    },
+    {
+     "line_id": "65",
+     "dialogue_case_id": "26",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "고객님 여권의 성별 정보가 본인과 일치하지 않습니다. 입국이 어렵습니다."
+    },
+    {
+     "line_id": "66",
+     "dialogue_case_id": "26",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "진짜 사람 빡빡하게 구네. 더러워서 그냥 가고 만다."
+    },
+    {
+     "line_id": "67",
+     "dialogue_case_id": "27",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "확인 완료되었습니다. 지나가셔도 됩니다."
+    },
+    {
+     "line_id": "68",
+     "dialogue_case_id": "27",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "일처리 하나는 빨라서 맘에 드네."
+    },
+    {
+     "line_id": "69",
+     "dialogue_case_id": "28",
+     "line_order": "1",
+     "speaker": "캐릭터",
+     "text_kr": "빨리 검사해."
+    },
+    {
+     "line_id": "70",
+     "dialogue_case_id": "28",
+     "line_order": "2",
+     "speaker": "심사관",
+     "text_kr": "고객님, 여권은 어디 있으시죠?"
+    },
+    {
+     "line_id": "71",
+     "dialogue_case_id": "28",
+     "line_order": "3",
+     "speaker": "캐릭터",
+     "text_kr": "어? 여권이 어딨지? 그냥 보내주면 안 돼?"
+    },
+    {
+     "line_id": "72",
+     "dialogue_case_id": "28",
+     "line_order": "4",
+     "speaker": "심사관",
+     "text_kr": "여권 없이는 입국이 불가합니다. 양해 부탁드립니다."
+    },
+    {
+     "line_id": "73",
+     "dialogue_case_id": "28",
+     "line_order": "5",
+     "speaker": "캐릭터",
+     "text_kr": "진짜 융통성 없이 일하네. 됐어!"
+    },
+    {
+     "line_id": "74",
+     "dialogue_case_id": "29",
+     "line_order": "1",
+     "speaker": "캐릭터",
+     "text_kr": "안녕하세요, 여기 여권 드릴게요."
+    },
+    {
+     "line_id": "75",
+     "dialogue_case_id": "29",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "여권 확인 부탁드립니다."
+    },
+    {
+     "line_id": "76",
+     "dialogue_case_id": "30",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "고객님 여권의 MRZ 코드와 여권번호가 일치하지 않습니다. 입국이 어렵습니다."
+    },
+    {
+     "line_id": "77",
+     "dialogue_case_id": "30",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "앗..! 제가 착각했네요. 죄송합니다."
+    },
+    {
+     "line_id": "78",
+     "dialogue_case_id": "31",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "확인 완료되었습니다. 지나가셔도 됩니다."
+    },
+    {
+     "line_id": "79",
+     "dialogue_case_id": "31",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "감사합니다. 즐거운 하루 되세요!"
+    },
+    {
+     "line_id": "80",
+     "dialogue_case_id": "32",
+     "line_order": "1",
+     "speaker": "캐릭터",
+     "text_kr": "Hello! Nice to meet you!"
+    },
+    {
+     "line_id": "81",
+     "dialogue_case_id": "32",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "Here is my passport."
+    },
+    {
+     "line_id": "82",
+     "dialogue_case_id": "33",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "확인 완료되었습니다. 지나가셔도 됩니다."
+    },
+    {
+     "line_id": "83",
+     "dialogue_case_id": "33",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "Thank you! Have a nice day!"
+    },
+    {
+     "line_id": "84",
+     "dialogue_case_id": "34",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "죄송하지만 입국은 어렵습니다."
+    },
+    {
+     "line_id": "85",
+     "dialogue_case_id": "34",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "What? 분명 서류를 다 챙긴 것 같았는데요?"
+    },
+    {
+     "line_id": "86",
+     "dialogue_case_id": "35",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "확인했는데 입국이 어려우실 것 같습니다. 이유는 알려드릴 수 없습니다."
+    },
+    {
+     "line_id": "87",
+     "dialogue_case_id": "35",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "Really? 꼼꼼하게 다 확인하고 온 건데 다시 한 번 확인해 줘요."
+    },
+    {
+     "line_id": "88",
+     "dialogue_case_id": "36",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "죄송합니다만 지나갈 수 없습니다. 양해 부탁드립니다."
+    },
+    {
+     "line_id": "89",
+     "dialogue_case_id": "36",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "No way... 이해할 수 없어요. 왜 들어갈 수 없는 거예요?"
+    },
+    {
+     "line_id": "90",
+     "dialogue_case_id": "36",
+     "line_order": "3",
+     "speaker": "심사관",
+     "text_kr": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
+    },
+    {
+     "line_id": "91",
+     "dialogue_case_id": "36",
+     "line_order": "4",
+     "speaker": "캐릭터",
+     "text_kr": "기분이 안 좋아요. You are so rude."
+    },
+    {
+     "line_id": "92",
+     "dialogue_case_id": "37",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "고객님 여권번호 형식이 발급 국가와 일치하지 않습니다. 입국이 어렵습니다."
+    },
+    {
+     "line_id": "93",
+     "dialogue_case_id": "37",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "Oh... I am sorry. I think I made a mistake."
+    },
+    {
+     "line_id": "94",
+     "dialogue_case_id": "38",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "확인 완료되었습니다. 지나가셔도 됩니다."
+    },
+    {
+     "line_id": "95",
+     "dialogue_case_id": "38",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "Thank you! Have a nice day!"
+    },
+    {
+     "line_id": "96",
+     "dialogue_case_id": "39",
+     "line_order": "1",
+     "speaker": "심사관",
+     "text_kr": "고객님, 입국 도장이 누락되어 있습니다."
+    },
+    {
+     "line_id": "97",
+     "dialogue_case_id": "39",
+     "line_order": "2",
+     "speaker": "캐릭터",
+     "text_kr": "What? 도장이 없어요?"
+    },
+    {
+     "line_id": "98",
+     "dialogue_case_id": "39",
+     "line_order": "3",
+     "speaker": "심사관",
+     "text_kr": "도장이 누락될 경우 입국이 어렵습니다."
+    },
+    {
+     "line_id": "99",
+     "dialogue_case_id": "39",
+     "line_order": "4",
+     "speaker": "캐릭터",
+     "text_kr": "OMG... 알겠어요. 돌아가 볼게요."
+    }
+   ],
+   "layout": "relational"
+  },
+  "news": {
+   "columns": [
+    {
+     "key": "news_id",
+     "type": "int",
+     "label": "뉴스 ID"
+    },
+    {
+     "key": "day",
+     "type": "int",
+     "label": "일차"
+    },
+    {
+     "key": "news_title",
+     "type": "varchar(100)",
+     "label": "뉴스 제목"
+    },
+    {
+     "key": "news_content",
+     "type": "varchar(1000)",
+     "label": "뉴스 내용"
+    },
+    {
+     "key": "icon_ref",
+     "type": "varchar(50)",
+     "label": "아이콘 스프라이트"
+    }
+   ],
+   "rows": [
+    {
+     "news_id": "1",
+     "day": "1",
+     "news_title": "인천공항 보안 등급 상향",
+     "news_content": "법무부가 오늘부터 인천국제공항의 출입국 심사 보안 등급을 한 단계 상향했다. 모든 입국자의 여권 진위 여부를 더욱 철저히 확인할 것을 심사관들에게 당부했다.",
+     "icon_ref": "spr_news_001"
+    },
+    {
+     "news_id": "2",
+     "day": "1",
+     "news_title": "위조 여권 적발 급증",
+     "news_content": "최근 한 달간 위조 여권 적발 건수가 전월 대비 두 배로 증가했다. 당국은 정교해진 위조 수법에 각별한 주의를 요청했다.",
+     "icon_ref": "spr_news_002"
+    },
+    {
+     "news_id": "3",
+     "day": "2",
+     "news_title": "해외 단체 관광객 입국 증가",
+     "news_content": "연휴를 맞아 외국인 단체 관광객의 입국이 크게 늘었다. 공항 측은 입국 심사 대기 시간이 길어질 수 있다고 안내했다.",
+     "icon_ref": "spr_news_003"
+    },
+    {
+     "news_id": "4",
+     "day": "3",
+     "news_title": "분실 여권 도용 주의보",
+     "news_content": "분실 신고된 여권을 도용한 입국 시도가 잇따르고 있다. 심사관은 여권 사진과 본인 일치 여부를 반드시 확인해야 한다.",
+     "icon_ref": "spr_news_004"
+    },
+    {
+     "news_id": "5",
+     "day": "4",
+     "news_title": "여권 만료 기준 변경 안내",
+     "news_content": "법무부는 입국일 기준 유효기간이 6개월 미만인 여권의 입국 심사 기준을 강화한다고 발표했다.",
+     "icon_ref": "spr_news_005"
+    }
+   ],
+   "layout": "relational"
+  },
+  "rule_book": {
+   "columns": [
+    {
+     "key": "rule_id",
+     "type": "int",
+     "label": "규정 ID"
+    },
+    {
+     "key": "day",
+     "type": "int",
+     "label": "적용 일차"
+    },
+    {
+     "key": "rule_title",
+     "type": "varchar(100)",
+     "label": "규정 제목"
+    },
+    {
+     "key": "rule_content",
+     "type": "varchar(1000)",
+     "label": "규정 내용"
+    },
+    {
+     "key": "related_field",
+     "type": "varchar(30)",
+     "label": "관련 항목"
+    }
+   ],
+   "rows": [
+    {
+     "rule_id": "1",
+     "day": "1",
+     "rule_title": "여권 필수 지참",
+     "rule_content": "모든 입국자는 유효한 여권을 제시해야 한다. 여권 미제출 시 입국 불가.",
+     "related_field": "여권"
+    },
+    {
+     "rule_id": "2",
+     "day": "1",
+     "rule_title": "본인 정보 일치",
+     "rule_content": "여권의 사진·성별·생년월일이 본인과 일치해야 한다.",
+     "related_field": "성별"
+    },
+    {
+     "rule_id": "3",
+     "day": "2",
+     "rule_title": "외국인 비자 확인",
+     "rule_content": "외국 국적자는 유효한 비자를 소지해야 한다. 비자 없으면 입국 불가.",
+     "related_field": "비자"
+    },
+    {
+     "rule_id": "4",
+     "day": "3",
+     "rule_title": "발급국 일치",
+     "rule_content": "여권의 발급국(국적)이 비자/신고 국적과 일치해야 한다. 불일치 시 위조 의심.",
+     "related_field": "발급국"
+    },
+    {
+     "rule_id": "5",
+     "day": "4",
+     "rule_title": "여권 유효기간 강화",
+     "rule_content": "입국일 기준 유효기간 6개월 미만 여권은 입국 불가.",
+     "related_field": "유효기간"
+    },
+    {
+     "rule_id": "6",
+     "day": "4",
+     "rule_title": "여권번호 형식 검증",
+     "rule_content": "여권번호가 발급국 형식과 일치해야 한다. 불일치 시 위조 의심.",
+     "related_field": "여권번호"
+    }
+   ],
+   "layout": "relational"
+  },
+  "xray": {
+   "columns": [
+    {
+     "key": "xray_id",
+     "type": "int",
+     "label": "X-ray ID"
+    },
+    {
+     "key": "customer_id",
+     "type": "int",
+     "label": "고객 ID"
+    },
+    {
+     "key": "result",
+     "type": "varchar(20)",
+     "label": "검사 결과"
+    },
+    {
+     "key": "detected_item",
+     "type": "varchar(50)",
+     "label": "탐지 물품"
+    },
+    {
+     "key": "hidden_location",
+     "type": "varchar(50)",
+     "label": "은닉 위치"
+    }
+   ],
+   "rows": [
+    {
+     "xray_id": "1",
+     "customer_id": "9",
+     "result": "적발",
+     "detected_item": "마약",
+     "hidden_location": "복부"
+    },
+    {
+     "xray_id": "2",
+     "customer_id": "11",
+     "result": "적발",
+     "detected_item": "폭발물 부품",
+     "hidden_location": "다리"
+    },
+    {
+     "xray_id": "3",
+     "customer_id": "34",
+     "result": "위험",
+     "detected_item": "폭발물 의심 부품",
+     "hidden_location": "수하물 이중 바닥"
+    }
+   ],
+   "layout": "relational"
+  },
+  "fingerprint": {
+   "columns": [
+    {
+     "key": "fingerprint_id",
+     "type": "int",
+     "label": "지문 ID"
+    },
+    {
+     "key": "customer_id",
+     "type": "int",
+     "label": "고객 ID"
+    },
+    {
+     "key": "result",
+     "type": "varchar(20)",
+     "label": "검사 결과"
+    },
+    {
+     "key": "match_status",
+     "type": "varchar(30)",
+     "label": "일치 상태"
+    },
+    {
+     "key": "matched_person",
+     "type": "varchar(100)",
+     "label": "일치 인물/전과"
+    }
+   ],
+   "rows": [
+    {
+     "fingerprint_id": "1",
+     "customer_id": "8",
+     "result": "적발",
+     "match_status": "지명수배 일치",
+     "matched_person": "해외 도피 사기범 지명수배"
+    },
+    {
+     "fingerprint_id": "2",
+     "customer_id": "10",
+     "result": "적발",
+     "match_status": "위장 신원",
+     "matched_person": "성형 전 지명수배자와 지문 일치"
+    },
+    {
+     "fingerprint_id": "3",
+     "customer_id": "9",
+     "result": "위험",
+     "match_status": "지명수배 일치",
+     "matched_person": "국내 마약 유통 수배자와 지문 일치"
+    }
+   ],
+   "layout": "relational"
+  },
+  "ending": {
+   "columns": [
+    {
+     "key": "ending_id",
+     "type": "int",
+     "label": "엔딩 ID"
+    },
+    {
+     "key": "ending_type",
+     "type": "varchar(20)",
+     "label": "엔딩 분류"
+    },
+    {
+     "key": "ending_name",
+     "type": "varchar(50)",
+     "label": "엔딩명"
+    },
+    {
+     "key": "score_min",
+     "type": "int",
+     "label": "점수 하한"
+    },
+    {
+     "key": "score_max",
+     "type": "int",
+     "label": "점수 상한"
+    },
+    {
+     "key": "end_timing",
+     "type": "varchar(30)",
+     "label": "발동 가능 일자"
+    },
+    {
+     "key": "trigger_type",
+     "type": "varchar(20)",
+     "label": "트리거 타입"
+    },
+    {
+     "key": "trigger_condition",
+     "type": "varchar(300)",
+     "label": "발동 트리거"
+    }
+   ],
+   "rows": [
+    {
+     "ending_id": "1",
+     "ending_type": "노멀",
+     "ending_name": "전설의 검문관",
+     "score_min": "500",
+     "score_max": "600",
+     "end_timing": "회차 종료",
+     "trigger_type": "SCORE_RANGE",
+     "trigger_condition": "14일 누적 점수 +500 이상"
+    },
+    {
+     "ending_id": "2",
+     "ending_type": "노멀",
+     "ending_name": "청렴한 검문관",
+     "score_min": "400",
+     "score_max": "499",
+     "end_timing": "회차 종료",
+     "trigger_type": "SCORE_RANGE",
+     "trigger_condition": "누적 점수 +400~+499"
+    },
+    {
+     "ending_id": "3",
+     "ending_type": "노멀",
+     "ending_name": "만인의 귀감",
+     "score_min": "300",
+     "score_max": "399",
+     "end_timing": "회차 종료",
+     "trigger_type": "SCORE_RANGE",
+     "trigger_condition": "누적 점수 +300~+399"
+    },
+    {
+     "ending_id": "4",
+     "ending_type": "노멀",
+     "ending_name": "우수 사원",
+     "score_min": "200",
+     "score_max": "299",
+     "end_timing": "회차 종료",
+     "trigger_type": "SCORE_RANGE",
+     "trigger_condition": "누적 점수 +200~+299"
+    },
+    {
+     "ending_id": "5",
+     "ending_type": "노멀",
+     "ending_name": "평범한 검문관",
+     "score_min": "100",
+     "score_max": "199",
+     "end_timing": "회차 종료",
+     "trigger_type": "SCORE_RANGE",
+     "trigger_condition": "누적 점수 +100~+199"
+    },
+    {
+     "ending_id": "6",
+     "ending_type": "노멀",
+     "ending_name": "나쁘진 않았어",
+     "score_min": "-49",
+     "score_max": "99",
+     "end_timing": "회차 종료",
+     "trigger_type": "SCORE_RANGE",
+     "trigger_condition": "누적 점수 -49~+99"
+    },
+    {
+     "ending_id": "7",
+     "ending_type": "노멀",
+     "ending_name": "미숙한 직원",
+     "score_min": "-150",
+     "score_max": "-50",
+     "end_timing": "회차 종료",
+     "trigger_type": "SCORE_RANGE",
+     "trigger_condition": "누적 점수 -150~-50"
+    },
+    {
+     "ending_id": "8",
+     "ending_type": "노멀",
+     "ending_name": "진로 고민",
+     "score_min": "-280",
+     "score_max": "-151",
+     "end_timing": "회차 종료",
+     "trigger_type": "SCORE_RANGE",
+     "trigger_condition": "누적 점수 -280~-151"
+    },
+    {
+     "ending_id": "9",
+     "ending_type": "노멀",
+     "ending_name": "넌 해고야",
+     "score_min": "-400",
+     "score_max": "-281",
+     "end_timing": "회차 종료",
+     "trigger_type": "SCORE_RANGE",
+     "trigger_condition": "누적 점수 -400~-281"
+    },
+    {
+     "ending_id": "10",
+     "ending_type": "노멀",
+     "ending_name": "형사 처벌",
+     "score_min": "-600",
+     "score_max": "-401",
+     "end_timing": "회차 종료",
+     "trigger_type": "SCORE_RANGE",
+     "trigger_condition": "누적 점수 -600~-401"
+    },
+    {
+     "ending_id": "11",
+     "ending_type": "조기",
+     "ending_name": "공범",
+     "score_min": null,
+     "score_max": null,
+     "end_timing": "11~14일",
+     "trigger_type": "SEQUENCE",
+     "trigger_condition": "범죄자(국내 유입자) 인식O + 제안 응함 + 입국 + 마약/밀수품 수령"
+    },
+    {
+     "ending_id": "12",
+     "ending_type": "조기",
+     "ending_name": "순진한 녀석",
+     "score_min": null,
+     "score_max": null,
+     "end_timing": "11~14일",
+     "trigger_type": "SEQUENCE",
+     "trigger_condition": "성형 수술 고객(범죄자) 몽타주O + 제안 응함 + 입국 + 마약/밀수품 수령"
+    },
+    {
+     "ending_id": "13",
+     "ending_type": "조기",
+     "ending_name": "포교 성공",
+     "score_min": null,
+     "score_max": null,
+     "end_timing": "5~14일",
+     "trigger_type": "SEQUENCE",
+     "trigger_condition": "사이비 3회차 등장 + 수상한 종교물품 3회 획득 + 3회차 질문 예/예/예 (호칭 '새뇌')"
+    },
+    {
+     "ending_id": "14",
+     "ending_type": "조기",
+     "ending_name": "난 돈을 믿어",
+     "score_min": null,
+     "score_max": null,
+     "end_timing": "5~14일",
+     "trigger_type": "SEQUENCE",
+     "trigger_condition": "사이비 3회차 등장 + 수상한 종교물품 3회 획득 + 3회차 질문 아니오/예/예 (호칭 '신종 추종자')"
+    },
+    {
+     "ending_id": "15",
+     "ending_type": "조기",
+     "ending_name": "방역 실패",
+     "score_min": null,
+     "score_max": null,
+     "end_timing": "5~7일",
+     "trigger_type": "COUNTER",
+     "trigger_condition": "전염병 환자 검수 중 잘못된 입국 허가 누적 3회"
+    },
+    {
+     "ending_id": "16",
+     "ending_type": "조기",
+     "ending_name": "등잔 밑이 어둡다",
+     "score_min": null,
+     "score_max": null,
+     "end_timing": "1~14일",
+     "trigger_type": "COUNTER",
+     "trigger_condition": "외국 여권 캐릭터(관광객/장기체류/성형 일반) 출국 도장 없음 묵인 누적 3회"
+    },
+    {
+     "ending_id": "17",
+     "ending_type": "조기",
+     "ending_name": "자넨 적성에 안 맞는 것 같네",
+     "score_min": null,
+     "score_max": null,
+     "end_timing": "1~3일",
+     "trigger_type": "COUNTER",
+     "trigger_condition": "단일 일자에 잘못된 검토가 과반수(4명 이상) 누적 시 즉시 발동"
+    },
+    {
+     "ending_id": "18",
+     "ending_type": "히든",
+     "ending_name": "명예의 전당",
+     "score_min": null,
+     "score_max": null,
+     "end_timing": "회차 종료",
+     "trigger_type": "COLLECTION",
+     "trigger_condition": "노멀 #1 전설의 검문관 또는 #2 청렴한 검문관 누적 5회 달성"
+    },
+    {
+     "ending_id": "19",
+     "ending_type": "히든",
+     "ending_name": "멀티 유니버스",
+     "score_min": null,
+     "score_max": null,
+     "end_timing": "회차 종료",
+     "trigger_type": "COLLECTION",
+     "trigger_condition": "노멀+조기 17개 엔딩 중 15개 컬렉트"
+    },
+    {
+     "ending_id": "20",
+     "ending_type": "히든",
+     "ending_name": "하늘길의 검은 손",
+     "score_min": null,
+     "score_max": null,
+     "end_timing": "회차 종료",
+     "trigger_type": "COLLECTION",
+     "trigger_condition": "노멀+조기 엔딩 내 뇌물 수수 및 범죄 엔딩 5개 달성"
+    },
+    {
+     "ending_id": "21",
+     "ending_type": "히든",
+     "ending_name": "새로운 교주님",
+     "score_min": null,
+     "score_max": null,
+     "end_timing": "회차 종료",
+     "trigger_type": "COLLECTION",
+     "trigger_condition": "새뇌'(#13) + '신종 추종자'(#14) 엔딩 모두 컬렉트"
+    },
+    {
+     "ending_id": "22",
+     "ending_type": "히든",
+     "ending_name": "이중간첩",
+     "score_min": null,
+     "score_max": null,
+     "end_timing": "회차 종료",
+     "trigger_type": "COUNTER",
+     "trigger_condition": "외국 도피자 뇌물 2회 + 국내/성형 범죄자 금괴 1회 누적"
+    },
+    {
+     "ending_id": "23",
+     "ending_type": "히든",
+     "ending_name": "삼중간첩",
+     "score_min": null,
+     "score_max": null,
+     "end_timing": "회차 종료",
+     "trigger_type": "COLLECTION",
+     "trigger_condition": "#22 이중간첩 엔딩 3회 누적"
+    }
+   ],
+   "layout": "relational"
+  },
+  "shop": {
+   "columns": [
+    {
+     "key": "shop_item_id",
+     "type": "int",
+     "label": "상점 아이템 ID"
+    },
+    {
+     "key": "item_name",
+     "type": "varchar(50)",
+     "label": "아이템명"
+    },
+    {
+     "key": "category",
+     "type": "varchar(20)",
+     "label": "분류"
+    },
+    {
+     "key": "price",
+     "type": "int",
+     "label": "가격"
+    },
+    {
+     "key": "unlock_day",
+     "type": "int",
+     "label": "해금일"
+    },
+    {
+     "key": "effect_type",
+     "type": "varchar(30)",
+     "label": "효과 타입"
+    },
+    {
+     "key": "effect_value",
+     "type": "int",
+     "label": "효과 수치"
+    },
+    {
+     "key": "effect",
+     "type": "varchar(200)",
+     "label": "효과"
+    }
+   ],
+   "rows": [
+    {
+     "shop_item_id": "1",
+     "item_name": "확대경",
+     "category": "도구",
+     "price": "150",
+     "unlock_day": "11",
+     "effect_type": "MAGNIFY",
+     "effect_value": null,
+     "effect": "서류 세부 영역을 확대해 정밀 검토"
+    },
+    {
+     "shop_item_id": "2",
+     "item_name": "자외선 램프",
+     "category": "도구",
+     "price": "250",
+     "unlock_day": "11",
+     "effect_type": "UV_LIGHT",
+     "effect_value": null,
+     "effect": "위조 서류·변조 흔적 식별"
+    },
+    {
+     "shop_item_id": "3",
+     "item_name": "추가 검사 시간",
+     "category": "소모품",
+     "price": "100",
+     "unlock_day": "11",
+     "effect_type": "TIME_BONUS",
+     "effect_value": "30",
+     "effect": "당일 심사 제한시간 +30초"
+    },
+    {
+     "shop_item_id": "4",
+     "item_name": "커피",
+     "category": "소모품",
+     "price": "80",
+     "unlock_day": "11",
+     "effect_type": "MISTAKE_FORGIVE",
+     "effect_value": "1",
+     "effect": "집중력 회복: 다음 실수 1회 무효"
+    },
+    {
+     "shop_item_id": "5",
+     "item_name": "규정집 하이라이터",
+     "category": "업그레이드",
+     "price": "300",
+     "unlock_day": "11",
+     "effect_type": "AUTO_HIGHLIGHT",
+     "effect_value": null,
+     "effect": "위반 항목 자동 강조 표시"
+    },
+    {
+     "shop_item_id": "6",
+     "item_name": "X-ray 정밀 스캔권",
+     "category": "소모품",
+     "price": "200",
+     "unlock_day": "11",
+     "effect_type": "XRAY_SCAN",
+     "effect_value": "1",
+     "effect": "은닉 위치까지 정밀 탐지(1회)"
+    },
+    {
+     "shop_item_id": "7",
+     "item_name": "지문 DB 갱신",
+     "category": "업그레이드",
+     "price": "350",
+     "unlock_day": "13",
+     "effect_type": "DB_UPDATE",
+     "effect_value": null,
+     "effect": "지명수배 데이터베이스 최신화"
+    },
+    {
+     "shop_item_id": "8",
+     "item_name": "가족 상비약",
+     "category": "소모품",
+     "price": "120",
+     "unlock_day": "11",
+     "effect_type": "ANGER_CALM",
+     "effect_value": null,
+     "effect": "가족 부양: 사기 저하 방지"
+    }
+   ],
+   "layout": "relational"
+  },
+  "reward": {
+   "columns": [
+    {
+     "key": "reward_id",
+     "type": "int",
+     "label": "보상 ID"
+    },
+    {
+     "key": "reward_type",
+     "type": "varchar(30)",
+     "label": "보상 유형"
+    },
+    {
+     "key": "trigger_type",
+     "type": "varchar(30)",
+     "label": "트리거 타입"
+    },
+    {
+     "key": "trigger_condition",
+     "type": "varchar(300)",
+     "label": "발동 조건"
+    },
+    {
+     "key": "amount",
+     "type": "int",
+     "label": "금액"
+    },
+    {
+     "key": "related_ending_id",
+     "type": "int",
+     "label": "연계 엔딩 ID"
+    },
+    {
+     "key": "memo",
+     "type": "varchar(200)",
+     "label": "비고"
+    }
+   ],
+   "rows": [
+    {
+     "reward_id": "1",
+     "reward_type": "일급",
+     "trigger_type": "DAILY_BASE",
+     "trigger_condition": "하루 근무 종료 시 기본 지급",
+     "amount": "100",
+     "related_ending_id": null,
+     "memo": "일일 고정 급여"
+    },
+    {
+     "reward_id": "2",
+     "reward_type": "정답 보너스",
+     "trigger_type": "JUDGE_CORRECT",
+     "trigger_condition": "올바른 승인/거부 판정 1건당",
+     "amount": "10",
+     "related_ending_id": null,
+     "memo": "심사 정확도 보상"
+    },
+    {
+     "reward_id": "3",
+     "reward_type": "오판 벌금",
+     "trigger_type": "JUDGE_WRONG",
+     "trigger_condition": "잘못된 승인/거부 판정 1건당",
+     "amount": "-15",
+     "related_ending_id": null,
+     "memo": "음수: 차감"
+    },
+    {
+     "reward_id": "4",
+     "reward_type": "적발 보너스",
+     "trigger_type": "DETECTION",
+     "trigger_condition": "위조 서류·밀수·지명수배 적발 시",
+     "amount": "30",
+     "related_ending_id": null,
+     "memo": "X-ray/지문 적발 포함"
+    },
+    {
+     "reward_id": "5",
+     "reward_type": "무사고 보너스",
+     "trigger_type": "PERFECT_DAY",
+     "trigger_condition": "당일 오판 0건 달성 시",
+     "amount": "50",
+     "related_ending_id": null,
+     "memo": "퍼펙트 데이"
+    },
+    {
+     "reward_id": "6",
+     "reward_type": "경고 벌금",
+     "trigger_type": "WARNING",
+     "trigger_condition": "과반수(4건+) 오판으로 경고 발생",
+     "amount": "-50",
+     "related_ending_id": "17",
+     "memo": "엔딩 #17 연계"
+    },
+    {
+     "reward_id": "7",
+     "reward_type": "특별 보상",
+     "trigger_type": "SPECIAL_EVENT",
+     "trigger_condition": "특정 사건 해결·히든 조건 달성",
+     "amount": "80",
+     "related_ending_id": null,
+     "memo": "이벤트성 지급"
+    }
+   ],
+   "layout": "relational"
+  },
+  "defect_rule": {
+   "columns": [
+    {
+     "key": "rule_id",
+     "type": null,
+     "label": null
+    },
+    {
+     "key": "character_type",
+     "type": null,
+     "label": "유형"
+    },
+    {
+     "key": "context",
+     "type": null,
+     "label": "적용상황"
+    },
+    {
+     "key": "defect_document",
+     "type": null,
+     "label": "결함서류"
+    },
+    {
+     "key": "violation_field",
+     "type": null,
+     "label": "결함항목"
+    },
+    {
+     "key": "normal_example",
+     "type": null,
+     "label": "정상예시"
+    },
+    {
+     "key": "defect_example",
+     "type": null,
+     "label": "결함예시"
+    },
+    {
+     "key": "secondary_check",
+     "type": null,
+     "label": "부가검사"
+    },
+    {
+     "key": "random_valid_chance",
+     "type": null,
+     "label": "랜덤확률"
+    },
+    {
+     "key": "note",
+     "type": null,
+     "label": "비고"
+    },
+    {
+     "key": "corruption_type",
+     "type": null,
+     "label": "변조방식"
+    },
+    {
+     "key": "target_field",
+     "type": null,
+     "label": "대상필드"
+    }
+   ],
+   "rows": [
+    {
+     "rule_id": "1",
+     "character_type": "일반 고객",
+     "context": "상시",
+     "defect_document": "여권",
+     "violation_field": "expiry_date",
+     "normal_example": "만료일 2030",
+     "defect_example": "만료일 2024(만료)",
+     "secondary_check": "-",
+     "random_valid_chance": "0.85",
+     "note": "유효기간 만료형",
+     "corruption_type": "EXPIRE",
+     "target_field": "expiry_date"
+    },
+    {
+     "rule_id": "2",
+     "character_type": "외국인 관광객",
+     "context": "여권만 요구일",
+     "defect_document": "여권",
+     "violation_field": "nationality(발급국)",
+     "normal_example": "사진·MRZ 일치",
+     "defect_example": "발급국 불일치(위조국)",
+     "secondary_check": "-",
+     "random_valid_chance": "0.5",
+     "note": "여권 외관 결함",
+     "corruption_type": "ALTER_FIELD",
+     "target_field": "nationality"
+    },
+    {
+     "rule_id": "3",
+     "character_type": "외국인 관광객",
+     "context": "비자 요구일(3일~)",
+     "defect_document": "비자",
+     "violation_field": "expiry_date / visa_no",
+     "normal_example": "비자 유효",
+     "defect_example": "비자 만료 또는 위조",
+     "secondary_check": "-",
+     "random_valid_chance": "0.5",
+     "note": "①결정: 비자날엔 비자 결함",
+     "corruption_type": "EXPIRE",
+     "target_field": "expiry_date"
+    },
+    {
+     "rule_id": "4",
+     "character_type": "진상 고객",
+     "context": "상시",
+     "defect_document": "여권",
+     "violation_field": "name_en / birth_date",
+     "normal_example": "정보 일치",
+     "defect_example": "철자·생년월일 불일치",
+     "secondary_check": "-",
+     "random_valid_chance": "0.75",
+     "note": "대체로 정상(0.75)",
+     "corruption_type": "ALTER_FIELD",
+     "target_field": "birth_date"
+    },
+    {
+     "rule_id": "5",
+     "character_type": "성형 의심 고객",
+     "context": "상시",
+     "defect_document": "여권",
+     "violation_field": "photo_ref",
+     "normal_example": "얼굴 사진 일치",
+     "defect_example": "얼굴 사진 불일치",
+     "secondary_check": "-",
+     "random_valid_chance": "0.7",
+     "note": "사진 대조형",
+     "corruption_type": "MISMATCH_PHOTO",
+     "target_field": "photo_ref"
+    },
+    {
+     "rule_id": "6",
+     "character_type": "검역 대상자(PCR)",
+     "context": "PCR 요구일(5~7일)",
+     "defect_document": "pcr_test",
+     "violation_field": "result / valid_until",
+     "normal_example": "Negative·유효",
+     "defect_example": "Positive(양성) 또는 만료",
+     "secondary_check": "-",
+     "random_valid_chance": "고정(통과1/거절0)",
+     "note": "방역 구간",
+     "corruption_type": "POSITIVE | FORGE_SOURCE | MISSING",
+     "target_field": "result / lab_name"
+    },
+    {
+     "rule_id": "7",
+     "character_type": "장기체류자",
+     "context": "취업증빙 요구일(8일~)",
+     "defect_document": "employment_cert",
+     "violation_field": "company_name / expiry",
+     "normal_example": "회사·직위 정상",
+     "defect_example": "회사 위조 또는 만료",
+     "secondary_check": "-",
+     "random_valid_chance": "1",
+     "note": "기본 통과",
+     "corruption_type": "FORGE_SOURCE | EXPIRE",
+     "target_field": "company_name / expiry_date"
+    },
+    {
+     "rule_id": "8",
+     "character_type": "취업체류자",
+     "context": "취업증빙 요구일(8일~)",
+     "defect_document": "employment_cert",
+     "violation_field": "company_name / expiry",
+     "normal_example": "회사·직위 정상",
+     "defect_example": "회사 위조 또는 만료",
+     "secondary_check": "-",
+     "random_valid_chance": "1",
+     "note": "기본 통과 / 취업체류자 동일",
+     "corruption_type": "FORGE_SOURCE | EXPIRE",
+     "target_field": "company_name / expiry_date"
+    },
+    {
+     "rule_id": "9",
+     "character_type": "범죄자(외국 도피자)",
+     "context": "상시",
+     "defect_document": "여권",
+     "violation_field": "passport_no",
+     "normal_example": "정상 번호",
+     "defect_example": "위조 번호·형식 위반",
+     "secondary_check": "지문 = 지명수배자 일치",
+     "random_valid_chance": "0.3",
+     "note": "②결정: 지문 부가검사",
+     "corruption_type": "FORGE_NUMBER",
+     "target_field": "passport_no"
+    },
+    {
+     "rule_id": "10",
+     "character_type": "범죄자(국내 유입자)",
+     "context": "상시",
+     "defect_document": "여권",
+     "violation_field": "passport_no",
+     "normal_example": "정상 번호",
+     "defect_example": "위조 번호·형식 위반",
+     "secondary_check": "지문 = 지명수배자 일치",
+     "random_valid_chance": "0.3",
+     "note": "②결정: 지문 부가검사",
+     "corruption_type": "FORGE_NUMBER",
+     "target_field": "passport_no"
+    },
+    {
+     "rule_id": "11",
+     "character_type": "범죄자(성형수술)",
+     "context": "상시",
+     "defect_document": "여권",
+     "violation_field": "photo_ref + passport_no",
+     "normal_example": "사진·번호 일치",
+     "defect_example": "사진+번호 위조",
+     "secondary_check": "지문 = 전과자 일치",
+     "random_valid_chance": "0.3",
+     "note": "②결정: 지문 부가검사",
+     "corruption_type": "MISMATCH_PHOTO + FORGE_NUMBER",
+     "target_field": "photo_ref / passport_no"
+    },
+    {
+     "rule_id": "12",
+     "character_type": "테러범",
+     "context": "상시",
+     "defect_document": "여권",
+     "violation_field": "passport_no / mrz",
+     "normal_example": "정상 여권",
+     "defect_example": "위조 여권",
+     "secondary_check": "X-ray = 위험물 탐지",
+     "random_valid_chance": "0.25",
+     "note": "②결정: X-ray 부가검사",
+     "corruption_type": "FORGE_NUMBER",
+     "target_field": "passport_no"
+    },
+    {
+     "rule_id": "13",
+     "character_type": "특수(연예인)★",
+     "context": "이벤트",
+     "defect_document": "-",
+     "violation_field": "-",
+     "normal_example": "항상 정상",
+     "defect_example": "(결함 없음)",
+     "secondary_check": "-",
+     "random_valid_chance": "1",
+     "note": "고정 통과·이벤트성",
+     "corruption_type": "NONE",
+     "target_field": "-"
+    },
+    {
+     "rule_id": "14",
+     "character_type": "특수(현자)★",
+     "context": "이벤트",
+     "defect_document": "-",
+     "violation_field": "-",
+     "normal_example": "항상 정상",
+     "defect_example": "(결함 없음)",
+     "secondary_check": "-",
+     "random_valid_chance": "1",
+     "note": "고정 통과·이벤트성",
+     "corruption_type": "NONE",
+     "target_field": "-"
+    },
+    {
+     "rule_id": "15",
+     "character_type": "특수(정치인)★",
+     "context": "이벤트",
+     "defect_document": "-",
+     "violation_field": "-",
+     "normal_example": "항상 정상",
+     "defect_example": "(결함 없음)",
+     "secondary_check": "-",
+     "random_valid_chance": "1",
+     "note": "고정 통과·이벤트성",
+     "corruption_type": "NONE",
+     "target_field": "-"
+    }
+   ],
+   "layout": "flat"
+  },
+  "fake_value_pool": {
+   "columns": [
+    {
+     "key": "pool_id",
+     "type": null,
+     "label": null
+    },
+    {
+     "key": "field",
+     "type": null,
+     "label": "대상필드"
+    },
+    {
+     "key": "fake_value",
+     "type": null,
+     "label": "가짜값"
+    },
+    {
+     "key": "note",
+     "type": null,
+     "label": "설명"
+    }
+   ],
+   "rows": [
+    {
+     "pool_id": "1",
+     "field": "company_name",
+     "fake_value": "(주)유령상사",
+     "note": "미등록 유령회사"
+    },
+    {
+     "pool_id": "2",
+     "field": "company_name",
+     "fake_value": "페이퍼컴퍼니(주)",
+     "note": "서류상 회사"
+    },
+    {
+     "pool_id": "3",
+     "field": "company_name",
+     "fake_value": "한밤물류(미등록)",
+     "note": "사업자 미등록"
+    },
+    {
+     "pool_id": "4",
+     "field": "company_name",
+     "fake_value": "(주)그림자무역",
+     "note": "폐업 상태"
+    },
+    {
+     "pool_id": "5",
+     "field": "lab_name",
+     "fake_value": "퀵메디 사설랩",
+     "note": "무인증 사설"
+    },
+    {
+     "pool_id": "6",
+     "field": "lab_name",
+     "fake_value": "24시 익명검사소",
+     "note": "검역 미인증"
+    },
+    {
+     "pool_id": "7",
+     "field": "lab_name",
+     "fake_value": "무허가검진센터",
+     "note": "허가 없음"
+    },
+    {
+     "pool_id": "8",
+     "field": "nationality",
+     "fake_value": "IRL",
+     "note": "발급국 위조(아일랜드)"
+    },
+    {
+     "pool_id": "9",
+     "field": "nationality",
+     "fake_value": "PRT",
+     "note": "발급국 위조(포르투갈)"
+    },
+    {
+     "pool_id": "10",
+     "field": "nationality",
+     "fake_value": "BEL",
+     "note": "발급국 위조(벨기에)"
+    },
+    {
+     "pool_id": "11",
+     "field": "nationality",
+     "fake_value": "KAZ",
+     "note": "발급국 위조(카자흐스탄)"
+    },
+    {
+     "pool_id": "12",
+     "field": "passport_no",
+     "fake_value": "##INVALID_PATTERN##",
+     "note": "형식/체크섬 불일치 번호 생성"
+    },
+    {
+     "pool_id": "13",
+     "field": "result",
+     "fake_value": "Positive",
+     "note": "PCR 양성"
+    }
+   ],
+   "layout": "flat"
+  },
+  "document_requirement": {
+   "columns": [
+    {
+     "key": "req_id",
+     "type": null,
+     "label": null
+    },
+    {
+     "key": "document_type",
+     "type": null,
+     "label": "서류"
+    },
+    {
+     "key": "day_from",
+     "type": null,
+     "label": null
+    },
+    {
+     "key": "day_to",
+     "type": null,
+     "label": null
+    },
+    {
+     "key": "applies_to",
+     "type": null,
+     "label": "대상조건"
+    },
+    {
+     "key": "note",
+     "type": null,
+     "label": "설명"
+    }
+   ],
+   "rows": [
+    {
+     "req_id": "1",
+     "document_type": "여권",
+     "day_from": "1",
+     "day_to": "14",
+     "applies_to": "전원",
+     "note": "항상 필수"
+    },
+    {
+     "req_id": "2",
+     "document_type": "비자",
+     "day_from": "3",
+     "day_to": "14",
+     "applies_to": "외국 국적자 (nationality != KOR)",
+     "note": "한국인 면제"
+    },
+    {
+     "req_id": "3",
+     "document_type": "PCR검사서",
+     "day_from": "5",
+     "day_to": "7",
+     "applies_to": "전원 (검역 구간)",
+     "note": "방역 기간에만 요구"
+    },
+    {
+     "req_id": "4",
+     "document_type": "취업증빙",
+     "day_from": "8",
+     "day_to": "14",
+     "applies_to": "취업/장기 체류자 (character_type ∈ {취업체류자,장기체류자})",
+     "note": "관광객 등 면제"
+    }
+   ],
+   "layout": "flat"
+  },
+  "score_model": {
+   "columns": [
+    {
+     "key": "item",
+     "label": "항목"
+    },
+    {
+     "key": "value",
+     "label": "값"
+    },
+    {
+     "key": "desc",
+     "label": "설명"
+    }
+   ],
+   "rows": [
+    {
+     "item": "모델",
+     "value": "A-1",
+     "desc": "엔딩 점수 = 판정만 합산 (정답/오판). 나머지는 돈(재화)"
+    },
+    {
+     "item": "정답(JUDGE_CORRECT)",
+     "value": "+10",
+     "desc": "엔딩 점수 포함"
+    },
+    {
+     "item": "오판(JUDGE_WRONG)",
+     "value": "-15",
+     "desc": "엔딩 점수 포함"
+    },
+    {
+     "item": "일급(DAILY_BASE)",
+     "value": "+100",
+     "desc": "돈(재화) — 점수 미포함, 상점용"
+    },
+    {
+     "item": "적발(DETECTION)",
+     "value": "+30",
+     "desc": "돈(재화) — 점수 미포함"
+    },
+    {
+     "item": "퍼펙트데이(PERFECT_DAY)",
+     "value": "+50",
+     "desc": "돈(재화) — 점수 미포함"
+    },
+    {
+     "item": "경고(WARNING)",
+     "value": "-50",
+     "desc": "돈(재화) — 점수 미포함"
+    },
+    {
+     "item": "총 판정 건수",
+     "value": "98",
+     "desc": "14일 × 7슬롯"
+    },
+    {
+     "item": "점수 공식",
+     "value": "점수 = 2450 × 정확도 − 1470",
+     "desc": null
+    },
+    {
+     "item": "목표",
+     "value": "70% 정확도 → +245 → 우수 사원(200~299)",
+     "desc": "설계 앵커"
+    },
+    {
+     "item": "100% 정확도",
+     "value": "+980 → 전설의 검문관(500+)",
+     "desc": null
+    },
+    {
+     "item": "60% 정확도",
+     "value": "0 → 나쁘진 않았어",
+     "desc": null
+    }
+   ],
+   "layout": "config"
+  }
+ },
+ "warnings": []
+}
