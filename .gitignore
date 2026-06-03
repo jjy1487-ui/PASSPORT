@@ -47,3 +47,7 @@ __pycache__/
 
 # Excel temp lock files
 ~$*
+
+# Unity crash recovery
+Assets/_Recovery/
+Assets/_Recovery.meta

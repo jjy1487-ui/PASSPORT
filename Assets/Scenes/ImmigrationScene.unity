@@ -8759,7 +8759,7 @@ MonoBehaviour:
   newsPopup: {fileID: 542659340}
   rulebookPopup: {fileID: 1104734074}
   dialogueLogPopup: {fileID: 570171084}
-  startDay: 1
+  startDay: 4
 --- !u!4 &879201625
 Transform:
   m_ObjectHideFlags: 0
