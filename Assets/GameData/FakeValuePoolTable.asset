@@ -105,7 +105,7 @@ MonoBehaviour:
     values:
     - 8
     - nationality
-    - IRL
+    - USA
     - "\uBC1C\uAE09\uAD6D \uC704\uC870(\uC544\uC77C\uB79C\uB4DC)"
   - keys:
     - pool_id
@@ -115,7 +115,7 @@ MonoBehaviour:
     values:
     - 9
     - nationality
-    - PRT
+    - JPN
     - "\uBC1C\uAE09\uAD6D \uC704\uC870(\uD3EC\uB974\uD22C\uAC08)"
   - keys:
     - pool_id
@@ -125,7 +125,7 @@ MonoBehaviour:
     values:
     - 10
     - nationality
-    - BEL
+    - CHN
     - "\uBC1C\uAE09\uAD6D \uC704\uC870(\uBCA8\uAE30\uC5D0)"
   - keys:
     - pool_id
@@ -135,7 +135,7 @@ MonoBehaviour:
     values:
     - 11
     - nationality
-    - KAZ
+    - KOR
     - "\uBC1C\uAE09\uAD6D \uC704\uC870(\uCE74\uC790\uD750\uC2A4\uD0C4)"
   - keys:
     - pool_id

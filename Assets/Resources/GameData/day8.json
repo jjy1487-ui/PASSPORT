@@ -1197,9 +1197,9 @@
     {
       "customerId": 4,
       "slot": 6,
-      "nameKr": "마리아 가르시아",
-      "nameEn": "MARIA GARCIA",
-      "nationality": "스페인(ESP)",
+      "nameKr": "제임스 밀러",
+      "nameEn": "JAMES MILLER",
+      "nationality": "미국(USA)",
       "gender": "여성",
       "birthDate": "1995-02-28",
       "age": 31,
@@ -1213,16 +1213,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_4",
-          "country": "ESP",
+          "country": "USA",
           "fields": [
             {
               "label": "여권번호",
-              "value": "ES3334455",
+              "value": "US3334455",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "GARCIA MARIA",
+              "value": "MILLER JAMES",
               "key": "name"
             },
             {
@@ -1237,7 +1237,7 @@
             },
             {
               "label": "국적",
-              "value": "ESP",
+              "value": "USA",
               "key": "nationality"
             },
             {
@@ -1261,7 +1261,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-ESP-3932",
+              "value": "V-USA-3932",
               "key": "visa_no"
             },
             {
@@ -1271,7 +1271,7 @@
             },
             {
               "label": "국적",
-              "value": "ESP",
+              "value": "USA",
               "key": "nationality"
             },
             {

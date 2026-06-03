@@ -436,9 +436,9 @@
     {
       "customerId": 4,
       "slot": 3,
-      "nameKr": "마리아 가르시아",
-      "nameEn": "MARIA GARCIA",
-      "nationality": "스페인(ESP)",
+      "nameKr": "제임스 밀러",
+      "nameEn": "JAMES MILLER",
+      "nationality": "미국(USA)",
       "gender": "여성",
       "birthDate": "1995-02-28",
       "age": 31,
@@ -452,16 +452,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_4",
-          "country": "ESP",
+          "country": "USA",
           "fields": [
             {
               "label": "여권번호",
-              "value": "ES3334455",
+              "value": "US3334455",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "GARCIA MARIA",
+              "value": "MILLER JAMES",
               "key": "name"
             },
             {
@@ -476,7 +476,7 @@
             },
             {
               "label": "국적",
-              "value": "ESP",
+              "value": "USA",
               "key": "nationality"
             },
             {
@@ -500,7 +500,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-ESP-3932",
+              "value": "V-USA-3932",
               "key": "visa_no"
             },
             {
@@ -510,7 +510,7 @@
             },
             {
               "label": "국적",
-              "value": "ESP",
+              "value": "USA",
               "key": "nationality"
             },
             {
@@ -1338,9 +1338,9 @@
     {
       "customerId": 7,
       "slot": 7,
-      "nameKr": "피에르 뒤퐁",
-      "nameEn": "PIERRE DUPONT",
-      "nationality": "프랑스(FRA)",
+      "nameKr": "왕 웨이",
+      "nameEn": "WANG WEI",
+      "nationality": "중국(CHN)",
       "gender": "남성",
       "birthDate": "1993-12-05",
       "age": 32,
@@ -1354,16 +1354,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_7",
-          "country": "FRA",
+          "country": "CHN",
           "fields": [
             {
               "label": "여권번호",
-              "value": "FR6667788",
+              "value": "CN6667788",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "DUPONT PIERRE",
+              "value": "WEI WANG",
               "key": "name"
             },
             {
@@ -1378,7 +1378,7 @@
             },
             {
               "label": "국적",
-              "value": "FRA",
+              "value": "CHN",
               "key": "nationality"
             },
             {
@@ -1402,7 +1402,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-FRA-6131",
+              "value": "V-CHN-6131",
               "key": "visa_no"
             },
             {
@@ -1412,7 +1412,7 @@
             },
             {
               "label": "국적",
-              "value": "FRA",
+              "value": "CHN",
               "key": "nationality"
             },
             {

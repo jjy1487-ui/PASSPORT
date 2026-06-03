@@ -430,9 +430,9 @@
     {
       "customerId": 25,
       "slot": 3,
-      "nameKr": "에밀리 클라크",
-      "nameEn": "EMILY CLARK",
-      "nationality": "영국(GBR)",
+      "nameKr": "윌리엄 브라운",
+      "nameEn": "WILLIAM BROWN",
+      "nationality": "미국(USA)",
       "gender": "여성",
       "birthDate": "1994-03-03",
       "age": 32,
@@ -446,16 +446,16 @@
           "variant": "비정상",
           "violationField": "국적",
           "spriteRef": "photo_c25",
-          "country": "GBR",
+          "country": "USA",
           "fields": [
             {
               "label": "여권번호",
-              "value": "GB1027925",
+              "value": "US1027925",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "EMILY CLARK",
+              "value": "BROWN WILLIAM",
               "key": "name"
             },
             {
@@ -470,7 +470,7 @@
             },
             {
               "label": "국적",
-              "value": "IRL",
+              "value": "KOR",
               "key": "nationality"
             },
             {

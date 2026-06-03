@@ -4,9 +4,9 @@
     {
       "customerId": 13,
       "slot": 1,
-      "nameKr": "응우옌 반",
-      "nameEn": "NGUYEN VAN",
-      "nationality": "베트남(VNM)",
+      "nameKr": "로버트 존슨",
+      "nameEn": "ROBERT JOHNSON",
+      "nationality": "미국(USA)",
       "gender": "남성",
       "birthDate": "1989-09-03",
       "age": 36,
@@ -20,16 +20,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_c13",
-          "country": "VNM",
+          "country": "USA",
           "fields": [
             {
               "label": "여권번호",
-              "value": "VN1014521",
+              "value": "US1014521",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "NGUYEN VAN",
+              "value": "JOHNSON ROBERT",
               "key": "name"
             },
             {
@@ -44,7 +44,7 @@
             },
             {
               "label": "국적",
-              "value": "VNM",
+              "value": "USA",
               "key": "nationality"
             },
             {
@@ -68,7 +68,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-VNM-1529",
+              "value": "V-USA-1529",
               "key": "visa_no"
             },
             {
@@ -78,7 +78,7 @@
             },
             {
               "label": "국적",
-              "value": "VNM",
+              "value": "USA",
               "key": "nationality"
             },
             {
@@ -525,9 +525,9 @@
     {
       "customerId": 14,
       "slot": 3,
-      "nameKr": "사라 밀러",
-      "nameEn": "SARAH MILLER",
-      "nationality": "영국(GBR)",
+      "nameKr": "리 나",
+      "nameEn": "LI NA",
+      "nationality": "중국(CHN)",
       "gender": "여성",
       "birthDate": "1993-07-19",
       "age": 32,
@@ -541,16 +541,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_c14",
-          "country": "GBR",
+          "country": "CHN",
           "fields": [
             {
               "label": "여권번호",
-              "value": "GB1015638",
+              "value": "CN1015638",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "SARAH MILLER",
+              "value": "NA LI",
               "key": "name"
             },
             {
@@ -565,7 +565,7 @@
             },
             {
               "label": "국적",
-              "value": "GBR",
+              "value": "CHN",
               "key": "nationality"
             },
             {
@@ -589,7 +589,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-GBR-2262",
+              "value": "V-CHN-2262",
               "key": "visa_no"
             },
             {
@@ -599,7 +599,7 @@
             },
             {
               "label": "국적",
-              "value": "GBR",
+              "value": "CHN",
               "key": "nationality"
             },
             {
@@ -821,9 +821,9 @@
     {
       "customerId": 19,
       "slot": 4,
-      "nameKr": "라지브 메타",
-      "nameEn": "RAJIV MEHTA",
-      "nationality": "인도(IND)",
+      "nameKr": "다나카 유이",
+      "nameEn": "TANAKA YUI",
+      "nationality": "일본(JPN)",
       "gender": "남성",
       "birthDate": "1990-12-12",
       "age": 35,
@@ -837,16 +837,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_c19",
-          "country": "IND",
+          "country": "JPN",
           "fields": [
             {
               "label": "여권번호",
-              "value": "IN1021223",
+              "value": "JP1021223",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "RAJIV MEHTA",
+              "value": "YUI TANAKA",
               "key": "name"
             },
             {
@@ -861,7 +861,7 @@
             },
             {
               "label": "국적",
-              "value": "IND",
+              "value": "JPN",
               "key": "nationality"
             },
             {
@@ -885,7 +885,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-IND-5927",
+              "value": "V-JPN-5927",
               "key": "visa_no"
             },
             {
@@ -895,7 +895,7 @@
             },
             {
               "label": "국적",
-              "value": "IND",
+              "value": "JPN",
               "key": "nationality"
             },
             {
@@ -1123,9 +1123,9 @@
     {
       "customerId": 27,
       "slot": 5,
-      "nameKr": "호세 모랄레스",
-      "nameEn": "JOSE MORALES",
-      "nationality": "멕시코(MEX)",
+      "nameKr": "장 웨이",
+      "nameEn": "ZHANG WEI",
+      "nationality": "중국(CHN)",
       "gender": "남성",
       "birthDate": "1991-06-14",
       "age": 34,
@@ -1139,16 +1139,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_c27",
-          "country": "MEX",
+          "country": "CHN",
           "fields": [
             {
               "label": "여권번호",
-              "value": "ME1030159",
+              "value": "CN1030159",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "JOSE MORALES",
+              "value": "WEI ZHANG",
               "key": "name"
             },
             {
@@ -1163,7 +1163,7 @@
             },
             {
               "label": "국적",
-              "value": "MEX",
+              "value": "CHN",
               "key": "nationality"
             },
             {
@@ -1187,7 +1187,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-MEX-2791",
+              "value": "V-CHN-2791",
               "key": "visa_no"
             },
             {
@@ -1197,7 +1197,7 @@
             },
             {
               "label": "국적",
-              "value": "MEX",
+              "value": "CHN",
               "key": "nationality"
             },
             {

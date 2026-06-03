@@ -430,9 +430,9 @@
     {
       "customerId": 7,
       "slot": 3,
-      "nameKr": "피에르 뒤퐁",
-      "nameEn": "PIERRE DUPONT",
-      "nationality": "프랑스(FRA)",
+      "nameKr": "왕 웨이",
+      "nameEn": "WANG WEI",
+      "nationality": "중국(CHN)",
       "gender": "남성",
       "birthDate": "1993-12-05",
       "age": 32,
@@ -446,16 +446,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_7",
-          "country": "FRA",
+          "country": "CHN",
           "fields": [
             {
               "label": "여권번호",
-              "value": "FR6667788",
+              "value": "CN6667788",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "DUPONT PIERRE",
+              "value": "WEI WANG",
               "key": "name"
             },
             {
@@ -470,7 +470,7 @@
             },
             {
               "label": "국적",
-              "value": "FRA",
+              "value": "CHN",
               "key": "nationality"
             },
             {
@@ -494,7 +494,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-FRA-6131",
+              "value": "V-CHN-6131",
               "key": "visa_no"
             },
             {
@@ -504,7 +504,7 @@
             },
             {
               "label": "국적",
-              "value": "FRA",
+              "value": "CHN",
               "key": "nationality"
             },
             {
@@ -1119,9 +1119,9 @@
     {
       "customerId": 25,
       "slot": 6,
-      "nameKr": "에밀리 클라크",
-      "nameEn": "EMILY CLARK",
-      "nationality": "영국(GBR)",
+      "nameKr": "윌리엄 브라운",
+      "nameEn": "WILLIAM BROWN",
+      "nationality": "미국(USA)",
       "gender": "여성",
       "birthDate": "1994-03-03",
       "age": 32,
@@ -1135,16 +1135,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_c25",
-          "country": "GBR",
+          "country": "USA",
           "fields": [
             {
               "label": "여권번호",
-              "value": "GB1027925",
+              "value": "US1027925",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "EMILY CLARK",
+              "value": "BROWN WILLIAM",
               "key": "name"
             },
             {
@@ -1159,7 +1159,7 @@
             },
             {
               "label": "국적",
-              "value": "GBR",
+              "value": "USA",
               "key": "nationality"
             },
             {
@@ -1183,7 +1183,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-GBR-1325",
+              "value": "V-USA-1325",
               "key": "visa_no"
             },
             {
@@ -1193,7 +1193,7 @@
             },
             {
               "label": "국적",
-              "value": "GBR",
+              "value": "USA",
               "key": "nationality"
             },
             {
@@ -1382,9 +1382,9 @@
     {
       "customerId": 35,
       "slot": 7,
-      "nameKr": "라우라 페레스",
-      "nameEn": "LAURA PEREZ",
-      "nationality": "필리핀(PHL)",
+      "nameKr": "자오 레이",
+      "nameEn": "ZHAO LEI",
+      "nationality": "중국(CHN)",
       "gender": "여성",
       "birthDate": "1990-06-18",
       "age": 35,
@@ -1398,16 +1398,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_c35",
-          "country": "PHL",
+          "country": "CHN",
           "fields": [
             {
               "label": "여권번호",
-              "value": "PH1039095",
+              "value": "CN1039095",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "LAURA PEREZ",
+              "value": "LEI ZHAO",
               "key": "name"
             },
             {
@@ -1422,7 +1422,7 @@
             },
             {
               "label": "국적",
-              "value": "PHL",
+              "value": "CHN",
               "key": "nationality"
             },
             {
@@ -1446,7 +1446,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-PHL-8655",
+              "value": "V-CHN-8655",
               "key": "visa_no"
             },
             {
@@ -1456,7 +1456,7 @@
             },
             {
               "label": "국적",
-              "value": "PHL",
+              "value": "CHN",
               "key": "nationality"
             },
             {

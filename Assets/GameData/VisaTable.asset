@@ -75,9 +75,9 @@ MonoBehaviour:
     values:
     - 3
     - 4
-    - V-ESP-3932
+    - V-USA-3932
     - "\uAD00\uAD11"
-    - ESP
+    - USA
     - 2025-09-01
     - 2027-09-01
     - "\uB2E8\uC218"
@@ -95,9 +95,9 @@ MonoBehaviour:
     values:
     - 4
     - 7
-    - V-FRA-6131
+    - V-CHN-6131
     - "\uAD00\uAD11"
-    - FRA
+    - CHN
     - 2025-09-01
     - 2027-09-01
     - "\uB2E8\uC218"
@@ -135,9 +135,9 @@ MonoBehaviour:
     values:
     - 6
     - 11
-    - V-PAK-9063
+    - V-JPN-9063
     - "\uAD00\uAD11"
-    - PAK
+    - JPN
     - 2025-09-01
     - 2027-09-01
     - "\uB2E8\uC218"
@@ -155,9 +155,9 @@ MonoBehaviour:
     values:
     - 7
     - 13
-    - V-VNM-1529
+    - V-USA-1529
     - "\uAD00\uAD11"
-    - VNM
+    - USA
     - 2025-09-01
     - 2027-09-01
     - "\uB2E8\uC218"
@@ -175,9 +175,9 @@ MonoBehaviour:
     values:
     - 8
     - 14
-    - V-GBR-2262
+    - V-CHN-2262
     - "\uAD00\uAD11"
-    - GBR
+    - CHN
     - 2025-09-01
     - 2027-09-01
     - "\uB2E8\uC218"
@@ -215,9 +215,9 @@ MonoBehaviour:
     values:
     - 10
     - 19
-    - V-IND-5927
+    - V-JPN-5927
     - "\uAD00\uAD11"
-    - IND
+    - JPN
     - 2025-09-01
     - 2027-09-01
     - "\uB2E8\uC218"
@@ -235,9 +235,9 @@ MonoBehaviour:
     values:
     - 11
     - 25
-    - V-GBR-1325
+    - V-USA-1325
     - "\uAD00\uAD11"
-    - GBR
+    - USA
     - 2025-09-01
     - 2027-09-01
     - "\uB2E8\uC218"
@@ -275,9 +275,9 @@ MonoBehaviour:
     values:
     - 13
     - 27
-    - V-MEX-2791
+    - V-CHN-2791
     - "\uAD00\uAD11"
-    - MEX
+    - CHN
     - 2025-09-01
     - 2027-09-01
     - "\uB2E8\uC218"
@@ -295,9 +295,9 @@ MonoBehaviour:
     values:
     - 14
     - 31
-    - V-BRA-5723
+    - V-JPN-5723
     - "\uAD00\uAD11"
-    - BRA
+    - JPN
     - 2025-09-01
     - 2027-09-01
     - "\uB2E8\uC218"
@@ -315,9 +315,9 @@ MonoBehaviour:
     values:
     - 15
     - 32
-    - V-EGY-6456
+    - V-USA-6456
     - "\uAD00\uAD11"
-    - EGY
+    - USA
     - 2025-09-01
     - 2027-09-01
     - "\uB2E8\uC218"
@@ -335,9 +335,9 @@ MonoBehaviour:
     values:
     - 16
     - 33
-    - V-TWN-7189
+    - V-CHN-7189
     - "\uAD00\uAD11"
-    - TWN
+    - CHN
     - 2025-09-01
     - 2027-09-01
     - "\uB2E8\uC218"
@@ -355,9 +355,9 @@ MonoBehaviour:
     values:
     - 17
     - 34
-    - V-SYR-7922
+    - V-JPN-7922
     - "\uAD00\uAD11"
-    - SYR
+    - JPN
     - 2025-09-01
     - 2027-09-01
     - "\uB2E8\uC218"
@@ -375,9 +375,9 @@ MonoBehaviour:
     values:
     - 23
     - 35
-    - V-PHL-8655
+    - V-CHN-8655
     - "\uCDE8\uC5C5"
-    - PHL
+    - CHN
     - 2025-06-01
     - 2027-06-01
     - "\uBCF5\uC218"
@@ -395,9 +395,9 @@ MonoBehaviour:
     values:
     - 24
     - 36
-    - V-RUS-9388
+    - V-CHN-9388
     - "\uCDE8\uC5C5"
-    - RUS
+    - CHN
     - 2025-06-01
     - 2027-06-01
     - "\uBCF5\uC218"
@@ -415,9 +415,9 @@ MonoBehaviour:
     values:
     - 25
     - 37
-    - V-BGD-1121
+    - V-USA-1121
     - "\uCDE8\uC5C5"
-    - BGD
+    - USA
     - 2025-06-01
     - 2027-06-01
     - "\uBCF5\uC218"

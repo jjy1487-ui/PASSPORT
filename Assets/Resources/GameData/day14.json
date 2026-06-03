@@ -715,9 +715,9 @@
     {
       "customerId": 34,
       "slot": 4,
-      "nameKr": "유스프 알리",
-      "nameEn": "YUSUF ALI",
-      "nationality": "시리아(SYR)",
+      "nameKr": "야마모토 렌",
+      "nameEn": "YAMAMOTO REN",
+      "nationality": "일본(JPN)",
       "gender": "남성",
       "birthDate": "1982-03-22",
       "age": 44,
@@ -731,7 +731,7 @@
           "variant": "비정상",
           "violationField": "여권번호",
           "spriteRef": "photo_c34",
-          "country": "SYR",
+          "country": "JPN",
           "fields": [
             {
               "label": "여권번호",
@@ -740,7 +740,7 @@
             },
             {
               "label": "영문이름",
-              "value": "YUSUF ALI",
+              "value": "REN YAMAMOTO",
               "key": "name"
             },
             {
@@ -755,7 +755,7 @@
             },
             {
               "label": "국적",
-              "value": "SYR",
+              "value": "JPN",
               "key": "nationality"
             },
             {
@@ -779,7 +779,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-SYR-7922",
+              "value": "V-JPN-7922",
               "key": "visa_no"
             },
             {
@@ -789,7 +789,7 @@
             },
             {
               "label": "국적",
-              "value": "SYR",
+              "value": "JPN",
               "key": "nationality"
             },
             {
@@ -1202,9 +1202,9 @@
     {
       "customerId": 4,
       "slot": 6,
-      "nameKr": "마리아 가르시아",
-      "nameEn": "MARIA GARCIA",
-      "nationality": "스페인(ESP)",
+      "nameKr": "제임스 밀러",
+      "nameEn": "JAMES MILLER",
+      "nationality": "미국(USA)",
       "gender": "여성",
       "birthDate": "1995-02-28",
       "age": 31,
@@ -1218,16 +1218,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_4",
-          "country": "ESP",
+          "country": "USA",
           "fields": [
             {
               "label": "여권번호",
-              "value": "ES3334455",
+              "value": "US3334455",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "GARCIA MARIA",
+              "value": "MILLER JAMES",
               "key": "name"
             },
             {
@@ -1242,7 +1242,7 @@
             },
             {
               "label": "국적",
-              "value": "ESP",
+              "value": "USA",
               "key": "nationality"
             },
             {
@@ -1266,7 +1266,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-ESP-3932",
+              "value": "V-USA-3932",
               "key": "visa_no"
             },
             {
@@ -1276,7 +1276,7 @@
             },
             {
               "label": "국적",
-              "value": "ESP",
+              "value": "USA",
               "key": "nationality"
             },
             {
@@ -1465,9 +1465,9 @@
     {
       "customerId": 37,
       "slot": 7,
-      "nameKr": "압둘라 카림",
-      "nameEn": "ABDULLAH KARIM",
-      "nationality": "방글라데시(BGD)",
+      "nameKr": "제시카 윌슨",
+      "nameEn": "JESSICA WILSON",
+      "nationality": "미국(USA)",
       "gender": "남성",
       "birthDate": "1988-11-30",
       "age": 37,
@@ -1481,16 +1481,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_c37",
-          "country": "BGD",
+          "country": "USA",
           "fields": [
             {
               "label": "여권번호",
-              "value": "BG1041329",
+              "value": "US1041329",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "ABDULLAH KARIM",
+              "value": "WILSON JESSICA",
               "key": "name"
             },
             {
@@ -1505,7 +1505,7 @@
             },
             {
               "label": "국적",
-              "value": "BGD",
+              "value": "USA",
               "key": "nationality"
             },
             {
@@ -1529,7 +1529,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-BGD-1121",
+              "value": "V-USA-1121",
               "key": "visa_no"
             },
             {
@@ -1539,7 +1539,7 @@
             },
             {
               "label": "국적",
-              "value": "BGD",
+              "value": "USA",
               "key": "nationality"
             },
             {
@@ -1787,13 +1787,13 @@
     {
       "newsId": 914010,
       "title": "[속보] 위험물 반입 경보",
-      "content": "국제 공조 수사 결과 SYR 경유 입국자 중 폭발물·밀수품 은닉 사례가 다수 적발되었습니다. 해당 대상과 정보가 일치하면 X-ray 정밀 검사를 시행하십시오.",
+      "content": "국제 공조 수사 결과 JPN 경유 입국자 중 폭발물·밀수품 은닉 사례가 다수 적발되었습니다. 해당 대상과 정보가 일치하면 X-ray 정밀 검사를 시행하십시오.",
       "iconRef": "",
       "claims": [
         {
           "attr": "nationality",
-          "value": "SYR",
-          "label": "폭발물/밀수 경보: SYR발 위험물 주의",
+          "value": "JPN",
+          "label": "폭발물/밀수 경보: JPN발 위험물 주의",
           "unlocksScan": "xray"
         }
       ]

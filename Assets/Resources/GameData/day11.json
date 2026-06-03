@@ -1130,9 +1130,9 @@
     {
       "customerId": 37,
       "slot": 6,
-      "nameKr": "압둘라 카림",
-      "nameEn": "ABDULLAH KARIM",
-      "nationality": "방글라데시(BGD)",
+      "nameKr": "제시카 윌슨",
+      "nameEn": "JESSICA WILSON",
+      "nationality": "미국(USA)",
       "gender": "남성",
       "birthDate": "1988-11-30",
       "age": 37,
@@ -1146,16 +1146,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_c37",
-          "country": "BGD",
+          "country": "USA",
           "fields": [
             {
               "label": "여권번호",
-              "value": "BG1041329",
+              "value": "US1041329",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "ABDULLAH KARIM",
+              "value": "WILSON JESSICA",
               "key": "name"
             },
             {
@@ -1170,7 +1170,7 @@
             },
             {
               "label": "국적",
-              "value": "BGD",
+              "value": "USA",
               "key": "nationality"
             },
             {
@@ -1194,7 +1194,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-BGD-1121",
+              "value": "V-USA-1121",
               "key": "visa_no"
             },
             {
@@ -1204,7 +1204,7 @@
             },
             {
               "label": "국적",
-              "value": "BGD",
+              "value": "USA",
               "key": "nationality"
             },
             {

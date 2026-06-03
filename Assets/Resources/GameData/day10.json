@@ -1338,9 +1338,9 @@
     {
       "customerId": 36,
       "slot": 7,
-      "nameKr": "드미트리 이바노프",
-      "nameEn": "DMITRI IVANOV",
-      "nationality": "러시아(RUS)",
+      "nameKr": "천 징",
+      "nameEn": "CHEN JING",
+      "nationality": "중국(CHN)",
       "gender": "남성",
       "birthDate": "1985-02-09",
       "age": 41,
@@ -1354,16 +1354,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_c36",
-          "country": "RUS",
+          "country": "CHN",
           "fields": [
             {
               "label": "여권번호",
-              "value": "RU1040212",
+              "value": "CN1040212",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "DMITRI IVANOV",
+              "value": "JING CHEN",
               "key": "name"
             },
             {
@@ -1378,7 +1378,7 @@
             },
             {
               "label": "국적",
-              "value": "RUS",
+              "value": "CHN",
               "key": "nationality"
             },
             {
@@ -1402,7 +1402,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-RUS-9388",
+              "value": "V-CHN-9388",
               "key": "visa_no"
             },
             {
@@ -1412,7 +1412,7 @@
             },
             {
               "label": "국적",
-              "value": "RUS",
+              "value": "CHN",
               "key": "nationality"
             },
             {

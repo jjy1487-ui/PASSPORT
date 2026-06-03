@@ -266,7 +266,11 @@ def apply_defect(doc, fields, corruption_type, target_key, fake_pool, ctx):
 
     if corruption_type == "ALTER_FIELD":
         if target_key == "nationality":
-            fv = fake_value_for("nationality", fake_pool, *ctx) or "IRL"
+            # 국적4제한: 위조 국적도 허용 4개국 내에서만(진짜 국적 제외) 결정론적 선택.
+            # fake_value_pool 의 비4개국 코드(IRL 등)는 쓰지 않는다 → baked 국적 항상 {KOR,USA,CHN,JPN}.
+            true_nat = get_field(fields, "국적")
+            cands = [n for n in ("KOR", "USA", "CHN", "JPN") if n != true_nat]
+            fv = seeded_pick(cands, "fake", "nationality", *ctx)
             set_field(fields, "국적", fv)
             return "국적"
         if target_key == "birth_date":
@@ -354,12 +358,14 @@ SCAN_TRIGGERS = [
     (11, "10", "passport_no", "KO1011170", ["fingerprint"]),
     # day12 손님8(지문) — USA 가 day12 유일 → nationality 코드로 매칭 (여권번호는 변조될 수 있어 비사용)
     (12, "8", "nationality", "USA", ["fingerprint"]),
-    # day13 손님11(xray) — PAK 가 day13 유일 → nationality
-    (13, "11", "nationality", "PAK", ["xray"]),
+    # day13 손님11(xray) — 재배정 JPN. day13에 JPN이 11/26(기존 일본) 둘 → passport_no 유일키.
+    #   손님11 여권번호는 정상(JP1012287, 국적/만료일 변조만) → 안정 식별 가능.
+    (13, "11", "passport_no", "JP1012287", ["xray"]),
     # day14 손님9(xray+지문) — KOR 가 day14에 3명 → passport_no, 스캔 2종 각각 트리거
     (14, "9", "passport_no", "KO1010053", ["xray", "fingerprint"]),
-    # day14 손님34(xray) — SYR 가 day14 유일 → nationality
-    (14, "34", "nationality", "SYR", ["xray"]),
+    # day14 손님34(xray) — 재배정 JPN. 손님37을 USA로 옮겨 day14 JPN 유일 → nationality 코드.
+    #   (손님34 여권번호는 변조될 수 있어 nationality 사용)
+    (14, "34", "nationality", "JPN", ["xray"]),
 ]
 
 # 스캔 종류별 테마 라벨(label). 값에 식별값(국적코드/여권번호)을 끼워 연출.

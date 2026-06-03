@@ -4,9 +4,9 @@
     {
       "customerId": 27,
       "slot": 1,
-      "nameKr": "호세 모랄레스",
-      "nameEn": "JOSE MORALES",
-      "nationality": "멕시코(MEX)",
+      "nameKr": "장 웨이",
+      "nameEn": "ZHANG WEI",
+      "nationality": "중국(CHN)",
       "gender": "남성",
       "birthDate": "1991-06-14",
       "age": 34,
@@ -20,16 +20,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_c27",
-          "country": "MEX",
+          "country": "CHN",
           "fields": [
             {
               "label": "여권번호",
-              "value": "ME1030159",
+              "value": "CN1030159",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "JOSE MORALES",
+              "value": "WEI ZHANG",
               "key": "name"
             },
             {
@@ -44,7 +44,7 @@
             },
             {
               "label": "국적",
-              "value": "MEX",
+              "value": "CHN",
               "key": "nationality"
             },
             {
@@ -68,7 +68,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-MEX-2791",
+              "value": "V-CHN-2791",
               "key": "visa_no"
             },
             {
@@ -78,7 +78,7 @@
             },
             {
               "label": "국적",
-              "value": "MEX",
+              "value": "CHN",
               "key": "nationality"
             },
             {

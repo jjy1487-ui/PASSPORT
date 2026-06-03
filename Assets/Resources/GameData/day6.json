@@ -4,9 +4,9 @@
     {
       "customerId": 31,
       "slot": 1,
-      "nameKr": "카밀라 산토스",
-      "nameEn": "CAMILA SANTOS",
-      "nationality": "브라질(BRA)",
+      "nameKr": "스즈키 아오이",
+      "nameEn": "SUZUKI AOI",
+      "nationality": "일본(JPN)",
       "gender": "여성",
       "birthDate": "1992-07-07",
       "age": 33,
@@ -20,16 +20,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_c31",
-          "country": "BRA",
+          "country": "JPN",
           "fields": [
             {
               "label": "여권번호",
-              "value": "BR1034627",
+              "value": "JP1034627",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "CAMILA SANTOS",
+              "value": "AOI SUZUKI",
               "key": "name"
             },
             {
@@ -44,7 +44,7 @@
             },
             {
               "label": "국적",
-              "value": "BRA",
+              "value": "JPN",
               "key": "nationality"
             },
             {
@@ -68,7 +68,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-BRA-5723",
+              "value": "V-JPN-5723",
               "key": "visa_no"
             },
             {
@@ -78,7 +78,7 @@
             },
             {
               "label": "국적",
-              "value": "BRA",
+              "value": "JPN",
               "key": "nationality"
             },
             {
@@ -513,9 +513,9 @@
     {
       "customerId": 32,
       "slot": 3,
-      "nameKr": "아흐메드 하산",
-      "nameEn": "AHMED HASSAN",
-      "nationality": "이집트(EGY)",
+      "nameKr": "마이클 데이비스",
+      "nameEn": "MICHAEL DAVIS",
+      "nationality": "미국(USA)",
       "gender": "남성",
       "birthDate": "1988-10-19",
       "age": 37,
@@ -529,16 +529,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_c32",
-          "country": "EGY",
+          "country": "USA",
           "fields": [
             {
               "label": "여권번호",
-              "value": "EG1035744",
+              "value": "US1035744",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "AHMED HASSAN",
+              "value": "DAVIS MICHAEL",
               "key": "name"
             },
             {
@@ -553,7 +553,7 @@
             },
             {
               "label": "국적",
-              "value": "EGY",
+              "value": "USA",
               "key": "nationality"
             },
             {
@@ -577,7 +577,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-EGY-6456",
+              "value": "V-USA-6456",
               "key": "visa_no"
             },
             {
@@ -587,7 +587,7 @@
             },
             {
               "label": "국적",
-              "value": "EGY",
+              "value": "USA",
               "key": "nationality"
             },
             {
@@ -1028,9 +1028,9 @@
     {
       "customerId": 33,
       "slot": 5,
-      "nameKr": "린 메이",
-      "nameEn": "LIN MEI",
-      "nationality": "대만(TWN)",
+      "nameKr": "류 양",
+      "nameEn": "LIU YANG",
+      "nationality": "중국(CHN)",
       "gender": "여성",
       "birthDate": "1995-12-01",
       "age": 30,
@@ -1044,16 +1044,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_c33",
-          "country": "TWN",
+          "country": "CHN",
           "fields": [
             {
               "label": "여권번호",
-              "value": "TW1036861",
+              "value": "CN1036861",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "LIN MEI",
+              "value": "YANG LIU",
               "key": "name"
             },
             {
@@ -1068,7 +1068,7 @@
             },
             {
               "label": "국적",
-              "value": "TWN",
+              "value": "CHN",
               "key": "nationality"
             },
             {
@@ -1092,7 +1092,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-TWN-7189",
+              "value": "V-CHN-7189",
               "key": "visa_no"
             },
             {
@@ -1102,7 +1102,7 @@
             },
             {
               "label": "국적",
-              "value": "TWN",
+              "value": "CHN",
               "key": "nationality"
             },
             {
@@ -1330,9 +1330,9 @@
     {
       "customerId": 25,
       "slot": 6,
-      "nameKr": "에밀리 클라크",
-      "nameEn": "EMILY CLARK",
-      "nationality": "영국(GBR)",
+      "nameKr": "윌리엄 브라운",
+      "nameEn": "WILLIAM BROWN",
+      "nationality": "미국(USA)",
       "gender": "여성",
       "birthDate": "1994-03-03",
       "age": 32,
@@ -1346,16 +1346,16 @@
           "variant": "정상",
           "violationField": "없음",
           "spriteRef": "photo_c25",
-          "country": "GBR",
+          "country": "USA",
           "fields": [
             {
               "label": "여권번호",
-              "value": "GB1027925",
+              "value": "US1027925",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "EMILY CLARK",
+              "value": "BROWN WILLIAM",
               "key": "name"
             },
             {
@@ -1370,7 +1370,7 @@
             },
             {
               "label": "국적",
-              "value": "GBR",
+              "value": "USA",
               "key": "nationality"
             },
             {
@@ -1394,7 +1394,7 @@
           "fields": [
             {
               "label": "비자 번호",
-              "value": "V-GBR-1325",
+              "value": "V-USA-1325",
               "key": "visa_no"
             },
             {
@@ -1404,7 +1404,7 @@
             },
             {
               "label": "국적",
-              "value": "GBR",
+              "value": "USA",
               "key": "nationality"
             },
             {

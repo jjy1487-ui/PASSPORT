@@ -114,9 +114,9 @@ MonoBehaviour:
     - character_type
     values:
     - 4
-    - "\uB9C8\uB9AC\uC544 \uAC00\uB974\uC2DC\uC544"
-    - MARIA GARCIA
-    - "\uC2A4\uD398\uC778(ESP)"
+    - "\uC81C\uC784\uC2A4 \uBC00\uB7EC"
+    - JAMES MILLER
+    - "\uBBF8\uAD6D(USA)"
     - "\uC5EC\uC131"
     - 1995-02-28
     - 31
@@ -174,9 +174,9 @@ MonoBehaviour:
     - character_type
     values:
     - 7
-    - "\uD53C\uC5D0\uB974 \uB4A4\uD401"
-    - PIERRE DUPONT
-    - "\uD504\uB791\uC2A4(FRA)"
+    - "\uC655 \uC6E8\uC774"
+    - WANG WEI
+    - "\uC911\uAD6D(CHN)"
     - "\uB0A8\uC131"
     - 1993-12-05
     - 32
@@ -254,9 +254,9 @@ MonoBehaviour:
     - character_type
     values:
     - 11
-    - "\uB77C\uC2DC\uB4DC \uCE78"
-    - RASHID KHAN
-    - "\uD30C\uD0A4\uC2A4\uD0C4(PAK)"
+    - "\uC0AC\uD1A0 \uD558\uB8E8\uD0A4"
+    - SATO HARUKI
+    - "\uC77C\uBCF8(JPN)"
     - "\uB0A8\uC131"
     - 1984-01-02
     - 41
@@ -294,9 +294,9 @@ MonoBehaviour:
     - character_type
     values:
     - 13
-    - "\uC751\uC6B0\uC60C \uBC18"
-    - NGUYEN VAN
-    - "\uBCA0\uD2B8\uB0A8(VNM)"
+    - "\uB85C\uBC84\uD2B8 \uC874\uC2A8"
+    - ROBERT JOHNSON
+    - "\uBBF8\uAD6D(USA)"
     - "\uB0A8\uC131"
     - 1989-09-03
     - 36
@@ -314,9 +314,9 @@ MonoBehaviour:
     - character_type
     values:
     - 14
-    - "\uC0AC\uB77C \uBC00\uB7EC"
-    - SARAH MILLER
-    - "\uC601\uAD6D(GBR)"
+    - "\uB9AC \uB098"
+    - LI NA
+    - "\uC911\uAD6D(CHN)"
     - "\uC5EC\uC131"
     - 1993-07-19
     - 32
@@ -414,9 +414,9 @@ MonoBehaviour:
     - character_type
     values:
     - 19
-    - "\uB77C\uC9C0\uBE0C \uBA54\uD0C0"
-    - RAJIV MEHTA
-    - "\uC778\uB3C4(IND)"
+    - "\uB2E4\uB098\uCE74 \uC720\uC774"
+    - TANAKA YUI
+    - "\uC77C\uBCF8(JPN)"
     - "\uB0A8\uC131"
     - 1990-12-12
     - 35
@@ -534,9 +534,9 @@ MonoBehaviour:
     - character_type
     values:
     - 25
-    - "\uC5D0\uBC00\uB9AC \uD074\uB77C\uD06C"
-    - EMILY CLARK
-    - "\uC601\uAD6D(GBR)"
+    - "\uC70C\uB9AC\uC5C4 \uBE0C\uB77C\uC6B4"
+    - WILLIAM BROWN
+    - "\uBBF8\uAD6D(USA)"
     - "\uC5EC\uC131"
     - 1994-03-03
     - 32
@@ -574,9 +574,9 @@ MonoBehaviour:
     - character_type
     values:
     - 27
-    - "\uD638\uC138 \uBAA8\uB784\uB808\uC2A4"
-    - JOSE MORALES
-    - "\uBA55\uC2DC\uCF54(MEX)"
+    - "\uC7A5 \uC6E8\uC774"
+    - ZHANG WEI
+    - "\uC911\uAD6D(CHN)"
     - "\uB0A8\uC131"
     - 1991-06-14
     - 34
@@ -654,9 +654,9 @@ MonoBehaviour:
     - character_type
     values:
     - 31
-    - "\uCE74\uBC00\uB77C \uC0B0\uD1A0\uC2A4"
-    - CAMILA SANTOS
-    - "\uBE0C\uB77C\uC9C8(BRA)"
+    - "\uC2A4\uC988\uD0A4 \uC544\uC624\uC774"
+    - SUZUKI AOI
+    - "\uC77C\uBCF8(JPN)"
     - "\uC5EC\uC131"
     - 1992-07-07
     - 33
@@ -674,9 +674,9 @@ MonoBehaviour:
     - character_type
     values:
     - 32
-    - "\uC544\uD750\uBA54\uB4DC \uD558\uC0B0"
-    - AHMED HASSAN
-    - "\uC774\uC9D1\uD2B8(EGY)"
+    - "\uB9C8\uC774\uD074 \uB370\uC774\uBE44\uC2A4"
+    - MICHAEL DAVIS
+    - "\uBBF8\uAD6D(USA)"
     - "\uB0A8\uC131"
     - 1988-10-19
     - 37
@@ -694,9 +694,9 @@ MonoBehaviour:
     - character_type
     values:
     - 33
-    - "\uB9B0 \uBA54\uC774"
-    - LIN MEI
-    - "\uB300\uB9CC(TWN)"
+    - "\uB958 \uC591"
+    - LIU YANG
+    - "\uC911\uAD6D(CHN)"
     - "\uC5EC\uC131"
     - 1995-12-01
     - 30
@@ -714,9 +714,9 @@ MonoBehaviour:
     - character_type
     values:
     - 34
-    - "\uC720\uC2A4\uD504 \uC54C\uB9AC"
-    - YUSUF ALI
-    - "\uC2DC\uB9AC\uC544(SYR)"
+    - "\uC57C\uB9C8\uBAA8\uD1A0 \uB80C"
+    - YAMAMOTO REN
+    - "\uC77C\uBCF8(JPN)"
     - "\uB0A8\uC131"
     - 1982-03-22
     - 44
@@ -734,9 +734,9 @@ MonoBehaviour:
     - character_type
     values:
     - 35
-    - "\uB77C\uC6B0\uB77C \uD398\uB808\uC2A4"
-    - LAURA PEREZ
-    - "\uD544\uB9AC\uD540(PHL)"
+    - "\uC790\uC624 \uB808\uC774"
+    - ZHAO LEI
+    - "\uC911\uAD6D(CHN)"
     - "\uC5EC\uC131"
     - 1990-06-18
     - 35
@@ -754,9 +754,9 @@ MonoBehaviour:
     - character_type
     values:
     - 36
-    - "\uB4DC\uBBF8\uD2B8\uB9AC \uC774\uBC14\uB178\uD504"
-    - DMITRI IVANOV
-    - "\uB7EC\uC2DC\uC544(RUS)"
+    - "\uCC9C \uC9D5"
+    - CHEN JING
+    - "\uC911\uAD6D(CHN)"
     - "\uB0A8\uC131"
     - 1985-02-09
     - 41
@@ -774,9 +774,9 @@ MonoBehaviour:
     - character_type
     values:
     - 37
-    - "\uC555\uB458\uB77C \uCE74\uB9BC"
-    - ABDULLAH KARIM
-    - "\uBC29\uAE00\uB77C\uB370\uC2DC(BGD)"
+    - "\uC81C\uC2DC\uCE74 \uC70C\uC2A8"
+    - JESSICA WILSON
+    - "\uBBF8\uAD6D(USA)"
     - "\uB0A8\uC131"
     - 1988-11-30
     - 37
