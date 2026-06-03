@@ -48,8 +48,10 @@ except ImportError:
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import branch_normalize as bn  # noqa: E402
 
-DEFAULT_XLSX = r"C:\Users\chris\Downloads\여권_정리_updated.xlsx"
-DEFAULT_SOURCE = r"C:\Users\chris\Documents\produc_build_reecture\Assets\GameData\_source\GameData.source.json"
+# 저장소 상대경로(PC 독립). 일회성 마이그레이션 스크립트지만 하드코딩 경로 제거.
+_REPO = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
+DEFAULT_XLSX = os.path.join(_REPO, "data", "여권_정리_updated.xlsx")
+DEFAULT_SOURCE = os.path.join(_REPO, "Assets", "GameData", "_source", "GameData.source.json")
 
 # 새로 편입할 시트: (시트명, source.json 키, branch_normalize 컬럼정의)
 SHEETS = [

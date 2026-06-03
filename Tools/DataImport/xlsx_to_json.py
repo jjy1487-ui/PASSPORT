@@ -2,7 +2,7 @@
 """
 xlsx_to_json.py — 「여권 주세요」 데이터 변환기 (data-tools 소유)
 
-원본: Downloads/여권_정리_updated.xlsx (19시트)
+원본: <repo>/data/여권_정리_updated.xlsx (21시트, 단일 소스, 저장소 안)
 출력: Assets/GameData/_source/GameData.source.json (단일 중간 JSON)
 
 규약(SHARED-CONVENTIONS) 6장: 변경 흡수는 한 곳. 헤더 행 감지 / snake->camel 매핑 / 한글 meta는
@@ -25,13 +25,19 @@ except ImportError:
     sys.stderr.write("openpyxl 필요: pip install openpyxl\n")
     sys.exit(1)
 
-# ── 기본 경로 ──────────────────────────────────────────────
-DEFAULT_XLSX = r"C:\Users\chris\Downloads\여권_정리_updated.xlsx"
-DEFAULT_OUT = r"C:\Users\chris\Documents\produc_build_reecture\Assets\GameData\_source\GameData.source.json"
+# ── 기본 경로 (저장소 상대, PC 독립) ───────────────────────
+# 이 스크립트 = <repo>/Tools/DataImport/xlsx_to_json.py → repo 루트는 두 단계 위.
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_REPO = os.path.abspath(os.path.join(_HERE, "..", ".."))
+# 단일 소스(저장소 안). 팀원이 clone해도 동일 경로로 동작한다.
+DEFAULT_XLSX = os.path.join(_REPO, "data", "여권_정리_updated.xlsx")
+DEFAULT_OUT = os.path.join(_REPO, "Assets", "GameData", "_source", "GameData.source.json")
 
-# 2번째 소스: 캐릭터별 점수표/금액표(분기 정규화). 19시트 파이프라인과 독립.
-# 존재하면 character_payout / character_score 두 시트를 추가 편입(없으면 스킵).
-EXTRA_XLSX = r"C:\Users\chris\Downloads\여권주세요_날짜별_방문고객_랜덤정리_금액표추가_캐릭터선지추가_260602.xlsx"
+# 2번째 소스(EXTRA): 팀원 별도 파일(character_payout/character_score 원본).
+# 단일 소스(메인 엑셀)에 이미 두 시트가 편입돼 있어 보통은 사용되지 않는다(메인 우선).
+# 메인에 시트가 없을 때만 폴백으로 시도하며, 파일이 없으면 경고만 내고 정상 진행한다.
+# 환경변수 PASSPORT_EXTRA_XLSX로 경로를 줄 수 있고, 없으면 폴백 비활성(팀원 기본).
+EXTRA_XLSX = os.environ.get("PASSPORT_EXTRA_XLSX", "")
 EXTRA_PAYOUT_SHEET = "캐릭터별 분기별 지급 금액표(1회차기준)"
 EXTRA_SCORE_SHEET = "캐릭터별 분기점 점수표(단순화)"
 
@@ -287,7 +293,7 @@ def main():
         warnings.append("character_score: 메인 엑셀 1차 소스 사용(EXTRA 무시)")
 
     extra = sys.argv[3] if len(sys.argv) > 3 else EXTRA_XLSX
-    if (not have_main_payout or not have_main_score) and os.path.exists(extra):
+    if (not have_main_payout or not have_main_score) and extra and os.path.exists(extra):
         try:
             import branch_normalize as bn
             ewb = openpyxl.load_workbook(extra, data_only=True)
@@ -311,7 +317,7 @@ def main():
         except Exception as e:
             warnings.append("extra xlsx 처리 실패: %s" % e)
     elif not have_main_payout or not have_main_score:
-        warnings.append("extra xlsx 없음(폴백 불가): %s" % extra)
+        warnings.append("character_* 메인 시트 누락 + EXTRA 폴백 비활성(PASSPORT_EXTRA_XLSX 미설정): extra=%r" % extra)
 
     # 엔딩 점수밴드 재산정(밸런스 옵션1) — 시트 읽은 뒤, 출력 전. idempotent.
     apply_ending_band_override(result, warnings)

@@ -24,10 +24,13 @@ restrict_nationalities_4.py — 국적을 4개국(KOR/USA/CHN/JPN)으로 제한 
   python restrict_nationalities_4.py 입력.xlsx   # 지정 파일 수정
 """
 import sys
+import os
 import re
 import openpyxl
 
-DEFAULT_XLSX = r"C:\Users\chris\Downloads\여권_정리_updated.xlsx"
+# 저장소 상대경로(PC 독립). 일회성 마이그레이션 스크립트지만 하드코딩 경로 제거.
+_REPO = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
+DEFAULT_XLSX = os.path.join(_REPO, "data", "여권_정리_updated.xlsx")
 
 # 허용 국적 코드(이 4개 외 진실 데이터는 모두 재배정 대상)
 ALLOWED = {"KOR", "USA", "CHN", "JPN"}
