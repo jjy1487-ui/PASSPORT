@@ -147,9 +147,10 @@ public class FullPlaythroughIntegrationTests
         // 14일 완주(점수구간 엔딩) 또는 조기/누적 엔딩 중 하나로 반드시 엔딩에 도달해야 한다.
         Assert.IsTrue(endingRaised, "끝까지 진행했으나 엔딩이 발행되지 않음(OnEndingResolved 미발화) — 어딘가에서 진행이 멈춤.");
         Assert.IsTrue(ending.IsValid, "발행된 엔딩이 유효하지 않음(IsValid=false).");
-        Debug.Log($"[FullPlaythrough] 완주 성공. 엔딩={ending.endingName} type={ending.endingType} score={_economy.Score} 판정수={_economy.JudgedCount}");
+        ScoreEconomyManager eco = ControllerEconomy(controller);
+        Debug.Log($"[FullPlaythrough] 완주 성공. 엔딩={ending.endingName} type={ending.endingType} score={eco.Score} 판정수={eco.JudgedCount}");
         if (approveAlwaysCorrect && ending.endingType == "normal")
-            Assert.AreEqual(98, _economy.JudgedCount, "정답 완주 시 총 98건(14×7)이 정산되어야 함.");
+            Assert.AreEqual(98, eco.JudgedCount, "정답 완주 시 총 98건(14×7)이 정산되어야 함.");
     }
 
     /// <summary>
@@ -188,7 +189,23 @@ public class FullPlaythroughIntegrationTests
 
         Assert.AreEqual(beforeIndex + 1, controller.CurrentSlotIndex,
             "고급 분기 선택 후 다음 손님으로 진행되지 않음 — 진행 교착(수정 전 버그 재현).");
-        Assert.AreEqual(2, _economy.JudgedCount, "연예인 손님이 정확히 1회만 정산되지 않음(중복/누락).");
+        // 정산은 컨트롤러가 실제로 쓰는 economy(EnsureEconomy/SetEconomy 로 주입된 인스턴스)에 쌓인다.
+        // SetUp 의 _economy 와 다를 수 있으므로 컨트롤러가 보유한 인스턴스로 단언한다.
+        ScoreEconomyManager settleTarget = ControllerEconomy(controller);
+        Assert.AreEqual(2, settleTarget.JudgedCount, "연예인 손님이 정확히 1회만 정산되지 않음(중복/누락).");
+    }
+
+    /// <summary>
+    /// 컨트롤러가 실제 정산에 쓰는 ScoreEconomyManager 를 반환한다.
+    /// EnsureEconomy/SetEconomy 가 주입한 인스턴스가 SetUp 의 FreshManager 와 다를 수 있어
+    /// (전역 Instance 가 비어 EnsureEconomy 가 별도 매니저를 생성하는 경우) 정산 카운트는
+    /// 반드시 컨트롤러가 보유한 인스턴스에서 읽어야 한다.
+    /// </summary>
+    private static ScoreEconomyManager ControllerEconomy(InspectionController controller)
+    {
+        var eco = GetPrivate<ScoreEconomyManager>(controller, "_economy");
+        Assert.IsNotNull(eco, "컨트롤러에 economy 가 주입되지 않음(SetEconomy/EnsureEconomy 누락).");
+        return eco;
     }
 
     /// <summary>현재 손님의 정답 판정(정상 승인이면 true, 정상 거절이면 false).</summary>
