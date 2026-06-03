@@ -52,10 +52,10 @@ MonoBehaviour:
     - 1
     - 4
     - PCR-ES-2024A
-    - 2024-03-10
+    - 2025-06-26
     - "\uC74C\uC131"
-    - 2024-03-13
-    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC0AC\uC13C\uD130"
+    - 2025-06-29
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
     - "\uB9C8\uB9AC\uC544 \uC815\uC0C1 \uC74C\uC131"
   - keys:
     - pcr_id
@@ -70,10 +70,10 @@ MonoBehaviour:
     - 3
     - 1
     - PCR-001
-    - 2026-05-25
+    - 2026-05-20
     - Negative
-    - 2026-06-12
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - 2026-06-20
+    - "\uD55C\uAD6D\uACF5\uD56D\uAC80\uC5ED\uBCF8\uBD80"
     - "\uC815\uC0C1 PCR(\uC74C\uC131)"
   - keys:
     - pcr_id
@@ -88,10 +88,10 @@ MonoBehaviour:
     - 4
     - 5
     - PCR-005
-    - 2026-05-25
+    - 2026-05-20
     - Negative
-    - 2026-06-12
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - 2026-06-17
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
     - "\uC815\uC0C1 PCR(\uC74C\uC131)"
   - keys:
     - pcr_id
@@ -106,10 +106,10 @@ MonoBehaviour:
     - 5
     - 12
     - PCR-012
-    - 2026-05-25
+    - 2026-05-28
     - Negative
-    - 2026-06-12
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - 2026-06-18
+    - "\uC0BC\uC131\uC11C\uC6B8\uBCD1\uC6D0\uC9C4\uB2E8\uAC80\uC0AC\uC758\uD559\uACFC"
     - "\uC815\uC0C1 PCR(\uC74C\uC131)"
   - keys:
     - pcr_id
@@ -124,10 +124,10 @@ MonoBehaviour:
     - 6
     - 13
     - PCR-013
-    - 2026-05-25
+    - 2026-05-20
     - Negative
-    - 2026-06-12
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - 2026-06-17
+    - "\uC11C\uC6B8\uC2DC\uB9BD\uBCF4\uAC74\uC5F0\uAD6C\uC6D0"
     - "\uC815\uC0C1 PCR(\uC74C\uC131)"
   - keys:
     - pcr_id
@@ -142,9 +142,9 @@ MonoBehaviour:
     - 7
     - 14
     - PCR-014
-    - 2026-05-25
+    - 2026-06-05
     - Negative
-    - 2026-06-12
+    - 2026-06-19
     - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
     - "\uC815\uC0C1 PCR(\uC74C\uC131)"
   - keys:
@@ -160,10 +160,10 @@ MonoBehaviour:
     - 8
     - 15
     - PCR-015
-    - 2026-05-25
+    - 2026-05-22
     - Negative
-    - 2026-06-12
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - 2026-06-19
+    - "\uC5F0\uC138\uB300\uD559\uAD50\uC758\uB8CC\uC6D0\uAC80\uC0AC\uC13C\uD130"
     - "\uC815\uC0C1 PCR(\uC74C\uC131)"
   - keys:
     - pcr_id
@@ -178,10 +178,10 @@ MonoBehaviour:
     - 9
     - 19
     - PCR-019
-    - 2026-05-25
+    - 2026-05-24
     - Negative
-    - 2026-06-12
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - 2026-06-14
+    - "\uBD80\uC0B0\uAD6D\uC81C\uACF5\uD56D\uAC80\uC5ED\uC18C"
     - "\uC815\uC0C1 PCR(\uC74C\uC131)"
   - keys:
     - pcr_id
@@ -196,10 +196,10 @@ MonoBehaviour:
     - 10
     - 21
     - PCR-021
-    - 2026-05-25
+    - 2026-06-05
     - Negative
-    - 2026-06-12
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - 2026-06-26
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
     - "\uC815\uC0C1 PCR(\uC74C\uC131)"
   - keys:
     - pcr_id
@@ -214,10 +214,10 @@ MonoBehaviour:
     - 11
     - 23
     - PCR-023
-    - 2026-05-25
+    - 2026-05-24
     - Negative
-    - 2026-06-12
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - 2026-06-14
+    - "\uD55C\uAD6D\uACF5\uD56D\uAC80\uC5ED\uBCF8\uBD80"
     - "\uC815\uC0C1 PCR(\uC74C\uC131)"
   - keys:
     - pcr_id
@@ -232,10 +232,10 @@ MonoBehaviour:
     - 12
     - 24
     - PCR-024
-    - 2026-05-25
+    - 2026-05-26
     - Negative
-    - 2026-06-12
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - 2026-06-16
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
     - "\uC815\uC0C1 PCR(\uC74C\uC131)"
   - keys:
     - pcr_id
@@ -250,10 +250,10 @@ MonoBehaviour:
     - 13
     - 25
     - PCR-025
-    - 2026-05-25
+    - 2026-05-28
     - Negative
-    - 2026-06-12
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - 2026-06-14
+    - "\uC0BC\uC131\uC11C\uC6B8\uBCD1\uC6D0\uC9C4\uB2E8\uAC80\uC0AC\uC758\uD559\uACFC"
     - "\uC815\uC0C1 PCR(\uC74C\uC131)"
   - keys:
     - pcr_id
@@ -268,10 +268,10 @@ MonoBehaviour:
     - 14
     - 26
     - PCR-026
-    - 2026-05-25
+    - 2026-06-02
     - Negative
-    - 2026-06-12
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - 2026-06-16
+    - "\uC11C\uC6B8\uC2DC\uB9BD\uBCF4\uAC74\uC5F0\uAD6C\uC6D0"
     - "\uC815\uC0C1 PCR(\uC74C\uC131)"
   - keys:
     - pcr_id
@@ -286,9 +286,9 @@ MonoBehaviour:
     - 15
     - 27
     - PCR-027
-    - 2026-05-25
+    - 2026-05-20
     - Negative
-    - 2026-06-12
+    - 2026-06-17
     - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
     - "\uC815\uC0C1 PCR(\uC74C\uC131)"
   - keys:
@@ -304,10 +304,10 @@ MonoBehaviour:
     - 16
     - 28
     - PCR-028
-    - 2026-05-25
+    - 2026-05-30
     - Negative
-    - 2026-06-12
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - 2026-06-20
+    - "\uC5F0\uC138\uB300\uD559\uAD50\uC758\uB8CC\uC6D0\uAC80\uC0AC\uC13C\uD130"
     - "\uC815\uC0C1 PCR(\uC74C\uC131)"
   - keys:
     - pcr_id
@@ -322,10 +322,10 @@ MonoBehaviour:
     - 17
     - 29
     - PCR-029
-    - 2026-05-25
+    - 2026-06-05
     - Negative
-    - 2026-06-12
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - 2026-06-26
+    - "\uBD80\uC0B0\uAD6D\uC81C\uACF5\uD56D\uAC80\uC5ED\uC18C"
     - "\uC815\uC0C1 PCR(\uC74C\uC131)"
   - keys:
     - pcr_id
@@ -340,10 +340,10 @@ MonoBehaviour:
     - 18
     - 31
     - PCR-031
-    - 2026-05-25
+    - 2026-05-26
     - Negative
-    - 2026-06-12
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - 2026-06-16
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
     - "\uC815\uC0C1 PCR(\uC74C\uC131)"
   - keys:
     - pcr_id
@@ -358,10 +358,10 @@ MonoBehaviour:
     - 19
     - 32
     - PCR-032
-    - 2026-05-25
+    - 2026-06-02
     - Negative
-    - 2026-06-12
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - 2026-06-23
+    - "\uD55C\uAD6D\uACF5\uD56D\uAC80\uC5ED\uBCF8\uBD80"
     - "\uC815\uC0C1 PCR(\uC74C\uC131)"
   - keys:
     - pcr_id
@@ -376,8 +376,8 @@ MonoBehaviour:
     - 20
     - 33
     - PCR-033
-    - 2026-05-25
+    - 2026-06-05
     - Negative
-    - 2026-06-12
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - 2026-06-19
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
     - "\uC815\uC0C1 PCR(\uC74C\uC131)"

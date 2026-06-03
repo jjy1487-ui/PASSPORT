@@ -55,11 +55,11 @@ MonoBehaviour:
     values:
     - 1
     - 3
-    - V-CN-2023001
+    - V-CN-9864
     - "\uAD00\uAD11"
     - CHN
-    - 2023-05-01
-    - 2023-11-01
+    - 2023-09-20
+    - 2024-03-20
     - "\uB2E8\uC218"
     - "\uCCB8\uC6E8\uC774 \uC815\uC0C1 \uAD00\uAD11\uBE44\uC790"
   - keys:
@@ -75,11 +75,11 @@ MonoBehaviour:
     values:
     - 3
     - 4
-    - V-USA-3932
+    - V-USA-2269
     - "\uAD00\uAD11"
     - USA
-    - 2025-09-01
-    - 2027-09-01
+    - 2025-08-12
+    - 2027-08-12
     - "\uB2E8\uC218"
     - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
@@ -95,11 +95,11 @@ MonoBehaviour:
     values:
     - 4
     - 7
-    - V-CHN-6131
+    - V-CHN-3766
     - "\uAD00\uAD11"
     - CHN
-    - 2025-09-01
-    - 2027-09-01
+    - 2024-09-17
+    - 2026-09-17
     - "\uB2E8\uC218"
     - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
@@ -115,11 +115,11 @@ MonoBehaviour:
     values:
     - 5
     - 8
-    - V-USA-6864
+    - V-USA-5667
     - "\uAD00\uAD11"
     - USA
-    - 2025-09-01
-    - 2027-09-01
+    - 2026-03-22
+    - 2026-09-22
     - "\uB2E8\uC218"
     - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
@@ -135,11 +135,11 @@ MonoBehaviour:
     values:
     - 6
     - 11
-    - V-JPN-9063
+    - V-JPN-7484
     - "\uAD00\uAD11"
     - JPN
-    - 2025-09-01
-    - 2027-09-01
+    - 2024-09-08
+    - 2026-09-08
     - "\uB2E8\uC218"
     - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
@@ -158,8 +158,8 @@ MonoBehaviour:
     - V-USA-1529
     - "\uAD00\uAD11"
     - USA
-    - 2025-09-01
-    - 2027-09-01
+    - 2025-12-03
+    - 2027-12-03
     - "\uB2E8\uC218"
     - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
@@ -175,11 +175,11 @@ MonoBehaviour:
     values:
     - 8
     - 14
-    - V-CHN-2262
+    - V-CHN-2082
     - "\uAD00\uAD11"
     - CHN
-    - 2025-09-01
-    - 2027-09-01
+    - 2024-09-17
+    - 2026-09-17
     - "\uB2E8\uC218"
     - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
@@ -195,11 +195,11 @@ MonoBehaviour:
     values:
     - 9
     - 18
-    - V-CHN-5194
+    - V-CHN-3887
     - "\uC7A5\uAE30\uCCB4\uB958"
     - CHN
-    - 2025-09-01
-    - 2027-09-01
+    - 2025-09-03
+    - 2026-09-03
     - "\uB2E8\uC218"
     - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
@@ -215,11 +215,11 @@ MonoBehaviour:
     values:
     - 10
     - 19
-    - V-JPN-5927
+    - V-JPN-3472
     - "\uAD00\uAD11"
     - JPN
-    - 2025-09-01
-    - 2027-09-01
+    - 2026-03-08
+    - 2026-09-08
     - "\uB2E8\uC218"
     - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
@@ -235,11 +235,11 @@ MonoBehaviour:
     values:
     - 11
     - 25
-    - V-USA-1325
+    - V-USA-1189
     - "\uAD00\uAD11"
     - USA
-    - 2025-09-01
-    - 2027-09-01
+    - 2025-04-03
+    - 2027-04-03
     - "\uB2E8\uC218"
     - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
@@ -255,11 +255,11 @@ MonoBehaviour:
     values:
     - 12
     - 26
-    - V-JPN-2058
+    - V-JPN-8758
     - "\uAD00\uAD11"
     - JPN
-    - 2025-09-01
-    - 2027-09-01
+    - 2024-09-27
+    - 2026-09-27
     - "\uB2E8\uC218"
     - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
@@ -275,11 +275,11 @@ MonoBehaviour:
     values:
     - 13
     - 27
-    - V-CHN-2791
+    - V-CHN-7483
     - "\uAD00\uAD11"
     - CHN
-    - 2025-09-01
-    - 2027-09-01
+    - 2025-09-12
+    - 2026-09-12
     - "\uB2E8\uC218"
     - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
@@ -295,11 +295,11 @@ MonoBehaviour:
     values:
     - 14
     - 31
-    - V-JPN-5723
+    - V-JPN-5092
     - "\uAD00\uAD11"
     - JPN
-    - 2025-09-01
-    - 2027-09-01
+    - 2025-09-08
+    - 2026-09-08
     - "\uB2E8\uC218"
     - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
@@ -315,11 +315,11 @@ MonoBehaviour:
     values:
     - 15
     - 32
-    - V-USA-6456
+    - V-USA-2001
     - "\uAD00\uAD11"
     - USA
-    - 2025-09-01
-    - 2027-09-01
+    - 2025-09-12
+    - 2026-09-12
     - "\uB2E8\uC218"
     - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
@@ -335,11 +335,11 @@ MonoBehaviour:
     values:
     - 16
     - 33
-    - V-CHN-7189
+    - V-CHN-3482
     - "\uAD00\uAD11"
     - CHN
-    - 2025-09-01
-    - 2027-09-01
+    - 2024-09-27
+    - 2026-09-27
     - "\uB2E8\uC218"
     - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
@@ -355,11 +355,11 @@ MonoBehaviour:
     values:
     - 17
     - 34
-    - V-JPN-7922
+    - V-JPN-8863
     - "\uAD00\uAD11"
     - JPN
-    - 2025-09-01
-    - 2027-09-01
+    - 2026-03-03
+    - 2026-09-03
     - "\uB2E8\uC218"
     - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
@@ -375,11 +375,11 @@ MonoBehaviour:
     values:
     - 23
     - 35
-    - V-CHN-8655
+    - V-CHN-1208
     - "\uCDE8\uC5C5"
     - CHN
-    - 2025-06-01
-    - 2027-06-01
+    - 2025-09-08
+    - 2026-09-08
     - "\uBCF5\uC218"
     - "\uCDE8\uC5C5 \uC815\uC0C1 \uBE44\uC790"
   - keys:
@@ -395,11 +395,11 @@ MonoBehaviour:
     values:
     - 24
     - 36
-    - V-CHN-9388
+    - V-CHN-7557
     - "\uCDE8\uC5C5"
     - CHN
-    - 2025-06-01
-    - 2027-06-01
+    - 2025-04-22
+    - 2027-04-22
     - "\uBCF5\uC218"
     - "\uCDE8\uC5C5 \uC815\uC0C1 \uBE44\uC790"
   - keys:
@@ -415,10 +415,10 @@ MonoBehaviour:
     values:
     - 25
     - 37
-    - V-USA-1121
+    - V-USA-7094
     - "\uCDE8\uC5C5"
     - USA
-    - 2025-06-01
-    - 2027-06-01
+    - 2025-09-27
+    - 2026-09-27
     - "\uBCF5\uC218"
     - "\uCDE8\uC5C5 \uC815\uC0C1 \uBE44\uC790"
