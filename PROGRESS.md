@@ -6,7 +6,19 @@
 - 장르: 여권 심사 게임(Papers, Please 스타일). 14일 × 7슬롯(98건) 심사.
 - 핵심: **진실 서류만 저장 → 런타임 변조(defect_rule+fake_value_pool) → 플레이어가 통과/거절 판정**.
 - 위치: `C:\Users\chris\Documents\produc_build_reecture` (Unity **6000.4.6f1**)
-- 저장소: `github.com/jjy1487-ui/produc_build_reecture`, 작업 브랜치 **`재영`** (모든 작업이 여기 있음. `메인`은 빈 껍데기)
+- 저장소: **`github.com/jjy1487-ui/PASSPORT`**(이름 변경됨, 옛 produc_build_reecture는 리다이렉트), 작업·기본 브랜치 **`재영`** (모든 작업이 여기. `메인`은 빈 껍데기). git LFS 사용.
+
+## ★ 최근 세션 요약 (2026-06-03) — 위 상세 섹션들의 후속
+> 이번 세션에서 한 일(전부 `재영`에 커밋·푸시 완료, EditMode 48/48 GREEN):
+- **신규 점수·금액·분기 시스템 전체 구현** + 밸런스(엔딩 구간 재산정) + UI 노출 시점/위치(점수 숨김·돈은 일일정산·호칭은 메인 업적·아이템 좌상단) — 아래 상세 섹션 참조.
+- **🐛 5일차 진행 막힘 수정(중요)**: `AdvancedBranchPanel`이 5일차 첫 특수캐릭터(연예인)부터 떠서 정상 판정을 막아 "4일차까지만 됨" → **`AdvancedBranchesEnabled=false`로 패널 비활성**(특수캐릭터도 일반 통과/거절로 진행). 고급 분기 UI 완성 시 재활성. `FullPlaythroughIntegrationTests`(1→14 완주, 안전상한)로 검증.
+- **국적 4개국 제한**: KOR/USA/CHN/JPN만. 외국 15명을 미/중/일로 재배정+이름 정합. 스캔트리거(PAK→JP1012287, SYR→JPN 등) 갱신. (`Tools/DataImport/_archive/restrict_nationalities_4.py`)
+- **여권·비자·PCR 날짜/기관 다양화**(유효성 보존): 고유값 대폭 증가, 무효 의도 행만 무효 유지. (`diversify_dates.py`)
+- **데이터 단일 소스화**: 진짜 소스가 이제 **저장소 안 `data/여권_정리_updated.xlsx`**(21시트, LFS). 파이프라인 경로 PC독립(상대경로), EXTRA_XLSX는 env로 옵션화 → 팀원이 clone 후 `data/` 엑셀만 고치면 됨. Downloads 사본·낡은 중복 엑셀 정리.
+- **빌드 배포**: `ImmigrationScene` 단독 Windows 빌드 → `Releases/PassportPlease_Day1-14_Win64.zip`(LFS). 1→14 완주본.
+- **협업 셋업**: `협업_시작가이드.md`(clone/LFS/Unity/브랜치 워크플로/데이터수정 절차). 팀원 초대됨. 협업=개인 브랜치→PR.
+- **저장소 정리**: 일회성 스크립트 `Tools/DataImport/_archive/`로, 크래시폴더 gitignore. 활성 파이프라인=`xlsx_to_json/build_days/validate_data/branch_normalize`.
+- 미해결/주의: 고급 분기 UI(연예인/범죄자/테러범/사이비 선택지 연출) 미완(비활성 상태). 신규캐릭터 사이비/꼬마는 2회차용(appears_round1=false, customer 미등재). 취업체류자 점수표 행 누락(기획 보강 필요). 1일차 날짜는 수작업본이라 다양화 미적용.
 
 ## 데이터 (완료)
 - 원본: `C:\Users\chris\Downloads\여권_정리_updated.xlsx` (**19시트** 관계형 DB)
