@@ -19,10 +19,20 @@ import json
 import os
 import hashlib
 
+# 시나리오 대사 주입기(branch_dialogue.json 조인). 케이스 구조 불변, text 만 교체.
+from branch_dialogue_map import (
+    load_branch, index_branch, fill_customer_dialogue,
+)
+# branch 에 없는 슬롯(유형×결과×구조)을 day1 톤 작성본으로 채우는 폴백 테이블.
+# branch 가 못 채운 잔여 [TODO 대사] 만 채운다(이미 채운 라인은 불변).
+from authored_lines import fill_authored
+
 # ── 경로 ─────────────────────────────────────────────────────
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 SOURCE = os.path.join(ROOT, "Assets", "GameData", "_source", "GameData.source.json")
-OUT_DIR = os.path.join(ROOT, "Assets", "Resources", "GameData")
+# 출력 디렉터리. 기본은 실제 게임 데이터 위치. 검증용으로 BUILD_DAYS_OUT_DIR 환경변수로
+# 스테이징 경로를 지정하면 실제 데이터를 건드리지 않고 재생성해 diff할 수 있다.
+OUT_DIR = os.environ.get("BUILD_DAYS_OUT_DIR") or os.path.join(ROOT, "Assets", "Resources", "GameData")
 
 SEED = 20260602
 TODO = "[TODO 대사]"
@@ -254,15 +264,49 @@ def expire_date(value):
     return "2023-01-01"
 
 
+# 서류 종류별 표준 유효기간(년). EXPIRE 주입 시 발급일=만료일−유효기간으로 함께 보정해
+# 항상 발급일 < 만료일 < 오늘이 성립하게 한다(불가능 데이터 방지).
+EXPIRE_VALIDITY_YEARS = {
+    "여권": 10,
+    "비자": 1,
+    "취업증빙": 1,
+}
+
+
+def _shift_years_str(date_str, years):
+    """'YYYY-MM-DD'에서 연도를 years만큼 뺀(또는 더한) 문자열. 2/29는 28로 보정."""
+    try:
+        y, m, d = (int(x) for x in str(date_str).split("-"))
+    except (ValueError, AttributeError):
+        return None
+    ny = y + years
+    if m == 2 and d == 29:
+        d = 28
+    return f"{ny:04d}-{m:02d}-{d:02d}"
+
+
+def apply_expire(doc, fields):
+    """EXPIRE 결함: 만료일을 과거로 두고, 발급일도 (만료일−유효기간)으로 함께 보정.
+    발급일 < 만료일 < 오늘 불변식을 보장한다. 변조된 라벨('만료일') 반환."""
+    doc_type = doc.get("documentType", "")
+    new_expiry = expire_date(get_field(fields, "만료일"))
+    set_field(fields, "만료일", new_expiry)
+    # 발급일이 존재하는 서류면(여권/비자/취업증빙) 함께 과거로 끌어내려 모순 제거.
+    if get_field(fields, "발급일") is not None:
+        years = EXPIRE_VALIDITY_YEARS.get(doc_type, 1)
+        new_issue = _shift_years_str(new_expiry, -years)
+        if new_issue:
+            set_field(fields, "발급일", new_issue)
+    return "만료일"
+
+
 def apply_defect(doc, fields, corruption_type, target_key, fake_pool, ctx):
     """단일 결함 1개 주입. 변조된 한글 라벨을 반환."""
     label = KO_LABEL.get(target_key, target_key)
 
     if corruption_type == "EXPIRE":
-        # 만료일 과거로
-        lbl = "만료일"
-        set_field(fields, lbl, expire_date(get_field(fields, lbl)))
-        return lbl
+        # 만료일 과거로 + 발급일 동반 보정(발급일 < 만료일 < 오늘 보장)
+        return apply_expire(doc, fields)
 
     if corruption_type == "ALTER_FIELD":
         if target_key == "nationality":
@@ -450,6 +494,29 @@ def required_documents(day, character_type, passport_nat_code):
 
 
 # ── 대사(최소 플레이) ────────────────────────────────────────
+# ── 화자명 치환 (손님측 speaker -> 그 손님 실제 이름, 6장: 변경 흡수 한 곳) ──
+# 대사 라인 speaker 는 빌드 시 "캐릭터"/"손님"(손님측) 또는 "심사관"/"검사관"/"시스템"(비손님)으로
+# 생성된다. 표시상 손님 발화에 일반 명칭 대신 그 손님의 실제 한글 이름(nameKr)을 노출한다.
+# - 손님측으로 보는 speaker 값만 nameKr 로 치환하고, 심사관/시스템 등은 그대로 둔다.
+# - 이미 nameKr 로 치환된 값은 손님측 집합에 없으므로 재실행해도 불변(idempotent).
+CUSTOMER_SPEAKERS = {"캐릭터", "손님"}
+
+
+def localize_speakers(customer):
+    """customer.dialogueCases 의 손님측 speaker 를 그 손님 nameKr 로 치환(in-place).
+    심사관/검사관/시스템 등 비손님 화자는 보존. 반환: 치환한 라인 수."""
+    name = customer.get("nameKr") or ""
+    if not name:
+        return 0
+    n = 0
+    for case in customer.get("dialogueCases", []):
+        for ln in case.get("lines", []):
+            if ln.get("speaker") in CUSTOMER_SPEAKERS:
+                ln["speaker"] = name
+                n += 1
+    return n
+
+
 def is_foreigner(nat_code):
     return nat_code != "KOR"
 
@@ -566,6 +633,11 @@ def build():
     for r in rows(sheets["day_schedule"]):
         schedule.setdefault(int(r["day"]), []).append(r)
 
+    # 시나리오 대사 인덱스(characterType -> 블록들). [TODO 대사] 채우기에 사용.
+    branch_index = index_branch(load_branch())
+    dialogue_report = {}   # (dayCharType, caseType, gameResult) -> {filled,todo}
+    authored_report = {}   # (ctype, caseType, gameResult) -> {authored, still_todo}
+
     report = {}
 
     for day in range(2, 15):
@@ -673,7 +745,7 @@ def build():
                             stats["defects"][rule["rule_id"]] = stats["defects"].get(rule["rule_id"], 0) + 1
                 if not applied:
                     # 결함 주입 실패(요구 서류에 결함서류가 없거나 NONE) → 여권 만료로 폴백
-                    set_field(pdoc["fields"], "만료일", expire_date(None))
+                    apply_expire(pdoc, pdoc["fields"])
                     pdoc["variant"] = "비정상"
                     pdoc["violationField"] = "만료일"
                     violation_label = "만료일"
@@ -687,7 +759,7 @@ def build():
                 stats.setdefault("variants", {})
                 stats["variants"][defect_variant] = stats["variants"].get(defect_variant, 0) + 1
 
-            day_customers.append({
+            customer_entry = {
                 "customerId": int(cid),
                 "slot": slot,
                 "nameKr": cust["name_kr"],
@@ -705,7 +777,15 @@ def build():
                     nat_code, violation_label, attr_for_label(violation_label)),
                 "xray": xray_scans.get(cid),                # 없으면 None -> JSON null
                 "fingerprint": fingerprint_scans.get(cid),  # 없으면 None -> JSON null
-            })
+            }
+            # 시나리오 대사 주입: dialogueCases 의 [TODO 대사] text 를 branch 대사로 교체.
+            # 구조(개수/order/speaker) 불변. 매핑 불가 라인은 [TODO] 유지(리포트에 집계).
+            fill_customer_dialogue(customer_entry, branch_index, dialogue_report)
+            # 2차: branch 에 없는 잔여 [TODO 대사] 를 작성 폴백으로 채운다(구조 불변, text 만).
+            fill_authored(customer_entry, authored_report)
+            # 3차: 손님측 화자명(캐릭터/손님)을 그 손님 실제 이름(nameKr)으로 치환(표시용).
+            localize_speakers(customer_entry)
+            day_customers.append(customer_entry)
 
         day_rules = [
             {"ruleId": int(r["rule_id"]), "title": r["rule_title"],
@@ -730,7 +810,7 @@ def build():
 
         report[day] = stats
 
-    return report
+    return report, dialogue_report, authored_report
 
 
 def write_report(report):
@@ -747,9 +827,61 @@ def write_report(report):
         f.write("\n".join(lines))
 
 
+def write_dialogue_report(dialogue_report):
+    """시나리오 대사 매핑 커버리지 리포트(유형×케이스×결과별 채운/미채운 줄수)."""
+    lines = ["# 시나리오 대사 매핑 커버리지", ""]
+    by_type = {}
+    for (ctype, casetype, gr), v in dialogue_report.items():
+        by_type.setdefault(ctype, []).append((casetype, gr, v["filled"], v["todo"]))
+    grand_filled = grand_todo = 0
+    for ctype in sorted(by_type):
+        rows_ = sorted(by_type[ctype])
+        tf = sum(r[2] for r in rows_)
+        tt = sum(r[3] for r in rows_)
+        grand_filled += tf
+        grand_todo += tt
+        lines.append(f"## {ctype} (채움 {tf} / 미채움 {tt})")
+        for casetype, gr, f, t in rows_:
+            mark = "" if t == 0 else f"  [TODO {t}]"
+            lines.append(f"  - {casetype} / {gr}: 채움 {f}{mark}")
+    lines.insert(1, f"총 채움 {grand_filled} / 총 미채움(TODO) {grand_todo}")
+    with open(os.path.join(os.path.dirname(__file__), "dialogue_coverage_report.txt"),
+              "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+    return grand_filled, grand_todo
+
+
+def write_authored_report(authored_report):
+    """작성 폴백 커버리지(유형×케이스×결과별 작성/잔여 줄수). 잔여 0 이 목표."""
+    lines = ["# 작성 폴백(authored) 커버리지", ""]
+    by_type = {}
+    for (ctype, casetype, gr), v in authored_report.items():
+        by_type.setdefault(ctype, []).append((casetype, gr, v["authored"], v["still_todo"]))
+    grand_a = grand_t = 0
+    for ctype in sorted(by_type):
+        rows_ = sorted(by_type[ctype])
+        ta = sum(r[2] for r in rows_)
+        tt = sum(r[3] for r in rows_)
+        grand_a += ta
+        grand_t += tt
+        lines.append(f"## {ctype} (작성 {ta} / 잔여 {tt})")
+        for casetype, gr, a, t in rows_:
+            mark = "" if t == 0 else f"  [잔여 {t}]"
+            lines.append(f"  - {casetype} / {gr}: 작성 {a}{mark}")
+    lines.insert(1, f"총 작성 {grand_a} / 총 잔여(TODO) {grand_t}")
+    with open(os.path.join(os.path.dirname(__file__), "authored_coverage_report.txt"),
+              "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+    return grand_a, grand_t
+
+
 if __name__ == "__main__":
-    rep = build()
+    rep, drep, arep = build()
     write_report(rep)
+    gf, gt = write_dialogue_report(drep)
+    ga, gtleft = write_authored_report(arep)
     # stdout 한글 깨짐 방지 위해 숫자만 출력
     total = sum(v["normal"] + v["abnormal"] for v in rep.values())
     print(f"days generated: {len(rep)} customers total: {total}")
+    print(f"branch filled: {gf} (branch todo: {gt})")
+    print(f"authored filled: {ga} todo remaining: {gtleft}")

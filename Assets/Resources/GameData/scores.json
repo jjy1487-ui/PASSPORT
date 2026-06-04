@@ -1,0 +1,627 @@
+{
+ "source": "여권주세요_날짜별_방문고객_랜덤정리_3.xlsx (점수표 2종)",
+ "model": "엔딩 점수 = 판정 분기 합산 (A-1). 돈과 분리.",
+ "rows": [
+  {
+   "characterType": "일반",
+   "docState": "정상",
+   "branch": "입국 (정답)",
+   "gameResult": "정상 승인",
+   "score": 3,
+   "scoreText": "+3",
+   "note": "기본 통과"
+  },
+  {
+   "characterType": "일반",
+   "docState": "정상",
+   "branch": "거부 (오판)",
+   "gameResult": "잘못 거절",
+   "score": -6,
+   "scoreText": "-6",
+   "note": "기존 3회 강제 입국 값 (A안)"
+  },
+  {
+   "characterType": "일반",
+   "docState": "불량",
+   "branch": "거부 (정답)",
+   "gameResult": "정상 거절",
+   "score": 3,
+   "scoreText": "+3",
+   "note": "불량 적발"
+  },
+  {
+   "characterType": "일반",
+   "docState": "불량",
+   "branch": "입국 (오판)",
+   "gameResult": "잘못 허가",
+   "score": -5,
+   "scoreText": "-5",
+   "note": "오판 페널티"
+  },
+  {
+   "characterType": "진상",
+   "docState": "정상",
+   "branch": "입국 (정답)",
+   "gameResult": "정상 승인",
+   "score": 4,
+   "scoreText": "+4",
+   "note": "기본 통과"
+  },
+  {
+   "characterType": "진상",
+   "docState": "정상",
+   "branch": "거부 (오판)",
+   "gameResult": "잘못 거절",
+   "score": -5,
+   "scoreText": "-5",
+   "note": "기존 3회 강제 입국 값 (A안)"
+  },
+  {
+   "characterType": "진상",
+   "docState": "불량",
+   "branch": "거부 (정답)",
+   "gameResult": "정상 거절",
+   "score": 4,
+   "scoreText": "+4",
+   "note": ""
+  },
+  {
+   "characterType": "진상",
+   "docState": "불량",
+   "branch": "입국 (오판)",
+   "gameResult": "잘못 허가",
+   "score": -5,
+   "scoreText": "-5",
+   "note": ""
+  },
+  {
+   "characterType": "외국인 관광객",
+   "docState": "정상",
+   "branch": "입국 (정답)",
+   "gameResult": "정상 승인",
+   "score": 5,
+   "scoreText": "+5",
+   "note": "기본 통과"
+  },
+  {
+   "characterType": "외국인 관광객",
+   "docState": "정상",
+   "branch": "거부 (오판)",
+   "gameResult": "잘못 거절",
+   "score": -8,
+   "scoreText": "-8",
+   "note": "기존 3회 강제 입국 값 (A안)"
+  },
+  {
+   "characterType": "외국인 관광객",
+   "docState": "불량 [분실]",
+   "branch": "거부 (정답)",
+   "gameResult": "정상 거절",
+   "score": 5,
+   "scoreText": "+5",
+   "note": "여권 분실 적발"
+  },
+  {
+   "characterType": "외국인 관광객",
+   "docState": "불량 [분실]",
+   "branch": "입국 (오판)",
+   "gameResult": "잘못 허가",
+   "score": -7,
+   "scoreText": "-7",
+   "note": "신원 미확인 통과"
+  },
+  {
+   "characterType": "외국인 관광객",
+   "docState": "불량 [출국X]",
+   "branch": "거부 (정답)",
+   "gameResult": "정상 거절",
+   "score": 6,
+   "scoreText": "+6",
+   "note": "출국 도장 X 적발"
+  },
+  {
+   "characterType": "외국인 관광객",
+   "docState": "불량 [출국X]",
+   "branch": "입국 (오판)",
+   "gameResult": "잘못 허가",
+   "score": -6,
+   "scoreText": "-6",
+   "note": "#16 카운트"
+  },
+  {
+   "characterType": "성형 수술 고객 (일반)",
+   "docState": "불량 [마스크 미요청]",
+   "branch": "입국 (오판)",
+   "gameResult": "잘못 허가",
+   "score": -11,
+   "scoreText": "-11",
+   "note": "마스크 안 벗기고 통과"
+  },
+  {
+   "characterType": "성형 수술 고객 (일반)",
+   "docState": "불량 [지문 미요청]",
+   "branch": "입국 (오판)",
+   "gameResult": "잘못 허가",
+   "score": -10,
+   "scoreText": "-10",
+   "note": "신원 미확인 통과"
+  },
+  {
+   "characterType": "성형 수술 고객 (일반)",
+   "docState": "불량 [몽타주O + 범인 아님]",
+   "branch": "입국 (정답)",
+   "gameResult": "정상 승인",
+   "score": 10,
+   "scoreText": "+10",
+   "note": "정답 통과 (우수 사원 호칭)"
+  },
+  {
+   "characterType": "성형 수술 고객 (일반)",
+   "docState": "불량 [몽타주X]",
+   "branch": "입국 (오판)",
+   "gameResult": "잘못 허가",
+   "score": -9,
+   "scoreText": "-9",
+   "note": "변장 범죄자 입국 가능성"
+  },
+  {
+   "characterType": "전염병 환자",
+   "docState": "정상 [1-A]",
+   "branch": "입국 (정답)",
+   "gameResult": "정상 승인",
+   "score": 7,
+   "scoreText": "+7",
+   "note": "백신·출국·만료 OK"
+  },
+  {
+   "characterType": "전염병 환자",
+   "docState": "정상 [1-A]",
+   "branch": "거부 (오판)",
+   "gameResult": "잘못 거절",
+   "score": -9,
+   "scoreText": "-9",
+   "note": "기존 3회 강제 입국 값 (A안)"
+  },
+  {
+   "characterType": "전염병 환자",
+   "docState": "불량 [1-B 출국X/만료]",
+   "branch": "거부 (정답)",
+   "gameResult": "정상 거절",
+   "score": 7,
+   "scoreText": "+7",
+   "note": "백신O이나 서류 문제"
+  },
+  {
+   "characterType": "전염병 환자",
+   "docState": "불량 [1-B 출국X/만료]",
+   "branch": "입국 (오판)",
+   "gameResult": "잘못 허가",
+   "score": -5,
+   "scoreText": "-5",
+   "note": ""
+  },
+  {
+   "characterType": "전염병 환자",
+   "docState": "불량 [1-C 백신X]",
+   "branch": "거부 (정답)",
+   "gameResult": "정상 거절",
+   "score": 3,
+   "scoreText": "+3",
+   "note": "백신 미접종 적발"
+  },
+  {
+   "characterType": "전염병 환자",
+   "docState": "불량 [1-C 백신X]",
+   "branch": "입국 (오판)",
+   "gameResult": "잘못 허가",
+   "score": -6,
+   "scoreText": "-6",
+   "note": "#15 방역 실패 카운트"
+  },
+  {
+   "characterType": "전염병 환자",
+   "docState": "불량 [1-D 모두 미비]",
+   "branch": "거부 (정답)",
+   "gameResult": "정상 거절",
+   "score": 3,
+   "scoreText": "+3",
+   "note": "백신·서류 모두 X"
+  },
+  {
+   "characterType": "전염병 환자",
+   "docState": "불량 [1-D 모두 미비]",
+   "branch": "입국 (오판)",
+   "gameResult": "잘못 허가",
+   "score": -6,
+   "scoreText": "-6",
+   "note": "#15 카운트"
+  },
+  {
+   "characterType": "외국인 장기체류자",
+   "docState": "정상",
+   "branch": "입국 (정답)",
+   "gameResult": "정상 승인",
+   "score": 4,
+   "scoreText": "+4",
+   "note": "취업/합격서 OK"
+  },
+  {
+   "characterType": "외국인 장기체류자",
+   "docState": "정상",
+   "branch": "거부 (오판)",
+   "gameResult": "잘못 거절",
+   "score": -7,
+   "scoreText": "-7",
+   "note": "기존 3회 강제 입국 값 (A안)"
+  },
+  {
+   "characterType": "외국인 장기체류자",
+   "docState": "불량",
+   "branch": "거부 (정답)",
+   "gameResult": "정상 거절",
+   "score": 6,
+   "scoreText": "+6",
+   "note": "출국 도장 X 적발"
+  },
+  {
+   "characterType": "외국인 장기체류자",
+   "docState": "불량",
+   "branch": "입국 (오판)",
+   "gameResult": "잘못 허가",
+   "score": -6,
+   "scoreText": "-6",
+   "note": "#16 카운트"
+  },
+  {
+   "characterType": "성형 수술 고객 (범죄자)",
+   "docState": "불량",
+   "branch": "단순 거부 (운 좋음)",
+   "gameResult": "단순 거부 (운 좋음)",
+   "score": 12,
+   "scoreText": "+12",
+   "note": "운으로 차단"
+  },
+  {
+   "characterType": "성형 수술 고객 (범죄자)",
+   "docState": "불량",
+   "branch": "몽타주 인식 + X-ray + 거부",
+   "gameResult": "몽타주 인식 + X-ray + 거부",
+   "score": 12,
+   "scoreText": "+12",
+   "note": "최고 적발 (청렴한 직원 호칭)"
+  },
+  {
+   "characterType": "성형 수술 고객 (범죄자)",
+   "docState": "불량",
+   "branch": "입국 (오판, 몽타주X)",
+   "gameResult": "잘못 허가",
+   "score": -9,
+   "scoreText": "-9",
+   "note": ""
+  },
+  {
+   "characterType": "성형 수술 고객 (범죄자)",
+   "docState": "불량",
+   "branch": "응함 + 마약/밀수품 + 입국",
+   "gameResult": "응함 + 마약/밀수품 + 입국",
+   "score": -12,
+   "scoreText": "-12",
+   "note": "#12 발동, 즉시 엔딩"
+  },
+  {
+   "characterType": "범죄자 (마약범)",
+   "docState": "불량",
+   "branch": "거부 (정답, 몽타주 인식O)",
+   "gameResult": "정상 거절",
+   "score": 7,
+   "scoreText": "+7",
+   "note": "청렴한 직원 호칭"
+  },
+  {
+   "characterType": "범죄자 (마약범)",
+   "docState": "불량",
+   "branch": "입국 (오판, 몽타주X)",
+   "gameResult": "잘못 허가",
+   "score": -7,
+   "scoreText": "-7",
+   "note": ""
+  },
+  {
+   "characterType": "범죄자 (마약범)",
+   "docState": "불량",
+   "branch": "응함 + 금괴 + 입국",
+   "gameResult": "응함 + 금괴 + 입국",
+   "score": -9,
+   "scoreText": "-9",
+   "note": "일자 끝 부패 컷씬"
+  },
+  {
+   "characterType": "범죄자 (밀수범)",
+   "docState": "불량",
+   "branch": "거부 (정답, 몽타주 인식O)",
+   "gameResult": "정상 거절",
+   "score": 10,
+   "scoreText": "+10",
+   "note": "청렴한 직원 호칭"
+  },
+  {
+   "characterType": "범죄자 (밀수범)",
+   "docState": "불량",
+   "branch": "입국 (오판, 몽타주X)",
+   "gameResult": "잘못 허가",
+   "score": -7,
+   "scoreText": "-7",
+   "note": ""
+  },
+  {
+   "characterType": "범죄자 (밀수범)",
+   "docState": "불량",
+   "branch": "응함 + 금괴 + 입국",
+   "gameResult": "응함 + 금괴 + 입국",
+   "score": -11,
+   "scoreText": "-11",
+   "note": "일자 끝 부패 컷씬"
+  },
+  {
+   "characterType": "범죄자 (밀수범)",
+   "docState": "불량",
+   "branch": "응함 + 마약/밀수품 + 입국",
+   "gameResult": "응함 + 마약/밀수품 + 입국",
+   "score": -11,
+   "scoreText": "-11",
+   "note": "#11 발동, 즉시 엔딩"
+  },
+  {
+   "characterType": "테러범",
+   "docState": "불량 [상담]",
+   "branch": "달램 + 설교 (상담 마스터)",
+   "gameResult": "달램 + 설교 (상담 마스터)",
+   "score": 15,
+   "scoreText": "+15",
+   "note": "최고 보상, 전문 테러 방지반"
+  },
+  {
+   "characterType": "테러범",
+   "docState": "불량 [상담+신고]",
+   "branch": "달램 + 신고 성공",
+   "gameResult": "달램 + 신고 성공",
+   "score": 10,
+   "scoreText": "+10",
+   "note": "경찰아저씨 여기예요"
+  },
+  {
+   "characterType": "테러범",
+   "docState": "불량 [상담]",
+   "branch": "달램 + 설교 → 시한폭탄",
+   "gameResult": "달램 + 설교 → 시한폭탄",
+   "score": 3,
+   "scoreText": "+3",
+   "note": "불의의 사고"
+  },
+  {
+   "characterType": "테러범",
+   "docState": "불량 [상담+신고]",
+   "branch": "달램 + 신고 들킴 → 시한폭탄",
+   "gameResult": "달램 + 신고 들킴 → 시한폭탄",
+   "score": 2,
+   "scoreText": "+2",
+   "note": "잘못된 타이밍"
+  },
+  {
+   "characterType": "테러범",
+   "docState": "불량 [무관심]",
+   "branch": "여권 → 상담 → 설교",
+   "gameResult": "여권 → 상담 → 설교",
+   "score": 8,
+   "scoreText": "+8",
+   "note": "구사일생"
+  },
+  {
+   "characterType": "테러범",
+   "docState": "불량 [무관심]",
+   "branch": "여권 → 시한폭탄",
+   "gameResult": "여권 → 시한폭탄",
+   "score": 1,
+   "scoreText": "+1",
+   "note": "경청의 중요성"
+  },
+  {
+   "characterType": "테러범",
+   "docState": "불량 [신고]",
+   "branch": "무관심 + 제압 성공",
+   "gameResult": "무관심 + 제압 성공",
+   "score": 0,
+   "scoreText": "+0",
+   "note": "인간 방어막"
+  },
+  {
+   "characterType": "테러범",
+   "docState": "불량 [신고]",
+   "branch": "무관심 + 제압 실패",
+   "gameResult": "무관심 + 제압 실패",
+   "score": -2,
+   "scoreText": "-2",
+   "note": "운동 좀 할걸"
+  },
+  {
+   "characterType": "테러범",
+   "docState": "불량 [신고]",
+   "branch": "무관심 + 신고 들킴 → 시한폭탄",
+   "gameResult": "무관심 + 신고 들킴 → 시한폭탄",
+   "score": -4,
+   "scoreText": "-4",
+   "note": "예견된 사고 (최악)"
+  },
+  {
+   "characterType": "사이비 신도 (1회차)",
+   "docState": "정상",
+   "branch": "예/예/예 + 입국",
+   "gameResult": "예/예/예 + 입국",
+   "score": 9,
+   "scoreText": "+9",
+   "note": "의문의 종교 물품"
+  },
+  {
+   "characterType": "사이비 신도 (1회차)",
+   "docState": "정상",
+   "branch": "예/예/아니오 또는 예/아니오/예 + 입국",
+   "gameResult": "예/예/아니오 또는 예/아니오/예 + 입국",
+   "score": 6,
+   "scoreText": "+6",
+   "note": ""
+  },
+  {
+   "characterType": "사이비 신도 (1회차)",
+   "docState": "정상",
+   "branch": "아니오/아니오/아니오 + 입국",
+   "gameResult": "아니오/아니오/아니오 + 입국",
+   "score": 0,
+   "scoreText": "+0",
+   "note": ""
+  },
+  {
+   "characterType": "사이비 신도 (1회차)",
+   "docState": "정상",
+   "branch": "거부 (어떤 응답이든)",
+   "gameResult": "거부 (어떤 응답이든)",
+   "score": 0,
+   "scoreText": "+0",
+   "note": ""
+  },
+  {
+   "characterType": "사이비 신도 (2회차)",
+   "docState": "정상",
+   "branch": "강해야/예/예 + 입국 (최고 조합)",
+   "gameResult": "강해야/예/예 + 입국 (최고 조합)",
+   "score": 9,
+   "scoreText": "+9",
+   "note": "호칭 '스며들기'"
+  },
+  {
+   "characterType": "사이비 신도 (2회차)",
+   "docState": "정상",
+   "branch": "기타 조합 + 입국",
+   "gameResult": "기타 조합 + 입국",
+   "score": 0,
+   "scoreText": "0~+6",
+   "note": ""
+  },
+  {
+   "characterType": "사이비 신도 (3회차)",
+   "docState": "정상",
+   "branch": "예/예/예 + 입국 → '새뇌'",
+   "gameResult": "예/예/예 + 입국 → '새뇌'",
+   "score": 10,
+   "scoreText": "+10",
+   "note": "#13 포교 성공 발동"
+  },
+  {
+   "characterType": "사이비 신도 (3회차)",
+   "docState": "정상",
+   "branch": "아니오/예/예 + 입국 → '신종 추종자'",
+   "gameResult": "아니오/예/예 + 입국 → '신종 추종자'",
+   "score": 7,
+   "scoreText": "+7",
+   "note": "#14 난 돈을 믿어 발동"
+  },
+  {
+   "characterType": "사이비 신도 (3회차)",
+   "docState": "정상",
+   "branch": "기타 조합 + 입국",
+   "gameResult": "기타 조합 + 입국",
+   "score": 0,
+   "scoreText": "0~+5",
+   "note": ""
+  },
+  {
+   "characterType": "꼬마",
+   "docState": "정상",
+   "branch": "발판 제공 + 입국",
+   "gameResult": "발판 제공 + 입국",
+   "score": 3,
+   "scoreText": "+3",
+   "note": "맛있는 사탕 아이템 획득"
+  },
+  {
+   "characterType": "꼬마",
+   "docState": "정상",
+   "branch": "발판 미제공 + 입국",
+   "gameResult": "발판 미제공 + 입국",
+   "score": 3,
+   "scoreText": "+3",
+   "note": "단순 통과"
+  },
+  {
+   "characterType": "현자",
+   "docState": "정상 [물질+성취+세계]",
+   "branch": "입국 + 마법의 수정구슬",
+   "gameResult": "입국 + 마법의 수정구슬",
+   "score": 0,
+   "scoreText": "+0",
+   "note": ""
+  },
+  {
+   "characterType": "현자",
+   "docState": "정상 [물질+성취+우리나라]",
+   "branch": "입국 + 마법의 구슬",
+   "gameResult": "입국 + 마법의 구슬",
+   "score": 0,
+   "scoreText": "+0",
+   "note": ""
+  },
+  {
+   "characterType": "현자",
+   "docState": "정상 [물질+사랑+가족]",
+   "branch": "입국 + 마법의 손목시계",
+   "gameResult": "입국 + 마법의 손목시계",
+   "score": 0,
+   "scoreText": "+0",
+   "note": ""
+  },
+  {
+   "characterType": "현자",
+   "docState": "정상 [물질+사랑+나]",
+   "branch": "입국 + 마법의 거울",
+   "gameResult": "입국 + 마법의 거울",
+   "score": 0,
+   "scoreText": "+0",
+   "note": ""
+  },
+  {
+   "characterType": "현자",
+   "docState": "정상 [정신+자유+세계]",
+   "branch": "입국 + 마법의 손수건",
+   "gameResult": "입국 + 마법의 손수건",
+   "score": 0,
+   "scoreText": "+0",
+   "note": ""
+  },
+  {
+   "characterType": "현자",
+   "docState": "정상 [정신+자유+우리나라]",
+   "branch": "입국 + 마법의 주머니",
+   "gameResult": "입국 + 마법의 주머니",
+   "score": 0,
+   "scoreText": "+0",
+   "note": ""
+  },
+  {
+   "characterType": "현자",
+   "docState": "정상 [정신+돈+가족]",
+   "branch": "입국 + 마법의 와인",
+   "gameResult": "입국 + 마법의 와인",
+   "score": 0,
+   "scoreText": "+0",
+   "note": ""
+  },
+  {
+   "characterType": "현자",
+   "docState": "정상 [정신+돈+나]",
+   "branch": "입국 + 마법의 지갑",
+   "gameResult": "입국 + 마법의 지갑",
+   "score": 0,
+   "scoreText": "+0",
+   "note": "누적 8회 시 '해탈한 자' 호칭"
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+{
+ "source": "방문객_스크립트_전체_260604.xlsx / 거부 대사 템플릿",
+ "templates": [
+  {
+   "problemType": "정보불일치",
+   "document": "여권",
+   "errorField": "이름, 성별, 생년월일, 국적",
+   "rejectFirm": "여권 정보가 방문객 정보와 일치하지 않아 입국하실 수 없습니다.",
+   "rejectPolite": "여권 정보가 방문객 정보와 일치하지 않아 입국이 어렵습니다. 죄송합니다."
+  },
+  {
+   "problemType": "사진불일치",
+   "document": "여권",
+   "errorField": "사진",
+   "rejectFirm": "여권 사진이 현재 외모와 달라 입국하실 수 없습니다.",
+   "rejectPolite": "여권 사진이 현재 외모와 일치하지 않아 입국이 어렵습니다. 죄송합니다."
+  },
+  {
+   "problemType": "기간오류",
+   "document": "여권",
+   "errorField": "발급일, 만료일",
+   "rejectFirm": "여권 유효기간이 맞지 않아 입국하실 수 없습니다.",
+   "rejectPolite": "여권 유효기간이 맞지 않아 입국이 어렵습니다. 죄송합니다."
+  },
+  {
+   "problemType": "위조",
+   "document": "여권",
+   "errorField": "여권번호",
+   "rejectFirm": "여권 위조 흔적이 있어 입국하실 수 없습니다.",
+   "rejectPolite": "여권 위조 흔적이 확인되어 입국이 어렵습니다. 죄송합니다."
+  }
+ ]
+}

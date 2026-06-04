@@ -82,6 +82,15 @@ public sealed class InspectionController : MonoBehaviour
     /// <summary>현재 손님의 character_type(없으면 null). 고급 분기 선택지 UI 표시·게이팅용 — 판정에는 영향 없음.</summary>
     public string CurrentCharacterType => Current?.characterType;
 
+    /// <summary>현재 손님의 한글 이름(없으면 빈 문자열). 대조 불일치 대사 화자명 등 표시용 — 판정에는 영향 없음.</summary>
+    public string CurrentCustomerName => Current != null && !string.IsNullOrEmpty(Current.nameKr) ? Current.nameKr : string.Empty;
+
+    /// <summary>현재 손님의 customerId(없으면 -1). 취조 등 결정론적 보조 로직의 시드 산출용 — 판정에는 영향 없음.</summary>
+    public int CurrentCustomerId => Current != null ? Current.customerId : -1;
+
+    /// <summary>현재 손님의 제출 서류(없으면 null). 취조 힌트 산출용 읽기 전용 — 판정에는 영향 없음.</summary>
+    public DocumentData[] CurrentDocuments => Current?.documents;
+
     /// <summary>현재 손님의 defect_variant(없으면 null). 고급 분기 키 산출용 — 판정에는 영향 없음.</summary>
     public string CurrentDefectVariant => Current?.defectVariant;
 
@@ -157,10 +166,15 @@ public sealed class InspectionController : MonoBehaviour
         _index = 0;
         // 골드는 ScoreEconomyManager.Money 가 권위. 매니저가 있으면 그 값을 HUD 캐시에 반영한다.
         var mgr = Economy;
-        if (mgr != null) _gold = mgr.Money;
+        if (mgr != null)
+        {
+            mgr.BeginDay();   // 당일 오판/적발 집계 리셋(일자 보상 기준)
+            _gold = mgr.Money;
+        }
         else if (resetGold) _gold = 0;
         UpdateGold();
         if (_dayCompleteRoot != null) _dayCompleteRoot.SetActive(false);
+        if (_documentView != null) _documentView.ClearNotices(); // 날짜 넘어가면 누적 고지서 정리
         ShowCustomer(0);
     }
 
@@ -187,7 +201,7 @@ public sealed class InspectionController : MonoBehaviour
         RaiseRequestable();
         OnCustomerChanged?.Invoke();
 
-        if (_customerView != null) _customerView.Show(c);
+        if (_customerView != null) _customerView.Show(c, FacePhotoRef(c));
         if (_documentView != null) _documentView.Show(c.documents);
         if (_slotCounterText != null) _slotCounterText.text = $"{index + 1} / {_data.customers.Length}";
         if (_judgmentPanel != null) _judgmentPanel.ResetForNextCustomer(false);
@@ -207,6 +221,30 @@ public sealed class InspectionController : MonoBehaviour
     private void EnableJudgment()
     {
         if (_judgmentPanel != null) _judgmentPanel.SetReady(true);
+    }
+
+    /// <summary>
+    /// 손님 얼굴 이미지 키(photo_ref)를 그 손님의 여권 문서 spriteRef 에서 얻는다.
+    /// 같은 인물이므로 얼굴=여권사진 동일 키를 쓴다. 여권이 없으면 첫 문서, 그것도 없으면 "".
+    /// 표시 전용 — 대조/판정 로직과 무관하다.
+    /// </summary>
+    private static string FacePhotoRef(CustomerData c)
+    {
+        if (c == null || c.documents == null) return "";
+        DocumentData passport = null;
+        foreach (DocumentData d in c.documents)
+        {
+            if (d == null) continue;
+            if (!string.IsNullOrEmpty(d.spriteRef))
+            {
+                if (d.documentType != null && d.documentType.Contains("여권"))
+                {
+                    return d.spriteRef; // 여권을 최우선
+                }
+                if (passport == null) passport = d; // 폴백 후보(첫 spriteRef 보유 문서)
+            }
+        }
+        return passport != null ? passport.spriteRef : "";
     }
 
     private void UpdateGold()
@@ -257,9 +295,51 @@ public sealed class InspectionController : MonoBehaviour
         {
             // 오허가(거부해야 하는데 승인): 확정 → 오판 정산.
             SettleCustomer(c, approve, _wrongRejectCount, forcedPass: false);
+            SpawnViolationNotice(c); // 무엇이 틀렸는지 '고지서' 서류로 알림
             DialogueCaseData wrong = FindCase(c, GameResults.WrongApprove, -1);
             PlayThen(wrong, AdvanceNext);
         }
+    }
+
+    /// <summary>
+    /// 오판(결함 손님을 통과)으로 확정됐을 때, 무엇이 틀렸는지 적힌 '고지서' 서류를 스폰한다.
+    /// 손님 서류 중 결함(비정상/violationField)인 항목을 나열한다. 판정/점수에는 영향 없음(피드백 표시 전용).
+    /// </summary>
+    private void SpawnViolationNotice(CustomerData c)
+    {
+        if (_documentView == null || c?.documents == null) return;
+
+        var fields = new System.Collections.Generic.List<FieldEntry>();
+        fields.Add(new FieldEntry { label = "판정", value = "입국 거부 대상이었습니다", key = "" });
+
+        foreach (DocumentData d in c.documents)
+        {
+            if (d == null) continue;
+            bool isDefect = (!string.IsNullOrEmpty(d.variant) && d.variant.Contains("비정상"))
+                         || (!string.IsNullOrEmpty(d.violationField) && d.violationField != "없음");
+            if (isDefect)
+            {
+                string vf = string.IsNullOrEmpty(d.violationField) || d.violationField == "없음" ? "서류 이상" : d.violationField;
+                fields.Add(new FieldEntry { label = d.documentType, value = $"{vf} 항목이 올바르지 않습니다", key = "" });
+            }
+        }
+
+        if (fields.Count <= 1)
+        {
+            fields.Add(new FieldEntry { label = "사유", value = "서류 정보 불일치", key = "" });
+        }
+
+        var notice = new DocumentData
+        {
+            documentType = "⚠ 심사 오류 고지서",
+            variant = "정상",
+            violationField = "없음",
+            country = "",
+            spriteRef = "",
+            fields = fields.ToArray(),
+        };
+
+        _documentView.SpawnNotice(notice);
     }
 
     /// <summary>
@@ -271,16 +351,19 @@ public sealed class InspectionController : MonoBehaviour
         bool shouldApprove = c.correctResult == GameResults.Approve;
         bool wasCorrect = (approved == shouldApprove) || forcedPass;
 
+        // 적발 = 결함(거부 정답) 손님을 올바로 거부했을 때(위조/밀수/지명수배). 일자 DETECTION 보너스용.
+        bool wasDetection = !shouldApprove && wasCorrect && !approved;
+
         BranchResult branch = BranchKeyResolver.Resolve(
             c.correctResult, approved, wrongRejectCount, forcedPass, c.characterType, c.defectVariant);
-        SettleBranch(c.characterType, branch, wasCorrect);
+        SettleBranch(c.characterType, branch, wasCorrect, wasDetection);
     }
 
     /// <summary>
     /// 손님 1명 확정 정산을 한 번만 수행한다(중복 가드). 기본 판정과 고급 분기가 같은 손님을
     /// 이중 정산하지 않도록 _customerSettled 로 1회 보장한다. 매니저 없으면 조용히 스킵.
     /// </summary>
-    private void SettleBranch(string characterType, BranchResult branch, bool wasCorrect)
+    private void SettleBranch(string characterType, BranchResult branch, bool wasCorrect, bool wasDetection = false)
     {
         if (_customerSettled) return; // 이미 확정된 손님 — 중복 정산 금지
         _customerSettled = true;
@@ -288,7 +371,7 @@ public sealed class InspectionController : MonoBehaviour
         var mgr = Economy;
         if (mgr == null) return; // 씬에 매니저가 없으면 점수/경제 비활성(기존 동작 유지)
 
-        mgr.Settle(characterType, branch, wasCorrect);
+        mgr.Settle(characterType, branch, wasCorrect, wasDetection);
 
         // HUD 골드 캐시 동기화(표시용).
         _gold = mgr.Money;
@@ -371,6 +454,17 @@ public sealed class InspectionController : MonoBehaviour
         if (_judgmentPanel != null) _judgmentPanel.SetReady(false);
         if (_dayCompleteRoot != null) _dayCompleteRoot.SetActive(true);
         OnCustomerChanged?.Invoke(); // 손님 종료 → 검사기 패널/버튼 비활성화
+
+        // 일자 보상(일급/적발/무사고/경고) 1회 정산 — OnDayCompleted 통지 '전에' 적용해
+        // 모든 구독자(정산 표시 UI 등)가 확정된 잔액을 읽게 한다(점수 불변, 돈만 변동).
+        var mgr = Economy;
+        if (mgr != null)
+        {
+            mgr.SettleDay();
+            _gold = mgr.Money;
+            UpdateGold();
+        }
+
         Debug.Log($"[InspectionController] {CurrentDay}일차 완료");
 
         // 진행 매니저(ImmigrationManager 등)에 일자 완료 통지. UI 직접 참조 없음.

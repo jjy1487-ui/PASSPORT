@@ -87,6 +87,13 @@ public sealed class ImmigrationManager : MonoBehaviour
             var go = new GameObject("ScoreEconomyManager");
             _economy = go.AddComponent<ScoreEconomyManager>();
         }
+
+        // 상점 백엔드(ShopService)도 씬에 없으면 런타임 보장(상점 UI/효과가 Instance 를 참조).
+        //  ScoreEconomyManager 와 동일한 '매니저 인스턴스 보장' 패턴 — 백엔드 로직은 건드리지 않는다.
+        if (ShopService.Instance == null)
+        {
+            new GameObject("ShopService").AddComponent<ShopService>();
+        }
         _economy.OnEarlyEndingTriggered -= HandleEarlyEnding;
         _economy.OnEarlyEndingTriggered += HandleEarlyEnding;
 

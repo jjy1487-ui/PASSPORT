@@ -33,6 +33,7 @@ public class MainMenuManager : MonoBehaviour
     {
         if (isTransitioning) return;
         GameProgressSave.Clear();              // 새 게임: 누적 점수/돈/호칭/아이템/엔딩카운터 초기화
+        ShopSave.Clear();                      // 새 게임: 상점 구매 내역/활성 효과 초기화
         PlayerPrefs.SetInt(SAVE_KEY, 1);
         PlayerPrefs.SetInt("CurrentDay", 1);  // 1일차 시작
         PlayerPrefs.Save();
@@ -47,7 +48,7 @@ public class MainMenuManager : MonoBehaviour
 
     /// <summary>
     /// 업적(호칭) 패널을 런타임으로 생성한다(메인 메뉴 씬에 수동 배치가 없을 때 폴백).
-    /// UI-CONVENTIONS: 중앙 모달, 닫기 = X 우상단, malgun 폰트.
+    /// 중앙 모달, 닫기 = "닫기" 텍스트 버튼 우상단(닫기 버튼 통일), malgun 폰트.
     /// </summary>
     TitleAchievementPanel BuildAchievementPanel()
     {
@@ -70,8 +71,8 @@ public class MainMenuManager : MonoBehaviour
             new Vector2(0.06f, 0.86f), new Vector2(0.80f, 0.96f), font, TextAlignmentOptions.Left);
         title.fontStyle = FontStyles.Bold; title.color = new Color(1f, 0.9f, 0.6f);
 
-        Button close = MakeButton(frame.transform, "CloseButton", "X", 22,
-            new Vector2(0.88f, 0.86f), new Vector2(0.97f, 0.96f), font, new Color(0.60f, 0.18f, 0.18f));
+        Button close = MakeButton(frame.transform, "CloseButton", "닫기", 22,
+            new Vector2(0.82f, 0.86f), new Vector2(0.97f, 0.96f), font, new Color(0.60f, 0.18f, 0.18f));
 
         TMP_Text list = AddText(frame.transform, "ListText", "", 20,
             new Vector2(0.07f, 0.08f), new Vector2(0.93f, 0.84f), font, TextAlignmentOptions.TopLeft);

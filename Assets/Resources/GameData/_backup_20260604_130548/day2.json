@@ -1,0 +1,1532 @@
+{
+  "day": 2,
+  "customers": [
+    {
+      "customerId": 22,
+      "slot": 1,
+      "nameKr": "박지훈",
+      "nameEn": "PARK JIHOON",
+      "nationality": "대한민국(KOR)",
+      "gender": "남성",
+      "birthDate": "1990-01-20",
+      "age": 36,
+      "spriteRef": "spr_c022",
+      "characterType": "일반 고객",
+      "defectVariant": "",
+      "correctResult": "정상 승인",
+      "documents": [
+        {
+          "documentType": "여권",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "photo_c22",
+          "country": "KOR",
+          "fields": [
+            {
+              "label": "여권번호",
+              "value": "KO1024574",
+              "key": "passport_no"
+            },
+            {
+              "label": "영문이름",
+              "value": "PARK JIHOON",
+              "key": "name"
+            },
+            {
+              "label": "성별",
+              "value": "남성",
+              "key": "gender"
+            },
+            {
+              "label": "생년월일",
+              "value": "1990-01-20",
+              "key": "birth_date"
+            },
+            {
+              "label": "국적",
+              "value": "KOR",
+              "key": "nationality"
+            },
+            {
+              "label": "발급일",
+              "value": "2023-11-14",
+              "key": "issue_date"
+            },
+            {
+              "label": "만료일",
+              "value": "2028-11-14",
+              "key": "expiry_date"
+            }
+          ]
+        }
+      ],
+      "dialogueCases": [
+        {
+          "caseType": "입장",
+          "gameResult": "-",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "캐릭터",
+              "text": "안녕하세요, 서류 드릴게요. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "확인 부탁드립니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "정상 승인",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "감사합니다! [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "정상 거절",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "서류 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 허가",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 1,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 2,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 3,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        }
+      ],
+      "xray": null,
+      "fingerprint": null
+    },
+    {
+      "customerId": 20,
+      "slot": 2,
+      "nameKr": "한만수",
+      "nameEn": "HAN MANSU",
+      "nationality": "대한민국(KOR)",
+      "gender": "남성",
+      "birthDate": "1979-05-05",
+      "age": 47,
+      "spriteRef": "spr_c020",
+      "characterType": "진상 고객",
+      "defectVariant": "",
+      "correctResult": "정상 승인",
+      "documents": [
+        {
+          "documentType": "여권",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "photo_c20",
+          "country": "KOR",
+          "fields": [
+            {
+              "label": "여권번호",
+              "value": "KO1022340",
+              "key": "passport_no"
+            },
+            {
+              "label": "영문이름",
+              "value": "HAN MANSU",
+              "key": "name"
+            },
+            {
+              "label": "성별",
+              "value": "남성",
+              "key": "gender"
+            },
+            {
+              "label": "생년월일",
+              "value": "1979-05-05",
+              "key": "birth_date"
+            },
+            {
+              "label": "국적",
+              "value": "KOR",
+              "key": "nationality"
+            },
+            {
+              "label": "발급일",
+              "value": "2019-07-14",
+              "key": "issue_date"
+            },
+            {
+              "label": "만료일",
+              "value": "2029-07-14",
+              "key": "expiry_date"
+            }
+          ]
+        }
+      ],
+      "dialogueCases": [
+        {
+          "caseType": "입장",
+          "gameResult": "-",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "캐릭터",
+              "text": "안녕하세요, 서류 드릴게요. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "확인 부탁드립니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "정상 승인",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "감사합니다! [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "정상 거절",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "서류 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 허가",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 1,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 2,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 3,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        }
+      ],
+      "xray": null,
+      "fingerprint": null
+    },
+    {
+      "customerId": 25,
+      "slot": 3,
+      "nameKr": "윌리엄 브라운",
+      "nameEn": "WILLIAM BROWN",
+      "nationality": "미국(USA)",
+      "gender": "여성",
+      "birthDate": "1994-03-03",
+      "age": 32,
+      "spriteRef": "spr_c025",
+      "characterType": "외국인 관광객",
+      "defectVariant": "분실",
+      "correctResult": "정상 거절",
+      "documents": [
+        {
+          "documentType": "여권",
+          "variant": "비정상",
+          "violationField": "국적",
+          "spriteRef": "photo_c25",
+          "country": "USA",
+          "fields": [
+            {
+              "label": "여권번호",
+              "value": "US1027925",
+              "key": "passport_no"
+            },
+            {
+              "label": "영문이름",
+              "value": "BROWN WILLIAM",
+              "key": "name"
+            },
+            {
+              "label": "성별",
+              "value": "여성",
+              "key": "gender"
+            },
+            {
+              "label": "생년월일",
+              "value": "1994-03-03",
+              "key": "birth_date"
+            },
+            {
+              "label": "국적",
+              "value": "KOR",
+              "key": "nationality"
+            },
+            {
+              "label": "발급일",
+              "value": "2019-03-28",
+              "key": "issue_date"
+            },
+            {
+              "label": "만료일",
+              "value": "2029-03-28",
+              "key": "expiry_date"
+            }
+          ]
+        }
+      ],
+      "dialogueCases": [
+        {
+          "caseType": "입장",
+          "gameResult": "-",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "캐릭터",
+              "text": "Hello! 안녕하세요. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "여기 서류 드릴게요. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "정상 승인",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "감사합니다! [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "정상 거절",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "국적 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]",
+              "claim": {
+                "attr": "nationality",
+                "value": "",
+                "label": "국적 불일치",
+                "unlocksScan": ""
+              }
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 허가",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 1,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 2,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 3,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        }
+      ],
+      "xray": null,
+      "fingerprint": null
+    },
+    {
+      "customerId": 23,
+      "slot": 4,
+      "nameKr": "송하늘",
+      "nameEn": "SONG HANEUL",
+      "nationality": "대한민국(KOR)",
+      "gender": "여성",
+      "birthDate": "1993-04-09",
+      "age": 33,
+      "spriteRef": "spr_c023",
+      "characterType": "일반 고객",
+      "defectVariant": "",
+      "correctResult": "정상 거절",
+      "documents": [
+        {
+          "documentType": "여권",
+          "variant": "비정상",
+          "violationField": "만료일",
+          "spriteRef": "photo_c23",
+          "country": "KOR",
+          "fields": [
+            {
+              "label": "여권번호",
+              "value": "KO1025691",
+              "key": "passport_no"
+            },
+            {
+              "label": "영문이름",
+              "value": "SONG HANEUL",
+              "key": "name"
+            },
+            {
+              "label": "성별",
+              "value": "여성",
+              "key": "gender"
+            },
+            {
+              "label": "생년월일",
+              "value": "1993-04-09",
+              "key": "birth_date"
+            },
+            {
+              "label": "국적",
+              "value": "KOR",
+              "key": "nationality"
+            },
+            {
+              "label": "발급일",
+              "value": "2013-01-01",
+              "key": "issue_date"
+            },
+            {
+              "label": "만료일",
+              "value": "2023-01-01",
+              "key": "expiry_date"
+            }
+          ]
+        }
+      ],
+      "dialogueCases": [
+        {
+          "caseType": "입장",
+          "gameResult": "-",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "캐릭터",
+              "text": "안녕하세요, 서류 드릴게요. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "확인 부탁드립니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "정상 승인",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "감사합니다! [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "정상 거절",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "만료일 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]",
+              "claim": {
+                "attr": "expiry_date",
+                "value": "",
+                "label": "만료일 불일치",
+                "unlocksScan": ""
+              }
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 허가",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 1,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 2,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 3,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        }
+      ],
+      "xray": null,
+      "fingerprint": null
+    },
+    {
+      "customerId": 24,
+      "slot": 5,
+      "nameKr": "임도현",
+      "nameEn": "IM DOHYUN",
+      "nationality": "대한민국(KOR)",
+      "gender": "남성",
+      "birthDate": "1986-08-17",
+      "age": 39,
+      "spriteRef": "spr_c024",
+      "characterType": "일반 고객",
+      "defectVariant": "",
+      "correctResult": "정상 승인",
+      "documents": [
+        {
+          "documentType": "여권",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "photo_c24",
+          "country": "KOR",
+          "fields": [
+            {
+              "label": "여권번호",
+              "value": "KO1026808",
+              "key": "passport_no"
+            },
+            {
+              "label": "영문이름",
+              "value": "IM DOHYUN",
+              "key": "name"
+            },
+            {
+              "label": "성별",
+              "value": "남성",
+              "key": "gender"
+            },
+            {
+              "label": "생년월일",
+              "value": "1986-08-17",
+              "key": "birth_date"
+            },
+            {
+              "label": "국적",
+              "value": "KOR",
+              "key": "nationality"
+            },
+            {
+              "label": "발급일",
+              "value": "2023-03-14",
+              "key": "issue_date"
+            },
+            {
+              "label": "만료일",
+              "value": "2028-03-14",
+              "key": "expiry_date"
+            }
+          ]
+        }
+      ],
+      "dialogueCases": [
+        {
+          "caseType": "입장",
+          "gameResult": "-",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "캐릭터",
+              "text": "안녕하세요, 서류 드릴게요. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "확인 부탁드립니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "정상 승인",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "감사합니다! [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "정상 거절",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "서류 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 허가",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 1,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 2,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 3,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        }
+      ],
+      "xray": null,
+      "fingerprint": null
+    },
+    {
+      "customerId": 26,
+      "slot": 6,
+      "nameKr": "다나카 하루토",
+      "nameEn": "TANAKA HARUTO",
+      "nationality": "일본(JPN)",
+      "gender": "남성",
+      "birthDate": "1989-11-25",
+      "age": 36,
+      "spriteRef": "spr_c026",
+      "characterType": "외국인 관광객",
+      "defectVariant": "",
+      "correctResult": "정상 승인",
+      "documents": [
+        {
+          "documentType": "여권",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "photo_c26",
+          "country": "JPN",
+          "fields": [
+            {
+              "label": "여권번호",
+              "value": "JP1029042",
+              "key": "passport_no"
+            },
+            {
+              "label": "영문이름",
+              "value": "TANAKA HARUTO",
+              "key": "name"
+            },
+            {
+              "label": "성별",
+              "value": "남성",
+              "key": "gender"
+            },
+            {
+              "label": "생년월일",
+              "value": "1989-11-25",
+              "key": "birth_date"
+            },
+            {
+              "label": "국적",
+              "value": "JPN",
+              "key": "nationality"
+            },
+            {
+              "label": "발급일",
+              "value": "2021-03-14",
+              "key": "issue_date"
+            },
+            {
+              "label": "만료일",
+              "value": "2031-03-14",
+              "key": "expiry_date"
+            }
+          ]
+        }
+      ],
+      "dialogueCases": [
+        {
+          "caseType": "입장",
+          "gameResult": "-",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "캐릭터",
+              "text": "Hello! 안녕하세요. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "여기 서류 드릴게요. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "정상 승인",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "감사합니다! [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "정상 거절",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "서류 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 허가",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 1,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 2,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 3,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        }
+      ],
+      "xray": null,
+      "fingerprint": null
+    },
+    {
+      "customerId": 28,
+      "slot": 7,
+      "nameKr": "오만석",
+      "nameEn": "OH MANSEOK",
+      "nationality": "대한민국(KOR)",
+      "gender": "남성",
+      "birthDate": "1975-02-11",
+      "age": 51,
+      "spriteRef": "spr_c028",
+      "characterType": "진상 고객",
+      "defectVariant": "",
+      "correctResult": "정상 거절",
+      "documents": [
+        {
+          "documentType": "여권",
+          "variant": "비정상",
+          "violationField": "생년월일",
+          "spriteRef": "photo_c28",
+          "country": "KOR",
+          "fields": [
+            {
+              "label": "여권번호",
+              "value": "KO1031276",
+              "key": "passport_no"
+            },
+            {
+              "label": "영문이름",
+              "value": "OH MANSEOK",
+              "key": "name"
+            },
+            {
+              "label": "성별",
+              "value": "남성",
+              "key": "gender"
+            },
+            {
+              "label": "생년월일",
+              "value": "1900-01-01",
+              "key": "birth_date"
+            },
+            {
+              "label": "국적",
+              "value": "KOR",
+              "key": "nationality"
+            },
+            {
+              "label": "발급일",
+              "value": "2017-03-14",
+              "key": "issue_date"
+            },
+            {
+              "label": "만료일",
+              "value": "2027-03-14",
+              "key": "expiry_date"
+            }
+          ]
+        }
+      ],
+      "dialogueCases": [
+        {
+          "caseType": "입장",
+          "gameResult": "-",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "캐릭터",
+              "text": "안녕하세요, 서류 드릴게요. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "확인 부탁드립니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "정상 승인",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "감사합니다! [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "정상 거절",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "생년월일 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]",
+              "claim": {
+                "attr": "birth_date",
+                "value": "",
+                "label": "생년월일 불일치",
+                "unlocksScan": ""
+              }
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 허가",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 1,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 2,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        },
+        {
+          "caseType": "일반 심사",
+          "gameResult": "잘못 거절",
+          "rejectCount": 3,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "심사관",
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+            },
+            {
+              "order": 2,
+              "speaker": "캐릭터",
+              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
+            },
+            {
+              "order": 3,
+              "speaker": "심사관",
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
+            },
+            {
+              "order": 4,
+              "speaker": "캐릭터",
+              "text": "네, 알겠습니다. [TODO 대사]"
+            }
+          ]
+        }
+      ],
+      "xray": null,
+      "fingerprint": null
+    }
+  ],
+  "rules": [
+    {
+      "ruleId": 3,
+      "title": "외국인 비자 확인",
+      "content": "외국 국적자는 유효한 비자를 소지해야 한다. 비자 없으면 입국 불가.",
+      "relatedField": "비자",
+      "attr": "visa_type"
+    }
+  ],
+  "news": [
+    {
+      "newsId": 3,
+      "title": "해외 단체 관광객 입국 증가",
+      "content": "연휴를 맞아 외국인 단체 관광객의 입국이 크게 늘었다. 공항 측은 입국 심사 대기 시간이 길어질 수 있다고 안내했다.",
+      "iconRef": "spr_news_003",
+      "claims": []
+    }
+  ]
+}

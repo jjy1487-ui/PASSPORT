@@ -108,6 +108,12 @@ public static class Day1SceneBuilder
         // 펼친 여권(종이 + 필드)
         RectTransform openView = NewUI("OpenView", cardRt, Vector2.zero, Vector2.one);
         Image paper = AddImage(openView, new Color(0.97f, 0.96f, 0.90f));
+        // 여권 사진칸(좌상단). 런타임에 doc.spriteRef(photo_ref) 로 채움. 못 찾으면 숨김.
+        RectTransform photoRt = NewUI("PhotoImage", openView, new Vector2(0.08f, 0.60f), new Vector2(0.40f, 0.90f));
+        Image photoImg = AddImage(photoRt, new Color(0.80f, 0.80f, 0.82f));
+        photoImg.raycastTarget = false;
+        photoImg.preserveAspect = true;
+        photoRt.gameObject.SetActive(false); // 사진 로드 성공 시 활성화
         RectTransform fields = NewUI("Fields", openView, Vector2.zero, Vector2.one);
         VerticalLayoutGroup fv = fields.gameObject.AddComponent<VerticalLayoutGroup>();
         fv.spacing = 6; fv.padding = new RectOffset(16, 16, 14, 14);
@@ -115,6 +121,8 @@ public static class Day1SceneBuilder
         fv.childForceExpandWidth = true; fv.childForceExpandHeight = false;
         TMP_Text cardHeader = AddText(fields, "TypeHeader", "여권", 24, Vector2.zero, Vector2.one, font, TextAlignmentOptions.Center);
         cardHeader.color = new Color(0.15f, 0.25f, 0.45f); cardHeader.fontStyle = FontStyles.Bold;
+        // 긴 머리글("⚠ 심사 오류 고지서")이 한 줄을 넘쳐 겹치지 않도록 오토사이즈(13~24)로 축소 허용.
+        cardHeader.enableAutoSizing = true; cardHeader.fontSizeMin = 13; cardHeader.fontSizeMax = 24;
         AddLayoutElement(cardHeader.gameObject, 34);
         TMP_Text cardBody = AddText(fields, "BodyText", "항목", 17, Vector2.zero, Vector2.one, font, TextAlignmentOptions.TopLeft);
         cardBody.color = new Color(0.1f, 0.1f, 0.1f);
@@ -167,6 +175,7 @@ public static class Day1SceneBuilder
         Wire(cardView, "_closedLabel", closedLabel);
         Wire(cardView, "_stampRoot", stampRt.gameObject);
         Wire(cardView, "_stampText", stampText);
+        Wire(cardView, "_photoImage", photoImg);
         Wire(cardView, "_coverKor", LoadSprite("Assets/Images/Passports/passport_kor.png"));
         Wire(cardView, "_coverChn", LoadSprite("Assets/Images/Passports/passport_chn.png"));
         Wire(cardView, "_coverJpn", LoadSprite("Assets/Images/Passports/passport_jpn.png"));
@@ -234,7 +243,7 @@ public static class Day1SceneBuilder
         AddImage(logRt, new Color(0.08f, 0.10f, 0.14f, 0.97f));
         TMP_Text logTitle = AddText(logRt, "Title", "대화 기록", 26, new Vector2(0.04f, 0.88f), new Vector2(0.82f, 0.98f), font, TextAlignmentOptions.Left);
         logTitle.fontStyle = FontStyles.Bold; logTitle.color = new Color(1f, 0.9f, 0.6f);
-        Button logClose = MakeButton(logRt, "CloseButton", "X", 22, new Vector2(0.88f, 0.89f), new Vector2(0.99f, 0.99f), font, new Color(0.60f, 0.18f, 0.18f));
+        Button logClose = MakeButton(logRt, "CloseButton", "닫기", 22, new Vector2(0.85f, 0.89f), new Vector2(0.99f, 0.99f), font, new Color(0.60f, 0.18f, 0.18f));
         // 일반 라인(비-단서)은 상단, 단서 위젯은 하단 컨테이너에 쌓는다.
         TMP_Text logText = AddText(logRt, "LogText", "", 17, new Vector2(0.04f, 0.46f), new Vector2(0.96f, 0.87f), font, TextAlignmentOptions.TopLeft);
         logText.color = Color.white;
@@ -473,8 +482,8 @@ public static class Day1SceneBuilder
 
         TMP_Text title = AddText(rt, "Title", titleDefault, 30, new Vector2(0.05f, 0.84f), new Vector2(0.82f, 0.96f), font, TextAlignmentOptions.Left);
         title.fontStyle = FontStyles.Bold; title.color = new Color(0.55f, 0.85f, 1f);
-        // 닫기 = X, 우상단(UI 규약)
-        Button close = MakeButton(rt, "CloseButton", "X", 22, new Vector2(0.88f, 0.85f), new Vector2(0.97f, 0.96f), font, new Color(0.60f, 0.18f, 0.18f));
+        // 닫기 = "닫기" 텍스트 버튼, 우상단(닫기 버튼 통일 — 사용자 지시)
+        Button close = MakeButton(rt, "CloseButton", "닫기", 22, new Vector2(0.82f, 0.85f), new Vector2(0.97f, 0.96f), font, new Color(0.60f, 0.18f, 0.18f));
 
         TMP_Text result = AddText(rt, "ResultText", "결과: -", 24, new Vector2(0.06f, 0.66f), new Vector2(0.94f, 0.80f), font, TextAlignmentOptions.Left);
         result.color = new Color(1f, 0.85f, 0.5f); result.fontStyle = FontStyles.Bold;
@@ -552,7 +561,7 @@ public static class Day1SceneBuilder
         AddImage(listRt, new Color(0.10f, 0.12f, 0.16f, 0.96f));
         TMP_Text listTitle = AddText(listRt, "Title", "보유 아이템", 28, new Vector2(0.05f, 0.86f), new Vector2(0.80f, 0.97f), font, TextAlignmentOptions.Left);
         listTitle.fontStyle = FontStyles.Bold; listTitle.color = new Color(1f, 0.9f, 0.6f);
-        Button listClose = MakeButton(listRt, "CloseButton", "X", 22, new Vector2(0.88f, 0.86f), new Vector2(0.97f, 0.97f), font, new Color(0.60f, 0.18f, 0.18f));
+        Button listClose = MakeButton(listRt, "CloseButton", "닫기", 22, new Vector2(0.82f, 0.86f), new Vector2(0.97f, 0.97f), font, new Color(0.60f, 0.18f, 0.18f));
         TMP_Text listText = AddText(listRt, "ListText", "", 18, new Vector2(0.06f, 0.06f), new Vector2(0.94f, 0.84f), font, TextAlignmentOptions.TopLeft);
         listText.color = Color.white;
         listRt.gameObject.SetActive(false);
@@ -579,7 +588,7 @@ public static class Day1SceneBuilder
 
         TMP_Text typeBadge = AddText(frame, "TypeBadge", "엔딩", 20, new Vector2(0.06f, 0.84f), new Vector2(0.50f, 0.94f), font, TextAlignmentOptions.Left);
         typeBadge.color = new Color(0.55f, 0.85f, 1f); typeBadge.fontStyle = FontStyles.Bold;
-        Button close = MakeButton(frame, "CloseButton", "X", 22, new Vector2(0.88f, 0.85f), new Vector2(0.97f, 0.95f), font, new Color(0.60f, 0.18f, 0.18f));
+        Button close = MakeButton(frame, "CloseButton", "닫기", 22, new Vector2(0.82f, 0.85f), new Vector2(0.97f, 0.95f), font, new Color(0.60f, 0.18f, 0.18f));
         TMP_Text nameText = AddText(frame, "EndingName", "엔딩명", 40, new Vector2(0.06f, 0.62f), new Vector2(0.94f, 0.82f), font, TextAlignmentOptions.Center);
         nameText.color = new Color(1f, 0.9f, 0.6f); nameText.fontStyle = FontStyles.Bold;
         TMP_Text descText = AddText(frame, "EndingDesc", "", 20, new Vector2(0.08f, 0.08f), new Vector2(0.92f, 0.60f), font, TextAlignmentOptions.TopLeft);
@@ -602,7 +611,7 @@ public static class Day1SceneBuilder
 
         TMP_Text prompt = AddText(rt, "Prompt", "", 20, new Vector2(0.05f, 0.55f), new Vector2(0.82f, 0.92f), font, TextAlignmentOptions.TopLeft);
         prompt.color = new Color(1f, 0.92f, 0.8f);
-        Button close = MakeButton(rt, "CloseButton", "X", 22, new Vector2(0.88f, 0.80f), new Vector2(0.97f, 0.93f), font, new Color(0.50f, 0.25f, 0.25f));
+        Button close = MakeButton(rt, "CloseButton", "닫기", 22, new Vector2(0.82f, 0.80f), new Vector2(0.97f, 0.93f), font, new Color(0.50f, 0.25f, 0.25f));
 
         // 좌 = 긍정/수령(승인 그린 톤), 우 = 거부/신고(거절 레드 톤) — 통과=좌/거절=우 규약.
         Button left = MakeButton(rt, "LeftChoice", "선택", 22, new Vector2(0.05f, 0.10f), new Vector2(0.48f, 0.42f), font, new Color(0.18f, 0.45f, 0.30f));

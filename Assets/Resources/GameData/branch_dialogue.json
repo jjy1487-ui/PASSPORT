@@ -1,0 +1,7370 @@
+{
+ "source": "방문객_스크립트_전체_260604.xlsx",
+ "resultMapping": {
+  "입국 (정답)": "정상 승인",
+  "거부 (정답)": "정상 거절",
+  "거부 (오판)": "잘못 거절",
+  "입국 (오판)": "잘못 허가"
+ },
+ "types": [
+  {
+   "characterType": "일반 고객",
+   "blocks": [
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 정상  |  결과: 입국 (정답)",
+     "gameResult": "정상 승인",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 1: 「좋은 아침이예요! 너무 설레네요.」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 서류 검수"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(선택) 취조 생략 가능 → [취조 질문] 시트 참조"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 2: 「감사합니다! 즐거운 하루 되세요.」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "「즐거운 여행 되십시오.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 정상  |  결과: 거부 (오판)",
+     "gameResult": "잘못 거절",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "대사 1: 「좋은 아침이예요! 너무 설레네요.」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "(플레이어) 서류 검수"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "(선택) 취조 생략 가능 → [취조 질문] 시트 참조"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "「확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다.」\n※ 정상 서류 오판 처리"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "대사 3: 「말도 안 돼요! 제가 꼼꼼히 봤다구요!」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 불량  |  결과: 거부 (정답)",
+     "gameResult": "정상 거절",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "대사 1: 「안녕하세요. (서류를 내려놓는다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "(플레이어) 서류 검수"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "(선택) 취조 생략 가능 → [취조 질문] 시트 참조"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "「서류 오류가 확인되어 입국하실 수 없습니다.」\n※ [거부 대사 템플릿] 시트 참조"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "대사 3: 「앗 이 부분을 놓쳤네요! 죄송합니다.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 불량  |  결과: 입국 (오판)",
+     "gameResult": "잘못 허가",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "대사 1: 「안녕하세요, 좋은 아침이예요!」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "(선택) 취조 생략 가능 → [취조 질문] 시트 참조"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "대사 2: 「감사합니다! 즐거운 하루 되세요.」\n※ 방문객은 오판 인지 불가 — 반응 동일"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "「즐거운 여행 되십시오.」"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "characterType": "진상 고객",
+   "blocks": [
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 정상  |  결과: 입국 (정답)",
+     "gameResult": "정상 승인",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 1: 「빨리 좀 해요, 나 바쁜 사람이야.」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 서류 검수"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 2: 「흥, 당연히 통과지. 시간 아깝게 뭘 그렇게 들여다봐.」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "「즐거운 여행 되십시오.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 정상  |  결과: 거부 (오판)",
+     "gameResult": "잘못 거절",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "대사 1: 「빨리 좀 해요, 나 바쁜 사람이야.」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "(플레이어) 서류 검수"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "「확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다.」"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "대사 3: 「상관 불러요, 상관! 이게 말이 돼?」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 불량  |  결과: 거부 (정답)",
+     "gameResult": "정상 거절",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "대사 1: 「눈이 어따 달린거야, 빨리빨리 처리해요!」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "(플레이어) 서류 검수"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "「서류 오류가 확인되어 입국하실 수 없습니다.」\n※ [거부 대사 템플릿] 시트 참조"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "대사 3: 「에이 진짜... 알겠어요, 알겠어.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 불량  |  결과: 입국 (오판)",
+     "gameResult": "잘못 허가",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "대사 1: 「눈이 어따 달린거야, 빨리빨리 처리해요!」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "대사 2: 「흥, 당연히 통과지. 시간 아깝게 뭘 그렇게 들여다봐.」\n※ 오판 — 방문객 반응 동일"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "「즐거운 여행 되십시오.」"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "characterType": "외국인 관광객",
+   "blocks": [
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 정상  |  결과: 입국 (정답)",
+     "gameResult": "정상 승인",
+     "lines": [
+      {
+       "order": "[영어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 1: 「Hello! Good morning~\n(안녕하세요! 좋은 아침이에요~)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 서류 검수 — 오류 없음 확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 2: 「Thank you so much! Have a wonderful day!\n(정말 감사합니다! 멋진 하루 되세요!)」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "「Have a pleasant trip!」"
+      },
+      {
+       "order": "[일본어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 1: 「こんにちは！よろしくお願いします。\n(안녕하세요! 잘 부탁드립니다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 서류 검수 — 오류 없음 확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 2: 「ありがとうございます！楽しんできます！\n(감사합니다! 즐겁게 다녀올게요!)」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "「良い旅を！(좋은 여행 되세요!)」"
+      },
+      {
+       "order": "[중국어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 1: 「你好！早上好～\n(안녕하세요! 좋은 아침이에요~)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 서류 검수 — 오류 없음 확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 2: 「谢谢！祝您有个美好的一天！\n(감사합니다! 좋은 하루 되세요!)」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "「祝您旅途愉快！(즐거운 여행 되세요!)」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 정상  |  결과: 거부 (오판)",
+     "gameResult": "잘못 거절",
+     "lines": [
+      {
+       "order": "[영어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "대사 1: 「Hello! Good morning~\n(안녕하세요! 좋은 아침이에요~)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "(플레이어) 서류 검수 — 오류 없음 (플레이어 오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "「확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다.」"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "대사 3: 「This is absolutely ridiculous! My documents are perfectly fine!\n(완전히 말도 안 돼요! 제 서류는 완벽한데요!)」"
+      },
+      {
+       "order": "[일본어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "대사 1: 「こんにちは！よろしくお願いします。\n(안녕하세요! 잘 부탁드립니다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "(플레이어) 서류 검수 — 오류 없음 (플레이어 오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "「확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다.」"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "대사 3: 「おかしいです！ちゃんとした書類ですよ！上の人を呼んでください！\n(이상해요! 제대로 된 서류인데요! 상관분 불러주세요!)」"
+      },
+      {
+       "order": "[중국어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "대사 1: 「你好！早上好～\n(안녕하세요! 좋은 아침이에요~)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "(플레이어) 서류 검수 — 오류 없음 (플레이어 오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "「확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다.」"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "잘못 거절",
+       "text": "대사 3: 「这太荒谬了！我的证件完全没有问题！\n(이건 너무 말도 안 돼요! 제 서류는 아무 문제 없어요!)」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 불량 [분실]  |  결과: 거부 (정답)",
+     "gameResult": "정상 거절",
+     "lines": [
+      {
+       "order": "[영어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "대사 1: 「Hello! Good morning~\n(안녕하세요! 좋은 아침이에요~)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "(플레이어) 서류 검수 — 여권 분실/본인 미확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "「여권 본인 확인이 되지 않아 입국하실 수 없습니다.」\n※ [거부 대사 템플릿] 시트 참조"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "대사 3: 「Oh no... I'm so sorry, I had no idea.\n(어머... 정말 죄송해요, 전혀 몰랐어요.)」"
+      },
+      {
+       "order": "[일본어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "대사 1: 「こんにちは！よろしくお願いします。\n(안녕하세요! 잘 부탁드립니다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "(플레이어) 서류 검수 — 여권 분실/본인 미확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "「여권 본인 확인이 되지 않아 입국하실 수 없습니다.」\n※ [거부 대사 템플릿] 시트 참조"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "대사 3: 「すみません…全然気づきませんでした。\n(죄송합니다… 전혀 몰랐어요.)」"
+      },
+      {
+       "order": "[중국어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "대사 1: 「你好！早上好～\n(안녕하세요! 좋은 아침이에요~)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "(플레이어) 서류 검수 — 여권 분실/본인 미확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "「여권 본인 확인이 되지 않아 입국하실 수 없습니다.」\n※ [거부 대사 템플릿] 시트 참조"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "정상 거절",
+       "text": "대사 3: 「对不起…我完全不知道。\n(죄송합니다… 전혀 몰랐어요.)」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 불량 [분실]  |  결과: 입국 (오판)",
+     "gameResult": "잘못 허가",
+     "lines": [
+      {
+       "order": "[영어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "대사 1: 「Hello! Good morning~\n(안녕하세요! 좋은 아침이에요~)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수 — 분실 미인지 (오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가 (오판)"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "대사 2: 「Thank you! That was quick~\n(감사합니다! 빠르네요~)\n※ 오판 — 방문객 반응 동일」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "「Have a pleasant trip!」"
+      },
+      {
+       "order": "[일본어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "대사 1: 「こんにちは！よろしくお願いします。\n(안녕하세요! 잘 부탁드립니다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수 — 분실 미인지 (오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가 (오판)"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "대사 2: 「ありがとうございます！早かったですね～\n(감사합니다! 빠르네요~)\n※ 오판 — 방문객 반응 동일」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "「良い旅を！(좋은 여행 되세요!)」"
+      },
+      {
+       "order": "[중국어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "대사 1: 「你好！早上好～\n(안녕하세요! 좋은 아침이에요~)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수 — 분실 미인지 (오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가 (오판)"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "대사 2: 「谢谢！效率真高～\n(감사합니다! 정말 빠르네요~)\n※ 오판 — 방문객 반응 동일」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 [분실]",
+       "result": "잘못 허가",
+       "text": "「祝您旅途愉快！(즐거운 여행 되세요!)」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 불량 [출국X]  |  결과: 거부 (정답)",
+     "gameResult": "정상 거절",
+     "lines": [
+      {
+       "order": "[영어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "대사 1: 「Hello! Good morning~\n(안녕하세요! 좋은 아침이에요~)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "(플레이어) 서류 검수 — 출국 도장 누락 확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "「이전 출국 기록이 확인되지 않아 입국하실 수 없습니다.」\n※ [거부 대사 템플릿] 시트 참조"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "대사 3: 「Oh no... I'm so sorry, I had no idea.\n(어머... 정말 죄송해요, 전혀 몰랐어요.)」"
+      },
+      {
+       "order": "[일본어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "대사 1: 「こんにちは！よろしくお願いします。\n(안녕하세요! 잘 부탁드립니다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "(플레이어) 서류 검수 — 출국 도장 누락 확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "「이전 출국 기록이 확인되지 않아 입국하실 수 없습니다.」\n※ [거부 대사 템플릿] 시트 참조"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "대사 3: 「すみません…全然気づきませんでした。\n(죄송합니다… 전혀 몰랐어요.)」"
+      },
+      {
+       "order": "[중국어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "대사 1: 「你好！早上好～\n(안녕하세요! 좋은 아침이에요~)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "(플레이어) 서류 검수 — 출국 도장 누락 확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "「이전 출국 기록이 확인되지 않아 입국하실 수 없습니다.」\n※ [거부 대사 템플릿] 시트 참조"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "정상 거절",
+       "text": "대사 3: 「对不起…我完全不知道。\n(죄송합니다… 전혀 몰랐어요.)」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 불량 [출국X]  |  결과: 입국 (오판)",
+     "gameResult": "잘못 허가",
+     "lines": [
+      {
+       "order": "[영어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "대사 1: 「Hello! Good morning~\n(안녕하세요! 좋은 아침이에요~)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수 — 출국 도장 미인지 (오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가 (오판)\n※ #16 카운트"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "대사 2: 「Thank you! That was quick~\n(감사합니다! 빠르네요~)\n※ 오판 — 방문객 반응 동일」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "「Have a pleasant trip!」"
+      },
+      {
+       "order": "[일본어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "대사 1: 「こんにちは！よろしくお願いします。\n(안녕하세요! 잘 부탁드립니다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수 — 출국 도장 미인지 (오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가 (오판)\n※ #16 카운트"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "대사 2: 「ありがとうございます！早かったですね～\n(감사합니다! 빠르네요~)\n※ 오판 — 방문객 반응 동일」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "「良い旅を！(좋은 여행 되세요!)」"
+      },
+      {
+       "order": "[중국어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "대사 1: 「你好！早上好～\n(안녕하세요! 좋은 아침이에요~)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수 — 출국 도장 미인지 (오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가 (오판)\n※ #16 카운트"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "대사 2: 「谢谢！效率真高～\n(감사합니다! 정말 빠르네요~)\n※ 오판 — 방문객 반응 동일」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 [출국X]",
+       "result": "잘못 허가",
+       "text": "「祝您旅途愉快！(즐거운 여행 되세요!)」"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "characterType": "전염병 환자",
+   "blocks": [
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 정상 [1-A]  |  결과: 입국 (정답)",
+     "gameResult": "정상 승인",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상 [1-A]",
+       "result": "정상 승인",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상 [1-A]",
+       "result": "정상 승인",
+       "text": "대사 1: 「안녕하세요... 좀 피곤하지만 괜찮아요. (마스크 착용 중)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상 [1-A]",
+       "result": "정상 승인",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상 [1-A]",
+       "result": "정상 승인",
+       "text": "(플레이어) 서류 검수"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상 [1-A]",
+       "result": "정상 승인",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상 [1-A]",
+       "result": "정상 승인",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상 [1-A]",
+       "result": "정상 승인",
+       "text": "대사 2: 「고맙습니다. 빨리 들어가고 싶네요.」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상 [1-A]",
+       "result": "정상 승인",
+       "text": "「즐거운 여행 되십시오.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 정상 [1-A]  |  결과: 거부 (오판)",
+     "gameResult": "잘못 거절",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상 [1-A]",
+       "result": "잘못 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상 [1-A]",
+       "result": "잘못 거절",
+       "text": "대사 1: 「안녕하세요... 좀 피곤하지만 괜찮아요. (마스크 착용 중)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상 [1-A]",
+       "result": "잘못 거절",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상 [1-A]",
+       "result": "잘못 거절",
+       "text": "(플레이어) 서류 검수"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상 [1-A]",
+       "result": "잘못 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상 [1-A]",
+       "result": "잘못 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "정상 [1-A]",
+       "result": "잘못 거절",
+       "text": "「서류를 다시 확인했으나 입국이 어렵습니다. 죄송합니다.」"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "정상 [1-A]",
+       "result": "잘못 거절",
+       "text": "대사 3: 「전 문제없는데요! 다시 확인해 주세요.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 불량 [1-B 출국X/만료]  |  결과: 거부 (정답)",
+     "gameResult": "정상 거절",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-B 출국X/만료]",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-B 출국X/만료]",
+       "result": "정상 거절",
+       "text": "대사 1: 「안녕하세요... 좀 피곤하지만 괜찮아요. (마스크 착용 중)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-B 출국X/만료]",
+       "result": "정상 거절",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [1-B 출국X/만료]",
+       "result": "정상 거절",
+       "text": "(플레이어) 서류 검수"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [1-B 출국X/만료]",
+       "result": "정상 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [1-B 출국X/만료]",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "불량 [1-B 출국X/만료]",
+       "result": "정상 거절",
+       "text": "「서류 오류가 확인되어 입국하실 수 없습니다.」\n※ [거부 대사 템플릿] 시트 참조"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-B 출국X/만료]",
+       "result": "정상 거절",
+       "text": "대사 3: 「아, 제가 서류를 잘못 챙겼나봐요. 돌아갈게요.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 불량 [1-B 출국X/만료]  |  결과: 입국 (오판)",
+     "gameResult": "잘못 허가",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-B 출국X/만료]",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-B 출국X/만료]",
+       "result": "잘못 허가",
+       "text": "대사 1: 「어서 처리해 주세요, 몸이 좀 안 좋아서요.」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-B 출국X/만료]",
+       "result": "잘못 허가",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [1-B 출국X/만료]",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [1-B 출국X/만료]",
+       "result": "잘못 허가",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [1-B 출국X/만료]",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-B 출국X/만료]",
+       "result": "잘못 허가",
+       "text": "대사 2: 「고맙습니다. 빨리 들어가고 싶네요.」\n※ 오판 — 방역 실패 카운터 증가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 [1-B 출국X/만료]",
+       "result": "잘못 허가",
+       "text": "「즐거운 여행 되십시오.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 불량 [1-C 백신X]  |  결과: 거부 (정답)",
+     "gameResult": "정상 거절",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-C 백신X]",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-C 백신X]",
+       "result": "정상 거절",
+       "text": "대사 1: 「안녕하세요. (기침을 참으며 서류를 내려놓는다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-C 백신X]",
+       "result": "정상 거절",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [1-C 백신X]",
+       "result": "정상 거절",
+       "text": "(플레이어) 서류 검수"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [1-C 백신X]",
+       "result": "정상 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [1-C 백신X]",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "불량 [1-C 백신X]",
+       "result": "정상 거절",
+       "text": "「백신 접종 기록이 확인되지 않아 입국하실 수 없습니다.」\n※ [거부 대사 템플릿] 시트 참조"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-C 백신X]",
+       "result": "정상 거절",
+       "text": "대사 3: 「어... 백신을 아직 못 맞아서요. 그냥 들어가면 안 될까요?」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 불량 [1-C 백신X]  |  결과: 입국 (오판)",
+     "gameResult": "잘못 허가",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-C 백신X]",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-C 백신X]",
+       "result": "잘못 허가",
+       "text": "대사 1: 「어서 처리해 주세요, 몸이 좀 안 좋아서요.」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-C 백신X]",
+       "result": "잘못 허가",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [1-C 백신X]",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [1-C 백신X]",
+       "result": "잘못 허가",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [1-C 백신X]",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-C 백신X]",
+       "result": "잘못 허가",
+       "text": "대사 2: 「감사해요. 얼른 들어가서 쉬어야겠어요.」\n※ 오판 — 방역 실패 카운터 증가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 [1-C 백신X]",
+       "result": "잘못 허가",
+       "text": "「잘 다녀오세요.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 불량 [1-D 모두 미비]  |  결과: 거부 (정답)",
+     "gameResult": "정상 거절",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-D 모두 미비]",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-D 모두 미비]",
+       "result": "정상 거절",
+       "text": "대사 1: 「안녕하세요... 좀 피곤하지만 괜찮아요. (마스크 착용 중)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-D 모두 미비]",
+       "result": "정상 거절",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [1-D 모두 미비]",
+       "result": "정상 거절",
+       "text": "(플레이어) 서류 검수"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [1-D 모두 미비]",
+       "result": "정상 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [1-D 모두 미비]",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "불량 [1-D 모두 미비]",
+       "result": "정상 거절",
+       "text": "「백신 접종 및 서류 모두 미비하여 입국하실 수 없습니다.」\n※ [거부 대사 템플릿] 시트 참조"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-D 모두 미비]",
+       "result": "정상 거절",
+       "text": "대사 3: 「아, 제가 서류를 잘못 챙겼나봐요. 돌아갈게요.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 서류 불량 [1-D 모두 미비]  |  결과: 입국 (오판)",
+     "gameResult": "잘못 허가",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-D 모두 미비]",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-D 모두 미비]",
+       "result": "잘못 허가",
+       "text": "대사 1: 「안녕하세요. (기침을 참으며 서류를 내려놓는다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-D 모두 미비]",
+       "result": "잘못 허가",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [1-D 모두 미비]",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [1-D 모두 미비]",
+       "result": "잘못 허가",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [1-D 모두 미비]",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [1-D 모두 미비]",
+       "result": "잘못 허가",
+       "text": "대사 2: 「고맙습니다. 빨리 들어가고 싶네요.」\n※ 오판 — 방역 실패 카운터 증가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 [1-D 모두 미비]",
+       "result": "잘못 허가",
+       "text": "「즐거운 여행 되십시오.」"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "characterType": "외국인 장기체류자 (취업)",
+   "blocks": [
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 정상  |  결과: 입국 (정답)",
+     "gameResult": "정상 승인",
+     "lines": [
+      {
+       "order": "[영어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "대사 1: 「Hello! I have my employment documents ready as well.\n(안녕하세요! 취업 서류도 준비해 왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "(플레이어) 서류 검수 — 여권·비자·취업증빙 정상 확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "대사 2: 「Thank you! I'll do my best here!\n(감사합니다! 여기서 최선을 다할게요!)」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "「Have a pleasant stay!」"
+      },
+      {
+       "order": "[일본어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "대사 1: 「こんにちは！就労書類も持参しました。\n(안녕하세요! 취업 서류도 가져왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "(플레이어) 서류 검수 — 여권·비자·취업증빙 정상 확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "대사 2: 「ありがとうございます！精一杯頑張ります！\n(감사합니다! 최선을 다하겠습니다!)」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "「良いご滞在を！(좋은 체류 되세요!)」"
+      },
+      {
+       "order": "[중국어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "대사 1: 「你好！我也准备了工作证明文件。\n(안녕하세요! 취업 서류도 준비해 왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "(플레이어) 서류 검수 — 여권·비자·취업증빙 정상 확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "대사 2: 「谢谢！我会全力以赴的！\n(감사합니다! 최선을 다하겠습니다!)」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "정상 승인",
+       "text": "「祝您工作顺利！(일 잘 되길 바랍니다!)」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 정상  |  결과: 거부 (오판)",
+     "gameResult": "잘못 거절",
+     "lines": [
+      {
+       "order": "[영어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "대사 1: 「Hello! I have my employment documents ready as well.\n(안녕하세요! 취업 서류도 준비해 왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "(플레이어) 서류 검수 — 여권·비자·취업증빙 오류 없음 (플레이어 오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "「확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다.」"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "대사 3: 「All my documents are official! Why are you blocking me?!\n(다 정식 서류인데요! 왜 막는 거예요?!)」"
+      },
+      {
+       "order": "[일본어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "대사 1: 「こんにちは！就労書類も持参しました。\n(안녕하세요! 취업 서류도 가져왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "(플레이어) 서류 검수 — 여권·비자·취업증빙 오류 없음 (플레이어 오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "「확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다.」"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "대사 3: 「全部正式な書類ですよ！なぜ止めるんですか！\n(다 정식 서류인데요! 왜 막는 거예요!)」"
+      },
+      {
+       "order": "[중국어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "대사 1: 「你好！我也准备了工作证明文件。\n(안녕하세요! 취업 서류도 준비해 왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "(플레이어) 서류 검수 — 여권·비자·취업증빙 오류 없음 (플레이어 오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "「확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다.」"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 취업증빙)",
+       "result": "잘못 거절",
+       "text": "대사 3: 「这些全是正式文件！为什么要拦我？！\n(다 정식 서류인데요! 왜 막는 거예요?!)」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 불량 [출국X]  |  결과: 거부 (정답)",
+     "gameResult": "정상 거절",
+     "lines": [
+      {
+       "order": "[영어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "대사 1: 「Hello! I have my employment documents ready as well.\n(안녕하세요! 취업 서류도 준비해 왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "(플레이어) 서류 검수 — 출국 도장 누락 확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "「이전 출국 기록이 확인되지 않아 입국하실 수 없습니다.」\n※ [거부 대사 템플릿] 시트 참조"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "대사 3: 「Oh... I understand. I'll sort out the documents and come back.\n(아... 알겠습니다. 서류 정리하고 다시 올게요.)」"
+      },
+      {
+       "order": "[일본어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "대사 1: 「こんにちは！就労書類も持参しました。\n(안녕하세요! 취업 서류도 가져왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "(플레이어) 서류 검수 — 출국 도장 누락 확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "「이전 출국 기록이 확인되지 않아 입국하실 수 없습니다.」\n※ [거부 대사 템플릿] 시트 참조"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "대사 3: 「そうですか…書類を確認して出直します。\n(그렇군요… 서류 확인하고 다시 올게요.)」"
+      },
+      {
+       "order": "[중국어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "대사 1: 「你好！我也准备了工作证明文件。\n(안녕하세요! 취업 서류도 준비해 왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "(플레이어) 서류 검수 — 출국 도장 누락 확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "「이전 출국 기록이 확인되지 않아 입국하실 수 없습니다.」\n※ [거부 대사 템플릿] 시트 참조"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "정상 거절",
+       "text": "대사 3: 「哦…好的，我重新整理文件再来。\n(아... 알겠어요, 서류 정리하고 다시 올게요.)」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 불량 [출국X]  |  결과: 입국 (오판)",
+     "gameResult": "잘못 허가",
+     "lines": [
+      {
+       "order": "[영어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "대사 1: 「Hello! I have my employment documents ready as well.\n(안녕하세요! 취업 서류도 준비해 왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수 — 출국 도장 미인지 (오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가 (오판)\n※ #16 카운트"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "대사 2: 「Thank you! I'm really looking forward to starting.\n(감사합니다! 시작하는 게 정말 기대돼요.)\n※ 오판 — 방문객 반응 동일」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "「Have a pleasant stay!」"
+      },
+      {
+       "order": "[일본어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "대사 1: 「こんにちは！就労書類も持参しました。\n(안녕하세요! 취업 서류도 가져왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수 — 출국 도장 미인지 (오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가 (오판)\n※ #16 카운트"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "대사 2: 「ありがとうございます！楽しみにしています。\n(감사합니다! 기대가 됩니다.)\n※ 오판 — 방문객 반응 동일」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "「良いご滞在を！(좋은 체류 되세요!)」"
+      },
+      {
+       "order": "[중국어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "대사 1: 「你好！我也准备了工作证明文件。\n(안녕하세요! 취업 서류도 준비해 왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수 — 출국 도장 미인지 (오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가 (오판)\n※ #16 카운트"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "대사 2: 「谢谢！非常期待新的开始。\n(감사합니다! 새 출발이 정말 기대돼요.)\n※ 오판 — 방문객 반응 동일」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 취업증빙)",
+       "result": "잘못 허가",
+       "text": "「祝您工作顺利！(일 잘 되길 바랍니다!)」"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "characterType": "외국인 장기체류자 (대학)",
+   "blocks": [
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 정상  |  결과: 입국 (정답)",
+     "gameResult": "정상 승인",
+     "lines": [
+      {
+       "order": "[영어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "대사 1: 「Hello! I have my university acceptance letter with me too.\n(안녕하세요! 대학 합격증도 가져왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "(플레이어) 서류 검수 — 여권·비자·합격증 정상 확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "대사 2: 「Thank you! I'm so excited to start university!\n(감사합니다! 대학 시작이 너무 기대돼요!)」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "「Best of luck with your studies!」"
+      },
+      {
+       "order": "[일본어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "대사 1: 「こんにちは！大学の合格通知書も持ってきました。\n(안녕하세요! 대학 합격증도 가져왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "(플레이어) 서류 검수 — 여권·비자·합격증 정상 확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "대사 2: 「ありがとうございます！大学生活が楽しみです！\n(감사합니다! 대학 생활이 기대돼요!)」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "「学業に励んでください！(학업에 힘쓰세요!)」"
+      },
+      {
+       "order": "[중국어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "대사 1: 「你好！我也带来了大学录取通知书。\n(안녕하세요! 대학 합격증도 가져왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "(플레이어) 서류 검수 — 여권·비자·합격증 정상 확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "대사 2: 「谢谢！好期待大学生活！\n(감사합니다! 대학 생활이 너무 기대돼요!)」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "정상 승인",
+       "text": "「祝您学业顺利！(학업이 잘 되길 바랍니다!)」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 정상  |  결과: 거부 (오판)",
+     "gameResult": "잘못 거절",
+     "lines": [
+      {
+       "order": "[영어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "대사 1: 「Hello! I have my university acceptance letter with me too.\n(안녕하세요! 대학 합격증도 가져왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "(플레이어) 서류 검수 — 여권·비자·합격증 오류 없음 (플레이어 오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "「확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다.」"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "대사 3: 「I have all the right documents including my acceptance letter!\n(합격증까지 다 있는데요! 왜 막는 거예요?!)」"
+      },
+      {
+       "order": "[일본어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "대사 1: 「こんにちは！大学の合格通知書も持ってきました。\n(안녕하세요! 대학 합격증도 가져왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "(플레이어) 서류 검수 — 여권·비자·합격증 오류 없음 (플레이어 오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "「확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다.」"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "대사 3: 「合格通知書もあるのに、なぜ止めるんですか！\n(합격증도 있는데 왜 막는 거예요!)」"
+      },
+      {
+       "order": "[중국어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "대사 1: 「你好！我也带来了大学录取通知书。\n(안녕하세요! 대학 합격증도 가져왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "(플레이어) 서류 검수 — 여권·비자·합격증 오류 없음 (플레이어 오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "「확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다.」"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 + 비자 + 합격증)",
+       "result": "잘못 거절",
+       "text": "대사 3: 「我连录取通知书都有！为什么要拦我？！\n(합격증까지 있는데 왜 막는 거예요?!)」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 불량 [출국X]  |  결과: 거부 (정답)",
+     "gameResult": "정상 거절",
+     "lines": [
+      {
+       "order": "[영어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "대사 1: 「Hello! I have my university acceptance letter with me too.\n(안녕하세요! 대학 합격증도 가져왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "(플레이어) 서류 검수 — 출국 도장 누락 확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "「이전 출국 기록이 확인되지 않아 입국하실 수 없습니다.」\n※ [거부 대사 템플릿] 시트 참조"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "대사 3: 「Oh no... I see. I'll come back with everything in order.\n(어머... 알겠어요. 다 챙겨서 다시 올게요.)」"
+      },
+      {
+       "order": "[일본어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "대사 1: 「こんにちは！大学の合格通知書も持ってきました。\n(안녕하세요! 대학 합격증도 가져왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "(플레이어) 서류 검수 — 출국 도장 누락 확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "「이전 출국 기록이 확인되지 않아 입국하실 수 없습니다.」\n※ [거부 대사 템플릿] 시트 참조"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "대사 3: 「そうですか…書類をきちんと整えて出直します。\n(그렇군요… 서류 잘 챙겨서 다시 올게요.)」"
+      },
+      {
+       "order": "[중국어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "대사 1: 「你好！我也带来了大学录取通知书。\n(안녕하세요! 대학 합격증도 가져왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "(플레이어) 서류 검수 — 출국 도장 누락 확인"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부"
+      },
+      {
+       "order": "6-2",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "「이전 출국 기록이 확인되지 않아 입국하실 수 없습니다.」\n※ [거부 대사 템플릿] 시트 참조"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "정상 거절",
+       "text": "대사 3: 「哦…好的，我把文件整理好再来。\n(아... 알겠어요, 서류 정리해서 다시 올게요.)」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 불량 [출국X]  |  결과: 입국 (오판)",
+     "gameResult": "잘못 허가",
+     "lines": [
+      {
+       "order": "[영어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "대사 1: 「Hello! I have my university acceptance letter with me too.\n(안녕하세요! 대학 합격증도 가져왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수 — 출국 도장 미인지 (오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가 (오판)\n※ #16 카운트"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "대사 2: 「Thank you! Can't wait to get started!\n(감사합니다! 빨리 시작하고 싶어요!)\n※ 오판 — 방문객 반응 동일」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "「Best of luck with your studies!」"
+      },
+      {
+       "order": "[일본어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "대사 1: 「こんにちは！大学の合格通知書も持ってきました。\n(안녕하세요! 대학 합격증도 가져왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수 — 출국 도장 미인지 (오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가 (오판)\n※ #16 카운트"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "대사 2: 「ありがとうございます！早く始めたいです！\n(감사합니다! 빨리 시작하고 싶어요!)\n※ 오판 — 방문객 반응 동일」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "「学業に励んでください！(학업에 힘쓰세요!)」"
+      },
+      {
+       "order": "[중국어]",
+       "speaker": "",
+       "docState": "",
+       "result": "",
+       "text": ""
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "대사 1: 「你好！我也带来了大学录取通知书。\n(안녕하세요! 대학 합격증도 가져왔어요.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "[모션] 여권 + 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수 — 출국 도장 미인지 (오판)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "(선택) 취조 생략 가능"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가 (오판)\n※ #16 카운트"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "대사 2: 「谢谢！迫不及待想开始了！\n(감사합니다! 빨리 시작하고 싶어요!)\n※ 오판 — 방문객 반응 동일」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 [출국X] (여권 + 비자 + 합격증)",
+       "result": "잘못 허가",
+       "text": "「祝您学业顺利！(학업이 잘 되길 바랍니다!)」"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "characterType": "성형 수술 고객 (일반)",
+   "blocks": [
+    {
+     "section": "",
+     "branchLabel": "▶ 분기 A: 지문 일치 + 서류 정상 → 즉시 입국 (정답)  [+120원]",
+     "gameResult": "정상 승인",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상 (지문 일치)",
+       "result": "정상 승인",
+       "text": "[UI 등장] (마스크·모자 착용)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상 (지문 일치)",
+       "result": "정상 승인",
+       "text": "대사 1: 「안녕하세요. (마스크와 모자로 얼굴을 가린 채 서류를 내려놓는다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상 (지문 일치)",
+       "result": "정상 승인",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상 (지문 일치)",
+       "result": "정상 승인",
+       "text": "(플레이어) 여권 사진 ↔ 현재 외모 대조"
+      },
+      {
+       "order": "4-1",
+       "speaker": "시스템",
+       "docState": "정상 (지문 일치)",
+       "result": "정상 승인",
+       "text": "[시스템] 여권 사진 ↔ 현재 외모 대조 결과: 불일치 (성형으로 인한 외모 변화)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상 (지문 일치)",
+       "result": "정상 승인",
+       "text": "검문관: 「여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요.」"
+      },
+      {
+       "order": "5-1",
+       "speaker": "시스템",
+       "docState": "정상 (지문 일치)",
+       "result": "정상 승인",
+       "text": "[시스템] 지문 인식 결과: 일치 ✔ → 본인 확인 완료"
+      },
+      {
+       "order": "5-2",
+       "speaker": "심사관",
+       "docState": "정상 (지문 일치)",
+       "result": "정상 승인",
+       "text": "(플레이어) 지문 일치 확인 → 서류 전체 재검토"
+      },
+      {
+       "order": "5-3",
+       "speaker": "시스템",
+       "docState": "정상 (지문 일치)",
+       "result": "정상 승인",
+       "text": "[시스템] 여권·비자 등 기타 서류 이상 없음 → 서류 정상 확정"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상 (지문 일치)",
+       "result": "정상 승인",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상 (지문 일치)",
+       "result": "정상 승인",
+       "text": "대사 2: 「감사합니다! 수술 잘 됐다고 해주세요, 하하.」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상 (지문 일치)",
+       "result": "정상 승인",
+       "text": "「즐거운 여행 되십시오.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기 B: 지문 일치 + 기타 서류 오류 발견 → 거부 (정답)  [+120원]",
+     "gameResult": "정상 거절",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 (지문 일치 + 기타 서류 오류)",
+       "result": "정상 거절",
+       "text": "[UI 등장] (마스크·모자 착용)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 (지문 일치 + 기타 서류 오류)",
+       "result": "정상 거절",
+       "text": "대사 1: 「안녕하세요. (마스크와 모자로 얼굴을 가린 채 서류를 내려놓는다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 (지문 일치 + 기타 서류 오류)",
+       "result": "정상 거절",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 (지문 일치 + 기타 서류 오류)",
+       "result": "정상 거절",
+       "text": "(플레이어) 여권 사진 ↔ 현재 외모 대조"
+      },
+      {
+       "order": "4-1",
+       "speaker": "시스템",
+       "docState": "불량 (지문 일치 + 기타 서류 오류)",
+       "result": "정상 거절",
+       "text": "[시스템] 여권 사진 ↔ 현재 외모 대조 결과: 불일치 (성형으로 인한 외모 변화)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 (지문 일치 + 기타 서류 오류)",
+       "result": "정상 거절",
+       "text": "검문관: 「여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요.」"
+      },
+      {
+       "order": "5-1",
+       "speaker": "시스템",
+       "docState": "불량 (지문 일치 + 기타 서류 오류)",
+       "result": "정상 거절",
+       "text": "[시스템] 지문 인식 결과: 일치 ✔ → 본인 확인 완료"
+      },
+      {
+       "order": "5-2",
+       "speaker": "심사관",
+       "docState": "불량 (지문 일치 + 기타 서류 오류)",
+       "result": "정상 거절",
+       "text": "(플레이어) 지문 일치 확인 → 서류 전체 재검토"
+      },
+      {
+       "order": "5-3",
+       "speaker": "시스템",
+       "docState": "불량 (지문 일치 + 기타 서류 오류)",
+       "result": "정상 거절",
+       "text": "[시스템] 기타 서류(비자/만료일 등) 오류 발견 → 서류 불량 확정"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 (지문 일치 + 기타 서류 오류)",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부\n「서류 오류가 확인되어 입국하실 수 없습니다.」\n※ [거부 대사 템플릿] 시트 참조"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량 (지문 일치 + 기타 서류 오류)",
+       "result": "정상 거절",
+       "text": "대사 3: 「아... 다른 서류에 문제가 있었군요. 죄송합니다.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기 C: 지문 불일치 → 서류 불량 → 거부 (정답)  [+120원]",
+     "gameResult": "정상 거절",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 (지문 불일치)",
+       "result": "정상 거절",
+       "text": "[UI 등장] (마스크·모자 착용)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 (지문 불일치)",
+       "result": "정상 거절",
+       "text": "대사 1: 「안녕하세요. (마스크와 모자로 얼굴을 가린 채 서류를 내려놓는다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 (지문 불일치)",
+       "result": "정상 거절",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 (지문 불일치)",
+       "result": "정상 거절",
+       "text": "(플레이어) 여권 사진 ↔ 현재 외모 대조"
+      },
+      {
+       "order": "4-1",
+       "speaker": "시스템",
+       "docState": "불량 (지문 불일치)",
+       "result": "정상 거절",
+       "text": "[시스템] 여권 사진 ↔ 현재 외모 대조 결과: 불일치 (성형으로 인한 외모 변화)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 (지문 불일치)",
+       "result": "정상 거절",
+       "text": "검문관: 「여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요.」"
+      },
+      {
+       "order": "5-1",
+       "speaker": "시스템",
+       "docState": "불량 (지문 불일치)",
+       "result": "정상 거절",
+       "text": "[시스템] 지문 인식 결과: 불일치 ✘ → 본인 확인 실패 → 서류 불량 확정"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 (지문 불일치)",
+       "result": "정상 거절",
+       "text": "플레이어 선택 → 입국 거부\n「본인 확인이 되지 않아 입국하실 수 없습니다.」"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량 (지문 불일치)",
+       "result": "정상 거절",
+       "text": "대사 3: 「아... 지문이 안 맞는군요. 정말로 저인데... 어쩔 수 없네요.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기 D: 지문 미요청 → 입국 (오판)  [-60원]",
+     "gameResult": "잘못 허가",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 (지문 미요청)",
+       "result": "잘못 허가",
+       "text": "[UI 등장] (마스크·모자 착용)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 (지문 미요청)",
+       "result": "잘못 허가",
+       "text": "대사 1: 「안녕하세요. (마스크와 모자로 얼굴을 가린 채 서류를 내려놓는다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 (지문 미요청)",
+       "result": "잘못 허가",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 (지문 미요청)",
+       "result": "잘못 허가",
+       "text": "(플레이어) 여권 사진 ↔ 현재 외모 대조"
+      },
+      {
+       "order": "4-1",
+       "speaker": "시스템",
+       "docState": "불량 (지문 미요청)",
+       "result": "잘못 허가",
+       "text": "[시스템] 여권 사진 ↔ 현재 외모 대조 결과: 불일치 (성형으로 인한 외모 변화)"
+      },
+      {
+       "order": "4-2",
+       "speaker": "시스템",
+       "docState": "불량 (지문 미요청)",
+       "result": "잘못 허가",
+       "text": "[시스템] 플레이어가 지문 인식 미요청 — 본인 확인 생략 (오판)"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 (지문 미요청)",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가 (오판)"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 (지문 미요청)",
+       "result": "잘못 허가",
+       "text": "대사 2: 「감사합니다! 수술 잘 됐다고 해주세요, 하하.\n※ 오판 — 방문객 반응 동일, 신원 미확인 통과」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 (지문 미요청)",
+       "result": "잘못 허가",
+       "text": "「즐거운 여행 되십시오.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기 E: 지문 불일치 무시 → 입국 (오판)  [-60원]",
+     "gameResult": "잘못 허가",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 (지문 불일치 무시)",
+       "result": "잘못 허가",
+       "text": "[UI 등장] (마스크·모자 착용)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 (지문 불일치 무시)",
+       "result": "잘못 허가",
+       "text": "대사 1: 「안녕하세요. (마스크와 모자로 얼굴을 가린 채 서류를 내려놓는다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 (지문 불일치 무시)",
+       "result": "잘못 허가",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 (지문 불일치 무시)",
+       "result": "잘못 허가",
+       "text": "(플레이어) 여권 사진 ↔ 현재 외모 대조"
+      },
+      {
+       "order": "4-1",
+       "speaker": "시스템",
+       "docState": "불량 (지문 불일치 무시)",
+       "result": "잘못 허가",
+       "text": "[시스템] 여권 사진 ↔ 현재 외모 대조 결과: 불일치 (성형으로 인한 외모 변화)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 (지문 불일치 무시)",
+       "result": "잘못 허가",
+       "text": "검문관: 「여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요.」"
+      },
+      {
+       "order": "5-1",
+       "speaker": "시스템",
+       "docState": "불량 (지문 불일치 무시)",
+       "result": "잘못 허가",
+       "text": "[시스템] 지문 인식 결과: 불일치 ✘ → 본인 확인 실패"
+      },
+      {
+       "order": "5-2",
+       "speaker": "심사관",
+       "docState": "불량 (지문 불일치 무시)",
+       "result": "잘못 허가",
+       "text": "(플레이어) 지문 불일치 무시 → 입국 허가 선택 (오판)"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 (지문 불일치 무시)",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가 (오판)"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 (지문 불일치 무시)",
+       "result": "잘못 허가",
+       "text": "대사 2: 「감사합니다! (안도하며 빠르게 입국한다.)\n※ 오판 — 신원 미확인 통과」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 (지문 불일치 무시)",
+       "result": "잘못 허가",
+       "text": "「즐거운 여행 되십시오.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기 F: 마스크 미요청 → 입국 (오판)  [-11점 / -60원]",
+     "gameResult": "잘못 허가",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [마스크 미요청]",
+       "result": "잘못 허가",
+       "text": "[UI 등장] (마스크·모자 착용)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [마스크 미요청]",
+       "result": "잘못 허가",
+       "text": "대사 1: 「안녕하세요. (마스크와 모자로 얼굴을 가린 채 서류를 내려놓는다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [마스크 미요청]",
+       "result": "잘못 허가",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [마스크 미요청]",
+       "result": "잘못 허가",
+       "text": "(플레이어) 여권 사진 ↔ 현재 외모 대조"
+      },
+      {
+       "order": "4-1",
+       "speaker": "시스템",
+       "docState": "불량 [마스크 미요청]",
+       "result": "잘못 허가",
+       "text": "[시스템] 여권 사진 ↔ 현재 외모 대조 결과: 불일치 (성형으로 인한 외모 변화)"
+      },
+      {
+       "order": "4-2",
+       "speaker": "시스템",
+       "docState": "불량 [마스크 미요청]",
+       "result": "잘못 허가",
+       "text": "[시스템] 플레이어가 마스크 벗기 미요청 — 사진 대조 생략 (오판)"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [마스크 미요청]",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가 (오판)"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [마스크 미요청]",
+       "result": "잘못 허가",
+       "text": "대사 2: 「감사합니다! 수술 잘 됐다고 해주세요, 하하.\n※ 오판 — 마스크 미착용 확인 없이 통과」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 [마스크 미요청]",
+       "result": "잘못 허가",
+       "text": "「즐거운 여행 되십시오.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기 G: 지문 일치 + 몽타주 일치 → 범인 아님 확인 → 입국 (정답)  [+10점 / +120원 / 우수 사원 호칭]",
+     "gameResult": "정상 승인",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [몽타주O + 범인 아님]",
+       "result": "정상 승인",
+       "text": "[UI 등장] (마스크·모자 착용)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [몽타주O + 범인 아님]",
+       "result": "정상 승인",
+       "text": "대사 1: 「안녕하세요. (마스크와 모자로 얼굴을 가린 채 서류를 내려놓는다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [몽타주O + 범인 아님]",
+       "result": "정상 승인",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [몽타주O + 범인 아님]",
+       "result": "정상 승인",
+       "text": "(플레이어) 여권 사진 ↔ 현재 외모 대조"
+      },
+      {
+       "order": "4-1",
+       "speaker": "시스템",
+       "docState": "불량 [몽타주O + 범인 아님]",
+       "result": "정상 승인",
+       "text": "[시스템] 여권 사진 ↔ 현재 외모 대조 결과: 불일치 (성형으로 인한 외모 변화)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [몽타주O + 범인 아님]",
+       "result": "정상 승인",
+       "text": "검문관: 「여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요.」"
+      },
+      {
+       "order": "5-1",
+       "speaker": "시스템",
+       "docState": "불량 [몽타주O + 범인 아님]",
+       "result": "정상 승인",
+       "text": "[시스템] 지문 인식 결과: 일치 ✔ → 본인 확인 완료"
+      },
+      {
+       "order": "5-2",
+       "speaker": "심사관",
+       "docState": "불량 [몽타주O + 범인 아님]",
+       "result": "정상 승인",
+       "text": "(플레이어) 몽타주 대조 진행"
+      },
+      {
+       "order": "5-3",
+       "speaker": "시스템",
+       "docState": "불량 [몽타주O + 범인 아님]",
+       "result": "정상 승인",
+       "text": "[시스템] 몽타주 대조 결과: 외모 유사 — 수배자 의심 ※ 지문 재대조 필요"
+      },
+      {
+       "order": "5-4",
+       "speaker": "심사관",
+       "docState": "불량 [몽타주O + 범인 아님]",
+       "result": "정상 승인",
+       "text": "검문관: 「수배자 명단과 외모가 유사합니다. 수배자 지문과 재대조를 진행하겠습니다. 다시 한번 손을 올려주세요.」"
+      },
+      {
+       "order": "5-5",
+       "speaker": "시스템",
+       "docState": "불량 [몽타주O + 범인 아님]",
+       "result": "정상 승인",
+       "text": "[시스템] 수배자 지문 재대조 결과: 불일치 ✘ → 수배자와 동일인 아님 확정 ✔\n※ 외모만 유사한 별개 인물로 확인"
+      },
+      {
+       "order": "5-6",
+       "speaker": "심사관",
+       "docState": "불량 [몽타주O + 범인 아님]",
+       "result": "정상 승인",
+       "text": "검문관: 「수배자와 지문이 일치하지 않습니다. 외모만 유사하신 거네요. 죄송합니다.」"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [몽타주O + 범인 아님]",
+       "result": "정상 승인",
+       "text": "플레이어 선택 → 입국 허가\n※ '우수 사원' 호칭 획득"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [몽타주O + 범인 아님]",
+       "result": "정상 승인",
+       "text": "대사 2: 「아, 수배자랑 헷갈리셨군요! 꼼꼼하게 봐주셔서 감사해요.」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 [몽타주O + 범인 아님]",
+       "result": "정상 승인",
+       "text": "「즐거운 여행 되십시오.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기 H: 지문 일치 + 몽타주 미대조 → 입국 (오판)  [-9점 / -60원]",
+     "gameResult": "잘못 허가",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [몽타주X]",
+       "result": "잘못 허가",
+       "text": "[UI 등장] (마스크·모자 착용)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [몽타주X]",
+       "result": "잘못 허가",
+       "text": "대사 1: 「안녕하세요. (마스크와 모자로 얼굴을 가린 채 서류를 내려놓는다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [몽타주X]",
+       "result": "잘못 허가",
+       "text": "[모션] 서류 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [몽타주X]",
+       "result": "잘못 허가",
+       "text": "(플레이어) 여권 사진 ↔ 현재 외모 대조"
+      },
+      {
+       "order": "4-1",
+       "speaker": "시스템",
+       "docState": "불량 [몽타주X]",
+       "result": "잘못 허가",
+       "text": "[시스템] 여권 사진 ↔ 현재 외모 대조 결과: 불일치 (성형으로 인한 외모 변화)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [몽타주X]",
+       "result": "잘못 허가",
+       "text": "검문관: 「여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요.」"
+      },
+      {
+       "order": "5-1",
+       "speaker": "시스템",
+       "docState": "불량 [몽타주X]",
+       "result": "잘못 허가",
+       "text": "[시스템] 지문 인식 결과: 일치 ✔ → 본인 확인 완료"
+      },
+      {
+       "order": "5-2",
+       "speaker": "시스템",
+       "docState": "불량 [몽타주X]",
+       "result": "잘못 허가",
+       "text": "[시스템] 플레이어가 몽타주 미대조 — 수배자 여부 미확인 (오판)"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [몽타주X]",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가 (오판)"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [몽타주X]",
+       "result": "잘못 허가",
+       "text": "대사 2: 「감사합니다! (안도하며 입국한다.)\n※ 오판 — 변장 범죄자 입국 가능성」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량 [몽타주X]",
+       "result": "잘못 허가",
+       "text": "「즐거운 여행 되십시오.」"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "characterType": "성형 수술 고객 (범죄자)",
+   "blocks": [
+    {
+     "section": "",
+     "branchLabel": "▶ 분기 A: 몽타주 인식 + X-ray 확인 + 거부 (최선)  [+280원]",
+     "gameResult": "▶ 분기 A: 몽타주 인식 + X-ray 확인 + 거부 (최선)  [+280원]",
+     "lines": [
+      {
+       "order": "0",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "몽타주 인식 + X-ray + 거부 (최선)",
+       "text": "[사전 이벤트] 해당 일자 신문: '성형 후 잠적한 지명수배 범죄자' 관련 기사 출력"
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "몽타주 인식 + X-ray + 거부 (최선)",
+       "text": "[UI 등장] (마스크·모자·선글라스 착용)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "몽타주 인식 + X-ray + 거부 (최선)",
+       "text": "대사 1: 「안녕하세요. (마스크, 모자, 선글라스로 얼굴을 완전히 가린 채 여권을 내민다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "몽타주 인식 + X-ray + 거부 (최선)",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "몽타주 인식 + X-ray + 거부 (최선)",
+       "text": "(플레이어) 여권 사진 ↔ 현재 외모 대조"
+      },
+      {
+       "order": "4-1",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "몽타주 인식 + X-ray + 거부 (최선)",
+       "text": "[시스템] 여권 사진 ↔ 현재 외모 대조 결과: 불일치\n(성형+마스크·선글라스로 인한 외모 차이 — 본 단계에서는 정상/불량 미확정)"
+      },
+      {
+       "order": "4-2",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "몽타주 인식 + X-ray + 거부 (최선)",
+       "text": "검문관: 「마스크와 선글라스를 잠깐 벗어주시겠어요?」"
+      },
+      {
+       "order": "4-3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "몽타주 인식 + X-ray + 거부 (최선)",
+       "text": "대사: 「네, 저 맞아요. 수술 때문에 좀 달라 보이죠? (태연하게)」 (마스크 제거)"
+      },
+      {
+       "order": "4-4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "몽타주 인식 + X-ray + 거부 (최선)",
+       "text": "(플레이어) 신문 기사 몽타주 ↔ 현재 외모 재대조"
+      },
+      {
+       "order": "4-5",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "몽타주 인식 + X-ray + 거부 (최선)",
+       "text": "[시스템] 몽타주 인식 성공 — 수배자 일치 의심 → 지문 인식 진행"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "몽타주 인식 + X-ray + 거부 (최선)",
+       "text": "검문관: 「지문 인식을 진행하겠습니다. 손을 올려주세요.」"
+      },
+      {
+       "order": "5-1",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "몽타주 인식 + X-ray + 거부 (최선)",
+       "text": "[시스템] 지문 인식 결과: 일치 ✔ → 본인 = 수배자 확정 → 서류 불량 확정"
+      },
+      {
+       "order": "5-2",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "몽타주 인식 + X-ray + 거부 (최선)",
+       "text": "검문관: 「X-ray 검사를 받아주시기 바랍니다.」"
+      },
+      {
+       "order": "5-3",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "몽타주 인식 + X-ray + 거부 (최선)",
+       "text": "[시스템] X-ray — 소지품 이상 없음"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "몽타주 인식 + X-ray + 거부 (최선)",
+       "text": "「신원이 확인되었습니다. 당신은 지명수배자입니다. 입국하실 수 없습니다.」\n※ 포상금 +120원, '청렴한 직원' 호칭"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "몽타주 인식 + X-ray + 거부 (최선)",
+       "text": "대사 3: 「...! (굳은 표정으로 잠시 침묵한다.) 저 변호사 부를게요.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기 B: 지문 일치 + 몽타주 미인식 → 단순 거부 (운)  [+160원]",
+     "gameResult": "▶ 분기 B: 지문 일치 + 몽타주 미인식 → 단순 거부 (운)  [+160원]",
+     "lines": [
+      {
+       "order": "0",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "단순 거부 (지문 일치 + 몽타주 미인식)",
+       "text": "[사전 이벤트] 해당 일자 신문: '성형 후 잠적한 지명수배 범죄자' 관련 기사 출력"
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "단순 거부 (지문 일치 + 몽타주 미인식)",
+       "text": "[UI 등장] (마스크·모자·선글라스 착용)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "단순 거부 (지문 일치 + 몽타주 미인식)",
+       "text": "대사 1: 「안녕하세요. (마스크, 모자, 선글라스로 얼굴을 완전히 가린 채 여권을 내민다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "단순 거부 (지문 일치 + 몽타주 미인식)",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "단순 거부 (지문 일치 + 몽타주 미인식)",
+       "text": "(플레이어) 여권 사진 ↔ 현재 외모 대조"
+      },
+      {
+       "order": "4-1",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "단순 거부 (지문 일치 + 몽타주 미인식)",
+       "text": "[시스템] 여권 사진 ↔ 현재 외모 대조 결과: 불일치 (성형+마스크·선글라스)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "단순 거부 (지문 일치 + 몽타주 미인식)",
+       "text": "검문관: 「지문 인식을 진행하겠습니다. 손을 올려주세요.」"
+      },
+      {
+       "order": "5-1",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "단순 거부 (지문 일치 + 몽타주 미인식)",
+       "text": "[시스템] 지문 인식 결과: 일치 ✔ → 본인 확인 완료"
+      },
+      {
+       "order": "5-2",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "단순 거부 (지문 일치 + 몽타주 미인식)",
+       "text": "(플레이어) 지문 일치 확인 → 몽타주 미대조 — 사진 불일치 사유로 거부"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "단순 거부 (지문 일치 + 몽타주 미인식)",
+       "text": "「여권 사진이 현재 외모와 일치하지 않아 입국하실 수 없습니다.」\n※ 몽타주 미인식 — 운으로 차단, 포상금 없음"
+      },
+      {
+       "order": "6-2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "단순 거부 (지문 일치 + 몽타주 미인식)",
+       "text": "대사 3: 「...알겠어요. (빠르게 자리를 뜬다.)」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기 C: 지문 일치 + 몽타주 미인식 → 입국 (오판)  [-80원]",
+     "gameResult": "잘못 허가",
+     "lines": [
+      {
+       "order": "0",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "[사전 이벤트] 해당 일자 신문: '성형 후 잠적한 지명수배 범죄자' 관련 기사 출력"
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "[UI 등장] (마스크·모자·선글라스 착용)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "대사 1: 「안녕하세요. (마스크, 모자, 선글라스로 얼굴을 완전히 가린 채 여권을 내민다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "(플레이어) 여권 사진 ↔ 현재 외모 대조"
+      },
+      {
+       "order": "4-1",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "[시스템] 여권 사진 ↔ 현재 외모 대조 결과: 불일치 (성형+마스크·선글라스)"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "검문관: 「지문 인식을 진행하겠습니다. 손을 올려주세요.」"
+      },
+      {
+       "order": "5-1",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "[시스템] 지문 인식 결과: 일치 ✔ → 본인 확인 완료"
+      },
+      {
+       "order": "5-2",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "(플레이어) 지문 일치 확인 → 몽타주 미대조 → 입국 허가 (오판)"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "플레이어 선택 → 입국 허가 (오판)"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "대사 2: 「감사합니다! (안도하며 빠르게 입국한다.)\n※ 오판 — 수배 범죄자 입국」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "「즐거운 여행 되십시오.」"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기 D: 범죄자 제안 응함 + 마약/밀수품 + 조기 엔딩  [-350원]",
+     "gameResult": "▶ 분기 D: 범죄자 제안 응함 + 마약/밀수품 + 조기 엔딩  [-350원]",
+     "lines": [
+      {
+       "order": "0",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "제안 응함 + 조기 엔딩 (#12)",
+       "text": "[사전 이벤트] 해당 일자 신문: '성형 후 잠적한 지명수배 범죄자' 관련 기사 출력"
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "제안 응함 + 조기 엔딩 (#12)",
+       "text": "[UI 등장] (마스크·모자·선글라스 착용)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "제안 응함 + 조기 엔딩 (#12)",
+       "text": "대사 1: 「안녕하세요. (마스크, 모자, 선글라스로 얼굴을 완전히 가린 채 여권을 내민다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "제안 응함 + 조기 엔딩 (#12)",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "제안 응함 + 조기 엔딩 (#12)",
+       "text": "(플레이어) 여권 사진 ↔ 현재 외모 대조"
+      },
+      {
+       "order": "4-1",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "제안 응함 + 조기 엔딩 (#12)",
+       "text": "[시스템] 여권 사진 ↔ 현재 외모 대조 결과: 불일치"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "제안 응함 + 조기 엔딩 (#12)",
+       "text": "검문관: 「지문 인식을 진행하겠습니다.」"
+      },
+      {
+       "order": "5-1",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "제안 응함 + 조기 엔딩 (#12)",
+       "text": "[시스템] 지문 인식 결과: 일치 ✔ → 몽타주 대조 → 수배자 확인"
+      },
+      {
+       "order": "5-2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "제안 응함 + 조기 엔딩 (#12)",
+       "text": "대사: 「(주위를 살피며 조용히) 저를 그냥 보내주시면... 좋은 거 드릴 수 있는데요. (가방을 슬쩍 보인다.)」"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "제안 응함 + 조기 엔딩 (#12)",
+       "text": "(플레이어 선택) 제안 응함"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "제안 응함 + 조기 엔딩 (#12)",
+       "text": "(낮은 목소리로) ...알겠습니다. (도장을 찍는다.) 즐거운 여행 되십시오.\n※ #12 발동 — 즉시 조기 엔딩"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기 E: 마스크 벗기 요청 → 별 말 없이 출국 (중간 이탈)",
+     "gameResult": "▶ 분기 E: 마스크 벗기 요청 → 별 말 없이 출국 (중간 이탈)",
+     "lines": [
+      {
+       "order": "0",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "마스크 요청 → 중간 이탈",
+       "text": "[사전 이벤트] 해당 일자 신문: '성형 후 잠적한 지명수배 범죄자' 관련 기사 출력"
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "마스크 요청 → 중간 이탈",
+       "text": "[UI 등장] (마스크·모자·선글라스 착용)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "마스크 요청 → 중간 이탈",
+       "text": "대사 1: 「안녕하세요. (마스크, 모자, 선글라스로 얼굴을 완전히 가린 채 여권을 내민다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "마스크 요청 → 중간 이탈",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "마스크 요청 → 중간 이탈",
+       "text": "(플레이어) 여권 사진 ↔ 현재 외모 대조"
+      },
+      {
+       "order": "4-1",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "마스크 요청 → 중간 이탈",
+       "text": "[시스템] 여권 사진 ↔ 현재 외모 대조 결과: 불일치 (성형+마스크·선글라스)"
+      },
+      {
+       "order": "4-2",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "마스크 요청 → 중간 이탈",
+       "text": "검문관: 「마스크와 선글라스를 잠깐 벗어주시겠어요?」"
+      },
+      {
+       "order": "4-3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "마스크 요청 → 중간 이탈",
+       "text": "대사: 「...아, 저 급한 일이 생겨서요. 다음에 올게요. (빠르게 자리를 뜬다.)」"
+      },
+      {
+       "order": "4-4",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "마스크 요청 → 중간 이탈",
+       "text": "[시스템] 방문객 자진 이탈 — 입국 미처리"
+      },
+      {
+       "order": "결과",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "마스크 요청 → 중간 이탈",
+       "text": "[결과] 중간 이탈 → 판정 없음 (다음 방문객으로 진행)"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기 F: 지문 인식 요청 → 별 말 없이 출국 (중간 이탈)",
+     "gameResult": "▶ 분기 F: 지문 인식 요청 → 별 말 없이 출국 (중간 이탈)",
+     "lines": [
+      {
+       "order": "0",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "지문 요청 → 중간 이탈",
+       "text": "[사전 이벤트] 해당 일자 신문: '성형 후 잠적한 지명수배 범죄자' 관련 기사 출력"
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "지문 요청 → 중간 이탈",
+       "text": "[UI 등장] (마스크·모자·선글라스 착용)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "지문 요청 → 중간 이탈",
+       "text": "대사 1: 「안녕하세요. (마스크, 모자, 선글라스로 얼굴을 완전히 가린 채 여권을 내민다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "지문 요청 → 중간 이탈",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "지문 요청 → 중간 이탈",
+       "text": "(플레이어) 여권 사진 ↔ 현재 외모 대조"
+      },
+      {
+       "order": "4-1",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "지문 요청 → 중간 이탈",
+       "text": "[시스템] 여권 사진 ↔ 현재 외모 대조 결과: 불일치 (성형+마스크·선글라스)"
+      },
+      {
+       "order": "4-2",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "지문 요청 → 중간 이탈",
+       "text": "검문관: 「마스크와 선글라스를 잠깐 벗어주시겠어요?」"
+      },
+      {
+       "order": "4-3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "지문 요청 → 중간 이탈",
+       "text": "대사: 「네. (마스크 제거)」"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "지문 요청 → 중간 이탈",
+       "text": "검문관: 「지문 인식을 진행하겠습니다. 손을 올려주세요.」"
+      },
+      {
+       "order": "5-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "지문 요청 → 중간 이탈",
+       "text": "대사: 「...저 갑자기 생각난 게 있어서요. 다시 올게요. (황급히 자리를 뜬다.)」"
+      },
+      {
+       "order": "5-2",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "지문 요청 → 중간 이탈",
+       "text": "[시스템] 방문객 자진 이탈 — 지문 인식 직전 도주"
+      },
+      {
+       "order": "결과",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "지문 요청 → 중간 이탈",
+       "text": "[결과] 중간 이탈 → 판정 없음 (다음 방문객으로 진행)"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기 G: 몽타주 일치 + 범인 아님 확인 → 입국",
+     "gameResult": "▶ 분기 G: 몽타주 일치 + 범인 아님 확인 → 입국",
+     "lines": [
+      {
+       "order": "0",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "몽타주O + 범인 아님 → 입국",
+       "text": "[사전 이벤트] 해당 일자 신문: '성형 후 잠적한 지명수배 범죄자' 관련 기사 출력"
+      },
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "몽타주O + 범인 아님 → 입국",
+       "text": "[UI 등장] (마스크·모자·선글라스 착용)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "몽타주O + 범인 아님 → 입국",
+       "text": "대사 1: 「안녕하세요. (마스크, 모자, 선글라스로 얼굴을 완전히 가린 채 여권을 내민다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "몽타주O + 범인 아님 → 입국",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "몽타주O + 범인 아님 → 입국",
+       "text": "(플레이어) 여권 사진 ↔ 현재 외모 대조"
+      },
+      {
+       "order": "4-1",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "몽타주O + 범인 아님 → 입국",
+       "text": "[시스템] 여권 사진 ↔ 현재 외모 대조 결과: 불일치 (성형+마스크·선글라스)"
+      },
+      {
+       "order": "4-2",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "몽타주O + 범인 아님 → 입국",
+       "text": "검문관: 「마스크와 선글라스를 잠깐 벗어주시겠어요?」"
+      },
+      {
+       "order": "4-3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "몽타주O + 범인 아님 → 입국",
+       "text": "대사: 「네, 저 맞아요. 수술 때문에 좀 달라 보이죠? (마스크 제거)」"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "몽타주O + 범인 아님 → 입국",
+       "text": "검문관: 「지문 인식을 진행하겠습니다.」"
+      },
+      {
+       "order": "5-1",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "몽타주O + 범인 아님 → 입국",
+       "text": "[시스템] 지문 인식 결과: 일치 ✔"
+      },
+      {
+       "order": "5-2",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "몽타주O + 범인 아님 → 입국",
+       "text": "(플레이어) 신문 기사 몽타주 ↔ 현재 외모 대조"
+      },
+      {
+       "order": "5-3",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "몽타주O + 범인 아님 → 입국",
+       "text": "[시스템] 몽타주 대조 결과: 외모 유사 — 수배자 의심 ※ 지문 재대조 필요"
+      },
+      {
+       "order": "5-4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "몽타주O + 범인 아님 → 입국",
+       "text": "검문관: 「수배자 명단과 외모가 유사합니다. 수배자 지문과 재대조를 진행하겠습니다. 다시 한번 손을 올려주세요.」"
+      },
+      {
+       "order": "5-5",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "몽타주O + 범인 아님 → 입국",
+       "text": "[시스템] 수배자 지문 재대조 결과: 불일치 ✘ → 수배자와 동일인 아님 확정 ✔\n※ 외모만 유사한 별개 인물로 확인"
+      },
+      {
+       "order": "5-6",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "몽타주O + 범인 아님 → 입국",
+       "text": "검문관: 「수배자와 지문이 일치하지 않습니다. 외모만 유사하신 거네요. 죄송합니다.」"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "몽타주O + 범인 아님 → 입국",
+       "text": "플레이어 선택 → 입국 허가\n※ 꼼꼼한 확인으로 오판 방지"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "몽타주O + 범인 아님 → 입국",
+       "text": "대사 2: 「아이고, 수배자랑 헷갈리셨군요! 꼼꼼하게 확인해 주셔서 감사합니다.」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "몽타주O + 범인 아님 → 입국",
+       "text": "「즐거운 여행 되십시오.」"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "characterType": "범죄자",
+   "blocks": [
+    {
+     "section": "",
+     "branchLabel": "▶ [외국 도피자] 분기 A: 몽타주 인식 → 거부 (정답)  [+240원]",
+     "gameResult": "정상 거절",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "대사 1: 「...(모자를 깊이 눌러쓴 채 여권만 내밀며 시선을 피한다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "(플레이어) 여권 + 수배 몽타주 비교 → 일치"
+      },
+      {
+       "order": "4-1",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "검문관: 「잠깐, 모자를 벗어주시겠어요?」"
+      },
+      {
+       "order": "4-2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "대사: 「...! (눈이 흔들린다.) 저는 그런 사람이 아닌데요.」"
+      },
+      {
+       "order": "4-3",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "[시스템] 몽타주 인식 성공"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "「당신은 수배 중인 인물입니다. 입국하실 수 없습니다.」\n※ 포상금 +80원, '청렴한 직원' 호칭  [+240원]"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ [외국 도피자] 분기 B: 몽타주 미인식 → 입국 (오판)  [-80원]",
+     "gameResult": "잘못 허가",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "대사 1: 「...(모자를 깊이 눌러쓴 채 여권만 내밀며 시선을 피한다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수 — 몽타주 미인식"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "「서류 검토 결과 입국이 어렵습니다.」\n※ 몽타주 미인식 오판  [-80원]"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "대사 2: 「...감사합니다. (빠르게 사라진다.)」\n※ 오판 통과"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ [외국 도피자] 분기 C: 제안 응함 + 금괴 + 조기 엔딩",
+     "gameResult": "▶ [외국 도피자] 분기 C: 제안 응함 + 금괴 + 조기 엔딩",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "제안 응함 + 금괴 + 조기 엔딩",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "제안 응함 + 금괴 + 조기 엔딩",
+       "text": "대사 1: 「...(모자를 깊이 눌러쓴 채 여권만 내밀며 시선을 피한다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "제안 응함 + 금괴 + 조기 엔딩",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "제안 응함 + 금괴 + 조기 엔딩",
+       "text": "(플레이어) 몽타주 인식 — 수배자 확인"
+      },
+      {
+       "order": "4-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "제안 응함 + 금괴 + 조기 엔딩",
+       "text": "대사: 「(아무도 안 보는 척 속삭이며) 그냥 넘어가 주시면... 금괴 드릴게요.」"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "제안 응함 + 금괴 + 조기 엔딩",
+       "text": "(플레이어 선택) 제안 응함"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "제안 응함 + 금괴 + 조기 엔딩",
+       "text": "(잠시 망설이다 도장을 찍는다.) 즐거운... 여행 되십시오.\n※ #11 발동 — 조기 엔딩"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ [국내 유입자] 분기 A: 몽타주 인식 → 거부 (정답)  [+240원]",
+     "gameResult": "정상 거절",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "대사 1: 「...(모자를 깊이 눌러쓴 채 여권만 내밀며 시선을 피한다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "(플레이어) 여권 + 수배 몽타주 비교 → 일치"
+      },
+      {
+       "order": "4-1",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "검문관: 「잠깐, 모자를 벗어주시겠어요?」"
+      },
+      {
+       "order": "4-2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "대사: 「...! (눈이 흔들린다.) 저는 그런 사람이 아닌데요.」"
+      },
+      {
+       "order": "4-3",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "[시스템] 몽타주 인식 성공"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "정상 거절",
+       "text": "「당신은 수배 중인 인물입니다. 입국하실 수 없습니다.」\n※ 포상금 +80원, '청렴한 직원' 호칭  [+240원]"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ [국내 유입자] 분기 B: 몽타주 미인식 → 입국 (오판)  [-80원]",
+     "gameResult": "잘못 허가",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "대사 1: 「...(모자를 깊이 눌러쓴 채 여권만 내밀며 시선을 피한다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "(플레이어) 서류 검수 — 몽타주 미인식"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "「서류 검토 결과 입국이 어렵습니다.」\n※ 몽타주 미인식 오판  [-80원]"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "잘못 허가",
+       "text": "대사 2: 「...감사합니다. (빠르게 사라진다.)」\n※ 오판 통과"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ [국내 유입자] 분기 C: 제안 응함 + 마약/밀수품 + 조기 엔딩",
+     "gameResult": "▶ [국내 유입자] 분기 C: 제안 응함 + 마약/밀수품 + 조기 엔딩",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "제안 응함 + 마약/밀수품 + 조기 엔딩",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "제안 응함 + 마약/밀수품 + 조기 엔딩",
+       "text": "대사 1: 「...(모자를 깊이 눌러쓴 채 여권만 내밀며 시선을 피한다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "제안 응함 + 마약/밀수품 + 조기 엔딩",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "제안 응함 + 마약/밀수품 + 조기 엔딩",
+       "text": "(플레이어) 몽타주 인식 — 수배자 확인"
+      },
+      {
+       "order": "4-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "제안 응함 + 마약/밀수품 + 조기 엔딩",
+       "text": "대사: 「(아무도 안 보는 척 속삭이며) 그냥 넘어가 주시면... 마약/밀수품 드릴게요.」"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "제안 응함 + 마약/밀수품 + 조기 엔딩",
+       "text": "(플레이어 선택) 제안 응함"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "제안 응함 + 마약/밀수품 + 조기 엔딩",
+       "text": "(잠시 망설이다 도장을 찍는다.) 즐거운... 여행 되십시오.\n※ #11 발동 — 조기 엔딩"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ [국내 유입자] 분기 추가: 응함 + 마약/밀수품 + 입국  [-11점 / #11 발동 즉시 엔딩]",
+     "gameResult": "▶ [국내 유입자] 분기 추가: 응함 + 마약/밀수품 + 입국  [-11점 / #11 발동 즉시 엔딩]",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량 [국내 유입자]",
+       "result": "응함 + 마약/밀수품 + 즉시 엔딩 (#11)",
+       "text": "[UI 등장] (가방을 어깨에 메고)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량 [국내 유입자]",
+       "result": "응함 + 마약/밀수품 + 즉시 엔딩 (#11)",
+       "text": "대사 1: 「...(모자를 눌러쓴 채 여권만 내밀며 시선을 피한다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량 [국내 유입자]",
+       "result": "응함 + 마약/밀수품 + 즉시 엔딩 (#11)",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량 [국내 유입자]",
+       "result": "응함 + 마약/밀수품 + 즉시 엔딩 (#11)",
+       "text": "(플레이어) 몽타주 인식 — 수배자 확인"
+      },
+      {
+       "order": "4-1",
+       "speaker": "캐릭터",
+       "docState": "불량 [국내 유입자]",
+       "result": "응함 + 마약/밀수품 + 즉시 엔딩 (#11)",
+       "text": "대사: 「(주위를 살피며 가방을 살짝 열어 보이며) 이거 다 드릴게요. 그냥 들여보내 주시면...」"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량 [국내 유입자]",
+       "result": "응함 + 마약/밀수품 + 즉시 엔딩 (#11)",
+       "text": "(플레이어 선택) 제안 응함"
+      },
+      {
+       "order": "5-1",
+       "speaker": "시스템",
+       "docState": "불량 [국내 유입자]",
+       "result": "응함 + 마약/밀수품 + 즉시 엔딩 (#11)",
+       "text": "[시스템] 마약/밀수품 수령 확인"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량 [국내 유입자]",
+       "result": "응함 + 마약/밀수품 + 즉시 엔딩 (#11)",
+       "text": "(도장을 찍으며) ...즐거운 여행 되십시오.\n※ #11 발동 — 즉시 엔딩"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "characterType": "테러범",
+   "blocks": [
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 달래며 위로 + 설교 성공 (상담 마스터)  [+15점]",
+     "gameResult": "▶ 분기: 달래며 위로 + 설교 성공 (상담 마스터)  [+15점]",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "달래며 위로 + 설교 성공 (상담 마스터)",
+       "text": "[UI 등장] (폭탄을 들고 격앙된 상태로 등장, 여권 없음)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "달래며 위로 + 설교 성공 (상담 마스터)",
+       "text": "대사 1: 「저 이거 다 터뜨려 버릴 거야! 아무도 못 막아!」"
+      },
+      {
+       "order": "3",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "달래며 위로 + 설교 성공 (상담 마스터)",
+       "text": "검문관 대사 1: 「괜찮으세요? 무슨 일인지 얘기해 주시겠어요?」 (차분하게)"
+      },
+      {
+       "order": "3-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "달래며 위로 + 설교 성공 (상담 마스터)",
+       "text": "대사 2: 「...뭘 알겠어, 당신이. (조금 주춤한다.)」"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "달래며 위로 + 설교 성공 (상담 마스터)",
+       "text": "검문관 대사 2: 「다 들을게요. 여기 앉아서 얘기해봐요.」"
+      },
+      {
+       "order": "4-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "달래며 위로 + 설교 성공 (상담 마스터)",
+       "text": "대사 3: 「...후. (폭탄을 내려놓고 무너진다.) 사실은...」"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "달래며 위로 + 설교 성공 (상담 마스터)",
+       "text": "검문관 대사 3 (설교): 「당신이 겪은 일은 진짜 힘든 거예요. 그런데 이 방법은 더 많은 걸 잃게 해요.」"
+      },
+      {
+       "order": "5-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "달래며 위로 + 설교 성공 (상담 마스터)",
+       "text": "대사 4: 「...나도 알아. 그냥... 누군가 알아줬으면 했어. (자수)」"
+      },
+      {
+       "order": "6",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "달래며 위로 + 설교 성공 (상담 마스터)",
+       "text": "[결과] 자수 유도 성공 → +15점, '전문 테러 방지반' 호칭"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 달래며 위로 + 신고 성공 (경찰 출동)  [+10점]",
+     "gameResult": "▶ 분기: 달래며 위로 + 신고 성공 (경찰 출동)  [+10점]",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "달래며 위로 + 신고 성공 (경찰 출동)",
+       "text": "[UI 등장] (폭탄 들고 등장)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "달래며 위로 + 신고 성공 (경찰 출동)",
+       "text": "대사 1: 「저 이거 다 터뜨려 버릴 거야!」"
+      },
+      {
+       "order": "3",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "달래며 위로 + 신고 성공 (경찰 출동)",
+       "text": "검문관 대사 1: 「진정하세요. 제 말 좀 들어봐요.」 (달래며 조용히 신고 버튼 누름)"
+      },
+      {
+       "order": "3-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "달래며 위로 + 신고 성공 (경찰 출동)",
+       "text": "대사 2: 「...뭘 달랜다는 거야. (의심하며)」"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "달래며 위로 + 신고 성공 (경찰 출동)",
+       "text": "검문관 대사 2: 「지금 많이 힘드시죠?」 (신고 유지)"
+      },
+      {
+       "order": "4-1",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "달래며 위로 + 신고 성공 (경찰 출동)",
+       "text": "[시스템] 경찰 출동 성공"
+      },
+      {
+       "order": "6",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "달래며 위로 + 신고 성공 (경찰 출동)",
+       "text": "[결과] 신고 성공 → +10점, '경찰아저씨 여기예요' 호칭"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 달래며 위로 + 설교 → 시한폭탄 투척 (불의의 사고)  [+3점]",
+     "gameResult": "▶ 분기: 달래며 위로 + 설교 → 시한폭탄 투척 (불의의 사고)  [+3점]",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "달래며 위로 + 설교 → 시한폭탄 투척 (불의의 사고)",
+       "text": "[UI 등장] (폭탄 들고 등장)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "달래며 위로 + 설교 → 시한폭탄 투척 (불의의 사고)",
+       "text": "대사 1: 「다 망해버려라!」"
+      },
+      {
+       "order": "3",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "달래며 위로 + 설교 → 시한폭탄 투척 (불의의 사고)",
+       "text": "검문관 대사 1: 「잠깐, 잠깐요. 얘기해요.」 (달래기 시도)"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "달래며 위로 + 설교 → 시한폭탄 투척 (불의의 사고)",
+       "text": "검문관 대사 2 (설교): 「이렇게 하면 당신도 다쳐요.」"
+      },
+      {
+       "order": "4-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "달래며 위로 + 설교 → 시한폭탄 투척 (불의의 사고)",
+       "text": "대사 2: 「...상관없어! (폭탄 투척)」"
+      },
+      {
+       "order": "6",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "달래며 위로 + 설교 → 시한폭탄 투척 (불의의 사고)",
+       "text": "[결과] 폭발 → +3점, '불의의 사고' 호칭"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 달래며 위로 + 신고 들킴 → 시한폭탄 투척  [+2점]",
+     "gameResult": "▶ 분기: 달래며 위로 + 신고 들킴 → 시한폭탄 투척  [+2점]",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "달래며 위로 + 신고 들킴 → 시한폭탄 투척",
+       "text": "[UI 등장] (폭탄 들고 등장)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "달래며 위로 + 신고 들킴 → 시한폭탄 투척",
+       "text": "대사 1: 「비켜! 다 비켜!」"
+      },
+      {
+       "order": "3",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "달래며 위로 + 신고 들킴 → 시한폭탄 투척",
+       "text": "검문관 대사 1: 「진정해요.」 (신고 버튼 시도)"
+      },
+      {
+       "order": "3-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "달래며 위로 + 신고 들킴 → 시한폭탄 투척",
+       "text": "대사 2: 「뭐야, 신고하는 거야?! (폭탄 투척)」"
+      },
+      {
+       "order": "6",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "달래며 위로 + 신고 들킴 → 시한폭탄 투척",
+       "text": "[결과] 신고 들킴 → 폭발 → +2점, '잘못된 타이밍' 호칭"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 여권 요청 → 상담 → 설교 성공 (구사일생)  [+8점]",
+     "gameResult": "▶ 분기: 여권 요청 → 상담 → 설교 성공 (구사일생)  [+8점]",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "여권 요청 → 상담 → 설교 성공 (구사일생)",
+       "text": "[UI 등장] (폭탄 들고 등장)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "여권 요청 → 상담 → 설교 성공 (구사일생)",
+       "text": "대사 1: 「...(아무 말 없이 부들부들 떤다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "여권 요청 → 상담 → 설교 성공 (구사일생)",
+       "text": "검문관 대사 1: 「여권 먼저 주시겠어요?」 (평소처럼 업무 진행)"
+      },
+      {
+       "order": "3-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "여권 요청 → 상담 → 설교 성공 (구사일생)",
+       "text": "대사 2: 「...여권? (멍하니 여권을 내민다.)」"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "여권 요청 → 상담 → 설교 성공 (구사일생)",
+       "text": "검문관 대사 2: 「고맙습니다. 그런데... 많이 힘들어 보여요.」 (설교 시도)"
+      },
+      {
+       "order": "4-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "여권 요청 → 상담 → 설교 성공 (구사일생)",
+       "text": "대사 3: 「...어떻게 알았어요. (무너진다.)」"
+      },
+      {
+       "order": "6",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "여권 요청 → 상담 → 설교 성공 (구사일생)",
+       "text": "[결과] 설교 성공 → +8점, '구사일생' 호칭"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 여권 요청 → 시한폭탄 투척  [+1점]",
+     "gameResult": "▶ 분기: 여권 요청 → 시한폭탄 투척  [+1점]",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "여권 요청 → 시한폭탄 투척",
+       "text": "[UI 등장] (폭탄 들고 등장)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "여권 요청 → 시한폭탄 투척",
+       "text": "대사 1: 「...」 (침묵)"
+      },
+      {
+       "order": "3",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "여권 요청 → 시한폭탄 투척",
+       "text": "검문관 대사 1: 「여권 주시겠어요?」"
+      },
+      {
+       "order": "3-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "여권 요청 → 시한폭탄 투척",
+       "text": "대사 2: 「여권? 그게 무슨 소용이야! (폭탄 투척)」"
+      },
+      {
+       "order": "6",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "여권 요청 → 시한폭탄 투척",
+       "text": "[결과] 폭발 → +1점, '경청의 중요성' 호칭"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 무관심 + 제압 성공  [+0점]",
+     "gameResult": "▶ 분기: 무관심 + 제압 성공  [+0점]",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "무관심 + 제압 성공",
+       "text": "[UI 등장] (폭탄 들고 등장)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "무관심 + 제압 성공",
+       "text": "대사 1: 「다 죽어버려!」"
+      },
+      {
+       "order": "3",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "무관심 + 제압 성공",
+       "text": "검문관 대사 1: (아무 말 없이 제압 시도)"
+      },
+      {
+       "order": "3-1",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "무관심 + 제압 성공",
+       "text": "[시스템] 제압 성공"
+      },
+      {
+       "order": "6",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "무관심 + 제압 성공",
+       "text": "[결과] 제압 성공 → +0점, '인간 방어막' 호칭"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 무관심 + 제압 실패  [-2점]",
+     "gameResult": "▶ 분기: 무관심 + 제압 실패  [-2점]",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "무관심 + 제압 실패",
+       "text": "[UI 등장] (폭탄 들고 등장)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "무관심 + 제압 실패",
+       "text": "대사 1: 「다 끝내버릴 거야!」"
+      },
+      {
+       "order": "3",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "무관심 + 제압 실패",
+       "text": "검문관 대사 1: (제압 시도)"
+      },
+      {
+       "order": "3-1",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "무관심 + 제압 실패",
+       "text": "[시스템] 제압 실패"
+      },
+      {
+       "order": "4",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "무관심 + 제압 실패",
+       "text": "대사 2: 「쉽게 생각했어? (폭발)」"
+      },
+      {
+       "order": "6",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "무관심 + 제압 실패",
+       "text": "[결과] 제압 실패 → -2점, '운동 좀 할걸' 호칭"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기: 무관심 + 신고 들킴 → 시한폭탄  [-4점]",
+     "gameResult": "▶ 분기: 무관심 + 신고 들킴 → 시한폭탄  [-4점]",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "무관심 + 신고 들킴 → 시한폭탄",
+       "text": "[UI 등장] (폭탄 들고 등장)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "무관심 + 신고 들킴 → 시한폭탄",
+       "text": "대사 1: 「모두 알게 될 거야!」"
+      },
+      {
+       "order": "3",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "무관심 + 신고 들킴 → 시한폭탄",
+       "text": "검문관 대사 1: (신고 버튼 시도)"
+      },
+      {
+       "order": "3-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "무관심 + 신고 들킴 → 시한폭탄",
+       "text": "대사 2: 「신고하는 거 다 봤어. (폭탄 투척)」"
+      },
+      {
+       "order": "6",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "무관심 + 신고 들킴 → 시한폭탄",
+       "text": "[결과] 신고 들킴 → 폭발 → -4점, '예견된 사고 (최악)' 호칭"
+      }
+     ]
+    },
+    {
+     "section": "",
+     "branchLabel": "▶ 분기 추가: X-ray 폭탄 발견 + 거부  [+360원 / 포상금 +200원]",
+     "gameResult": "▶ 분기 추가: X-ray 폭탄 발견 + 거부  [+360원 / 포상금 +200원]",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "X-ray 폭탄 발견 + 거부",
+       "text": "[UI 등장] (큰 가방을 들고 등장, 겉으로는 평범해 보임)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "X-ray 폭탄 발견 + 거부",
+       "text": "대사 1: 「안녕하세요. (짧게 인사하고 여권을 내민다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "X-ray 폭탄 발견 + 거부",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "X-ray 폭탄 발견 + 거부",
+       "text": "(플레이어) 서류 검수 — 여권 정상 확인"
+      },
+      {
+       "order": "4-1",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "X-ray 폭탄 발견 + 거부",
+       "text": "검문관: 「수하물 X-ray 검사를 받아주시기 바랍니다.」"
+      },
+      {
+       "order": "4-2",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "X-ray 폭탄 발견 + 거부",
+       "text": "대사: 「...네. (짧게 대답하며 가방을 올려놓는다.)」"
+      },
+      {
+       "order": "4-3",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "X-ray 폭탄 발견 + 거부",
+       "text": "[시스템] X-ray 결과: 가방 내부 폭발물 감지 ⚠"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "X-ray 폭탄 발견 + 거부",
+       "text": "검문관: 「가방 안에 위험물이 감지되었습니다. 즉시 검문소 직원을 호출합니다.」"
+      },
+      {
+       "order": "5-1",
+       "speaker": "캐릭터",
+       "docState": "불량",
+       "result": "X-ray 폭탄 발견 + 거부",
+       "text": "대사: 「...! (굳은 표정으로 도주 시도)」"
+      },
+      {
+       "order": "5-2",
+       "speaker": "시스템",
+       "docState": "불량",
+       "result": "X-ray 폭탄 발견 + 거부",
+       "text": "[시스템] 경찰 출동 — 용의자 현장 제압"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "불량",
+       "result": "X-ray 폭탄 발견 + 거부",
+       "text": "「위험물 소지가 확인되어 입국하실 수 없습니다.」\n※ 포상금 +200원, '전문 테러 방지반' 호칭"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "characterType": "연예인·정치인 ★",
+   "blocks": [
+    {
+     "section": "연예인 ★",
+     "branchLabel": "▶ 분기: 즉시 입국 (정답)",
+     "gameResult": "정상 승인",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[UI 등장] (선글라스, 매니저 동행)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 1: 「안녕하세요~ (선글라스를 살짝 내리며 윙크한다.) 저 맞아요, 하하.」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 서류 검수 — 정상 확인"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "플레이어 선택 → 즉시 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 2: 「감사해요! 역시 눈이 높으시네~ (윙크)」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "「즐거운 월드 투어 되십시오.」"
+      }
+     ]
+    },
+    {
+     "section": "연예인 ★",
+     "branchLabel": "▶ 분기: 1회 거절 후 입국",
+     "gameResult": "정상 승인",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 1: 「안녕하세요~ (선글라스를 살짝 내리며 윙크한다.) 저 맞아요, 하하.」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 1차 거절"
+      },
+      {
+       "order": "4-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사: 「어머, 혹시 저 모르시는 거예요? (웃으며) 여권 다시 보시면 알 거예요.」"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 재확인 후 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 2: 「알아봐 주셨군요! 고마워요~」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "「즐거운 월드 투어 되십시오.」"
+      }
+     ]
+    },
+    {
+     "section": "연예인 ★",
+     "branchLabel": "▶ 분기: 2회 거절 후 입국",
+     "gameResult": "정상 승인",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 1: 「안녕하세요~ (선글라스를 살짝 내리며 윙크한다.) 저 맞아요, 하하.」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 1차 거절"
+      },
+      {
+       "order": "4-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사: 「어머, 혹시 저 모르시는 거예요? (웃으며) 여권 다시 보시면 알 거예요.」"
+      },
+      {
+       "order": "4-2",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 2차 거절"
+      },
+      {
+       "order": "4-3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사: 「이상하다... (표정이 굳어진다.) 다른 분 불러주시겠어요?」"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 재확인 후 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 2: 「...뭐, 됐어요. (차갑게) 들어갈게요.」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "「즐거운 월드 투어 되십시오.」"
+      }
+     ]
+    },
+    {
+     "section": "연예인 ★",
+     "branchLabel": "▶ 분기: 3회 거절 후 강제 입국 (극대노)",
+     "gameResult": "정상 승인",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 1: 「안녕하세요~ (선글라스를 살짝 내리며 윙크한다.) 저 맞아요, 하하.」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 1차 거절"
+      },
+      {
+       "order": "4-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사: 「어머, 혹시 저 모르시는 거예요? (웃으며) 여권 다시 보시면 알 거예요.」"
+      },
+      {
+       "order": "4-2",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 2차 거절"
+      },
+      {
+       "order": "4-3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사: 「이상하다... (표정이 굳어진다.) 다른 분 불러주시겠어요?」"
+      },
+      {
+       "order": "4-4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 3차 거절"
+      },
+      {
+       "order": "4-5",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사: 「진짜요?! (목소리가 높아진다.) 지금 이게 말이 돼요?! 이것 때문에 월드 투어 늦으시면 책임지실 거예요?」 ← 극대노"
+      },
+      {
+       "order": "5",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[시스템] 상부 지시 — 강제 입국 처리"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "「...죄송합니다. 제대로 확인하지 못한 저희 불찰입니다.」\n(도장이 강제로 찍힌다.)"
+      }
+     ]
+    },
+    {
+     "section": "정치인 ★",
+     "branchLabel": "▶ 분기: 즉시 입국 (정답)",
+     "gameResult": "정상 승인",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[UI 등장] (수행원 동행, 단정한 복장)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 1: 「수고가 많으십니다. (정중하게 여권을 내밀며) 공무로 입국합니다. 잘 부탁드립니다.」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 서류 검수 — 정상 확인"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "플레이어 선택 → 즉시 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 2: 「수고하셨소. 나라를 위한 길에 늘 애써주시오.」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "「성공적인 회담 되십시오, 의원님.」"
+      }
+     ]
+    },
+    {
+     "section": "정치인 ★",
+     "branchLabel": "▶ 분기: 1회 거절 후 입국",
+     "gameResult": "정상 승인",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 1: 「수고가 많으십니다. (정중하게 여권을 내밀며) 공무로 입국합니다. 잘 부탁드립니다.」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 1차 거절"
+      },
+      {
+       "order": "4-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사: 「다시 확인해 보시오. 공무로 입국하는 사람을 이렇게 붙잡아서야 되겠소?」"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 재확인 후 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 2: 「그래, 확인됐으면 됐소. 의정활동에 차질 없도록 수고하시오.」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "「성공적인 회담 되십시오, 의원님.」"
+      }
+     ]
+    },
+    {
+     "section": "정치인 ★",
+     "branchLabel": "▶ 분기: 2회 거절 후 입국",
+     "gameResult": "정상 승인",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 1: 「수고가 많으십니다. (정중하게 여권을 내밀며) 공무로 입국합니다. 잘 부탁드립니다.」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 1차 거절"
+      },
+      {
+       "order": "4-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사: 「다시 확인해 보시오. 공무로 입국하는 사람을 이렇게 붙잡아서야 되겠소?」"
+      },
+      {
+       "order": "4-2",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 2차 거절"
+      },
+      {
+       "order": "4-3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사: 「...이거 보좌관, 책임자 좀 불러주게. (낮게) 내 표가 어디서 나오는지 모르나 보군.」"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 재확인 후 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 2: 「...됐소. (냉랭하게) 통과시키시오. 이 일은 기억해 두겠소.」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "「성공적인 회담 되십시오, 의원님.」"
+      }
+     ]
+    },
+    {
+     "section": "정치인 ★",
+     "branchLabel": "▶ 분기: 3회 거절 후 강제 입국 (극대노)",
+     "gameResult": "정상 승인",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[UI 등장]"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사 1: 「수고가 많으십니다. (정중하게 여권을 내밀며) 공무로 입국합니다. 잘 부탁드립니다.」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 1차 거절"
+      },
+      {
+       "order": "4-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사: 「다시 확인해 보시오. 공무로 입국하는 사람을 이렇게 붙잡아서야 되겠소?」"
+      },
+      {
+       "order": "4-2",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 2차 거절"
+      },
+      {
+       "order": "4-3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사: 「...이거 보좌관, 책임자 좀 불러주게. (낮게) 내 표가 어디서 나오는지 모르나 보군.」"
+      },
+      {
+       "order": "4-4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "(플레이어) 3차 거절"
+      },
+      {
+       "order": "4-5",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "대사: 「지금 자네가 누구 앞길을 막는 줄이나 아나?! 이 일이 기사로 나가면 자네가 책임질 텐가? 나는 국민의 표로 이 자리에 선 사람이오!」 ← 극대노"
+      },
+      {
+       "order": "5",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "[시스템] 상부 지시 — 강제 입국 처리"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "정상 승인",
+       "text": "「...죄송합니다. 제대로 확인하지 못한 저희 불찰입니다.」\n(도장이 강제로 찍힌다.)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "characterType": "사이비 신도",
+   "blocks": [
+    {
+     "section": "사이비 신도 1회차",
+     "branchLabel": "",
+     "gameResult": "1회차",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "1회차",
+       "text": "[UI 등장] (온화한 미소, 종교 서적 들고)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "1회차",
+       "text": "대사 1: 「평화가 함께하기를. (조용히 미소지으며 여권을 내민다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "1회차",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "1회차",
+       "text": "(플레이어) 서류 검수 — 정상 확인"
+      },
+      {
+       "order": "5-1",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "1회차",
+       "text": "질문 1: 「Q1: 신이 있다고 믿나?」"
+      },
+      {
+       "order": "5-1Y",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "1회차",
+       "text": "예 선택 → 「그렇습니다. 모든 것은 연결되어 있지요.」"
+      },
+      {
+       "order": "5-1N",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "1회차",
+       "text": "아니오 선택 → 「그렇게 생각하시는군요. (조용히 끄덕인다.)」"
+      },
+      {
+       "order": "5-2",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "1회차",
+       "text": "질문 2: 「Q2: 신은 한 명인가?」"
+      },
+      {
+       "order": "5-2Y",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "1회차",
+       "text": "예 선택 → 「그렇습니다. 모든 것은 연결되어 있지요.」"
+      },
+      {
+       "order": "5-2N",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "1회차",
+       "text": "아니오 선택 → 「그렇게 생각하시는군요. (조용히 끄덕인다.)」"
+      },
+      {
+       "order": "5-3",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "1회차",
+       "text": "질문 3: 「Q3: 신은 필요한가?」"
+      },
+      {
+       "order": "5-3Y",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "1회차",
+       "text": "예 선택 → 「그렇습니다. 모든 것은 연결되어 있지요.」"
+      },
+      {
+       "order": "5-3N",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "1회차",
+       "text": "아니오 선택 → 「그렇게 생각하시는군요. (조용히 끄덕인다.)」"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "1회차",
+       "text": "플레이어 선택 → 입국 허가 / 거부"
+      },
+      {
+       "order": "결과",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "1회차",
+       "text": "[예/예/예 + 입국] → +9점  ※ 의문의 종교 물품 획득"
+      },
+      {
+       "order": "결과",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "1회차",
+       "text": "[예/예/아니오 또는 예/아니오/예 + 입국] → +6점"
+      },
+      {
+       "order": "결과",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "1회차",
+       "text": "[아니오/아니오/아니오 + 입국] → +0점"
+      },
+      {
+       "order": "결과",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "1회차",
+       "text": "[거부 (어떤 응답이든)] → +0점"
+      }
+     ]
+    },
+    {
+     "section": "사이비 신도 2회차",
+     "branchLabel": "",
+     "gameResult": "2회차",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "2회차",
+       "text": "[UI 등장] (온화한 미소, 종교 서적 들고)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "2회차",
+       "text": "대사 1: 「평화가 함께하기를. (조용히 미소지으며 여권을 내민다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "2회차",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "2회차",
+       "text": "(플레이어) 서류 검수 — 정상 확인"
+      },
+      {
+       "order": "5-1",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "2회차",
+       "text": "질문 1: 「Q1: 신은 어때야 하는가?」"
+      },
+      {
+       "order": "5-1Y",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "2회차",
+       "text": "예 선택 → 「그렇습니다. 모든 것은 연결되어 있지요.」"
+      },
+      {
+       "order": "5-1N",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "2회차",
+       "text": "아니오 선택 → 「그렇게 생각하시는군요. (조용히 끄덕인다.)」"
+      },
+      {
+       "order": "5-2",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "2회차",
+       "text": "질문 2: 「Q2: 신은 우리 가까이 있는가?」"
+      },
+      {
+       "order": "5-2Y",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "2회차",
+       "text": "예 선택 → 「그렇습니다. 모든 것은 연결되어 있지요.」"
+      },
+      {
+       "order": "5-2N",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "2회차",
+       "text": "아니오 선택 → 「그렇게 생각하시는군요. (조용히 끄덕인다.)」"
+      },
+      {
+       "order": "5-3",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "2회차",
+       "text": "질문 3: 「Q3: 신은 우리 행복을 지켜주는가?」"
+      },
+      {
+       "order": "5-3Y",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "2회차",
+       "text": "예 선택 → 「그렇습니다. 모든 것은 연결되어 있지요.」"
+      },
+      {
+       "order": "5-3N",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "2회차",
+       "text": "아니오 선택 → 「그렇게 생각하시는군요. (조용히 끄덕인다.)」"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "2회차",
+       "text": "플레이어 선택 → 입국 허가 / 거부"
+      },
+      {
+       "order": "결과",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "2회차",
+       "text": "[강해야/예/예 + 입국 (최고 조합)] → +9점  ※ 호칭 '스며들기'"
+      },
+      {
+       "order": "결과",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "2회차",
+       "text": "[기타 조합 + 입국] → 0~+6점"
+      }
+     ]
+    },
+    {
+     "section": "사이비 신도 3회차",
+     "branchLabel": "",
+     "gameResult": "3회차",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "3회차",
+       "text": "[UI 등장] (온화한 미소, 종교 서적 들고)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "3회차",
+       "text": "대사 1: 「평화가 함께하기를. (조용히 미소지으며 여권을 내민다.)」"
+      },
+      {
+       "order": "3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "3회차",
+       "text": "[모션] 여권 드롭"
+      },
+      {
+       "order": "4",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "3회차",
+       "text": "(플레이어) 서류 검수 — 정상 확인"
+      },
+      {
+       "order": "5-1",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "3회차",
+       "text": "질문 1: 「Q1: 그대는 신이 필요한가?」"
+      },
+      {
+       "order": "5-1Y",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "3회차",
+       "text": "예 선택 → 「그렇습니다. 모든 것은 연결되어 있지요.」"
+      },
+      {
+       "order": "5-1N",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "3회차",
+       "text": "아니오 선택 → 「그렇게 생각하시는군요. (조용히 끄덕인다.)」"
+      },
+      {
+       "order": "5-2",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "3회차",
+       "text": "질문 2: 「Q2: 그대는 신과 함께 하고픈가?」"
+      },
+      {
+       "order": "5-2Y",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "3회차",
+       "text": "예 선택 → 「그렇습니다. 모든 것은 연결되어 있지요.」"
+      },
+      {
+       "order": "5-2N",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "3회차",
+       "text": "아니오 선택 → 「그렇게 생각하시는군요. (조용히 끄덕인다.)」"
+      },
+      {
+       "order": "5-3",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "3회차",
+       "text": "질문 3: 「Q3: 그대는 우리와 함께 하고픈가?」"
+      },
+      {
+       "order": "5-3Y",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "3회차",
+       "text": "예 선택 → 「그렇습니다. 모든 것은 연결되어 있지요.」"
+      },
+      {
+       "order": "5-3N",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "3회차",
+       "text": "아니오 선택 → 「그렇게 생각하시는군요. (조용히 끄덕인다.)」"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "3회차",
+       "text": "플레이어 선택 → 입국 허가 / 거부"
+      },
+      {
+       "order": "결과",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "3회차",
+       "text": "[예/예/예 + 입국 → '새뇌'] → +10점  ※ #13 포교 성공 발동"
+      },
+      {
+       "order": "결과",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "3회차",
+       "text": "[아니오/예/예 + 입국 → '신종 추종자'] → +7점  ※ #14 난 돈을 믿어 발동"
+      },
+      {
+       "order": "결과",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "3회차",
+       "text": "[기타 조합 + 입국] → 0~+5점"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "characterType": "꼬마·현자 ★",
+   "blocks": [
+    {
+     "section": "꼬마 ★",
+     "branchLabel": "▶ 분기: 발판 제공 + 입국 (맛있는 사탕 획득)",
+     "gameResult": "▶ 분기: 발판 제공 + 입국 (맛있는 사탕 획득)",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "발판 제공 + 입국 (맛있는 사탕 획득)",
+       "text": "[UI 등장] (카운터에 아무것도 보이지 않음)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "발판 제공 + 입국 (맛있는 사탕 획득)",
+       "text": "대사 1: 「저기요... 저 여기 있어요! (대사만 출력)"
+      },
+      {
+       "order": "3",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "발판 제공 + 입국 (맛있는 사탕 획득)",
+       "text": "검문관 대사: 「잠깐, 발판 가져다 드릴게요.」"
+      },
+      {
+       "order": "3-1",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "발판 제공 + 입국 (맛있는 사탕 획득)",
+       "text": "[시스템] 발판 제공 → 꼬마 얼굴 등장"
+      },
+      {
+       "order": "4",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "발판 제공 + 입국 (맛있는 사탕 획득)",
+       "text": "대사 2: 「감사해요! (여권을 내민다.)」"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "발판 제공 + 입국 (맛있는 사탕 획득)",
+       "text": "(플레이어) 서류 검수 — 정상 확인"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "발판 제공 + 입국 (맛있는 사탕 획득)",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "발판 제공 + 입국 (맛있는 사탕 획득)",
+       "text": "대사 3: 「고맙습니다! (호주머니에서 사탕을 꺼내 건넨다.)」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "발판 제공 + 입국 (맛있는 사탕 획득)",
+       "text": "[시스템] '맛있는 사탕' 아이템 획득 → +3점"
+      }
+     ]
+    },
+    {
+     "section": "꼬마 ★",
+     "branchLabel": "▶ 분기: 발판 미제공 + 입국 (단순 통과)",
+     "gameResult": "▶ 분기: 발판 미제공 + 입국 (단순 통과)",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "발판 미제공 + 입국 (단순 통과)",
+       "text": "[UI 등장] (카운터에 아무것도 보이지 않음)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "발판 미제공 + 입국 (단순 통과)",
+       "text": "대사 1: 「저기요... 저 여기 있어요!」"
+      },
+      {
+       "order": "3",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "발판 미제공 + 입국 (단순 통과)",
+       "text": "(플레이어) 발판 미제공 — 카운터 너머로 서류 확인"
+      },
+      {
+       "order": "4",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "발판 미제공 + 입국 (단순 통과)",
+       "text": "대사 2: 「...(발끝으로 서서 여권을 겨우 내민다.)」"
+      },
+      {
+       "order": "5",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "발판 미제공 + 입국 (단순 통과)",
+       "text": "(플레이어) 서류 검수 — 정상 확인"
+      },
+      {
+       "order": "6",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "발판 미제공 + 입국 (단순 통과)",
+       "text": "플레이어 선택 → 입국 허가"
+      },
+      {
+       "order": "6-1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "발판 미제공 + 입국 (단순 통과)",
+       "text": "대사 3: 「감사합니다! (통과한다.)」"
+      },
+      {
+       "order": "6-1",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "발판 미제공 + 입국 (단순 통과)",
+       "text": "[시스템] 단순 통과 → +3점 (사탕 없음)"
+      }
+     ]
+    },
+    {
+     "section": "현자 ★",
+     "branchLabel": "",
+     "gameResult": "현자 문답",
+     "lines": [
+      {
+       "order": "1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 없음)",
+       "result": "현자 문답",
+       "text": "[UI 등장] (여권 없이 나타나 조용히 눈을 감고 서 있다.)"
+      },
+      {
+       "order": "2",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 없음)",
+       "result": "현자 문답",
+       "text": "대사 1: 「...묻고 싶은 것이 있소.」"
+      },
+      {
+       "order": "3",
+       "speaker": "심사관",
+       "docState": "정상 (여권 없음)",
+       "result": "현자 문답",
+       "text": "검문관: 「여권은요?」"
+      },
+      {
+       "order": "3-1",
+       "speaker": "캐릭터",
+       "docState": "정상 (여권 없음)",
+       "result": "현자 문답",
+       "text": "대사 2: 「여권보다 중요한 것이 있지 않겠소. 먼저 대답해 주시오.」"
+      },
+      {
+       "order": "Q1",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "「Q1: 행복은 어디서 오는가?」"
+      },
+      {
+       "order": "Q1-A",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "선택 A: 물질"
+      },
+      {
+       "order": "Q1-B",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "선택 B: 정신"
+      },
+      {
+       "order": "Q2",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "「Q2-A (물질 선택 시): 더 중요한 가치는?」"
+      },
+      {
+       "order": "Q2-A",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "선택 A: 성취"
+      },
+      {
+       "order": "Q2-B",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "선택 B: 사랑"
+      },
+      {
+       "order": "Q3",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "「Q2-B (정신 선택 시): 더 중요한 가치는?」"
+      },
+      {
+       "order": "Q3-A",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "선택 A: 자유"
+      },
+      {
+       "order": "Q3-B",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "선택 B: 돈"
+      },
+      {
+       "order": "Q4",
+       "speaker": "캐릭터",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "「Q3: 10년 후 하나의 미래만 볼 수 있다면?」"
+      },
+      {
+       "order": "Q4-A",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "선택 A: 세계 / 우리나라 / 가족 / 나"
+      },
+      {
+       "order": "Q4-B",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "선택 B: 우리나라"
+      },
+      {
+       "order": "Q4-C",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "선택 C: 가족"
+      },
+      {
+       "order": "Q4-D",
+       "speaker": "심사관",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "선택 D: 나"
+      },
+      {
+       "order": "결과",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "[응답 조합에 따라] 아래 마법 아이템 8종 중 1 드롭 후 퇴장\n※ 8회 모두 클리어 시 '해탈한 자' 호칭"
+      },
+      {
+       "order": "→",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "물질+성취+세계 → 마법의 수정구슬 드롭"
+      },
+      {
+       "order": "→",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "물질+성취+우리나라 → 마법의 구슬 드롭"
+      },
+      {
+       "order": "→",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "물질+사랑+가족 → 마법의 손목시계 드롭"
+      },
+      {
+       "order": "→",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "물질+사랑+나 → 마법의 거울 드롭"
+      },
+      {
+       "order": "→",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "정신+자유+세계 → 마법의 손수건 드롭"
+      },
+      {
+       "order": "→",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "정신+자유+우리나라 → 마법의 주머니 드롭"
+      },
+      {
+       "order": "→",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "정신+돈+가족 → 마법의 와인 드롭"
+      },
+      {
+       "order": "→",
+       "speaker": "시스템",
+       "docState": "정상",
+       "result": "현자 문답",
+       "text": "정신+돈+나 → 마법의 지갑 드롭"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

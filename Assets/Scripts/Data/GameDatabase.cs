@@ -40,6 +40,12 @@ public class GameDatabase : ScriptableObject
     public EndingTable ending;
     public ScoreModelTable scoreModel;
 
+    [Header("거절 고지서")]
+    public InspectionNoticeTable inspectionNotice;
+
+    [Header("세분화 규정집(정적 매뉴얼)")]
+    public RuleSectionTable ruleSection;
+
     [Header("캐릭터 분기 점수/금액 (260602 분기표)")]
     public CharacterScoreTable characterScore;
     public CharacterPayoutTable characterPayout;

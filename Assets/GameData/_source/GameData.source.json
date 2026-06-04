@@ -4800,6 +4800,333 @@
    ],
    "layout": "config"
   },
+  "inspection_notice": {
+   "columns": [
+    {
+     "key": "notice_id",
+     "type": "int",
+     "label": "고지서 ID"
+    },
+    {
+     "key": "error_type",
+     "type": "varchar(20)",
+     "label": "위반 유형"
+    },
+    {
+     "key": "document_type",
+     "type": "varchar(20)",
+     "label": "대상 서류"
+    },
+    {
+     "key": "violation_field",
+     "type": "varchar(30)",
+     "label": "위반 항목"
+    },
+    {
+     "key": "title",
+     "type": "varchar(100)",
+     "label": "고지서 제목"
+    },
+    {
+     "key": "body",
+     "type": "varchar(500)",
+     "label": "고지 본문(템플릿)"
+    },
+    {
+     "key": "legal_basis",
+     "type": "varchar(200)",
+     "label": "규정 근거"
+    },
+    {
+     "key": "severity",
+     "type": "varchar(10)",
+     "label": "심각도"
+    },
+    {
+     "key": "rule_ref",
+     "type": "int",
+     "label": "규정 연계 ID"
+    },
+    {
+     "key": "note",
+     "type": "varchar(200)",
+     "label": "비고"
+    }
+   ],
+   "rows": [
+    {
+     "notice_id": "1",
+     "error_type": "정보불일치",
+     "document_type": "여권",
+     "violation_field": "name",
+     "title": "심사 오류 고지서 — 인적사항 불일치",
+     "body": "귀하의 여권 인적사항({field})이 본인 진술 및 등록 정보와 일치하지 않아 입국이 거부되었습니다. 정확한 서류를 재발급받아 재신청하시기 바랍니다.",
+     "legal_basis": "출입국관리법 제12조(입국심사) 및 본인 정보 일치 규정",
+     "severity": "중대",
+     "rule_ref": "2",
+     "note": "이름/성별/생년월일/국적 불일치 공통 고지"
+    },
+    {
+     "notice_id": "2",
+     "error_type": "사진불일치",
+     "document_type": "여권",
+     "violation_field": "face",
+     "title": "심사 오류 고지서 — 사진 불일치",
+     "body": "여권 사진이 현재 본인의 용모와 상이하여 신원 확인이 불가하므로 입국이 거부되었습니다. 사진 갱신 후 재신청하시기 바랍니다.",
+     "legal_basis": "출입국관리법 제12조(입국심사) 신원확인 규정",
+     "severity": "중대",
+     "rule_ref": "2",
+     "note": "성형/도용 의심 포함"
+    },
+    {
+     "notice_id": "3",
+     "error_type": "기간만료",
+     "document_type": "여권",
+     "violation_field": "expiry_date",
+     "title": "심사 오류 고지서 — 유효기간 경과",
+     "body": "제출하신 {document}의 유효기간이 만료되어 효력이 없으므로 입국이 거부되었습니다. 유효한 서류로 재신청하시기 바랍니다.",
+     "legal_basis": "출입국관리법 제7조(외국인의 입국) 여권 유효기간 규정",
+     "severity": "중대",
+     "rule_ref": "5",
+     "note": "여권/비자/취업증빙 만료 공통"
+    },
+    {
+     "notice_id": "4",
+     "error_type": "위조",
+     "document_type": "여권",
+     "violation_field": "passport_no",
+     "title": "심사 오류 고지서 — 위·변조 의심",
+     "body": "제출하신 {document}에서 위·변조 흔적이 확인되어 입국이 거부되었습니다. 본 건은 관계 기관에 통보될 수 있습니다.",
+     "legal_basis": "출입국관리법 제7조의2(허위초청 등 금지) 및 형법 제225조(공문서위조)",
+     "severity": "심각",
+     "rule_ref": "6",
+     "note": "여권번호 형식 위반/위조 적발"
+    },
+    {
+     "notice_id": "5",
+     "error_type": "서류누락",
+     "document_type": "여권",
+     "violation_field": "none",
+     "title": "심사 오류 고지서 — 필수 서류 미비",
+     "body": "입국에 필요한 필수 서류({document})가 제출되지 않아 입국이 거부되었습니다. 누락된 서류를 구비하여 재신청하시기 바랍니다.",
+     "legal_basis": "출입국관리법 제12조(입국심사) 필수 서류 제출 규정",
+     "severity": "경미",
+     "rule_ref": "1",
+     "note": "여권/비자/PCR/취업증빙 미제출"
+    },
+    {
+     "notice_id": "6",
+     "error_type": "정보불일치",
+     "document_type": "비자",
+     "violation_field": "visa_type",
+     "title": "심사 오류 고지서 — 비자 부적합",
+     "body": "체류 목적에 부합하지 않거나 정보가 일치하지 않는 비자가 제출되어 입국이 거부되었습니다. 적합한 비자를 발급받아 재신청하시기 바랍니다.",
+     "legal_basis": "출입국관리법 제10조(체류자격) 및 외국인 비자 확인 규정",
+     "severity": "중대",
+     "rule_ref": "3",
+     "note": "비자 종류/입국횟수 불일치"
+    },
+    {
+     "notice_id": "7",
+     "error_type": "검사부적합",
+     "document_type": "PCR검사서",
+     "violation_field": "pcr_result",
+     "title": "심사 오류 고지서 — 검역 기준 미충족",
+     "body": "제출하신 검역 서류의 검사 결과 또는 유효기한이 입국 기준에 부합하지 않아 입국이 거부되었습니다.",
+     "legal_basis": "검역법 제12조(검역조치) 및 검역 대상자 확인 규정",
+     "severity": "심각",
+     "rule_ref": null,
+     "note": "양성/만료/검사기관 위조 포함"
+    },
+    {
+     "notice_id": "8",
+     "error_type": "위험물반입",
+     "document_type": "여권",
+     "violation_field": "contraband",
+     "title": "심사 오류 고지서 — 반입 금지 물품 적발",
+     "body": "X-ray 정밀 검사 결과 반입이 금지된 물품({field})이 적발되어 입국이 거부되었습니다. 본 건은 관계 기관에 인계됩니다.",
+     "legal_basis": "관세법 제234조(수출입 금지물품) 및 출입국관리법 위반",
+     "severity": "심각",
+     "rule_ref": null,
+     "note": "밀수/마약/폭발물 등 보조검사 적발"
+    },
+    {
+     "notice_id": "9",
+     "error_type": "신원위조",
+     "document_type": "여권",
+     "violation_field": "name",
+     "title": "심사 오류 고지서 — 신원 위장 적발",
+     "body": "지문 대조 결과 제출하신 신원 정보가 위조된 것으로 확인되어 입국이 거부되었습니다. 본 건은 관계 기관에 통보됩니다.",
+     "legal_basis": "출입국관리법 제7조의2 및 형법 제225조(공문서위조)",
+     "severity": "심각",
+     "rule_ref": null,
+     "note": "지문 불일치/수배자 적발"
+    }
+   ],
+   "layout": "relational"
+  },
+  "rule_section": {
+   "columns": [
+    {
+     "key": "section_id",
+     "type": "int",
+     "label": "섹션ID"
+    },
+    {
+     "key": "tab",
+     "type": "varchar(20)",
+     "label": "탭"
+    },
+    {
+     "key": "tab_order",
+     "type": "int",
+     "label": "탭순서"
+    },
+    {
+     "key": "category",
+     "type": "varchar(30)",
+     "label": "항목"
+    },
+    {
+     "key": "category_order",
+     "type": "int",
+     "label": "항목순서"
+    },
+    {
+     "key": "title",
+     "type": "varchar(60)",
+     "label": "제목"
+    },
+    {
+     "key": "body",
+     "type": "text",
+     "label": "본문"
+    },
+    {
+     "key": "image_ref",
+     "type": "varchar(60)",
+     "label": "이미지키"
+    },
+    {
+     "key": "content_type",
+     "type": "varchar(10)",
+     "label": "내용유형"
+    },
+    {
+     "key": "unlock_day",
+     "type": "int",
+     "label": "노출일자"
+    },
+    {
+     "key": "priority",
+     "type": "int",
+     "label": "우선순위"
+    },
+    {
+     "key": "related_field",
+     "type": "varchar(30)",
+     "label": "연계필드"
+    },
+    {
+     "key": "note",
+     "type": "varchar(120)",
+     "label": "비고"
+    }
+   ],
+   "rows": [
+    {
+     "section_id": "1",
+     "tab": "기본",
+     "tab_order": "1",
+     "category": "기본 규정",
+     "category_order": "1",
+     "title": "기본 입국 규정",
+     "body": "모든 입국자는 유효한 여권을 제시해야 한다. 미제출·서류 결함 시 거부.",
+     "image_ref": "rb_passport",
+     "content_type": "both",
+     "unlock_day": "1",
+     "priority": "0",
+     "related_field": "여권",
+     "note": null
+    },
+    {
+     "section_id": "2",
+     "tab": "기본",
+     "tab_order": "1",
+     "category": "특별 지시",
+     "category_order": "2",
+     "title": "특별 지시(당일 브리핑)",
+     "body": "뉴스·브리핑으로 내려오는 당일 지시는 기존 규정보다 우선 적용한다(예: 특정 국적 제한, 검역 강화). 그날의 지시는 규정집이 아니라 브리핑을 확인할 것.",
+     "image_ref": null,
+     "content_type": "text",
+     "unlock_day": "1",
+     "priority": "10",
+     "related_field": null,
+     "note": "당일 브리핑(dayN rules) 우선"
+    },
+    {
+     "section_id": "3",
+     "tab": "서류",
+     "tab_order": "2",
+     "category": "신분 확인",
+     "category_order": "1",
+     "title": "신분(본인) 확인",
+     "body": "여권의 사진·성별·생년월일이 본인과 일치해야 한다. 사진과 외모가 다르면 지문 인식으로 확인.",
+     "image_ref": "rb_identity",
+     "content_type": "both",
+     "unlock_day": "1",
+     "priority": "0",
+     "related_field": "사진",
+     "note": null
+    },
+    {
+     "section_id": "4",
+     "tab": "서류",
+     "tab_order": "2",
+     "category": "여권 유효기간",
+     "category_order": "2",
+     "title": "여권 유효기간",
+     "body": "입국일 기준 만료일이 지난 여권은 입국 불가. 발급일이 미래인 여권은 위조 의심.",
+     "image_ref": null,
+     "content_type": "text",
+     "unlock_day": "4",
+     "priority": "0",
+     "related_field": "유효기간",
+     "note": null
+    },
+    {
+     "section_id": "5",
+     "tab": "서류",
+     "tab_order": "2",
+     "category": "국적별 조건",
+     "category_order": "3",
+     "title": "국적별 입국 조건",
+     "body": "외국 국적자는 유효한 비자 필수(3일차~). 여권 발급국·국적·비자가 일치해야 한다. 여권번호는 발급국 형식과 일치. 장기체류자는 취업/합격 증명 필요.",
+     "image_ref": "rb_visa",
+     "content_type": "both",
+     "unlock_day": "3",
+     "priority": "0",
+     "related_field": "국적",
+     "note": null
+    },
+    {
+     "section_id": "6",
+     "tab": "물품",
+     "tab_order": "3",
+     "category": "금지 물품",
+     "category_order": "1",
+     "title": "반입 금지 물품",
+     "body": "마약·밀수품·금괴 등 반입 불가. X-ray 정밀 검사로 적발. 금지 물품 수령 시 공범으로 간주(즉시 처벌).",
+     "image_ref": "rb_contraband",
+     "content_type": "both",
+     "unlock_day": "11",
+     "priority": "0",
+     "related_field": "물품",
+     "note": null
+    }
+   ],
+   "layout": "relational"
+  },
   "character_payout": {
    "columns": [
     {

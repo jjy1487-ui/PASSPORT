@@ -36,6 +36,15 @@ public static class EndingResolver
     /// <summary>조기엔딩 트리거 발동 시 즉시 엔딩 결정. 트리거가 아니면 IsValid=false.</summary>
     public static EndingResult ResolveEarly(string eventId, ScoreEconomyManager m)
     {
+        if (string.IsNullOrEmpty(eventId)) return default;
+
+        // WARNING(과반 오판) 엔딩 트리거: "WARNING_ENDING:<id>" → reward.related_ending_id 의 ending 행으로 엔딩.
+        if (eventId.StartsWith(ScoreEconomyManager.WarningEndingTriggerPrefix))
+        {
+            string endId = eventId.Substring(ScoreEconomyManager.WarningEndingTriggerPrefix.Length);
+            return DataById(endId) ?? new EndingResult("END_WARNING", "경고 누적 해고", "normal", eventId);
+        }
+
         switch (eventId)
         {
             case EventIds.CorruptGoldDrugs: return Data(eventId) ?? new EndingResult("END_CORRUPT", "부패한 검문관", "early", eventId);
@@ -77,6 +86,20 @@ public static class EndingResolver
     }
 
     // ── ending 테이블 조회(채워지면 우선) ──────────────────────
+
+    /// <summary>ending_id 로 직접 ending 행 조회(WARNING 등 id 지정 엔딩용). 없으면 null.</summary>
+    private static EndingResult? DataById(string endingId)
+    {
+        var t = GameDatabaseProvider.Database != null ? GameDatabaseProvider.Database.ending : null;
+        if (t == null || string.IsNullOrEmpty(endingId)) return null;
+        foreach (var r in t.rows)
+        {
+            if (r == null) continue;
+            if (r.Get("ending_id") == endingId)
+                return new EndingResult(r.Get("ending_id"), r.Get("ending_name"), r.Get("ending_type") ?? "normal", "warning");
+        }
+        return null;
+    }
 
     private static EndingResult? Data(string eventId)
     {

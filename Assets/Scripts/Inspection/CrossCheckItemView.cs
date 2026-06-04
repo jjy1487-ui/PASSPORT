@@ -13,10 +13,14 @@ public sealed class CrossCheckItemView : MonoBehaviour, ICrossCheckSelectable
     [Header("UI 참조")]
     [SerializeField] private TMP_Text _labelText;
     [SerializeField] private Button _button;
-    [SerializeField] private Image _highlight; // 선택 표시(비활성 시작)
+    [SerializeField] private Image _highlight; // 선택 표시(비활성 시작) — 채움 없이 테두리만으로 표시
 
     [Header("색(UITheme 부재 시 기본값)")]
-    [SerializeField] private Color _selectedColor = new Color(0.231f, 0.510f, 0.769f, 0.45f); // Score/Blue 톤
+    [SerializeField] private Color _selectedColor = new Color(0.231f, 0.510f, 0.769f, 1f); // Score/Blue 톤(테두리 색)
+
+    [Header("선택 테두리")]
+    [Tooltip("9-slice 테두리 스프라이트(미연결 시 Resources/UI/border_frame 자동 로드). 채움 없이 외곽선만.")]
+    [SerializeField] private Sprite _borderSprite;
 
     public string SourceType { get; private set; } = string.Empty;
     public string AttributeKey { get; private set; } = string.Empty;
@@ -29,7 +33,22 @@ public sealed class CrossCheckItemView : MonoBehaviour, ICrossCheckSelectable
     private void Awake()
     {
         if (_button != null) _button.onClick.AddListener(HandleClick);
+        EnsureBorderSprite();
         SetSelected(false);
+    }
+
+    /// <summary>선택 하이라이트 Image 를 9-slice 테두리(채움 없음)로 설정한다(텍스트 가림 방지). 색 시맨틱은 _selectedColor 유지.</summary>
+    private void EnsureBorderSprite()
+    {
+        if (_highlight == null) return;
+        if (_borderSprite == null) _borderSprite = BorderFrame.Sprite;
+        if (_borderSprite != null)
+        {
+            _highlight.sprite = _borderSprite;
+            _highlight.type = Image.Type.Sliced;
+            _highlight.fillCenter = false;
+            _highlight.pixelsPerUnitMultiplier = 1f;
+        }
     }
 
     private void OnDestroy()
@@ -52,11 +71,15 @@ public sealed class CrossCheckItemView : MonoBehaviour, ICrossCheckSelectable
 
     public void SetSelected(bool on)
     {
-        if (_highlight != null)
-        {
-            _highlight.gameObject.SetActive(on);
-            _highlight.color = _selectedColor;
-        }
+        if (_highlight == null) return;
+
+        _highlight.gameObject.SetActive(on);
+
+        if (_borderSprite == null) EnsureBorderSprite();
+
+        // 9-slice 테두리만(fillCenter=false). 테두리 색만 _selectedColor(불투명). 항목 텍스트를 가리지 않는다.
+        Color border = _selectedColor; border.a = 1f;
+        _highlight.color = border;
     }
 
     private void HandleClick() => OnSelected?.Invoke(this);

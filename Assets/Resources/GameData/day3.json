@@ -8,8 +8,8 @@
       "nameEn": "ZHANG WEI",
       "nationality": "중국(CHN)",
       "gender": "남성",
-      "birthDate": "1991-06-14",
-      "age": 34,
+      "birthDate": "1993-06-14",
+      "age": 32,
       "spriteRef": "spr_c027",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
@@ -39,7 +39,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1991-06-14",
+              "value": "1993-06-14",
               "key": "birth_date"
             },
             {
@@ -83,7 +83,7 @@
             },
             {
               "label": "발급일",
-              "value": "2025-09-12",
+              "value": "2022-01-01",
               "key": "issue_date"
             },
             {
@@ -112,13 +112,13 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "캐릭터",
-              "text": "Hello! 안녕하세요. [TODO 대사]"
+              "speaker": "장 웨이",
+              "text": "Hello! Good morning~"
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "여기 서류 드릴게요. [TODO 대사]"
+              "speaker": "장 웨이",
+              "text": "Here is my passport."
             }
           ]
         },
@@ -130,12 +130,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "Have a pleasant trip!"
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "감사합니다! [TODO 대사]"
+              "speaker": "장 웨이",
+              "text": "Thank you so much! Have a wonderful day!"
             }
           ]
         },
@@ -147,7 +147,7 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "만료일 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]",
+              "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다.",
               "claim": {
                 "attr": "expiry_date",
                 "value": "",
@@ -157,8 +157,8 @@
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
+              "speaker": "장 웨이",
+              "text": "Oh no... I'm so sorry, I had no idea."
             }
           ]
         },
@@ -170,12 +170,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "Have a pleasant trip!"
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
+              "speaker": "장 웨이",
+              "text": "Thank you! That was quick~"
             }
           ]
         },
@@ -187,22 +187,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
+              "speaker": "장 웨이",
+              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "장 웨이",
+              "text": "Oh 정말 다행이에요! 고마워요!"
             }
           ]
         },
@@ -214,22 +214,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
+              "speaker": "장 웨이",
+              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "장 웨이",
+              "text": "정말 다행이에요. 여행할 수 있어서 다행이에요."
             }
           ]
         },
@@ -241,22 +241,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
+              "speaker": "장 웨이",
+              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "장 웨이",
+              "text": "기분이 안 좋아요. You are so rude."
             }
           ]
         }
@@ -271,8 +271,8 @@
       "nameEn": "KIM MINJUN",
       "nationality": "대한민국(KOR)",
       "gender": "남성",
-      "birthDate": "1985-03-15",
-      "age": 41,
+      "birthDate": "1999-03-15",
+      "age": 27,
       "spriteRef": "spr_c001",
       "characterType": "일반 고객",
       "defectVariant": "",
@@ -302,7 +302,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1985-03-15",
+              "value": "1999-03-15",
               "key": "birth_date"
             },
             {
@@ -331,13 +331,13 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "캐릭터",
-              "text": "안녕하세요, 서류 드릴게요. [TODO 대사]"
+              "speaker": "김민준",
+              "text": "좋은 아침이예요! 너무 설레네요."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "확인 부탁드립니다. [TODO 대사]"
+              "speaker": "김민준",
+              "text": "여권 확인 부탁드립니다."
             }
           ]
         },
@@ -349,12 +349,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "즐거운 여행 되십시오."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "감사합니다! [TODO 대사]"
+              "speaker": "김민준",
+              "text": "감사합니다! 즐거운 하루 되세요."
             }
           ]
         },
@@ -366,12 +366,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]"
+              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
+              "speaker": "김민준",
+              "text": "앗 이 부분을 놓쳤네요! 죄송합니다."
             }
           ]
         },
@@ -383,12 +383,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "즐거운 여행 되십시오."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
+              "speaker": "김민준",
+              "text": "감사합니다! 즐거운 하루 되세요."
             }
           ]
         },
@@ -400,22 +400,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
+              "speaker": "김민준",
+              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "김민준",
+              "text": "앗 네! 감사합니다!"
             }
           ]
         },
@@ -427,22 +427,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
+              "speaker": "김민준",
+              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "김민준",
+              "text": "네 알겠습니다. 앞으로는 주의해 주세요."
             }
           ]
         },
@@ -454,22 +454,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
+              "speaker": "김민준",
+              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "김민준",
+              "text": "하... 네 알겠습니다. 꼼꼼히 검토 좀 해 주세요."
             }
           ]
         }
@@ -484,8 +484,8 @@
       "nameEn": "JEONG YUNA",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "1996-04-12",
-      "age": 30,
+      "birthDate": "1997-04-12",
+      "age": 29,
       "spriteRef": "spr_c012",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
@@ -515,7 +515,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1996-04-12",
+              "value": "1997-04-12",
               "key": "birth_date"
             },
             {
@@ -544,13 +544,13 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "캐릭터",
-              "text": "안녕하세요, 서류 드릴게요. [TODO 대사]"
+              "speaker": "정유나",
+              "text": "안녕하세요. (마스크와 모자로 얼굴을 가린 채 서류를 내려놓는다.)"
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "확인 부탁드립니다. [TODO 대사]"
+              "speaker": "정유나",
+              "text": "사진이랑 좀 달라 보여도 저 맞아요."
             }
           ]
         },
@@ -562,12 +562,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "감사합니다! [TODO 대사]"
+              "speaker": "정유나",
+              "text": "감사합니다! 수술 잘 됐다고 해주세요, 하하."
             }
           ]
         },
@@ -579,12 +579,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]"
+              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
+              "speaker": "정유나",
+              "text": "아... 다른 서류에 문제가 있었군요. 죄송합니다."
             }
           ]
         },
@@ -596,12 +596,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "즐거운 여행 되십시오."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
+              "speaker": "정유나",
+              "text": "감사합니다! 수술 잘 됐다고 해주세요, 하하."
             }
           ]
         },
@@ -613,22 +613,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "죄송하지만 입국은 어렵습니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
+              "speaker": "정유나",
+              "text": "네? 분명히 저 본인인데요?"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "정유나",
+              "text": "거 봐요, 저 맞잖아요. 감사합니다."
             }
           ]
         },
@@ -640,22 +640,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "죄송하지만 입국은 어렵습니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
+              "speaker": "정유나",
+              "text": "성형 좀 했다고 거절하시는 거예요? 저 맞아요."
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "정유나",
+              "text": "그쵸? 본인 맞다니까요. 감사합니다."
             }
           ]
         },
@@ -667,22 +667,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "죄송하지만 입국은 어렵습니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
+              "speaker": "정유나",
+              "text": "어떻게 본인을 못 알아봐요? 다시 확인하세요!"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "정유나",
+              "text": "하... 사람 무안하게. 다음엔 잘 봐 주세요."
             }
           ]
         }
@@ -697,8 +697,8 @@
       "nameEn": "BAE SUJEONG",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "1983-09-30",
-      "age": 42,
+      "birthDate": "1985-09-30",
+      "age": 40,
       "spriteRef": "spr_c029",
       "characterType": "진상 고객",
       "defectVariant": "",
@@ -728,7 +728,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1983-09-30",
+              "value": "1985-09-30",
               "key": "birth_date"
             },
             {
@@ -757,13 +757,13 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "캐릭터",
-              "text": "안녕하세요, 서류 드릴게요. [TODO 대사]"
+              "speaker": "배수정",
+              "text": "빨리 좀 해요, 나 바쁜 사람이야."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "확인 부탁드립니다. [TODO 대사]"
+              "speaker": "배수정",
+              "text": "여권 냈으니까 빨리 처리해."
             }
           ]
         },
@@ -775,12 +775,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "즐거운 여행 되십시오."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "감사합니다! [TODO 대사]"
+              "speaker": "배수정",
+              "text": "흥, 당연히 통과지. 시간 아깝게 뭘 그렇게 들여다봐."
             }
           ]
         },
@@ -792,12 +792,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]"
+              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
+              "speaker": "배수정",
+              "text": "에이 진짜... 알겠어요, 알겠어."
             }
           ]
         },
@@ -809,12 +809,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "즐거운 여행 되십시오."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
+              "speaker": "배수정",
+              "text": "흥, 당연히 통과지. 시간 아깝게 뭘 그렇게 들여다봐."
             }
           ]
         },
@@ -826,22 +826,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
+              "speaker": "배수정",
+              "text": "상관 불러요, 상관! 이게 말이 돼?"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "배수정",
+              "text": "이런... 눈 똑바로 뜨고 일해!"
             }
           ]
         },
@@ -853,22 +853,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
+              "speaker": "배수정",
+              "text": "상관 불러요, 상관! 이게 말이 돼?"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "배수정",
+              "text": "시간 낭비하게 만들고 있어!"
             }
           ]
         },
@@ -880,22 +880,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
+              "speaker": "배수정",
+              "text": "상관 불러요, 상관! 이게 말이 돼?"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "배수정",
+              "text": "진작 이럴 것이지. 내가 꼭 민원 넣을 거야!"
             }
           ]
         }
@@ -910,8 +910,8 @@
       "nameEn": "LEE JIEUN",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "1990-07-22",
-      "age": 35,
+      "birthDate": "2002-07-22",
+      "age": 23,
       "spriteRef": "spr_c002",
       "characterType": "일반 고객",
       "defectVariant": "",
@@ -941,7 +941,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1990-07-22",
+              "value": "2002-07-22",
               "key": "birth_date"
             },
             {
@@ -970,13 +970,13 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "캐릭터",
-              "text": "안녕하세요, 서류 드릴게요. [TODO 대사]"
+              "speaker": "이지은",
+              "text": "좋은 아침이예요! 너무 설레네요."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "확인 부탁드립니다. [TODO 대사]"
+              "speaker": "이지은",
+              "text": "여권 확인 부탁드립니다."
             }
           ]
         },
@@ -988,12 +988,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "즐거운 여행 되십시오."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "감사합니다! [TODO 대사]"
+              "speaker": "이지은",
+              "text": "감사합니다! 즐거운 하루 되세요."
             }
           ]
         },
@@ -1005,12 +1005,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]"
+              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
+              "speaker": "이지은",
+              "text": "앗 이 부분을 놓쳤네요! 죄송합니다."
             }
           ]
         },
@@ -1022,12 +1022,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "즐거운 여행 되십시오."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
+              "speaker": "이지은",
+              "text": "감사합니다! 즐거운 하루 되세요."
             }
           ]
         },
@@ -1039,22 +1039,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
+              "speaker": "이지은",
+              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "이지은",
+              "text": "앗 네! 감사합니다!"
             }
           ]
         },
@@ -1066,22 +1066,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
+              "speaker": "이지은",
+              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "이지은",
+              "text": "네 알겠습니다. 앞으로는 주의해 주세요."
             }
           ]
         },
@@ -1093,22 +1093,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
+              "speaker": "이지은",
+              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "이지은",
+              "text": "하... 네 알겠습니다. 꼼꼼히 검토 좀 해 주세요."
             }
           ]
         }
@@ -1123,8 +1123,8 @@
       "nameEn": "SEO JIHO",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "1997-11-20",
-      "age": 28,
+      "birthDate": "1999-11-20",
+      "age": 26,
       "spriteRef": "spr_c021",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
@@ -1154,7 +1154,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1997-11-20",
+              "value": "1999-11-20",
               "key": "birth_date"
             },
             {
@@ -1183,13 +1183,13 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "캐릭터",
-              "text": "안녕하세요, 서류 드릴게요. [TODO 대사]"
+              "speaker": "서지호",
+              "text": "안녕하세요. (마스크와 모자로 얼굴을 가린 채 서류를 내려놓는다.)"
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "확인 부탁드립니다. [TODO 대사]"
+              "speaker": "서지호",
+              "text": "사진이랑 좀 달라 보여도 저 맞아요."
             }
           ]
         },
@@ -1201,12 +1201,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "감사합니다! [TODO 대사]"
+              "speaker": "서지호",
+              "text": "감사합니다! 수술 잘 됐다고 해주세요, 하하."
             }
           ]
         },
@@ -1218,7 +1218,7 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "사진 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]",
+              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요.",
               "claim": {
                 "attr": "face",
                 "value": "",
@@ -1228,8 +1228,8 @@
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
+              "speaker": "서지호",
+              "text": "아... 다른 서류에 문제가 있었군요. 죄송합니다."
             }
           ]
         },
@@ -1241,12 +1241,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "즐거운 여행 되십시오."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
+              "speaker": "서지호",
+              "text": "감사합니다! 수술 잘 됐다고 해주세요, 하하."
             }
           ]
         },
@@ -1258,22 +1258,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "죄송하지만 입국은 어렵습니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
+              "speaker": "서지호",
+              "text": "네? 분명히 저 본인인데요?"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "서지호",
+              "text": "거 봐요, 저 맞잖아요. 감사합니다."
             }
           ]
         },
@@ -1285,22 +1285,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "죄송하지만 입국은 어렵습니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
+              "speaker": "서지호",
+              "text": "성형 좀 했다고 거절하시는 거예요? 저 맞아요."
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "서지호",
+              "text": "그쵸? 본인 맞다니까요. 감사합니다."
             }
           ]
         },
@@ -1312,22 +1312,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "죄송하지만 입국은 어렵습니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
+              "speaker": "서지호",
+              "text": "어떻게 본인을 못 알아봐요? 다시 확인하세요!"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "서지호",
+              "text": "하... 사람 무안하게. 다음엔 잘 봐 주세요."
             }
           ]
         }
@@ -1342,8 +1342,8 @@
       "nameEn": "CHEN WEI",
       "nationality": "중국(CHN)",
       "gender": "남성",
-      "birthDate": "1978-11-08",
-      "age": 47,
+      "birthDate": "1980-11-08",
+      "age": 45,
       "spriteRef": "spr_c003",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
@@ -1373,7 +1373,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1978-11-08",
+              "value": "1980-11-08",
               "key": "birth_date"
             },
             {
@@ -1417,7 +1417,7 @@
             },
             {
               "label": "발급일",
-              "value": "2023-09-20",
+              "value": "2022-01-01",
               "key": "issue_date"
             },
             {
@@ -1446,13 +1446,13 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "캐릭터",
-              "text": "Hello! 안녕하세요. [TODO 대사]"
+              "speaker": "첸 웨이",
+              "text": "Hello! Good morning~"
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "여기 서류 드릴게요. [TODO 대사]"
+              "speaker": "첸 웨이",
+              "text": "Here is my passport."
             }
           ]
         },
@@ -1464,12 +1464,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "Have a pleasant trip!"
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "감사합니다! [TODO 대사]"
+              "speaker": "첸 웨이",
+              "text": "Thank you so much! Have a wonderful day!"
             }
           ]
         },
@@ -1481,7 +1481,7 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "만료일 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]",
+              "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다.",
               "claim": {
                 "attr": "expiry_date",
                 "value": "",
@@ -1491,8 +1491,8 @@
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
+              "speaker": "첸 웨이",
+              "text": "Oh no... I'm so sorry, I had no idea."
             }
           ]
         },
@@ -1504,12 +1504,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "Have a pleasant trip!"
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
+              "speaker": "첸 웨이",
+              "text": "Thank you! That was quick~"
             }
           ]
         },
@@ -1521,22 +1521,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
+              "speaker": "첸 웨이",
+              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "첸 웨이",
+              "text": "Oh 정말 다행이에요! 고마워요!"
             }
           ]
         },
@@ -1548,22 +1548,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
+              "speaker": "첸 웨이",
+              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "첸 웨이",
+              "text": "정말 다행이에요. 여행할 수 있어서 다행이에요."
             }
           ]
         },
@@ -1575,22 +1575,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "캐릭터",
-              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
+              "speaker": "첸 웨이",
+              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
             },
             {
               "order": 4,
-              "speaker": "캐릭터",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "speaker": "첸 웨이",
+              "text": "기분이 안 좋아요. You are so rude."
             }
           ]
         }

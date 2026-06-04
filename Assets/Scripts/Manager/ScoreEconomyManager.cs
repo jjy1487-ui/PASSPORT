@@ -16,11 +16,46 @@ public sealed class ScoreEconomyManager : MonoBehaviour
 {
     public static ScoreEconomyManager Instance { get; private set; }
 
-    // ── 코드 폴백 상수(ScoreModelTable 미임포트 시) ─────────────
-    //  data-tools 가 score_model/character 테이블을 채우면 그 값이 우선한다.
-    private const int FallbackJudgeCorrect = 10; // 정답(테이블 없을 때만)
-    private const int FallbackJudgeWrong   = -15; // 오판
-    private const int FallbackDailyBase    = 100; // 일급(돈)
+    // ── 코드 폴백 상수(ScoreModelTable/RewardTable 미임포트 시) ───
+    //  data-tools 가 score_model/reward/character 테이블을 채우면 그 값이 우선한다.
+    //  테이블이 비어 있을 때만 이 상수로 폴백(동작 동일·데이터 주도).
+    private const int FallbackJudgeCorrect = 10;  // 정답(JUDGE_CORRECT)
+    private const int FallbackJudgeWrong   = -15; // 오판(JUDGE_WRONG)
+    private const int FallbackDailyBase    = 100; // 일급(DAILY_BASE)
+    private const int FallbackDetection    = 30;  // 적발 보너스(DETECTION)
+    private const int FallbackPerfectDay   = 50;  // 무사고 보너스(PERFECT_DAY)
+    private const int FallbackWarning      = -50; // 경고 벌금(WARNING)
+    private const int FallbackWarningEnding = 17; // 경고 누적 → 엔딩 #17
+
+    /// <summary>과반수 오판 임계치(이상이면 WARNING 차감 + 엔딩 #17 트리거). reward.trigger_condition "4건+".</summary>
+    private const int WarningWrongThreshold = 4;
+
+    /// <summary>WARNING 엔딩 트리거 id 접두(진행 매니저가 이걸 보고 ending_id 로 엔딩 해석). 예: "WARNING_ENDING:17".</summary>
+    public const string WarningEndingTriggerPrefix = "WARNING_ENDING:";
+
+    // ── 테이블 우선 조회(없으면 코드 폴백) ─────────────────────
+    /// <summary>score_model 의 item/code 값(우선) → 없으면 fallback. 점수 종류 데이터 주도화.</summary>
+    private int ScoreModelInt(string code, int fallback)
+        => Db != null && Db.scoreModel != null ? Db.scoreModel.GetInt(code, fallback) : fallback;
+
+    /// <summary>reward 의 trigger_type amount(우선) → 없으면 score_model → 없으면 fallback(돈 보상 단일 소스).</summary>
+    private int RewardAmount(string triggerType, int fallback)
+    {
+        if (Db != null && Db.reward != null)
+        {
+            var row = Db.reward.FindByTrigger(triggerType);
+            if (row != null)
+            {
+                var v = row.Get("amount");
+                if (!string.IsNullOrWhiteSpace(v))
+                {
+                    v = v.Replace("+", "").Trim();
+                    if (int.TryParse(v, out int n)) return n;
+                }
+            }
+        }
+        return ScoreModelInt(triggerType, fallback);
+    }
 
     // ── 누적 상태(세이브 대상) ─────────────────────────────────
     /// <summary>누적 점수(엔딩 결정용).</summary>
@@ -42,6 +77,14 @@ public sealed class ScoreEconomyManager : MonoBehaviour
     /// <summary>조기/누적 엔딩 카운터. event_id("#15"/"#16"...) → 누적 횟수.</summary>
     private readonly Dictionary<string, int> _eventCounters = new Dictionary<string, int>();
 
+    // ── 당일 집계(일자 보상용 — 세이브 불필요, 하루 내 휘발) ───
+    /// <summary>당일 오판 건수(PERFECT_DAY/WARNING 판정용). BeginDay 에서 0으로 리셋.</summary>
+    public int DayWrongCount => _dayWrongCount;
+    private int _dayWrongCount;
+    /// <summary>당일 적발 건수(DETECTION 보너스 합산용).</summary>
+    public int DayDetectionCount => _dayDetectionCount;
+    private int _dayDetectionCount;
+
     /// <summary>현자 입국 누적(8회 도달 시 '해탈한 자' 호칭).</summary>
     public int SageApproveCount { get; private set; }
     private const int SageEnlightenThreshold = 8;
@@ -60,6 +103,12 @@ public sealed class ScoreEconomyManager : MonoBehaviour
     public event Action<string> OnEarlyEndingTriggered;
     /// <summary>한 손님 정산 완료(정답 여부). UI 피드백용.</summary>
     public event Action<bool> OnVerdictResolved;
+
+    /// <summary>
+    /// '다음 오판 1회 무효'(커피) 소비 훅. ShopService 가 등록한다. 오판 정산 직전 호출해
+    /// true 면 그 오판의 점수/벌금을 적용하지 않는다(당일 오판 카운트에도 미반영). null 이면 무시.
+    /// </summary>
+    public Func<bool> MistakeForgiveHook { get; set; }
 
     private void Awake()
     {
@@ -85,12 +134,34 @@ public sealed class ScoreEconomyManager : MonoBehaviour
     /// <param name="branch">상태머신이 결정한 분기(doc_state/branch_key/variant/visit_round).</param>
     /// <param name="wasCorrect">이번 판정이 정답인가(정확도 집계용).</param>
     public void Settle(string characterType, BranchResult branch, bool wasCorrect)
+        => Settle(characterType, branch, wasCorrect, false);
+
+    /// <summary>
+    /// 정산(적발 보너스 동반판). 결함 손님을 올바로 적발(거부)했으면 wasDetection=true 로 호출해
+    /// 당일 적발 카운트를 올린다(DETECTION 보너스는 일자 정산 시 합산).
+    /// </summary>
+    /// <param name="wasDetection">이번 확정이 위조/밀수/지명수배 적발(정상 거절 정답)인가.</param>
+    public void Settle(string characterType, BranchResult branch, bool wasCorrect, bool wasDetection)
     {
         JudgedCount++;
+
+        // 오판이면 '오판 1회 무효'(커피) 소비 시도 — 성공하면 이번 오판을 정상 정산처럼 면제한다
+        //  (점수/벌금 미적용 + 당일 오판 카운트 미반영). 정확도(엔딩)에는 정직하게 오판으로 남긴다.
+        bool forgiven = !wasCorrect && MistakeForgiveHook != null && MistakeForgiveHook();
+
         if (wasCorrect) CorrectCount++;
+        else if (!forgiven) _dayWrongCount++;
+        if (wasDetection) _dayDetectionCount++;
 
         int scoreDelta = LookupScore(characterType, branch, wasCorrect, out string scoreEvent, out string title);
         int moneyDelta = LookupPayout(characterType, branch, out string itemDrop, out string payoutEvent);
+
+        // 면제 시 음수(감점/벌금)만 0으로 깎는다(보상은 그대로 유지 — 보통 오판이라 보상은 없다).
+        if (forgiven)
+        {
+            if (scoreDelta < 0) scoreDelta = 0;
+            if (moneyDelta < 0) moneyDelta = 0;
+        }
 
         ApplyScore(scoreDelta);
         ApplyMoney(moneyDelta);
@@ -112,6 +183,63 @@ public sealed class ScoreEconomyManager : MonoBehaviour
 
         OnVerdictResolved?.Invoke(wasCorrect);
         GameProgressSave.SaveFrom(this);
+    }
+
+    // ── 일자(day) 단위 보상 — reward 테이블(DAILY_BASE/PERFECT_DAY/WARNING/DETECTION) ──
+
+    /// <summary>일자 보상이 적용되면(일급/적발/무사고/경고 합산 델타). 정산 표시 UI 가 구독.</summary>
+    public event Action<int> OnDaySettled;
+
+    /// <summary>하루 시작 시 당일 집계(오판/적발)를 리셋한다. 진행 매니저가 일차 시작 시 호출.</summary>
+    public void BeginDay()
+    {
+        _dayWrongCount = 0;
+        _dayDetectionCount = 0;
+    }
+
+    /// <summary>
+    /// 하루 종료 시 1회 호출(per-customer 정산과 별도, 중복 금지). reward 테이블 기준으로
+    /// 일급(DAILY_BASE) + 적발 보너스(DETECTION×건수) + 무사고(PERFECT_DAY, 당일 오판 0) 또는
+    /// 경고(WARNING, 오판 4건+ → 엔딩 #17 트리거)를 **돈**에 합산한다(점수 불변 — 규약 5장 분리).
+    /// </summary>
+    /// <returns>이번 일자 보상 합계 델타(돈).</returns>
+    public int SettleDay()
+    {
+        int delta = 0;
+
+        // 일급(고정 지급).
+        delta += RewardAmount("DAILY_BASE", FallbackDailyBase);
+
+        // 적발 보너스(당일 적발 건수 × DETECTION).
+        if (_dayDetectionCount > 0)
+            delta += _dayDetectionCount * RewardAmount("DETECTION", FallbackDetection);
+
+        // 무사고 vs 경고: 둘은 배타적(당일 오판 수로 분기).
+        if (_dayWrongCount <= 0)
+        {
+            delta += RewardAmount("PERFECT_DAY", FallbackPerfectDay);
+        }
+        else if (_dayWrongCount >= WarningWrongThreshold)
+        {
+            delta += RewardAmount("WARNING", FallbackWarning); // 음수(차감)
+            // 경고 누적 → 관련 엔딩 트리거(reward.related_ending_id, 기본 17).
+            //  TriggerEvent 는 카운터 증가 + OnEarlyEndingTriggered 통지를 한다. 진행 매니저가
+            //  이 id 를 EndingResolver 로 해석해(해당 행 존재 시) 엔딩 진입 여부를 결정한다.
+            string endingId = Db != null && Db.reward != null
+                ? Db.reward.GetRelatedEndingId("WARNING") : string.Empty;
+            if (string.IsNullOrEmpty(endingId)) endingId = FallbackWarningEnding.ToString();
+            TriggerEvent(WarningEndingTriggerPrefix + endingId);
+        }
+
+        if (delta != 0) ApplyMoney(delta);
+        OnDaySettled?.Invoke(delta);
+
+        // 다음 날을 위한 집계 리셋(BeginDay 가 또 리셋해도 무해 — 멱등).
+        _dayWrongCount = 0;
+        _dayDetectionCount = 0;
+
+        GameProgressSave.SaveFrom(this);
+        return delta;
     }
 
     // ── 테이블 조회 ────────────────────────────────────────────
@@ -138,7 +266,9 @@ public sealed class ScoreEconomyManager : MonoBehaviour
                 return 0; // 범위/이벤트 행
             }
         }
-        return wasCorrect ? FallbackJudgeCorrect : FallbackJudgeWrong;
+        return wasCorrect
+            ? ScoreModelInt("JUDGE_CORRECT", FallbackJudgeCorrect)
+            : ScoreModelInt("JUDGE_WRONG", FallbackJudgeWrong);
     }
 
     /// <summary>
@@ -163,7 +293,8 @@ public sealed class ScoreEconomyManager : MonoBehaviour
         // 폴백: 정답이면 일급, 오판이면 -절반(테이블 없을 때만).
         bool correct = b.branchKey == BranchKeys.ApproveCorrect || b.branchKey == BranchKeys.RejectCorrect
                        || b.branchKey == BranchKeys.ApproveImmediate;
-        return correct ? FallbackDailyBase : -(FallbackDailyBase / 2);
+        int dailyBase = RewardAmount("DAILY_BASE", FallbackDailyBase);
+        return correct ? dailyBase : -(dailyBase / 2);
     }
 
     // ── 적용 + 통지 ────────────────────────────────────────────

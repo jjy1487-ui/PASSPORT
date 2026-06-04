@@ -31,5 +31,7 @@ MonoBehaviour:
   reward: {fileID: 11400000, guid: 98d6974aa3f645944aa77a27874cd155, type: 2}
   ending: {fileID: 11400000, guid: 0857109b7c58ca94b8cde52a619b78ec, type: 2}
   scoreModel: {fileID: 11400000, guid: 4e60acad6d856fe45a1ab54a6fa2139e, type: 2}
+  inspectionNotice: {fileID: 11400000, guid: 49539728aa41e5c40a7bdf497bf301a8, type: 2}
+  ruleSection: {fileID: 11400000, guid: 599ed0d95de79a24c92b3034d97df610, type: 2}
   characterScore: {fileID: 11400000, guid: 02ff32e7821734f4eb345de717db29d6, type: 2}
   characterPayout: {fileID: 11400000, guid: 9b36c37d74c6ff64aa57626f21c95a11, type: 2}

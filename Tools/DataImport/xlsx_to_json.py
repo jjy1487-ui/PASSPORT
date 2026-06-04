@@ -69,6 +69,10 @@ SHEET_LAYOUT = {
     "fake_value_pool": LAYOUT_B,
     "document_requirement": LAYOUT_B,
     "score_model": LAYOUT_C,
+    # 심사 오류 고지서(거절 시 발부하는 citation). rejection_templates/defect_rule/rule_book 과 정합.
+    "inspection_notice": LAYOUT_A,
+    # 세분화 규정집(정적 매뉴얼). 탭/항목/내용 구조. rule_book(날짜 브리핑)과 별개 개념.
+    "rule_section": LAYOUT_A,
     # 캐릭터 분기표는 이제 메인 엑셀에 관계형(4행 헤더)으로 편입됨(append_character_sheets.py).
     # 메인에 있으면 이걸 1차 소스로 읽고, 없을 때만 EXTRA_XLSX 폴백.
     "character_payout": LAYOUT_A,

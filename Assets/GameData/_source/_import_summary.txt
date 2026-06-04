@@ -17,6 +17,8 @@ defect_rule            layout=flat       cols=12 rows=15
 fake_value_pool        layout=flat       cols=4 rows=13
 document_requirement   layout=flat       cols=6 rows=4
 score_model            layout=config     cols=3 rows=12
+inspection_notice      layout=relational cols=10 rows=9
+rule_section           layout=relational cols=13 rows=6
 character_payout       layout=relational cols=14 rows=62
 character_score        layout=relational cols=11 rows=83
 --- warnings ---

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using TMPro;
 
 /// <summary>
@@ -21,6 +22,7 @@ public sealed class DialogueView : MonoBehaviour
 
     private void Awake()
     {
+        // ▶ 버튼도 동작하게 두되, 화면 아무 곳이나 클릭해도 진행되도록 Update 에서 처리한다.
         if (_nextButton != null)
         {
             _nextButton.onClick.AddListener(ShowNext);
@@ -33,6 +35,38 @@ public sealed class DialogueView : MonoBehaviour
         {
             _nextButton.onClick.RemoveListener(ShowNext);
         }
+    }
+
+    private void Update()
+    {
+        // 대사 표시 중에는 화면 아무 곳이나 좌클릭하면 다음 줄로 진행.
+        if (_root == null || !_root.activeSelf) return;
+        Mouse mouse = Mouse.current;
+        if (mouse == null || !mouse.leftButton.wasPressedThisFrame) return;
+
+        // ▶ 버튼 위 클릭은 버튼이 처리하므로 중복 진행 방지.
+        if (_nextButton != null && _nextButton.gameObject.activeInHierarchy
+            && IsPointerOver(_nextButton.gameObject)) return;
+
+        ShowNext();
+    }
+
+    /// <summary>현재 포인터가 해당 UI 위에 있는지(레이캐스트).</summary>
+    private static bool IsPointerOver(GameObject go)
+    {
+        var es = UnityEngine.EventSystems.EventSystem.current;
+        if (es == null || Mouse.current == null) return false;
+        var data = new UnityEngine.EventSystems.PointerEventData(es)
+        {
+            position = Mouse.current.position.ReadValue()
+        };
+        var results = new List<UnityEngine.EventSystems.RaycastResult>();
+        es.RaycastAll(data, results);
+        foreach (var r in results)
+        {
+            if (r.gameObject == go || r.gameObject.transform.IsChildOf(go.transform)) return true;
+        }
+        return false;
     }
 
     /// <summary>케이스를 재생한다. 끝나면 onComplete 호출.</summary>

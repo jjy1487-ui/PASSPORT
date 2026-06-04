@@ -39,6 +39,8 @@ public static class PassportDataImporter
         { "reward", typeof(RewardTable) },
         { "ending", typeof(EndingTable) },
         { "score_model", typeof(ScoreModelTable) },
+        { "inspection_notice", typeof(InspectionNoticeTable) },
+        { "rule_section", typeof(RuleSectionTable) },
         // 260602 분기표 (2번째 소스 xlsx). 시트 없으면 LoadOrCreate가 빈 .asset 만들지 않게 아래서 가드.
         { "character_score", typeof(CharacterScoreTable) },
         { "character_payout", typeof(CharacterPayoutTable) },
@@ -231,6 +233,8 @@ public static class PassportDataImporter
         db.reward = Get<RewardTable>(t, "reward");
         db.ending = Get<EndingTable>(t, "ending");
         db.scoreModel = Get<ScoreModelTable>(t, "score_model");
+        db.inspectionNotice = Get<InspectionNoticeTable>(t, "inspection_notice");
+        db.ruleSection = Get<RuleSectionTable>(t, "rule_section");
         db.characterScore = Get<CharacterScoreTable>(t, "character_score");
         db.characterPayout = Get<CharacterPayoutTable>(t, "character_payout");
     }
