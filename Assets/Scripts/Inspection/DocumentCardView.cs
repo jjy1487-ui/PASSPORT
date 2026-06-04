@@ -310,33 +310,39 @@ public sealed class DocumentCardView : MonoBehaviour
         RectTransform bgRt = bg.GetComponent<RectTransform>();
         bgRt.SetParent(rootRt, false);
         StretchFill(bgRt);
+        // 템플릿을 컨테이너 안에 '비율 유지'로 맞춘다(넘침 방지). 이렇게 하면 bgRt 자체가
+        // 여권 그림과 같은 비율의 사각형이 되므로, 값 슬롯을 bgRt 비율좌표에 얹으면 라벨과 정확히 정렬된다.
+        AspectRatioFitter bgFit = bg.AddComponent<AspectRatioFitter>();
+        bgFit.aspectMode = AspectRatioFitter.AspectMode.FitInParent;
+        bgFit.aspectRatio = template.rect.height > 0f ? template.rect.width / template.rect.height : 1.5f;
         Image bgImg = bg.GetComponent<Image>();
         bgImg.sprite = template;
         bgImg.color = Color.white;
-        bgImg.preserveAspect = true;
+        bgImg.preserveAspect = false; // bgRt 비율이 이미 그림과 동일하므로 꽉 채워도 왜곡 없음
         bgImg.raycastTarget = false;
 
         // ── 사진(좌상 사진칸) ─ 데이터 파생, 비대조 ────────────────
         Sprite photo = !string.IsNullOrEmpty(doc.spriteRef)
             ? Resources.Load<Sprite>("Characters/" + doc.spriteRef)
             : null;
-        BuildPassportPhoto(rootRt, photo);
+        // 사진/값 슬롯은 모두 '템플릿(bgRt)'의 자식으로 얹어, 라벨이 인쇄된 그림과 같은 좌표계를 공유한다.
+        BuildPassportPhoto(bgRt, photo);
 
         // ── 대조 가능한 값 슬롯 ──────────────────────────────────
         // (normalized 좌상 원점 비율; AddPassportSlot 내부에서 Unity y 상향으로 변환)
         // 라벨 텍스트는 템플릿에 인쇄돼 있으므로 빈 문자열, 표시 글자는 값만.
-        AddPassportSlot(rootRt, doc, "name",        new Vector2(0.12f, 0.53f)); // 이름
-        AddPassportSlot(rootRt, doc, "birth_date",  new Vector2(0.12f, 0.69f)); // 생년월일
-        AddPassportSlot(rootRt, doc, "gender",      new Vector2(0.12f, 0.85f)); // 성별
-        AddPassportSlot(rootRt, doc, "passport_no", new Vector2(0.57f, 0.26f)); // 여권 번호
-        AddPassportSlot(rootRt, doc, "nationality", new Vector2(0.57f, 0.39f)); // 국적
-        AddPassportSlot(rootRt, doc, "issue_date",  new Vector2(0.57f, 0.52f)); // 발급일
-        AddPassportSlot(rootRt, doc, "expiry_date", new Vector2(0.78f, 0.52f)); // 만료일
+        AddPassportSlot(bgRt, doc, "name",        new Vector2(0.12f, 0.53f)); // 이름
+        AddPassportSlot(bgRt, doc, "birth_date",  new Vector2(0.12f, 0.69f)); // 생년월일
+        AddPassportSlot(bgRt, doc, "gender",      new Vector2(0.12f, 0.85f)); // 성별
+        AddPassportSlot(bgRt, doc, "passport_no", new Vector2(0.57f, 0.26f)); // 여권 번호
+        AddPassportSlot(bgRt, doc, "nationality", new Vector2(0.57f, 0.39f)); // 국적
+        AddPassportSlot(bgRt, doc, "issue_date",  new Vector2(0.57f, 0.52f)); // 발급일
+        AddPassportSlot(bgRt, doc, "expiry_date", new Vector2(0.78f, 0.52f)); // 만료일
 
         // ── 데이터 파생값(비대조) ─ 발급 국가 / 서명 ───────────────
         string nat = FieldValue(doc, "nationality");
-        AddDerivedText(rootRt, CountryName(nat), new Vector2(0.57f, 0.66f), false); // 발급 국가
-        AddDerivedText(rootRt, FieldValue(doc, "name"), new Vector2(0.57f, 0.83f), true); // 서명(손글씨풍)
+        AddDerivedText(bgRt, CountryName(nat), new Vector2(0.57f, 0.66f), false); // 발급 국가
+        AddDerivedText(bgRt, FieldValue(doc, "name"), new Vector2(0.57f, 0.83f), true); // 서명(손글씨풍)
 
         return true;
     }
