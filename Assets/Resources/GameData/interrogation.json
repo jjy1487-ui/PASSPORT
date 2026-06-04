@@ -1,0 +1,111 @@
+{
+ "source": "방문객_스크립트_전체_260604.xlsx / 취조 질문 스크립트",
+ "model": "4-A 대화 라운드의 선택적 취조 서브 시퀀스. answerType(시인/부인/회피)이 라운드 전이 신호.",
+ "joinsInspectionNotice": "errorType/violationField 로 inspection_notice 와 1:1 정렬(거부 근거 확보 시 citation 후보).",
+ "entries": [
+  {
+   "errorType": "정보불일치",
+   "violationField": "name",
+   "target": "방문객",
+   "inspectorQuestion": "「여권의 이름, 성별, 생년월일이 모두 맞는지 다시 한번 확인해 주시겠어요?」",
+   "answers": [
+    {
+     "answerType": "시인",
+     "visitorAnswer": "「아, 죄송해요. 서류를 잘못 가져왔나 봐요.」",
+     "outcome": "거부 근거 확보",
+     "note": "정직한 반응"
+    },
+    {
+     "answerType": "부인",
+     "visitorAnswer": "「맞아요, 저 맞는데요? 뭐가 문제죠?」",
+     "outcome": "추가 검토 필요",
+     "note": "강하게 부정"
+    },
+    {
+     "answerType": "회피",
+     "visitorAnswer": "「음… 그냥 넘어가 주시면 안 될까요?」",
+     "outcome": "의심 강화",
+     "note": "답변 회피"
+    }
+   ]
+  },
+  {
+   "errorType": "사진불일치",
+   "violationField": "face",
+   "target": "방문객",
+   "inspectorQuestion": "「여권 사진과 현재 외모가 다소 다른 것 같은데요, 본인이 맞으신가요?」",
+   "answers": [
+    {
+     "answerType": "시인",
+     "visitorAnswer": "「오래된 사진이라서요. 머리 스타일이 많이 바뀌었어요.」",
+     "outcome": "거부 근거 확보",
+     "note": "외모 변화 인정"
+    },
+    {
+     "answerType": "부인",
+     "visitorAnswer": "「저 맞아요! 사진이 좀 오래됐을 뿐이에요!」",
+     "outcome": "추가 검토 필요",
+     "note": "본인 주장"
+    },
+    {
+     "answerType": "회피",
+     "visitorAnswer": "「사람이 좀 변할 수도 있는 거 아닌가요...」",
+     "outcome": "의심 강화",
+     "note": "답변 회피"
+    }
+   ]
+  },
+  {
+   "errorType": "기간만료",
+   "violationField": "expiry_date",
+   "target": "방문객",
+   "inspectorQuestion": "「여권 만료일이 지난 것 같은데, 혹시 갱신하셨나요?」",
+   "answers": [
+    {
+     "answerType": "시인",
+     "visitorAnswer": "「앗, 제가 날짜를 잘못 봤네요. 죄송합니다.」",
+     "outcome": "거부 근거 확보",
+     "note": "오류 인정"
+    },
+    {
+     "answerType": "부인",
+     "visitorAnswer": "「아직 유효한 걸로 알고 있는데요? 다시 봐주세요.」",
+     "outcome": "추가 검토 필요",
+     "note": "유효 주장"
+    },
+    {
+     "answerType": "회피",
+     "visitorAnswer": "「저도 잘… 그냥 통과시켜 주시면 안 돼요?」",
+     "outcome": "의심 강화",
+     "note": "답변 회피"
+    }
+   ]
+  },
+  {
+   "errorType": "위조",
+   "violationField": "passport_no",
+   "target": "방문객",
+   "inspectorQuestion": "「여권번호 인식 과정에서 이상이 감지됐습니다. 이 여권을 어디서 발급받으셨나요?」",
+   "answers": [
+    {
+     "answerType": "시인",
+     "visitorAnswer": "「사실… 제 여권이 아니에요. 사정이 있었어요.」",
+     "outcome": "거부 근거 확보 / 위조 확정",
+     "note": "위조 자백"
+    },
+    {
+     "answerType": "부인",
+     "visitorAnswer": "「정식으로 발급받은 거예요! 왜 의심하는 거죠?!」",
+     "outcome": "추가 검토 필요",
+     "note": "강하게 부정"
+    },
+    {
+     "answerType": "회피",
+     "visitorAnswer": "「그냥… 지인한테 받은 건데, 문제 있나요?」",
+     "outcome": "의심 강화 / 위조 가능성↑",
+     "note": "모호한 답변"
+    }
+   ]
+  }
+ ]
+}

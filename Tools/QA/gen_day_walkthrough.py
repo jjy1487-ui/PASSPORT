@@ -144,15 +144,36 @@ def entry_line(cust):
             return ln.get("text", "")
     return ""
 
+def all_dialogue(cust):
+    """모든 대화 케이스의 전체 대사를 케이스별로 나열한다."""
+    parts = []
+    for dc in cust.get("dialogueCases", []):
+        ct = dc.get("caseType", "")
+        parts.append(f"〔{ct}〕")
+        for ln in dc.get("lines", []):
+            sp = ln.get("speaker", "")
+            tx = ln.get("text", "")
+            parts.append(f"  {sp}: {tx}")
+    return "\n".join(parts)
+
 # 요구 서류 (document_requirement → 일자별)
 def required_docs(sheets, day, ctype, nationality):
+    """해당 손님에게 그날 실제로 요구되는 서류 (국적/유형 면제 규칙 반영)."""
     out = []
+    nat_kor = nationality is not None and "KOR" in str(nationality)
     for r in rows_of(sheets, "document_requirement"):
         df = _to_int(r.get("day_from")); dt = _to_int(r.get("day_to"))
         if df is None or dt is None:
             continue
-        if df <= day <= dt:
-            out.append(r.get("document_type"))
+        if not (df <= day <= dt):
+            continue
+        dtype = r.get("document_type")
+        # applies_to 면제 규칙
+        if dtype == "비자" and nat_kor:                       # 한국인 비자 면제
+            continue
+        if dtype == "취업증빙" and ctype not in ("취업체류자", "장기체류자"):  # 취업/장기만
+            continue
+        out.append(dtype)
     return out
 
 # 특수 기믹 판정
@@ -210,7 +231,7 @@ def main():
     master = wb.active
     master.title = "전체진행"
     headers = ["일자", "슬롯", "이름", "캐릭터유형", "서류상태", "잡아야할 결함",
-               "정답판정", "필요서류", "기대점수", "기대금액", "핵심대사(입장)", "특수기믹/비고"]
+               "정답판정", "필요서류", "기대점수", "기대금액", "전체 대사", "특수기믹/비고"]
     master.append(headers)
     style_header(master, len(headers))
     master.freeze_panes = "A2"
@@ -245,7 +266,7 @@ def main():
             early = (prow or {}).get("early_ending") if prow else None
             req = required_docs(sheets, day, ctype, cust.get("nationality"))
             gim = gimmicks(day, cust, early)
-            entry = entry_line(cust)
+            entry = all_dialogue(cust)
 
             row = [day, cust.get("slot"), cust.get("nameKr"), ctype, state_txt, defect_txt,
                    correct, ", ".join(req), score_txt, pay_txt, entry, gim]
@@ -283,7 +304,7 @@ def main():
                 issues.append((day, cust.get("slot"), cust.get("nameKr"),
                                f"점수/금액 조회: {lk_issue}", f"{ctype}/{doc_state}/{variant} 분기 미존재"))
 
-    set_widths(master, [5, 5, 12, 18, 34, 26, 9, 22, 10, 10, 40, 24])
+    set_widths(master, [5, 5, 12, 18, 34, 26, 9, 22, 10, 10, 70, 24])
 
     # ── 일자별 시트 ──
     for day in range(1, 15):
@@ -303,7 +324,7 @@ def main():
                 vcell = ws.cell(row=ri, column=7)
                 vcell.fill = APPROVE_FILL if vals[6] != "정상 거절" else REJECT_FILL
                 vcell.alignment = CENTER
-        set_widths(ws, [5, 5, 12, 18, 34, 26, 9, 22, 10, 10, 40, 24])
+        set_widths(ws, [5, 5, 12, 18, 34, 26, 9, 22, 10, 10, 70, 24])
 
     # ── 요약 시트(맨 앞으로) ──
     summ = wb.create_sheet("요약", 0)
