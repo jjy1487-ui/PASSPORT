@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc877b4d9e479949a236e67ac37facd, type: 3}
+  m_Name: RuleBookTable
+  m_EditorClassIdentifier: Assembly-CSharp::RuleBookTable
+  sheetName: rule_book
+  columns:
+  - key: rule_id
+    label: "\uADDC\uC815 ID"
+    type: int
+  - key: day
+    label: "\uC801\uC6A9 \uC77C\uCC28"
+    type: int
+  - key: rule_title
+    label: "\uADDC\uC815 \uC81C\uBAA9"
+    type: varchar(100)
+  - key: rule_content
+    label: "\uADDC\uC815 \uB0B4\uC6A9"
+    type: varchar(1000)
+  - key: related_field
+    label: "\uAD00\uB828 \uD56D\uBAA9"
+    type: varchar(30)
+  rows:
+  - keys:
+    - rule_id
+    - day
+    - rule_title
+    - rule_content
+    - related_field
+    values:
+    - 1
+    - 1
+    - "\uC5EC\uAD8C \uD544\uC218 \uC9C0\uCC38"
+    - "\uBAA8\uB4E0 \uC785\uAD6D\uC790\uB294 \uC720\uD6A8\uD55C \uC5EC\uAD8C\uC744
+      \uC81C\uC2DC\uD574\uC57C \uD55C\uB2E4. \uC5EC\uAD8C \uBBF8\uC81C\uCD9C \uC2DC
+      \uC785\uAD6D \uBD88\uAC00."
+    - "\uC5EC\uAD8C"
+  - keys:
+    - rule_id
+    - day
+    - rule_title
+    - rule_content
+    - related_field
+    values:
+    - 2
+    - 1
+    - "\uBCF8\uC778 \uC815\uBCF4 \uC77C\uCE58"
+    - "\uC5EC\uAD8C\uC758 \uC0AC\uC9C4\xB7\uC131\uBCC4\xB7\uC0DD\uB144\uC6D4\uC77C\uC774
+      \uBCF8\uC778\uACFC \uC77C\uCE58\uD574\uC57C \uD55C\uB2E4."
+    - "\uC131\uBCC4"
+  - keys:
+    - rule_id
+    - day
+    - rule_title
+    - rule_content
+    - related_field
+    values:
+    - 3
+    - 2
+    - "\uC678\uAD6D\uC778 \uBE44\uC790 \uD655\uC778"
+    - "\uC678\uAD6D \uAD6D\uC801\uC790\uB294 \uC720\uD6A8\uD55C \uBE44\uC790\uB97C
+      \uC18C\uC9C0\uD574\uC57C \uD55C\uB2E4. \uBE44\uC790 \uC5C6\uC73C\uBA74 \uC785\uAD6D
+      \uBD88\uAC00."
+    - "\uBE44\uC790"
+  - keys:
+    - rule_id
+    - day
+    - rule_title
+    - rule_content
+    - related_field
+    values:
+    - 4
+    - 3
+    - "\uBC1C\uAE09\uAD6D \uC77C\uCE58"
+    - "\uC5EC\uAD8C\uC758 \uBC1C\uAE09\uAD6D(\uAD6D\uC801)\uC774 \uBE44\uC790/\uC2E0\uACE0
+      \uAD6D\uC801\uACFC \uC77C\uCE58\uD574\uC57C \uD55C\uB2E4. \uBD88\uC77C\uCE58
+      \uC2DC \uC704\uC870 \uC758\uC2EC."
+    - "\uBC1C\uAE09\uAD6D"
+  - keys:
+    - rule_id
+    - day
+    - rule_title
+    - rule_content
+    - related_field
+    values:
+    - 5
+    - 4
+    - "\uC5EC\uAD8C \uC720\uD6A8\uAE30\uAC04 \uAC15\uD654"
+    - "\uC785\uAD6D\uC77C \uAE30\uC900 \uC720\uD6A8\uAE30\uAC04 6\uAC1C\uC6D4 \uBBF8\uB9CC
+      \uC5EC\uAD8C\uC740 \uC785\uAD6D \uBD88\uAC00."
+    - "\uC720\uD6A8\uAE30\uAC04"
+  - keys:
+    - rule_id
+    - day
+    - rule_title
+    - rule_content
+    - related_field
+    values:
+    - 6
+    - 4
+    - "\uC5EC\uAD8C\uBC88\uD638 \uD615\uC2DD \uAC80\uC99D"
+    - "\uC5EC\uAD8C\uBC88\uD638\uAC00 \uBC1C\uAE09\uAD6D \uD615\uC2DD\uACFC \uC77C\uCE58\uD574\uC57C
+      \uD55C\uB2E4. \uBD88\uC77C\uCE58 \uC2DC \uC704\uC870 \uC758\uC2EC."
+    - "\uC5EC\uAD8C\uBC88\uD638"

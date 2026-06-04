@@ -1,0 +1,470 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e5191b0e49f4c40ae8e4988d6313a4, type: 3}
+  m_Name: EndingTable
+  m_EditorClassIdentifier: Assembly-CSharp::EndingTable
+  sheetName: ending
+  columns:
+  - key: ending_id
+    label: "\uC5D4\uB529 ID"
+    type: int
+  - key: ending_type
+    label: "\uC5D4\uB529 \uBD84\uB958"
+    type: varchar(20)
+  - key: ending_name
+    label: "\uC5D4\uB529\uBA85"
+    type: varchar(50)
+  - key: score_min
+    label: "\uC810\uC218 \uD558\uD55C"
+    type: int
+  - key: score_max
+    label: "\uC810\uC218 \uC0C1\uD55C"
+    type: int
+  - key: end_timing
+    label: "\uBC1C\uB3D9 \uAC00\uB2A5 \uC77C\uC790"
+    type: varchar(30)
+  - key: trigger_type
+    label: "\uD2B8\uB9AC\uAC70 \uD0C0\uC785"
+    type: varchar(20)
+  - key: trigger_condition
+    label: "\uBC1C\uB3D9 \uD2B8\uB9AC\uAC70"
+    type: varchar(300)
+  rows:
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 1
+    - "\uB178\uBA40"
+    - "\uC804\uC124\uC758 \uAC80\uBB38\uAD00"
+    - 540
+    - 100000
+    - "\uD68C\uCC28 \uC885\uB8CC"
+    - SCORE_RANGE
+    - "14\uC77C \uB204\uC801 \uC810\uC218 +500 \uC774\uC0C1"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 2
+    - "\uB178\uBA40"
+    - "\uCCAD\uB834\uD55C \uAC80\uBB38\uAD00"
+    - 400
+    - 539
+    - "\uD68C\uCC28 \uC885\uB8CC"
+    - SCORE_RANGE
+    - "\uB204\uC801 \uC810\uC218 +400~+499"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 3
+    - "\uB178\uBA40"
+    - "\uB9CC\uC778\uC758 \uADC0\uAC10"
+    - 250
+    - 399
+    - "\uD68C\uCC28 \uC885\uB8CC"
+    - SCORE_RANGE
+    - "\uB204\uC801 \uC810\uC218 +300~+399"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 4
+    - "\uB178\uBA40"
+    - "\uC6B0\uC218 \uC0AC\uC6D0"
+    - 80
+    - 249
+    - "\uD68C\uCC28 \uC885\uB8CC"
+    - SCORE_RANGE
+    - "\uB204\uC801 \uC810\uC218 +200~+299"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 5
+    - "\uB178\uBA40"
+    - "\uD3C9\uBC94\uD55C \uAC80\uBB38\uAD00"
+    - 1
+    - 79
+    - "\uD68C\uCC28 \uC885\uB8CC"
+    - SCORE_RANGE
+    - "\uB204\uC801 \uC810\uC218 +100~+199"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 6
+    - "\uB178\uBA40"
+    - "\uB098\uC058\uC9C4 \uC54A\uC558\uC5B4"
+    - -120
+    - 0
+    - "\uD68C\uCC28 \uC885\uB8CC"
+    - SCORE_RANGE
+    - "\uB204\uC801 \uC810\uC218 -49~+99"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 7
+    - "\uB178\uBA40"
+    - "\uBBF8\uC219\uD55C \uC9C1\uC6D0"
+    - -280
+    - -121
+    - "\uD68C\uCC28 \uC885\uB8CC"
+    - SCORE_RANGE
+    - "\uB204\uC801 \uC810\uC218 -150~-50"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 8
+    - "\uB178\uBA40"
+    - "\uC9C4\uB85C \uACE0\uBBFC"
+    - -440
+    - -281
+    - "\uD68C\uCC28 \uC885\uB8CC"
+    - SCORE_RANGE
+    - "\uB204\uC801 \uC810\uC218 -280~-151"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 9
+    - "\uB178\uBA40"
+    - "\uB10C \uD574\uACE0\uC57C"
+    - -640
+    - -441
+    - "\uD68C\uCC28 \uC885\uB8CC"
+    - SCORE_RANGE
+    - "\uB204\uC801 \uC810\uC218 -400~-281"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 10
+    - "\uB178\uBA40"
+    - "\uD615\uC0AC \uCC98\uBC8C"
+    - -100000
+    - -641
+    - "\uD68C\uCC28 \uC885\uB8CC"
+    - SCORE_RANGE
+    - "\uB204\uC801 \uC810\uC218 -600~-401"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 11
+    - "\uC870\uAE30"
+    - "\uACF5\uBC94"
+    - 
+    - 
+    - "11~14\uC77C"
+    - SEQUENCE
+    - "\uBC94\uC8C4\uC790(\uAD6D\uB0B4 \uC720\uC785\uC790) \uC778\uC2DDO + \uC81C\uC548
+      \uC751\uD568 + \uC785\uAD6D + \uB9C8\uC57D/\uBC00\uC218\uD488 \uC218\uB839"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 12
+    - "\uC870\uAE30"
+    - "\uC21C\uC9C4\uD55C \uB140\uC11D"
+    - 
+    - 
+    - "11~14\uC77C"
+    - SEQUENCE
+    - "\uC131\uD615 \uC218\uC220 \uACE0\uAC1D(\uBC94\uC8C4\uC790) \uBABD\uD0C0\uC8FCO
+      + \uC81C\uC548 \uC751\uD568 + \uC785\uAD6D + \uB9C8\uC57D/\uBC00\uC218\uD488
+      \uC218\uB839"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 13
+    - "\uC870\uAE30"
+    - "\uD3EC\uAD50 \uC131\uACF5"
+    - 
+    - 
+    - "5~14\uC77C"
+    - SEQUENCE
+    - "\uC0AC\uC774\uBE44 3\uD68C\uCC28 \uB4F1\uC7A5 + \uC218\uC0C1\uD55C \uC885\uAD50\uBB3C\uD488
+      3\uD68C \uD68D\uB4DD + 3\uD68C\uCC28 \uC9C8\uBB38 \uC608/\uC608/\uC608 (\uD638\uCE6D
+      '\uC0C8\uB1CC')"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 14
+    - "\uC870\uAE30"
+    - "\uB09C \uB3C8\uC744 \uBBFF\uC5B4"
+    - 
+    - 
+    - "5~14\uC77C"
+    - SEQUENCE
+    - "\uC0AC\uC774\uBE44 3\uD68C\uCC28 \uB4F1\uC7A5 + \uC218\uC0C1\uD55C \uC885\uAD50\uBB3C\uD488
+      3\uD68C \uD68D\uB4DD + 3\uD68C\uCC28 \uC9C8\uBB38 \uC544\uB2C8\uC624/\uC608/\uC608
+      (\uD638\uCE6D '\uC2E0\uC885 \uCD94\uC885\uC790')"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 15
+    - "\uC870\uAE30"
+    - "\uBC29\uC5ED \uC2E4\uD328"
+    - 
+    - 
+    - "5~7\uC77C"
+    - COUNTER
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790 \uAC80\uC218 \uC911 \uC798\uBABB\uB41C \uC785\uAD6D
+      \uD5C8\uAC00 \uB204\uC801 3\uD68C"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 16
+    - "\uC870\uAE30"
+    - "\uB4F1\uC794 \uBC11\uC774 \uC5B4\uB461\uB2E4"
+    - 
+    - 
+    - "1~14\uC77C"
+    - COUNTER
+    - "\uC678\uAD6D \uC5EC\uAD8C \uCE90\uB9AD\uD130(\uAD00\uAD11\uAC1D/\uC7A5\uAE30\uCCB4\uB958/\uC131\uD615
+      \uC77C\uBC18) \uCD9C\uAD6D \uB3C4\uC7A5 \uC5C6\uC74C \uBB35\uC778 \uB204\uC801
+      3\uD68C"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 17
+    - "\uC870\uAE30"
+    - "\uC790\uB128 \uC801\uC131\uC5D0 \uC548 \uB9DE\uB294 \uAC83 \uAC19\uB124"
+    - 
+    - 
+    - "1~3\uC77C"
+    - COUNTER
+    - "\uB2E8\uC77C \uC77C\uC790\uC5D0 \uC798\uBABB\uB41C \uAC80\uD1A0\uAC00 \uACFC\uBC18\uC218(4\uBA85
+      \uC774\uC0C1) \uB204\uC801 \uC2DC \uC989\uC2DC \uBC1C\uB3D9"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 18
+    - "\uD788\uB4E0"
+    - "\uBA85\uC608\uC758 \uC804\uB2F9"
+    - 
+    - 
+    - "\uD68C\uCC28 \uC885\uB8CC"
+    - COLLECTION
+    - "\uB178\uBA40 #1 \uC804\uC124\uC758 \uAC80\uBB38\uAD00 \uB610\uB294 #2 \uCCAD\uB834\uD55C
+      \uAC80\uBB38\uAD00 \uB204\uC801 5\uD68C \uB2EC\uC131"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 19
+    - "\uD788\uB4E0"
+    - "\uBA40\uD2F0 \uC720\uB2C8\uBC84\uC2A4"
+    - 
+    - 
+    - "\uD68C\uCC28 \uC885\uB8CC"
+    - COLLECTION
+    - "\uB178\uBA40+\uC870\uAE30 17\uAC1C \uC5D4\uB529 \uC911 15\uAC1C \uCEEC\uB809\uD2B8"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 20
+    - "\uD788\uB4E0"
+    - "\uD558\uB298\uAE38\uC758 \uAC80\uC740 \uC190"
+    - 
+    - 
+    - "\uD68C\uCC28 \uC885\uB8CC"
+    - COLLECTION
+    - "\uB178\uBA40+\uC870\uAE30 \uC5D4\uB529 \uB0B4 \uB1CC\uBB3C \uC218\uC218 \uBC0F
+      \uBC94\uC8C4 \uC5D4\uB529 5\uAC1C \uB2EC\uC131"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 21
+    - "\uD788\uB4E0"
+    - "\uC0C8\uB85C\uC6B4 \uAD50\uC8FC\uB2D8"
+    - 
+    - 
+    - "\uD68C\uCC28 \uC885\uB8CC"
+    - COLLECTION
+    - "\uC0C8\uB1CC'(#13) + '\uC2E0\uC885 \uCD94\uC885\uC790'(#14) \uC5D4\uB529 \uBAA8\uB450
+      \uCEEC\uB809\uD2B8"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 22
+    - "\uD788\uB4E0"
+    - "\uC774\uC911\uAC04\uCCA9"
+    - 
+    - 
+    - "\uD68C\uCC28 \uC885\uB8CC"
+    - COUNTER
+    - "\uC678\uAD6D \uB3C4\uD53C\uC790 \uB1CC\uBB3C 2\uD68C + \uAD6D\uB0B4/\uC131\uD615
+      \uBC94\uC8C4\uC790 \uAE08\uAD34 1\uD68C \uB204\uC801"
+  - keys:
+    - ending_id
+    - ending_type
+    - ending_name
+    - score_min
+    - score_max
+    - end_timing
+    - trigger_type
+    - trigger_condition
+    values:
+    - 23
+    - "\uD788\uB4E0"
+    - "\uC0BC\uC911\uAC04\uCCA9"
+    - 
+    - 
+    - "\uD68C\uCC28 \uC885\uB8CC"
+    - COLLECTION
+    - "#22 \uC774\uC911\uAC04\uCCA9 \uC5D4\uB529 3\uD68C \uB204\uC801"

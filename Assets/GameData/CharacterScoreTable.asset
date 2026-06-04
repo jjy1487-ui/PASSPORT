@@ -1,0 +1,2042 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c323a0ef9660c154a8651f898dbe7d24, type: 3}
+  m_Name: CharacterScoreTable
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterScoreTable
+  sheetName: character_score
+  columns:
+  - key: score_id
+    label: "\uC810\uC218ID"
+    type: int
+  - key: character_type
+    label: "\uCE90\uB9AD\uD130\uC720\uD615"
+    type: varchar(30)
+  - key: visit_round
+    label: "\uBC29\uBB38\uD68C\uCC28"
+    type: int
+  - key: doc_state
+    label: "\uC11C\uB958\uC0C1\uD0DC"
+    type: varchar(20)
+  - key: defect_variant
+    label: "\uACB0\uD568\uC138\uBD80"
+    type: varchar(60)
+  - key: branch_key
+    label: "\uBD84\uAE30\uD0A4"
+    type: varchar(40)
+  - key: score
+    label: "\uC810\uC218"
+    type: int
+  - key: score_range
+    label: "\uC810\uC218\uBC94\uC704"
+    type: varchar(30)
+  - key: title
+    label: "\uD638\uCE6D"
+    type: varchar(30)
+  - key: event_id
+    label: "\uC774\uBCA4\uD2B8"
+    type: varchar(10)
+  - key: note
+    label: "\uBE44\uACE0"
+    type: varchar(300)
+  rows:
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 1
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - 
+    - normal
+    - 
+    - approve_correct
+    - 3
+    - 
+    - 
+    - 
+    - "\uAE30\uBCF8 \uD1B5\uACFC"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 2
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - 
+    - normal
+    - 
+    - reject_wrong
+    - -6
+    - 
+    - 
+    - 
+    - "\uAE30\uC874 3\uD68C \uAC15\uC81C \uC785\uAD6D \uAC12 (A\uC548)"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 3
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - 
+    - defect
+    - 
+    - reject_correct
+    - 3
+    - 
+    - 
+    - 
+    - "\uBD88\uB7C9 \uC801\uBC1C"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 4
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - 
+    - defect
+    - 
+    - approve_wrong
+    - -5
+    - 
+    - 
+    - 
+    - "\uC624\uD310 \uD398\uB110\uD2F0"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 5
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+    - 
+    - normal
+    - 
+    - approve_correct
+    - 4
+    - 
+    - 
+    - 
+    - "\uAE30\uBCF8 \uD1B5\uACFC"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 6
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+    - 
+    - normal
+    - 
+    - reject_wrong
+    - -5
+    - 
+    - 
+    - 
+    - "\uAE30\uC874 3\uD68C \uAC15\uC81C \uC785\uAD6D \uAC12 (A\uC548)"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 7
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+    - 
+    - defect
+    - 
+    - reject_correct
+    - 4
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 8
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+    - 
+    - defect
+    - 
+    - approve_wrong
+    - -5
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 9
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - 
+    - normal
+    - 
+    - approve_correct
+    - 5
+    - 
+    - 
+    - 
+    - "\uAE30\uBCF8 \uD1B5\uACFC"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 10
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - 
+    - normal
+    - 
+    - reject_wrong
+    - -8
+    - 
+    - 
+    - 
+    - "\uAE30\uC874 3\uD68C \uAC15\uC81C \uC785\uAD6D \uAC12 (A\uC548)"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 11
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - 
+    - defect
+    - "\uBD84\uC2E4"
+    - reject_correct
+    - 5
+    - 
+    - 
+    - 
+    - "\uC5EC\uAD8C \uBD84\uC2E4 \uC801\uBC1C"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 12
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - 
+    - defect
+    - "\uBD84\uC2E4"
+    - approve_wrong
+    - -7
+    - 
+    - 
+    - 
+    - "\uC2E0\uC6D0 \uBBF8\uD655\uC778 \uD1B5\uACFC"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 13
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - 
+    - defect
+    - "\uCD9C\uAD6DX"
+    - reject_correct
+    - 6
+    - 
+    - 
+    - 
+    - "\uCD9C\uAD6D \uB3C4\uC7A5 X \uC801\uBC1C"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 14
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - 
+    - defect
+    - "\uCD9C\uAD6DX"
+    - approve_wrong
+    - -6
+    - 
+    - 
+    - '#16'
+    - "#16 \uCE74\uC6B4\uD2B8"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 15
+    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+    - 
+    - defect
+    - "\uB9C8\uC2A4\uD06C \uBBF8\uC694\uCCAD"
+    - approve_wrong
+    - -11
+    - 
+    - 
+    - 
+    - "\uB9C8\uC2A4\uD06C \uC548 \uBC97\uAE30\uACE0 \uD1B5\uACFC"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 16
+    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+    - 
+    - defect
+    - "\uC9C0\uBB38 \uBBF8\uC694\uCCAD"
+    - approve_wrong
+    - -10
+    - 
+    - 
+    - 
+    - "\uC2E0\uC6D0 \uBBF8\uD655\uC778 \uD1B5\uACFC"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 17
+    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+    - 
+    - defect
+    - "\uBABD\uD0C0\uC8FCO + \uBC94\uC778 \uC544\uB2D8"
+    - approve_correct
+    - 10
+    - 
+    - "\uC6B0\uC218 \uC0AC\uC6D0"
+    - 
+    - "\uC815\uB2F5 \uD1B5\uACFC (\uC6B0\uC218 \uC0AC\uC6D0 \uD638\uCE6D)"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 18
+    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+    - 
+    - defect
+    - "\uBABD\uD0C0\uC8FCX"
+    - approve_wrong
+    - -9
+    - 
+    - 
+    - 
+    - "\uBCC0\uC7A5 \uBC94\uC8C4\uC790 \uC785\uAD6D \uAC00\uB2A5\uC131"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 19
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - 
+    - normal
+    - 1-A
+    - approve_correct
+    - 7
+    - 
+    - 
+    - 
+    - "\uBC31\uC2E0\xB7\uCD9C\uAD6D\xB7\uB9CC\uB8CC OK"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 20
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - 
+    - normal
+    - 1-A
+    - reject_wrong
+    - -9
+    - 
+    - 
+    - 
+    - "\uAE30\uC874 3\uD68C \uAC15\uC81C \uC785\uAD6D \uAC12 (A\uC548)"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 21
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - 
+    - defect
+    - "1-B \uCD9C\uAD6DX/\uB9CC\uB8CC"
+    - reject_correct
+    - 7
+    - 
+    - 
+    - 
+    - "\uBC31\uC2E0O\uC774\uB098 \uC11C\uB958 \uBB38\uC81C"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 22
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - 
+    - defect
+    - "1-B \uCD9C\uAD6DX/\uB9CC\uB8CC"
+    - approve_wrong
+    - -5
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 23
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - 
+    - defect
+    - "1-C \uBC31\uC2E0X"
+    - reject_correct
+    - 3
+    - 
+    - 
+    - 
+    - "\uBC31\uC2E0 \uBBF8\uC811\uC885 \uC801\uBC1C"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 24
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - 
+    - defect
+    - "1-C \uBC31\uC2E0X"
+    - approve_wrong
+    - -6
+    - 
+    - 
+    - '#15'
+    - "#15 \uBC29\uC5ED \uC2E4\uD328 \uCE74\uC6B4\uD2B8"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 25
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - 
+    - defect
+    - "1-D \uBAA8\uB450 \uBBF8\uBE44"
+    - reject_correct
+    - 3
+    - 
+    - 
+    - 
+    - "\uBC31\uC2E0\xB7\uC11C\uB958 \uBAA8\uB450 X"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 26
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - 
+    - defect
+    - "1-D \uBAA8\uB450 \uBBF8\uBE44"
+    - approve_wrong
+    - -6
+    - 
+    - 
+    - '#15'
+    - "#15 \uCE74\uC6B4\uD2B8"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 27
+    - "\uC7A5\uAE30\uCCB4\uB958\uC790"
+    - 
+    - normal
+    - 
+    - approve_correct
+    - 4
+    - 
+    - 
+    - 
+    - "\uCDE8\uC5C5/\uD569\uACA9\uC11C OK"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 28
+    - "\uC7A5\uAE30\uCCB4\uB958\uC790"
+    - 
+    - normal
+    - 
+    - reject_wrong
+    - -7
+    - 
+    - 
+    - 
+    - "\uAE30\uC874 3\uD68C \uAC15\uC81C \uC785\uAD6D \uAC12 (A\uC548)"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 29
+    - "\uC7A5\uAE30\uCCB4\uB958\uC790"
+    - 
+    - defect
+    - 
+    - reject_correct
+    - 6
+    - 
+    - 
+    - 
+    - "\uCD9C\uAD6D \uB3C4\uC7A5 X \uC801\uBC1C"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 30
+    - "\uC7A5\uAE30\uCCB4\uB958\uC790"
+    - 
+    - defect
+    - 
+    - approve_wrong
+    - -6
+    - 
+    - 
+    - '#16'
+    - "#16 \uCE74\uC6B4\uD2B8"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 31
+    - "\uBC94\uC8C4\uC790(\uC131\uD615\uC218\uC220)"
+    - 
+    - defect
+    - 
+    - reject_lucky
+    - 12
+    - 
+    - 
+    - 
+    - "\uC6B4\uC73C\uB85C \uCC28\uB2E8"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 32
+    - "\uBC94\uC8C4\uC790(\uC131\uD615\uC218\uC220)"
+    - 
+    - defect
+    - 
+    - detect_montage_xray_reject
+    - 12
+    - 
+    - "\uCCAD\uB834\uD55C \uC9C1\uC6D0"
+    - 
+    - "\uCD5C\uACE0 \uC801\uBC1C (\uCCAD\uB834\uD55C \uC9C1\uC6D0 \uD638\uCE6D)"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 33
+    - "\uBC94\uC8C4\uC790(\uC131\uD615\uC218\uC220)"
+    - 
+    - defect
+    - 
+    - approve_wrong_no_montage
+    - -9
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 34
+    - "\uBC94\uC8C4\uC790(\uC131\uD615\uC218\uC220)"
+    - 
+    - defect
+    - 
+    - corrupt_accept_drugs
+    - -12
+    - 
+    - 
+    - '#12'
+    - "#12 \uBC1C\uB3D9, \uC989\uC2DC \uC5D4\uB529"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 35
+    - "\uBC94\uC8C4\uC790(\uC678\uAD6D \uB3C4\uD53C\uC790)"
+    - 
+    - defect
+    - 
+    - detect_montage_reject
+    - 7
+    - 
+    - "\uCCAD\uB834\uD55C \uC9C1\uC6D0"
+    - 
+    - "\uCCAD\uB834\uD55C \uC9C1\uC6D0 \uD638\uCE6D"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 36
+    - "\uBC94\uC8C4\uC790(\uC678\uAD6D \uB3C4\uD53C\uC790)"
+    - 
+    - defect
+    - 
+    - approve_wrong_no_montage
+    - -7
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 37
+    - "\uBC94\uC8C4\uC790(\uC678\uAD6D \uB3C4\uD53C\uC790)"
+    - 
+    - defect
+    - 
+    - corrupt_accept_gold
+    - -9
+    - 
+    - 
+    - 
+    - "\uC77C\uC790 \uB05D \uBD80\uD328 \uCEF7\uC52C"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 38
+    - "\uBC94\uC8C4\uC790(\uAD6D\uB0B4 \uC720\uC785\uC790)"
+    - 
+    - defect
+    - 
+    - detect_montage_reject
+    - 10
+    - 
+    - "\uCCAD\uB834\uD55C \uC9C1\uC6D0"
+    - 
+    - "\uCCAD\uB834\uD55C \uC9C1\uC6D0 \uD638\uCE6D"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 39
+    - "\uBC94\uC8C4\uC790(\uAD6D\uB0B4 \uC720\uC785\uC790)"
+    - 
+    - defect
+    - 
+    - approve_wrong_no_montage
+    - -7
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 40
+    - "\uBC94\uC8C4\uC790(\uAD6D\uB0B4 \uC720\uC785\uC790)"
+    - 
+    - defect
+    - 
+    - corrupt_accept_gold
+    - -11
+    - 
+    - 
+    - 
+    - "\uC77C\uC790 \uB05D \uBD80\uD328 \uCEF7\uC52C"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 41
+    - "\uBC94\uC8C4\uC790(\uAD6D\uB0B4 \uC720\uC785\uC790)"
+    - 
+    - defect
+    - 
+    - corrupt_accept_drugs
+    - -11
+    - 
+    - 
+    - '#11'
+    - "#11 \uBC1C\uB3D9, \uC989\uC2DC \uC5D4\uB529"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 42
+    - "\uD14C\uB7EC\uBC94"
+    - 
+    - defect
+    - "\uC0C1\uB2F4"
+    - terror_persuade_confess
+    - 15
+    - 
+    - "\uC804\uBB38 \uD14C\uB7EC \uBC29\uC9C0\uBC18"
+    - 
+    - "\uCD5C\uACE0 \uBCF4\uC0C1, \uC804\uBB38 \uD14C\uB7EC \uBC29\uC9C0\uBC18"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 43
+    - "\uD14C\uB7EC\uBC94"
+    - 
+    - defect
+    - "\uC0C1\uB2F4+\uC2E0\uACE0"
+    - terror_persuade_report_ok
+    - 10
+    - 
+    - "\uACBD\uCC30\uC544\uC800\uC528 \uC5EC\uAE30\uC608\uC694"
+    - 
+    - "\uACBD\uCC30\uC544\uC800\uC528 \uC5EC\uAE30\uC608\uC694"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 44
+    - "\uD14C\uB7EC\uBC94"
+    - 
+    - defect
+    - "\uC0C1\uB2F4"
+    - terror_persuade_then_bomb
+    - 3
+    - 
+    - 
+    - 
+    - "\uBD88\uC758\uC758 \uC0AC\uACE0"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 45
+    - "\uD14C\uB7EC\uBC94"
+    - 
+    - defect
+    - "\uC0C1\uB2F4+\uC2E0\uACE0"
+    - terror_persuade_report_caught_bomb
+    - 2
+    - 
+    - 
+    - 
+    - "\uC798\uBABB\uB41C \uD0C0\uC774\uBC0D"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 46
+    - "\uD14C\uB7EC\uBC94"
+    - 
+    - defect
+    - "\uBB34\uAD00\uC2EC"
+    - terror_ignore_then_persuade
+    - 8
+    - 
+    - 
+    - 
+    - "\uAD6C\uC0AC\uC77C\uC0DD"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 47
+    - "\uD14C\uB7EC\uBC94"
+    - 
+    - defect
+    - "\uBB34\uAD00\uC2EC"
+    - terror_ignore_then_bomb
+    - 1
+    - 
+    - 
+    - 
+    - "\uACBD\uCCAD\uC758 \uC911\uC694\uC131"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 48
+    - "\uD14C\uB7EC\uBC94"
+    - 
+    - defect
+    - "\uC2E0\uACE0"
+    - terror_ignore_subdue_ok
+    - 0
+    - 
+    - 
+    - 
+    - "\uC778\uAC04 \uBC29\uC5B4\uB9C9"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 49
+    - "\uD14C\uB7EC\uBC94"
+    - 
+    - defect
+    - "\uC2E0\uACE0"
+    - terror_ignore_subdue_fail
+    - -2
+    - 
+    - 
+    - 
+    - "\uC6B4\uB3D9 \uC880 \uD560\uAC78"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 50
+    - "\uD14C\uB7EC\uBC94"
+    - 
+    - defect
+    - "\uC2E0\uACE0"
+    - terror_ignore_report_caught_bomb
+    - -4
+    - 
+    - 
+    - 
+    - "\uC608\uACAC\uB41C \uC0AC\uACE0 (\uCD5C\uC545)"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 51
+    - "\uC0AC\uC774\uBE44 \uC2E0\uB3C4"
+    - 1
+    - normal
+    - 
+    - cult_yyy
+    - 9
+    - 
+    - 
+    - 
+    - "\uC758\uBB38\uC758 \uC885\uAD50 \uBB3C\uD488"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 52
+    - "\uC0AC\uC774\uBE44 \uC2E0\uB3C4"
+    - 1
+    - normal
+    - 
+    - cult_partial_yes
+    - 6
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 53
+    - "\uC0AC\uC774\uBE44 \uC2E0\uB3C4"
+    - 1
+    - normal
+    - 
+    - cult_all_no
+    - 0
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 54
+    - "\uC0AC\uC774\uBE44 \uC2E0\uB3C4"
+    - 1
+    - normal
+    - 
+    - cult_reject
+    - 0
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 55
+    - "\uC0AC\uC774\uBE44 \uC2E0\uB3C4"
+    - 2
+    - normal
+    - 
+    - cult_best_combo
+    - 9
+    - 
+    - "\uC2A4\uBA70\uB4E4\uAE30"
+    - 
+    - "\uD638\uCE6D '\uC2A4\uBA70\uB4E4\uAE30'"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 56
+    - "\uC0AC\uC774\uBE44 \uC2E0\uB3C4"
+    - 2
+    - normal
+    - 
+    - cult_other_combo
+    - 
+    - 0~+6
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 57
+    - "\uC0AC\uC774\uBE44 \uC2E0\uB3C4"
+    - 3
+    - normal
+    - 
+    - cult_yyy_brainwash
+    - 10
+    - 
+    - "\uC0C8\uB1CC"
+    - '#13'
+    - "#13 \uD3EC\uAD50 \uC131\uACF5 \uBC1C\uB3D9"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 58
+    - "\uC0AC\uC774\uBE44 \uC2E0\uB3C4"
+    - 3
+    - normal
+    - 
+    - cult_nyy_follower
+    - 7
+    - 
+    - "\uC2E0\uC885 \uCD94\uC885\uC790"
+    - '#14'
+    - "#14 \uB09C \uB3C8\uC744 \uBBFF\uC5B4 \uBC1C\uB3D9"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 59
+    - "\uC0AC\uC774\uBE44 \uC2E0\uB3C4"
+    - 3
+    - normal
+    - 
+    - cult_other_combo
+    - 
+    - 0~+5
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 60
+    - "\uAF2C\uB9C8"
+    - 
+    - normal
+    - 
+    - approve_with_step
+    - 3
+    - 
+    - 
+    - 
+    - "\uB9DB\uC788\uB294 \uC0AC\uD0D5 \uC544\uC774\uD15C \uD68D\uB4DD"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 61
+    - "\uAF2C\uB9C8"
+    - 
+    - normal
+    - 
+    - approve_no_step
+    - 3
+    - 
+    - 
+    - 
+    - "\uB2E8\uC21C \uD1B5\uACFC"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 62
+    - "\uD2B9\uC218(\uD604\uC790)\u2605"
+    - 
+    - normal
+    - "\uBB3C\uC9C8+\uC131\uCDE8+\uC138\uACC4"
+    - approve_sage_item
+    - 0
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 63
+    - "\uD2B9\uC218(\uD604\uC790)\u2605"
+    - 
+    - normal
+    - "\uBB3C\uC9C8+\uC131\uCDE8+\uC6B0\uB9AC\uB098\uB77C"
+    - approve_sage_item
+    - 0
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 64
+    - "\uD2B9\uC218(\uD604\uC790)\u2605"
+    - 
+    - normal
+    - "\uBB3C\uC9C8+\uC0AC\uB791+\uAC00\uC871"
+    - approve_sage_item
+    - 0
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 65
+    - "\uD2B9\uC218(\uD604\uC790)\u2605"
+    - 
+    - normal
+    - "\uBB3C\uC9C8+\uC0AC\uB791+\uB098"
+    - approve_sage_item
+    - 0
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 66
+    - "\uD2B9\uC218(\uD604\uC790)\u2605"
+    - 
+    - normal
+    - "\uC815\uC2E0+\uC790\uC720+\uC138\uACC4"
+    - approve_sage_item
+    - 0
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 67
+    - "\uD2B9\uC218(\uD604\uC790)\u2605"
+    - 
+    - normal
+    - "\uC815\uC2E0+\uC790\uC720+\uC6B0\uB9AC\uB098\uB77C"
+    - approve_sage_item
+    - 0
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 68
+    - "\uD2B9\uC218(\uD604\uC790)\u2605"
+    - 
+    - normal
+    - "\uC815\uC2E0+\uB3C8+\uAC00\uC871"
+    - approve_sage_item
+    - 0
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 69
+    - "\uD2B9\uC218(\uD604\uC790)\u2605"
+    - 
+    - normal
+    - "\uC815\uC2E0+\uB3C8+\uB098"
+    - approve_sage_item
+    - 0
+    - 
+    - "\uD574\uD0C8\uD55C \uC790"
+    - 
+    - "\uB204\uC801 8\uD68C \uC2DC '\uD574\uD0C8\uD55C \uC790' \uD638\uCE6D"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 70
+    - "\uD2B9\uC218(\uC5F0\uC608\uC778)\u2605"
+    - 
+    - normal
+    - "\uC5BC\uAD74O"
+    - approve_correct
+    - 4
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 71
+    - "\uD2B9\uC218(\uC5F0\uC608\uC778)\u2605"
+    - 
+    - normal
+    - "\uC5BC\uAD74O"
+    - reject_accrue_1
+    - -2
+    - 
+    - 
+    - 
+    - "\uB9C8\uC2A4\uD06C \uBC97\uAE30 \uC694\uCCAD \uD2B8\uB9AC"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 72
+    - "\uD2B9\uC218(\uC5F0\uC608\uC778)\u2605"
+    - 
+    - normal
+    - "\uC5BC\uAD74O"
+    - reject_accrue_2
+    - -4
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 73
+    - "\uD2B9\uC218(\uC5F0\uC608\uC778)\u2605"
+    - 
+    - normal
+    - "\uC5BC\uAD74O"
+    - approve_after_reject_3
+    - -6
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 74
+    - "\uD2B9\uC218(\uC5F0\uC608\uC778)\u2605"
+    - 
+    - normal
+    - "\uC5BC\uAD74X \uB9C8\uC2A4\uD06C"
+    - mask_request_turn_1
+    - 1
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 75
+    - "\uD2B9\uC218(\uC5F0\uC608\uC778)\u2605"
+    - 
+    - normal
+    - "\uC5BC\uAD74X \uB9C8\uC2A4\uD06C"
+    - mask_request_turn_2
+    - 1
+    - "+1 \uCD94\uAC00"
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 76
+    - "\uD2B9\uC218(\uC5F0\uC608\uC778)\u2605"
+    - 
+    - normal
+    - "\uC5BC\uAD74X \uB9C8\uC2A4\uD06C"
+    - scandal_third_turn
+    - 
+    - "(\uC774\uBCA4\uD2B8)"
+    - 
+    - 
+    - "\uB2E4\uC74C \uB0A0 \uC778\uC131 \uB17C\uB780 \uB274\uC2A4"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 77
+    - "\uD2B9\uC218(\uC5F0\uC608\uC778)\u2605"
+    - 
+    - normal
+    - "\uB9E4\uB2C8\uC800 \uB300\uB9AC"
+    - proxy_self_request
+    - 2
+    - 
+    - 
+    - 
+    - "\uBD84\uAE30 1\uB85C \uC774\uB3D9"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 78
+    - "\uD2B9\uC218(\uC815\uCE58\uC778)\u2605"
+    - 
+    - normal
+    - "\uBCF8\uC778 \uC5BC\uAD74O"
+    - approve_correct
+    - 5
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 79
+    - "\uD2B9\uC218(\uC815\uCE58\uC778)\u2605"
+    - 
+    - normal
+    - "\uBCF8\uC778 \uC5BC\uAD74O"
+    - reject_accrue_1
+    - -2
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 80
+    - "\uD2B9\uC218(\uC815\uCE58\uC778)\u2605"
+    - 
+    - normal
+    - "\uBCF8\uC778 \uC5BC\uAD74O"
+    - reject_accrue_2
+    - -4
+    - 
+    - 
+    - 
+    - 
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 81
+    - "\uD2B9\uC218(\uC815\uCE58\uC778)\u2605"
+    - 
+    - normal
+    - "\uBCF8\uC778 \uC5BC\uAD74O"
+    - approve_after_reject_3
+    - -7
+    - 
+    - 
+    - 
+    - "\uC815\uCE58\uC778 \uC778\uC131 \uB17C\uB780 \uCEF7\uC52C"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 82
+    - "\uD2B9\uC218(\uC815\uCE58\uC778)\u2605"
+    - 
+    - normal
+    - "\uBCF4\uC88C\uAD00 \uB300\uB9AC"
+    - proxy_self_request
+    - 3
+    - 
+    - 
+    - 
+    - "\uBD84\uAE30 1\uB85C \uC774\uB3D9"
+  - keys:
+    - score_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - score
+    - score_range
+    - title
+    - event_id
+    - note
+    values:
+    - 83
+    - "\uD2B9\uC218(\uC815\uCE58\uC778)\u2605"
+    - 
+    - normal
+    - "\uBCF4\uC88C\uAD00 \uB300\uB9AC"
+    - scandal_third_turn
+    - 
+    - "(\uC774\uBCA4\uD2B8)"
+    - 
+    - 
+    - "\uB2E4\uC74C \uB0A0 \uC815\uCE58\uC778 \uC778\uC131 \uB17C\uB780 \uCEF7\uC52C"

@@ -3,8 +3,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-/// <summary>1일차 뉴스 팝업. 이전/다음으로 항목 넘김, 닫기로 종료. 비활성 시작.</summary>
-public sealed class NewsPopup : MonoBehaviour
+/// <summary>
+/// 1일차 뉴스 팝업. 이전/다음으로 항목 넘김, 닫기로 종료. 비활성 시작.
+/// 현재 뉴스의 claims[] 를 클릭 가능한 대조 항목(CrossCheckItemView)으로 노출한다(ICrossCheckProvider).
+/// </summary>
+public sealed class NewsPopup : MonoBehaviour, ICrossCheckProvider
 {
     [Header("UI 참조")]
     [SerializeField] private GameObject _root;
@@ -15,8 +18,16 @@ public sealed class NewsPopup : MonoBehaviour
     [SerializeField] private Button _nextButton;
     [SerializeField] private Button _closeButton;
 
+    [Header("교차 대조 단서(선택)")]
+    [SerializeField] private Transform _claimContainer;       // 단서 위젯 부모(VerticalLayoutGroup 권장)
+    [SerializeField] private CrossCheckItemView _claimTemplate; // 비활성 템플릿
+
     private IReadOnlyList<NewsData> _items;
     private int _index;
+    private readonly List<CrossCheckItemView> _claimViews = new List<CrossCheckItemView>();
+
+    /// <summary>selectable 구성 변경 통지.</summary>
+    public event System.Action OnSelectablesChanged;
 
     private void Awake()
     {
@@ -45,7 +56,9 @@ public sealed class NewsPopup : MonoBehaviour
     /// <summary>팝업을 닫는다.</summary>
     public void Close()
     {
+        ClearClaims();
         if (_root != null) _root.SetActive(false);
+        OnSelectablesChanged?.Invoke();
     }
 
     private void Prev()
@@ -69,5 +82,49 @@ public sealed class NewsPopup : MonoBehaviour
         if (_titleText != null) _titleText.text = item.title;
         if (_contentText != null) _contentText.text = item.content;
         if (_pageText != null) _pageText.text = $"{_index + 1} / {_items.Count}";
+
+        BuildClaims(item);
+    }
+
+    // ── 교차 대조 단서 ───────────────────────────────────────────
+    private void BuildClaims(NewsData item)
+    {
+        ClearClaims();
+
+        if (_claimContainer == null || _claimTemplate == null || item.claims == null)
+        {
+            OnSelectablesChanged?.Invoke();
+            return;
+        }
+
+        foreach (Claim c in item.claims)
+        {
+            if (c == null || string.IsNullOrEmpty(c.attr)) continue;
+            CrossCheckItemView v = Instantiate(_claimTemplate, _claimContainer);
+            v.gameObject.SetActive(true);
+            v.Bind("뉴스", c.attr, c.value, c.label, c.label, c.unlocksScan);
+            _claimViews.Add(v);
+        }
+
+        OnSelectablesChanged?.Invoke();
+    }
+
+    private void ClearClaims()
+    {
+        foreach (CrossCheckItemView v in _claimViews)
+        {
+            if (v != null) Destroy(v.gameObject);
+        }
+        _claimViews.Clear();
+    }
+
+    // ── ICrossCheckProvider ──────────────────────────────────────
+    public IEnumerable<ICrossCheckSelectable> GetSelectables()
+    {
+        if (_root == null || !_root.activeInHierarchy) yield break;
+        foreach (CrossCheckItemView v in _claimViews)
+        {
+            if (v != null) yield return v;
+        }
     }
 }

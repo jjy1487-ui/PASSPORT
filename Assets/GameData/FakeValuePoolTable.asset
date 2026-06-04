@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e6db164c381ff4a86644f3bf9f42b2, type: 3}
+  m_Name: FakeValuePoolTable
+  m_EditorClassIdentifier: Assembly-CSharp::FakeValuePoolTable
+  sheetName: fake_value_pool
+  columns:
+  - key: pool_id
+    label: 
+    type: 
+  - key: field
+    label: "\uB300\uC0C1\uD544\uB4DC"
+    type: 
+  - key: fake_value
+    label: "\uAC00\uC9DC\uAC12"
+    type: 
+  - key: note
+    label: "\uC124\uBA85"
+    type: 
+  rows:
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 1
+    - company_name
+    - "(\uC8FC)\uC720\uB839\uC0C1\uC0AC"
+    - "\uBBF8\uB4F1\uB85D \uC720\uB839\uD68C\uC0AC"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 2
+    - company_name
+    - "\uD398\uC774\uD37C\uCEF4\uD37C\uB2C8(\uC8FC)"
+    - "\uC11C\uB958\uC0C1 \uD68C\uC0AC"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 3
+    - company_name
+    - "\uD55C\uBC24\uBB3C\uB958(\uBBF8\uB4F1\uB85D)"
+    - "\uC0AC\uC5C5\uC790 \uBBF8\uB4F1\uB85D"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 4
+    - company_name
+    - "(\uC8FC)\uADF8\uB9BC\uC790\uBB34\uC5ED"
+    - "\uD3D0\uC5C5 \uC0C1\uD0DC"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 5
+    - lab_name
+    - "\uD035\uBA54\uB514 \uC0AC\uC124\uB7A9"
+    - "\uBB34\uC778\uC99D \uC0AC\uC124"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 6
+    - lab_name
+    - "24\uC2DC \uC775\uBA85\uAC80\uC0AC\uC18C"
+    - "\uAC80\uC5ED \uBBF8\uC778\uC99D"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 7
+    - lab_name
+    - "\uBB34\uD5C8\uAC00\uAC80\uC9C4\uC13C\uD130"
+    - "\uD5C8\uAC00 \uC5C6\uC74C"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 8
+    - nationality
+    - USA
+    - "\uBC1C\uAE09\uAD6D \uC704\uC870(\uC544\uC77C\uB79C\uB4DC)"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 9
+    - nationality
+    - JPN
+    - "\uBC1C\uAE09\uAD6D \uC704\uC870(\uD3EC\uB974\uD22C\uAC08)"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 10
+    - nationality
+    - CHN
+    - "\uBC1C\uAE09\uAD6D \uC704\uC870(\uBCA8\uAE30\uC5D0)"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 11
+    - nationality
+    - KOR
+    - "\uBC1C\uAE09\uAD6D \uC704\uC870(\uCE74\uC790\uD750\uC2A4\uD0C4)"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 12
+    - passport_no
+    - '##INVALID_PATTERN##'
+    - "\uD615\uC2DD/\uCCB4\uD06C\uC12C \uBD88\uC77C\uCE58 \uBC88\uD638 \uC0DD\uC131"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 13
+    - result
+    - Positive
+    - "PCR \uC591\uC131"

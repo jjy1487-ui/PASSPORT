@@ -1,0 +1,241 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 383c8907adba8ee42a3e37a9338b45fc, type: 3}
+  m_Name: RuleSectionTable
+  m_EditorClassIdentifier: Assembly-CSharp::RuleSectionTable
+  sheetName: rule_section
+  columns:
+  - key: section_id
+    label: "\uC139\uC158ID"
+    type: int
+  - key: tab
+    label: "\uD0ED"
+    type: varchar(20)
+  - key: tab_order
+    label: "\uD0ED\uC21C\uC11C"
+    type: int
+  - key: category
+    label: "\uD56D\uBAA9"
+    type: varchar(30)
+  - key: category_order
+    label: "\uD56D\uBAA9\uC21C\uC11C"
+    type: int
+  - key: title
+    label: "\uC81C\uBAA9"
+    type: varchar(60)
+  - key: body
+    label: "\uBCF8\uBB38"
+    type: text
+  - key: image_ref
+    label: "\uC774\uBBF8\uC9C0\uD0A4"
+    type: varchar(60)
+  - key: content_type
+    label: "\uB0B4\uC6A9\uC720\uD615"
+    type: varchar(10)
+  - key: unlock_day
+    label: "\uB178\uCD9C\uC77C\uC790"
+    type: int
+  - key: priority
+    label: "\uC6B0\uC120\uC21C\uC704"
+    type: int
+  - key: related_field
+    label: "\uC5F0\uACC4\uD544\uB4DC"
+    type: varchar(30)
+  - key: note
+    label: "\uBE44\uACE0"
+    type: varchar(120)
+  rows:
+  - keys:
+    - section_id
+    - tab
+    - tab_order
+    - category
+    - category_order
+    - title
+    - body
+    - image_ref
+    - content_type
+    - unlock_day
+    - priority
+    - related_field
+    - note
+    values:
+    - 1
+    - "\uAE30\uBCF8"
+    - 1
+    - "\uAE30\uBCF8 \uADDC\uC815"
+    - 1
+    - "\uAE30\uBCF8 \uC785\uAD6D \uADDC\uC815"
+    - "\uBAA8\uB4E0 \uC785\uAD6D\uC790\uB294 \uC720\uD6A8\uD55C \uC5EC\uAD8C\uC744
+      \uC81C\uC2DC\uD574\uC57C \uD55C\uB2E4. \uBBF8\uC81C\uCD9C\xB7\uC11C\uB958 \uACB0\uD568
+      \uC2DC \uAC70\uBD80."
+    - rb_passport
+    - both
+    - 1
+    - 0
+    - "\uC5EC\uAD8C"
+    - 
+  - keys:
+    - section_id
+    - tab
+    - tab_order
+    - category
+    - category_order
+    - title
+    - body
+    - image_ref
+    - content_type
+    - unlock_day
+    - priority
+    - related_field
+    - note
+    values:
+    - 2
+    - "\uAE30\uBCF8"
+    - 1
+    - "\uD2B9\uBCC4 \uC9C0\uC2DC"
+    - 2
+    - "\uD2B9\uBCC4 \uC9C0\uC2DC(\uB2F9\uC77C \uBE0C\uB9AC\uD551)"
+    - "\uB274\uC2A4\xB7\uBE0C\uB9AC\uD551\uC73C\uB85C \uB0B4\uB824\uC624\uB294 \uB2F9\uC77C
+      \uC9C0\uC2DC\uB294 \uAE30\uC874 \uADDC\uC815\uBCF4\uB2E4 \uC6B0\uC120 \uC801\uC6A9\uD55C\uB2E4(\uC608:
+      \uD2B9\uC815 \uAD6D\uC801 \uC81C\uD55C, \uAC80\uC5ED \uAC15\uD654). \uADF8\uB0A0\uC758
+      \uC9C0\uC2DC\uB294 \uADDC\uC815\uC9D1\uC774 \uC544\uB2C8\uB77C \uBE0C\uB9AC\uD551\uC744
+      \uD655\uC778\uD560 \uAC83."
+    - 
+    - text
+    - 1
+    - 10
+    - 
+    - "\uB2F9\uC77C \uBE0C\uB9AC\uD551(dayN rules) \uC6B0\uC120"
+  - keys:
+    - section_id
+    - tab
+    - tab_order
+    - category
+    - category_order
+    - title
+    - body
+    - image_ref
+    - content_type
+    - unlock_day
+    - priority
+    - related_field
+    - note
+    values:
+    - 3
+    - "\uC11C\uB958"
+    - 2
+    - "\uC2E0\uBD84 \uD655\uC778"
+    - 1
+    - "\uC2E0\uBD84(\uBCF8\uC778) \uD655\uC778"
+    - "\uC5EC\uAD8C\uC758 \uC0AC\uC9C4\xB7\uC131\uBCC4\xB7\uC0DD\uB144\uC6D4\uC77C\uC774
+      \uBCF8\uC778\uACFC \uC77C\uCE58\uD574\uC57C \uD55C\uB2E4. \uC0AC\uC9C4\uACFC
+      \uC678\uBAA8\uAC00 \uB2E4\uB974\uBA74 \uC9C0\uBB38 \uC778\uC2DD\uC73C\uB85C
+      \uD655\uC778."
+    - rb_identity
+    - both
+    - 1
+    - 0
+    - "\uC0AC\uC9C4"
+    - 
+  - keys:
+    - section_id
+    - tab
+    - tab_order
+    - category
+    - category_order
+    - title
+    - body
+    - image_ref
+    - content_type
+    - unlock_day
+    - priority
+    - related_field
+    - note
+    values:
+    - 4
+    - "\uC11C\uB958"
+    - 2
+    - "\uC5EC\uAD8C \uC720\uD6A8\uAE30\uAC04"
+    - 2
+    - "\uC5EC\uAD8C \uC720\uD6A8\uAE30\uAC04"
+    - "\uC785\uAD6D\uC77C \uAE30\uC900 \uB9CC\uB8CC\uC77C\uC774 \uC9C0\uB09C \uC5EC\uAD8C\uC740
+      \uC785\uAD6D \uBD88\uAC00. \uBC1C\uAE09\uC77C\uC774 \uBBF8\uB798\uC778 \uC5EC\uAD8C\uC740
+      \uC704\uC870 \uC758\uC2EC."
+    - 
+    - text
+    - 4
+    - 0
+    - "\uC720\uD6A8\uAE30\uAC04"
+    - 
+  - keys:
+    - section_id
+    - tab
+    - tab_order
+    - category
+    - category_order
+    - title
+    - body
+    - image_ref
+    - content_type
+    - unlock_day
+    - priority
+    - related_field
+    - note
+    values:
+    - 5
+    - "\uC11C\uB958"
+    - 2
+    - "\uAD6D\uC801\uBCC4 \uC870\uAC74"
+    - 3
+    - "\uAD6D\uC801\uBCC4 \uC785\uAD6D \uC870\uAC74"
+    - "\uC678\uAD6D \uAD6D\uC801\uC790\uB294 \uC720\uD6A8\uD55C \uBE44\uC790 \uD544\uC218(3\uC77C\uCC28~).
+      \uC5EC\uAD8C \uBC1C\uAE09\uAD6D\xB7\uAD6D\uC801\xB7\uBE44\uC790\uAC00 \uC77C\uCE58\uD574\uC57C
+      \uD55C\uB2E4. \uC5EC\uAD8C\uBC88\uD638\uB294 \uBC1C\uAE09\uAD6D \uD615\uC2DD\uACFC
+      \uC77C\uCE58. \uC7A5\uAE30\uCCB4\uB958\uC790\uB294 \uCDE8\uC5C5/\uD569\uACA9
+      \uC99D\uBA85 \uD544\uC694."
+    - rb_visa
+    - both
+    - 3
+    - 0
+    - "\uAD6D\uC801"
+    - 
+  - keys:
+    - section_id
+    - tab
+    - tab_order
+    - category
+    - category_order
+    - title
+    - body
+    - image_ref
+    - content_type
+    - unlock_day
+    - priority
+    - related_field
+    - note
+    values:
+    - 6
+    - "\uBB3C\uD488"
+    - 3
+    - "\uAE08\uC9C0 \uBB3C\uD488"
+    - 1
+    - "\uBC18\uC785 \uAE08\uC9C0 \uBB3C\uD488"
+    - "\uB9C8\uC57D\xB7\uBC00\uC218\uD488\xB7\uAE08\uAD34 \uB4F1 \uBC18\uC785 \uBD88\uAC00.
+      X-ray \uC815\uBC00 \uAC80\uC0AC\uB85C \uC801\uBC1C. \uAE08\uC9C0 \uBB3C\uD488
+      \uC218\uB839 \uC2DC \uACF5\uBC94\uC73C\uB85C \uAC04\uC8FC(\uC989\uC2DC \uCC98\uBC8C)."
+    - rb_contraband
+    - both
+    - 11
+    - 0
+    - "\uBB3C\uD488"
+    - 

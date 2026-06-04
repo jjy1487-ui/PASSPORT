@@ -1,0 +1,383 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce27c4f225dc9154ab3655d419f28235, type: 3}
+  m_Name: PcrTestTable
+  m_EditorClassIdentifier: Assembly-CSharp::PcrTestTable
+  sheetName: pcr_test
+  columns:
+  - key: pcr_id
+    label: PCR ID
+    type: int
+  - key: customer_id
+    label: "\uACE0\uAC1D ID"
+    type: int
+  - key: test_no
+    label: "\uAC80\uC0AC \uBC88\uD638"
+    type: varchar(30)
+  - key: test_date
+    label: "\uAC80\uC0AC\uC77C"
+    type: date
+  - key: result
+    label: "\uAC80\uC0AC \uACB0\uACFC"
+    type: varchar(20)
+  - key: valid_until
+    label: "\uC720\uD6A8 \uAE30\uD55C"
+    type: date
+  - key: lab_name
+    label: "\uAC80\uC0AC \uAE30\uAD00"
+    type: varchar(50)
+  - key: memo
+    label: "\uBE44\uACE0"
+    type: varchar(200)
+  rows:
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 1
+    - 4
+    - PCR-ES-2024A
+    - 2025-06-26
+    - "\uC74C\uC131"
+    - 2025-06-29
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - "\uB9C8\uB9AC\uC544 \uC815\uC0C1 \uC74C\uC131"
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 3
+    - 1
+    - PCR-001
+    - 2026-05-20
+    - Negative
+    - 2026-06-20
+    - "\uD55C\uAD6D\uACF5\uD56D\uAC80\uC5ED\uBCF8\uBD80"
+    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 4
+    - 5
+    - PCR-005
+    - 2026-05-20
+    - Negative
+    - 2026-06-17
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 5
+    - 12
+    - PCR-012
+    - 2026-05-28
+    - Negative
+    - 2026-06-18
+    - "\uC0BC\uC131\uC11C\uC6B8\uBCD1\uC6D0\uC9C4\uB2E8\uAC80\uC0AC\uC758\uD559\uACFC"
+    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 6
+    - 13
+    - PCR-013
+    - 2026-05-20
+    - Negative
+    - 2026-06-17
+    - "\uC11C\uC6B8\uC2DC\uB9BD\uBCF4\uAC74\uC5F0\uAD6C\uC6D0"
+    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 7
+    - 14
+    - PCR-014
+    - 2026-06-05
+    - Negative
+    - 2026-06-19
+    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 8
+    - 15
+    - PCR-015
+    - 2026-05-22
+    - Negative
+    - 2026-06-19
+    - "\uC5F0\uC138\uB300\uD559\uAD50\uC758\uB8CC\uC6D0\uAC80\uC0AC\uC13C\uD130"
+    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 9
+    - 19
+    - PCR-019
+    - 2026-05-24
+    - Negative
+    - 2026-06-14
+    - "\uBD80\uC0B0\uAD6D\uC81C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 10
+    - 21
+    - PCR-021
+    - 2026-06-05
+    - Negative
+    - 2026-06-26
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 11
+    - 23
+    - PCR-023
+    - 2026-05-24
+    - Negative
+    - 2026-06-14
+    - "\uD55C\uAD6D\uACF5\uD56D\uAC80\uC5ED\uBCF8\uBD80"
+    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 12
+    - 24
+    - PCR-024
+    - 2026-05-26
+    - Negative
+    - 2026-06-16
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 13
+    - 25
+    - PCR-025
+    - 2026-05-28
+    - Negative
+    - 2026-06-14
+    - "\uC0BC\uC131\uC11C\uC6B8\uBCD1\uC6D0\uC9C4\uB2E8\uAC80\uC0AC\uC758\uD559\uACFC"
+    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 14
+    - 26
+    - PCR-026
+    - 2026-06-02
+    - Negative
+    - 2026-06-16
+    - "\uC11C\uC6B8\uC2DC\uB9BD\uBCF4\uAC74\uC5F0\uAD6C\uC6D0"
+    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 15
+    - 27
+    - PCR-027
+    - 2026-05-20
+    - Negative
+    - 2026-06-17
+    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 16
+    - 28
+    - PCR-028
+    - 2026-05-30
+    - Negative
+    - 2026-06-20
+    - "\uC5F0\uC138\uB300\uD559\uAD50\uC758\uB8CC\uC6D0\uAC80\uC0AC\uC13C\uD130"
+    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 17
+    - 29
+    - PCR-029
+    - 2026-06-05
+    - Negative
+    - 2026-06-26
+    - "\uBD80\uC0B0\uAD6D\uC81C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 18
+    - 31
+    - PCR-031
+    - 2026-05-26
+    - Negative
+    - 2026-06-16
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 19
+    - 32
+    - PCR-032
+    - 2026-06-02
+    - Negative
+    - 2026-06-23
+    - "\uD55C\uAD6D\uACF5\uD56D\uAC80\uC5ED\uBCF8\uBD80"
+    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - memo
+    values:
+    - 20
+    - 33
+    - PCR-033
+    - 2026-06-05
+    - Negative
+    - 2026-06-19
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - "\uC815\uC0C1 PCR(\uC74C\uC131)"

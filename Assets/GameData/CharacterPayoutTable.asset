@@ -1,0 +1,1919 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89437819c16c4d84ead802e3438b1163, type: 3}
+  m_Name: CharacterPayoutTable
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterPayoutTable
+  sheetName: character_payout
+  columns:
+  - key: payout_id
+    label: "\uC9C0\uAE09ID"
+    type: int
+  - key: character_type
+    label: "\uCE90\uB9AD\uD130\uC720\uD615"
+    type: varchar(30)
+  - key: visit_round
+    label: "\uBC29\uBB38\uD68C\uCC28"
+    type: int
+  - key: doc_state
+    label: "\uC11C\uB958\uC0C1\uD0DC"
+    type: varchar(20)
+  - key: defect_variant
+    label: "\uACB0\uD568\uC138\uBD80"
+    type: varchar(60)
+  - key: branch_key
+    label: "\uBD84\uAE30\uD0A4"
+    type: varchar(40)
+  - key: base_tier
+    label: "\uAE30\uBCF8\uAE08\uC561"
+    type: int
+  - key: bounty
+    label: "\uD3EC\uC0C1\uAE08"
+    type: int
+  - key: payout
+    label: "\uC9C0\uAE09\uAE08\uC561"
+    type: int
+  - key: formula
+    label: "\uC0B0\uC2DD"
+    type: varchar(60)
+  - key: item_drop
+    label: "\uC544\uC774\uD15C\uB4DC\uB86D"
+    type: varchar(30)
+  - key: early_ending
+    label: "\uC870\uAE30\uC5D4\uB529"
+    type: varchar(10)
+  - key: appears_round1
+    label: "1\uD68C\uCC28\uB4F1\uC7A5"
+    type: bool
+  - key: note
+    label: "\uBE44\uACE0"
+    type: varchar(300)
+  rows:
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 1
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - 
+    - normal
+    - 
+    - approve_correct
+    - 100
+    - 0
+    - 100
+    - 100
+    - 
+    - 
+    - true
+    - "\uAE30\uBCF8 \uD1B5\uACFC"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 2
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - 
+    - normal
+    - 
+    - reject_wrong
+    - 100
+    - 0
+    - -50
+    - "100 \xD7 (-0.5)"
+    - 
+    - 
+    - true
+    - "\uBC8C\uAE08 (B\uC548 \uC801\uC6A9)"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 3
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - 
+    - defect
+    - 
+    - reject_correct
+    - 100
+    - 0
+    - 100
+    - 100
+    - 
+    - 
+    - true
+    - "\uBD88\uB7C9 \uC801\uBC1C"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 4
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - 
+    - defect
+    - 
+    - approve_wrong
+    - 100
+    - 0
+    - -50
+    - "100 \xD7 (-0.5)"
+    - 
+    - 
+    - true
+    - "\uC624\uD310 \uBC8C\uAE08"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 5
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+    - 
+    - normal
+    - 
+    - approve_correct
+    - 100
+    - 0
+    - 100
+    - 100
+    - 
+    - 
+    - true
+    - "\uAE30\uBCF8 \uD1B5\uACFC"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 6
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+    - 
+    - normal
+    - 
+    - reject_wrong
+    - 100
+    - 0
+    - -50
+    - "100 \xD7 (-0.5)"
+    - 
+    - 
+    - true
+    - "\uBC8C\uAE08"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 7
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+    - 
+    - defect
+    - 
+    - reject_correct
+    - 100
+    - 0
+    - 100
+    - 100
+    - 
+    - 
+    - true
+    - 
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 8
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+    - 
+    - defect
+    - 
+    - approve_wrong
+    - 100
+    - 0
+    - -50
+    - "100 \xD7 (-0.5)"
+    - 
+    - 
+    - true
+    - "\uC624\uD310 \uBC8C\uAE08"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 9
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - 
+    - normal
+    - 
+    - approve_correct
+    - 100
+    - 0
+    - 100
+    - 100
+    - 
+    - 
+    - true
+    - "\uAE30\uBCF8 \uD1B5\uACFC"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 10
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - 
+    - normal
+    - 
+    - reject_wrong
+    - 100
+    - 0
+    - -50
+    - "100 \xD7 (-0.5)"
+    - 
+    - 
+    - true
+    - "\uBC8C\uAE08"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 11
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - 
+    - defect
+    - "\uBD84\uC2E4"
+    - reject_correct
+    - 100
+    - 0
+    - 100
+    - 100
+    - 
+    - 
+    - true
+    - "\uC5EC\uAD8C \uBD84\uC2E4 \uC801\uBC1C"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 12
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - 
+    - defect
+    - "\uBD84\uC2E4"
+    - approve_wrong
+    - 100
+    - 0
+    - -50
+    - "100 \xD7 (-0.5)"
+    - 
+    - 
+    - true
+    - "\uC2E0\uC6D0 \uBBF8\uD655\uC778 \uD1B5\uACFC"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 13
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - 
+    - defect
+    - "\uCD9C\uAD6DX"
+    - reject_correct
+    - 100
+    - 0
+    - 100
+    - 100
+    - 
+    - 
+    - true
+    - "\uCD9C\uAD6D \uB3C4\uC7A5 X \uC801\uBC1C"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 14
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - 
+    - defect
+    - "\uCD9C\uAD6DX"
+    - approve_wrong
+    - 100
+    - 0
+    - -50
+    - "100 \xD7 (-0.5)"
+    - 
+    - 
+    - true
+    - "#16 \uCE74\uC6B4\uD2B8"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 15
+    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+    - 
+    - normal
+    - 
+    - approve_immediate
+    - 120
+    - 0
+    - 120
+    - 120
+    - 
+    - 
+    - true
+    - "\uC9C0\uBB38 \uC778\uC2DD \uD1B5\uACFC"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 16
+    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+    - 
+    - normal
+    - 
+    - approve_after_reject_1
+    - 120
+    - 0
+    - 60
+    - "120 \xD7 0.5"
+    - 
+    - 
+    - true
+    - 
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 17
+    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+    - 
+    - normal
+    - 
+    - approve_after_reject_2
+    - 120
+    - 0
+    - 36
+    - "120 \xD7 0.3"
+    - 
+    - 
+    - true
+    - 
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 18
+    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+    - 
+    - normal
+    - 
+    - approve_after_reject_3
+    - 120
+    - 0
+    - 12
+    - "120 \xD7 0.1"
+    - 
+    - 
+    - true
+    - 
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 19
+    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+    - 
+    - defect
+    - 
+    - reject_correct
+    - 120
+    - 0
+    - 120
+    - 120
+    - 
+    - 
+    - true
+    - 
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 20
+    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+    - 
+    - defect
+    - 
+    - approve_wrong
+    - 120
+    - 0
+    - -60
+    - "120 \xD7 (-0.5)"
+    - 
+    - 
+    - true
+    - 
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 21
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - 
+    - normal
+    - 1-A
+    - approve_correct
+    - 140
+    - 0
+    - 140
+    - 140
+    - 
+    - 
+    - true
+    - "\uBC31\uC2E0\xB7\uCD9C\uAD6D\xB7\uB9CC\uB8CC \uBAA8\uB450 OK"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 22
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - 
+    - normal
+    - 1-A
+    - reject_wrong
+    - 140
+    - 0
+    - -70
+    - "140 \xD7 (-0.5)"
+    - 
+    - 
+    - true
+    - "\uBC8C\uAE08"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 23
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - 
+    - defect
+    - "1-B \uCD9C\uAD6DX/\uB9CC\uB8CC"
+    - reject_correct
+    - 140
+    - 0
+    - 140
+    - 140
+    - 
+    - 
+    - true
+    - "\uBC31\uC2E0O\uC774\uB098 \uB2E4\uB978 \uC11C\uB958 \uBB38\uC81C"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 24
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - 
+    - defect
+    - "1-B \uCD9C\uAD6DX/\uB9CC\uB8CC"
+    - approve_wrong
+    - 140
+    - 0
+    - -70
+    - "140 \xD7 (-0.5)"
+    - 
+    - 
+    - true
+    - 
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 25
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - 
+    - defect
+    - "1-C \uBC31\uC2E0X"
+    - reject_correct
+    - 140
+    - 0
+    - 140
+    - 140
+    - 
+    - 
+    - true
+    - "\uBC31\uC2E0 \uBBF8\uC811\uC885 \uC801\uBC1C"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 26
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - 
+    - defect
+    - "1-C \uBC31\uC2E0X"
+    - approve_wrong
+    - 140
+    - 0
+    - -70
+    - "140 \xD7 (-0.5)"
+    - 
+    - 
+    - true
+    - "#15 \uBC29\uC5ED \uC2E4\uD328 \uCE74\uC6B4\uD2B8"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 27
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - 
+    - defect
+    - "1-D \uBAA8\uB450 \uBBF8\uBE44"
+    - reject_correct
+    - 140
+    - 0
+    - 140
+    - 140
+    - 
+    - 
+    - true
+    - "\uBC31\uC2E0\xB7\uC11C\uB958 \uBAA8\uB450 X"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 28
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - 
+    - defect
+    - "1-D \uBAA8\uB450 \uBBF8\uBE44"
+    - approve_wrong
+    - 140
+    - 0
+    - -70
+    - "140 \xD7 (-0.5)"
+    - 
+    - 
+    - true
+    - "#15 \uCE74\uC6B4\uD2B8"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 29
+    - "\uC7A5\uAE30\uCCB4\uB958\uC790"
+    - 
+    - normal
+    - 
+    - approve_correct
+    - 140
+    - 0
+    - 140
+    - 140
+    - 
+    - 
+    - true
+    - "\uCDE8\uC5C5/\uD569\uACA9\uC11C OK"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 30
+    - "\uC7A5\uAE30\uCCB4\uB958\uC790"
+    - 
+    - normal
+    - 
+    - reject_wrong
+    - 140
+    - 0
+    - -70
+    - "140 \xD7 (-0.5)"
+    - 
+    - 
+    - true
+    - "\uBC8C\uAE08"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 31
+    - "\uC7A5\uAE30\uCCB4\uB958\uC790"
+    - 
+    - defect
+    - 
+    - reject_correct
+    - 140
+    - 0
+    - 140
+    - 140
+    - 
+    - 
+    - false
+    - "\uCD9C\uAD6D \uB3C4\uC7A5 X \uC801\uBC1C"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 32
+    - "\uC7A5\uAE30\uCCB4\uB958\uC790"
+    - 
+    - defect
+    - 
+    - approve_wrong
+    - 140
+    - 0
+    - -70
+    - "140 \xD7 (-0.5)"
+    - 
+    - '#16'
+    - false
+    - "#16 \uCE74\uC6B4\uD2B8"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 33
+    - "\uBC94\uC8C4\uC790(\uC131\uD615\uC218\uC220)"
+    - 
+    - defect
+    - 
+    - reject_lucky
+    - 160
+    - 120
+    - 160
+    - "160 (\uD3EC\uC0C1\uAE08 X)"
+    - 
+    - 
+    - true
+    - "\uC6B4\uC73C\uB85C \uCC28\uB2E8"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 34
+    - "\uBC94\uC8C4\uC790(\uC131\uD615\uC218\uC220)"
+    - 
+    - defect
+    - 
+    - detect_montage_xray_reject
+    - 160
+    - 120
+    - 280
+    - "160 + 120 \uD3EC\uC0C1\uAE08"
+    - 
+    - 
+    - true
+    - "\uCD5C\uACE0 \uC801\uBC1C"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 35
+    - "\uBC94\uC8C4\uC790(\uC131\uD615\uC218\uC220)"
+    - 
+    - defect
+    - 
+    - approve_wrong
+    - 160
+    - 120
+    - -80
+    - "160 \xD7 (-0.5)"
+    - 
+    - 
+    - true
+    - 
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 36
+    - "\uBC94\uC8C4\uC790(\uC131\uD615\uC218\uC220)"
+    - 
+    - defect
+    - 
+    - corrupt_accept_drugs
+    - 160
+    - 120
+    - 350
+    - "\uB9C8\uC57D\xB7\uBC00\uC218\uD488"
+    - "\uB9C8\uC57D"
+    - '#12'
+    - false
+    - "#12 \uBC1C\uB3D9"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 37
+    - "\uBC94\uC8C4\uC790(\uC678\uAD6D \uB3C4\uD53C\uC790)"
+    - 
+    - defect
+    - 
+    - reject_lucky
+    - 160
+    - 80
+    - 160
+    - "160 (\uD3EC\uC0C1\uAE08 X)"
+    - 
+    - 
+    - true
+    - "\uC6B4\uC73C\uB85C \uCC28\uB2E8"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 38
+    - "\uBC94\uC8C4\uC790(\uC678\uAD6D \uB3C4\uD53C\uC790)"
+    - 
+    - defect
+    - 
+    - detect_montage_reject
+    - 160
+    - 80
+    - 240
+    - "160 + 80 \uD3EC\uC0C1\uAE08"
+    - 
+    - 
+    - true
+    - "\uC801\uBC1C \uC815\uB2F5"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 39
+    - "\uBC94\uC8C4\uC790(\uC678\uAD6D \uB3C4\uD53C\uC790)"
+    - 
+    - defect
+    - 
+    - approve_wrong
+    - 160
+    - 80
+    - -80
+    - "160 \xD7 (-0.5)"
+    - 
+    - 
+    - true
+    - 
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 40
+    - "\uBC94\uC8C4\uC790(\uC678\uAD6D \uB3C4\uD53C\uC790)"
+    - 
+    - defect
+    - 
+    - corrupt_accept_gold
+    - 160
+    - 80
+    - 500
+    - "\uAE08\uAD34"
+    - "\uAE08\uAD34"
+    - '#11'
+    - false
+    - "#11 \uBC1C\uB3D9"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 41
+    - "\uBC94\uC8C4\uC790(\uC678\uAD6D \uB3C4\uD53C\uC790)"
+    - 
+    - defect
+    - 
+    - corrupt_accept_drugs
+    - 160
+    - 80
+    - 350
+    - "\uB9C8\uC57D\xB7\uBC00\uC218\uD488"
+    - "\uB9C8\uC57D"
+    - '#11'
+    - false
+    - "#11 \uBC1C\uB3D9"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 42
+    - "\uD14C\uB7EC\uBC94"
+    - 
+    - defect
+    - 
+    - terror_persuade_confess
+    - 160
+    - 200
+    - 360
+    - 160 + 200
+    - 
+    - 
+    - true
+    - "\uCD5C\uACE0 \uBCF4\uC0C1"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 43
+    - "\uD14C\uB7EC\uBC94"
+    - 
+    - defect
+    - 
+    - terror_xray_bomb_reject
+    - 160
+    - 200
+    - 360
+    - 160 + 200
+    - 
+    - 
+    - true
+    - "\uCD5C\uACE0 \uBCF4\uC0C1"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 44
+    - "\uD14C\uB7EC\uBC94"
+    - 
+    - defect
+    - 
+    - reject_lucky
+    - 160
+    - 200
+    - 160
+    - "160 (\uD3EC\uC0C1\uAE08 X)"
+    - 
+    - 
+    - true
+    - "\uAE30\uBCF8\uB9CC"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 45
+    - "\uD14C\uB7EC\uBC94"
+    - 
+    - defect
+    - 
+    - approve_wrong
+    - 160
+    - 200
+    - -80
+    - "160 \xD7 (-0.5)"
+    - 
+    - 
+    - true
+    - "\uD14C\uB7EC \uBC1C\uC0DD"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 46
+    - "\uD2B9\uC218(\uC5F0\uC608\uC778)\u2605"
+    - 
+    - normal
+    - 
+    - approve_immediate
+    - 50
+    - 0
+    - 50
+    - 50
+    - 
+    - 
+    - true
+    - "\uAC70\uBD80 \uC120\uC9C0 \uC5C6\uC74C"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 47
+    - "\uD2B9\uC218(\uC5F0\uC608\uC778)\u2605"
+    - 
+    - normal
+    - 
+    - approve_after_reject_1
+    - 50
+    - 0
+    - 25
+    - "50 \xD7 0.5"
+    - 
+    - 
+    - true
+    - 
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 48
+    - "\uD2B9\uC218(\uC5F0\uC608\uC778)\u2605"
+    - 
+    - normal
+    - 
+    - approve_after_reject_2
+    - 50
+    - 0
+    - 15
+    - "50 \xD7 0.3"
+    - 
+    - 
+    - true
+    - 
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 49
+    - "\uD2B9\uC218(\uC5F0\uC608\uC778)\u2605"
+    - 
+    - normal
+    - 
+    - approve_after_reject_3
+    - 50
+    - 0
+    - 5
+    - "50 \xD7 0.1"
+    - 
+    - 
+    - true
+    - 
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 50
+    - "\uD2B9\uC218(\uC815\uCE58\uC778)\u2605"
+    - 
+    - normal
+    - 
+    - approve_immediate
+    - 50
+    - 0
+    - 50
+    - 50
+    - 
+    - 
+    - true
+    - "\uAC70\uBD80 \uC120\uC9C0 \uC5C6\uC74C"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 51
+    - "\uD2B9\uC218(\uC815\uCE58\uC778)\u2605"
+    - 
+    - normal
+    - 
+    - approve_after_reject_1
+    - 50
+    - 0
+    - 25
+    - "50 \xD7 0.5"
+    - 
+    - 
+    - true
+    - 
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 52
+    - "\uD2B9\uC218(\uC815\uCE58\uC778)\u2605"
+    - 
+    - normal
+    - 
+    - approve_after_reject_2
+    - 50
+    - 0
+    - 15
+    - "50 \xD7 0.3"
+    - 
+    - 
+    - true
+    - 
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 53
+    - "\uD2B9\uC218(\uC815\uCE58\uC778)\u2605"
+    - 
+    - normal
+    - 
+    - approve_after_reject_3
+    - 50
+    - 0
+    - 5
+    - "50 \xD7 0.1"
+    - 
+    - 
+    - true
+    - 
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 54
+    - "\uD2B9\uC218(\uD604\uC790)\u2605"
+    - 
+    - normal
+    - 
+    - approve_sage_item
+    - 0
+    - 0
+    - 0
+    - 0
+    - "\uB9C8\uBC95 \uC544\uC774\uD15C"
+    - 
+    - true
+    - "\uB9C8\uBC95 \uC544\uC774\uD15C 8\uC885 \uC911 1 \uB4DC\uB86D"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 55
+    - "\uC0AC\uC774\uBE44 \uC2E0\uB3C4"
+    - 1
+    - normal
+    - 
+    - cult_yyy
+    - 100
+    - 0
+    - 100
+    - 100
+    - 
+    - 
+    - false
+    - "\uC751\uB2F5 \uC870\uD569\uC5D0 \uB530\uB77C \uC810\uC218 \uB2E4\uB984"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 56
+    - "\uC0AC\uC774\uBE44 \uC2E0\uB3C4"
+    - 1
+    - normal
+    - 
+    - cult_other_combo
+    - 100
+    - 0
+    - 100
+    - 100
+    - 
+    - 
+    - false
+    - 
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 57
+    - "\uC0AC\uC774\uBE44 \uC2E0\uB3C4"
+    - 1
+    - normal
+    - 
+    - cult_reject
+    - 100
+    - 0
+    - 100
+    - 100
+    - 
+    - 
+    - false
+    - "\uAC70\uBD80\uB3C4 \uC815\uB2F5 \uAC00\uB2A5 (\uC751\uB2F5\uC5D0 \uB530\uB77C)"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 58
+    - "\uC0AC\uC774\uBE44 \uC2E0\uB3C4"
+    - 2
+    - normal
+    - 
+    - cult_best_combo
+    - 100
+    - 0
+    - 100
+    - 100
+    - 
+    - 
+    - false
+    - "\uD638\uCE6D \uD68D\uB4DD"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 59
+    - "\uC0AC\uC774\uBE44 \uC2E0\uB3C4"
+    - 3
+    - normal
+    - 
+    - cult_yyy_brainwash
+    - 100
+    - 0
+    - 100
+    - 100
+    - 
+    - '#13'
+    - false
+    - "#13 \uD3EC\uAD50 \uC131\uACF5 \uBC1C\uB3D9"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 60
+    - "\uC0AC\uC774\uBE44 \uC2E0\uB3C4"
+    - 3
+    - normal
+    - 
+    - cult_nyy_follower
+    - 100
+    - 0
+    - 100
+    - 100
+    - 
+    - '#14'
+    - false
+    - "#14 \uB09C \uB3C8\uC744 \uBBFF\uC5B4 \uBC1C\uB3D9"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 61
+    - "\uAF2C\uB9C8"
+    - 
+    - normal
+    - 
+    - approve_with_step
+    - 100
+    - 0
+    - 100
+    - 100
+    - "\uB9DB\uC788\uB294 \uC0AC\uD0D5"
+    - 
+    - false
+    - "\uBC1C\uD310 + '\uB9DB\uC788\uB294 \uC0AC\uD0D5' \uC544\uC774\uD15C \uD68D\uB4DD"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 62
+    - "\uAF2C\uB9C8"
+    - 
+    - normal
+    - 
+    - approve_no_step
+    - 100
+    - 0
+    - 100
+    - 100
+    - "\uBC1C\uD310"
+    - 
+    - false
+    - "\uB2E8\uC21C \uD1B5\uACFC"

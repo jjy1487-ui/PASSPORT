@@ -1,0 +1,424 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0752e9fe4dda76469c711249795bb58, type: 3}
+  m_Name: VisaTable
+  m_EditorClassIdentifier: Assembly-CSharp::VisaTable
+  sheetName: visa
+  columns:
+  - key: visa_id
+    label: "\uBE44\uC790 ID"
+    type: int
+  - key: customer_id
+    label: "\uACE0\uAC1D ID"
+    type: int
+  - key: visa_no
+    label: "\uBE44\uC790 \uBC88\uD638"
+    type: varchar(30)
+  - key: visa_type
+    label: "\uBE44\uC790 \uC885\uB958"
+    type: varchar(20)
+  - key: nationality
+    label: "\uAD6D\uC801"
+    type: varchar(30)
+  - key: issue_date
+    label: "\uBC1C\uAE09\uC77C"
+    type: date
+  - key: expiry_date
+    label: "\uB9CC\uB8CC\uC77C"
+    type: date
+  - key: entry_type
+    label: "\uC785\uAD6D \uD69F\uC218"
+    type: varchar(20)
+  - key: memo
+    label: "\uBE44\uACE0"
+    type: varchar(200)
+  rows:
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 1
+    - 3
+    - V-CN-9864
+    - "\uAD00\uAD11"
+    - CHN
+    - 2023-09-20
+    - 2024-03-20
+    - "\uB2E8\uC218"
+    - "\uCCB8\uC6E8\uC774 \uC815\uC0C1 \uAD00\uAD11\uBE44\uC790"
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 3
+    - 4
+    - V-USA-2269
+    - "\uAD00\uAD11"
+    - USA
+    - 2025-08-12
+    - 2027-08-12
+    - "\uB2E8\uC218"
+    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 4
+    - 7
+    - V-CHN-3766
+    - "\uAD00\uAD11"
+    - CHN
+    - 2024-09-17
+    - 2026-09-17
+    - "\uB2E8\uC218"
+    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 5
+    - 8
+    - V-USA-5667
+    - "\uAD00\uAD11"
+    - USA
+    - 2026-03-22
+    - 2026-09-22
+    - "\uB2E8\uC218"
+    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 6
+    - 11
+    - V-JPN-7484
+    - "\uAD00\uAD11"
+    - JPN
+    - 2024-09-08
+    - 2026-09-08
+    - "\uB2E8\uC218"
+    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 7
+    - 13
+    - V-USA-1529
+    - "\uAD00\uAD11"
+    - USA
+    - 2025-12-03
+    - 2027-12-03
+    - "\uB2E8\uC218"
+    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 8
+    - 14
+    - V-CHN-2082
+    - "\uAD00\uAD11"
+    - CHN
+    - 2024-09-17
+    - 2026-09-17
+    - "\uB2E8\uC218"
+    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 9
+    - 18
+    - V-CHN-3887
+    - "\uC7A5\uAE30\uCCB4\uB958"
+    - CHN
+    - 2025-09-03
+    - 2026-09-03
+    - "\uB2E8\uC218"
+    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 10
+    - 19
+    - V-JPN-3472
+    - "\uAD00\uAD11"
+    - JPN
+    - 2026-03-08
+    - 2026-09-08
+    - "\uB2E8\uC218"
+    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 11
+    - 25
+    - V-USA-1189
+    - "\uAD00\uAD11"
+    - USA
+    - 2025-04-03
+    - 2027-04-03
+    - "\uB2E8\uC218"
+    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 12
+    - 26
+    - V-JPN-8758
+    - "\uAD00\uAD11"
+    - JPN
+    - 2024-09-27
+    - 2026-09-27
+    - "\uB2E8\uC218"
+    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 13
+    - 27
+    - V-CHN-7483
+    - "\uAD00\uAD11"
+    - CHN
+    - 2025-09-12
+    - 2026-09-12
+    - "\uB2E8\uC218"
+    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 14
+    - 31
+    - V-JPN-5092
+    - "\uAD00\uAD11"
+    - JPN
+    - 2025-09-08
+    - 2026-09-08
+    - "\uB2E8\uC218"
+    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 15
+    - 32
+    - V-USA-2001
+    - "\uAD00\uAD11"
+    - USA
+    - 2025-09-12
+    - 2026-09-12
+    - "\uB2E8\uC218"
+    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 16
+    - 33
+    - V-CHN-3482
+    - "\uAD00\uAD11"
+    - CHN
+    - 2024-09-27
+    - 2026-09-27
+    - "\uB2E8\uC218"
+    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 17
+    - 34
+    - V-JPN-8863
+    - "\uAD00\uAD11"
+    - JPN
+    - 2026-03-03
+    - 2026-09-03
+    - "\uB2E8\uC218"
+    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 23
+    - 35
+    - V-CHN-1208
+    - "\uCDE8\uC5C5"
+    - CHN
+    - 2025-09-08
+    - 2026-09-08
+    - "\uBCF5\uC218"
+    - "\uCDE8\uC5C5 \uC815\uC0C1 \uBE44\uC790"
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 24
+    - 36
+    - V-CHN-7557
+    - "\uCDE8\uC5C5"
+    - CHN
+    - 2025-04-22
+    - 2027-04-22
+    - "\uBCF5\uC218"
+    - "\uCDE8\uC5C5 \uC815\uC0C1 \uBE44\uC790"
+  - keys:
+    - visa_id
+    - customer_id
+    - visa_no
+    - visa_type
+    - nationality
+    - issue_date
+    - expiry_date
+    - entry_type
+    - memo
+    values:
+    - 25
+    - 37
+    - V-USA-7094
+    - "\uCDE8\uC5C5"
+    - USA
+    - 2025-09-27
+    - 2026-09-27
+    - "\uBCF5\uC218"
+    - "\uCDE8\uC5C5 \uC815\uC0C1 \uBE44\uC790"

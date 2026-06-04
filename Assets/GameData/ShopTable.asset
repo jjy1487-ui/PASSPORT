@@ -1,0 +1,186 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4cedaa7b0fb10498264f2aec33e713, type: 3}
+  m_Name: ShopTable
+  m_EditorClassIdentifier: Assembly-CSharp::ShopTable
+  sheetName: shop
+  columns:
+  - key: shop_item_id
+    label: "\uC0C1\uC810 \uC544\uC774\uD15C ID"
+    type: int
+  - key: item_name
+    label: "\uC544\uC774\uD15C\uBA85"
+    type: varchar(50)
+  - key: category
+    label: "\uBD84\uB958"
+    type: varchar(20)
+  - key: price
+    label: "\uAC00\uACA9"
+    type: int
+  - key: unlock_day
+    label: "\uD574\uAE08\uC77C"
+    type: int
+  - key: effect_type
+    label: "\uD6A8\uACFC \uD0C0\uC785"
+    type: varchar(30)
+  - key: effect_value
+    label: "\uD6A8\uACFC \uC218\uCE58"
+    type: int
+  - key: effect
+    label: "\uD6A8\uACFC"
+    type: varchar(200)
+  rows:
+  - keys:
+    - shop_item_id
+    - item_name
+    - category
+    - price
+    - unlock_day
+    - effect_type
+    - effect_value
+    - effect
+    values:
+    - 1
+    - "\uD655\uB300\uACBD"
+    - "\uB3C4\uAD6C"
+    - 150
+    - 11
+    - MAGNIFY
+    - 
+    - "\uC11C\uB958 \uC138\uBD80 \uC601\uC5ED\uC744 \uD655\uB300\uD574 \uC815\uBC00
+      \uAC80\uD1A0"
+  - keys:
+    - shop_item_id
+    - item_name
+    - category
+    - price
+    - unlock_day
+    - effect_type
+    - effect_value
+    - effect
+    values:
+    - 2
+    - "\uC790\uC678\uC120 \uB7A8\uD504"
+    - "\uB3C4\uAD6C"
+    - 250
+    - 11
+    - UV_LIGHT
+    - 
+    - "\uC704\uC870 \uC11C\uB958\xB7\uBCC0\uC870 \uD754\uC801 \uC2DD\uBCC4"
+  - keys:
+    - shop_item_id
+    - item_name
+    - category
+    - price
+    - unlock_day
+    - effect_type
+    - effect_value
+    - effect
+    values:
+    - 3
+    - "\uCD94\uAC00 \uAC80\uC0AC \uC2DC\uAC04"
+    - "\uC18C\uBAA8\uD488"
+    - 100
+    - 11
+    - TIME_BONUS
+    - 30
+    - "\uB2F9\uC77C \uC2EC\uC0AC \uC81C\uD55C\uC2DC\uAC04 +30\uCD08"
+  - keys:
+    - shop_item_id
+    - item_name
+    - category
+    - price
+    - unlock_day
+    - effect_type
+    - effect_value
+    - effect
+    values:
+    - 4
+    - "\uCEE4\uD53C"
+    - "\uC18C\uBAA8\uD488"
+    - 80
+    - 11
+    - MISTAKE_FORGIVE
+    - 1
+    - "\uC9D1\uC911\uB825 \uD68C\uBCF5: \uB2E4\uC74C \uC2E4\uC218 1\uD68C \uBB34\uD6A8"
+  - keys:
+    - shop_item_id
+    - item_name
+    - category
+    - price
+    - unlock_day
+    - effect_type
+    - effect_value
+    - effect
+    values:
+    - 5
+    - "\uADDC\uC815\uC9D1 \uD558\uC774\uB77C\uC774\uD130"
+    - "\uC5C5\uADF8\uB808\uC774\uB4DC"
+    - 300
+    - 11
+    - AUTO_HIGHLIGHT
+    - 
+    - "\uC704\uBC18 \uD56D\uBAA9 \uC790\uB3D9 \uAC15\uC870 \uD45C\uC2DC"
+  - keys:
+    - shop_item_id
+    - item_name
+    - category
+    - price
+    - unlock_day
+    - effect_type
+    - effect_value
+    - effect
+    values:
+    - 6
+    - "X-ray \uC815\uBC00 \uC2A4\uCE94\uAD8C"
+    - "\uC18C\uBAA8\uD488"
+    - 200
+    - 11
+    - XRAY_SCAN
+    - 1
+    - "\uC740\uB2C9 \uC704\uCE58\uAE4C\uC9C0 \uC815\uBC00 \uD0D0\uC9C0(1\uD68C)"
+  - keys:
+    - shop_item_id
+    - item_name
+    - category
+    - price
+    - unlock_day
+    - effect_type
+    - effect_value
+    - effect
+    values:
+    - 7
+    - "\uC9C0\uBB38 DB \uAC31\uC2E0"
+    - "\uC5C5\uADF8\uB808\uC774\uB4DC"
+    - 350
+    - 13
+    - DB_UPDATE
+    - 
+    - "\uC9C0\uBA85\uC218\uBC30 \uB370\uC774\uD130\uBCA0\uC774\uC2A4 \uCD5C\uC2E0\uD654"
+  - keys:
+    - shop_item_id
+    - item_name
+    - category
+    - price
+    - unlock_day
+    - effect_type
+    - effect_value
+    - effect
+    values:
+    - 8
+    - "\uAC00\uC871 \uC0C1\uBE44\uC57D"
+    - "\uC18C\uBAA8\uD488"
+    - 120
+    - 11
+    - ANGER_CALM
+    - 
+    - "\uAC00\uC871 \uBD80\uC591: \uC0AC\uAE30 \uC800\uD558 \uBC29\uC9C0"

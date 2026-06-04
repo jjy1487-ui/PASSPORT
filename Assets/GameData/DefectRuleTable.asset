@@ -1,0 +1,443 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb4da21e8ad01842a5bab3bb46ca987, type: 3}
+  m_Name: DefectRuleTable
+  m_EditorClassIdentifier: Assembly-CSharp::DefectRuleTable
+  sheetName: defect_rule
+  columns:
+  - key: rule_id
+    label: 
+    type: 
+  - key: character_type
+    label: "\uC720\uD615"
+    type: 
+  - key: context
+    label: "\uC801\uC6A9\uC0C1\uD669"
+    type: 
+  - key: defect_document
+    label: "\uACB0\uD568\uC11C\uB958"
+    type: 
+  - key: violation_field
+    label: "\uACB0\uD568\uD56D\uBAA9"
+    type: 
+  - key: normal_example
+    label: "\uC815\uC0C1\uC608\uC2DC"
+    type: 
+  - key: defect_example
+    label: "\uACB0\uD568\uC608\uC2DC"
+    type: 
+  - key: secondary_check
+    label: "\uBD80\uAC00\uAC80\uC0AC"
+    type: 
+  - key: random_valid_chance
+    label: "\uB79C\uB364\uD655\uB960"
+    type: 
+  - key: note
+    label: "\uBE44\uACE0"
+    type: 
+  - key: corruption_type
+    label: "\uBCC0\uC870\uBC29\uC2DD"
+    type: 
+  - key: target_field
+    label: "\uB300\uC0C1\uD544\uB4DC"
+    type: 
+  rows:
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 1
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - "\uC0C1\uC2DC"
+    - "\uC5EC\uAD8C"
+    - expiry_date
+    - "\uB9CC\uB8CC\uC77C 2030"
+    - "\uB9CC\uB8CC\uC77C 2024(\uB9CC\uB8CC)"
+    - '-'
+    - 0.85
+    - "\uC720\uD6A8\uAE30\uAC04 \uB9CC\uB8CC\uD615"
+    - EXPIRE
+    - expiry_date
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 2
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uC5EC\uAD8C\uB9CC \uC694\uAD6C\uC77C"
+    - "\uC5EC\uAD8C"
+    - "nationality(\uBC1C\uAE09\uAD6D)"
+    - "\uC0AC\uC9C4\xB7MRZ \uC77C\uCE58"
+    - "\uBC1C\uAE09\uAD6D \uBD88\uC77C\uCE58(\uC704\uC870\uAD6D)"
+    - '-'
+    - 0.5
+    - "\uC5EC\uAD8C \uC678\uAD00 \uACB0\uD568"
+    - ALTER_FIELD
+    - nationality
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 3
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uBE44\uC790 \uC694\uAD6C\uC77C(3\uC77C~)"
+    - "\uBE44\uC790"
+    - expiry_date / visa_no
+    - "\uBE44\uC790 \uC720\uD6A8"
+    - "\uBE44\uC790 \uB9CC\uB8CC \uB610\uB294 \uC704\uC870"
+    - '-'
+    - 0.5
+    - "\u2460\uACB0\uC815: \uBE44\uC790\uB0A0\uC5D4 \uBE44\uC790 \uACB0\uD568"
+    - EXPIRE
+    - expiry_date
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 4
+    - "\uC9C4\uC0C1 \uACE0\uAC1D"
+    - "\uC0C1\uC2DC"
+    - "\uC5EC\uAD8C"
+    - name_en / birth_date
+    - "\uC815\uBCF4 \uC77C\uCE58"
+    - "\uCCA0\uC790\xB7\uC0DD\uB144\uC6D4\uC77C \uBD88\uC77C\uCE58"
+    - '-'
+    - 0.75
+    - "\uB300\uCCB4\uB85C \uC815\uC0C1(0.75)"
+    - ALTER_FIELD
+    - birth_date
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 5
+    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+    - "\uC0C1\uC2DC"
+    - "\uC5EC\uAD8C"
+    - photo_ref
+    - "\uC5BC\uAD74 \uC0AC\uC9C4 \uC77C\uCE58"
+    - "\uC5BC\uAD74 \uC0AC\uC9C4 \uBD88\uC77C\uCE58"
+    - '-'
+    - 0.7
+    - "\uC0AC\uC9C4 \uB300\uC870\uD615"
+    - MISMATCH_PHOTO
+    - photo_ref
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 6
+    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - "PCR \uC694\uAD6C\uC77C(5~7\uC77C)"
+    - pcr_test
+    - result / valid_until
+    - "Negative\xB7\uC720\uD6A8"
+    - "Positive(\uC591\uC131) \uB610\uB294 \uB9CC\uB8CC"
+    - '-'
+    - "\uACE0\uC815(\uD1B5\uACFC1/\uAC70\uC8080)"
+    - "\uBC29\uC5ED \uAD6C\uAC04"
+    - POSITIVE | FORGE_SOURCE | MISSING
+    - result / lab_name
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 7
+    - "\uC7A5\uAE30\uCCB4\uB958\uC790"
+    - "\uCDE8\uC5C5\uC99D\uBE59 \uC694\uAD6C\uC77C(8\uC77C~)"
+    - employment_cert
+    - company_name / expiry
+    - "\uD68C\uC0AC\xB7\uC9C1\uC704 \uC815\uC0C1"
+    - "\uD68C\uC0AC \uC704\uC870 \uB610\uB294 \uB9CC\uB8CC"
+    - '-'
+    - 1
+    - "\uAE30\uBCF8 \uD1B5\uACFC"
+    - FORGE_SOURCE | EXPIRE
+    - company_name / expiry_date
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 8
+    - "\uCDE8\uC5C5\uCCB4\uB958\uC790"
+    - "\uCDE8\uC5C5\uC99D\uBE59 \uC694\uAD6C\uC77C(8\uC77C~)"
+    - employment_cert
+    - company_name / expiry
+    - "\uD68C\uC0AC\xB7\uC9C1\uC704 \uC815\uC0C1"
+    - "\uD68C\uC0AC \uC704\uC870 \uB610\uB294 \uB9CC\uB8CC"
+    - '-'
+    - 1
+    - "\uAE30\uBCF8 \uD1B5\uACFC / \uCDE8\uC5C5\uCCB4\uB958\uC790 \uB3D9\uC77C"
+    - FORGE_SOURCE | EXPIRE
+    - company_name / expiry_date
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 9
+    - "\uBC94\uC8C4\uC790(\uC678\uAD6D \uB3C4\uD53C\uC790)"
+    - "\uC0C1\uC2DC"
+    - "\uC5EC\uAD8C"
+    - passport_no
+    - "\uC815\uC0C1 \uBC88\uD638"
+    - "\uC704\uC870 \uBC88\uD638\xB7\uD615\uC2DD \uC704\uBC18"
+    - "\uC9C0\uBB38 = \uC9C0\uBA85\uC218\uBC30\uC790 \uC77C\uCE58"
+    - 0.3
+    - "\u2461\uACB0\uC815: \uC9C0\uBB38 \uBD80\uAC00\uAC80\uC0AC"
+    - FORGE_NUMBER
+    - passport_no
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 10
+    - "\uBC94\uC8C4\uC790(\uAD6D\uB0B4 \uC720\uC785\uC790)"
+    - "\uC0C1\uC2DC"
+    - "\uC5EC\uAD8C"
+    - passport_no
+    - "\uC815\uC0C1 \uBC88\uD638"
+    - "\uC704\uC870 \uBC88\uD638\xB7\uD615\uC2DD \uC704\uBC18"
+    - "\uC9C0\uBB38 = \uC9C0\uBA85\uC218\uBC30\uC790 \uC77C\uCE58"
+    - 0.3
+    - "\u2461\uACB0\uC815: \uC9C0\uBB38 \uBD80\uAC00\uAC80\uC0AC"
+    - FORGE_NUMBER
+    - passport_no
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 11
+    - "\uBC94\uC8C4\uC790(\uC131\uD615\uC218\uC220)"
+    - "\uC0C1\uC2DC"
+    - "\uC5EC\uAD8C"
+    - photo_ref + passport_no
+    - "\uC0AC\uC9C4\xB7\uBC88\uD638 \uC77C\uCE58"
+    - "\uC0AC\uC9C4+\uBC88\uD638 \uC704\uC870"
+    - "\uC9C0\uBB38 = \uC804\uACFC\uC790 \uC77C\uCE58"
+    - 0.3
+    - "\u2461\uACB0\uC815: \uC9C0\uBB38 \uBD80\uAC00\uAC80\uC0AC"
+    - MISMATCH_PHOTO + FORGE_NUMBER
+    - photo_ref / passport_no
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 12
+    - "\uD14C\uB7EC\uBC94"
+    - "\uC0C1\uC2DC"
+    - "\uC5EC\uAD8C"
+    - passport_no / mrz
+    - "\uC815\uC0C1 \uC5EC\uAD8C"
+    - "\uC704\uC870 \uC5EC\uAD8C"
+    - "X-ray = \uC704\uD5D8\uBB3C \uD0D0\uC9C0"
+    - 0.25
+    - "\u2461\uACB0\uC815: X-ray \uBD80\uAC00\uAC80\uC0AC"
+    - FORGE_NUMBER
+    - passport_no
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 13
+    - "\uD2B9\uC218(\uC5F0\uC608\uC778)\u2605"
+    - "\uC774\uBCA4\uD2B8"
+    - '-'
+    - '-'
+    - "\uD56D\uC0C1 \uC815\uC0C1"
+    - "(\uACB0\uD568 \uC5C6\uC74C)"
+    - '-'
+    - 1
+    - "\uACE0\uC815 \uD1B5\uACFC\xB7\uC774\uBCA4\uD2B8\uC131"
+    - NONE
+    - '-'
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 14
+    - "\uD2B9\uC218(\uD604\uC790)\u2605"
+    - "\uC774\uBCA4\uD2B8"
+    - '-'
+    - '-'
+    - "\uD56D\uC0C1 \uC815\uC0C1"
+    - "(\uACB0\uD568 \uC5C6\uC74C)"
+    - '-'
+    - 1
+    - "\uACE0\uC815 \uD1B5\uACFC\xB7\uC774\uBCA4\uD2B8\uC131"
+    - NONE
+    - '-'
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 15
+    - "\uD2B9\uC218(\uC815\uCE58\uC778)\u2605"
+    - "\uC774\uBCA4\uD2B8"
+    - '-'
+    - '-'
+    - "\uD56D\uC0C1 \uC815\uC0C1"
+    - "(\uACB0\uD568 \uC5C6\uC74C)"
+    - '-'
+    - 1
+    - "\uACE0\uC815 \uD1B5\uACFC\xB7\uC774\uBCA4\uD2B8\uC131"
+    - NONE
+    - '-'

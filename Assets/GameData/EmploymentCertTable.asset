@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b7ca7c0f8b2b1a4384207d7c71d4e1d, type: 3}
+  m_Name: EmploymentCertTable
+  m_EditorClassIdentifier: Assembly-CSharp::EmploymentCertTable
+  sheetName: employment_cert
+  columns:
+  - key: employment_id
+    label: "\uCDE8\uC5C5\uC99D\uBE59 ID"
+    type: int
+  - key: customer_id
+    label: "\uACE0\uAC1D ID"
+    type: int
+  - key: cert_no
+    label: "\uC99D\uBE59 \uBC88\uD638"
+    type: varchar(30)
+  - key: company_name
+    label: "\uACE0\uC6A9 \uD68C\uC0AC"
+    type: varchar(50)
+  - key: job_title
+    label: "\uC9C1\uC885"
+    type: varchar(30)
+  - key: issue_date
+    label: "\uBC1C\uAE09\uC77C"
+    type: date
+  - key: expiry_date
+    label: "\uB9CC\uB8CC\uC77C"
+    type: date
+  rows:
+  - keys:
+    - employment_id
+    - customer_id
+    - cert_no
+    - company_name
+    - job_title
+    - issue_date
+    - expiry_date
+    values:
+    - 1
+    - 7
+    - EMP-FR-2023X
+    - "\uC0BC\uC131\uC804\uC790"
+    - "\uC5D4\uC9C0\uB2C8\uC5B4"
+    - 2023-01-15
+    - 2025-01-15
+  - keys:
+    - employment_id
+    - customer_id
+    - cert_no
+    - company_name
+    - job_title
+    - issue_date
+    - expiry_date
+    values:
+    - 3
+    - 18
+    - EMP-018
+    - "\uB300\uC131\uBB3C\uB958(\uC8FC)"
+    - "\uBB3C\uB958 \uAD00\uB9AC\uC790"
+    - 2025-03-01
+    - 2027-03-01
+  - keys:
+    - employment_id
+    - customer_id
+    - cert_no
+    - company_name
+    - job_title
+    - issue_date
+    - expiry_date
+    values:
+    - 4
+    - 35
+    - EMP-035
+    - "\uD55C\uBE5B\uC804\uC790(\uC8FC)"
+    - "\uC0DD\uC0B0 \uB77C\uC778"
+    - 2025-04-01
+    - 2027-04-01
+  - keys:
+    - employment_id
+    - customer_id
+    - cert_no
+    - company_name
+    - job_title
+    - issue_date
+    - expiry_date
+    values:
+    - 6
+    - 36
+    - EMP-036
+    - "\uB3D9\uBC29\uAC74\uC124(\uC8FC)"
+    - "\uD604\uC7A5 \uAE30\uC220\uC790"
+    - 2025-02-01
+    - 2027-02-01
+  - keys:
+    - employment_id
+    - customer_id
+    - cert_no
+    - company_name
+    - job_title
+    - issue_date
+    - expiry_date
+    values:
+    - 8
+    - 37
+    - EMP-037
+    - "\uC11C\uD574\uC218\uC0B0(\uC8FC)"
+    - "\uAC00\uACF5 \uC791\uC5C5"
+    - 2025-01-01
+    - 2027-01-01

@@ -1,0 +1,226 @@
+{
+ "source": "여권주세요_날짜별_방문고객_랜덤정리_3.xlsx / 아이템 인벤토리",
+ "note": "'미정' 값은 원본 보존(임의 생성 금지). ingameValue는 숫자일 때만 채움.",
+ "items": [
+  {
+   "category": "현금/금괴 (응함)",
+   "itemName": "1만원(현금)",
+   "obtainBranch": "마약범 응함 + 입국 (몽타주 인식O)",
+   "obtainChance": "100%",
+   "ingameValueText": "+10,000원 (1만원)",
+   "ingameValue": 10000,
+   "earlyEnding": "X (게임 계속)",
+   "effect": "일자 끝 부패 스토리, 게임 계속"
+  },
+  {
+   "category": "현금/금괴 (응함)",
+   "itemName": "금괴 10개",
+   "obtainBranch": "밀수범 응함 + 입국 (몽타주 인식O)",
+   "obtainChance": "랜덤 3 중 1",
+   "ingameValueText": "+10,000원 (1만원)",
+   "ingameValue": 10000,
+   "earlyEnding": "X (게임 계속)",
+   "effect": "일자 끝 부패 스토리 / 금액표에 별도 행 없음 (인벤토리에서만 추적)"
+  },
+  {
+   "category": "현금/금괴 (응함)",
+   "itemName": "금괴 10개",
+   "obtainBranch": "성형범죄자 응함 + 입국 (몽타주 인식O+범인)",
+   "obtainChance": "랜덤 3 중 1",
+   "ingameValueText": "+10,000원 (1만원)",
+   "ingameValue": 10000,
+   "earlyEnding": "X (게임 계속)",
+   "effect": "일자 끝 부패 스토리 / 금액표에 별도 행 없음"
+  },
+  {
+   "category": "조기엔딩 아이템",
+   "itemName": "마약",
+   "obtainBranch": "밀수범 응함 + 입국",
+   "obtainChance": "랜덤 3 중 1",
+   "ingameValueText": "아이템 (금액 외)",
+   "ingameValue": null,
+   "earlyEnding": "✓ #11 공범",
+   "effect": "즉시 게임 종료"
+  },
+  {
+   "category": "조기엔딩 아이템",
+   "itemName": "밀수품",
+   "obtainBranch": "밀수범 응함 + 입국",
+   "obtainChance": "랜덤 3 중 1",
+   "ingameValueText": "아이템 (금액 외)",
+   "ingameValue": null,
+   "earlyEnding": "✓ #11 공범",
+   "effect": "즉시 게임 종료"
+  },
+  {
+   "category": "조기엔딩 아이템",
+   "itemName": "마약",
+   "obtainBranch": "성형범죄자 응함 + 입국",
+   "obtainChance": "랜덤 3 중 1",
+   "ingameValueText": "아이템 (금액 외)",
+   "ingameValue": null,
+   "earlyEnding": "✓ #12 순진한 녀석",
+   "effect": "즉시 게임 종료"
+  },
+  {
+   "category": "조기엔딩 아이템",
+   "itemName": "밀수품",
+   "obtainBranch": "성형범죄자 응함 + 입국",
+   "obtainChance": "랜덤 3 중 1",
+   "ingameValueText": "아이템 (금액 외)",
+   "ingameValue": null,
+   "earlyEnding": "✓ #12 순진한 녀석",
+   "effect": "즉시 게임 종료"
+  },
+  {
+   "category": "효과 아이템",
+   "itemName": "맛있는 사탕",
+   "obtainBranch": "꼬마 + 발판 제공 + 입국",
+   "obtainChance": "100%",
+   "ingameValueText": "미정",
+   "ingameValue": null,
+   "earlyEnding": "X",
+   "effect": "다음 플레이 진상 즉시 처리 가능"
+  },
+  {
+   "category": "효과 아이템",
+   "itemName": "의문의 종교물품",
+   "obtainBranch": "사이비 신도 1·2·3회차 + 입국 (특정 조합)",
+   "obtainChance": "조건부",
+   "ingameValueText": "미정",
+   "ingameValue": null,
+   "earlyEnding": "△ (3회차 특정 조합 → #13/#14)",
+   "effect": "회차 누적 시 호칭 '스며들기'·'새뇌'·'신종 추종자'"
+  },
+  {
+   "category": "효과 아이템",
+   "itemName": "망가진 지문판독기",
+   "obtainBranch": "성형범죄자 마스크 미요청 + 입국",
+   "obtainChance": "확률",
+   "ingameValueText": "미정",
+   "ingameValue": null,
+   "earlyEnding": "X",
+   "effect": "PPT 명시, 인게임 효과 미정"
+  },
+  {
+   "category": "마법 아이템 (현자)",
+   "itemName": "마법의 수정구슬",
+   "obtainBranch": "현자 [물질+성취+세계]",
+   "obtainChance": "조건 100%",
+   "ingameValueText": "미정",
+   "ingameValue": null,
+   "earlyEnding": "X",
+   "effect": "8종 누적 시 '해탈한 자' 호칭"
+  },
+  {
+   "category": "마법 아이템 (현자)",
+   "itemName": "마법의 구슬",
+   "obtainBranch": "현자 [물질+성취+우리나라]",
+   "obtainChance": "조건 100%",
+   "ingameValueText": "미정",
+   "ingameValue": null,
+   "earlyEnding": "X",
+   "effect": "↑ 동일"
+  },
+  {
+   "category": "마법 아이템 (현자)",
+   "itemName": "마법의 손목시계",
+   "obtainBranch": "현자 [물질+사랑+가족]",
+   "obtainChance": "조건 100%",
+   "ingameValueText": "미정",
+   "ingameValue": null,
+   "earlyEnding": "X",
+   "effect": "↑"
+  },
+  {
+   "category": "마법 아이템 (현자)",
+   "itemName": "마법의 거울",
+   "obtainBranch": "현자 [물질+사랑+나]",
+   "obtainChance": "조건 100%",
+   "ingameValueText": "미정",
+   "ingameValue": null,
+   "earlyEnding": "X",
+   "effect": "↑"
+  },
+  {
+   "category": "마법 아이템 (현자)",
+   "itemName": "마법의 손수건",
+   "obtainBranch": "현자 [정신+자유+세계]",
+   "obtainChance": "조건 100%",
+   "ingameValueText": "미정",
+   "ingameValue": null,
+   "earlyEnding": "X",
+   "effect": "↑"
+  },
+  {
+   "category": "마법 아이템 (현자)",
+   "itemName": "마법의 주머니",
+   "obtainBranch": "현자 [정신+자유+우리나라]",
+   "obtainChance": "조건 100%",
+   "ingameValueText": "미정",
+   "ingameValue": null,
+   "earlyEnding": "X",
+   "effect": "↑"
+  },
+  {
+   "category": "마법 아이템 (현자)",
+   "itemName": "마법의 와인",
+   "obtainBranch": "현자 [정신+돈+가족]",
+   "obtainChance": "조건 100%",
+   "ingameValueText": "미정",
+   "ingameValue": null,
+   "earlyEnding": "X",
+   "effect": "↑"
+  },
+  {
+   "category": "마법 아이템 (현자)",
+   "itemName": "마법의 지갑",
+   "obtainBranch": "현자 [정신+돈+나]",
+   "obtainChance": "조건 100%",
+   "ingameValueText": "미정",
+   "ingameValue": null,
+   "earlyEnding": "X",
+   "effect": "↑"
+  },
+  {
+   "category": "확률 드롭 기념품",
+   "itemName": "친필 사인 / CD앨범",
+   "obtainBranch": "연예인 + 입국",
+   "obtainChance": "확률",
+   "ingameValueText": "미정",
+   "ingameValue": null,
+   "earlyEnding": "X",
+   "effect": "수집 / 호칭 / 판매? 미정"
+  },
+  {
+   "category": "확률 드롭 기념품",
+   "itemName": "선거 포스터 / 정당 명함",
+   "obtainBranch": "정치인 + 입국",
+   "obtainChance": "확률",
+   "ingameValueText": "미정",
+   "ingameValue": null,
+   "earlyEnding": "X",
+   "effect": "수집 / 호칭 / 판매? 미정"
+  },
+  {
+   "category": "확률 드롭 기념품",
+   "itemName": "해당 국가 기념품",
+   "obtainBranch": "외국인 관광객 + 입국",
+   "obtainChance": "확률",
+   "ingameValueText": "미정",
+   "ingameValue": null,
+   "earlyEnding": "X",
+   "effect": "수집 / 호칭 / 판매? 미정"
+  },
+  {
+   "category": "확률 드롭 기념품",
+   "itemName": "방역마스크",
+   "obtainBranch": "전염병 환자 [1-A 정상] + 입국",
+   "obtainChance": "확률",
+   "ingameValueText": "미정",
+   "ingameValue": null,
+   "earlyEnding": "X",
+   "effect": "수집 / 사용 효과 미정"
+  }
+ ]
+}
