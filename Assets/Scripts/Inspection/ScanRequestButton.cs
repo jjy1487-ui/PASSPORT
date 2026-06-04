@@ -74,6 +74,10 @@ public sealed class ScanRequestButton : MonoBehaviour
         if (!string.Equals(scanKind, _panel.ScanKindKey, System.StringComparison.OrdinalIgnoreCase)) return;
         _unlocked = true;
         UpdateInteractable();
+
+        // 대조로 잠금 해제되는 순간 결과 패널을 자동으로 연다.
+        // 버튼은 그대로 남아 "다시 보기"(토글) 용도로 동작한다. (데이터 없으면 Open 내부 가드가 무시)
+        _panel.Open();
     }
 
     /// <summary>검사 데이터 보유 + 대조 잠금 해제 시에만 "출력"(보이고 누를 수 있음).

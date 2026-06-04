@@ -17,6 +17,7 @@ public sealed class ScanResultPanel : MonoBehaviour, ICrossCheckProvider
 
     [Header("대상")]
     [SerializeField] private InspectionController _controller;
+    [SerializeField] private CrossCheckController _crossCheck; // 대조로 잠금 해제되면 자동 표시
     [SerializeField] private ScanKind _kind = ScanKind.Xray;
 
     [Header("UI 참조")]
@@ -43,12 +44,24 @@ public sealed class ScanResultPanel : MonoBehaviour, ICrossCheckProvider
     {
         if (_controller != null) _controller.OnCustomerChanged += HandleCustomerChanged;
         else Debug.LogWarning("[ScanResultPanel] _controller 가 연결되지 않았습니다.");
+
+        // 대조로 내 검사 종류가 잠금 해제되면 결과를 자동으로 연다(버튼 없이도 동작).
+        if (_crossCheck != null) _crossCheck.OnScanUnlocked += HandleScanUnlocked;
+    }
+
+    /// <summary>대조로 내 검사 종류가 잠금 해제되면 결과 패널을 자동으로 연다.</summary>
+    private void HandleScanUnlocked(string scanKind)
+    {
+        if (string.IsNullOrEmpty(scanKind)) return;
+        if (!string.Equals(scanKind, ScanKindKey, System.StringComparison.OrdinalIgnoreCase)) return;
+        Open(); // 데이터 없으면 Open 내부 가드가 무시
     }
 
     private void OnDestroy()
     {
         if (_closeButton != null) _closeButton.onClick.RemoveListener(Close);
         if (_controller != null) _controller.OnCustomerChanged -= HandleCustomerChanged;
+        if (_crossCheck != null) _crossCheck.OnScanUnlocked -= HandleScanUnlocked;
     }
 
     /// <summary>현재 손님이 이 검사 데이터를 가지고 있는가(버튼 활성 판단용).</summary>
