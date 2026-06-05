@@ -42,7 +42,21 @@ public sealed class EndingPanel : MonoBehaviour
         }
 
         if (_closeButton != null) _closeButton.onClick.AddListener(CloseAndReturn);
-        if (_root != null) _root.SetActive(false);
+        // 이미 Show()로 표시된 상태면 다시 숨기지 않는다(비활성 시작 → 외부 활성화 시 Start가 뒤늦게 돌아도 안전).
+        if (_root != null && !_shown) _root.SetActive(false);
+    }
+
+    /// <summary>
+    /// 외부(ImmigrationManager)에서 직접 호출해 엔딩 패널을 띄운다.
+    /// 패널 GameObject 가 비활성으로 시작하면 Awake/OnEnable/Start 가 실행되지 않아
+    /// OnEndingResolved 구독 자체가 걸리지 않는다(=엔딩 결정돼도 화면이 안 뜸 → 소프트락).
+    /// 그래서 항상 활성인 진행 매니저가 이 메서드로 패널을 직접 활성화·표시한다.
+    /// </summary>
+    public void Show(EndingResult e)
+    {
+        if (!e.IsValid) return;
+        if (!gameObject.activeSelf) gameObject.SetActive(true); // 비활성 시작 시 활성화(Start/구독 트리거)
+        HandleEndingResolved(e);
     }
 
     private void OnDestroy()
@@ -86,6 +100,13 @@ public sealed class EndingPanel : MonoBehaviour
                 sb.Append("획득 호칭: ");
                 sb.AppendLine(string.Join(", ", mgr.Titles));
             }
+        }
+
+        // 처음으로 복귀 안내(닫기 = 타이틀로). _titleSceneName 이 설정돼 있을 때만 표시.
+        if (!string.IsNullOrEmpty(_titleSceneName))
+        {
+            sb.AppendLine();
+            sb.AppendLine("닫기(X)를 누르면 처음으로 돌아갑니다.");
         }
         return sb.ToString();
     }

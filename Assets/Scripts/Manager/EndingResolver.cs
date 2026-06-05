@@ -105,14 +105,37 @@ public static class EndingResolver
     {
         var t = GameDatabaseProvider.Database != null ? GameDatabaseProvider.Database.ending : null;
         if (t == null) return null;
+
+        // EventIds 는 "#11"~"#16" 형태이고, ending 시트의 ending_id 는 11~16(int)이다.
+        // 과거엔 trigger_condition/trigger_type 이 "#16"과 일치하지 않아 매칭 실패 → 코드 폴백 이름("불법체류 범람" 등)이 떴다.
+        // 우선순위: event_id 칸(생기면) > '#' 뗀 번호 == ending_id > trigger_condition/type 직접 일치.
+        int wantId = -1;
+        if (!string.IsNullOrEmpty(eventId))
+            int.TryParse(eventId[0] == '#' ? eventId.Substring(1) : eventId, out wantId);
+
         foreach (var r in t.rows)
         {
             if (r == null) continue;
-            if (r.Get("trigger_condition") == eventId || r.Get("trigger_type") == eventId)
-                return new EndingResult(r.Get("ending_id"), r.Get("ending_name"), r.Get("ending_type") ?? "early", eventId);
+            bool hit = r.Get("event_id") == eventId
+                || (wantId >= 0 && r.GetInt("ending_id", -1) == wantId)
+                || r.Get("trigger_condition") == eventId
+                || r.Get("trigger_type") == eventId;
+            if (hit)
+                return new EndingResult(r.Get("ending_id"), r.Get("ending_name"),
+                    NormalizeType(r.Get("ending_type")), eventId);
         }
         return null;
     }
+
+    /// <summary>ending 시트 분류(노멀/조기/히든)를 코드 토큰(normal/early/hidden)으로 매핑. 이미 영문이면 그대로.</summary>
+    private static string NormalizeType(string sheetType) => sheetType switch
+    {
+        "노멀" => "normal",
+        "조기" => "early",
+        "히든" => "hidden",
+        null    => "early",
+        _       => sheetType,
+    };
 
     /// <summary>
     /// 점수가 들어가는 유효 점수밴드 행을 찾는다.

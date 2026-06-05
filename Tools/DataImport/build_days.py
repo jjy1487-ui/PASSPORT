@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-build_days.py — GameData.source.json -> Assets/Resources/GameData/day2.json ... day14.json
+build_days.py — GameData.source.json -> Assets/Resources/GameData/day1.json ... day14.json
 
-「여권 주세요」 2~14일차 케이스 데이터 생성기.
-- 1일차(day1.json)는 수작업 완성본이므로 절대 건드리지 않는다(포맷 호환성 검증만).
+「여권 주세요」 1~14일차 케이스 데이터 생성기.
+- 1일차(day1.json)도 source 일정에서 생성한다(손님 구성은 수작업본과 동일, 대사는 스크립트 주입).
 - 진실 서류만 source에 있고, 비정상 슬롯이면 defect_rule로 결함 1개를 결정론적으로 주입한다.
 - 대사는 메뉴 최소 플레이용 짧은 공통 라인만 생성하고 [TODO 대사] 표식을 남긴다.
 
@@ -13,7 +13,7 @@ build_days.py — GameData.source.json -> Assets/Resources/GameData/day2.json ..
 실행:
     python Tools/DataImport/build_days.py
 산출:
-    Assets/Resources/GameData/day2.json ... day14.json (13개)
+    Assets/Resources/GameData/day1.json ... day14.json (14개)
 """
 import json
 import os
@@ -21,7 +21,7 @@ import hashlib
 
 # 시나리오 대사 주입기(branch_dialogue.json 조인). 케이스 구조 불변, text 만 교체.
 from branch_dialogue_map import (
-    load_branch, index_branch, fill_customer_dialogue,
+    load_branch, index_branch, fill_customer_dialogue, load_guided_block, TYPE_MAP,
 )
 # branch 에 없는 슬롯(유형×결과×구조)을 day1 톤 작성본으로 채우는 폴백 테이블.
 # branch 가 못 채운 잔여 [TODO 대사] 만 채운다(이미 채운 라인은 불변).
@@ -533,7 +533,7 @@ def entry_lines(nat_code):
     ]
 
 
-def make_dialogue_cases(nat_code, violation_label, violation_attr=""):
+def make_dialogue_cases(nat_code, violation_label, violation_attr="", character_type=""):
     """손님마다 7케이스 보장(입장/정상승인/정상거절/잘못허가/잘못거절1·2·3).
 
     violation_attr가 있으면 '정상 거절' 케이스의 심사관 지적 라인에 claim을 달아
@@ -596,6 +596,16 @@ def make_dialogue_cases(nat_code, violation_label, violation_attr=""):
                 {"order": 4, "speaker": "캐릭터", "text": f"네, 알겠습니다. {TODO}"},
             ],
         })
+
+    # 보스 가이드 케이스: 성형 수술 지명수배 범죄자 — 거부(최선) 시 재생할 몽타주 시퀀스(분기 A).
+    # 표준 7케이스와 충돌하지 않도록 별도 caseType('분기 거부')로 추가(런타임은 FindCaseByType 로 조회).
+    if character_type == "범죄자(성형수술)":
+        guided = load_guided_block(TYPE_MAP.get("범죄자(성형수술)"), "분기 A")
+        if guided:
+            cases.append({
+                "caseType": "분기 거부", "gameResult": "정상 거절", "rejectCount": 0,
+                "lines": guided,
+            })
     return cases
 
 
@@ -640,7 +650,7 @@ def build():
 
     report = {}
 
-    for day in range(2, 15):
+    for day in range(1, 15):
         slots = sorted(schedule.get(day, []), key=lambda r: int(r["slot"]))
         day_customers = []
         stats = {"normal": 0, "abnormal": 0, "defects": {}}
@@ -771,10 +781,16 @@ def build():
                 "spriteRef": cust["sprite_ref"],
                 "characterType": ctype,
                 "defectVariant": defect_variant,   # baked 변이 키(없으면 ""). 게임플레이가 branch 조인에 사용.
-                "correctResult": "정상 승인" if is_normal else "정상 거절",
+                # 변장 지명수배범: 서류는 정상이나 '거부가 정답'(승인=잘못 허가 페널티).
+                # 거부 시 InspectionController 가 rejectAdvancedBranchKey 로 가이드 최선 분기 정산.
+                "correctResult": "정상 거절" if ctype == "범죄자(성형수술)"
+                    else ("정상 승인" if is_normal else "정상 거절"),
                 "documents": documents,
                 "dialogueCases": make_dialogue_cases(
-                    nat_code, violation_label, attr_for_label(violation_label)),
+                    nat_code, violation_label, attr_for_label(violation_label), character_type=ctype),
+                # 고급 분기 손님 플래그: 거부 시 가이드 대사+최선 분기 정산(대상 외 손님은 빈 문자열).
+                "rejectAdvancedBranchKey": "detect_montage_xray_reject" if ctype == "범죄자(성형수술)" else "",
+                "rejectGuidedCaseType": "분기 거부" if ctype == "범죄자(성형수술)" else "",
                 "xray": xray_scans.get(cid),                # 없으면 None -> JSON null
                 "fingerprint": fingerprint_scans.get(cid),  # 없으면 None -> JSON null
             }

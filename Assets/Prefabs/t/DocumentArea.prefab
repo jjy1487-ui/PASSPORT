@@ -1434,7 +1434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.97, g: 0.96, b: 0.9, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1575,6 +1575,32 @@ MonoBehaviour:
   _passportTemplate: {fileID: 0}
   _passportValueFont: {fileID: 0}
   _passportSignatureFont: {fileID: 0}
+  _passportValueFontSize: 15
+  _posName: {x: 0.126, y: 0.476}
+  _posBirthDate: {x: 0.126, y: 0.624}
+  _posGender: {x: 0.126, y: 0.769}
+  _posPassportNo: {x: 0.58, y: 0.196}
+  _posNationality: {x: 0.58, y: 0.32}
+  _posIssueDate: {x: 0.58, y: 0.453}
+  _posExpiryDate: {x: 0.758, y: 0.453}
+  _posIssueCountry: {x: 0.58, y: 0.611}
+  _posSignature: {x: 0.58, y: 0.769}
+  _offsetIssueCountry: {x: 53, y: -10}
+  _offsetSignature: {x: 49, y: -3}
+  _dateSlotWidth: 120
+  _visaTemplate: {fileID: 0}
+  _visaClosedCover: {fileID: 0}
+  _posVisaName: {x: 0.42, y: 0.305}
+  _posVisaNationality: {x: 0.42, y: 0.38}
+  _posVisaPassportNo: {x: 0.42, y: 0.455}
+  _posVisaNo: {x: 0.42, y: 0.53}
+  _posVisaType: {x: 0.42, y: 0.605}
+  _posVisaIssueDate: {x: 0.42, y: 0.68}
+  _posVisaExpiryDate: {x: 0.42, y: 0.755}
+  _visaValueOffsetX: -100
+  _visaIssueOffsetX: -66
+  _visaExpiryOffsetX: -115
+  _visaDateWidth: 180
 --- !u!114 &7326607941386732445
 MonoBehaviour:
   m_ObjectHideFlags: 0

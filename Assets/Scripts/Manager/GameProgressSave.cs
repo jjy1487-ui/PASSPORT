@@ -60,10 +60,22 @@ public static class GameProgressSave
         m.RestoreState(score, money, correct, judged, titles, items, events, sage);
     }
 
-    /// <summary>세이브 삭제(새 게임).</summary>
+    /// <summary>세이브 전체 삭제(점수/돈/정확도/호칭/아이템/엔딩카운터 모두).</summary>
     public static void Clear()
     {
         foreach (var k in new[] { KScore, KMoney, KCorrect, KJudged, KTitles, KItems, KEvents, KSage })
+            PlayerPrefs.DeleteKey(k);
+        PlayerPrefs.Save();
+    }
+
+    /// <summary>
+    /// 새 게임 진행 초기화 — 점수/돈/정확도/엔딩카운터/현자카운터만 0으로 지우고,
+    /// 메타 수집(호칭 KTitles / 아이템 KItems)은 보존한다(회차 넘어 누적되는 업적성 데이터).
+    /// 누적 엔딩(#15/#16)이 회차 간 이월돼 조기 발동하던 문제를 막는 정식 새-게임 리셋 경로.
+    /// </summary>
+    public static void ClearProgressKeepMeta()
+    {
+        foreach (var k in new[] { KScore, KMoney, KCorrect, KJudged, KEvents, KSage })
             PlayerPrefs.DeleteKey(k);
         PlayerPrefs.Save();
     }

@@ -79,6 +79,56 @@ def load_branch():
         return json.load(f)
 
 
+# ── 가이드(보스) 케이스 로더 ────────────────────────────────────
+# 일반 매퍼(_first_quote)는 「」 인용문만 남기고 [시스템]/검문관 절차 라인을 버린다.
+# 보스 시퀀스(예: 성형 수술 지명수배범 분기 A)는 그 절차 라인이 연출의 핵심이므로
+# 별도 로더로 블록 전체를 정리해서 보존한다.
+_GUIDED_SKIP_PREFIX = ("[UI", "[모션]", "[사전 이벤트]")
+_DASA_PREFIX = re.compile(r"^\s*대사\s*\d*\s*[:：]\s*")
+_SPEAKER_LABEL = re.compile(r"^\s*(검문관|심사관|방문객)\s*[:：]\s*")
+
+
+def _clean_guided_text(text):
+    """가이드 라인 정리: 개행 평탄화 + ※주석 제거 + '대사 N:'/'검문관:' 라벨 제거 + 「」 해제."""
+    if not text:
+        return ""
+    s = text.replace("\n", " ").strip()
+    if "※" in s:                       # 디자이너 주석(예 '※ 포상금 +120원...') 제거
+        s = s.split("※", 1)[0].strip()
+    s = _DASA_PREFIX.sub("", s)         # '대사 1:' 접두 제거
+    s = _SPEAKER_LABEL.sub("", s)       # '검문관:'/'심사관:' 라벨 제거(speaker 로 구분됨)
+    s = s.replace("「", "").replace("」", "")  # 인용 괄호 해제
+    return s.strip()
+
+
+def load_guided_block(branch_ctype, label_substring):
+    """branch_dialogue 의 한 블록을 보스 가이드 대사 케이스로 반환(_first_quote 우회).
+    순수 연출 큐([UI .../[모션]/[사전 이벤트])는 제외, [시스템]/검문관/방문객 라인은 보존.
+    order 는 1부터 순차 int(원본 '4-1' 등 문자열 회피). 반환: [{order,speaker,text}] 또는 None."""
+    if not branch_ctype:
+        return None
+    bd = load_branch()
+    for t in bd.get("types", []):
+        if t.get("characterType") != branch_ctype:
+            continue
+        for b in t.get("blocks", []):
+            if label_substring not in (b.get("branchLabel") or ""):
+                continue
+            out = []
+            order = 0
+            for ln in b.get("lines", []):
+                flat = (ln.get("text") or "").replace("\n", " ").strip()
+                if flat.startswith(_GUIDED_SKIP_PREFIX):
+                    continue
+                txt = _clean_guided_text(ln.get("text"))
+                if not txt:
+                    continue
+                order += 1
+                out.append({"order": order, "speaker": ln.get("speaker") or "심사관", "text": txt})
+            return out if out else None
+    return None
+
+
 def index_branch(bd):
     """branch_dialogue -> { branchCharType: [ {gameResult, branchLabel, entry, results:[(speaker,text)...]} ] }.
 

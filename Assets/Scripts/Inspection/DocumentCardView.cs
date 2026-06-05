@@ -48,6 +48,65 @@ public sealed class DocumentCardView : MonoBehaviour
     [Tooltip("여권 값 텍스트 크기(인스펙터에서 조절). 0 이하면 템플릿 기본 크기 유지.")]
     [SerializeField] private float _passportValueFontSize = 15f;
 
+    [Header("여권 펼침뷰 — 필드 위치 (좌상단 0~1 비율, 인스펙터에서 직접 조정 가능)")]
+    [Tooltip("각 값/파생텍스트의 위치를 비율로 지정. 에디트 모드에서 바꾸면 다음 플레이에 반영된다.")]
+    [SerializeField] private Vector2 _posName         = new Vector2(0.126f, 0.476f);
+    [SerializeField] private Vector2 _posBirthDate    = new Vector2(0.126f, 0.624f);
+    [SerializeField] private Vector2 _posGender       = new Vector2(0.126f, 0.769f);
+    [SerializeField] private Vector2 _posPassportNo   = new Vector2(0.580f, 0.196f);
+    [SerializeField] private Vector2 _posNationality  = new Vector2(0.580f, 0.320f);
+    [SerializeField] private Vector2 _posIssueDate    = new Vector2(0.580f, 0.453f);
+    [SerializeField] private Vector2 _posExpiryDate   = new Vector2(0.758f, 0.453f);
+    [SerializeField] private Vector2 _posIssueCountry = new Vector2(0.580f, 0.611f); // 발급 국가(Derived)
+    [SerializeField] private Vector2 _posSignature    = new Vector2(0.580f, 0.769f); // 서명(Signature)
+    [Tooltip("발급 국가(Derived) 텍스트 미세 위치 보정(anchoredPosition px).")]
+    [SerializeField] private Vector2 _offsetIssueCountry = new Vector2(53f, -10f);  // Derived
+    [Tooltip("서명(Signature) 텍스트 미세 위치 보정(anchoredPosition px).")]
+    [SerializeField] private Vector2 _offsetSignature    = new Vector2(49f, -3f);   // Signature
+    [Tooltip("발급일/만료일 슬롯 폭(px). 좁혀서 겹침 방지.")]
+    [SerializeField] private float _dateSlotWidth     = 120f;
+
+    [Header("비자 펼침 템플릿(documentType==\"비자\" 전용)")]
+    [Tooltip("비자 문서는 이 템플릿(visa_open) 위에 값만 슬롯 위치에 표시. 비우면 Resources/Documents/visa_open 자동 로드.")]
+    [SerializeField] private Sprite _visaTemplate;
+    [Tooltip("비자 닫힘(트레이) 아이콘. 비우면 Resources/Documents/visa_closed 자동 로드.")]
+    [SerializeField] private Sprite _visaClosedCover;
+
+    [Header("비자 펼침뷰 — 필드 위치 (좌상단 0~1 비율, 인스펙터에서 직접 조정 가능)")]
+    [SerializeField] private Vector2 _posVisaName        = new Vector2(0.42f, 0.305f); // 이름
+    [SerializeField] private Vector2 _posVisaNationality = new Vector2(0.42f, 0.380f); // 국적
+    [SerializeField] private Vector2 _posVisaPassportNo  = new Vector2(0.42f, 0.455f); // 여권번호
+    [SerializeField] private Vector2 _posVisaNo          = new Vector2(0.42f, 0.530f); // 비자번호
+    [SerializeField] private Vector2 _posVisaType        = new Vector2(0.42f, 0.605f); // 방문목적(visa_type)
+    [SerializeField] private Vector2 _posVisaIssueDate   = new Vector2(0.42f, 0.680f); // 발급일
+    [SerializeField] private Vector2 _posVisaExpiryDate  = new Vector2(0.42f, 0.755f); // 만료일
+    [Tooltip("비자 일반 값(이름·국적·여권번호·비자번호·방문목적) 가로 위치 보정(anchoredPosition.x px).")]
+    [SerializeField] private float _visaValueOffsetX = -100f;
+    [Tooltip("비자 발급일 가로 위치 보정(anchoredPosition.x px).")]
+    [SerializeField] private float _visaIssueOffsetX = -66f;
+    [Tooltip("비자 만료일 가로 위치 보정(anchoredPosition.x px).")]
+    [SerializeField] private float _visaExpiryOffsetX = -115f;
+    [Tooltip("비자 발급일·만료일 슬롯 폭(px).")]
+    [SerializeField] private float _visaDateWidth = 180f;
+
+    [Header("PCR 펼침 템플릿(documentType==\"PCR검사서\" — 결과별 2종)")]
+    [Tooltip("음성 템플릿. 비우면 Resources/Documents/pcr_open_negative 자동 로드.")]
+    [SerializeField] private Sprite _pcrTemplateNegative;
+    [Tooltip("양성 템플릿. 비우면 Resources/Documents/pcr_open_positive 자동 로드.")]
+    [SerializeField] private Sprite _pcrTemplatePositive;
+    [Tooltip("PCR 닫힘 아이콘. 비우면 Resources/Documents/pcr_closed 자동 로드.")]
+    [SerializeField] private Sprite _pcrClosedCover;
+
+    [Header("PCR 펼침뷰 — 필드 위치 (좌상단 0~1 비율, 검사결과는 이미지 체크박스라 미표시)")]
+    [SerializeField] private Vector2 _posPcrName        = new Vector2(0.42f, 0.298f); // 이름
+    [SerializeField] private Vector2 _posPcrNationality = new Vector2(0.42f, 0.366f); // 국적
+    [SerializeField] private Vector2 _posPcrTestNo      = new Vector2(0.42f, 0.432f); // 검사번호
+    [SerializeField] private Vector2 _posPcrIssueDate   = new Vector2(0.42f, 0.501f); // 검사일
+    [SerializeField] private Vector2 _posPcrValidUntil  = new Vector2(0.42f, 0.727f); // 유효기간
+    [SerializeField] private Vector2 _posPcrLabName     = new Vector2(0.42f, 0.793f); // 검사기관
+    [Tooltip("PCR 값 가로 위치 보정(anchoredPosition.x px).")]
+    [SerializeField] private float _pcrValueOffsetX = 0f;
+
     private readonly List<DocumentFieldView> _fieldRows = new List<DocumentFieldView>();
 
     // 여권 전용으로 생성한 슬롯들의 부모(재바인딩 시 통째로 정리).
@@ -79,16 +138,37 @@ public sealed class DocumentCardView : MonoBehaviour
         if (IsPassport(doc) && TryBuildPassportOpenView(doc))
         {
             // 일반 렌더 경로(사진/필드행/본문/배경색)는 건너뛰고 도장만 정리.
-            if (_background != null) _background.color = new Color(0.97f, 0.96f, 0.90f);
+            if (_background != null) _background.color = new Color(1f, 1f, 1f, 0f); // 여권 배경 투명(살색 제거)
+            BuildClosedCover(doc);
+            HideStamp();
+            return;
+        }
+
+        // ── 비자 전용 펼침 렌더 ──────────────────────────────────────
+        // documentType=="비자" 이고 템플릿을 확보하면, 여권과 동일하게 빈 폼 위에 값만 슬롯으로 표시.
+        if (IsVisa(doc) && TryBuildVisaOpenView(doc))
+        {
+            if (_background != null) _background.color = new Color(1f, 1f, 1f, 0f); // 비자 배경 투명(살색 제거)
+            BuildClosedCover(doc);
+            HideStamp();
+            return;
+        }
+
+        // ── PCR 검사서 전용 펼침 렌더(결과별 양성/음성 템플릿) ──────────
+        if (IsPcr(doc) && TryBuildPcrOpenView(doc))
+        {
+            if (_background != null) _background.color = new Color(1f, 1f, 1f, 0f); // 배경 투명
             BuildClosedCover(doc);
             HideStamp();
             return;
         }
 
         // ── 일반(비여권) 렌더: 기존 동작 그대로 ─────────────────────
-        BuildPhoto(doc);
-
+        // 필드행을 먼저 만든 뒤 사진 슬롯을 얹는다 — BuildFieldRows 가 _fieldRows 를 비우므로,
+        // 사진(얼굴) 대조 슬롯은 그 뒤에 추가해야 살아남는다.
         BuildFieldRows(doc);
+
+        BuildPhoto(doc);
 
         // 필드 행 프리팹이 연결돼 있으면 한 덩어리 본문은 숨긴다(중복 방지).
         if (_bodyText != null)
@@ -123,10 +203,14 @@ public sealed class DocumentCardView : MonoBehaviour
         HideStamp();
     }
 
-    /// <summary>접힌 표지: 국가별 여권 이미지(없으면 갈색 책자 + 종류명).</summary>
+    /// <summary>접힌 표지: 여권=국가별 이미지, 비자=비자 아이콘(없으면 갈색 책자 + 종류명).</summary>
     private void BuildClosedCover(DocumentData doc)
     {
-        Sprite cover = CoverFor(doc.country);
+        Sprite cover = IsVisa(doc)
+            ? (_visaClosedCover != null ? _visaClosedCover : Resources.Load<Sprite>("Documents/visa_closed"))
+            : IsPcr(doc)
+            ? (_pcrClosedCover != null ? _pcrClosedCover : Resources.Load<Sprite>("Documents/pcr_closed"))
+            : CoverFor(doc.country);
         if (cover != null && _closedImage != null)
         {
             _closedImage.sprite = cover;
@@ -181,7 +265,7 @@ public sealed class DocumentCardView : MonoBehaviour
     private void BuildPhoto(DocumentData doc)
     {
         Sprite photo = !string.IsNullOrEmpty(doc.spriteRef)
-            ? Resources.Load<Sprite>("Characters/" + doc.spriteRef)
+            ? Resources.Load<Sprite>("Characters/" + StripExt(doc.spriteRef))
             : null;
 
         if (photo == null)
@@ -201,6 +285,32 @@ public sealed class DocumentCardView : MonoBehaviour
         _photoImage.sprite = photo;
         _photoImage.color = Color.white;
         _photoImage.preserveAspect = true;
+
+        // 사진을 클릭 대조(attr="face") 가능하게 — 사진칸 위에 클릭 슬롯을 얹는다.
+        AddFaceHitSlot(_photoImage.rectTransform, doc);
+    }
+
+    /// <summary>
+    /// 사진칸(_photoImage) 위에 투명 클릭 슬롯(DocumentFieldView)을 얹어 attr="face" 대조를 가능하게 한다.
+    /// value=doc.spriteRef / key="face" → 손님 얼굴(attr="face", value=customer.spriteRef)과 일치/불일치 대조.
+    /// 템플릿 루트가 전면 raycast(투명) 영역이라 사진칸 전체가 클릭된다.
+    /// _fieldRows 에 등록되어 DocumentView.GetSelectables() 가 수집한다. 표시 전용 — 판정/점수 무영향.
+    /// </summary>
+    private void AddFaceHitSlot(RectTransform photoRect, DocumentData doc)
+    {
+        if (_fieldTemplate == null || photoRect == null
+            || doc == null || string.IsNullOrEmpty(doc.spriteRef)) return;
+
+        DocumentFieldView row = Instantiate(_fieldTemplate, photoRect);
+        row.gameObject.SetActive(true);
+
+        RectTransform rt = row.transform as RectTransform;
+        StretchFill(rt); // 사진칸 전체를 덮는다.
+
+        // 라벨/표시 글자는 비운다(사진 위 글자 겹침 방지). 비교: value=spriteRef / key="face".
+        row.Bind(doc.documentType, string.Empty, doc.spriteRef, "face", string.Empty);
+
+        _fieldRows.Add(row);
     }
 
     /// <summary>
@@ -278,6 +388,21 @@ public sealed class DocumentCardView : MonoBehaviour
     private static bool IsPassport(DocumentData doc)
         => doc != null && doc.documentType == "여권";
 
+    private static bool IsVisa(DocumentData doc)
+        => doc != null && doc.documentType == "비자";
+
+    private static bool IsPcr(DocumentData doc)
+        => doc != null && doc.documentType == "PCR검사서";
+
+    /// <summary>PCR 결과가 양성인가(pcr_result 에 positive/양성 포함). 양성/음성 템플릿 선택용.</summary>
+    private static bool IsPcrPositive(DocumentData doc)
+    {
+        string r = FieldValue(doc, "pcr_result");
+        if (string.IsNullOrEmpty(r)) return false;
+        r = r.Trim().ToLowerInvariant();
+        return r.Contains("positive") || r.Contains("양성");
+    }
+
     /// <summary>여권 펼침 템플릿 + 동적 슬롯을 구성한다. 성공하면 true(일반 렌더 생략).</summary>
     private bool TryBuildPassportOpenView(DocumentData doc)
     {
@@ -325,49 +450,202 @@ public sealed class DocumentCardView : MonoBehaviour
 
         // ── 사진(좌상 사진칸) ─ 데이터 파생, 비대조 ────────────────
         Sprite photo = !string.IsNullOrEmpty(doc.spriteRef)
-            ? Resources.Load<Sprite>("Characters/" + doc.spriteRef)
+            ? Resources.Load<Sprite>("Characters/" + StripExt(doc.spriteRef))
             : null;
         // 사진/값 슬롯은 모두 '템플릿(bgRt)'의 자식으로 얹어, 라벨이 인쇄된 그림과 같은 좌표계를 공유한다.
-        BuildPassportPhoto(bgRt, photo);
+        BuildPassportPhoto(bgRt, doc, photo);
 
         // ── 대조 가능한 값 슬롯 ──────────────────────────────────
         // (normalized 좌상 원점 비율; AddPassportSlot 내부에서 Unity y 상향으로 변환)
         // 라벨 텍스트는 템플릿에 인쇄돼 있으므로 빈 문자열, 표시 글자는 값만.
         // 각 값을 템플릿의 해당 라벨 위치에 맞춰 얹는다(라벨 자리를 값이 덮음).
-        AddPassportSlot(bgRt, doc, "name",        new Vector2(0.126f, 0.476f)); // 이름
-        AddPassportSlot(bgRt, doc, "birth_date",  new Vector2(0.126f, 0.624f)); // 생년월일
-        AddPassportSlot(bgRt, doc, "gender",      new Vector2(0.126f, 0.769f)); // 성별
-        AddPassportSlot(bgRt, doc, "passport_no", new Vector2(0.580f, 0.196f)); // 여권 번호
-        AddPassportSlot(bgRt, doc, "nationality", new Vector2(0.580f, 0.320f)); // 국적
-        AddPassportSlot(bgRt, doc, "issue_date",  new Vector2(0.580f, 0.453f)); // 발급일
-        AddPassportSlot(bgRt, doc, "expiry_date", new Vector2(0.758f, 0.453f)); // 만료일
+        AddPassportSlot(bgRt, doc, "name",        _posName);        // 이름
+        AddPassportSlot(bgRt, doc, "birth_date",  _posBirthDate);   // 생년월일
+        AddPassportSlot(bgRt, doc, "gender",      _posGender);      // 성별
+        AddPassportSlot(bgRt, doc, "passport_no", _posPassportNo);  // 여권 번호
+        AddPassportSlot(bgRt, doc, "nationality", _posNationality); // 국적
+        AddPassportSlot(bgRt, doc, "issue_date",  _posIssueDate,  _dateSlotWidth); // 발급일
+        AddPassportSlot(bgRt, doc, "expiry_date", _posExpiryDate, _dateSlotWidth); // 만료일
 
         // ── 데이터 파생값(비대조) ─ 발급 국가 / 서명 ───────────────
         string nat = FieldValue(doc, "nationality");
-        AddDerivedText(bgRt, CountryName(nat), new Vector2(0.580f, 0.611f), false); // 발급 국가
-        AddDerivedText(bgRt, FieldValue(doc, "name"), new Vector2(0.580f, 0.769f), true); // 서명(손글씨풍)
+        AddDerivedText(bgRt, CountryName(nat), _posIssueCountry, false, _offsetIssueCountry); // 발급 국가(Derived)
+        AddDerivedText(bgRt, FieldValue(doc, "name"), _posSignature, true, _offsetSignature); // 서명(Signature)
 
         return true;
     }
 
-    /// <summary>여권 사진칸(좌상). 못 찾으면 플레이스홀더(빈칸) 유지. 비대조(raycast off).</summary>
-    private void BuildPassportPhoto(RectTransform root, Sprite photo)
+    /// <summary>비자 펼침 템플릿(visa_open) + 동적 슬롯을 구성한다. 성공하면 true(일반 렌더 생략).
+    /// 여권과 동일 방식 — 빈 폼 위에 값만 라벨 위치에 얹는다. 비자엔 사진칸이 없다.</summary>
+    private bool TryBuildVisaOpenView(DocumentData doc)
     {
-        // 사진칸 중심 ≈(0.19,0.31), 크기 ≈(0.14×0.25) — 좌상 원점 비율.
+        Sprite template = _visaTemplate != null
+            ? _visaTemplate
+            : Resources.Load<Sprite>("Documents/visa_open");
+        if (template == null)
+        {
+            Debug.LogWarning("[DocumentCardView] 비자 펼침 템플릿(Resources/Documents/visa_open)을 찾지 못해 일반 렌더로 폴백합니다.");
+            return false;
+        }
+
+        Transform openView = transform.Find("OpenView");
+        if (openView == null) openView = transform;
+
+        ClearFieldRows();
+        if (_fieldContainer != null) _fieldContainer.gameObject.SetActive(false);
+        if (_bodyText != null) _bodyText.gameObject.SetActive(false);
+        if (_photoImage != null) _photoImage.gameObject.SetActive(false);
+
+        _passportSlotRoot = new GameObject("VisaOpen", typeof(RectTransform));
+        RectTransform rootRt = _passportSlotRoot.GetComponent<RectTransform>();
+        rootRt.SetParent(openView, false);
+        StretchFill(rootRt);
+        rootRt.SetSiblingIndex(0); // 종이 배경처럼 맨 뒤
+
+        GameObject bg = new GameObject("Template", typeof(RectTransform), typeof(Image));
+        RectTransform bgRt = bg.GetComponent<RectTransform>();
+        bgRt.SetParent(rootRt, false);
+        StretchFill(bgRt);
+        AspectRatioFitter bgFit = bg.AddComponent<AspectRatioFitter>();
+        bgFit.aspectMode = AspectRatioFitter.AspectMode.FitInParent;
+        bgFit.aspectRatio = template.rect.height > 0f ? template.rect.width / template.rect.height : 1f;
+        Image bgImg = bg.GetComponent<Image>();
+        bgImg.sprite = template;
+        bgImg.color = Color.white;
+        bgImg.preserveAspect = false;
+        bgImg.raycastTarget = false;
+
+        // 폼 7행 값 슬롯(라벨은 템플릿 인쇄, 값만 얹음 / 클릭 대조 가능).
+        AddPassportSlot(bgRt, doc, "name",        _posVisaName,        width: 320f, anchoredOffsetX: -157f); // 이름
+        AddPassportSlot(bgRt, doc, "nationality", _posVisaNationality, anchoredOffsetX: _visaValueOffsetX); // 국적
+        AddPassportSlot(bgRt, doc, "passport_no", _posVisaPassportNo,  anchoredOffsetX: _visaValueOffsetX); // 여권번호
+        AddPassportSlot(bgRt, doc, "visa_no",     _posVisaNo,          anchoredOffsetX: _visaValueOffsetX); // 비자번호
+        AddPassportSlot(bgRt, doc, "visa_type",   _posVisaType,        anchoredOffsetX: _visaValueOffsetX); // 방문목적
+        AddPassportSlot(bgRt, doc, "issue_date",  _posVisaIssueDate,  _visaDateWidth, _visaIssueOffsetX);  // 발급일
+        AddPassportSlot(bgRt, doc, "expiry_date", _posVisaExpiryDate, _visaDateWidth, _visaExpiryOffsetX); // 만료일
+
+        return true;
+    }
+
+    /// <summary>PCR 검사서 펼침뷰. 결과(양성/음성)에 따라 템플릿이 다르고 V체크는 템플릿에 포함된다.
+    /// 이름·국적·검사번호·검사일·유효기간·검사기관 값만 폼 위에 올린다(검사결과는 이미지 체크박스로 표시).</summary>
+    private bool TryBuildPcrOpenView(DocumentData doc)
+    {
+        bool positive = IsPcrPositive(doc);
+        Sprite template = positive
+            ? (_pcrTemplatePositive != null ? _pcrTemplatePositive : Resources.Load<Sprite>("Documents/pcr_open_positive"))
+            : (_pcrTemplateNegative != null ? _pcrTemplateNegative : Resources.Load<Sprite>("Documents/pcr_open_negative"));
+        if (template == null)
+        {
+            Debug.LogWarning("[DocumentCardView] PCR 펼침 템플릿(Resources/Documents/pcr_open_*)을 찾지 못해 일반 렌더로 폴백합니다.");
+            return false;
+        }
+
+        Transform openView = transform.Find("OpenView");
+        if (openView == null) openView = transform;
+
+        ClearFieldRows();
+        if (_fieldContainer != null) _fieldContainer.gameObject.SetActive(false);
+        if (_bodyText != null) _bodyText.gameObject.SetActive(false);
+        if (_photoImage != null) _photoImage.gameObject.SetActive(false);
+
+        _passportSlotRoot = new GameObject("PcrOpen", typeof(RectTransform));
+        RectTransform rootRt = _passportSlotRoot.GetComponent<RectTransform>();
+        rootRt.SetParent(openView, false);
+        StretchFill(rootRt);
+        rootRt.SetSiblingIndex(0);
+
+        GameObject bg = new GameObject("Template", typeof(RectTransform), typeof(Image));
+        RectTransform bgRt = bg.GetComponent<RectTransform>();
+        bgRt.SetParent(rootRt, false);
+        StretchFill(bgRt);
+        AspectRatioFitter bgFit = bg.AddComponent<AspectRatioFitter>();
+        bgFit.aspectMode = AspectRatioFitter.AspectMode.FitInParent;
+        bgFit.aspectRatio = template.rect.height > 0f ? template.rect.width / template.rect.height : 1f;
+        Image bgImg = bg.GetComponent<Image>();
+        bgImg.sprite = template;
+        bgImg.color = Color.white;
+        bgImg.preserveAspect = false;
+        bgImg.raycastTarget = false;
+
+        AddPassportSlot(bgRt, doc, "name",        _posPcrName,        anchoredOffsetX: _pcrValueOffsetX); // 이름
+        AddPassportSlot(bgRt, doc, "nationality", _posPcrNationality, anchoredOffsetX: _pcrValueOffsetX); // 국적
+        AddPassportSlot(bgRt, doc, "test_no",     _posPcrTestNo,      anchoredOffsetX: _pcrValueOffsetX); // 검사번호
+        AddPassportSlot(bgRt, doc, "issue_date",  _posPcrIssueDate,   anchoredOffsetX: _pcrValueOffsetX); // 검사일
+        AddPassportSlot(bgRt, doc, "valid_until", _posPcrValidUntil,  anchoredOffsetX: _pcrValueOffsetX); // 유효기간
+        AddPassportSlot(bgRt, doc, "lab_name",    _posPcrLabName,     anchoredOffsetX: _pcrValueOffsetX); // 검사기관
+
+        return true;
+    }
+
+    /// <summary>
+    /// 여권 사진칸(좌상). 사진을 표시하면서 동시에 클릭 대조(attr="face") 슬롯으로 만든다.
+    /// _fieldTemplate(DocumentFieldView)을 사진칸 위치에 얹어 value=doc.spriteRef / key="face" 로 바인딩하면,
+    /// CustomerView 의 얼굴 selectable(attr="face", value=customer.spriteRef)과 대조된다 —
+    /// 같은 인물이면 spriteRef 가 같아 Match, 사진 바꿔치기면 Mismatch.
+    /// spriteRef 가 없으면(사진 불필요 서류) 기존처럼 비대조 플레이스홀더만 둔다. 표시 전용 — 판정/점수 무영향.
+    /// </summary>
+    private void BuildPassportPhoto(RectTransform root, DocumentData doc, Sprite photo)
+    {
+        // 사진칸 중심 ≈(0.19,0.31), 크기 ≈(0.14×0.25) — 좌상 원점 비율 → Unity 앵커(좌하 원점).
+        float halfW = 0.14f * 0.5f, halfH = 0.25f * 0.5f;
+        float cx = 0.19f, cyTop = 0.31f;
+        Vector2 aMin = new Vector2(cx - halfW, 1f - (cyTop + halfH));
+        Vector2 aMax = new Vector2(cx + halfW, 1f - (cyTop - halfH));
+
+        // spriteRef 가 있으면 사진칸 자체를 클릭 대조 슬롯으로 만든다(템플릿 루트가 전면 raycast 영역).
+        if (doc != null && !string.IsNullOrEmpty(doc.spriteRef) && _fieldTemplate != null)
+        {
+            DocumentFieldView row = Instantiate(_fieldTemplate, root);
+            row.gameObject.SetActive(true);
+
+            RectTransform rrt = row.transform as RectTransform;
+            rrt.anchorMin = aMin;
+            rrt.anchorMax = aMax;
+            rrt.offsetMin = Vector2.zero;
+            rrt.offsetMax = Vector2.zero;
+
+            // 라벨/표시 글자는 비운다(사진 이미지로 대체, 글자 겹침 방지). 비교: value=spriteRef / key="face".
+            row.Bind(doc.documentType, string.Empty, doc.spriteRef, "face", string.Empty);
+
+            // 사진(또는 플레이스홀더)을 슬롯 위에 깔아 보여준다. 클릭은 템플릿 루트의 전면 raycast 가 받는다.
+            PaintFacePhoto(rrt, photo);
+
+            _fieldRows.Add(row);
+            return;
+        }
+
+        // 폴백: spriteRef 없음/템플릿 미연결 → 기존처럼 비대조 사진/플레이스홀더만 표시.
         var go = new GameObject("Photo", typeof(RectTransform), typeof(Image));
         RectTransform rt = go.GetComponent<RectTransform>();
         rt.SetParent(root, false);
-
-        // 중심·크기(좌상 원점) → Unity 앵커(좌하 원점).
-        float halfW = 0.14f * 0.5f, halfH = 0.25f * 0.5f;
-        float cx = 0.19f, cyTop = 0.31f;
-        rt.anchorMin = new Vector2(cx - halfW, 1f - (cyTop + halfH));
-        rt.anchorMax = new Vector2(cx + halfW, 1f - (cyTop - halfH));
+        rt.anchorMin = aMin;
+        rt.anchorMax = aMax;
         rt.offsetMin = Vector2.zero;
         rt.offsetMax = Vector2.zero;
-
         Image img = go.GetComponent<Image>();
         img.raycastTarget = false;
+        PaintPhotoImage(img, photo);
+    }
+
+    /// <summary>사진칸 슬롯 안에 사진(또는 플레이스홀더) 이미지를 깐다(선택 테두리/값 텍스트보다 뒤).</summary>
+    private static void PaintFacePhoto(RectTransform slot, Sprite photo)
+    {
+        var go = new GameObject("PhotoImage", typeof(RectTransform), typeof(Image));
+        RectTransform rt = go.GetComponent<RectTransform>();
+        rt.SetParent(slot, false);
+        StretchFill(rt);
+        rt.SetSiblingIndex(0); // 선택 테두리(Highlight)·값 텍스트보다 뒤로(사진이 가리지 않게)
+
+        Image img = go.GetComponent<Image>();
+        img.raycastTarget = true; // 사진칸 클릭 = 대조 선택(템플릿 루트 raycast 와 함께)
+        PaintPhotoImage(img, photo);
+    }
+
+    /// <summary>사진 스프라이트가 있으면 표시, 없으면 옅은 회색 플레이스홀더로 칠한다.</summary>
+    private static void PaintPhotoImage(Image img, Sprite photo)
+    {
+        if (img == null) return;
         if (photo != null)
         {
             img.sprite = photo;
@@ -387,7 +665,7 @@ public sealed class DocumentCardView : MonoBehaviour
     /// 라벨은 빈 문자열(템플릿 인쇄), 표시는 형식화 값, 비교는 원본 값.
     /// 해당 key 의 필드가 없으면 슬롯을 만들지 않는다(가드).
     /// </summary>
-    private void AddPassportSlot(RectTransform root, DocumentData doc, string key, Vector2 topLeftNorm)
+    private void AddPassportSlot(RectTransform root, DocumentData doc, string key, Vector2 topLeftNorm, float width = 260f, float anchoredOffsetX = 0f)
     {
         FieldEntry f = FindField(doc, key);
         if (f == null || _fieldTemplate == null) return;
@@ -396,7 +674,8 @@ public sealed class DocumentCardView : MonoBehaviour
         row.gameObject.SetActive(true);
 
         RectTransform rt = row.transform as RectTransform;
-        PlaceAtNorm(rt, topLeftNorm);
+        PlaceAtNorm(rt, topLeftNorm, width);
+        if (anchoredOffsetX != 0f) rt.anchoredPosition = new Vector2(anchoredOffsetX, rt.anchoredPosition.y); // 가로 미세 보정
 
         // 라벨 비움(템플릿 인쇄), 표시=형식화 / 비교=원본 값.
         row.Bind(doc.documentType, string.Empty, f.value, f.key, FormatDisplay(key, f.value));
@@ -417,8 +696,16 @@ public sealed class DocumentCardView : MonoBehaviour
         }
     }
 
+    /// <summary>이미지 참조에서 확장자를 떼어 Resources 키로 변환한다(spriteRef="김민준.png" → "김민준").</summary>
+    private static string StripExt(string s)
+    {
+        if (string.IsNullOrEmpty(s)) return s;
+        int dot = s.LastIndexOf('.');
+        return dot > 0 ? s.Substring(0, dot) : s;
+    }
+
     /// <summary>데이터 파생값(발급 국가/서명) — 비대조 순수 텍스트.</summary>
-    private void AddDerivedText(RectTransform root, string text, Vector2 topLeftNorm, bool signature)
+    private void AddDerivedText(RectTransform root, string text, Vector2 topLeftNorm, bool signature, Vector2 anchoredOffset)
     {
         if (string.IsNullOrEmpty(text)) return;
 
@@ -426,6 +713,7 @@ public sealed class DocumentCardView : MonoBehaviour
         RectTransform rt = go.GetComponent<RectTransform>();
         rt.SetParent(root, false);
         PlaceAtNorm(rt, topLeftNorm);
+        rt.anchoredPosition = anchoredOffset; // 미세 위치 보정(px)
 
         TMP_Text label = go.AddComponent<TextMeshProUGUI>();
         label.text = text;
@@ -435,11 +723,21 @@ public sealed class DocumentCardView : MonoBehaviour
         label.raycastTarget = false;
         label.enableWordWrapping = false;
         TMP_FontAsset font = signature ? _passportSignatureFont : _passportValueFont;
+        if (font == null) font = TemplateValueFont(); // 한글 폰트 폴백(기본 LiberationSans 는 한글 글리프 없음 → 발급국가 빈칸 방지)
         if (font != null) label.font = font;
     }
 
+    /// <summary>대조 슬롯 템플릿(_fieldTemplate)의 값 폰트를 가져온다(한글 지원 폰트 폴백용). 없으면 null.</summary>
+    private TMP_FontAsset TemplateValueFont()
+    {
+        if (_fieldTemplate == null) return null;
+        foreach (TMP_Text t in _fieldTemplate.GetComponentsInChildren<TMP_Text>(true))
+            if (t != null && t.font != null) return t.font;
+        return null;
+    }
+
     /// <summary>좌상 원점 비율 좌표를 Unity(좌하 원점) 앵커로 변환해 슬롯을 좌측 정렬 배치한다.</summary>
-    private static void PlaceAtNorm(RectTransform rt, Vector2 topLeftNorm)
+    private static void PlaceAtNorm(RectTransform rt, Vector2 topLeftNorm, float width = 260f)
     {
         if (rt == null) return;
         float ax = topLeftNorm.x;
@@ -448,7 +746,7 @@ public sealed class DocumentCardView : MonoBehaviour
         rt.anchorMax = new Vector2(ax, ay);
         rt.pivot = new Vector2(0f, 0.5f); // 좌측 정렬(라벨 바로 아래, 좌측 기준)
         rt.anchoredPosition = Vector2.zero;
-        rt.sizeDelta = new Vector2(260f, 40f);
+        rt.sizeDelta = new Vector2(width, 40f);
     }
 
     /// <summary>슬롯의 값 TMP 폰트를 여권용으로 교체(미지정 시 템플릿 폰트 유지).</summary>

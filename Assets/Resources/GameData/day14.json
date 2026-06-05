@@ -8,9 +8,9 @@
       "nameEn": "KIM MINJUN",
       "nationality": "대한민국(KOR)",
       "gender": "남성",
-      "birthDate": "1999-03-15",
-      "age": 27,
-      "spriteRef": "spr_c001",
+      "birthDate": "1985-03-15",
+      "age": 41,
+      "spriteRef": "김민준.png",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_1",
+          "spriteRef": "김민준.png",
           "country": "KOR",
           "fields": [
             {
@@ -39,7 +39,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1999-03-15",
+              "value": "1985-03-15",
               "key": "birth_date"
             },
             {
@@ -211,6 +211,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -221,9 +223,9 @@
       "nameEn": "CHEN WEI",
       "nationality": "중국(CHN)",
       "gender": "남성",
-      "birthDate": "1980-11-08",
-      "age": 45,
-      "spriteRef": "spr_c003",
+      "birthDate": "1978-11-08",
+      "age": 47,
+      "spriteRef": "첸 웨이.png",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -232,7 +234,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_3",
+          "spriteRef": "첸 웨이.png",
           "country": "CHN",
           "fields": [
             {
@@ -252,7 +254,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1980-11-08",
+              "value": "1978-11-08",
               "key": "birth_date"
             },
             {
@@ -280,9 +282,19 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "CHEN WEI",
+              "key": "name"
+            },
+            {
               "label": "비자 번호",
               "value": "V-CN-9864",
               "key": "visa_no"
+            },
+            {
+              "label": "여권번호",
+              "value": "CN5551234",
+              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -474,6 +486,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -484,18 +498,18 @@
       "nameEn": "KANG DOSIK",
       "nationality": "대한민국(KOR)",
       "gender": "남성",
-      "birthDate": "1989-03-11",
-      "age": 37,
-      "spriteRef": "spr_c009",
+      "birthDate": "1987-03-11",
+      "age": 38,
+      "spriteRef": "강도식.png",
       "characterType": "범죄자(국내 유입자)",
       "defectVariant": "",
-      "correctResult": "정상 승인",
+      "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c9",
+          "spriteRef": "강도식.png",
           "country": "KOR",
           "fields": [
             {
@@ -515,7 +529,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1989-03-11",
+              "value": "1987-03-11",
               "key": "birth_date"
             },
             {
@@ -687,6 +701,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": {
         "type": "xray",
         "result": "적발",
@@ -719,9 +735,9 @@
       "nameEn": "YAMAMOTO REN",
       "nationality": "일본(JPN)",
       "gender": "남성",
-      "birthDate": "1983-03-22",
-      "age": 43,
-      "spriteRef": "spr_c034",
+      "birthDate": "1982-03-22",
+      "age": 44,
+      "spriteRef": "야마모토 렌.png",
       "characterType": "테러범",
       "defectVariant": "",
       "correctResult": "정상 거절",
@@ -730,7 +746,7 @@
           "documentType": "여권",
           "variant": "비정상",
           "violationField": "여권번호",
-          "spriteRef": "photo_c34",
+          "spriteRef": "야마모토 렌.png",
           "country": "JPN",
           "fields": [
             {
@@ -750,7 +766,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1983-03-22",
+              "value": "1982-03-22",
               "key": "birth_date"
             },
             {
@@ -778,9 +794,19 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "YAMAMOTO REN",
+              "key": "name"
+            },
+            {
               "label": "비자 번호",
               "value": "V-JPN-8863",
               "key": "visa_no"
+            },
+            {
+              "label": "여권번호",
+              "value": "##INVALID_PATTERN##",
+              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -972,6 +998,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": {
         "type": "xray",
         "result": "위험",
@@ -993,9 +1021,9 @@
       "nameEn": "NOH GAEUN",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "2000-05-05",
-      "age": 26,
-      "spriteRef": "spr_c030",
+      "birthDate": "1999-05-05",
+      "age": 27,
+      "spriteRef": "노가은.png",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1004,7 +1032,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c30",
+          "spriteRef": "노가은.png",
           "country": "KOR",
           "fields": [
             {
@@ -1024,7 +1052,7 @@
             },
             {
               "label": "생년월일",
-              "value": "2000-05-05",
+              "value": "1999-05-05",
               "key": "birth_date"
             },
             {
@@ -1196,6 +1224,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -1206,9 +1236,9 @@
       "nameEn": "JAMES MILLER",
       "nationality": "미국(USA)",
       "gender": "여성",
-      "birthDate": "1996-02-28",
-      "age": 30,
-      "spriteRef": "spr_c004",
+      "birthDate": "1995-02-28",
+      "age": 31,
+      "spriteRef": "제임스 밀러.png",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -1217,7 +1247,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_4",
+          "spriteRef": "제임스 밀러.png",
           "country": "USA",
           "fields": [
             {
@@ -1237,7 +1267,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1996-02-28",
+              "value": "1995-02-28",
               "key": "birth_date"
             },
             {
@@ -1265,9 +1295,19 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "JAMES MILLER",
+              "key": "name"
+            },
+            {
               "label": "비자 번호",
               "value": "V-USA-2269",
               "key": "visa_no"
+            },
+            {
+              "label": "여권번호",
+              "value": "US3334455",
+              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -1459,6 +1499,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -1469,9 +1511,9 @@
       "nameEn": "JESSICA WILSON",
       "nationality": "미국(USA)",
       "gender": "남성",
-      "birthDate": "1992-11-30",
-      "age": 33,
-      "spriteRef": "spr_c037",
+      "birthDate": "1988-11-30",
+      "age": 37,
+      "spriteRef": "제시카 윌슨.png",
       "characterType": "취업체류자",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1480,7 +1522,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c37",
+          "spriteRef": "제시카 윌슨.png",
           "country": "USA",
           "fields": [
             {
@@ -1500,7 +1542,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1992-11-30",
+              "value": "1988-11-30",
               "key": "birth_date"
             },
             {
@@ -1528,9 +1570,19 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "JESSICA WILSON",
+              "key": "name"
+            },
+            {
               "label": "비자 번호",
               "value": "V-USA-7094",
               "key": "visa_no"
+            },
+            {
+              "label": "여권번호",
+              "value": "US1041329",
+              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -1750,6 +1802,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     }

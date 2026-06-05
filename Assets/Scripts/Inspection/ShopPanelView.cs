@@ -38,7 +38,10 @@ public sealed class ShopPanelView : MonoBehaviour
     private ShopService Shop => ShopService.Instance;
     private ScoreEconomyManager Economy => ScoreEconomyManager.Instance;
 
-    private int CurrentDay => _controller != null ? _controller.CurrentDay : 0;
+    // 현재 일차: 검사 씬에서는 InspectionController 가, 결과 씬(ResultScene)처럼 컨트롤러가 없는 곳에서는
+    //  진행 일차 PlayerPrefs("CurrentDay")로 폴백한다(상점 unlock_day 게이팅이 올바른 일차를 보게 함).
+    private int CurrentDay =>
+        _controller != null ? _controller.CurrentDay : PlayerPrefs.GetInt("CurrentDay", 1);
 
     private void Awake()
     {

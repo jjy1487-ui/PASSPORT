@@ -104,7 +104,15 @@ public sealed class CustomerView : MonoBehaviour, ICrossCheckProvider
     private static Sprite LoadFace(string key)
     {
         if (string.IsNullOrEmpty(key)) return null;
-        return Resources.Load<Sprite>("Characters/" + key);
+        return Resources.Load<Sprite>("Characters/" + StripExt(key));
+    }
+
+    /// <summary>이미지 참조에서 확장자를 떼어 Resources 키로 변환한다(spriteRef="김민준.png" → "김민준").</summary>
+    private static string StripExt(string s)
+    {
+        if (string.IsNullOrEmpty(s)) return s;
+        int dot = s.LastIndexOf('.');
+        return dot > 0 ? s.Substring(0, dot) : s;
     }
 
     /// <summary>id로부터 안정적인 파스텔 색을 만든다.</summary>

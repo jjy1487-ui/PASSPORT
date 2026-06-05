@@ -8,9 +8,9 @@
       "nameEn": "LEE JIEUN",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "2002-07-22",
-      "age": 23,
-      "spriteRef": "spr_c002",
+      "birthDate": "1990-07-22",
+      "age": 35,
+      "spriteRef": "이지은.png",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c2",
+          "spriteRef": "이지은.png",
           "country": "KOR",
           "fields": [
             {
@@ -39,7 +39,7 @@
             },
             {
               "label": "생년월일",
-              "value": "2002-07-22",
+              "value": "1990-07-22",
               "key": "birth_date"
             },
             {
@@ -211,6 +211,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -221,9 +223,9 @@
       "nameEn": "HAN MANSU",
       "nationality": "대한민국(KOR)",
       "gender": "남성",
-      "birthDate": "1980-05-05",
-      "age": 46,
-      "spriteRef": "spr_c020",
+      "birthDate": "1979-05-05",
+      "age": 47,
+      "spriteRef": "한만수.png",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -232,7 +234,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c20",
+          "spriteRef": "한만수.png",
           "country": "KOR",
           "fields": [
             {
@@ -252,7 +254,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1980-05-05",
+              "value": "1979-05-05",
               "key": "birth_date"
             },
             {
@@ -424,6 +426,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -434,9 +438,9 @@
       "nameEn": "CHEN WEI",
       "nationality": "중국(CHN)",
       "gender": "남성",
-      "birthDate": "1980-11-08",
-      "age": 45,
-      "spriteRef": "spr_c003",
+      "birthDate": "1978-11-08",
+      "age": 47,
+      "spriteRef": "첸 웨이.png",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -445,7 +449,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_3",
+          "spriteRef": "첸 웨이.png",
           "country": "CHN",
           "fields": [
             {
@@ -465,7 +469,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1980-11-08",
+              "value": "1978-11-08",
               "key": "birth_date"
             },
             {
@@ -493,9 +497,19 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "CHEN WEI",
+              "key": "name"
+            },
+            {
               "label": "비자 번호",
               "value": "V-CN-9864",
               "key": "visa_no"
+            },
+            {
+              "label": "여권번호",
+              "value": "CN5551234",
+              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -687,6 +701,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -697,9 +713,9 @@
       "nameEn": "CHEN LI",
       "nationality": "중국(CHN)",
       "gender": "남성",
-      "birthDate": "1988-05-30",
-      "age": 38,
-      "spriteRef": "spr_c018",
+      "birthDate": "1986-05-30",
+      "age": 39,
+      "spriteRef": "첸 리.png",
       "characterType": "장기체류자",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -708,7 +724,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c18",
+          "spriteRef": "첸 리.png",
           "country": "CHN",
           "fields": [
             {
@@ -728,7 +744,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1988-05-30",
+              "value": "1986-05-30",
               "key": "birth_date"
             },
             {
@@ -756,9 +772,19 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "CHEN LI",
+              "key": "name"
+            },
+            {
               "label": "비자 번호",
               "value": "V-CHN-3887",
               "key": "visa_no"
+            },
+            {
+              "label": "여권번호",
+              "value": "CH1020106",
+              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -978,6 +1004,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -988,9 +1016,9 @@
       "nameEn": "OH HYUNSEOK",
       "nationality": "대한민국(KOR)",
       "gender": "남성",
-      "birthDate": "1957-06-01",
-      "age": 69,
-      "spriteRef": "spr_c016",
+      "birthDate": "1955-06-01",
+      "age": 70,
+      "spriteRef": "오현석.png",
       "characterType": "특수(현자)★",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -999,7 +1027,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c16",
+          "spriteRef": "오현석.png",
           "country": "KOR",
           "fields": [
             {
@@ -1019,7 +1047,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1957-06-01",
+              "value": "1955-06-01",
               "key": "birth_date"
             },
             {
@@ -1191,6 +1219,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -1201,9 +1231,9 @@
       "nameEn": "JAMES MILLER",
       "nationality": "미국(USA)",
       "gender": "여성",
-      "birthDate": "1996-02-28",
-      "age": 30,
-      "spriteRef": "spr_c004",
+      "birthDate": "1995-02-28",
+      "age": 31,
+      "spriteRef": "제임스 밀러.png",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -1212,7 +1242,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_4",
+          "spriteRef": "제임스 밀러.png",
           "country": "USA",
           "fields": [
             {
@@ -1232,7 +1262,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1996-02-28",
+              "value": "1995-02-28",
               "key": "birth_date"
             },
             {
@@ -1260,9 +1290,19 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "JAMES MILLER",
+              "key": "name"
+            },
+            {
               "label": "비자 번호",
               "value": "V-USA-2269",
               "key": "visa_no"
+            },
+            {
+              "label": "여권번호",
+              "value": "US3334455",
+              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -1454,6 +1494,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -1464,9 +1506,9 @@
       "nameEn": "NOH GAEUN",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "2000-05-05",
-      "age": 26,
-      "spriteRef": "spr_c030",
+      "birthDate": "1999-05-05",
+      "age": 27,
+      "spriteRef": "노가은.png",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1475,7 +1517,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c30",
+          "spriteRef": "노가은.png",
           "country": "KOR",
           "fields": [
             {
@@ -1495,7 +1537,7 @@
             },
             {
               "label": "생년월일",
-              "value": "2000-05-05",
+              "value": "1999-05-05",
               "key": "birth_date"
             },
             {
@@ -1667,6 +1709,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     }

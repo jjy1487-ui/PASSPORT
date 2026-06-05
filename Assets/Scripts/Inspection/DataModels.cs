@@ -30,6 +30,8 @@ public sealed class CustomerData
     public string characterType;
     public string defectVariant;  // 결함/상태 세부 분기 키(BRANCH_CATALOG 어휘: 예 관광객 "분실"/"출국X", 전염병 "1-A"~"1-D"). 정상/변이 없으면 "". 데이터 운반용(로직 변경 없음).
     public string correctResult;  // "정상 승인" | "정상 거절"
+    public string rejectAdvancedBranchKey; // 비어있지 않으면: 이 손님 거부 시 오거부 3회 루프 대신 이 branch_key(예 "detect_montage_xray_reject")로 1회 정산하고 가이드 대사를 재생. 일반 손님은 "".
+    public string rejectGuidedCaseType;    // 가이드 거부 대사 케이스의 caseType(예 "분기 거부"). 비면 폴백.
     public DocumentData[] documents;
     public DialogueCaseData[] dialogueCases;
     public ScanData xray;          // 보조검사 결과(없으면 null)

@@ -8,9 +8,9 @@
       "nameEn": "ROBERT JOHNSON",
       "nationality": "미국(USA)",
       "gender": "남성",
-      "birthDate": "1991-09-03",
-      "age": 34,
-      "spriteRef": "spr_c013",
+      "birthDate": "1989-09-03",
+      "age": 36,
+      "spriteRef": "로버트 존슨.png",
       "characterType": "검역 대상자(PCR)",
       "defectVariant": "1-D 모두 미비",
       "correctResult": "정상 거절",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c13",
+          "spriteRef": "로버트 존슨.png",
           "country": "USA",
           "fields": [
             {
@@ -39,7 +39,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1991-09-03",
+              "value": "1989-09-03",
               "key": "birth_date"
             },
             {
@@ -67,9 +67,19 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "ROBERT JOHNSON",
+              "key": "name"
+            },
+            {
               "label": "비자 번호",
               "value": "V-USA-1529",
               "key": "visa_no"
+            },
+            {
+              "label": "여권번호",
+              "value": "US1014521",
+              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -110,6 +120,16 @@
           "spriteRef": "",
           "country": "",
           "fields": [
+            {
+              "label": "이름",
+              "value": "ROBERT JOHNSON",
+              "key": "name"
+            },
+            {
+              "label": "국적",
+              "value": "USA",
+              "key": "nationality"
+            },
             {
               "label": "검사 번호",
               "value": "PCR-013",
@@ -300,6 +320,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -310,18 +332,18 @@
       "nameEn": "PARK CHEOLSU",
       "nationality": "대한민국(KOR)",
       "gender": "남성",
-      "birthDate": "1984-09-14",
-      "age": 41,
-      "spriteRef": "spr_c005",
+      "birthDate": "1982-09-14",
+      "age": 43,
+      "spriteRef": "박철수.png",
       "characterType": "진상 고객",
       "defectVariant": "",
-      "correctResult": "정상 거절",
+      "correctResult": "정상 승인",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "비정상",
-          "violationField": "생년월일",
-          "spriteRef": "photo_5",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "박철수.png",
           "country": "KOR",
           "fields": [
             {
@@ -341,7 +363,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1900-01-01",
+              "value": "1982-09-14",
               "key": "birth_date"
             },
             {
@@ -358,6 +380,55 @@
               "label": "만료일",
               "value": "2029-07-14",
               "key": "expiry_date"
+            }
+          ]
+        },
+        {
+          "documentType": "PCR검사서",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "",
+          "country": "",
+          "fields": [
+            {
+              "label": "이름",
+              "value": "PARK CHEOLSU",
+              "key": "name"
+            },
+            {
+              "label": "국적",
+              "value": "KOR",
+              "key": "nationality"
+            },
+            {
+              "label": "검사 번호",
+              "value": "PCR-005",
+              "key": "test_no"
+            },
+            {
+              "label": "검사일",
+              "value": "2026-05-28",
+              "key": "issue_date"
+            },
+            {
+              "label": "검사 결과",
+              "value": "Negative",
+              "key": "pcr_result"
+            },
+            {
+              "label": "유효 기한",
+              "value": "2026-06-20",
+              "key": "valid_until"
+            },
+            {
+              "label": "검사 기관",
+              "value": "서울시립보건연구원",
+              "key": "lab_name"
+            },
+            {
+              "label": "비고",
+              "value": "정상 PCR(음성)",
+              "key": "memo"
             }
           ]
         }
@@ -405,13 +476,7 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다.",
-              "claim": {
-                "attr": "birth_date",
-                "value": "",
-                "label": "생년월일 불일치",
-                "unlocksScan": ""
-              }
+              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
             },
             {
               "order": 2,
@@ -519,6 +584,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -529,9 +596,9 @@
       "nameEn": "LI NA",
       "nationality": "중국(CHN)",
       "gender": "여성",
-      "birthDate": "1995-07-19",
-      "age": 30,
-      "spriteRef": "spr_c014",
+      "birthDate": "1993-07-19",
+      "age": 32,
+      "spriteRef": "리 나.png",
       "characterType": "검역 대상자(PCR)",
       "defectVariant": "1-A",
       "correctResult": "정상 승인",
@@ -540,7 +607,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c14",
+          "spriteRef": "리 나.png",
           "country": "CHN",
           "fields": [
             {
@@ -560,7 +627,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1995-07-19",
+              "value": "1993-07-19",
               "key": "birth_date"
             },
             {
@@ -588,9 +655,19 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "LI NA",
+              "key": "name"
+            },
+            {
               "label": "비자 번호",
               "value": "V-CHN-2082",
               "key": "visa_no"
+            },
+            {
+              "label": "여권번호",
+              "value": "CN1015638",
+              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -631,6 +708,16 @@
           "spriteRef": "",
           "country": "",
           "fields": [
+            {
+              "label": "이름",
+              "value": "LI NA",
+              "key": "name"
+            },
+            {
+              "label": "국적",
+              "value": "CHN",
+              "key": "nationality"
+            },
             {
               "label": "검사 번호",
               "value": "PCR-014",
@@ -815,6 +902,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -825,9 +914,9 @@
       "nameEn": "TANAKA YUI",
       "nationality": "일본(JPN)",
       "gender": "남성",
-      "birthDate": "1992-12-12",
-      "age": 33,
-      "spriteRef": "spr_c019",
+      "birthDate": "1990-12-12",
+      "age": 35,
+      "spriteRef": "다나카 유이.png",
       "characterType": "검역 대상자(PCR)",
       "defectVariant": "1-B 출국X/만료",
       "correctResult": "정상 거절",
@@ -836,7 +925,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c19",
+          "spriteRef": "다나카 유이.png",
           "country": "JPN",
           "fields": [
             {
@@ -856,7 +945,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1992-12-12",
+              "value": "1990-12-12",
               "key": "birth_date"
             },
             {
@@ -884,9 +973,19 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "TANAKA YUI",
+              "key": "name"
+            },
+            {
               "label": "비자 번호",
               "value": "V-JPN-3472",
               "key": "visa_no"
+            },
+            {
+              "label": "여권번호",
+              "value": "JP1021223",
+              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -927,6 +1026,16 @@
           "spriteRef": "",
           "country": "",
           "fields": [
+            {
+              "label": "이름",
+              "value": "TANAKA YUI",
+              "key": "name"
+            },
+            {
+              "label": "국적",
+              "value": "JPN",
+              "key": "nationality"
+            },
             {
               "label": "검사 번호",
               "value": "PCR-019",
@@ -1117,6 +1226,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -1127,9 +1238,9 @@
       "nameEn": "ZHANG WEI",
       "nationality": "중국(CHN)",
       "gender": "남성",
-      "birthDate": "1993-06-14",
-      "age": 32,
-      "spriteRef": "spr_c027",
+      "birthDate": "1991-06-14",
+      "age": 34,
+      "spriteRef": "장 웨이.png",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -1138,7 +1249,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c27",
+          "spriteRef": "장 웨이.png",
           "country": "CHN",
           "fields": [
             {
@@ -1158,7 +1269,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1993-06-14",
+              "value": "1991-06-14",
               "key": "birth_date"
             },
             {
@@ -1186,9 +1297,19 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "ZHANG WEI",
+              "key": "name"
+            },
+            {
               "label": "비자 번호",
               "value": "V-CHN-7483",
               "key": "visa_no"
+            },
+            {
+              "label": "여권번호",
+              "value": "CN1030159",
+              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -1218,6 +1339,55 @@
             {
               "label": "비고",
               "value": "외국인 정상 비자",
+              "key": "memo"
+            }
+          ]
+        },
+        {
+          "documentType": "PCR검사서",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "",
+          "country": "",
+          "fields": [
+            {
+              "label": "이름",
+              "value": "ZHANG WEI",
+              "key": "name"
+            },
+            {
+              "label": "국적",
+              "value": "CHN",
+              "key": "nationality"
+            },
+            {
+              "label": "검사 번호",
+              "value": "PCR-027",
+              "key": "test_no"
+            },
+            {
+              "label": "검사일",
+              "value": "2026-05-28",
+              "key": "issue_date"
+            },
+            {
+              "label": "검사 결과",
+              "value": "Negative",
+              "key": "pcr_result"
+            },
+            {
+              "label": "유효 기한",
+              "value": "2026-06-20",
+              "key": "valid_until"
+            },
+            {
+              "label": "검사 기관",
+              "value": "서울시립보건연구원",
+              "key": "lab_name"
+            },
+            {
+              "label": "비고",
+              "value": "정상 PCR(음성)",
               "key": "memo"
             }
           ]
@@ -1380,6 +1550,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -1390,9 +1562,9 @@
       "nameEn": "KIM MINJUN",
       "nationality": "대한민국(KOR)",
       "gender": "남성",
-      "birthDate": "1999-03-15",
-      "age": 27,
-      "spriteRef": "spr_c001",
+      "birthDate": "1985-03-15",
+      "age": 41,
+      "spriteRef": "김민준.png",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1401,7 +1573,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_1",
+          "spriteRef": "김민준.png",
           "country": "KOR",
           "fields": [
             {
@@ -1421,7 +1593,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1999-03-15",
+              "value": "1985-03-15",
               "key": "birth_date"
             },
             {
@@ -1438,6 +1610,55 @@
               "label": "만료일",
               "value": "2027-07-28",
               "key": "expiry_date"
+            }
+          ]
+        },
+        {
+          "documentType": "PCR검사서",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "",
+          "country": "",
+          "fields": [
+            {
+              "label": "이름",
+              "value": "KIM MINJUN",
+              "key": "name"
+            },
+            {
+              "label": "국적",
+              "value": "KOR",
+              "key": "nationality"
+            },
+            {
+              "label": "검사 번호",
+              "value": "PCR-001",
+              "key": "test_no"
+            },
+            {
+              "label": "검사일",
+              "value": "2026-05-28",
+              "key": "issue_date"
+            },
+            {
+              "label": "검사 결과",
+              "value": "Negative",
+              "key": "pcr_result"
+            },
+            {
+              "label": "유효 기한",
+              "value": "2026-06-20",
+              "key": "valid_until"
+            },
+            {
+              "label": "검사 기관",
+              "value": "서울시립보건연구원",
+              "key": "lab_name"
+            },
+            {
+              "label": "비고",
+              "value": "정상 PCR(음성)",
+              "key": "memo"
             }
           ]
         }
@@ -1593,6 +1814,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -1603,9 +1826,9 @@
       "nameEn": "SEO JIHO",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "1999-11-20",
-      "age": 26,
-      "spriteRef": "spr_c021",
+      "birthDate": "1997-11-20",
+      "age": 28,
+      "spriteRef": "서지호.png",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1614,7 +1837,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c21",
+          "spriteRef": "서지호.png",
           "country": "KOR",
           "fields": [
             {
@@ -1634,7 +1857,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1999-11-20",
+              "value": "1997-11-20",
               "key": "birth_date"
             },
             {
@@ -1651,6 +1874,55 @@
               "label": "만료일",
               "value": "2029-07-28",
               "key": "expiry_date"
+            }
+          ]
+        },
+        {
+          "documentType": "PCR검사서",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "",
+          "country": "",
+          "fields": [
+            {
+              "label": "이름",
+              "value": "SEO JIHO",
+              "key": "name"
+            },
+            {
+              "label": "국적",
+              "value": "KOR",
+              "key": "nationality"
+            },
+            {
+              "label": "검사 번호",
+              "value": "PCR-021",
+              "key": "test_no"
+            },
+            {
+              "label": "검사일",
+              "value": "2026-05-28",
+              "key": "issue_date"
+            },
+            {
+              "label": "검사 결과",
+              "value": "Negative",
+              "key": "pcr_result"
+            },
+            {
+              "label": "유효 기한",
+              "value": "2026-06-20",
+              "key": "valid_until"
+            },
+            {
+              "label": "검사 기관",
+              "value": "서울시립보건연구원",
+              "key": "lab_name"
+            },
+            {
+              "label": "비고",
+              "value": "정상 PCR(음성)",
+              "key": "memo"
             }
           ]
         }
@@ -1806,6 +2078,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     }

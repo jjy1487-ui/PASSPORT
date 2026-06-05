@@ -32,9 +32,24 @@ public sealed class CrossCheckItemView : MonoBehaviour, ICrossCheckSelectable
 
     private void Awake()
     {
-        if (_button != null) _button.onClick.AddListener(HandleClick);
+        if (_button != null)
+        {
+            _button.onClick.AddListener(HandleClick);
+            StretchToFill(_button.transform as RectTransform); // 클릭영역(Hit)을 항목 전체로 — 어긋난 pivot/offset 보정
+        }
         EnsureBorderSprite();
         SetSelected(false);
+    }
+
+    /// <summary>RectTransform 을 부모 전체로 펼친다(클릭영역이 항목과 어긋나지 않게).</summary>
+    private static void StretchToFill(RectTransform rt)
+    {
+        if (rt == null) return;
+        rt.anchorMin = Vector2.zero;
+        rt.anchorMax = Vector2.one;
+        rt.pivot = new Vector2(0.5f, 0.5f);
+        rt.offsetMin = Vector2.zero;
+        rt.offsetMax = Vector2.zero;
     }
 
     /// <summary>선택 하이라이트 Image 를 9-slice 테두리(채움 없음)로 설정한다(텍스트 가림 방지). 색 시맨틱은 _selectedColor 유지.</summary>
@@ -82,5 +97,9 @@ public sealed class CrossCheckItemView : MonoBehaviour, ICrossCheckSelectable
         _highlight.color = border;
     }
 
-    private void HandleClick() => OnSelected?.Invoke(this);
+    private void HandleClick()
+    {
+        Debug.Log($"[CrossCheckDBG] HandleClick fired src={SourceType} attr={AttributeKey} listeners={(OnSelected != null)}");
+        OnSelected?.Invoke(this);
+    }
 }

@@ -8,9 +8,9 @@
       "nameEn": "OH MANSEOK",
       "nationality": "대한민국(KOR)",
       "gender": "남성",
-      "birthDate": "1988-02-11",
-      "age": 38,
-      "spriteRef": "spr_c028",
+      "birthDate": "1975-02-11",
+      "age": 51,
+      "spriteRef": "오만석.png",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c28",
+          "spriteRef": "오만석.png",
           "country": "KOR",
           "fields": [
             {
@@ -39,7 +39,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1988-02-11",
+              "value": "1975-02-11",
               "key": "birth_date"
             },
             {
@@ -211,6 +211,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -221,9 +223,9 @@
       "nameEn": "CHOI SEOYEON",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "1992-06-30",
-      "age": 33,
-      "spriteRef": "spr_c006",
+      "birthDate": "1988-06-30",
+      "age": 37,
+      "spriteRef": "최서연.png",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -232,7 +234,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c6",
+          "spriteRef": "최서연.png",
           "country": "KOR",
           "fields": [
             {
@@ -252,7 +254,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1992-06-30",
+              "value": "1988-06-30",
               "key": "birth_date"
             },
             {
@@ -424,6 +426,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -436,7 +440,7 @@
       "gender": "남성",
       "birthDate": "1993-12-05",
       "age": 32,
-      "spriteRef": "spr_c007",
+      "spriteRef": "왕 웨이.png",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -445,7 +449,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_7",
+          "spriteRef": "왕 웨이.png",
           "country": "CHN",
           "fields": [
             {
@@ -493,9 +497,19 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "WANG WEI",
+              "key": "name"
+            },
+            {
               "label": "비자 번호",
               "value": "V-CHN-3766",
               "key": "visa_no"
+            },
+            {
+              "label": "여권번호",
+              "value": "CN6667788",
+              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -687,6 +701,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -697,9 +713,9 @@
       "nameEn": "YOON JEONGHO",
       "nationality": "대한민국(KOR)",
       "gender": "남성",
-      "birthDate": "1967-10-10",
-      "age": 58,
-      "spriteRef": "spr_c017",
+      "birthDate": "1965-10-10",
+      "age": 60,
+      "spriteRef": "윤정호.png",
       "characterType": "특수(정치인)★",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -708,7 +724,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c17",
+          "spriteRef": "윤정호.png",
           "country": "KOR",
           "fields": [
             {
@@ -728,7 +744,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1967-10-10",
+              "value": "1965-10-10",
               "key": "birth_date"
             },
             {
@@ -900,6 +916,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -910,9 +928,9 @@
       "nameEn": "JEONG YUNA",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "1997-04-12",
-      "age": 29,
-      "spriteRef": "spr_c012",
+      "birthDate": "1996-04-12",
+      "age": 30,
+      "spriteRef": "정유나.png",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -921,7 +939,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c12",
+          "spriteRef": "정유나.png",
           "country": "KOR",
           "fields": [
             {
@@ -941,7 +959,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1997-04-12",
+              "value": "1996-04-12",
               "key": "birth_date"
             },
             {
@@ -1113,6 +1131,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -1123,9 +1143,9 @@
       "nameEn": "WILLIAM BROWN",
       "nationality": "미국(USA)",
       "gender": "여성",
-      "birthDate": "1995-03-03",
-      "age": 31,
-      "spriteRef": "spr_c025",
+      "birthDate": "1994-03-03",
+      "age": 32,
+      "spriteRef": "윌리엄 브라운.png",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -1134,7 +1154,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c25",
+          "spriteRef": "윌리엄 브라운.png",
           "country": "USA",
           "fields": [
             {
@@ -1154,7 +1174,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1995-03-03",
+              "value": "1994-03-03",
               "key": "birth_date"
             },
             {
@@ -1182,9 +1202,19 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "WILLIAM BROWN",
+              "key": "name"
+            },
+            {
               "label": "비자 번호",
               "value": "V-USA-1189",
               "key": "visa_no"
+            },
+            {
+              "label": "여권번호",
+              "value": "US1027925",
+              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -1376,6 +1406,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -1386,9 +1418,9 @@
       "nameEn": "ZHAO LEI",
       "nationality": "중국(CHN)",
       "gender": "여성",
-      "birthDate": "1992-06-18",
-      "age": 33,
-      "spriteRef": "spr_c035",
+      "birthDate": "1990-06-18",
+      "age": 35,
+      "spriteRef": "지오 레이.png",
       "characterType": "취업체류자",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1397,7 +1429,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c35",
+          "spriteRef": "지오 레이.png",
           "country": "CHN",
           "fields": [
             {
@@ -1417,7 +1449,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1992-06-18",
+              "value": "1990-06-18",
               "key": "birth_date"
             },
             {
@@ -1445,9 +1477,19 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "ZHAO LEI",
+              "key": "name"
+            },
+            {
               "label": "비자 번호",
               "value": "V-CHN-1208",
               "key": "visa_no"
+            },
+            {
+              "label": "여권번호",
+              "value": "CN1039095",
+              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -1667,6 +1709,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     }

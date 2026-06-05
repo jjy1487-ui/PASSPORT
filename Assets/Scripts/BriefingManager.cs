@@ -47,14 +47,28 @@ public sealed class BriefingManager : MonoBehaviour
     // 현재 일차를 보관하는 PlayerPrefs 키 (MainMenuManager / ImmigrationManager 와 동일 규칙)
     private const string CurrentDayKey = "CurrentDay";
 
+    // 1~14일차 클램프 범위(DayN씬 분리에 맞춤). ImmigrationManager 와 동일한 진행 한계.
+    private const int FirstDay = 1;
+    private const int LastDay = 14;
+
     private int _currentIndex = -1;
     private bool _advancing = false;
     private BriefingSlide[] _activeSlides;
+
+    // 브리핑 종료 후 로드할 일차별 심사 씬 이름(Start 에서 결정). 폴백은 _nextScene.
+    private string _targetScene;
 
     private void Start()
     {
         int day = Mathf.Max(1, PlayerPrefs.GetInt(CurrentDayKey, 1));
         _activeSlides = BuildSlidesForDay(day);
+
+        // 브리핑 종료 후 일차별 심사 씬으로 진입한다(단일 ImmigrationScene → DayN씬 분리).
+        //  유효 범위(1~14)면 'Day{N}Scene', 아니면 기존 _nextScene 으로 폴백.
+        int clampedDay = Mathf.Clamp(day, FirstDay, LastDay);
+        _targetScene = (clampedDay >= FirstDay && clampedDay <= LastDay)
+            ? $"Day{clampedDay}Scene"
+            : _nextScene;
 
         if (_dayLabelText != null) _dayLabelText.text = $"{day}일차";
 
@@ -192,6 +206,8 @@ public sealed class BriefingManager : MonoBehaviour
             if (_fadePanel != null) _fadePanel.alpha = Mathf.Clamp01(elapsed / _fadeDuration);
             yield return null;
         }
-        SceneManager.LoadScene(_nextScene);
+        // 일차별 심사 씬으로 진입(Start 에서 결정). 미설정 시 기존 _nextScene 폴백.
+        string target = string.IsNullOrEmpty(_targetScene) ? _nextScene : _targetScene;
+        SceneManager.LoadScene(target);
     }
 }

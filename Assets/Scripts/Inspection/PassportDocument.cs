@@ -29,11 +29,25 @@ public sealed class PassportDocument : MonoBehaviour, IBeginDragHandler, IDragHa
         SetOpen(false); // 제시 시 접힌 상태로 시작
     }
 
-    /// <summary>펼침/접힘 상태를 전환한다.</summary>
+    /// <summary>펼침/접힘 상태를 전환한다. 인스펙터 참조가 비어도 자식(OpenView/ClosedView)을 찾아 동작.</summary>
     public void SetOpen(bool open)
     {
-        if (_openView != null) _openView.SetActive(open);
-        if (_closedView != null) _closedView.SetActive(!open);
+        GameObject openV = _openView != null ? _openView : ChildGo("OpenView");
+        GameObject closedV = _closedView != null ? _closedView : ChildGo("ClosedView");
+        if (openV != null) openV.SetActive(open);
+        if (closedV != null) closedV.SetActive(!open);
+    }
+
+    /// <summary>펼침 영역(책상)이 인스펙터에서 비어 있으면 코드로 지정한다(이미 있으면 유지).</summary>
+    public void ConfigureOpenZone(RectTransform zone)
+    {
+        if (zone != null && _openZone == null) _openZone = zone;
+    }
+
+    private GameObject ChildGo(string n)
+    {
+        Transform t = transform.Find(n);
+        return t != null ? t.gameObject : null;
     }
 
     public void OnBeginDrag(PointerEventData eventData)

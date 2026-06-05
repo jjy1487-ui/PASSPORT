@@ -8,9 +8,9 @@
       "nameEn": "ZHANG WEI",
       "nationality": "중국(CHN)",
       "gender": "남성",
-      "birthDate": "1993-06-14",
-      "age": 32,
-      "spriteRef": "spr_c027",
+      "birthDate": "1991-06-14",
+      "age": 34,
+      "spriteRef": "장 웨이.png",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c27",
+          "spriteRef": "장 웨이.png",
           "country": "CHN",
           "fields": [
             {
@@ -39,7 +39,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1993-06-14",
+              "value": "1991-06-14",
               "key": "birth_date"
             },
             {
@@ -67,9 +67,19 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "ZHANG WEI",
+              "key": "name"
+            },
+            {
               "label": "비자 번호",
               "value": "V-CHN-7483",
               "key": "visa_no"
+            },
+            {
+              "label": "여권번호",
+              "value": "CN1030159",
+              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -261,6 +271,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -271,9 +283,9 @@
       "nameEn": "KIM MINJUN",
       "nationality": "대한민국(KOR)",
       "gender": "남성",
-      "birthDate": "1999-03-15",
-      "age": 27,
-      "spriteRef": "spr_c001",
+      "birthDate": "1985-03-15",
+      "age": 41,
+      "spriteRef": "김민준.png",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -282,7 +294,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_1",
+          "spriteRef": "김민준.png",
           "country": "KOR",
           "fields": [
             {
@@ -302,7 +314,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1999-03-15",
+              "value": "1985-03-15",
               "key": "birth_date"
             },
             {
@@ -474,6 +486,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -484,9 +498,9 @@
       "nameEn": "JEONG YUNA",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "1997-04-12",
-      "age": 29,
-      "spriteRef": "spr_c012",
+      "birthDate": "1996-04-12",
+      "age": 30,
+      "spriteRef": "정유나.png",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -495,7 +509,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c12",
+          "spriteRef": "정유나.png",
           "country": "KOR",
           "fields": [
             {
@@ -515,7 +529,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1997-04-12",
+              "value": "1996-04-12",
               "key": "birth_date"
             },
             {
@@ -687,6 +701,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -697,9 +713,9 @@
       "nameEn": "BAE SUJEONG",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "1985-09-30",
-      "age": 40,
-      "spriteRef": "spr_c029",
+      "birthDate": "1983-09-30",
+      "age": 42,
+      "spriteRef": "배수정.png",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -708,7 +724,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c29",
+          "spriteRef": "배수정.png",
           "country": "KOR",
           "fields": [
             {
@@ -728,7 +744,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1985-09-30",
+              "value": "1983-09-30",
               "key": "birth_date"
             },
             {
@@ -900,6 +916,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -910,9 +928,9 @@
       "nameEn": "LEE JIEUN",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "2002-07-22",
-      "age": 23,
-      "spriteRef": "spr_c002",
+      "birthDate": "1990-07-22",
+      "age": 35,
+      "spriteRef": "이지은.png",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -921,7 +939,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c2",
+          "spriteRef": "이지은.png",
           "country": "KOR",
           "fields": [
             {
@@ -941,7 +959,7 @@
             },
             {
               "label": "생년월일",
-              "value": "2002-07-22",
+              "value": "1990-07-22",
               "key": "birth_date"
             },
             {
@@ -1113,6 +1131,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -1123,18 +1143,18 @@
       "nameEn": "SEO JIHO",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "1999-11-20",
-      "age": 26,
-      "spriteRef": "spr_c021",
+      "birthDate": "1997-11-20",
+      "age": 28,
+      "spriteRef": "서지호.png",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
-      "correctResult": "정상 거절",
+      "correctResult": "정상 승인",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "비정상",
-          "violationField": "사진",
-          "spriteRef": "photo_mismatch",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "서지호.png",
           "country": "KOR",
           "fields": [
             {
@@ -1154,7 +1174,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1999-11-20",
+              "value": "1997-11-20",
               "key": "birth_date"
             },
             {
@@ -1218,13 +1238,7 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요.",
-              "claim": {
-                "attr": "face",
-                "value": "",
-                "label": "사진 불일치",
-                "unlocksScan": ""
-              }
+              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
             },
             {
               "order": 2,
@@ -1332,6 +1346,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -1342,9 +1358,9 @@
       "nameEn": "CHEN WEI",
       "nationality": "중국(CHN)",
       "gender": "남성",
-      "birthDate": "1980-11-08",
-      "age": 45,
-      "spriteRef": "spr_c003",
+      "birthDate": "1978-11-08",
+      "age": 47,
+      "spriteRef": "첸 웨이.png",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -1353,7 +1369,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_3",
+          "spriteRef": "첸 웨이.png",
           "country": "CHN",
           "fields": [
             {
@@ -1373,7 +1389,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1980-11-08",
+              "value": "1978-11-08",
               "key": "birth_date"
             },
             {
@@ -1401,9 +1417,19 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "CHEN WEI",
+              "key": "name"
+            },
+            {
               "label": "비자 번호",
               "value": "V-CN-9864",
               "key": "visa_no"
+            },
+            {
+              "label": "여권번호",
+              "value": "CN5551234",
+              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -1595,6 +1621,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     }

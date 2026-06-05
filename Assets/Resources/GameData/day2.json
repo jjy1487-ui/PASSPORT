@@ -8,9 +8,9 @@
       "nameEn": "PARK JIHOON",
       "nationality": "대한민국(KOR)",
       "gender": "남성",
-      "birthDate": "1991-01-20",
-      "age": 35,
-      "spriteRef": "spr_c022",
+      "birthDate": "1990-01-20",
+      "age": 36,
+      "spriteRef": "박지훈.png",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c22",
+          "spriteRef": "박지훈.png",
           "country": "KOR",
           "fields": [
             {
@@ -39,7 +39,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1991-01-20",
+              "value": "1990-01-20",
               "key": "birth_date"
             },
             {
@@ -211,6 +211,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -221,9 +223,9 @@
       "nameEn": "HAN MANSU",
       "nationality": "대한민국(KOR)",
       "gender": "남성",
-      "birthDate": "1980-05-05",
-      "age": 46,
-      "spriteRef": "spr_c020",
+      "birthDate": "1979-05-05",
+      "age": 47,
+      "spriteRef": "한만수.png",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -232,7 +234,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c20",
+          "spriteRef": "한만수.png",
           "country": "KOR",
           "fields": [
             {
@@ -252,7 +254,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1980-05-05",
+              "value": "1979-05-05",
               "key": "birth_date"
             },
             {
@@ -424,6 +426,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -434,9 +438,9 @@
       "nameEn": "WILLIAM BROWN",
       "nationality": "미국(USA)",
       "gender": "여성",
-      "birthDate": "1995-03-03",
-      "age": 31,
-      "spriteRef": "spr_c025",
+      "birthDate": "1994-03-03",
+      "age": 32,
+      "spriteRef": "윌리엄 브라운.png",
       "characterType": "외국인 관광객",
       "defectVariant": "분실",
       "correctResult": "정상 거절",
@@ -445,7 +449,7 @@
           "documentType": "여권",
           "variant": "비정상",
           "violationField": "국적",
-          "spriteRef": "photo_c25",
+          "spriteRef": "윌리엄 브라운.png",
           "country": "USA",
           "fields": [
             {
@@ -465,7 +469,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1995-03-03",
+              "value": "1994-03-03",
               "key": "birth_date"
             },
             {
@@ -643,6 +647,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -653,18 +659,18 @@
       "nameEn": "SONG HANEUL",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "1994-04-09",
-      "age": 32,
-      "spriteRef": "spr_c023",
+      "birthDate": "1993-04-09",
+      "age": 33,
+      "spriteRef": "송하늘.png",
       "characterType": "일반 고객",
       "defectVariant": "",
-      "correctResult": "정상 거절",
+      "correctResult": "정상 승인",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "비정상",
-          "violationField": "만료일",
-          "spriteRef": "photo_c23",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "송하늘.png",
           "country": "KOR",
           "fields": [
             {
@@ -684,7 +690,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1994-04-09",
+              "value": "1993-04-09",
               "key": "birth_date"
             },
             {
@@ -694,12 +700,12 @@
             },
             {
               "label": "발급일",
-              "value": "2013-01-01",
+              "value": "2018-01-01",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2023-01-01",
+              "value": "2028-01-01",
               "key": "expiry_date"
             }
           ]
@@ -748,13 +754,7 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다.",
-              "claim": {
-                "attr": "expiry_date",
-                "value": "",
-                "label": "만료일 불일치",
-                "unlocksScan": ""
-              }
+              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
             },
             {
               "order": 2,
@@ -862,6 +862,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -872,9 +874,9 @@
       "nameEn": "IM DOHYUN",
       "nationality": "대한민국(KOR)",
       "gender": "남성",
-      "birthDate": "1976-08-17",
-      "age": 49,
-      "spriteRef": "spr_c024",
+      "birthDate": "1986-08-17",
+      "age": 39,
+      "spriteRef": "임도현.png",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -883,7 +885,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c24",
+          "spriteRef": "임도현.png",
           "country": "KOR",
           "fields": [
             {
@@ -903,7 +905,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1976-08-17",
+              "value": "1986-08-17",
               "key": "birth_date"
             },
             {
@@ -1075,6 +1077,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -1085,18 +1089,18 @@
       "nameEn": "TANAKA HARUTO",
       "nationality": "일본(JPN)",
       "gender": "남성",
-      "birthDate": "1991-11-25",
-      "age": 34,
-      "spriteRef": "spr_c026",
+      "birthDate": "1989-11-25",
+      "age": 36,
+      "spriteRef": "다나카 하루토.png",
       "characterType": "외국인 관광객",
-      "defectVariant": "",
-      "correctResult": "정상 승인",
+      "defectVariant": "출국X",
+      "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c26",
+          "spriteRef": "다나카 하루토.png",
           "country": "JPN",
           "fields": [
             {
@@ -1116,7 +1120,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1991-11-25",
+              "value": "1989-11-25",
               "key": "birth_date"
             },
             {
@@ -1133,6 +1137,60 @@
               "label": "만료일",
               "value": "2031-03-14",
               "key": "expiry_date"
+            }
+          ]
+        },
+        {
+          "documentType": "비자",
+          "variant": "비정상",
+          "violationField": "만료일",
+          "spriteRef": "",
+          "country": "",
+          "fields": [
+            {
+              "label": "이름",
+              "value": "TANAKA HARUTO",
+              "key": "name"
+            },
+            {
+              "label": "국적",
+              "value": "JPN",
+              "key": "nationality"
+            },
+            {
+              "label": "여권번호",
+              "value": "JP1029042",
+              "key": "passport_no"
+            },
+            {
+              "label": "비자 번호",
+              "value": "V-JPN-8758",
+              "key": "visa_no"
+            },
+            {
+              "label": "비자 종류",
+              "value": "관광",
+              "key": "visa_type"
+            },
+            {
+              "label": "발급일",
+              "value": "2022-01-01",
+              "key": "issue_date"
+            },
+            {
+              "label": "만료일",
+              "value": "2023-01-01",
+              "key": "expiry_date"
+            },
+            {
+              "label": "입국 횟수",
+              "value": "단수",
+              "key": "entry_type"
+            },
+            {
+              "label": "비고",
+              "value": "외국인 정상 비자",
+              "key": "memo"
             }
           ]
         }
@@ -1180,7 +1238,13 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다."
+              "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다.",
+              "claim": {
+                "attr": "expiry_date",
+                "value": "",
+                "label": "만료일 불일치",
+                "unlocksScan": ""
+              }
             },
             {
               "order": 2,
@@ -1288,6 +1352,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -1298,9 +1364,9 @@
       "nameEn": "OH MANSEOK",
       "nationality": "대한민국(KOR)",
       "gender": "남성",
-      "birthDate": "1988-02-11",
-      "age": 38,
-      "spriteRef": "spr_c028",
+      "birthDate": "1975-02-11",
+      "age": 51,
+      "spriteRef": "오만석.png",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 거절",
@@ -1309,7 +1375,7 @@
           "documentType": "여권",
           "variant": "비정상",
           "violationField": "생년월일",
-          "spriteRef": "photo_c28",
+          "spriteRef": "오만석.png",
           "country": "KOR",
           "fields": [
             {
@@ -1507,6 +1573,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     }

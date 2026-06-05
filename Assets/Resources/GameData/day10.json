@@ -8,9 +8,9 @@
       "nameEn": "SONG HANEUL",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "1994-04-09",
-      "age": 32,
-      "spriteRef": "spr_c023",
+      "birthDate": "1993-04-09",
+      "age": 33,
+      "spriteRef": "송하늘.png",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c23",
+          "spriteRef": "송하늘.png",
           "country": "KOR",
           "fields": [
             {
@@ -39,7 +39,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1994-04-09",
+              "value": "1993-04-09",
               "key": "birth_date"
             },
             {
@@ -211,6 +211,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -221,9 +223,9 @@
       "nameEn": "BAE SUJEONG",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "1985-09-30",
-      "age": 40,
-      "spriteRef": "spr_c029",
+      "birthDate": "1983-09-30",
+      "age": 42,
+      "spriteRef": "배수정.png",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -232,7 +234,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c29",
+          "spriteRef": "배수정.png",
           "country": "KOR",
           "fields": [
             {
@@ -252,7 +254,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1985-09-30",
+              "value": "1983-09-30",
               "key": "birth_date"
             },
             {
@@ -424,6 +426,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -434,18 +438,18 @@
       "nameEn": "SEO JIHO",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "1999-11-20",
-      "age": 26,
-      "spriteRef": "spr_c021",
+      "birthDate": "1997-11-20",
+      "age": 28,
+      "spriteRef": "서지호.png",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
-      "correctResult": "정상 거절",
+      "correctResult": "정상 승인",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "비정상",
-          "violationField": "사진",
-          "spriteRef": "photo_mismatch",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "서지호.png",
           "country": "KOR",
           "fields": [
             {
@@ -465,7 +469,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1999-11-20",
+              "value": "1997-11-20",
               "key": "birth_date"
             },
             {
@@ -529,13 +533,7 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요.",
-              "claim": {
-                "attr": "face",
-                "value": "",
-                "label": "사진 불일치",
-                "unlocksScan": ""
-              }
+              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
             },
             {
               "order": 2,
@@ -643,6 +641,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -653,9 +653,9 @@
       "nameEn": "TANAKA HARUTO",
       "nationality": "일본(JPN)",
       "gender": "남성",
-      "birthDate": "1991-11-25",
-      "age": 34,
-      "spriteRef": "spr_c026",
+      "birthDate": "1989-11-25",
+      "age": 36,
+      "spriteRef": "다나카 하루토.png",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -664,7 +664,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c26",
+          "spriteRef": "다나카 하루토.png",
           "country": "JPN",
           "fields": [
             {
@@ -684,7 +684,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1991-11-25",
+              "value": "1989-11-25",
               "key": "birth_date"
             },
             {
@@ -712,9 +712,19 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "TANAKA HARUTO",
+              "key": "name"
+            },
+            {
               "label": "비자 번호",
               "value": "V-JPN-8758",
               "key": "visa_no"
+            },
+            {
+              "label": "여권번호",
+              "value": "JP1029042",
+              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -906,6 +916,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -916,9 +928,9 @@
       "nameEn": "IM DOHYUN",
       "nationality": "대한민국(KOR)",
       "gender": "남성",
-      "birthDate": "1976-08-17",
-      "age": 49,
-      "spriteRef": "spr_c024",
+      "birthDate": "1986-08-17",
+      "age": 39,
+      "spriteRef": "임도현.png",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -927,7 +939,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c24",
+          "spriteRef": "임도현.png",
           "country": "KOR",
           "fields": [
             {
@@ -947,7 +959,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1976-08-17",
+              "value": "1986-08-17",
               "key": "birth_date"
             },
             {
@@ -1119,6 +1131,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -1129,9 +1143,9 @@
       "nameEn": "PARK CHEOLSU",
       "nationality": "대한민국(KOR)",
       "gender": "남성",
-      "birthDate": "1984-09-14",
-      "age": 41,
-      "spriteRef": "spr_c005",
+      "birthDate": "1982-09-14",
+      "age": 43,
+      "spriteRef": "박철수.png",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1140,7 +1154,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_5",
+          "spriteRef": "박철수.png",
           "country": "KOR",
           "fields": [
             {
@@ -1160,7 +1174,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1984-09-14",
+              "value": "1982-09-14",
               "key": "birth_date"
             },
             {
@@ -1332,6 +1346,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     },
@@ -1342,9 +1358,9 @@
       "nameEn": "CHEN JING",
       "nationality": "중국(CHN)",
       "gender": "남성",
-      "birthDate": "1986-02-09",
-      "age": 40,
-      "spriteRef": "spr_c036",
+      "birthDate": "1985-02-09",
+      "age": 41,
+      "spriteRef": "천 징.png",
       "characterType": "취업체류자",
       "defectVariant": "",
       "correctResult": "정상 거절",
@@ -1353,7 +1369,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c36",
+          "spriteRef": "천 징.png",
           "country": "CHN",
           "fields": [
             {
@@ -1373,7 +1389,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1986-02-09",
+              "value": "1985-02-09",
               "key": "birth_date"
             },
             {
@@ -1401,9 +1417,19 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "CHEN JING",
+              "key": "name"
+            },
+            {
               "label": "비자 번호",
               "value": "V-CHN-7557",
               "key": "visa_no"
+            },
+            {
+              "label": "여권번호",
+              "value": "CN1040212",
+              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -1629,6 +1655,8 @@
           ]
         }
       ],
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
       "xray": null,
       "fingerprint": null
     }

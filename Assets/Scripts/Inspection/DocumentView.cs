@@ -19,6 +19,14 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
     [Tooltip("닫힌 카드 크기의 절반(영역 밖으로 안 나가게 클램프용).")]
     [SerializeField] private Vector2 _cardHalfSize = new Vector2(30f, 28f);
 
+    [Header("고지서(오판 피드백) 배치")]
+    [Tooltip("고지서 카드 기준 위치(anchoredPosition, _cardContainer 기준). 첫 고지서가 놓일 자리.")]
+    [SerializeField] private Vector2 _noticeBasePos = new Vector2(-1173f, -88f);
+    [Tooltip("고지서 카드 크기(sizeDelta). 닫힌 썸네일 크기.")]
+    [SerializeField] private Vector2 _noticeSize = new Vector2(83.8205f, 86.6596f);
+    [Tooltip("고지서가 여러 장일 때 카드끼리 어긋나는 간격(px).")]
+    [SerializeField] private Vector2 _noticeStagger = new Vector2(26f, 24f);
+
     private readonly List<DocumentCardView> _spawned = new List<DocumentCardView>();
     // 오판 고지서: 손님 교체(Clear)에도 사라지지 않고 누적된다.
     private readonly List<DocumentCardView> _notices = new List<DocumentCardView>();
@@ -63,11 +71,30 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
             card.gameObject.SetActive(true);
             PositionAtSpawn(card.transform as RectTransform, i);
             card.Bind(documents[i]);
+            StartClosed(card); // 스폰 시 닫힌 표지만(열림+닫힘 동시표시 방지). 책상으로 드래그하면 펼쳐진다.
             _spawned.Add(card);
         }
 
         OnDocumentsChanged?.Invoke();
         OnSelectablesChanged?.Invoke();
+    }
+
+    /// <summary>카드를 닫힌 상태로 시작시키고, 펼침 영역(책상=_cardContainer)을 코드로 지정한다.
+    /// PassportDocument 가 있으면 그것으로, 없으면 OpenView/ClosedView 를 직접 토글한다.</summary>
+    private void StartClosed(DocumentCardView card)
+    {
+        if (card == null) return;
+        PassportDocument pd = card.GetComponent<PassportDocument>();
+        if (pd != null)
+        {
+            if (_cardContainer is RectTransform crt) pd.ConfigureOpenZone(crt);
+            pd.SetOpen(false);
+            return;
+        }
+        Transform open = card.transform.Find("OpenView");
+        Transform closed = card.transform.Find("ClosedView");
+        if (open != null) open.gameObject.SetActive(false);
+        if (closed != null) closed.gameObject.SetActive(true);
     }
 
     /// <summary>
@@ -102,17 +129,14 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
         }
     }
 
-    /// <summary>고지서를 출현 영역 좌상단부터 인덱스만큼 어긋나게 누적 배치한다(손님 서류와 겹침 최소화).</summary>
+    /// <summary>고지서를 고정 기준 위치(_noticeBasePos)·크기(_noticeSize)로 배치한다.
+    /// 여러 장이면 인덱스만큼 어긋나게(_noticeStagger) 누적해 겹침을 막는다.
+    /// 런타임 클론이라 인스펙터로 직접 못 박으므로 스폰 시 코드로 고정한다.</summary>
     private void PositionNotice(RectTransform card, int i)
     {
         if (card == null) return;
-        RectTransform area = _spawnArea != null ? _spawnArea : _restSlot;
-        if (area == null) return;
-        Vector3[] c = new Vector3[4];
-        area.GetWorldCorners(c); // 0=좌하 1=좌상 2=우상 3=우하
-        float x = c[1].x + _cardHalfSize.x + 8f + i * 26f;
-        float y = c[1].y - _cardHalfSize.y - 8f - i * 24f;
-        card.position = new Vector3(x, y, area.position.z);
+        card.sizeDelta = _noticeSize;
+        card.anchoredPosition = _noticeBasePos + new Vector2(i * _noticeStagger.x, -i * _noticeStagger.y);
     }
 
     /// <summary>
@@ -128,11 +152,8 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
         PositionNotice(card.transform as RectTransform, _notices.Count); // 좌상단부터 누적
         card.Bind(notice);
 
-        // 고지서는 접지 않고 즉시 펼쳐서 내용을 보여준다.
-        Transform open = card.transform.Find("OpenView");
-        Transform closed = card.transform.Find("ClosedView");
-        if (open != null) open.gameObject.SetActive(true);
-        if (closed != null) closed.gameObject.SetActive(false);
+        // 고지서도 닫힌 썸네일로 시작 → 책상(DocumentArea)으로 드래그하면 펼쳐진다(서류와 동일 규칙).
+        StartClosed(card);
 
         // _spawned 가 아니라 _notices 에 보관 → Clear()(손님 교체) 에도 사라지지 않는다.
         _notices.Add(card);

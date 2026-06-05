@@ -36,6 +36,7 @@ public sealed class InspectionController : MonoBehaviour
     private int _index;
     private int _wrongRejectCount;
     private bool _customerSettled; // 현재 손님 확정 정산 1회 가드(중복 정산·이중 진행 방지)
+    private bool _ended;           // 엔딩 확정 시 true → 손님 진행/일자완료 패널 차단(엔딩 패널이 화면 점유)
     private readonly List<string> _dialogueLog = new List<string>(); // 현재 손님의 대화 기록(표시용 문자열)
     private readonly List<DialogueLineData> _dialogueLines = new List<DialogueLineData>(); // 구조 라인(대조 단서용)
 
@@ -164,6 +165,7 @@ public sealed class InspectionController : MonoBehaviour
 
         _data = data;
         _index = 0;
+        _ended = false; // 새 일차 시작 — 엔딩 차단 해제
         // 골드는 ScoreEconomyManager.Money 가 권위. 매니저가 있으면 그 값을 HUD 캐시에 반영한다.
         var mgr = Economy;
         if (mgr != null)
@@ -184,6 +186,7 @@ public sealed class InspectionController : MonoBehaviour
 
     private void ShowCustomer(int index)
     {
+        if (_ended) return; // 엔딩 확정됨 → 다음 손님/일자완료로 진행하지 않는다.
         _index = index;
         if (_data == null || index >= _data.customers.Length)
         {
@@ -230,21 +233,16 @@ public sealed class InspectionController : MonoBehaviour
     /// </summary>
     private static string FacePhotoRef(CustomerData c)
     {
-        if (c == null || c.documents == null) return "";
-        DocumentData passport = null;
-        foreach (DocumentData d in c.documents)
-        {
-            if (d == null) continue;
-            if (!string.IsNullOrEmpty(d.spriteRef))
-            {
-                if (d.documentType != null && d.documentType.Contains("여권"))
-                {
-                    return d.spriteRef; // 여권을 최우선
-                }
-                if (passport == null) passport = d; // 폴백 후보(첫 spriteRef 보유 문서)
-            }
-        }
-        return passport != null ? passport.spriteRef : "";
+        if (c == null) return "";
+        // 초상(데스크 앞 인물)은 항상 '실제 인물'(customer.spriteRef)을 보여준다.
+        //  여권 사진(passport.spriteRef)은 위조 시 다른 값(photo_mismatch)이라, 그걸 쓰면
+        //  사진 위조 손님의 초상이 빈칸이 된다 → 손님 본인 키를 우선한다.
+        if (!string.IsNullOrEmpty(c.spriteRef)) return c.spriteRef;
+        // 폴백: 손님 spriteRef 가 비면 보유 문서(여권 등)의 첫 spriteRef.
+        if (c.documents != null)
+            foreach (DocumentData d in c.documents)
+                if (d != null && !string.IsNullOrEmpty(d.spriteRef)) return d.spriteRef;
+        return "";
     }
 
     private void UpdateGold()
@@ -262,6 +260,24 @@ public sealed class InspectionController : MonoBehaviour
 
         bool shouldApprove = c.correctResult == GameResults.Approve;
 
+        // 고급 분기 손님(예: 성형 수술 지명수배 범죄자): 거부(approve=false) 시 정답 극성과 무관하게
+        // 항상 데이터 지정 최선 분기(detect_montage_xray_reject 등)로 1회 정산 + 가이드 대사 재생.
+        // (시드에 따라 correctResult 가 '정상 거절'로 바뀌어도 인터셉트가 누락되지 않도록 if-체인 앞에 둔다.)
+        if (!approve && !string.IsNullOrEmpty(c.rejectAdvancedBranchKey))
+        {
+            if (_judgmentPanel != null) _judgmentPanel.SetReady(false);
+            string advVariant = string.IsNullOrEmpty(c.defectVariant) ? null : c.defectVariant;
+            // docState 를 Defect 로 명시: 점수/지급표가 doc_state=defect 키이므로(정상 승인 손님이라도) 강제 매칭.
+            BranchResult advBranch = BranchKeyResolver.ResolveAdvanced(
+                DocStates.Defect, c.rejectAdvancedBranchKey, advVariant);
+            // 적발(apprehension): wasCorrect=true(오판 미집계·WARNING 회피), wasDetection=true(일자 DETECTION 보너스).
+            SettleBranch(c.characterType, advBranch, wasCorrect: true, wasDetection: true);
+            DialogueCaseData guided = FindCaseByType(c, c.rejectGuidedCaseType)
+                                      ?? FindCase(c, GameResults.Reject, -1);
+            PlayThen(guided, AdvanceNext);
+            return;
+        }
+
         if (approve == shouldApprove)
         {
             // 정답: 정상 승인 / 정상 거절. 확정 → 정산(점수≠돈, 캐릭터별 테이블).
@@ -272,23 +288,42 @@ public sealed class InspectionController : MonoBehaviour
         }
         else if (!approve)
         {
-            // 오거부(승인해야 하는데 거부): 1→3단계 연출, 3회 후 강제 통과
-            _wrongRejectCount++;
-            DialogueCaseData wrong = FindCase(c, GameResults.WrongReject, _wrongRejectCount);
-            if (_wrongRejectCount >= MaxWrongReject || wrong == null)
+            // 정상 손님을 거부(오거부). 3회 항의→강제통과 루프는 연예인/정치인(클라우트로 밀어붙이는 VIP)만.
+            // 일반 손님은 즉시 오판 확정(페널티) — 거부하면 그대로 돌려보낸다(되돌림/강제통과 없음).
+            // (고급 분기 손님은 위 if-체인 앞에서 이미 인터셉트되어 여기 도달하지 않는다.)
+            bool usesRejectProtest = c.characterType == CharacterTypes.Celebrity
+                                  || c.characterType == CharacterTypes.Politician;
+            if (!usesRejectProtest)
             {
-                // 강제 통과 = 정정 입국. 확정 시점 1회만 정산(루프 중 중복 금지).
-                SettleCustomer(c, approved: true, _wrongRejectCount, forcedPass: true);
-                PlayThen(wrong, AdvanceNext); // 강제 통과
+                SettleCustomer(c, approve, _wrongRejectCount, forcedPass: false); // 오거부 페널티 확정
+                SpawnWrongRejectNotice(c); // 정상 서류를 거부 → 오류 고지서로 피드백
+                DialogueCaseData rejectFinal = new DialogueCaseData
+                {
+                    caseType = "오거부 확정", gameResult = "-", rejectCount = 0,
+                    lines = new[] { new DialogueLineData { order = 0, speaker = "심사관", text = "입국이 거부되었습니다." } },
+                };
+                PlayThen(rejectFinal, AdvanceNext);
             }
             else
             {
-                // 같은 손님 재시도 허용(도장 자국 지움). 아직 미확정 → 정산하지 않는다.
-                PlayThen(wrong, () =>
+                // VIP(연예인/정치인): 1→3단계 항의 연출, 3회 후 강제 통과.
+                _wrongRejectCount++;
+                DialogueCaseData wrong = FindCase(c, GameResults.WrongReject, _wrongRejectCount);
+                if (_wrongRejectCount >= MaxWrongReject || wrong == null)
                 {
-                    if (_documentView != null) _documentView.ClearStamps();
-                    if (_judgmentPanel != null) _judgmentPanel.ResetForNextCustomer(true);
-                });
+                    // 강제 통과 = 정정 입국. 확정 시점 1회만 정산(루프 중 중복 금지).
+                    SettleCustomer(c, approved: true, _wrongRejectCount, forcedPass: true);
+                    PlayThen(wrong, AdvanceNext); // 강제 통과
+                }
+                else
+                {
+                    // 같은 손님 재시도 허용(도장 자국 지움). 아직 미확정 → 정산하지 않는다.
+                    PlayThen(wrong, () =>
+                    {
+                        if (_documentView != null) _documentView.ClearStamps();
+                        if (_judgmentPanel != null) _judgmentPanel.ResetForNextCustomer(true);
+                    });
+                }
             }
         }
         else
@@ -339,6 +374,26 @@ public sealed class InspectionController : MonoBehaviour
             fields = fields.ToArray(),
         };
 
+        _documentView.SpawnNotice(notice);
+    }
+
+    /// <summary>정상 서류 손님을 거부(오거부)했을 때, "정상 서류였다"는 고지서를 스폰한다(피드백 표시 전용).</summary>
+    private void SpawnWrongRejectNotice(CustomerData c)
+    {
+        if (_documentView == null) return;
+        var notice = new DocumentData
+        {
+            documentType = "⚠ 심사 오류 고지서",
+            variant = "정상",
+            violationField = "없음",
+            country = "",
+            spriteRef = "",
+            fields = new[]
+            {
+                new FieldEntry { label = "판정", value = "입국 허가 대상이었습니다", key = "" },
+                new FieldEntry { label = "사유", value = "정상 서류를 잘못 거부했습니다", key = "" },
+            },
+        };
         _documentView.SpawnNotice(notice);
     }
 
@@ -452,7 +507,9 @@ public sealed class InspectionController : MonoBehaviour
         if (_documentView != null) _documentView.Clear();
         if (_dialogueView != null) _dialogueView.Hide();
         if (_judgmentPanel != null) _judgmentPanel.SetReady(false);
-        if (_dayCompleteRoot != null) _dayCompleteRoot.SetActive(true);
+        // 일자 종료 결과는 별도 ResultScene 으로 이동(DayCompletePanel 패널 제거).
+        //  → 여기서 _dayCompleteRoot 를 활성화하지 않는다. 씬 전환은 ImmigrationManager 가 처리.
+        //  (_dayCompleteRoot 필드는 Initialize/HaltForEnding/IsDayComplete 테스트 훅에서 유지 사용.)
         OnCustomerChanged?.Invoke(); // 손님 종료 → 검사기 패널/버튼 비활성화
 
         // 일자 보상(일급/적발/무사고/경고) 1회 정산 — OnDayCompleted 통지 '전에' 적용해
@@ -469,6 +526,19 @@ public sealed class InspectionController : MonoBehaviour
 
         // 진행 매니저(ImmigrationManager 등)에 일자 완료 통지. UI 직접 참조 없음.
         OnDayCompleted?.Invoke(CurrentDay);
+    }
+
+    /// <summary>
+    /// 엔딩이 확정되면 진행 매니저(ImmigrationManager.RaiseEnding)가 호출한다.
+    /// 이후 손님 진행/일자완료 패널을 막고, 이미 떠 있을 수 있는 일자완료 패널을 숨긴다
+    /// → 엔딩 패널이 화면을 점유한다(조기엔딩 시 DayCompletePanel 이 대신 뜨던 문제 차단).
+    /// 14일 종료 엔딩처럼 ShowDayComplete 도중 엔딩이 결정돼 패널이 잠깐 켜진 경우도 여기서 끈다.
+    /// </summary>
+    public void HaltForEnding()
+    {
+        _ended = true;
+        if (_dayCompleteRoot != null) _dayCompleteRoot.SetActive(false);
+        if (_judgmentPanel != null) _judgmentPanel.SetReady(false);
     }
 
     // ── 테스트 훅(통합 PlayMode 테스트 전용) ─────────────────────
@@ -496,6 +566,7 @@ public sealed class InspectionController : MonoBehaviour
     private static DialogueCaseData FindCaseByType(CustomerData c, string caseType)
     {
         if (c?.dialogueCases == null) return null;
+        if (string.IsNullOrEmpty(caseType)) return null;
         foreach (DialogueCaseData dc in c.dialogueCases)
         {
             if (dc.caseType == caseType) return dc;

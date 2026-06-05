@@ -189,6 +189,7 @@ public sealed class CrossCheckController : MonoBehaviour
     // ── 선택/비교 ────────────────────────────────────────────────
     private void HandleSelected(ICrossCheckSelectable item)
     {
+        Debug.Log($"[CrossCheckDBG] click active={_active} item={(item == null ? "null" : item.SourceType + "/" + item.AttributeKey + "/'" + item.Value + "'")}");
         if (!_active || item == null) return;
 
         // 같은 항목 재선택 → 선택 취소
@@ -237,6 +238,8 @@ public sealed class CrossCheckController : MonoBehaviour
                 ? dateResult
                 : Evaluate(a, b);
 
+        Debug.Log($"[CrossCheckDBG] compare a={a.SourceType}/{a.AttributeKey}/'{a.Value}' b={b.SourceType}/{b.AttributeKey}/'{b.Value}' -> {result}");
+
         if (_connectorView != null)
         {
             _connectorView.Show(a.Rect, b.Rect, result, overrideText);
@@ -248,8 +251,18 @@ public sealed class CrossCheckController : MonoBehaviour
 
         DetectScanUnlock(a, b, result);
 
-        // 불일치 → 관련 대사 표시
-        if (result == CrossCheckResult.Mismatch) ShowMismatchComment(a, b);
+        // 결과별 보조 대사:
+        // - 불일치: 서류 정합 항목이면 "안 맞네요" 지적. 단, 경보(워치리스트) 단서와의 불일치는
+        //   "대상 아님"을 뜻하므로 조용히 넘어간다(기계적 오발 대사 방지).
+        // - 일치: 경보 단서가 손님과 일치하면 위험 경고 대사(해당 스캔 안내).
+        if (result == CrossCheckResult.Mismatch)
+        {
+            if (!IsWatchlistInvolved(a, b)) ShowMismatchComment(a, b);
+        }
+        else if (result == CrossCheckResult.Match)
+        {
+            ShowWatchlistAlertIfAny(a, b);
+        }
         OnCompared?.Invoke(a, b, result);
 
         // 1회 대조 완료 → 대조 모드 자동 해제(스페이스 다시 눌러 재진입).
@@ -302,6 +315,52 @@ public sealed class CrossCheckController : MonoBehaviour
             },
         };
         _mismatchDialogue.Play(mismatchCase, null);
+    }
+
+    /// <summary>비교 항목 중 하나라도 경보(워치리스트) 단서(UnlocksScan!="")이면 true.
+    /// 경보 단서와의 "불일치"는 단순히 "대상 아님"이므로 지적 대사를 내지 않는다.</summary>
+    private static bool IsWatchlistInvolved(ICrossCheckSelectable a, ICrossCheckSelectable b)
+        => (a != null && !string.IsNullOrEmpty(a.UnlocksScan))
+        || (b != null && !string.IsNullOrEmpty(b.UnlocksScan));
+
+    /// <summary>경보 단서가 손님 소스와 "일치"하면 위험 경고 대사를 재생한다(해당 스캔 안내).
+    /// DetectScanUnlock 이 스캔을 여는 것과 별개로, 심사관 경고 한 줄을 띄운다.</summary>
+    private void ShowWatchlistAlertIfAny(ICrossCheckSelectable a, ICrossCheckSelectable b)
+    {
+        if (TryWatchlistAlert(a, b)) return;
+        TryWatchlistAlert(b, a);
+    }
+
+    // trigger 가 경보 단서이고 other 가 손님 소스(서류/캐릭터)면 경고 대사 재생. 재생했으면 true.
+    private bool TryWatchlistAlert(ICrossCheckSelectable trigger, ICrossCheckSelectable other)
+    {
+        if (_mismatchDialogue == null || trigger == null || other == null) return false;
+        if (string.IsNullOrEmpty(trigger.UnlocksScan)) return false;
+        if (!IsCustomerSource(other.SourceType)) return false;
+
+        string warn;
+        switch (trigger.UnlocksScan)
+        {
+            case "xray":
+                warn = "위험물·밀수 경보 대상과 일치합니다. X-ray 정밀 검사를 시행하세요.";
+                break;
+            case "fingerprint":
+                warn = "수배자 경보 대상과 일치합니다. 지문 대조로 신원을 확인하세요.";
+                break;
+            default:
+                warn = "경보 대상과 일치합니다. 추가 검사가 필요합니다.";
+                break;
+        }
+
+        DialogueCaseData alertCase = new DialogueCaseData
+        {
+            caseType = "경보 일치",
+            gameResult = "-",
+            rejectCount = 0,
+            lines = new[] { new DialogueLineData { order = 0, speaker = "심사관", text = warn } },
+        };
+        _mismatchDialogue.Play(alertCase, null);
+        return true;
     }
 
     /// <summary>

@@ -15,11 +15,50 @@ EditorBuildSettings:
     path: Assets/Scenes/BriefingScene.unity
     guid: 0175eca156856e8479743c45ea52341a
   - enabled: 1
-    path: Assets/Scenes/ImmigrationScene.unity
-    guid: 034b8a9d1e3dfb74793eb94670c52278
+    path: Assets/Scenes/ResultScene.unity
+    guid: b7e2c4a9f0d34a1e8c5b6f9a2d3e4c70
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Day1Scene.unity
+    guid: 31f12779a2a90054dabb94b54ddc85e7
+  - enabled: 1
+    path: Assets/Scenes/Day2Scene.unity
+    guid: 556855bb66a64334ab9e966725dcd3b9
+  - enabled: 1
+    path: Assets/Scenes/Day3Scene.unity
+    guid: 439e78bd8dcdb3348af04a40531d228e
+  - enabled: 1
+    path: Assets/Scenes/Day4Scene.unity
+    guid: a2c974d1ebca3fe4a819f09f58c10f05
+  - enabled: 1
+    path: Assets/Scenes/Day5Scene.unity
+    guid: f045de20409fea247a2a253c7a9f861e
+  - enabled: 1
+    path: Assets/Scenes/Day6Scene.unity
+    guid: 03c3eaf15722f1041bac65dcce6d0dcb
+  - enabled: 1
+    path: Assets/Scenes/Day7Scene.unity
+    guid: e19218ba8d218894a9a23dea5c10564f
+  - enabled: 1
+    path: Assets/Scenes/Day8Scene.unity
+    guid: d2c9300ab9ac6f34391c7dd029236407
+  - enabled: 1
+    path: Assets/Scenes/Day9Scene.unity
+    guid: 1ecdffb0596a29b4a838db7eceb847b2
+  - enabled: 1
+    path: Assets/Scenes/Day10Scene.unity
+    guid: 3385ee4dcad73854eb4751ef07e9e67d
+  - enabled: 1
+    path: Assets/Scenes/Day11Scene.unity
+    guid: 4b4de09e1938af444aa0704ec4be6af6
+  - enabled: 1
+    path: Assets/Scenes/Day12Scene.unity
+    guid: 0013463dd029c6243a640fa762c5f2fd
+  - enabled: 1
+    path: Assets/Scenes/Day13Scene.unity
+    guid: 00524a658e8eb9a47a7ca1114be7f227
+  - enabled: 1
+    path: Assets/Scenes/Day14Scene.unity
+    guid: fbb5d0411db32e34a8aec8a5f16a93c1
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

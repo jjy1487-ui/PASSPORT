@@ -1,0 +1,140 @@
+using System.Collections.Generic;
+using System.Globalization;
+using UnityEngine;
+
+/// <summary>
+/// 손님 명단(로스터) 셔플 + 정상확률(valid_chance) 굴림 유틸.
+///
+/// 슬롯별 character_type 은 고정(유형 시퀀스=난이도 구성 보존)하되,
+///   1) day_schedule.valid_chance 로 매 플레이 그 슬롯의 정상/결함(정상 승인/거절)을 새로 굴리고
+///   2) 결정된 (유형, 정답) 풀에서 무작위 인물 패키지를 뽑아
+/// 매 플레이 얼굴·이름·서류는 물론 정상/결함 여부까지 달라지게 한다.
+///
+/// 풀: Resources/GameData/day1~14.json 전체(각 CustomerData 는 서류/대화/스캔/정답/분기키를 통째로 보유 →
+///     어느 슬롯에 꽂아도 판정·대조·정산이 일관).
+/// 정상확률: GameDatabaseProvider.Database.daySchedule(엑셀 day_schedule)의 valid_chance.
+///   - daySchedule 가 없거나 해당 (day,slot) 확률이 없으면 그 슬롯은 원래 정답 유지(=확률 미적용 폴백).
+///   - 굴린 정답의 풀이 비어 있으면(희귀/단일 결과 유형) 원래 정답 풀로 폴백 → 항상 유효한 손님 보장.
+/// 결정론: rng(System.Random) 주입 → 같은 시드면 같은 굴림/추첨(QA 재현).
+/// </summary>
+public static class CustomerRoster
+{
+    private const int FirstDay = 1;
+    private const int LastDay = 14;
+    private const string ResourcePrefix = "GameData/day";
+    private const string CorrectApprove = "정상 승인";
+    private const string CorrectReject  = "정상 거절";
+
+    // "유형|정답" → 인물 패키지들(여러 날에서 모음).
+    private static Dictionary<string, List<CustomerData>> _pool;
+    // day*100+slot → 정상 확률(valid_chance, 0~1).
+    private static Dictionary<int, float> _validChance;
+
+    // 키에 서류 구성(비자/PCR 보유)을 포함 → 셔플이 day5-7 PCR·외국인 비자 요건을 보존(다른 날 패키지로 바뀌어도).
+    private static string Key(string type, string correct, string docSig) => (type ?? "") + "|" + (correct ?? "") + "|" + docSig;
+    private static int SlotKey(int day, int slot) => day * 100 + slot;
+
+    /// <summary>서류 구성 시그니처: 비자(V)/PCR(P) 보유 여부. 같은 서류셋 패키지끼리만 교체되게 한다.</summary>
+    private static string DocSig(CustomerData c)
+    {
+        bool visa = false, pcr = false;
+        if (c != null && c.documents != null)
+            foreach (var d in c.documents)
+            {
+                if (d == null || d.documentType == null) continue;
+                if (d.documentType == "비자") visa = true;
+                else if (d.documentType.Contains("PCR")) pcr = true;
+            }
+        return (visa ? "V" : "") + (pcr ? "P" : "");
+    }
+
+    /// <summary>day1~14.json 전체를 읽어 (유형|정답) 풀을 1회 구축한다(이미 있으면 무시).</summary>
+    public static void EnsureLoaded()
+    {
+        if (_pool != null) return;
+        _pool = new Dictionary<string, List<CustomerData>>();
+        for (int d = FirstDay; d <= LastDay; d++)
+        {
+            TextAsset asset = Resources.Load<TextAsset>(ResourcePrefix + d);
+            if (asset == null) continue;
+            Day1Data day;
+            try { day = JsonUtility.FromJson<Day1Data>(asset.text); }
+            catch { continue; }
+            if (day == null || day.customers == null) continue;
+            foreach (var c in day.customers)
+            {
+                if (c == null) continue;
+                string k = Key(c.characterType, c.correctResult, DocSig(c));
+                if (!_pool.TryGetValue(k, out var list)) { list = new List<CustomerData>(); _pool[k] = list; }
+                list.Add(c);
+            }
+        }
+    }
+
+    /// <summary>day_schedule(SO)에서 (day,slot)→valid_chance 맵을 1회 구축. 없으면 빈 맵(확률 미적용).</summary>
+    private static void EnsureSchedule()
+    {
+        if (_validChance != null) return;
+        _validChance = new Dictionary<int, float>();
+        var t = GameDatabaseProvider.Database != null ? GameDatabaseProvider.Database.daySchedule : null;
+        if (t == null || t.rows == null) return;
+        foreach (var r in t.rows)
+        {
+            if (r == null) continue;
+            if (!int.TryParse(r.Get("day"), out int day)) continue;
+            if (!int.TryParse(r.Get("slot"), out int slot)) continue;
+            if (float.TryParse(r.Get("valid_chance"), NumberStyles.Float, CultureInfo.InvariantCulture, out float vc))
+                _validChance[SlotKey(day, slot)] = Mathf.Clamp01(vc);
+        }
+    }
+
+    /// <summary>
+    /// data.customers 각 슬롯을 재배정한다. 유형은 유지하고, valid_chance 로 정상/결함을 매 플레이 굴린 뒤
+    /// 같은 (유형,정답) 풀에서 무작위 인물을 뽑는다. 같은 날 동일 인물(customerId) 중복은 피한다.
+    /// </summary>
+    /// <param name="data">교체 대상 하루치 데이터(in-place 수정).</param>
+    /// <param name="rng">난수원(시드 주입 가능 → 재현성).</param>
+    public static void Reassign(Day1Data data, System.Random rng)
+    {
+        if (data == null || data.customers == null || rng == null) return;
+        EnsureLoaded();
+        EnsureSchedule();
+
+        var usedIds = new HashSet<int>();
+        for (int i = 0; i < data.customers.Length; i++)
+        {
+            CustomerData orig = data.customers[i];
+            if (orig == null) continue;
+
+            // 1) 정상확률 굴림 → 이 슬롯의 목표 정답(승인/거절) 결정. 확률 없으면 원래 정답 유지.
+            string targetCorrect = orig.correctResult;
+            if (_validChance.TryGetValue(SlotKey(data.day, orig.slot), out float vc))
+                targetCorrect = (rng.NextDouble() < vc) ? CorrectApprove : CorrectReject;
+
+            // 2) (유형, 목표정답, 서류셋) 풀에서 뽑기 → 없으면 (유형, 원래정답, 서류셋) → 그래도 없으면 원본 유지.
+            //    서류셋(비자/PCR)을 보존해 day5-7 PCR·외국인 비자가 셔플로 사라지지 않게 한다.
+            string sig = DocSig(orig);
+            CustomerData pick = PickFromPool(orig.characterType, targetCorrect, sig, usedIds, rng)
+                             ?? PickFromPool(orig.characterType, orig.correctResult, sig, usedIds, rng)
+                             ?? orig;
+
+            usedIds.Add(pick.customerId);
+            data.customers[i] = pick;
+        }
+    }
+
+    /// <summary>(유형,정답) 풀에서 이 날 아직 안 쓴 인물 1명 무작위. 없으면 null.</summary>
+    private static CustomerData PickFromPool(string type, string correct, string docSig, HashSet<int> usedIds, System.Random rng)
+    {
+        if (_pool == null) return null;
+        if (!_pool.TryGetValue(Key(type, correct, docSig), out var cands) || cands.Count == 0) return null;
+        var avail = new List<CustomerData>(cands.Count);
+        foreach (var c in cands)
+            if (c != null && !usedIds.Contains(c.customerId)) avail.Add(c);
+        if (avail.Count == 0) return null;
+        return avail[rng.Next(avail.Count)];
+    }
+
+    /// <summary>테스트/재빌드용 캐시 초기화.</summary>
+    public static void ClearCache() { _pool = null; _validChance = null; }
+}
