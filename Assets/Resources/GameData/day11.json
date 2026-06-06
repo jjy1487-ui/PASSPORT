@@ -10,7 +10,7 @@
       "gender": "여성",
       "birthDate": "1991-08-08",
       "age": 34,
-      "spriteRef": "윤서린.png",
+      "spriteRef": "spr_c010",
       "characterType": "범죄자(성형수술)",
       "defectVariant": "",
       "correctResult": "정상 거절",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "윤서린.png",
+          "spriteRef": "photo_c10",
           "country": "KOR",
           "fields": [
             {
@@ -308,7 +308,7 @@
       "gender": "남성",
       "birthDate": "1985-03-15",
       "age": 41,
-      "spriteRef": "김민준.png",
+      "spriteRef": "spr_c001",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -317,7 +317,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "김민준.png",
+          "spriteRef": "photo_1",
           "country": "KOR",
           "fields": [
             {
@@ -523,7 +523,7 @@
       "gender": "남성",
       "birthDate": "1978-11-08",
       "age": 47,
-      "spriteRef": "첸 웨이.png",
+      "spriteRef": "spr_c003",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -532,7 +532,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "첸 웨이.png",
+          "spriteRef": "photo_3",
           "country": "CHN",
           "fields": [
             {
@@ -580,19 +580,9 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "CHEN WEI",
-              "key": "name"
-            },
-            {
               "label": "비자 번호",
               "value": "V-CN-9864",
               "key": "visa_no"
-            },
-            {
-              "label": "여권번호",
-              "value": "CN5551234",
-              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -798,7 +788,7 @@
       "gender": "남성",
       "birthDate": "1979-05-05",
       "age": 47,
-      "spriteRef": "한만수.png",
+      "spriteRef": "spr_c020",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -807,7 +797,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "한만수.png",
+          "spriteRef": "photo_c20",
           "country": "KOR",
           "fields": [
             {
@@ -1013,7 +1003,7 @@
       "gender": "여성",
       "birthDate": "1999-05-05",
       "age": 27,
-      "spriteRef": "노가은.png",
+      "spriteRef": "spr_c030",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1022,7 +1012,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "노가은.png",
+          "spriteRef": "photo_c30",
           "country": "KOR",
           "fields": [
             {
@@ -1220,44 +1210,44 @@
       "fingerprint": null
     },
     {
-      "customerId": 37,
+      "customerId": 4,
       "slot": 6,
-      "nameKr": "제시카 윌슨",
-      "nameEn": "JESSICA WILSON",
+      "nameKr": "제임스 밀러",
+      "nameEn": "JAMES MILLER",
       "nationality": "미국(USA)",
-      "gender": "남성",
-      "birthDate": "1988-11-30",
-      "age": 37,
-      "spriteRef": "제시카 윌슨.png",
-      "characterType": "취업체류자",
-      "defectVariant": "",
+      "gender": "여성",
+      "birthDate": "1995-02-28",
+      "age": 31,
+      "spriteRef": "spr_c004",
+      "characterType": "외국인 관광객",
+      "defectVariant": "출국X",
       "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "제시카 윌슨.png",
+          "spriteRef": "photo_4",
           "country": "USA",
           "fields": [
             {
               "label": "여권번호",
-              "value": "US1041329",
+              "value": "US3334455",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "WILSON JESSICA",
+              "value": "MILLER JAMES",
               "key": "name"
             },
             {
               "label": "성별",
-              "value": "남성",
+              "value": "여성",
               "key": "gender"
             },
             {
               "label": "생년월일",
-              "value": "1988-11-30",
+              "value": "1995-02-28",
               "key": "birth_date"
             },
             {
@@ -1267,41 +1257,31 @@
             },
             {
               "label": "발급일",
-              "value": "2017-03-28",
+              "value": "2023-03-28",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2027-03-28",
+              "value": "2028-03-28",
               "key": "expiry_date"
             }
           ]
         },
         {
           "documentType": "비자",
-          "variant": "정상",
-          "violationField": "없음",
+          "variant": "비정상",
+          "violationField": "만료일",
           "spriteRef": "",
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "JESSICA WILSON",
-              "key": "name"
-            },
-            {
               "label": "비자 번호",
-              "value": "V-USA-7094",
+              "value": "V-USA-2269",
               "key": "visa_no"
             },
             {
-              "label": "여권번호",
-              "value": "US1041329",
-              "key": "passport_no"
-            },
-            {
               "label": "비자 종류",
-              "value": "취업",
+              "value": "관광",
               "key": "visa_type"
             },
             {
@@ -1311,57 +1291,23 @@
             },
             {
               "label": "발급일",
-              "value": "2025-09-27",
+              "value": "2022-01-01",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2026-09-27",
+              "value": "2023-01-01",
               "key": "expiry_date"
             },
             {
               "label": "입국 횟수",
-              "value": "복수",
+              "value": "단수",
               "key": "entry_type"
             },
             {
               "label": "비고",
-              "value": "취업 정상 비자",
+              "value": "외국인 정상 비자",
               "key": "memo"
-            }
-          ]
-        },
-        {
-          "documentType": "취업증빙",
-          "variant": "비정상",
-          "violationField": "고용 회사",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "증빙 번호",
-              "value": "EMP-037",
-              "key": "cert_no"
-            },
-            {
-              "label": "고용 회사",
-              "value": "(주)그림자무역",
-              "key": "company_name"
-            },
-            {
-              "label": "직종",
-              "value": "가공 작업",
-              "key": "job_title"
-            },
-            {
-              "label": "발급일",
-              "value": "2025-01-01",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2027-01-01",
-              "key": "expiry_date"
             }
           ]
         }
@@ -1374,13 +1320,13 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "제시카 윌슨",
-              "text": "Hello! I have my employment documents ready as well."
+              "speaker": "제임스 밀러",
+              "text": "Hello! Good morning~"
             },
             {
               "order": 2,
-              "speaker": "제시카 윌슨",
-              "text": "취업 서류도 함께 드릴게요."
+              "speaker": "제임스 밀러",
+              "text": "Here is my passport."
             }
           ]
         },
@@ -1392,12 +1338,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "Have a pleasant stay!"
+              "text": "Have a pleasant trip!"
             },
             {
               "order": 2,
-              "speaker": "제시카 윌슨",
-              "text": "Thank you! I'll do my best here!"
+              "speaker": "제임스 밀러",
+              "text": "Thank you so much! Have a wonderful day!"
             }
           ]
         },
@@ -1409,18 +1355,18 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "이전 출국 기록이 확인되지 않아 입국하실 수 없습니다.",
+              "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다.",
               "claim": {
-                "attr": "company_name",
+                "attr": "expiry_date",
                 "value": "",
-                "label": "고용 회사 불일치",
+                "label": "만료일 불일치",
                 "unlocksScan": ""
               }
             },
             {
               "order": 2,
-              "speaker": "제시카 윌슨",
-              "text": "Oh... I understand. I'll sort out the documents and come back."
+              "speaker": "제임스 밀러",
+              "text": "Oh no... I'm so sorry, I had no idea."
             }
           ]
         },
@@ -1432,12 +1378,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "Have a pleasant stay!"
+              "text": "Have a pleasant trip!"
             },
             {
               "order": 2,
-              "speaker": "제시카 윌슨",
-              "text": "Thank you! I'm really looking forward to starting."
+              "speaker": "제임스 밀러",
+              "text": "Thank you! That was quick~"
             }
           ]
         },
@@ -1453,8 +1399,8 @@
             },
             {
               "order": 2,
-              "speaker": "제시카 윌슨",
-              "text": "All my documents are official! Why are you blocking me?!"
+              "speaker": "제임스 밀러",
+              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
               "order": 3,
@@ -1463,8 +1409,8 @@
             },
             {
               "order": 4,
-              "speaker": "제시카 윌슨",
-              "text": "다행입니다. 감사합니다."
+              "speaker": "제임스 밀러",
+              "text": "Oh 정말 다행이에요! 고마워요!"
             }
           ]
         },
@@ -1480,8 +1426,8 @@
             },
             {
               "order": 2,
-              "speaker": "제시카 윌슨",
-              "text": "All my documents are official! Why are you blocking me?!"
+              "speaker": "제임스 밀러",
+              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
               "order": 3,
@@ -1490,8 +1436,8 @@
             },
             {
               "order": 4,
-              "speaker": "제시카 윌슨",
-              "text": "네, 확인해 주셔서 감사합니다."
+              "speaker": "제임스 밀러",
+              "text": "정말 다행이에요. 여행할 수 있어서 다행이에요."
             }
           ]
         },
@@ -1507,8 +1453,8 @@
             },
             {
               "order": 2,
-              "speaker": "제시카 윌슨",
-              "text": "All my documents are official! Why are you blocking me?!"
+              "speaker": "제임스 밀러",
+              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
               "order": 3,
@@ -1517,8 +1463,8 @@
             },
             {
               "order": 4,
-              "speaker": "제시카 윌슨",
-              "text": "하... 겨우 들어가네요. 다음엔 잘 봐 주세요."
+              "speaker": "제임스 밀러",
+              "text": "기분이 안 좋아요. You are so rude."
             }
           ]
         }
@@ -1537,7 +1483,7 @@
       "gender": "여성",
       "birthDate": "1990-07-22",
       "age": 35,
-      "spriteRef": "이지은.png",
+      "spriteRef": "spr_c002",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1546,7 +1492,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "이지은.png",
+          "spriteRef": "photo_c2",
           "country": "KOR",
           "fields": [
             {
@@ -1746,6 +1692,13 @@
   ],
   "rules": [],
   "news": [
+    {
+      "newsId": 7,
+      "title": "인상 바꾼 수배자 후보, 심사대서 포착",
+      "content": "성형으로 인상이 달라진 수배자 후보가 입국 심사 과정에서 포착됐다. 보안팀은 여권 사진만으로 확인이 어려운 경우에도 진술, 신원 정보, 행동 기록을 함께 대조하고 있다고 밝혔다.",
+      "iconRef": null,
+      "claims": []
+    },
     {
       "newsId": 911000,
       "title": "[속보] 위조신원·수배자 입국 경보",

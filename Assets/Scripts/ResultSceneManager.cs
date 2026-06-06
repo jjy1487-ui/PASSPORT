@@ -105,11 +105,11 @@ public sealed class ResultSceneManager : MonoBehaviour
 
     // ── 버튼 핸들러(인스펙터 onClick 바인딩) ───────────────────
 
-    /// <summary>[상점] 버튼: 상점 패널을 연다(기존 DayCompletePanel 의 상점 버튼과 동일 동작).</summary>
+    /// <summary>[상점] 버튼: 독립 ShopScene 으로 전환한다(상점에서 [돌아가기] 시 ResultScene 복귀).
+    /// 돈·아이템은 DontDestroyOnLoad 싱글톤이 보유하므로 씬 전환에도 유지된다.</summary>
     public void OnShopButton()
     {
-        if (_shopPanel != null) _shopPanel.Open();
-        else Debug.LogWarning("[ResultSceneManager] ShopPanelView 참조가 없습니다.");
+        SceneManager.LoadScene("ShopScene");
     }
 
     /// <summary>

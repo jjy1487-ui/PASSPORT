@@ -10,16 +10,16 @@
       "gender": "남성",
       "birthDate": "1984-01-02",
       "age": 41,
-      "spriteRef": "사토 하루키.png",
+      "spriteRef": "spr_c011",
       "characterType": "테러범",
       "defectVariant": "",
-      "correctResult": "정상 거절",
+      "correctResult": "정상 승인",
       "documents": [
         {
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "사토 하루키.png",
+          "spriteRef": "photo_c11",
           "country": "JPN",
           "fields": [
             {
@@ -67,19 +67,9 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "SATO HARUKI",
-              "key": "name"
-            },
-            {
               "label": "비자 번호",
               "value": "V-JPN-7484",
               "key": "visa_no"
-            },
-            {
-              "label": "여권번호",
-              "value": "JP1012287",
-              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -290,7 +280,7 @@
       "gender": "여성",
       "birthDate": "1993-04-09",
       "age": 33,
-      "spriteRef": "송하늘.png",
+      "spriteRef": "spr_c023",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -299,7 +289,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "송하늘.png",
+          "spriteRef": "photo_c23",
           "country": "KOR",
           "fields": [
             {
@@ -505,7 +495,7 @@
       "gender": "남성",
       "birthDate": "1989-11-25",
       "age": 36,
-      "spriteRef": "다나카 하루토.png",
+      "spriteRef": "spr_c026",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -514,7 +504,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "다나카 하루토.png",
+          "spriteRef": "photo_c26",
           "country": "JPN",
           "fields": [
             {
@@ -562,19 +552,9 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "TANAKA HARUTO",
-              "key": "name"
-            },
-            {
               "label": "비자 번호",
               "value": "V-JPN-8758",
               "key": "visa_no"
-            },
-            {
-              "label": "여권번호",
-              "value": "JP1029042",
-              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -772,16 +752,16 @@
       "fingerprint": null
     },
     {
-      "customerId": 36,
+      "customerId": 1,
       "slot": 4,
-      "nameKr": "천 징",
-      "nameEn": "CHEN JING",
-      "nationality": "중국(CHN)",
+      "nameKr": "김민준",
+      "nameEn": "KIM MINJUN",
+      "nationality": "대한민국(KOR)",
       "gender": "남성",
-      "birthDate": "1985-02-09",
+      "birthDate": "1985-03-15",
       "age": 41,
-      "spriteRef": "천 징.png",
-      "characterType": "취업체류자",
+      "spriteRef": "spr_c001",
+      "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
       "documents": [
@@ -789,17 +769,17 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "천 징.png",
-          "country": "CHN",
+          "spriteRef": "photo_1",
+          "country": "KOR",
           "fields": [
             {
               "label": "여권번호",
-              "value": "CN1040212",
+              "value": "AB1234567",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "JING CHEN",
+              "value": "KIM MINJUN",
               "key": "name"
             },
             {
@@ -809,110 +789,22 @@
             },
             {
               "label": "생년월일",
-              "value": "1985-02-09",
+              "value": "1985-03-15",
               "key": "birth_date"
             },
             {
               "label": "국적",
-              "value": "CHN",
+              "value": "KOR",
               "key": "nationality"
             },
             {
               "label": "발급일",
-              "value": "2023-03-14",
+              "value": "2017-07-28",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2028-03-14",
-              "key": "expiry_date"
-            }
-          ]
-        },
-        {
-          "documentType": "비자",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "이름",
-              "value": "CHEN JING",
-              "key": "name"
-            },
-            {
-              "label": "비자 번호",
-              "value": "V-CHN-7557",
-              "key": "visa_no"
-            },
-            {
-              "label": "여권번호",
-              "value": "CN1040212",
-              "key": "passport_no"
-            },
-            {
-              "label": "비자 종류",
-              "value": "취업",
-              "key": "visa_type"
-            },
-            {
-              "label": "국적",
-              "value": "CHN",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2025-04-22",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2027-04-22",
-              "key": "expiry_date"
-            },
-            {
-              "label": "입국 횟수",
-              "value": "복수",
-              "key": "entry_type"
-            },
-            {
-              "label": "비고",
-              "value": "취업 정상 비자",
-              "key": "memo"
-            }
-          ]
-        },
-        {
-          "documentType": "취업증빙",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "증빙 번호",
-              "value": "EMP-036",
-              "key": "cert_no"
-            },
-            {
-              "label": "고용 회사",
-              "value": "동방건설(주)",
-              "key": "company_name"
-            },
-            {
-              "label": "직종",
-              "value": "현장 기술자",
-              "key": "job_title"
-            },
-            {
-              "label": "발급일",
-              "value": "2025-02-01",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2027-02-01",
+              "value": "2027-07-28",
               "key": "expiry_date"
             }
           ]
@@ -926,13 +818,13 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "천 징",
-              "text": "Hello! I have my employment documents ready as well."
+              "speaker": "김민준",
+              "text": "좋은 아침이예요! 너무 설레네요."
             },
             {
               "order": 2,
-              "speaker": "천 징",
-              "text": "취업 서류도 함께 드릴게요."
+              "speaker": "김민준",
+              "text": "여권 확인 부탁드립니다."
             }
           ]
         },
@@ -944,12 +836,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "Have a pleasant stay!"
+              "text": "즐거운 여행 되십시오."
             },
             {
               "order": 2,
-              "speaker": "천 징",
-              "text": "Thank you! I'll do my best here!"
+              "speaker": "김민준",
+              "text": "감사합니다! 즐거운 하루 되세요."
             }
           ]
         },
@@ -961,12 +853,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "이전 출국 기록이 확인되지 않아 입국하실 수 없습니다."
+              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
             },
             {
               "order": 2,
-              "speaker": "천 징",
-              "text": "Oh... I understand. I'll sort out the documents and come back."
+              "speaker": "김민준",
+              "text": "앗 이 부분을 놓쳤네요! 죄송합니다."
             }
           ]
         },
@@ -978,12 +870,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "Have a pleasant stay!"
+              "text": "즐거운 여행 되십시오."
             },
             {
               "order": 2,
-              "speaker": "천 징",
-              "text": "Thank you! I'm really looking forward to starting."
+              "speaker": "김민준",
+              "text": "감사합니다! 즐거운 하루 되세요."
             }
           ]
         },
@@ -999,8 +891,8 @@
             },
             {
               "order": 2,
-              "speaker": "천 징",
-              "text": "All my documents are official! Why are you blocking me?!"
+              "speaker": "김민준",
+              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
             },
             {
               "order": 3,
@@ -1009,8 +901,8 @@
             },
             {
               "order": 4,
-              "speaker": "천 징",
-              "text": "다행입니다. 감사합니다."
+              "speaker": "김민준",
+              "text": "앗 네! 감사합니다!"
             }
           ]
         },
@@ -1026,8 +918,8 @@
             },
             {
               "order": 2,
-              "speaker": "천 징",
-              "text": "All my documents are official! Why are you blocking me?!"
+              "speaker": "김민준",
+              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
             },
             {
               "order": 3,
@@ -1036,8 +928,8 @@
             },
             {
               "order": 4,
-              "speaker": "천 징",
-              "text": "네, 확인해 주셔서 감사합니다."
+              "speaker": "김민준",
+              "text": "네 알겠습니다. 앞으로는 주의해 주세요."
             }
           ]
         },
@@ -1053,8 +945,8 @@
             },
             {
               "order": 2,
-              "speaker": "천 징",
-              "text": "All my documents are official! Why are you blocking me?!"
+              "speaker": "김민준",
+              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
             },
             {
               "order": 3,
@@ -1063,8 +955,8 @@
             },
             {
               "order": 4,
-              "speaker": "천 징",
-              "text": "하... 겨우 들어가네요. 다음엔 잘 봐 주세요."
+              "speaker": "김민준",
+              "text": "하... 네 알겠습니다. 꼼꼼히 검토 좀 해 주세요."
             }
           ]
         }
@@ -1083,16 +975,16 @@
       "gender": "여성",
       "birthDate": "1983-09-30",
       "age": 42,
-      "spriteRef": "배수정.png",
+      "spriteRef": "spr_c029",
       "characterType": "진상 고객",
       "defectVariant": "",
-      "correctResult": "정상 승인",
+      "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "배수정.png",
+          "variant": "비정상",
+          "violationField": "생년월일",
+          "spriteRef": "photo_c29",
           "country": "KOR",
           "fields": [
             {
@@ -1112,7 +1004,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1983-09-30",
+              "value": "1900-01-01",
               "key": "birth_date"
             },
             {
@@ -1176,7 +1068,13 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
+              "text": "서류 오류가 확인되어 입국하실 수 없습니다.",
+              "claim": {
+                "attr": "birth_date",
+                "value": "",
+                "label": "생년월일 불일치",
+                "unlocksScan": ""
+              }
             },
             {
               "order": 2,
@@ -1298,16 +1196,16 @@
       "gender": "여성",
       "birthDate": "1997-11-20",
       "age": 28,
-      "spriteRef": "서지호.png",
+      "spriteRef": "spr_c021",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
-      "correctResult": "정상 승인",
+      "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "서지호.png",
+          "variant": "비정상",
+          "violationField": "사진",
+          "spriteRef": "photo_mismatch",
           "country": "KOR",
           "fields": [
             {
@@ -1391,7 +1289,13 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
+              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요.",
+              "claim": {
+                "attr": "face",
+                "value": "",
+                "label": "사진 불일치",
+                "unlocksScan": ""
+              }
             },
             {
               "order": 2,
@@ -1513,7 +1417,7 @@
       "gender": "남성",
       "birthDate": "1991-06-14",
       "age": 34,
-      "spriteRef": "장 웨이.png",
+      "spriteRef": "spr_c027",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -1522,7 +1426,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "장 웨이.png",
+          "spriteRef": "photo_c27",
           "country": "CHN",
           "fields": [
             {
@@ -1570,19 +1474,9 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "ZHANG WEI",
-              "key": "name"
-            },
-            {
               "label": "비자 번호",
               "value": "V-CHN-7483",
               "key": "visa_no"
-            },
-            {
-              "label": "여권번호",
-              "value": "CN1030159",
-              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -1782,6 +1676,13 @@
   ],
   "rules": [],
   "news": [
+    {
+      "newsId": 9,
+      "title": "정상 서류 소지자, 이상 행동으로 보류",
+      "content": "정상 서류를 제출한 입국자가 심사 과정에서 반복적으로 진술을 바꾸고 이동 경로 설명을 피하면서 추가 확인 대상으로 분류됐다. 당국은 서류가 정상이어도 현장 정황이 맞지 않으면 기록을 남겨 확인한다고 밝혔다.",
+      "iconRef": null,
+      "claims": []
+    },
     {
       "newsId": 913000,
       "title": "[속보] 위험물 반입 경보",

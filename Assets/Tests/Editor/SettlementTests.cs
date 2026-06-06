@@ -84,8 +84,8 @@ public class SettlementTests
         // (캐릭터, doc_state, branch_key, variant, 기대 score)
         AssertScore(CharacterTypes.Tourist, GameResults.Approve, true, null, BranchKeys.ApproveCorrect, 5);
         AssertScore(CharacterTypes.Tourist, GameResults.Reject, true, "출국X", BranchKeys.ApproveWrong, -6);  // #16
-        AssertScore(CharacterTypes.Quarantine, GameResults.Reject, false, "1-C 백신X", BranchKeys.RejectCorrect, 3);
-        AssertScore(CharacterTypes.Quarantine, GameResults.Reject, true, "1-C 백신X", BranchKeys.ApproveWrong, -6); // #15
+        AssertScore(CharacterTypes.Infected, GameResults.Reject, false, "1-C 백신X", BranchKeys.RejectCorrect, 3);
+        AssertScore(CharacterTypes.Infected, GameResults.Reject, true, "1-C 백신X", BranchKeys.ApproveWrong, -6); // #15
         AssertScore(CharacterTypes.PlasticSuspect, GameResults.Reject, true, "마스크 미요청", BranchKeys.ApproveWrong, -11);
     }
 
@@ -128,7 +128,7 @@ public class SettlementTests
         {
             (CharacterTypes.General, GameResults.Approve, true, null),
             (CharacterTypes.Tourist, GameResults.Reject, false, "출국X"),
-            (CharacterTypes.Quarantine, GameResults.Reject, true, "1-C 백신X"),
+            (CharacterTypes.Infected, GameResults.Reject, true, "1-C 백신X"),
             (CharacterTypes.General, GameResults.Reject, true, null),
         };
 

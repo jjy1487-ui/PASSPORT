@@ -380,6 +380,24 @@ public sealed class ScoreEconomyManager : MonoBehaviour
         OnMoneyChanged?.Invoke(0, 0);
     }
 
+    /// <summary>
+    /// 새 게임(1일차) 진행 초기화 — 점수/돈/정확도/현자카운터/누적 엔딩 카운터/당일 집계를
+    /// 0으로 지우되 호칭·아이템(회차 넘어 누적되는 메타)은 보존한다. PlayerPrefs 진행 키도
+    /// 함께 비워(ClearProgressKeepMeta) 다음 Awake 의 LoadInto 가 이월값을 복원하지 못하게 한다.
+    ///
+    /// 목적: 메인 메뉴를 거치지 않고 씬을 직접 Play 하면 이전 회차 세이브(누적 엔딩 #15/#16
+    /// 카운터 포함)가 복원돼 1일차에 누적 엔딩이 조기 발동하던 문제를 막는다(ResetAll 의 메타 보존판).
+    /// </summary>
+    public void ResetProgressKeepMeta()
+    {
+        Score = 0; Money = 0; CorrectCount = 0; JudgedCount = 0; SageApproveCount = 0;
+        _eventCounters.Clear();
+        _dayWrongCount = 0; _dayDetectionCount = 0;
+        GameProgressSave.ClearProgressKeepMeta(); // PlayerPrefs 진행 키 삭제(호칭/아이템 메타는 유지)
+        OnScoreChanged?.Invoke(0, 0);
+        OnMoneyChanged?.Invoke(0, 0);
+    }
+
     // ── 유틸 ───────────────────────────────────────────────────
 
     private static string NullIfEmpty(string s) => string.IsNullOrWhiteSpace(s) ? null : s;

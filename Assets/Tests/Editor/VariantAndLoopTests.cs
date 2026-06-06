@@ -26,12 +26,24 @@ public class VariantAndLoopTests
     }
 
     [Test]
+    public void Variant_TouristLostPassport_ApproveWrong_Triggers16()
+    {
+        // #16 확장(260606): 출국X뿐 아니라 외국인 캐릭터의 결함(분실=여권 위조)도 잘못 입국 승인 시 #16 누적.
+        var mgr = TestHelpers.FreshManager();
+        var b = BranchKeyResolver.Resolve(GameResults.Reject, playerApproved: true,
+            0, false, CharacterTypes.Tourist, "분실");
+        mgr.Settle(CharacterTypes.Tourist, b, wasCorrect: false);
+        Assert.AreEqual(1, mgr.GetEventCount(EventIds.OverstayApprove), "외국인 분실 결함 오입국 → #16");
+        TestHelpers.DestroyManager(mgr);
+    }
+
+    [Test]
     public void Variant_QuarantineVaccineFail_ApproveWrong_Triggers15()
     {
         var mgr = TestHelpers.FreshManager();
         var b = BranchKeyResolver.Resolve(GameResults.Reject, true, 0, false,
-            CharacterTypes.Quarantine, "1-C 백신X");
-        mgr.Settle(CharacterTypes.Quarantine, b, false);
+            CharacterTypes.Infected, "1-C 백신X");
+        mgr.Settle(CharacterTypes.Infected, b, false);
         Assert.AreEqual(1, mgr.GetEventCount(EventIds.QuarantineFail), "#15 누적 카운터 +1");
         TestHelpers.DestroyManager(mgr);
     }
@@ -41,8 +53,8 @@ public class VariantAndLoopTests
     {
         var mgr = TestHelpers.FreshManager();
         var b = BranchKeyResolver.Resolve(GameResults.Reject, true, 0, false,
-            CharacterTypes.Quarantine, "1-D 모두 미비");
-        mgr.Settle(CharacterTypes.Quarantine, b, false);
+            CharacterTypes.Infected, "1-D 모두 미비");
+        mgr.Settle(CharacterTypes.Infected, b, false);
         Assert.AreEqual(1, mgr.GetEventCount(EventIds.QuarantineFail), "#15 (1-D) 누적 카운터 +1");
         TestHelpers.DestroyManager(mgr);
     }
@@ -53,10 +65,23 @@ public class VariantAndLoopTests
         // 변이 있어도 정답(거부)이면 #15 발동 안 함(approve_wrong 만 트리거).
         var mgr = TestHelpers.FreshManager();
         var b = BranchKeyResolver.Resolve(GameResults.Reject, false, 0, false,
-            CharacterTypes.Quarantine, "1-C 백신X");
+            CharacterTypes.Infected, "1-C 백신X");
         Assert.AreEqual(BranchKeys.RejectCorrect, b.branchKey);
-        mgr.Settle(CharacterTypes.Quarantine, b, true);
+        mgr.Settle(CharacterTypes.Infected, b, true);
         Assert.AreEqual(0, mgr.GetEventCount(EventIds.QuarantineFail), "정답 거부엔 #15 없음");
+        TestHelpers.DestroyManager(mgr);
+    }
+
+    [Test]
+    public void Variant_InfectedPcrPositive_ApproveWrong_Triggers15()
+    {
+        // 전염병 환자(PCR 양성)를 잘못 입국 승인 → #15 방역 실패. 점수는 전염병 환자 행(-6).
+        var mgr = TestHelpers.FreshManager();
+        var b = BranchKeyResolver.Resolve(GameResults.Reject, true, 0, false,
+            CharacterTypes.Infected, "1-C 백신X");
+        mgr.Settle(CharacterTypes.Infected, b, false);
+        Assert.AreEqual(1, mgr.GetEventCount(EventIds.QuarantineFail), "전염병 양성 오입국 → #15");
+        Assert.AreEqual(-6, mgr.Score, "전염병 환자 PCR 점수 -6");
         TestHelpers.DestroyManager(mgr);
     }
 

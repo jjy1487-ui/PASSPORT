@@ -29,6 +29,9 @@ MonoBehaviour:
   - key: valid_chance
     label: "\uC815\uC0C1 \uD655\uB960"
     type: float
+  - key: force_defect
+    label: "\uACB0\uD568 \uAC15\uC81C(force_defect)"
+    type: varchar(10)
   rows:
   - keys:
     - schedule_id
@@ -36,1173 +39,1369 @@ MonoBehaviour:
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 1
     - 1
     - 1
     - 1
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 2
     - 1
     - 2
-    - 2
+    - 3
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 3
     - 1
     - 3
-    - 3
+    - 2
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 4
     - 1
     - 4
     - 4
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 5
     - 1
     - 5
     - 5
     - 0.7
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 6
     - 1
     - 6
-    - 6
+    - 7
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 7
     - 1
     - 7
-    - 7
+    - 6
     - 0.7
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 8
     - 2
     - 1
     - 22
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 9
     - 2
     - 2
     - 20
     - 0.75
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 10
     - 2
     - 3
     - 25
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 11
     - 2
     - 4
     - 23
     - 0.85
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 12
     - 2
     - 5
     - 24
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 13
     - 2
     - 6
     - 26
     - 0.5
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 14
     - 2
     - 7
     - 28
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 15
     - 3
     - 1
     - 27
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 16
     - 3
     - 2
     - 1
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 17
     - 3
     - 3
     - 12
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 18
     - 3
     - 4
     - 29
     - 0.75
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 19
     - 3
     - 5
     - 2
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 20
     - 3
     - 6
     - 21
     - 0.7
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 21
     - 3
     - 7
     - 3
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 22
     - 4
     - 1
     - 5
     - 0.75
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 23
     - 4
     - 2
     - 6
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 24
     - 4
     - 3
     - 4
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 25
     - 4
     - 4
     - 30
     - 0.7
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 26
     - 4
     - 5
     - 20
     - 0.75
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 27
     - 4
     - 6
     - 22
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 28
     - 4
     - 7
     - 7
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 29
     - 5
     - 1
     - 28
     - 0.75
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 30
     - 5
     - 2
     - 15
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 31
     - 5
     - 3
     - 13
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 32
     - 5
     - 4
     - 12
     - 0.7
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 33
     - 5
     - 5
-    - 14
+    - 24
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 34
     - 5
     - 6
-    - 19
+    - 14
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 35
     - 5
     - 7
-    - 23
     - 1
+    - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 36
     - 6
     - 1
-    - 31
     - 1
+    - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 37
     - 6
     - 2
     - 29
     - 0.75
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 38
     - 6
     - 3
     - 32
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 39
     - 6
     - 4
     - 24
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 40
     - 6
     - 5
-    - 33
+    - 19
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 41
     - 6
     - 6
     - 25
     - 0.5
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 42
     - 6
     - 7
     - 26
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 43
     - 7
     - 1
-    - 13
+    - 31
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 44
     - 7
     - 2
     - 5
     - 0.75
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 45
     - 7
     - 3
-    - 14
+    - 23
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 46
     - 7
     - 4
-    - 19
+    - 33
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 47
     - 7
     - 5
     - 27
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 48
     - 7
     - 6
     - 1
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 49
     - 7
     - 7
     - 21
     - 0.7
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 50
     - 8
     - 1
     - 2
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 51
     - 8
     - 2
     - 20
     - 0.75
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 52
     - 8
     - 3
     - 3
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 53
     - 8
     - 4
     - 18
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 54
     - 8
     - 5
     - 16
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 55
     - 8
     - 6
     - 4
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 56
     - 8
     - 7
     - 30
     - 0.7
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 57
     - 9
     - 1
     - 28
     - 0.75
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 58
     - 9
     - 2
     - 6
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 59
     - 9
     - 3
     - 7
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 60
     - 9
     - 4
     - 17
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 61
     - 9
     - 5
     - 12
     - 0.7
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 62
     - 9
     - 6
     - 25
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 63
     - 9
     - 7
-    - 35
     - 1
+    - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 64
     - 10
     - 1
     - 23
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 65
     - 10
     - 2
     - 29
     - 0.75
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 66
     - 10
     - 3
     - 21
     - 0.7
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 67
     - 10
     - 4
     - 26
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 68
     - 10
     - 5
     - 24
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 69
     - 10
     - 6
     - 5
     - 0.75
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 70
     - 10
     - 7
-    - 36
+    - 3
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 71
     - 11
     - 1
     - 10
     - 0.3
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 72
     - 11
     - 2
     - 1
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 73
     - 11
     - 3
     - 3
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 74
     - 11
     - 4
     - 20
     - 0.75
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 75
     - 11
     - 5
     - 30
     - 0.7
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 76
     - 11
     - 6
-    - 37
+    - 4
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 77
     - 11
     - 7
     - 2
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 78
     - 12
     - 1
     - 6
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 79
     - 12
     - 2
     - 7
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 80
     - 12
     - 3
     - 8
     - 0.3
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 81
     - 12
     - 4
     - 28
     - 0.75
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 82
     - 12
     - 5
     - 12
     - 0.7
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 83
     - 12
     - 6
-    - 35
+    - 3
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 84
     - 12
     - 7
     - 22
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 85
     - 13
     - 1
     - 11
     - 0.25
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 86
     - 13
     - 2
     - 23
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 87
     - 13
     - 3
     - 26
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 88
     - 13
     - 4
-    - 36
     - 1
+    - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 89
     - 13
     - 5
     - 29
     - 0.75
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 90
     - 13
     - 6
     - 21
     - 0.7
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 91
     - 13
     - 7
     - 27
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 92
     - 14
     - 1
     - 1
     - 1
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 93
     - 14
     - 2
     - 3
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 94
     - 14
     - 3
     - 9
     - 0.3
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 95
     - 14
     - 4
     - 34
     - 0.25
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 96
     - 14
     - 5
     - 30
     - 0.7
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 97
     - 14
     - 6
     - 4
     - 0
+    - 
   - keys:
     - schedule_id
     - day
     - slot
     - customer_id
     - valid_chance
+    - force_defect
     values:
     - 98
     - 14
     - 7
-    - 37
+    - 2
     - 1
+    - 

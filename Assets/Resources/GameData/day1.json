@@ -10,7 +10,7 @@
       "gender": "남성",
       "birthDate": "1985-03-15",
       "age": 41,
-      "spriteRef": "김민준.png",
+      "spriteRef": "spr_c001",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "김민준.png",
+          "spriteRef": "photo_1",
           "country": "KOR",
           "fields": [
             {
@@ -225,16 +225,16 @@
       "gender": "남성",
       "birthDate": "1978-11-08",
       "age": 47,
-      "spriteRef": "첸 웨이.png",
+      "spriteRef": "spr_c003",
       "characterType": "외국인 관광객",
-      "defectVariant": "출국X",
+      "defectVariant": "분실",
       "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "첸 웨이.png",
+          "variant": "비정상",
+          "violationField": "국적",
+          "spriteRef": "photo_3",
           "country": "CHN",
           "fields": [
             {
@@ -259,7 +259,7 @@
             },
             {
               "label": "국적",
-              "value": "CHN",
+              "value": "JPN",
               "key": "nationality"
             },
             {
@@ -271,60 +271,6 @@
               "label": "만료일",
               "value": "2029-03-14",
               "key": "expiry_date"
-            }
-          ]
-        },
-        {
-          "documentType": "비자",
-          "variant": "비정상",
-          "violationField": "만료일",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "이름",
-              "value": "CHEN WEI",
-              "key": "name"
-            },
-            {
-              "label": "국적",
-              "value": "CHN",
-              "key": "nationality"
-            },
-            {
-              "label": "여권번호",
-              "value": "CN5551234",
-              "key": "passport_no"
-            },
-            {
-              "label": "비자 번호",
-              "value": "V-CN-9864",
-              "key": "visa_no"
-            },
-            {
-              "label": "비자 종류",
-              "value": "관광",
-              "key": "visa_type"
-            },
-            {
-              "label": "발급일",
-              "value": "2022-01-01",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2023-01-01",
-              "key": "expiry_date"
-            },
-            {
-              "label": "입국 횟수",
-              "value": "단수",
-              "key": "entry_type"
-            },
-            {
-              "label": "비고",
-              "value": "첸웨이 정상 관광비자",
-              "key": "memo"
             }
           ]
         }
@@ -374,9 +320,9 @@
               "speaker": "심사관",
               "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다.",
               "claim": {
-                "attr": "expiry_date",
+                "attr": "nationality",
                 "value": "",
-                "label": "만료일 불일치",
+                "label": "국적 불일치",
                 "unlocksScan": ""
               }
             },
@@ -500,7 +446,7 @@
       "gender": "여성",
       "birthDate": "1990-07-22",
       "age": 35,
-      "spriteRef": "이지은.png",
+      "spriteRef": "spr_c002",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -509,7 +455,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "이지은.png",
+          "spriteRef": "photo_c2",
           "country": "KOR",
           "fields": [
             {
@@ -539,12 +485,12 @@
             },
             {
               "label": "발급일",
-              "value": "2018-01-01",
+              "value": "2021-07-14",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2028-01-01",
+              "value": "2031-07-14",
               "key": "expiry_date"
             }
           ]
@@ -715,7 +661,7 @@
       "gender": "여성",
       "birthDate": "1995-02-28",
       "age": 31,
-      "spriteRef": "제임스 밀러.png",
+      "spriteRef": "spr_c004",
       "characterType": "외국인 관광객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -724,7 +670,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "제임스 밀러.png",
+          "spriteRef": "photo_4",
           "country": "USA",
           "fields": [
             {
@@ -761,60 +707,6 @@
               "label": "만료일",
               "value": "2028-03-28",
               "key": "expiry_date"
-            }
-          ]
-        },
-        {
-          "documentType": "비자",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "이름",
-              "value": "JAMES MILLER",
-              "key": "name"
-            },
-            {
-              "label": "국적",
-              "value": "USA",
-              "key": "nationality"
-            },
-            {
-              "label": "여권번호",
-              "value": "US3334455",
-              "key": "passport_no"
-            },
-            {
-              "label": "비자 번호",
-              "value": "V-USA-2269",
-              "key": "visa_no"
-            },
-            {
-              "label": "비자 종류",
-              "value": "관광",
-              "key": "visa_type"
-            },
-            {
-              "label": "발급일",
-              "value": "2024-09-01",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2028-06-01",
-              "key": "expiry_date"
-            },
-            {
-              "label": "입국 횟수",
-              "value": "단수",
-              "key": "entry_type"
-            },
-            {
-              "label": "비고",
-              "value": "외국인 정상 비자",
-              "key": "memo"
             }
           ]
         }
@@ -984,7 +876,7 @@
       "gender": "남성",
       "birthDate": "1982-09-14",
       "age": 43,
-      "spriteRef": "박철수.png",
+      "spriteRef": "spr_c005",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -993,7 +885,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "박철수.png",
+          "spriteRef": "photo_5",
           "country": "KOR",
           "fields": [
             {
@@ -1199,16 +1091,16 @@
       "gender": "남성",
       "birthDate": "1993-12-05",
       "age": 32,
-      "spriteRef": "왕 웨이.png",
+      "spriteRef": "spr_c007",
       "characterType": "외국인 관광객",
-      "defectVariant": "출국X",
+      "defectVariant": "분실",
       "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "왕 웨이.png",
+          "variant": "비정상",
+          "violationField": "국적",
+          "spriteRef": "photo_7",
           "country": "CHN",
           "fields": [
             {
@@ -1233,7 +1125,7 @@
             },
             {
               "label": "국적",
-              "value": "CHN",
+              "value": "USA",
               "key": "nationality"
             },
             {
@@ -1245,60 +1137,6 @@
               "label": "만료일",
               "value": "2027-03-28",
               "key": "expiry_date"
-            }
-          ]
-        },
-        {
-          "documentType": "비자",
-          "variant": "비정상",
-          "violationField": "만료일",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "이름",
-              "value": "WANG WEI",
-              "key": "name"
-            },
-            {
-              "label": "국적",
-              "value": "CHN",
-              "key": "nationality"
-            },
-            {
-              "label": "여권번호",
-              "value": "CN6667788",
-              "key": "passport_no"
-            },
-            {
-              "label": "비자 번호",
-              "value": "V-CHN-3766",
-              "key": "visa_no"
-            },
-            {
-              "label": "비자 종류",
-              "value": "관광",
-              "key": "visa_type"
-            },
-            {
-              "label": "발급일",
-              "value": "2022-01-01",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2023-01-01",
-              "key": "expiry_date"
-            },
-            {
-              "label": "입국 횟수",
-              "value": "단수",
-              "key": "entry_type"
-            },
-            {
-              "label": "비고",
-              "value": "외국인 정상 비자",
-              "key": "memo"
             }
           ]
         }
@@ -1348,9 +1186,9 @@
               "speaker": "심사관",
               "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다.",
               "claim": {
-                "attr": "expiry_date",
+                "attr": "nationality",
                 "value": "",
-                "label": "만료일 불일치",
+                "label": "국적 불일치",
                 "unlocksScan": ""
               }
             },
@@ -1474,7 +1312,7 @@
       "gender": "여성",
       "birthDate": "1988-06-30",
       "age": 37,
-      "spriteRef": "최서연.png",
+      "spriteRef": "spr_c006",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1483,7 +1321,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "최서연.png",
+          "spriteRef": "photo_c6",
           "country": "KOR",
           "fields": [
             {
@@ -1513,12 +1351,12 @@
             },
             {
               "label": "발급일",
-              "value": "2018-01-01",
+              "value": "2023-03-28",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2028-01-01",
+              "value": "2028-03-28",
               "key": "expiry_date"
             }
           ]
@@ -1684,40 +1522,32 @@
   "rules": [
     {
       "ruleId": 1,
-      "title": "여권 필수 지참",
-      "content": "모든 입국자는 유효한 여권을 제시해야 한다. 여권 미제출 시 입국 불가.",
-      "relatedField": "여권",
-      "attr": "passport_no"
+      "title": "기본",
+      "content": "기본 규정",
+      "relatedField": "모든 입국자는 심사관의 허가를 받아야한다. 서류와 진술이 서로 다르면 입국을 거부한다.",
+      "attr": ""
     },
     {
       "ruleId": 2,
-      "title": "본인 정보 일치",
-      "content": "여권의 사진·성별·생년월일이 본인과 일치해야 한다.",
-      "relatedField": "성별",
-      "attr": "gender"
-    }
-  ],
-  "news": [
-    {
-      "newsId": 1,
-      "title": "인천공항 보안 등급 상향",
-      "content": "법무부가 오늘부터 인천국제공항의 출입국 심사 보안 등급을 한 단계 상향했다. 모든 입국자의 여권 진위 여부를 더욱 철저히 확인할 것을 심사관들에게 당부했다.",
-      "iconRef": "spr_news_001",
-      "claims": []
+      "title": "기본",
+      "content": "신분 확인",
+      "relatedField": "여권 사진과 방문자의 얼굴을 반드시 비교해야 한다.",
+      "attr": ""
     },
     {
-      "newsId": 2,
-      "title": "위조 여권 적발 급증",
-      "content": "최근 한 달간 위조 여권 적발 건수가 전월 대비 두 배로 증가했다. 당국은 정교해진 위조 수법에 각별한 주의를 요청했다.",
-      "iconRef": "spr_news_002",
-      "claims": [
-        {
-          "attr": "passport_no",
-          "value": "",
-          "label": "위조 여권 주의",
-          "unlocksScan": ""
-        }
-      ]
+      "ruleId": 3,
+      "title": "기본",
+      "content": "여권 유효기간",
+      "relatedField": "모든 입국자는 유효한 여권을 소지해야 한다,",
+      "attr": ""
+    },
+    {
+      "ruleId": 4,
+      "title": "기본",
+      "content": "금지 물품",
+      "relatedField": "마약과 밀수품은 반입할 수 없다",
+      "attr": ""
     }
-  ]
+  ],
+  "news": []
 }

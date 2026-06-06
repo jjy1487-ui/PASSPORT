@@ -157,3 +157,95 @@ MonoBehaviour:
     - result
     - Positive
     - "PCR \uC591\uC131"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 14
+    - visa_no
+    - V-XX-0000
+    - "\uD615\uC2DD \uC704\uBC18 \uBE44\uC790\uBC88\uD638(placeholder) \u2014 \uD65C\uC131\uD654
+      \uC2DC \uC2E4\uC81C \uD615\uC2DD\uC704\uBC18\uAC12\uC73C\uB85C \uAD50\uCCB4"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 15
+    - test_no
+    - PCR-0000
+    - "\uD615\uC2DD \uC704\uBC18 \uAC80\uC0AC\uBC88\uD638(placeholder)"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 16
+    - cert_no
+    - EMP-000
+    - "\uD615\uC2DD \uC704\uBC18 \uC99D\uBE59\uBC88\uD638(placeholder)"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 17
+    - gender
+    - "\uC5EC\uC131"
+    - "\uC131\uBCC4 \uBCC0\uC870(\uB0A8\u2192\uC5EC)"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 18
+    - gender
+    - "\uB0A8\uC131"
+    - "\uC131\uBCC4 \uBCC0\uC870(\uC5EC\u2192\uB0A8)"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 19
+    - visa_type
+    - "\uCDE8\uC5C5"
+    - "\uAD00\uAD11 \uC694\uAD6C\uC77C\uC5D0 \uCDE8\uC5C5\uBE44\uC790(\uC885\uB958
+      \uBD88\uC77C\uCE58)"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 20
+    - visa_type
+    - "\uD559\uC0DD"
+    - "\uC694\uAD6C\uC640 \uB2E4\uB978 \uBE44\uC790\uC885\uB958"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 21
+    - job_title
+    - "\uB2E8\uC21C\uB178\uBB34"
+    - "\uCDE8\uC5C5\uBE44\uC790 \uD5C8\uC6A9\uC9C1\uC885 \uC678"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 22
+    - job_title
+    - "\uBB34\uC9C1"
+    - "\uC9C1\uC885 \uBD88\uC77C\uCE58"

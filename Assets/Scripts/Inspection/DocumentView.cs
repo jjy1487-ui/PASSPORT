@@ -13,6 +13,32 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
     [SerializeField] private RectTransform _restSlot;        // (폴백) 접힌 채 처음 놓일 거치 슬롯
     [SerializeField] private RectTransform _spawnArea;        // 처음 출현 영역 — 이 사각형 안에서만 카드가 뜬다
 
+    [Header("서류 종류별 카드 프리팹")]
+    [Tooltip("documentType 에 맞는 전용 카드 프리팹을 복제한다. 매핑에 없으면 _cardTemplate(범용)을 쓴다.\n" +
+             "예: 여권→PassportCard, 비자→VisaCard, PCR검사서→PcrCard, 취업증빙→EmploymentCard")]
+    [SerializeField] private CardPrefabEntry[] _cardPrefabs;
+
+    /// <summary>서류 종류 → 전용 카드 프리팹 매핑 1건.</summary>
+    [System.Serializable]
+    private struct CardPrefabEntry
+    {
+        [Tooltip("서류 종류(documentType). 예: 여권 / 비자 / PCR검사서 / 취업증빙")]
+        public string documentType;
+        [Tooltip("그 종류 전용 카드 프리팹")]
+        public DocumentCardView prefab;
+    }
+
+    /// <summary>documentType 에 맞는 카드 프리팹을 고른다(매핑에 없으면 범용 _cardTemplate).</summary>
+    private DocumentCardView ResolveCardPrefab(string documentType)
+    {
+        if (_cardPrefabs != null && !string.IsNullOrEmpty(documentType))
+        {
+            foreach (CardPrefabEntry e in _cardPrefabs)
+                if (e.prefab != null && e.documentType == documentType) return e.prefab;
+        }
+        return _cardTemplate;
+    }
+
     [Header("출현 배치")]
     [Tooltip("카드끼리 어긋나는 간격(px). 완전히 겹치지 않게 한다.")]
     [SerializeField] private Vector2 _spawnStagger = new Vector2(40f, 36f);
@@ -49,7 +75,9 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
             if (card == null) continue;
             foreach (DocumentFieldView row in card.FieldRows)
             {
-                if (row != null) yield return row;
+                // 활성 슬롯만 대조 후보로 노출한다(미사용 슬롯은 SetActive(false)로 숨겨져 있음 →
+                //  비활성 빈 슬롯이 유령 대조 후보가 되는 것을 막는다).
+                if (row != null && row.gameObject.activeInHierarchy) yield return row;
             }
         }
     }
@@ -67,7 +95,7 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
         int count = documents.Count;
         for (int i = 0; i < count; i++)
         {
-            DocumentCardView card = Instantiate(_cardTemplate, _cardContainer);
+            DocumentCardView card = Instantiate(ResolveCardPrefab(documents[i].documentType), _cardContainer);
             card.gameObject.SetActive(true);
             PositionAtSpawn(card.transform as RectTransform, i);
             card.Bind(documents[i]);

@@ -10,7 +10,7 @@
       "gender": "남성",
       "birthDate": "1991-06-14",
       "age": 34,
-      "spriteRef": "장 웨이.png",
+      "spriteRef": "spr_c027",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "장 웨이.png",
+          "spriteRef": "photo_c27",
           "country": "CHN",
           "fields": [
             {
@@ -67,19 +67,9 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "ZHANG WEI",
-              "key": "name"
-            },
-            {
               "label": "비자 번호",
               "value": "V-CHN-7483",
               "key": "visa_no"
-            },
-            {
-              "label": "여권번호",
-              "value": "CN1030159",
-              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -285,7 +275,7 @@
       "gender": "남성",
       "birthDate": "1985-03-15",
       "age": 41,
-      "spriteRef": "김민준.png",
+      "spriteRef": "spr_c001",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -294,7 +284,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "김민준.png",
+          "spriteRef": "photo_1",
           "country": "KOR",
           "fields": [
             {
@@ -500,7 +490,7 @@
       "gender": "여성",
       "birthDate": "1996-04-12",
       "age": 30,
-      "spriteRef": "정유나.png",
+      "spriteRef": "spr_c012",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -509,7 +499,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "정유나.png",
+          "spriteRef": "photo_c12",
           "country": "KOR",
           "fields": [
             {
@@ -715,7 +705,7 @@
       "gender": "여성",
       "birthDate": "1983-09-30",
       "age": 42,
-      "spriteRef": "배수정.png",
+      "spriteRef": "spr_c029",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -724,7 +714,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "배수정.png",
+          "spriteRef": "photo_c29",
           "country": "KOR",
           "fields": [
             {
@@ -930,7 +920,7 @@
       "gender": "여성",
       "birthDate": "1990-07-22",
       "age": 35,
-      "spriteRef": "이지은.png",
+      "spriteRef": "spr_c002",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -939,7 +929,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "이지은.png",
+          "spriteRef": "photo_c2",
           "country": "KOR",
           "fields": [
             {
@@ -1145,16 +1135,16 @@
       "gender": "여성",
       "birthDate": "1997-11-20",
       "age": 28,
-      "spriteRef": "서지호.png",
+      "spriteRef": "spr_c021",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
-      "correctResult": "정상 승인",
+      "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "서지호.png",
+          "variant": "비정상",
+          "violationField": "사진",
+          "spriteRef": "photo_mismatch",
           "country": "KOR",
           "fields": [
             {
@@ -1238,7 +1228,13 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
+              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요.",
+              "claim": {
+                "attr": "face",
+                "value": "",
+                "label": "사진 불일치",
+                "unlocksScan": ""
+              }
             },
             {
               "order": 2,
@@ -1360,7 +1356,7 @@
       "gender": "남성",
       "birthDate": "1978-11-08",
       "age": 47,
-      "spriteRef": "첸 웨이.png",
+      "spriteRef": "spr_c003",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -1369,7 +1365,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "첸 웨이.png",
+          "spriteRef": "photo_3",
           "country": "CHN",
           "fields": [
             {
@@ -1417,19 +1413,9 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "CHEN WEI",
-              "key": "name"
-            },
-            {
               "label": "비자 번호",
               "value": "V-CN-9864",
               "key": "visa_no"
-            },
-            {
-              "label": "여권번호",
-              "value": "CN5551234",
-              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -1629,27 +1615,20 @@
   ],
   "rules": [
     {
-      "ruleId": 4,
-      "title": "발급국 일치",
-      "content": "여권의 발급국(국적)이 비자/신고 국적과 일치해야 한다. 불일치 시 위조 의심.",
-      "relatedField": "발급국",
-      "attr": "nationality"
+      "ruleId": 8,
+      "title": "서류",
+      "content": "입국 비자",
+      "relatedField": "비자 정보는 여권 정보와 일치해야 한다.",
+      "attr": ""
     }
   ],
   "news": [
     {
-      "newsId": 4,
-      "title": "분실 여권 도용 주의보",
-      "content": "분실 신고된 여권을 도용한 입국 시도가 잇따르고 있다. 심사관은 여권 사진과 본인 일치 여부를 반드시 확인해야 한다.",
-      "iconRef": "spr_news_004",
-      "claims": [
-        {
-          "attr": "face",
-          "value": "",
-          "label": "사진 본인 일치 확인",
-          "unlocksScan": ""
-        }
-      ]
+      "newsId": 1,
+      "title": "입국장서 의료관광객 신원 확인 지연",
+      "content": "오늘 오전 국제선 입국장에서 의료관광 목적 방문객의 여권 사진과 현재 얼굴이 달라 추가 확인이 진행됐다. 일부 방문객은 수술 일정을 이유로 빠른 심사를 요청했으나, 현장에서는 여권과 비자 정보 대조가 우선 적용됐다.",
+      "iconRef": "spr_news_001",
+      "claims": []
     }
   ]
 }

@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &539936847844077942
 RectTransform:
   m_ObjectHideFlags: 0
@@ -59,16 +59,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.45, g: 0.3, b: 0.18, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 4b8cd105add4a8a43ae6ba09ae4b2561, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -239,6 +239,7 @@ MonoBehaviour:
   _highlight: {fileID: 4359405210321446752}
   _selectedColor: {r: 0.231, g: 0.51, b: 0.769, a: 0.45}
   _borderSprite: {fileID: 0}
+  _fieldKey: 
 --- !u!1 &1733054869669741721
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7788107203974346773
 RectTransform:
   m_ObjectHideFlags: 0
@@ -544,8 +545,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.32, y: 0.06}
   m_AnchorMax: {x: 0.985, y: 0.66}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 14.4, y: -32.4}
+  m_SizeDelta: {x: 28.8, y: 64.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &595868826867373270
 CanvasRenderer:
@@ -601,8 +602,20 @@ MonoBehaviour:
   _cardTemplate: {fileID: 4301617684441103875}
   _restSlot: {fileID: 0}
   _spawnArea: {fileID: 0}
+  _cardPrefabs:
+  - documentType: "\uC5EC\uAD8C"
+    prefab: {fileID: 7306359581342103886, guid: f4d5300e96fd1a949b5422e5081f7700, type: 3}
+  - documentType: "\uBE44\uC790"
+    prefab: {fileID: 8833700666795877534, guid: f180c989b89b5c447867e383947570e1, type: 3}
+  - documentType: "PCR\uAC80\uC0AC\uC11C"
+    prefab: {fileID: 2474562848604789110, guid: 284f02b45dc8d5c4c9ac5a4e429ee857, type: 3}
+  - documentType: "\uCDE8\uC5C5\uC99D\uBE59"
+    prefab: {fileID: 9209478158666006378, guid: 23a75120267d6ff4fa582b9e1a39b9b4, type: 3}
   _spawnStagger: {x: 40, y: 36}
   _cardHalfSize: {x: 30, y: 28}
+  _noticeBasePos: {x: -1173, y: -88}
+  _noticeSize: {x: 83.8205, y: 86.6596}
+  _noticeStagger: {x: 26, y: 24}
 --- !u!1 &2968834776527255774
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,7 +907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &870119496615325858
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1217,7 +1230,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC5EC\uAD8C"
+  m_text: "PCR\uAC80\uC0AC\uC11C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2fed11592b0df2a4aa2bb4f3827f7a37, type: 2}
   m_sharedMaterial: {fileID: 2240537525103583205, guid: 2fed11592b0df2a4aa2bb4f3827f7a37, type: 2}
@@ -1325,7 +1338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8128786150288029365
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1515,7 +1528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1565,6 +1578,7 @@ MonoBehaviour:
   _fieldTemplate: {fileID: 6172973928014419165}
   _closedImage: {fileID: 1829045877105572243}
   _closedLabel: {fileID: 2867260621315250924}
+  _closedCoverOverride: {fileID: 0}
   _coverKor: {fileID: -7445952949437914214, guid: 2c4d1549b2d83984aa83416c7eccfbfd, type: 3}
   _coverChn: {fileID: 6596213298035549781, guid: 13a9447ae2bff7b42a6434c66c45544e, type: 3}
   _coverJpn: {fileID: -3662555290725001338, guid: 82a00045f34f3154e804c55820d16ee3, type: 3}
@@ -1601,6 +1615,21 @@ MonoBehaviour:
   _visaIssueOffsetX: -66
   _visaExpiryOffsetX: -115
   _visaDateWidth: 180
+  _pcrTemplateNegative: {fileID: 0}
+  _pcrTemplatePositive: {fileID: 0}
+  _pcrClosedCover: {fileID: 0}
+  _posPcrName: {x: 0.42, y: 0.298}
+  _posPcrNationality: {x: 0.42, y: 0.366}
+  _posPcrTestNo: {x: 0.42, y: 0.432}
+  _posPcrIssueDate: {x: 0.42, y: 0.501}
+  _posPcrValidUntil: {x: 0.42, y: 0.727}
+  _posPcrLabName: {x: 0.42, y: 0.793}
+  _pcrValueOffsetX: 0
+  _pcrBackground: {fileID: 0}
+  _pcrNegativeSprite: {fileID: 0}
+  _pcrPositiveSprite: {fileID: 0}
+  _issueCountryText: {fileID: 0}
+  _signatureText: {fileID: 0}
 --- !u!114 &7326607941386732445
 MonoBehaviour:
   m_ObjectHideFlags: 0

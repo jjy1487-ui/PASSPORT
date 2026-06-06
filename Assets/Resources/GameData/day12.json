@@ -10,7 +10,7 @@
       "gender": "여성",
       "birthDate": "1988-06-30",
       "age": 37,
-      "spriteRef": "최서연.png",
+      "spriteRef": "spr_c006",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "최서연.png",
+          "spriteRef": "photo_c6",
           "country": "KOR",
           "fields": [
             {
@@ -225,7 +225,7 @@
       "gender": "남성",
       "birthDate": "1993-12-05",
       "age": 32,
-      "spriteRef": "왕 웨이.png",
+      "spriteRef": "spr_c007",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -234,7 +234,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "왕 웨이.png",
+          "spriteRef": "photo_7",
           "country": "CHN",
           "fields": [
             {
@@ -282,19 +282,9 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "WANG WEI",
-              "key": "name"
-            },
-            {
               "label": "비자 번호",
               "value": "V-CHN-3766",
               "key": "visa_no"
-            },
-            {
-              "label": "여권번호",
-              "value": "CN6667788",
-              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -500,7 +490,7 @@
       "gender": "남성",
       "birthDate": "1980-05-20",
       "age": 45,
-      "spriteRef": "존 카터.png",
+      "spriteRef": "spr_c008",
       "characterType": "범죄자(외국 도피자)",
       "defectVariant": "",
       "correctResult": "정상 거절",
@@ -509,7 +499,7 @@
           "documentType": "여권",
           "variant": "비정상",
           "violationField": "여권번호",
-          "spriteRef": "존 카터.png",
+          "spriteRef": "photo_c8",
           "country": "USA",
           "fields": [
             {
@@ -557,19 +547,9 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "JOHN CARTER",
-              "key": "name"
-            },
-            {
               "label": "비자 번호",
               "value": "V-USA-5667",
               "key": "visa_no"
-            },
-            {
-              "label": "여권번호",
-              "value": "##INVALID_PATTERN##",
-              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -786,16 +766,16 @@
       "gender": "남성",
       "birthDate": "1975-02-11",
       "age": 51,
-      "spriteRef": "오만석.png",
+      "spriteRef": "spr_c028",
       "characterType": "진상 고객",
       "defectVariant": "",
-      "correctResult": "정상 승인",
+      "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "오만석.png",
+          "variant": "비정상",
+          "violationField": "생년월일",
+          "spriteRef": "photo_c28",
           "country": "KOR",
           "fields": [
             {
@@ -815,7 +795,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1975-02-11",
+              "value": "1900-01-01",
               "key": "birth_date"
             },
             {
@@ -879,7 +859,13 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
+              "text": "서류 오류가 확인되어 입국하실 수 없습니다.",
+              "claim": {
+                "attr": "birth_date",
+                "value": "",
+                "label": "생년월일 불일치",
+                "unlocksScan": ""
+              }
             },
             {
               "order": 2,
@@ -1001,16 +987,16 @@
       "gender": "여성",
       "birthDate": "1996-04-12",
       "age": 30,
-      "spriteRef": "정유나.png",
+      "spriteRef": "spr_c012",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
-      "correctResult": "정상 승인",
+      "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "정유나.png",
+          "variant": "비정상",
+          "violationField": "사진",
+          "spriteRef": "photo_mismatch",
           "country": "KOR",
           "fields": [
             {
@@ -1094,7 +1080,13 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
+              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요.",
+              "claim": {
+                "attr": "face",
+                "value": "",
+                "label": "사진 불일치",
+                "unlocksScan": ""
+              }
             },
             {
               "order": 2,
@@ -1208,44 +1200,44 @@
       "fingerprint": null
     },
     {
-      "customerId": 35,
+      "customerId": 3,
       "slot": 6,
-      "nameKr": "자오 레이",
-      "nameEn": "ZHAO LEI",
+      "nameKr": "첸 웨이",
+      "nameEn": "CHEN WEI",
       "nationality": "중국(CHN)",
-      "gender": "여성",
-      "birthDate": "1990-06-18",
-      "age": 35,
-      "spriteRef": "지오 레이.png",
-      "characterType": "취업체류자",
-      "defectVariant": "",
+      "gender": "남성",
+      "birthDate": "1978-11-08",
+      "age": 47,
+      "spriteRef": "spr_c003",
+      "characterType": "외국인 관광객",
+      "defectVariant": "출국X",
       "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "지오 레이.png",
+          "spriteRef": "photo_3",
           "country": "CHN",
           "fields": [
             {
               "label": "여권번호",
-              "value": "CN1039095",
+              "value": "CN5551234",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "LEI ZHAO",
+              "value": "CHEN WEI",
               "key": "name"
             },
             {
               "label": "성별",
-              "value": "여성",
+              "value": "남성",
               "key": "gender"
             },
             {
               "label": "생년월일",
-              "value": "1990-06-18",
+              "value": "1978-11-08",
               "key": "birth_date"
             },
             {
@@ -1255,91 +1247,37 @@
             },
             {
               "label": "발급일",
-              "value": "2023-11-28",
+              "value": "2019-03-14",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2033-11-28",
+              "value": "2029-03-14",
               "key": "expiry_date"
             }
           ]
         },
         {
           "documentType": "비자",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "이름",
-              "value": "ZHAO LEI",
-              "key": "name"
-            },
-            {
-              "label": "비자 번호",
-              "value": "V-CHN-1208",
-              "key": "visa_no"
-            },
-            {
-              "label": "여권번호",
-              "value": "CN1039095",
-              "key": "passport_no"
-            },
-            {
-              "label": "비자 종류",
-              "value": "취업",
-              "key": "visa_type"
-            },
-            {
-              "label": "국적",
-              "value": "CHN",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2025-09-08",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2026-09-08",
-              "key": "expiry_date"
-            },
-            {
-              "label": "입국 횟수",
-              "value": "복수",
-              "key": "entry_type"
-            },
-            {
-              "label": "비고",
-              "value": "취업 정상 비자",
-              "key": "memo"
-            }
-          ]
-        },
-        {
-          "documentType": "취업증빙",
           "variant": "비정상",
           "violationField": "만료일",
           "spriteRef": "",
           "country": "",
           "fields": [
             {
-              "label": "증빙 번호",
-              "value": "EMP-035",
-              "key": "cert_no"
+              "label": "비자 번호",
+              "value": "V-CN-9864",
+              "key": "visa_no"
             },
             {
-              "label": "고용 회사",
-              "value": "한빛전자(주)",
-              "key": "company_name"
+              "label": "비자 종류",
+              "value": "관광",
+              "key": "visa_type"
             },
             {
-              "label": "직종",
-              "value": "생산 라인",
-              "key": "job_title"
+              "label": "국적",
+              "value": "CHN",
+              "key": "nationality"
             },
             {
               "label": "발급일",
@@ -1350,6 +1288,16 @@
               "label": "만료일",
               "value": "2023-01-01",
               "key": "expiry_date"
+            },
+            {
+              "label": "입국 횟수",
+              "value": "단수",
+              "key": "entry_type"
+            },
+            {
+              "label": "비고",
+              "value": "첸웨이 정상 관광비자",
+              "key": "memo"
             }
           ]
         }
@@ -1362,13 +1310,13 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "자오 레이",
-              "text": "Hello! I have my employment documents ready as well."
+              "speaker": "첸 웨이",
+              "text": "Hello! Good morning~"
             },
             {
               "order": 2,
-              "speaker": "자오 레이",
-              "text": "취업 서류도 함께 드릴게요."
+              "speaker": "첸 웨이",
+              "text": "Here is my passport."
             }
           ]
         },
@@ -1380,12 +1328,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "Have a pleasant stay!"
+              "text": "Have a pleasant trip!"
             },
             {
               "order": 2,
-              "speaker": "자오 레이",
-              "text": "Thank you! I'll do my best here!"
+              "speaker": "첸 웨이",
+              "text": "Thank you so much! Have a wonderful day!"
             }
           ]
         },
@@ -1397,7 +1345,7 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "이전 출국 기록이 확인되지 않아 입국하실 수 없습니다.",
+              "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다.",
               "claim": {
                 "attr": "expiry_date",
                 "value": "",
@@ -1407,8 +1355,8 @@
             },
             {
               "order": 2,
-              "speaker": "자오 레이",
-              "text": "Oh... I understand. I'll sort out the documents and come back."
+              "speaker": "첸 웨이",
+              "text": "Oh no... I'm so sorry, I had no idea."
             }
           ]
         },
@@ -1420,12 +1368,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "Have a pleasant stay!"
+              "text": "Have a pleasant trip!"
             },
             {
               "order": 2,
-              "speaker": "자오 레이",
-              "text": "Thank you! I'm really looking forward to starting."
+              "speaker": "첸 웨이",
+              "text": "Thank you! That was quick~"
             }
           ]
         },
@@ -1441,8 +1389,8 @@
             },
             {
               "order": 2,
-              "speaker": "자오 레이",
-              "text": "All my documents are official! Why are you blocking me?!"
+              "speaker": "첸 웨이",
+              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
               "order": 3,
@@ -1451,8 +1399,8 @@
             },
             {
               "order": 4,
-              "speaker": "자오 레이",
-              "text": "다행입니다. 감사합니다."
+              "speaker": "첸 웨이",
+              "text": "Oh 정말 다행이에요! 고마워요!"
             }
           ]
         },
@@ -1468,8 +1416,8 @@
             },
             {
               "order": 2,
-              "speaker": "자오 레이",
-              "text": "All my documents are official! Why are you blocking me?!"
+              "speaker": "첸 웨이",
+              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
               "order": 3,
@@ -1478,8 +1426,8 @@
             },
             {
               "order": 4,
-              "speaker": "자오 레이",
-              "text": "네, 확인해 주셔서 감사합니다."
+              "speaker": "첸 웨이",
+              "text": "정말 다행이에요. 여행할 수 있어서 다행이에요."
             }
           ]
         },
@@ -1495,8 +1443,8 @@
             },
             {
               "order": 2,
-              "speaker": "자오 레이",
-              "text": "All my documents are official! Why are you blocking me?!"
+              "speaker": "첸 웨이",
+              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
               "order": 3,
@@ -1505,8 +1453,8 @@
             },
             {
               "order": 4,
-              "speaker": "자오 레이",
-              "text": "하... 겨우 들어가네요. 다음엔 잘 봐 주세요."
+              "speaker": "첸 웨이",
+              "text": "기분이 안 좋아요. You are so rude."
             }
           ]
         }
@@ -1525,7 +1473,7 @@
       "gender": "남성",
       "birthDate": "1990-01-20",
       "age": 36,
-      "spriteRef": "박지훈.png",
+      "spriteRef": "spr_c022",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1534,7 +1482,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "박지훈.png",
+          "spriteRef": "photo_c22",
           "country": "KOR",
           "fields": [
             {
@@ -1732,8 +1680,23 @@
       "fingerprint": null
     }
   ],
-  "rules": [],
+  "rules": [
+    {
+      "ruleId": 6,
+      "title": "특별",
+      "content": "테러 발생 지시",
+      "relatedField": "테러 발생 시 지정 대상자는 입국할 수 없다.",
+      "attr": ""
+    }
+  ],
   "news": [
+    {
+      "newsId": 8,
+      "title": "도심 폭발 수사, 공항 이동 기록으로 확대",
+      "content": "도심 폭발 사건 이후 수사 당국이 위조 신분 사용 가능성과 공항 이동 기록을 함께 조사하고 있다. 오늘 입국장에서는 목적 진술은 자연스러웠지만 행동과 서류 흐름이 맞지 않는 방문객이 추가 확인을 받았다.",
+      "iconRef": null,
+      "claims": []
+    },
     {
       "newsId": 912000,
       "title": "[속보] 위조신원·수배자 입국 경보",

@@ -10,7 +10,7 @@
       "gender": "여성",
       "birthDate": "1990-07-22",
       "age": 35,
-      "spriteRef": "이지은.png",
+      "spriteRef": "spr_c002",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "이지은.png",
+          "spriteRef": "photo_c2",
           "country": "KOR",
           "fields": [
             {
@@ -225,7 +225,7 @@
       "gender": "남성",
       "birthDate": "1979-05-05",
       "age": 47,
-      "spriteRef": "한만수.png",
+      "spriteRef": "spr_c020",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -234,7 +234,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "한만수.png",
+          "spriteRef": "photo_c20",
           "country": "KOR",
           "fields": [
             {
@@ -440,7 +440,7 @@
       "gender": "남성",
       "birthDate": "1978-11-08",
       "age": 47,
-      "spriteRef": "첸 웨이.png",
+      "spriteRef": "spr_c003",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -449,7 +449,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "첸 웨이.png",
+          "spriteRef": "photo_3",
           "country": "CHN",
           "fields": [
             {
@@ -497,19 +497,9 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "CHEN WEI",
-              "key": "name"
-            },
-            {
               "label": "비자 번호",
               "value": "V-CN-9864",
               "key": "visa_no"
-            },
-            {
-              "label": "여권번호",
-              "value": "CN5551234",
-              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -715,7 +705,7 @@
       "gender": "남성",
       "birthDate": "1986-05-30",
       "age": 39,
-      "spriteRef": "첸 리.png",
+      "spriteRef": "spr_c018",
       "characterType": "장기체류자",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -724,7 +714,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "첸 리.png",
+          "spriteRef": "photo_c18",
           "country": "CHN",
           "fields": [
             {
@@ -772,19 +762,9 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "CHEN LI",
-              "key": "name"
-            },
-            {
               "label": "비자 번호",
               "value": "V-CHN-3887",
               "key": "visa_no"
-            },
-            {
-              "label": "여권번호",
-              "value": "CH1020106",
-              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -826,6 +806,11 @@
           "country": "",
           "fields": [
             {
+              "label": "이름",
+              "value": "CHEN LI",
+              "key": "name"
+            },
+            {
               "label": "증빙 번호",
               "value": "EMP-018",
               "key": "cert_no"
@@ -841,14 +826,14 @@
               "key": "job_title"
             },
             {
+              "label": "입사일",
+              "value": "2023-03-01",
+              "key": "hire_date"
+            },
+            {
               "label": "발급일",
               "value": "2025-03-01",
               "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2027-03-01",
-              "key": "expiry_date"
             }
           ]
         }
@@ -1018,7 +1003,7 @@
       "gender": "남성",
       "birthDate": "1955-06-01",
       "age": 70,
-      "spriteRef": "오현석.png",
+      "spriteRef": "spr_c016",
       "characterType": "특수(현자)★",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1027,7 +1012,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "오현석.png",
+          "spriteRef": "photo_c16",
           "country": "KOR",
           "fields": [
             {
@@ -1233,7 +1218,7 @@
       "gender": "여성",
       "birthDate": "1995-02-28",
       "age": 31,
-      "spriteRef": "제임스 밀러.png",
+      "spriteRef": "spr_c004",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -1242,7 +1227,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "제임스 밀러.png",
+          "spriteRef": "photo_4",
           "country": "USA",
           "fields": [
             {
@@ -1290,19 +1275,9 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "JAMES MILLER",
-              "key": "name"
-            },
-            {
               "label": "비자 번호",
               "value": "V-USA-2269",
               "key": "visa_no"
-            },
-            {
-              "label": "여권번호",
-              "value": "US3334455",
-              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -1508,7 +1483,7 @@
       "gender": "여성",
       "birthDate": "1999-05-05",
       "age": 27,
-      "spriteRef": "노가은.png",
+      "spriteRef": "spr_c030",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1517,7 +1492,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "노가은.png",
+          "spriteRef": "photo_c30",
           "country": "KOR",
           "fields": [
             {
@@ -1715,6 +1690,29 @@
       "fingerprint": null
     }
   ],
-  "rules": [],
-  "news": []
+  "rules": [
+    {
+      "ruleId": 9,
+      "title": "서류",
+      "content": "재직증명서",
+      "relatedField": "취업 목적 입국자는 재직증명서를 제출해야 한다.",
+      "attr": ""
+    },
+    {
+      "ruleId": 10,
+      "title": "서류",
+      "content": "합격통지서",
+      "relatedField": "유학 목적 입국자는 합격통지서를 제출해야 한다.",
+      "attr": ""
+    }
+  ],
+  "news": [
+    {
+      "newsId": 5,
+      "title": "장기 체류자 서류 대조중 불일치 확인",
+      "content": "취업과 유학 등 장기 체류 목적 입국자 심사 과정에서 체류 목적과 제출 서류가 맞지 않는 사례가 확인됐다. 당국은 여권, 비자, 체류 목적 서류의 정보가 서로 이어지는지 확인하고 있다.",
+      "iconRef": "spr_news_005",
+      "claims": []
+    }
+  ]
 }

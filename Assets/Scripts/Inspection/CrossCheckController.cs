@@ -298,7 +298,7 @@ public sealed class CrossCheckController : MonoBehaviour
             ? _inspection.CurrentCustomerName : "손님";
         string characterType = _inspection != null ? _inspection.CurrentCharacterType : null;
 
-        string inspectorLine = $"{label}{Josa(label, "이", "가")} 일치하지 않네요.";
+        string inspectorLine = InterrogationQuestionFor(key, label); // 불일치 → 필드별 취조 질문 자동 표시
         string customerLine = CustomerReactionFor(key, characterType);
 
         // 기존 일반 대사와 동일한 데이터 구조로 2줄(검사관 → 손님)을 만들어 같은 위치·스타일로 재생.
@@ -315,6 +315,26 @@ public sealed class CrossCheckController : MonoBehaviour
             },
         };
         _mismatchDialogue.Play(mismatchCase, null);
+    }
+
+    /// <summary>불일치한 항목(key)에 대한 검사관의 취조 질문. 항목별로 추궁 질문이 다르다.
+    /// (지금은 항목별 기본 질문 — 추후 손님/일차별 데이터로 교체 가능)</summary>
+    private static string InterrogationQuestionFor(string key, string label)
+    {
+        switch (key)
+        {
+            case "name":         return "여권의 이름이 다른 서류와 다릅니다. 어느 쪽이 본인 정보입니까?";
+            case "nationality":  return "국적 정보가 서류마다 다른데, 설명해 주시겠습니까?";
+            case "passport_no":  return "여권번호가 규정 형식과 맞지 않습니다. 어떻게 된 거죠?";
+            case "visa_no":      return "비자번호가 규정과 맞지 않습니다. 설명해 주시겠습니까?";
+            case "birth_date":   return "생년월일이 서류마다 다릅니다. 정확한 생년월일이 어떻게 됩니까?";
+            case "expiry_date":  return "여권 유효기간이 지난 것 같은데, 확인하셨습니까?";
+            case "issue_date":   return "여권 발급일이 논리적으로 맞지 않습니다. 설명해 주시겠습니까?";
+            case "gender":       return "성별 정보가 서류마다 다른데, 어느 게 맞습니까?";
+            case "face":
+            case "photo":        return "여권 사진과 지금 모습이 달라 보입니다. 본인이 맞습니까?";
+            default:             return $"{label}{Josa(label, "이", "가")} 다른 서류와 일치하지 않습니다. 설명해 주시겠습니까?";
+        }
     }
 
     /// <summary>비교 항목 중 하나라도 경보(워치리스트) 단서(UnlocksScan!="")이면 true.

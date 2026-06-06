@@ -94,7 +94,8 @@ public static class CharacterTypes
     public const string Annoying         = "진상 고객";
     public const string Tourist          = "외국인 관광객";
     public const string PlasticSuspect   = "성형 의심 고객";
-    public const string Quarantine       = "검역 대상자(PCR)";
+    // 검역 대상자(PCR) 폐지 → 전염병 환자 종류로 정리(260606). 5~7일 PCR 결함(양성/위조/미제출) 전용 손님.
+    public const string Infected         = "전염병 환자";
     public const string LongStay         = "장기체류자";
     public const string Worker           = "취업체류자";
     public const string CriminalForeign  = "범죄자(외국 도피자)";

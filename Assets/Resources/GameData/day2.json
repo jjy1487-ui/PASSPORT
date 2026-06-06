@@ -10,7 +10,7 @@
       "gender": "남성",
       "birthDate": "1990-01-20",
       "age": 36,
-      "spriteRef": "박지훈.png",
+      "spriteRef": "spr_c022",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "박지훈.png",
+          "spriteRef": "photo_c22",
           "country": "KOR",
           "fields": [
             {
@@ -225,7 +225,7 @@
       "gender": "남성",
       "birthDate": "1979-05-05",
       "age": 47,
-      "spriteRef": "한만수.png",
+      "spriteRef": "spr_c020",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -234,7 +234,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "한만수.png",
+          "spriteRef": "photo_c20",
           "country": "KOR",
           "fields": [
             {
@@ -440,7 +440,7 @@
       "gender": "여성",
       "birthDate": "1994-03-03",
       "age": 32,
-      "spriteRef": "윌리엄 브라운.png",
+      "spriteRef": "spr_c025",
       "characterType": "외국인 관광객",
       "defectVariant": "분실",
       "correctResult": "정상 거절",
@@ -449,7 +449,7 @@
           "documentType": "여권",
           "variant": "비정상",
           "violationField": "국적",
-          "spriteRef": "윌리엄 브라운.png",
+          "spriteRef": "photo_c25",
           "country": "USA",
           "fields": [
             {
@@ -661,16 +661,16 @@
       "gender": "여성",
       "birthDate": "1993-04-09",
       "age": 33,
-      "spriteRef": "송하늘.png",
+      "spriteRef": "spr_c023",
       "characterType": "일반 고객",
       "defectVariant": "",
-      "correctResult": "정상 승인",
+      "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "송하늘.png",
+          "variant": "비정상",
+          "violationField": "만료일",
+          "spriteRef": "photo_c23",
           "country": "KOR",
           "fields": [
             {
@@ -700,12 +700,12 @@
             },
             {
               "label": "발급일",
-              "value": "2018-01-01",
+              "value": "2013-01-01",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2028-01-01",
+              "value": "2023-01-01",
               "key": "expiry_date"
             }
           ]
@@ -754,7 +754,13 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
+              "text": "서류 오류가 확인되어 입국하실 수 없습니다.",
+              "claim": {
+                "attr": "expiry_date",
+                "value": "",
+                "label": "만료일 불일치",
+                "unlocksScan": ""
+              }
             },
             {
               "order": 2,
@@ -876,7 +882,7 @@
       "gender": "남성",
       "birthDate": "1986-08-17",
       "age": 39,
-      "spriteRef": "임도현.png",
+      "spriteRef": "spr_c024",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -885,7 +891,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "임도현.png",
+          "spriteRef": "photo_c24",
           "country": "KOR",
           "fields": [
             {
@@ -1091,16 +1097,16 @@
       "gender": "남성",
       "birthDate": "1989-11-25",
       "age": 36,
-      "spriteRef": "다나카 하루토.png",
+      "spriteRef": "spr_c026",
       "characterType": "외국인 관광객",
-      "defectVariant": "출국X",
-      "correctResult": "정상 거절",
+      "defectVariant": "",
+      "correctResult": "정상 승인",
       "documents": [
         {
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "다나카 하루토.png",
+          "spriteRef": "photo_c26",
           "country": "JPN",
           "fields": [
             {
@@ -1137,60 +1143,6 @@
               "label": "만료일",
               "value": "2031-03-14",
               "key": "expiry_date"
-            }
-          ]
-        },
-        {
-          "documentType": "비자",
-          "variant": "비정상",
-          "violationField": "만료일",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "이름",
-              "value": "TANAKA HARUTO",
-              "key": "name"
-            },
-            {
-              "label": "국적",
-              "value": "JPN",
-              "key": "nationality"
-            },
-            {
-              "label": "여권번호",
-              "value": "JP1029042",
-              "key": "passport_no"
-            },
-            {
-              "label": "비자 번호",
-              "value": "V-JPN-8758",
-              "key": "visa_no"
-            },
-            {
-              "label": "비자 종류",
-              "value": "관광",
-              "key": "visa_type"
-            },
-            {
-              "label": "발급일",
-              "value": "2022-01-01",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2023-01-01",
-              "key": "expiry_date"
-            },
-            {
-              "label": "입국 횟수",
-              "value": "단수",
-              "key": "entry_type"
-            },
-            {
-              "label": "비고",
-              "value": "외국인 정상 비자",
-              "key": "memo"
             }
           ]
         }
@@ -1238,13 +1190,7 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다.",
-              "claim": {
-                "attr": "expiry_date",
-                "value": "",
-                "label": "만료일 불일치",
-                "unlocksScan": ""
-              }
+              "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다."
             },
             {
               "order": 2,
@@ -1366,7 +1312,7 @@
       "gender": "남성",
       "birthDate": "1975-02-11",
       "age": 51,
-      "spriteRef": "오만석.png",
+      "spriteRef": "spr_c028",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 거절",
@@ -1375,7 +1321,7 @@
           "documentType": "여권",
           "variant": "비정상",
           "violationField": "생년월일",
-          "spriteRef": "오만석.png",
+          "spriteRef": "photo_c28",
           "country": "KOR",
           "fields": [
             {
@@ -1579,22 +1525,6 @@
       "fingerprint": null
     }
   ],
-  "rules": [
-    {
-      "ruleId": 3,
-      "title": "외국인 비자 확인",
-      "content": "외국 국적자는 유효한 비자를 소지해야 한다. 비자 없으면 입국 불가.",
-      "relatedField": "비자",
-      "attr": "visa_type"
-    }
-  ],
-  "news": [
-    {
-      "newsId": 3,
-      "title": "해외 단체 관광객 입국 증가",
-      "content": "연휴를 맞아 외국인 단체 관광객의 입국이 크게 늘었다. 공항 측은 입국 심사 대기 시간이 길어질 수 있다고 안내했다.",
-      "iconRef": "spr_news_003",
-      "claims": []
-    }
-  ]
+  "rules": [],
+  "news": []
 }

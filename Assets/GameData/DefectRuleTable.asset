@@ -72,7 +72,7 @@ MonoBehaviour:
     - expiry_date
     - "\uB9CC\uB8CC\uC77C 2030"
     - "\uB9CC\uB8CC\uC77C 2024(\uB9CC\uB8CC)"
-    - '-'
+    - "\uC624\uB298 \uB0A0\uC9DC\uC640 \uB300\uC870 (\uB9CC\uB8CC\uC77C \uC9C0\uB0AC\uB098)"
     - 0.85
     - "\uC720\uD6A8\uAE30\uAC04 \uB9CC\uB8CC\uD615"
     - EXPIRE
@@ -98,7 +98,7 @@ MonoBehaviour:
     - "nationality(\uBC1C\uAE09\uAD6D)"
     - "\uC0AC\uC9C4\xB7MRZ \uC77C\uCE58"
     - "\uBC1C\uAE09\uAD6D \uBD88\uC77C\uCE58(\uC704\uC870\uAD6D)"
-    - '-'
+    - "\uBC1C\uAE09\uAD6D(\uAD6D\uAC00\uCF54\uB4DC) \uBA85\uB2E8 \uB300\uC870"
     - 0.5
     - "\uC5EC\uAD8C \uC678\uAD00 \uACB0\uD568"
     - ALTER_FIELD
@@ -124,7 +124,7 @@ MonoBehaviour:
     - expiry_date / visa_no
     - "\uBE44\uC790 \uC720\uD6A8"
     - "\uBE44\uC790 \uB9CC\uB8CC \uB610\uB294 \uC704\uC870"
-    - '-'
+    - "\uC624\uB298 \uB0A0\uC9DC\uC640 \uB300\uC870 (\uBE44\uC790 \uB9CC\uB8CC\uC77C)"
     - 0.5
     - "\u2460\uACB0\uC815: \uBE44\uC790\uB0A0\uC5D4 \uBE44\uC790 \uACB0\uD568"
     - EXPIRE
@@ -150,7 +150,7 @@ MonoBehaviour:
     - name_en / birth_date
     - "\uC815\uBCF4 \uC77C\uCE58"
     - "\uCCA0\uC790\xB7\uC0DD\uB144\uC6D4\uC77C \uBD88\uC77C\uCE58"
-    - '-'
+    - "\uB2E4\uB978 \uC11C\uB958\uC758 \uAC19\uC740 \uCE78\uACFC \uB300\uC870 (\uC774\uB984\xB7\uC0DD\uB144\uC6D4\uC77C)"
     - 0.75
     - "\uB300\uCCB4\uB85C \uC815\uC0C1(0.75)"
     - ALTER_FIELD
@@ -176,7 +176,7 @@ MonoBehaviour:
     - photo_ref
     - "\uC5BC\uAD74 \uC0AC\uC9C4 \uC77C\uCE58"
     - "\uC5BC\uAD74 \uC0AC\uC9C4 \uBD88\uC77C\uCE58"
-    - '-'
+    - "\uC190\uB2D8 \uC5BC\uAD74\uACFC \uC0AC\uC9C4 \uB300\uC870"
     - 0.7
     - "\uC0AC\uC9C4 \uB300\uC870\uD615"
     - MISMATCH_PHOTO
@@ -196,13 +196,14 @@ MonoBehaviour:
     - target_field
     values:
     - 6
-    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790"
     - "PCR \uC694\uAD6C\uC77C(5~7\uC77C)"
     - pcr_test
     - result / valid_until
     - "Negative\xB7\uC720\uD6A8"
     - "Positive(\uC591\uC131) \uB610\uB294 \uB9CC\uB8CC"
-    - '-'
+    - "\uACB0\uACFC=\uC74C\uC131 / \uAC80\uC0AC\uAE30\uAD00=\uC778\uC99D\uBA85\uB2E8
+      / \uC694\uAD6C\uBAA9\uB85D \uB300\uC870"
     - "\uACE0\uC815(\uD1B5\uACFC1/\uAC70\uC8080)"
     - "\uBC29\uC5ED \uAD6C\uAC04"
     - POSITIVE | FORGE_SOURCE | MISSING
@@ -225,14 +226,16 @@ MonoBehaviour:
     - "\uC7A5\uAE30\uCCB4\uB958\uC790"
     - "\uCDE8\uC5C5\uC99D\uBE59 \uC694\uAD6C\uC77C(8\uC77C~)"
     - employment_cert
-    - company_name / expiry
-    - "\uD68C\uC0AC\xB7\uC9C1\uC704 \uC815\uC0C1"
-    - "\uD68C\uC0AC \uC704\uC870 \uB610\uB294 \uB9CC\uB8CC"
-    - '-'
+    - company_name / hire_date
+    - "\uD68C\uC0AC\xB7\uC9C1\uC704 \uC815\uC0C1 / \uC785\uC0AC\uC77C<\uBC1C\uAE09\uC77C"
+    - "\uD68C\uC0AC \uC704\uC870 \uB610\uB294 \uC785\uC0AC\uC77C \uB17C\uB9AC\uC624\uB958(\uBC1C\uAE09\uC77C
+      \uC774\uD6C4)"
+    - "\uD68C\uC0AC=\uB4F1\uB85D\uBA85\uB2E8 / \uC785\uC0AC\uC77C=\uBC1C\uAE09\uC77C
+      \uC774\uC804\uC778\uC9C0 \uB300\uC870"
     - 1
     - "\uAE30\uBCF8 \uD1B5\uACFC"
-    - FORGE_SOURCE | EXPIRE
-    - company_name / expiry_date
+    - FORGE_SOURCE | HIRE_LOGIC
+    - company_name / hire_date
   - keys:
     - rule_id
     - character_type
@@ -251,14 +254,16 @@ MonoBehaviour:
     - "\uCDE8\uC5C5\uCCB4\uB958\uC790"
     - "\uCDE8\uC5C5\uC99D\uBE59 \uC694\uAD6C\uC77C(8\uC77C~)"
     - employment_cert
-    - company_name / expiry
-    - "\uD68C\uC0AC\xB7\uC9C1\uC704 \uC815\uC0C1"
-    - "\uD68C\uC0AC \uC704\uC870 \uB610\uB294 \uB9CC\uB8CC"
-    - '-'
+    - company_name / hire_date
+    - "\uD68C\uC0AC\xB7\uC9C1\uC704 \uC815\uC0C1 / \uC785\uC0AC\uC77C<\uBC1C\uAE09\uC77C"
+    - "\uD68C\uC0AC \uC704\uC870 \uB610\uB294 \uC785\uC0AC\uC77C \uB17C\uB9AC\uC624\uB958(\uBC1C\uAE09\uC77C
+      \uC774\uD6C4)"
+    - "\uD68C\uC0AC=\uB4F1\uB85D\uBA85\uB2E8 / \uC785\uC0AC\uC77C=\uBC1C\uAE09\uC77C
+      \uC774\uC804\uC778\uC9C0 \uB300\uC870"
     - 1
     - "\uAE30\uBCF8 \uD1B5\uACFC / \uCDE8\uC5C5\uCCB4\uB958\uC790 \uB3D9\uC77C"
-    - FORGE_SOURCE | EXPIRE
-    - company_name / expiry_date
+    - FORGE_SOURCE | HIRE_LOGIC
+    - company_name / hire_date
   - keys:
     - rule_id
     - character_type
@@ -441,3 +446,407 @@ MonoBehaviour:
     - "\uACE0\uC815 \uD1B5\uACFC\xB7\uC774\uBCA4\uD2B8\uC131"
     - NONE
     - '-'
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 16
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uBE44\uC790 \uC694\uAD6C\uC77C(3\uC77C~)"
+    - "\uBE44\uC790"
+    - visa_no
+    - "\uC815\uC0C1 \uBE44\uC790\uBC88\uD638"
+    - "\uD615\uC2DD \uC704\uBC18 \uBC88\uD638"
+    - "\uBC88\uD638 \uD615\uC2DD \uADDC\uCE59 \uB300\uC870"
+    - 0.5
+    - "[PLANNED: FORGE_NUMBER] \uBE44\uC790\uBC88\uD638 \uD615\uC2DD \uC704\uC870
+      \u2014 \uD615\uC2DD\uAC80\uC99D \uC5D4\uC9C4 \uD544\uC694"
+    - NONE
+    - visa_no
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 17
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uBE44\uC790 \uC694\uAD6C\uC77C(3\uC77C~)"
+    - "\uBE44\uC790"
+    - visa_type
+    - "\uC694\uAD6C\uB41C \uBE44\uC790\uC885\uB958"
+    - "\uC694\uAD6C\uC640 \uB2E4\uB978 \uC885\uB958"
+    - "\uC624\uB298 \uADDC\uC815\uACFC \uB300\uC870 (\uC694\uAD6C \uBE44\uC790\uC885\uB958)"
+    - 0.5
+    - "[PLANNED: WRONG_TYPE] \uBE44\uC790\uC885\uB958 \uC624\uB958 \u2014 \uBA64\uBC84\uC2ED\uBE44\uAD50+apply_defect
+      \uCF54\uB4DC \uD544\uC694"
+    - NONE
+    - visa_type
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 18
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uBE44\uC790 \uC694\uAD6C\uC77C(3\uC77C~)"
+    - "\uBE44\uC790"
+    - nationality
+    - "\uC5EC\uAD8C \uAD6D\uC801\uACFC \uC77C\uCE58"
+    - "\uC5EC\uAD8C \uAD6D\uC801\uACFC \uBD88\uC77C\uCE58"
+    - "\uC5EC\uAD8C\u2194\uBE44\uC790 \uAD6D\uC801 \uB300\uC870"
+    - 0.5
+    - "[PLANNED: ALTER_FIELD] \uBE44\uC790-\uC5EC\uAD8C \uAD6D\uC801 \uAD50\uCC28
+      \uBD88\uC77C\uCE58"
+    - NONE
+    - nationality
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 19
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uBE44\uC790 \uC694\uAD6C\uC77C(3\uC77C~)"
+    - "\uBE44\uC790"
+    - issue_date
+    - "\uBC1C\uAE09\uC77C \uC815\uC0C1"
+    - "\uBC1C\uAE09\uC77C>\uB9CC\uB8CC\uC77C/\uBBF8\uB798"
+    - "\uBE44\uC790 \uB9CC\uB8CC\uC77C/\uC624\uB298\uACFC \uBE44\uAD50 (\uBC1C\uAE09\uC77C
+      \uBAA8\uC21C)"
+    - 0.5
+    - "[PLANNED: DATE_LOGIC] \uBE44\uC790 \uBC1C\uAE09\uC77C \uBAA8\uC21C \u2014
+      \uD544\uB4DC\uAC04 \uB0A0\uC9DC\uBE44\uAD50 \uCF54\uB4DC \uD544\uC694"
+    - NONE
+    - issue_date
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 20
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - "\uC0C1\uC2DC"
+    - "\uC5EC\uAD8C"
+    - gender
+    - "\uC131\uBCC4 \uC77C\uCE58"
+    - "\uC131\uBCC4 \uBD88\uC77C\uCE58"
+    - "\uB2E4\uB978 \uC11C\uB958\uC640 \uB300\uC870 (\uC131\uBCC4)"
+    - 0.7
+    - "[PLANNED: ALTER_FIELD] \uC5EC\uAD8C \uC131\uBCC4 \uBCC0\uC870"
+    - NONE
+    - gender
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 21
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - "\uC0C1\uC2DC"
+    - "\uC5EC\uAD8C"
+    - issue_date
+    - "\uBC1C\uAE09\uC77C \uC815\uC0C1"
+    - "\uBC1C\uAE09\uC77C>\uB9CC\uB8CC\uC77C/\uBBF8\uB798"
+    - "\uC5EC\uAD8C \uB9CC\uB8CC\uC77C/\uC624\uB298\uACFC \uBE44\uAD50 (\uBC1C\uAE09\uC77C
+      \uBAA8\uC21C)"
+    - 0.8
+    - "[PLANNED: DATE_LOGIC] \uC5EC\uAD8C \uBC1C\uAE09\uC77C \uBAA8\uC21C \u2014
+      \uD544\uB4DC\uAC04 \uB0A0\uC9DC\uBE44\uAD50 \uCF54\uB4DC \uD544\uC694"
+    - NONE
+    - issue_date
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 22
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790"
+    - "PCR \uC694\uAD6C\uC77C(5~7\uC77C)"
+    - pcr_test
+    - test_no
+    - "\uC815\uC0C1 \uAC80\uC0AC\uBC88\uD638"
+    - "\uD615\uC2DD \uC704\uBC18 \uBC88\uD638"
+    - "\uBC88\uD638 \uD615\uC2DD \uADDC\uCE59 \uB300\uC870"
+    - "\uACE0\uC815"
+    - "[PLANNED: FORGE_NUMBER] \uAC80\uC0AC\uBC88\uD638 \uC704\uC870 \u2014 \uD615\uC2DD\uAC80\uC99D
+      \uC5D4\uC9C4 \uD544\uC694"
+    - NONE
+    - test_no
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 23
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790"
+    - "PCR \uC694\uAD6C\uC77C(5~7\uC77C)"
+    - pcr_test
+    - issue_date
+    - "\uAC80\uC0AC\uC77C \uC815\uC0C1"
+    - "\uAC80\uC0AC\uC77C>\uC720\uD6A8\uAE30\uD55C/\uBBF8\uB798"
+    - "\uC720\uD6A8\uAE30\uD55C/\uC624\uB298\uACFC \uBE44\uAD50 (\uAC80\uC0AC\uC77C
+      \uBAA8\uC21C)"
+    - "\uACE0\uC815"
+    - "[PLANNED: DATE_LOGIC] \uAC80\uC0AC\uC77C \uBAA8\uC21C \u2014 \uD544\uB4DC\uAC04
+      \uB0A0\uC9DC\uBE44\uAD50 \uCF54\uB4DC \uD544\uC694"
+    - NONE
+    - issue_date
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 24
+    - "\uC7A5\uAE30\uCCB4\uB958\uC790"
+    - "\uCDE8\uC5C5\uC99D\uBE59 \uC694\uAD6C\uC77C(8\uC77C~)"
+    - employment_cert
+    - cert_no
+    - "\uC815\uC0C1 \uC99D\uBE59\uBC88\uD638"
+    - "\uD615\uC2DD \uC704\uBC18 \uBC88\uD638"
+    - "\uBC88\uD638 \uD615\uC2DD \uADDC\uCE59 \uB300\uC870"
+    - 1
+    - "[PLANNED: FORGE_NUMBER] \uC99D\uBE59\uBC88\uD638 \uC704\uC870 \u2014 \uD615\uC2DD\uAC80\uC99D
+      \uC5D4\uC9C4 \uD544\uC694"
+    - NONE
+    - cert_no
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 25
+    - "\uC7A5\uAE30\uCCB4\uB958\uC790"
+    - "\uCDE8\uC5C5\uC99D\uBE59 \uC694\uAD6C\uC77C(8\uC77C~)"
+    - employment_cert
+    - job_title
+    - "\uD68C\uC0AC\xB7\uBE44\uC790\uC640 \uC815\uD569"
+    - "\uC548 \uB9DE\uB294 \uC9C1\uC885"
+    - "\uBE44\uC790/\uADDC\uC815\uACFC \uB300\uC870 (\uD5C8\uC6A9 \uC9C1\uC885)"
+    - 1
+    - "[PLANNED: WRONG_TYPE] \uC9C1\uC885 \uC624\uB958 \u2014 \uBA64\uBC84\uC2ED\uBE44\uAD50+apply_defect
+      \uCF54\uB4DC \uD544\uC694"
+    - NONE
+    - job_title
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 26
+    - "\uC7A5\uAE30\uCCB4\uB958\uC790"
+    - "\uCDE8\uC5C5\uC99D\uBE59 \uC694\uAD6C\uC77C(8\uC77C~)"
+    - employment_cert
+    - issue_date
+    - "\uBC1C\uAE09\uC77C \uC815\uC0C1"
+    - "\uBC1C\uAE09\uC77C>\uB9CC\uB8CC\uC77C/\uBBF8\uB798"
+    - "\uB9CC\uB8CC\uC77C/\uC624\uB298\uACFC \uBE44\uAD50 (\uBC1C\uAE09\uC77C \uBAA8\uC21C)"
+    - 1
+    - "[PLANNED: DATE_LOGIC] \uCDE8\uC5C5\uC99D\uBE59 \uBC1C\uAE09\uC77C \uBAA8\uC21C
+      \u2014 \uD544\uB4DC\uAC04 \uB0A0\uC9DC\uBE44\uAD50 \uCF54\uB4DC \uD544\uC694"
+    - NONE
+    - issue_date
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 27
+    - "\uC77C\uBC18 \uACE0\uAC1D"
+    - "\uC0C1\uC2DC"
+    - "\uC5EC\uAD8C"
+    - document
+    - "\uC5EC\uAD8C \uC81C\uC2DC"
+    - "\uC5EC\uAD8C \uBBF8\uC81C\uC2DC"
+    - "\uC624\uB298 \uC694\uAD6C \uC11C\uB958 \uBAA9\uB85D\uACFC \uB300\uC870"
+    - '-'
+    - "[PLANNED: MISSING] \uC5EC\uAD8C \uD1B5\uC9F8 \uB204\uB77D (caseType \uC5EC\uAD8C
+      \uC5C6\uC74C \uC5F0\uACC4)"
+    - NONE
+    - document
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 28
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
+    - "\uBE44\uC790 \uC694\uAD6C\uC77C(3\uC77C~)"
+    - "\uBE44\uC790"
+    - document
+    - "\uBE44\uC790 \uC81C\uC2DC"
+    - "\uBE44\uC790 \uBBF8\uC81C\uC2DC"
+    - "\uC624\uB298 \uC694\uAD6C \uC11C\uB958 \uBAA9\uB85D\uACFC \uB300\uC870"
+    - '-'
+    - "[PLANNED: MISSING] \uBE44\uC790 \uD1B5\uC9F8 \uB204\uB77D"
+    - NONE
+    - document
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 29
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790"
+    - "PCR \uC694\uAD6C\uC77C(5~7\uC77C)"
+    - pcr_test
+    - document
+    - "PCR \uC81C\uC2DC"
+    - "PCR \uBBF8\uC81C\uC2DC"
+    - "\uC624\uB298 \uC694\uAD6C \uC11C\uB958 \uBAA9\uB85D\uACFC \uB300\uC870"
+    - '-'
+    - "[PLANNED: MISSING] PCR\uAC80\uC0AC\uC11C \uD1B5\uC9F8 \uB204\uB77D"
+    - NONE
+    - document
+  - keys:
+    - rule_id
+    - character_type
+    - context
+    - defect_document
+    - violation_field
+    - normal_example
+    - defect_example
+    - secondary_check
+    - random_valid_chance
+    - note
+    - corruption_type
+    - target_field
+    values:
+    - 30
+    - "\uC7A5\uAE30\uCCB4\uB958\uC790"
+    - "\uCDE8\uC5C5\uC99D\uBE59 \uC694\uAD6C\uC77C(8\uC77C~)"
+    - employment_cert
+    - document
+    - "\uCDE8\uC5C5\uC99D\uBE59 \uC81C\uC2DC"
+    - "\uCDE8\uC5C5\uC99D\uBE59 \uBBF8\uC81C\uC2DC"
+    - "\uC624\uB298 \uC694\uAD6C \uC11C\uB958 \uBAA9\uB85D\uACFC \uB300\uC870"
+    - '-'
+    - "[PLANNED: MISSING] \uCDE8\uC5C5\uC99D\uBE59 \uD1B5\uC9F8 \uB204\uB77D"
+    - NONE
+    - document

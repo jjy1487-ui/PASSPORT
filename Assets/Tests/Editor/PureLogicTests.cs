@@ -128,8 +128,8 @@ public class PureLogicTests
     {
         for (int i = 0; i < 5; i++)
         {
-            var a = BranchKeyResolver.Resolve(GameResults.Reject, true, 0, false, CharacterTypes.Quarantine, "1-C 백신X");
-            var b = BranchKeyResolver.Resolve(GameResults.Reject, true, 0, false, CharacterTypes.Quarantine, "1-C 백신X");
+            var a = BranchKeyResolver.Resolve(GameResults.Reject, true, 0, false, CharacterTypes.Infected, "1-C 백신X");
+            var b = BranchKeyResolver.Resolve(GameResults.Reject, true, 0, false, CharacterTypes.Infected, "1-C 백신X");
             Assert.AreEqual(a.branchKey, b.branchKey);
             Assert.AreEqual(a.docState, b.docState);
             Assert.AreEqual(a.defectVariant, b.defectVariant);

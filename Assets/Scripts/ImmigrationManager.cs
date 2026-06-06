@@ -166,6 +166,13 @@ public sealed class ImmigrationManager : MonoBehaviour
             day = PlayerPrefs.GetInt(CurrentDayKey, startDay);
         }
         CurrentDay = Mathf.Clamp(day, FirstDay, LastDay);
+
+        // 1일차 시작 = 새 게임의 첫날 → 누적 진행(점수/정확도/누적 엔딩 카운터)은 0이어야 한다.
+        //  메인 메뉴 '게임 시작'을 거치지 않고 ImmigrationScene/DayNScene 을 직접 Play 하면
+        //  이전 회차 세이브가 복원돼(누적 엔딩 #16 카운터 등) 1일차에 누적 엔딩이 조기 발동한다.
+        //  1일차엔 정상적으로 누적이 0이므로 여기서 리셋해도 안전(호칭/아이템 메타는 보존).
+        if (CurrentDay <= FirstDay && _economy != null) _economy.ResetProgressKeepMeta();
+
         BeginDay(CurrentDay, resetGold: true);
 
         // 2일차 이후에는 그날 뉴스를 자동 표시(브리핑 다음 단계). 1일차는 브리핑만.

@@ -334,7 +334,7 @@ MonoBehaviour:
     - -7
     - 
     - 
-    - 
+    - '#16'
     - "\uC2E0\uC6D0 \uBBF8\uD655\uC778 \uD1B5\uACFC"
   - keys:
     - score_id
@@ -494,7 +494,7 @@ MonoBehaviour:
     - note
     values:
     - 19
-    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790"
     - 
     - normal
     - 1-A
@@ -518,7 +518,7 @@ MonoBehaviour:
     - note
     values:
     - 20
-    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790"
     - 
     - normal
     - 1-A
@@ -542,7 +542,7 @@ MonoBehaviour:
     - note
     values:
     - 21
-    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790"
     - 
     - defect
     - "1-B \uCD9C\uAD6DX/\uB9CC\uB8CC"
@@ -566,7 +566,7 @@ MonoBehaviour:
     - note
     values:
     - 22
-    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790"
     - 
     - defect
     - "1-B \uCD9C\uAD6DX/\uB9CC\uB8CC"
@@ -590,7 +590,7 @@ MonoBehaviour:
     - note
     values:
     - 23
-    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790"
     - 
     - defect
     - "1-C \uBC31\uC2E0X"
@@ -614,7 +614,7 @@ MonoBehaviour:
     - note
     values:
     - 24
-    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790"
     - 
     - defect
     - "1-C \uBC31\uC2E0X"
@@ -638,7 +638,7 @@ MonoBehaviour:
     - note
     values:
     - 25
-    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790"
     - 
     - defect
     - "1-D \uBAA8\uB450 \uBBF8\uBE44"
@@ -662,7 +662,7 @@ MonoBehaviour:
     - note
     values:
     - 26
-    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790"
     - 
     - defect
     - "1-D \uBAA8\uB450 \uBBF8\uBE44"

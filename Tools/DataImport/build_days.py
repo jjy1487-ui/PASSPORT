@@ -44,7 +44,7 @@ ATTR_VOCAB = {
     "name", "nationality", "birth_date", "gender", "face", "passport_no",
     "issue_date", "expiry_date", "visa_type", "visa_no", "pcr_result",
     "valid_until", "lab_name", "test_no", "company_name", "job_title",
-    "cert_no", "entry_type", "purpose", "memo", "contraband",
+    "cert_no", "hire_date", "entry_type", "purpose", "memo", "contraband",
 }
 
 # 한글 라벨(공백 제거) -> 속성 키. day1 수작업 라벨 + 시트 라벨 둘 다 커버.
@@ -74,9 +74,11 @@ LABEL_TO_ATTR = {
     "유효기한": "valid_until",
     "검사기관": "lab_name",
     # 취업증빙
+    "이름": "name",          # 취업증빙 이름(여권 영문이름과 동일 = 정상 일치 대조)
     "증빙번호": "cert_no",
     "고용회사": "company_name",
     "직종": "job_title",
+    "입사일": "hire_date",    # 취업증빙 신규(발급일 이전이면 정상, 이후면 논리오류)
     # rule_book related_field 전용(중복 키는 위와 동일)
     "여권": "passport_no",
     "비자": "visa_type",
@@ -103,7 +105,7 @@ def tag_fields(fields):
 
 # document_requirement 의 취업증빙 대상 캐릭터 유형(실제 DB 표기)
 EMPLOYMENT_TYPES = {"취업체류자", "장기체류자"}
-PCR_TYPE = "검역 대상자(PCR)"
+PCR_RULE_KEY = "PCR검사"   # defect_rule/character_score 의 PCR 보편 키(손님 종류 아님 — 5~7일 전원 공통 서류 검사)
 TOURIST_TYPE = "외국인 관광객"
 
 
@@ -114,16 +116,16 @@ TOURIST_TYPE = "외국인 관광객"
 # 그 외(성형/테러/연예인/현자 등 런타임 상태머신 결과)는 "" 로 둔다(게임플레이가 결정).
 #
 # 어휘 출처: Tools/DataImport/BRANCH_CATALOG.md (character_score.defect_variant 와 1:1).
-def resolve_defect_variant(character_type, is_normal, corruption_type, target_field):
-    """주입된 결함(corruption_type/target_field)으로부터 defect_variant 키를 도출.
+def resolve_defect_variant(character_type, is_normal, corruption_type, target_field, defect_document=""):
+    """주입된 결함(corruption_type/target_field/defect_document)으로부터 defect_variant 키를 도출.
     도출 불가/대상 아님이면 "" 반환. corruption_type 은 실제 적용된 단일 타입."""
     ct = (corruption_type or "").strip().upper()
     tf = (target_field or "").strip()
+    dd = (defect_document or "").strip()
 
-    # 검역 대상자(PCR): normal=1-A, 결함은 corruption 으로 1-B/1-C/1-D 구분
-    if character_type == PCR_TYPE:
-        if is_normal:
-            return "1-A"
+    # PCR 검사서(5~7일 전원 공통, 손님 종류 무관): 결함 corruption 으로 1-B/1-C/1-D 구분.
+    #  결함이 PCR 서류에 들어갔는지(defect_document)로 판별 — 옛 '검역 대상자' 타입에 의존하지 않는다.
+    if dd == "pcr_test":
         if ct == "POSITIVE":          # 양성 = 백신 미접종/감염
             return "1-C 백신X"
         if ct == "MISSING":           # 결과 누락 = 모두 미비
@@ -212,7 +214,7 @@ def passport_fields(p):
 
 
 def fields_from_sheet(row, columns, skip_keys):
-    """visa/pcr/employment용: 시트 컬럼(한글 label)으로 fields[] 구성."""
+    """visa/pcr용: 시트 컬럼(한글 label)으로 fields[] 구성."""
     out = []
     for c in columns:
         k = c["key"]
@@ -220,6 +222,22 @@ def fields_from_sheet(row, columns, skip_keys):
             continue
         out.append({"label": c["label"] or k, "value": row.get(k, "")})
     return out
+
+
+def employment_fields(emp_row, passport_row):
+    """취업증빙 fields[] — EmploymentCard 양식 순서/라벨/키에 정확히 정렬.
+    이름/증빙 번호/고용 회사/직종/입사일/발급일 (6필드, 만료일 없음).
+    name 은 시트에 없고 그 손님 여권 영문이름과 동일해야 하므로 passport 에서 조인한다
+    (여권 문서 표시값과 같은 소스 = 정상 일치 보장). 만료일(expiry_date)은 양식에 칸이
+    없어 취업증빙에서 제거(시트에 남아 있어도 생성기가 무시)."""
+    return [
+        {"label": "이름", "value": clean_name(passport_row["name_en"])},
+        {"label": "증빙 번호", "value": emp_row.get("cert_no", "")},
+        {"label": "고용 회사", "value": emp_row.get("company_name", "")},
+        {"label": "직종", "value": emp_row.get("job_title", "")},
+        {"label": "입사일", "value": emp_row.get("hire_date", "")},
+        {"label": "발급일", "value": emp_row.get("issue_date", "")},
+    ]
 
 
 # ── 결함 주입 ────────────────────────────────────────────────
@@ -232,6 +250,7 @@ KO_LABEL = {  # snake_case target_field -> 서류 fields의 한글 라벨
     "passport_no": "여권번호",
     "photo_ref": "사진",
     "company_name": "고용 회사",
+    "hire_date": "입사일",
     "result": "검사 결과",
     "lab_name": "검사 기관",
 }
@@ -349,6 +368,14 @@ def apply_defect(doc, fields, corruption_type, target_key, fake_pool, ctx):
         fv = fake_value_for("company_name", fake_pool, *ctx) or "(주)유령상사"
         set_field(fields, "고용 회사", fv)
         return "고용 회사"
+
+    if corruption_type == "HIRE_LOGIC":
+        # 취업증빙 입사일 논리오류: 입사일을 발급일보다 "늦게"(발급일 이후 = 불가능).
+        # 발급일은 정상 유지하고 입사일만 발급일+1년으로 밀어 hire_date > issue_date 모순 생성.
+        issue = get_field(fields, "발급일")
+        bad_hire = _shift_years_str(issue, +1) if issue else None
+        set_field(fields, "입사일", bad_hire or "2099-01-01")
+        return "입사일"
 
     if corruption_type == "MISSING":
         # PCR 결과 누락 처리
@@ -486,8 +513,8 @@ def required_documents(day, character_type, passport_nat_code):
     docs = ["여권"]  # 전일 필수
     if 3 <= day <= 14 and passport_nat_code != "KOR":
         docs.append("비자")
-    if 5 <= day <= 7 and character_type == PCR_TYPE:
-        docs.append("PCR검사서")
+    if 5 <= day <= 7:
+        docs.append("PCR검사서")   # 방역 구간: 전원 PCR 검사(document_requirement #3 = 전원)
     if 8 <= day <= 14 and character_type in EMPLOYMENT_TYPES:
         docs.append("취업증빙")
     return docs
@@ -688,17 +715,18 @@ def build():
                     "spriteRef": "", "country": "",
                     "fields": tag_fields(fields_from_sheet(pcrs[cid], pcr_cols, {"pcr_id", "customer_id"})),
                 })
-            # 취업증빙
+            # 취업증빙 — EmploymentCard 양식 정렬(이름은 여권 조인, 만료일 제거)
             if "취업증빙" in req_docs and cid in emps:
                 documents.append({
                     "documentType": "취업증빙", "variant": "정상", "violationField": "없음",
                     "spriteRef": "", "country": "",
-                    "fields": tag_fields(fields_from_sheet(emps[cid], emp_cols, {"employment_id", "customer_id"})),
+                    "fields": tag_fields(employment_fields(emps[cid], pp)),
                 })
 
             violation_label = None
             applied_ct = ""   # 실제 적용된 corruption_type (defect_variant 도출용)
             applied_tf = ""   # 실제 적용된 target_field
+            applied_doc = ""  # 실제 결함이 들어간 서류(defect_document) — PCR 변이 판별용
 
             if is_normal:
                 stats["normal"] += 1
@@ -707,6 +735,7 @@ def build():
                 # 상황별 규칙 선택: 결함서류가 요구 서류에 포함된 규칙 우선
                 doc_name_map = {"여권": "여권", "비자": "비자", "pcr_test": "PCR검사서",
                                 "employment_cert": "취업증빙"}
+                # 종류 기반 결함 선택(전염병 환자=PCR 결함 규칙을 가짐 → 자동으로 PCR 주입).
                 candidate_rules = [cr for cr in defect_rules.get(ctype, [])
                                    if cr.get("corruption_type", "NONE") != "NONE"]
                 # 결함서류가 요구 서류에 포함된 규칙 중, 비여권(특수 서류) 우선 선택.
@@ -752,6 +781,7 @@ def build():
                             applied = True
                             applied_ct = ct
                             applied_tf = tf
+                            applied_doc = rule["defect_document"]
                             stats["defects"][rule["rule_id"]] = stats["defects"].get(rule["rule_id"], 0) + 1
                 if not applied:
                     # 결함 주입 실패(요구 서류에 결함서류가 없거나 NONE) → 여권 만료로 폴백
@@ -761,10 +791,11 @@ def build():
                     violation_label = "만료일"
                     applied_ct = "EXPIRE"
                     applied_tf = "expiry_date"
+                    applied_doc = "여권"
                     stats["defects"]["fallback"] = stats["defects"].get("fallback", 0) + 1
 
             # defect_variant 도출(baked 로 가능한 변이만; 그 외 ""→게임플레이 결정)
-            defect_variant = resolve_defect_variant(ctype, is_normal, applied_ct, applied_tf)
+            defect_variant = resolve_defect_variant(ctype, is_normal, applied_ct, applied_tf, applied_doc)
             if defect_variant:
                 stats.setdefault("variants", {})
                 stats["variants"][defect_variant] = stats["variants"].get(defect_variant, 0) + 1

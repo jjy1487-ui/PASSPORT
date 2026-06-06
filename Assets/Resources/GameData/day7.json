@@ -2,49 +2,49 @@
   "day": 7,
   "customers": [
     {
-      "customerId": 13,
+      "customerId": 31,
       "slot": 1,
-      "nameKr": "로버트 존슨",
-      "nameEn": "ROBERT JOHNSON",
-      "nationality": "미국(USA)",
-      "gender": "남성",
-      "birthDate": "1989-09-03",
-      "age": 36,
-      "spriteRef": "로버트 존슨.png",
-      "characterType": "검역 대상자(PCR)",
-      "defectVariant": "1-D 모두 미비",
+      "nameKr": "스즈키 아오이",
+      "nameEn": "SUZUKI AOI",
+      "nationality": "일본(JPN)",
+      "gender": "여성",
+      "birthDate": "1992-07-07",
+      "age": 33,
+      "spriteRef": "spr_c031",
+      "characterType": "전염병 환자",
+      "defectVariant": "1-B 출국X/만료",
       "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "로버트 존슨.png",
-          "country": "USA",
+          "spriteRef": "photo_c31",
+          "country": "JPN",
           "fields": [
             {
               "label": "여권번호",
-              "value": "US1014521",
+              "value": "JP1034627",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "JOHNSON ROBERT",
+              "value": "AOI SUZUKI",
               "key": "name"
             },
             {
               "label": "성별",
-              "value": "남성",
+              "value": "여성",
               "key": "gender"
             },
             {
               "label": "생년월일",
-              "value": "1989-09-03",
+              "value": "1992-07-07",
               "key": "birth_date"
             },
             {
               "label": "국적",
-              "value": "USA",
+              "value": "JPN",
               "key": "nationality"
             },
             {
@@ -67,19 +67,9 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "ROBERT JOHNSON",
-              "key": "name"
-            },
-            {
               "label": "비자 번호",
-              "value": "V-USA-1529",
+              "value": "V-JPN-5092",
               "key": "visa_no"
-            },
-            {
-              "label": "여권번호",
-              "value": "US1014521",
-              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -88,17 +78,17 @@
             },
             {
               "label": "국적",
-              "value": "USA",
+              "value": "JPN",
               "key": "nationality"
             },
             {
               "label": "발급일",
-              "value": "2025-12-03",
+              "value": "2025-09-08",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2027-12-03",
+              "value": "2026-09-08",
               "key": "expiry_date"
             },
             {
@@ -116,43 +106,33 @@
         {
           "documentType": "PCR검사서",
           "variant": "비정상",
-          "violationField": "검사 결과",
+          "violationField": "검사 기관",
           "spriteRef": "",
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "ROBERT JOHNSON",
-              "key": "name"
-            },
-            {
-              "label": "국적",
-              "value": "USA",
-              "key": "nationality"
-            },
-            {
               "label": "검사 번호",
-              "value": "PCR-013",
+              "value": "PCR-031",
               "key": "test_no"
             },
             {
               "label": "검사일",
-              "value": "2026-05-20",
+              "value": "2026-05-26",
               "key": "issue_date"
             },
             {
               "label": "검사 결과",
-              "value": "(누락)",
+              "value": "Negative",
               "key": "pcr_result"
             },
             {
               "label": "유효 기한",
-              "value": "2026-06-17",
+              "value": "2026-06-16",
               "key": "valid_until"
             },
             {
               "label": "검사 기관",
-              "value": "서울시립보건연구원",
+              "value": "퀵메디 사설랩",
               "key": "lab_name"
             },
             {
@@ -171,13 +151,13 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "로버트 존슨",
-              "text": "안녕하세요... 좀 피곤하지만 괜찮아요. (마스크 착용 중)"
+              "speaker": "스즈키 아오이",
+              "text": "Hello! 안녕하세요. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "로버트 존슨",
-              "text": "여기 검사서랑 같이 드릴게요. (기침)"
+              "speaker": "스즈키 아오이",
+              "text": "여기 서류 드릴게요. [TODO 대사]"
             }
           ]
         },
@@ -189,12 +169,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "로버트 존슨",
-              "text": "고맙습니다. 빨리 들어가고 싶네요."
+              "speaker": "스즈키 아오이",
+              "text": "감사합니다! [TODO 대사]"
             }
           ]
         },
@@ -206,18 +186,18 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다.",
+              "text": "검사 기관 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]",
               "claim": {
-                "attr": "pcr_result",
+                "attr": "lab_name",
                 "value": "",
-                "label": "검사 결과 불일치",
+                "label": "검사 기관 불일치",
                 "unlocksScan": ""
               }
             },
             {
               "order": 2,
-              "speaker": "로버트 존슨",
-              "text": "아, 제가 서류를 잘못 챙겼나봐요. 돌아갈게요."
+              "speaker": "스즈키 아오이",
+              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
             }
           ]
         },
@@ -229,12 +209,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "로버트 존슨",
-              "text": "고맙습니다. 빨리 들어가고 싶네요."
+              "speaker": "스즈키 아오이",
+              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
             }
           ]
         },
@@ -246,22 +226,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류를 다시 확인했으나 입국이 어렵습니다. 죄송합니다."
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "로버트 존슨",
-              "text": "전 문제없는데요! 다시 확인해 주세요."
+              "speaker": "스즈키 아오이",
+              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
             },
             {
               "order": 4,
-              "speaker": "로버트 존슨",
-              "text": "아, 다행이네요. 감사합니다."
+              "speaker": "스즈키 아오이",
+              "text": "네, 알겠습니다. [TODO 대사]"
             }
           ]
         },
@@ -273,22 +253,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류를 다시 확인했으나 입국이 어렵습니다. 죄송합니다."
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "로버트 존슨",
-              "text": "전 문제없는데요! 다시 확인해 주세요."
+              "speaker": "스즈키 아오이",
+              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
             },
             {
               "order": 4,
-              "speaker": "로버트 존슨",
-              "text": "휴... 들어갈 수 있어 다행이에요."
+              "speaker": "스즈키 아오이",
+              "text": "네, 알겠습니다. [TODO 대사]"
             }
           ]
         },
@@ -300,22 +280,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류를 다시 확인했으나 입국이 어렵습니다. 죄송합니다."
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "로버트 존슨",
-              "text": "전 문제없는데요! 다시 확인해 주세요."
+              "speaker": "스즈키 아오이",
+              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
             },
             {
               "order": 4,
-              "speaker": "로버트 존슨",
-              "text": "이제야 되네요. 다음엔 빨리 좀 봐 주세요."
+              "speaker": "스즈키 아오이",
+              "text": "네, 알겠습니다. [TODO 대사]"
             }
           ]
         }
@@ -334,16 +314,16 @@
       "gender": "남성",
       "birthDate": "1982-09-14",
       "age": 43,
-      "spriteRef": "박철수.png",
+      "spriteRef": "spr_c005",
       "characterType": "진상 고객",
       "defectVariant": "",
-      "correctResult": "정상 승인",
+      "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "박철수.png",
+          "variant": "비정상",
+          "violationField": "생년월일",
+          "spriteRef": "photo_5",
           "country": "KOR",
           "fields": [
             {
@@ -363,7 +343,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1982-09-14",
+              "value": "1900-01-01",
               "key": "birth_date"
             },
             {
@@ -391,23 +371,13 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "PARK CHEOLSU",
-              "key": "name"
-            },
-            {
-              "label": "국적",
-              "value": "KOR",
-              "key": "nationality"
-            },
-            {
               "label": "검사 번호",
               "value": "PCR-005",
               "key": "test_no"
             },
             {
               "label": "검사일",
-              "value": "2026-05-28",
+              "value": "2026-05-20",
               "key": "issue_date"
             },
             {
@@ -417,12 +387,12 @@
             },
             {
               "label": "유효 기한",
-              "value": "2026-06-20",
+              "value": "2026-06-17",
               "key": "valid_until"
             },
             {
               "label": "검사 기관",
-              "value": "서울시립보건연구원",
+              "value": "인천공항검역소",
               "key": "lab_name"
             },
             {
@@ -476,7 +446,13 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
+              "text": "서류 오류가 확인되어 입국하실 수 없습니다.",
+              "claim": {
+                "attr": "birth_date",
+                "value": "",
+                "label": "생년월일 불일치",
+                "unlocksScan": ""
+              }
             },
             {
               "order": 2,
@@ -590,34 +566,34 @@
       "fingerprint": null
     },
     {
-      "customerId": 14,
+      "customerId": 23,
       "slot": 3,
-      "nameKr": "리 나",
-      "nameEn": "LI NA",
-      "nationality": "중국(CHN)",
+      "nameKr": "송하늘",
+      "nameEn": "SONG HANEUL",
+      "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "1993-07-19",
-      "age": 32,
-      "spriteRef": "리 나.png",
-      "characterType": "검역 대상자(PCR)",
-      "defectVariant": "1-A",
+      "birthDate": "1993-04-09",
+      "age": 33,
+      "spriteRef": "spr_c023",
+      "characterType": "일반 고객",
+      "defectVariant": "",
       "correctResult": "정상 승인",
       "documents": [
         {
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "리 나.png",
-          "country": "CHN",
+          "spriteRef": "photo_c23",
+          "country": "KOR",
           "fields": [
             {
               "label": "여권번호",
-              "value": "CN1015638",
+              "value": "KO1025691",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "NA LI",
+              "value": "SONG HANEUL",
               "key": "name"
             },
             {
@@ -627,77 +603,23 @@
             },
             {
               "label": "생년월일",
-              "value": "1993-07-19",
+              "value": "1993-04-09",
               "key": "birth_date"
             },
             {
               "label": "국적",
-              "value": "CHN",
+              "value": "KOR",
               "key": "nationality"
             },
             {
               "label": "발급일",
-              "value": "2023-03-14",
+              "value": "2023-11-28",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2033-03-14",
+              "value": "2028-11-28",
               "key": "expiry_date"
-            }
-          ]
-        },
-        {
-          "documentType": "비자",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "이름",
-              "value": "LI NA",
-              "key": "name"
-            },
-            {
-              "label": "비자 번호",
-              "value": "V-CHN-2082",
-              "key": "visa_no"
-            },
-            {
-              "label": "여권번호",
-              "value": "CN1015638",
-              "key": "passport_no"
-            },
-            {
-              "label": "비자 종류",
-              "value": "관광",
-              "key": "visa_type"
-            },
-            {
-              "label": "국적",
-              "value": "CHN",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2024-09-17",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2026-09-17",
-              "key": "expiry_date"
-            },
-            {
-              "label": "입국 횟수",
-              "value": "단수",
-              "key": "entry_type"
-            },
-            {
-              "label": "비고",
-              "value": "외국인 정상 비자",
-              "key": "memo"
             }
           ]
         },
@@ -709,23 +631,13 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "LI NA",
-              "key": "name"
-            },
-            {
-              "label": "국적",
-              "value": "CHN",
-              "key": "nationality"
-            },
-            {
               "label": "검사 번호",
-              "value": "PCR-014",
+              "value": "PCR-023",
               "key": "test_no"
             },
             {
               "label": "검사일",
-              "value": "2026-06-05",
+              "value": "2026-05-24",
               "key": "issue_date"
             },
             {
@@ -735,12 +647,12 @@
             },
             {
               "label": "유효 기한",
-              "value": "2026-06-19",
+              "value": "2026-06-14",
               "key": "valid_until"
             },
             {
               "label": "검사 기관",
-              "value": "국립검역소",
+              "value": "한국공항검역본부",
               "key": "lab_name"
             },
             {
@@ -759,13 +671,13 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "리 나",
-              "text": "안녕하세요... 좀 피곤하지만 괜찮아요. (마스크 착용 중)"
+              "speaker": "송하늘",
+              "text": "좋은 아침이예요! 너무 설레네요."
             },
             {
               "order": 2,
-              "speaker": "리 나",
-              "text": "여기 검사서랑 같이 드릴게요. (기침)"
+              "speaker": "송하늘",
+              "text": "여권 확인 부탁드립니다."
             }
           ]
         },
@@ -781,8 +693,8 @@
             },
             {
               "order": 2,
-              "speaker": "리 나",
-              "text": "고맙습니다. 빨리 들어가고 싶네요."
+              "speaker": "송하늘",
+              "text": "감사합니다! 즐거운 하루 되세요."
             }
           ]
         },
@@ -798,8 +710,8 @@
             },
             {
               "order": 2,
-              "speaker": "리 나",
-              "text": "아, 제가 서류를 잘못 챙겼나봐요. 돌아갈게요."
+              "speaker": "송하늘",
+              "text": "앗 이 부분을 놓쳤네요! 죄송합니다."
             }
           ]
         },
@@ -815,8 +727,8 @@
             },
             {
               "order": 2,
-              "speaker": "리 나",
-              "text": "고맙습니다. 빨리 들어가고 싶네요."
+              "speaker": "송하늘",
+              "text": "감사합니다! 즐거운 하루 되세요."
             }
           ]
         },
@@ -828,12 +740,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류를 다시 확인했으나 입국이 어렵습니다. 죄송합니다."
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "리 나",
-              "text": "전 문제없는데요! 다시 확인해 주세요."
+              "speaker": "송하늘",
+              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
             },
             {
               "order": 3,
@@ -842,8 +754,8 @@
             },
             {
               "order": 4,
-              "speaker": "리 나",
-              "text": "아, 다행이네요. 감사합니다."
+              "speaker": "송하늘",
+              "text": "앗 네! 감사합니다!"
             }
           ]
         },
@@ -855,12 +767,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류를 다시 확인했으나 입국이 어렵습니다. 죄송합니다."
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "리 나",
-              "text": "전 문제없는데요! 다시 확인해 주세요."
+              "speaker": "송하늘",
+              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
             },
             {
               "order": 3,
@@ -869,8 +781,8 @@
             },
             {
               "order": 4,
-              "speaker": "리 나",
-              "text": "휴... 들어갈 수 있어 다행이에요."
+              "speaker": "송하늘",
+              "text": "네 알겠습니다. 앞으로는 주의해 주세요."
             }
           ]
         },
@@ -882,12 +794,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류를 다시 확인했으나 입국이 어렵습니다. 죄송합니다."
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "리 나",
-              "text": "전 문제없는데요! 다시 확인해 주세요."
+              "speaker": "송하늘",
+              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
             },
             {
               "order": 3,
@@ -896,8 +808,8 @@
             },
             {
               "order": 4,
-              "speaker": "리 나",
-              "text": "이제야 되네요. 다음엔 빨리 좀 봐 주세요."
+              "speaker": "송하늘",
+              "text": "하... 네 알겠습니다. 꼼꼼히 검토 좀 해 주세요."
             }
           ]
         }
@@ -908,16 +820,16 @@
       "fingerprint": null
     },
     {
-      "customerId": 19,
+      "customerId": 33,
       "slot": 4,
-      "nameKr": "다나카 유이",
-      "nameEn": "TANAKA YUI",
-      "nationality": "일본(JPN)",
-      "gender": "남성",
-      "birthDate": "1990-12-12",
-      "age": 35,
-      "spriteRef": "다나카 유이.png",
-      "characterType": "검역 대상자(PCR)",
+      "nameKr": "류 양",
+      "nameEn": "LIU YANG",
+      "nationality": "중국(CHN)",
+      "gender": "여성",
+      "birthDate": "1995-12-01",
+      "age": 30,
+      "spriteRef": "spr_c033",
+      "characterType": "전염병 환자",
       "defectVariant": "1-B 출국X/만료",
       "correctResult": "정상 거절",
       "documents": [
@@ -925,42 +837,42 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "다나카 유이.png",
-          "country": "JPN",
+          "spriteRef": "photo_c33",
+          "country": "CHN",
           "fields": [
             {
               "label": "여권번호",
-              "value": "JP1021223",
+              "value": "CN1036861",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "YUI TANAKA",
+              "value": "YANG LIU",
               "key": "name"
             },
             {
               "label": "성별",
-              "value": "남성",
+              "value": "여성",
               "key": "gender"
             },
             {
               "label": "생년월일",
-              "value": "1990-12-12",
+              "value": "1995-12-01",
               "key": "birth_date"
             },
             {
               "label": "국적",
-              "value": "JPN",
+              "value": "CHN",
               "key": "nationality"
             },
             {
               "label": "발급일",
-              "value": "2023-07-28",
+              "value": "2023-11-28",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2028-07-28",
+              "value": "2033-11-28",
               "key": "expiry_date"
             }
           ]
@@ -973,19 +885,9 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "TANAKA YUI",
-              "key": "name"
-            },
-            {
               "label": "비자 번호",
-              "value": "V-JPN-3472",
+              "value": "V-CHN-3482",
               "key": "visa_no"
-            },
-            {
-              "label": "여권번호",
-              "value": "JP1021223",
-              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -994,17 +896,17 @@
             },
             {
               "label": "국적",
-              "value": "JPN",
+              "value": "CHN",
               "key": "nationality"
             },
             {
               "label": "발급일",
-              "value": "2026-03-08",
+              "value": "2024-09-27",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2026-09-08",
+              "value": "2026-09-27",
               "key": "expiry_date"
             },
             {
@@ -1027,23 +929,13 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "TANAKA YUI",
-              "key": "name"
-            },
-            {
-              "label": "국적",
-              "value": "JPN",
-              "key": "nationality"
-            },
-            {
               "label": "검사 번호",
-              "value": "PCR-019",
+              "value": "PCR-033",
               "key": "test_no"
             },
             {
               "label": "검사일",
-              "value": "2026-05-24",
+              "value": "2026-06-05",
               "key": "issue_date"
             },
             {
@@ -1053,12 +945,12 @@
             },
             {
               "label": "유효 기한",
-              "value": "2026-06-14",
+              "value": "2026-06-19",
               "key": "valid_until"
             },
             {
               "label": "검사 기관",
-              "value": "무허가검진센터",
+              "value": "24시 익명검사소",
               "key": "lab_name"
             },
             {
@@ -1077,13 +969,13 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "다나카 유이",
-              "text": "안녕하세요... 좀 피곤하지만 괜찮아요. (마스크 착용 중)"
+              "speaker": "류 양",
+              "text": "Hello! 안녕하세요. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "다나카 유이",
-              "text": "여기 검사서랑 같이 드릴게요. (기침)"
+              "speaker": "류 양",
+              "text": "여기 서류 드릴게요. [TODO 대사]"
             }
           ]
         },
@@ -1095,12 +987,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "다나카 유이",
-              "text": "고맙습니다. 빨리 들어가고 싶네요."
+              "speaker": "류 양",
+              "text": "감사합니다! [TODO 대사]"
             }
           ]
         },
@@ -1112,7 +1004,7 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다.",
+              "text": "검사 기관 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]",
               "claim": {
                 "attr": "lab_name",
                 "value": "",
@@ -1122,8 +1014,8 @@
             },
             {
               "order": 2,
-              "speaker": "다나카 유이",
-              "text": "아, 제가 서류를 잘못 챙겼나봐요. 돌아갈게요."
+              "speaker": "류 양",
+              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
             }
           ]
         },
@@ -1135,12 +1027,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "다나카 유이",
-              "text": "고맙습니다. 빨리 들어가고 싶네요."
+              "speaker": "류 양",
+              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
             }
           ]
         },
@@ -1152,22 +1044,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류를 다시 확인했으나 입국이 어렵습니다. 죄송합니다."
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "다나카 유이",
-              "text": "전 문제없는데요! 다시 확인해 주세요."
+              "speaker": "류 양",
+              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
             },
             {
               "order": 4,
-              "speaker": "다나카 유이",
-              "text": "아, 다행이네요. 감사합니다."
+              "speaker": "류 양",
+              "text": "네, 알겠습니다. [TODO 대사]"
             }
           ]
         },
@@ -1179,22 +1071,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류를 다시 확인했으나 입국이 어렵습니다. 죄송합니다."
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "다나카 유이",
-              "text": "전 문제없는데요! 다시 확인해 주세요."
+              "speaker": "류 양",
+              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
             },
             {
               "order": 4,
-              "speaker": "다나카 유이",
-              "text": "휴... 들어갈 수 있어 다행이에요."
+              "speaker": "류 양",
+              "text": "네, 알겠습니다. [TODO 대사]"
             }
           ]
         },
@@ -1206,22 +1098,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류를 다시 확인했으나 입국이 어렵습니다. 죄송합니다."
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "다나카 유이",
-              "text": "전 문제없는데요! 다시 확인해 주세요."
+              "speaker": "류 양",
+              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
             },
             {
               "order": 4,
-              "speaker": "다나카 유이",
-              "text": "이제야 되네요. 다음엔 빨리 좀 봐 주세요."
+              "speaker": "류 양",
+              "text": "네, 알겠습니다. [TODO 대사]"
             }
           ]
         }
@@ -1240,7 +1132,7 @@
       "gender": "남성",
       "birthDate": "1991-06-14",
       "age": 34,
-      "spriteRef": "장 웨이.png",
+      "spriteRef": "spr_c027",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -1249,7 +1141,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "장 웨이.png",
+          "spriteRef": "photo_c27",
           "country": "CHN",
           "fields": [
             {
@@ -1297,19 +1189,9 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "ZHANG WEI",
-              "key": "name"
-            },
-            {
               "label": "비자 번호",
               "value": "V-CHN-7483",
               "key": "visa_no"
-            },
-            {
-              "label": "여권번호",
-              "value": "CN1030159",
-              "key": "passport_no"
             },
             {
               "label": "비자 종류",
@@ -1351,23 +1233,13 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "ZHANG WEI",
-              "key": "name"
-            },
-            {
-              "label": "국적",
-              "value": "CHN",
-              "key": "nationality"
-            },
-            {
               "label": "검사 번호",
               "value": "PCR-027",
               "key": "test_no"
             },
             {
               "label": "검사일",
-              "value": "2026-05-28",
+              "value": "2026-05-20",
               "key": "issue_date"
             },
             {
@@ -1377,12 +1249,12 @@
             },
             {
               "label": "유효 기한",
-              "value": "2026-06-20",
+              "value": "2026-06-17",
               "key": "valid_until"
             },
             {
               "label": "검사 기관",
-              "value": "서울시립보건연구원",
+              "value": "국립검역소",
               "key": "lab_name"
             },
             {
@@ -1564,7 +1436,7 @@
       "gender": "남성",
       "birthDate": "1985-03-15",
       "age": 41,
-      "spriteRef": "김민준.png",
+      "spriteRef": "spr_c001",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1573,7 +1445,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "김민준.png",
+          "spriteRef": "photo_1",
           "country": "KOR",
           "fields": [
             {
@@ -1621,23 +1493,13 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "KIM MINJUN",
-              "key": "name"
-            },
-            {
-              "label": "국적",
-              "value": "KOR",
-              "key": "nationality"
-            },
-            {
               "label": "검사 번호",
               "value": "PCR-001",
               "key": "test_no"
             },
             {
               "label": "검사일",
-              "value": "2026-05-28",
+              "value": "2026-05-20",
               "key": "issue_date"
             },
             {
@@ -1652,7 +1514,7 @@
             },
             {
               "label": "검사 기관",
-              "value": "서울시립보건연구원",
+              "value": "한국공항검역본부",
               "key": "lab_name"
             },
             {
@@ -1828,7 +1690,7 @@
       "gender": "여성",
       "birthDate": "1997-11-20",
       "age": 28,
-      "spriteRef": "서지호.png",
+      "spriteRef": "spr_c021",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1837,7 +1699,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "서지호.png",
+          "spriteRef": "photo_c21",
           "country": "KOR",
           "fields": [
             {
@@ -1885,23 +1747,13 @@
           "country": "",
           "fields": [
             {
-              "label": "이름",
-              "value": "SEO JIHO",
-              "key": "name"
-            },
-            {
-              "label": "국적",
-              "value": "KOR",
-              "key": "nationality"
-            },
-            {
               "label": "검사 번호",
               "value": "PCR-021",
               "key": "test_no"
             },
             {
               "label": "검사일",
-              "value": "2026-05-28",
+              "value": "2026-06-05",
               "key": "issue_date"
             },
             {
@@ -1911,12 +1763,12 @@
             },
             {
               "label": "유효 기한",
-              "value": "2026-06-20",
+              "value": "2026-06-26",
               "key": "valid_until"
             },
             {
               "label": "검사 기관",
-              "value": "서울시립보건연구원",
+              "value": "질병관리청진단검사센터",
               "key": "lab_name"
             },
             {
@@ -2085,5 +1937,13 @@
     }
   ],
   "rules": [],
-  "news": []
+  "news": [
+    {
+      "newsId": 4,
+      "title": "PCR 서류 누락으로 입국장 대기열 혼잡",
+      "content": "강화된 검역 절차가 이어지는 가운데 PCR 검사서를 제출하지 않거나 검사 기관 정보가 불명확한 사례가 잇따랐다. 현장에서는 서류 확인이 길어지며 입국 대기열이 한때 크게 늘어났다.",
+      "iconRef": "spr_news_004",
+      "claims": []
+    }
+  ]
 }

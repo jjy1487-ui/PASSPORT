@@ -29,11 +29,11 @@ MonoBehaviour:
   - key: job_title
     label: "\uC9C1\uC885"
     type: varchar(30)
+  - key: hire_date
+    label: "\uC785\uC0AC\uC77C"
+    type: date
   - key: issue_date
     label: "\uBC1C\uAE09\uC77C"
-    type: date
-  - key: expiry_date
-    label: "\uB9CC\uB8CC\uC77C"
     type: date
   rows:
   - keys:
@@ -42,77 +42,77 @@ MonoBehaviour:
     - cert_no
     - company_name
     - job_title
+    - hire_date
     - issue_date
-    - expiry_date
     values:
     - 1
     - 7
     - EMP-FR-2023X
     - "\uC0BC\uC131\uC804\uC790"
     - "\uC5D4\uC9C0\uB2C8\uC5B4"
+    - 2021-01-15
     - 2023-01-15
-    - 2025-01-15
   - keys:
     - employment_id
     - customer_id
     - cert_no
     - company_name
     - job_title
+    - hire_date
     - issue_date
-    - expiry_date
     values:
     - 3
     - 18
     - EMP-018
     - "\uB300\uC131\uBB3C\uB958(\uC8FC)"
     - "\uBB3C\uB958 \uAD00\uB9AC\uC790"
+    - 2023-03-01
     - 2025-03-01
-    - 2027-03-01
   - keys:
     - employment_id
     - customer_id
     - cert_no
     - company_name
     - job_title
+    - hire_date
     - issue_date
-    - expiry_date
     values:
     - 4
     - 35
     - EMP-035
     - "\uD55C\uBE5B\uC804\uC790(\uC8FC)"
     - "\uC0DD\uC0B0 \uB77C\uC778"
+    - 2023-04-01
     - 2025-04-01
-    - 2027-04-01
   - keys:
     - employment_id
     - customer_id
     - cert_no
     - company_name
     - job_title
+    - hire_date
     - issue_date
-    - expiry_date
     values:
     - 6
     - 36
     - EMP-036
     - "\uB3D9\uBC29\uAC74\uC124(\uC8FC)"
     - "\uD604\uC7A5 \uAE30\uC220\uC790"
+    - 2023-02-01
     - 2025-02-01
-    - 2027-02-01
   - keys:
     - employment_id
     - customer_id
     - cert_no
     - company_name
     - job_title
+    - hire_date
     - issue_date
-    - expiry_date
     values:
     - 8
     - 37
     - EMP-037
     - "\uC11C\uD574\uC218\uC0B0(\uC8FC)"
     - "\uAC00\uACF5 \uC791\uC5C5"
+    - 2023-01-01
     - 2025-01-01
-    - 2027-01-01

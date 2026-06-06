@@ -26,6 +26,14 @@ public sealed class DocumentFieldView : MonoBehaviour, ICrossCheckSelectable
     [Tooltip("9-slice 테두리 스프라이트(미연결 시 Resources/UI/border_frame 자동 로드). 채움 없이 외곽선만.")]
     [SerializeField] private Sprite _borderSprite;
 
+    [Header("슬롯 정체성(프리팹에 미리 배치된 슬롯용)")]
+    [Tooltip("이 슬롯이 담당하는 field.key(예: name/birth_date/face). 프리팹에 미리 배치한 슬롯에서 사용.\n" +
+             "빈 key 로 Bind 하면 이 값으로 폴백한다(슬롯이 자기 정체성을 보유).")]
+    [SerializeField] private string _fieldKey = string.Empty;
+
+    /// <summary>프리팹에 author 된 슬롯 키(빈 key Bind 시 폴백/검증용). 미리 배치 슬롯 식별에 사용.</summary>
+    public string SlotKey => _fieldKey;
+
     /// <summary>이 필드가 속한 서류 종류(예: "여권").</summary>
     public string DocumentType { get; private set; }
 
@@ -95,10 +103,31 @@ public sealed class DocumentFieldView : MonoBehaviour, ICrossCheckSelectable
         DocumentType = documentType;
         Label = label;
         Value = value ?? string.Empty;           // 대조 비교 값(원본 유지)
+
+        // 데이터 key 가 비어 있으면 프리팹에 author 된 슬롯 키(_fieldKey)로 폴백한다.
+        //  미리 배치된 슬롯이 자기 정체성을 갖고 있으므로 호출자가 key 를 안 줘도 대조가 작동.
+        if (string.IsNullOrEmpty(key)) key = _fieldKey;
+#if UNITY_EDITOR
+        else if (!string.IsNullOrEmpty(_fieldKey) && key != _fieldKey)
+            Debug.LogWarning($"[DocumentFieldView] 슬롯 key 불일치: prefab='{_fieldKey}' data='{key}' (type={documentType}). 프리팹 슬롯 key 를 확인하세요.");
+#endif
         AttributeKey = key ?? string.Empty;
 
         if (_labelText != null) _labelText.text = label;
         if (_valueText != null) _valueText.text = displayValue ?? value ?? string.Empty; // 표시는 형식화 값
+        SetSelected(false);
+    }
+
+    /// <summary>
+    /// 슬롯을 미사용 상태로 비운다(이전 손님 값 잔류 방지). 프리팹에 미리 배치한 슬롯을
+    /// 손님마다 재사용할 때, 이번 손님에게 없는 필드 슬롯이 직전 값을 들고 잘못 대조되는 것을 막는다.
+    /// AttributeKey 는 슬롯 고유 key(_fieldKey)로 되돌린다. 표시 텍스트도 비운다.
+    /// </summary>
+    public void ClearForReuse()
+    {
+        Value = string.Empty;
+        AttributeKey = _fieldKey ?? string.Empty;
+        if (_valueText != null) _valueText.text = string.Empty;
         SetSelected(false);
     }
 

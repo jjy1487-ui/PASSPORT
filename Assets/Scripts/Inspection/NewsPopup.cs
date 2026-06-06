@@ -14,6 +14,7 @@ public sealed class NewsPopup : MonoBehaviour, ICrossCheckProvider
     [SerializeField] private TMP_Text _titleText;
     [SerializeField] private TMP_Text _contentText;
     [SerializeField] private TMP_Text _pageText;
+    [SerializeField] private Image _newsImage;          // 뉴스별 이미지(iconRef 로 로드). 비면 자동 숨김.
     [SerializeField] private Button _prevButton;
     [SerializeField] private Button _nextButton;
     [SerializeField] private Button _closeButton;
@@ -21,6 +22,7 @@ public sealed class NewsPopup : MonoBehaviour, ICrossCheckProvider
     [Header("교차 대조 단서(선택)")]
     [SerializeField] private Transform _claimContainer;       // 단서 위젯 부모(VerticalLayoutGroup 권장)
     [SerializeField] private CrossCheckItemView _claimTemplate; // 비활성 템플릿
+    [SerializeField] private CrossCheckItemView _contentSelectable; // 본문 자체를 클릭 대조 항목으로(있으면 본문 클릭 가능)
 
     private IReadOnlyList<NewsData> _items;
     private int _index;
@@ -82,8 +84,33 @@ public sealed class NewsPopup : MonoBehaviour, ICrossCheckProvider
         if (_titleText != null) _titleText.text = item.title;
         if (_contentText != null) _contentText.text = item.content;
         if (_pageText != null) _pageText.text = $"{_index + 1} / {_items.Count}";
+        if (_newsImage != null)
+        {
+            Sprite s = string.IsNullOrEmpty(item.iconRef) ? null
+                     : Resources.Load<Sprite>("News/" + StripExt(item.iconRef));
+            _newsImage.sprite = s;
+            _newsImage.enabled = s != null;   // 이미지 없으면 칸 자동 숨김
+        }
+        if (_contentSelectable != null)
+        {
+            // 뉴스에 단서가 있으면 그 속성/값을 본문 항목에 부여(없으면 관련성만).
+            Claim c0 = (item.claims != null && item.claims.Length > 0) ? item.claims[0] : null;
+            _contentSelectable.Bind("뉴스",
+                c0 != null ? c0.attr : "news_content",
+                c0 != null ? c0.value : "",
+                item.title,
+                null,                                   // displayText null → 본문 텍스트 안 덮어씀
+                c0 != null ? c0.unlocksScan : "");
+        }
 
         BuildClaims(item);
+    }
+
+    /// <summary>iconRef 에서 확장자를 떼어 Resources 키로 만든다("spr_news_001.png" → "spr_news_001").</summary>
+    private static string StripExt(string s)
+    {
+        int dot = s.LastIndexOf('.');
+        return dot > 0 ? s.Substring(0, dot) : s;
     }
 
     // ── 교차 대조 단서 ───────────────────────────────────────────
@@ -122,6 +149,7 @@ public sealed class NewsPopup : MonoBehaviour, ICrossCheckProvider
     public IEnumerable<ICrossCheckSelectable> GetSelectables()
     {
         if (_root == null || !_root.activeInHierarchy) yield break;
+        if (_contentSelectable != null) yield return _contentSelectable; // 본문 항목
         foreach (CrossCheckItemView v in _claimViews)
         {
             if (v != null) yield return v;

@@ -39,11 +39,11 @@ MonoBehaviour:
     values:
     - 1
     - 1
-    - "\uC5EC\uAD8C \uD544\uC218 \uC9C0\uCC38"
-    - "\uBAA8\uB4E0 \uC785\uAD6D\uC790\uB294 \uC720\uD6A8\uD55C \uC5EC\uAD8C\uC744
-      \uC81C\uC2DC\uD574\uC57C \uD55C\uB2E4. \uC5EC\uAD8C \uBBF8\uC81C\uCD9C \uC2DC
-      \uC785\uAD6D \uBD88\uAC00."
-    - "\uC5EC\uAD8C"
+    - "\uAE30\uBCF8"
+    - "\uAE30\uBCF8 \uADDC\uC815"
+    - "\uBAA8\uB4E0 \uC785\uAD6D\uC790\uB294 \uC2EC\uC0AC\uAD00\uC758 \uD5C8\uAC00\uB97C
+      \uBC1B\uC544\uC57C\uD55C\uB2E4. \uC11C\uB958\uC640 \uC9C4\uC220\uC774 \uC11C\uB85C
+      \uB2E4\uB974\uBA74 \uC785\uAD6D\uC744 \uAC70\uBD80\uD55C\uB2E4."
   - keys:
     - rule_id
     - day
@@ -53,10 +53,10 @@ MonoBehaviour:
     values:
     - 2
     - 1
-    - "\uBCF8\uC778 \uC815\uBCF4 \uC77C\uCE58"
-    - "\uC5EC\uAD8C\uC758 \uC0AC\uC9C4\xB7\uC131\uBCC4\xB7\uC0DD\uB144\uC6D4\uC77C\uC774
-      \uBCF8\uC778\uACFC \uC77C\uCE58\uD574\uC57C \uD55C\uB2E4."
-    - "\uC131\uBCC4"
+    - "\uAE30\uBCF8"
+    - "\uC2E0\uBD84 \uD655\uC778"
+    - "\uC5EC\uAD8C \uC0AC\uC9C4\uACFC \uBC29\uBB38\uC790\uC758 \uC5BC\uAD74\uC744
+      \uBC18\uB4DC\uC2DC \uBE44\uAD50\uD574\uC57C \uD55C\uB2E4."
   - keys:
     - rule_id
     - day
@@ -65,12 +65,11 @@ MonoBehaviour:
     - related_field
     values:
     - 3
-    - 2
-    - "\uC678\uAD6D\uC778 \uBE44\uC790 \uD655\uC778"
-    - "\uC678\uAD6D \uAD6D\uC801\uC790\uB294 \uC720\uD6A8\uD55C \uBE44\uC790\uB97C
-      \uC18C\uC9C0\uD574\uC57C \uD55C\uB2E4. \uBE44\uC790 \uC5C6\uC73C\uBA74 \uC785\uAD6D
-      \uBD88\uAC00."
-    - "\uBE44\uC790"
+    - 1
+    - "\uAE30\uBCF8"
+    - "\uC5EC\uAD8C \uC720\uD6A8\uAE30\uAC04"
+    - "\uBAA8\uB4E0 \uC785\uAD6D\uC790\uB294 \uC720\uD6A8\uD55C \uC5EC\uAD8C\uC744
+      \uC18C\uC9C0\uD574\uC57C \uD55C\uB2E4,"
   - keys:
     - rule_id
     - day
@@ -79,12 +78,10 @@ MonoBehaviour:
     - related_field
     values:
     - 4
-    - 3
-    - "\uBC1C\uAE09\uAD6D \uC77C\uCE58"
-    - "\uC5EC\uAD8C\uC758 \uBC1C\uAE09\uAD6D(\uAD6D\uC801)\uC774 \uBE44\uC790/\uC2E0\uACE0
-      \uAD6D\uC801\uACFC \uC77C\uCE58\uD574\uC57C \uD55C\uB2E4. \uBD88\uC77C\uCE58
-      \uC2DC \uC704\uC870 \uC758\uC2EC."
-    - "\uBC1C\uAE09\uAD6D"
+    - 1
+    - "\uAE30\uBCF8"
+    - "\uAE08\uC9C0 \uBB3C\uD488"
+    - "\uB9C8\uC57D\uACFC \uBC00\uC218\uD488\uC740 \uBC18\uC785\uD560 \uC218 \uC5C6\uB2E4"
   - keys:
     - rule_id
     - day
@@ -93,11 +90,11 @@ MonoBehaviour:
     - related_field
     values:
     - 5
-    - 4
-    - "\uC5EC\uAD8C \uC720\uD6A8\uAE30\uAC04 \uAC15\uD654"
-    - "\uC785\uAD6D\uC77C \uAE30\uC900 \uC720\uD6A8\uAE30\uAC04 6\uAC1C\uC6D4 \uBBF8\uB9CC
-      \uC5EC\uAD8C\uC740 \uC785\uAD6D \uBD88\uAC00."
-    - "\uC720\uD6A8\uAE30\uAC04"
+    - 5
+    - "\uD2B9\uBCC4"
+    - "\uBC29\uC5ED \uC9C0\uC2DC"
+    - "\uAC10\uC5FC\uC758\uC2EC\uC790\uB294 PCR \uAC80\uC0AC\uC11C\uB97C \uC81C\uCD9C\uD574\uC57C
+      \uD55C\uB2E4."
   - keys:
     - rule_id
     - day
@@ -106,8 +103,60 @@ MonoBehaviour:
     - related_field
     values:
     - 6
-    - 4
-    - "\uC5EC\uAD8C\uBC88\uD638 \uD615\uC2DD \uAC80\uC99D"
-    - "\uC5EC\uAD8C\uBC88\uD638\uAC00 \uBC1C\uAE09\uAD6D \uD615\uC2DD\uACFC \uC77C\uCE58\uD574\uC57C
-      \uD55C\uB2E4. \uBD88\uC77C\uCE58 \uC2DC \uC704\uC870 \uC758\uC2EC."
-    - "\uC5EC\uAD8C\uBC88\uD638"
+    - 12
+    - "\uD2B9\uBCC4"
+    - "\uD14C\uB7EC \uBC1C\uC0DD \uC9C0\uC2DC"
+    - "\uD14C\uB7EC \uBC1C\uC0DD \uC2DC \uC9C0\uC815 \uB300\uC0C1\uC790\uB294 \uC785\uAD6D\uD560
+      \uC218 \uC5C6\uB2E4."
+  - keys:
+    - rule_id
+    - day
+    - rule_title
+    - rule_content
+    - related_field
+    values:
+    - 7
+    - 5
+    - "\uC11C\uB958"
+    - "PCR \uAC80\uC0AC\uC11C"
+    - "\uAC80\uC5ED\uB300\uC0C1\uC790\uB294 PCR \uAC80\uC0AC\uC11C\uB97C \uC81C\uCD9C\uD574\uC57C
+      \uD55C\uB2E4."
+  - keys:
+    - rule_id
+    - day
+    - rule_title
+    - rule_content
+    - related_field
+    values:
+    - 8
+    - 3
+    - "\uC11C\uB958"
+    - "\uC785\uAD6D \uBE44\uC790"
+    - "\uBE44\uC790 \uC815\uBCF4\uB294 \uC5EC\uAD8C \uC815\uBCF4\uC640 \uC77C\uCE58\uD574\uC57C
+      \uD55C\uB2E4."
+  - keys:
+    - rule_id
+    - day
+    - rule_title
+    - rule_content
+    - related_field
+    values:
+    - 9
+    - 8
+    - "\uC11C\uB958"
+    - "\uC7AC\uC9C1\uC99D\uBA85\uC11C"
+    - "\uCDE8\uC5C5 \uBAA9\uC801 \uC785\uAD6D\uC790\uB294 \uC7AC\uC9C1\uC99D\uBA85\uC11C\uB97C
+      \uC81C\uCD9C\uD574\uC57C \uD55C\uB2E4."
+  - keys:
+    - rule_id
+    - day
+    - rule_title
+    - rule_content
+    - related_field
+    values:
+    - 10
+    - 8
+    - "\uC11C\uB958"
+    - "\uD569\uACA9\uD1B5\uC9C0\uC11C"
+    - "\uC720\uD559 \uBAA9\uC801 \uC785\uAD6D\uC790\uB294 \uD569\uACA9\uD1B5\uC9C0\uC11C\uB97C
+      \uC81C\uCD9C\uD574\uC57C \uD55C\uB2E4."

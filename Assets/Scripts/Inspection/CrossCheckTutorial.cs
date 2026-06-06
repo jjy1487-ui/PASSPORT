@@ -17,9 +17,19 @@ public sealed class CrossCheckTutorial : MonoBehaviour
 
     private void Start()
     {
+        bool isDay1 = GetCurrentDay() == 1;
         bool seen = _showOnce && PlayerPrefs.GetInt(SeenKey, 0) == 1;
-        if (_root != null) _root.SetActive(!seen);
+        if (_root != null) _root.SetActive(isDay1 && !seen); // 1일차에만 표시
         if (_closeButton != null) _closeButton.onClick.AddListener(Close);
+    }
+
+    /// <summary>현재 일차. 씬 이름 'Day{N}Scene' 우선, 없으면 PlayerPrefs "CurrentDay"(기본 1).</summary>
+    private static int GetCurrentDay()
+    {
+        string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        var m = System.Text.RegularExpressions.Regex.Match(sceneName, "^Day(\\d+)Scene$");
+        if (m.Success && int.TryParse(m.Groups[1].Value, out int n)) return n;
+        return PlayerPrefs.GetInt("CurrentDay", 1);
     }
 
     private void OnDestroy()

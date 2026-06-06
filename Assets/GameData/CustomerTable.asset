@@ -301,7 +301,7 @@ MonoBehaviour:
     - 1989-09-03
     - 36
     - spr_c013
-    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790"
   - keys:
     - customer_id
     - name_kr
@@ -321,7 +321,7 @@ MonoBehaviour:
     - 1993-07-19
     - 32
     - spr_c014
-    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790"
   - keys:
     - customer_id
     - name_kr
@@ -421,7 +421,7 @@ MonoBehaviour:
     - 1990-12-12
     - 35
     - spr_c019
-    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790"
   - keys:
     - customer_id
     - name_kr
@@ -661,7 +661,7 @@ MonoBehaviour:
     - 1992-07-07
     - 33
     - spr_c031
-    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790"
   - keys:
     - customer_id
     - name_kr
@@ -681,7 +681,7 @@ MonoBehaviour:
     - 1988-10-19
     - 37
     - spr_c032
-    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790"
   - keys:
     - customer_id
     - name_kr
@@ -701,7 +701,7 @@ MonoBehaviour:
     - 1995-12-01
     - 30
     - spr_c033
-    - "\uAC80\uC5ED \uB300\uC0C1\uC790(PCR)"
+    - "\uC804\uC5FC\uBCD1 \uD658\uC790"
   - keys:
     - customer_id
     - name_kr

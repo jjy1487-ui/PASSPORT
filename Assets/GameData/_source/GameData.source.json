@@ -191,7 +191,7 @@
      "birth_date": "1989-09-03",
      "age": "36",
      "sprite_ref": "spr_c013",
-     "character_type": "검역 대상자(PCR)"
+     "character_type": "전염병 환자"
     },
     {
      "customer_id": "14",
@@ -202,7 +202,7 @@
      "birth_date": "1993-07-19",
      "age": "32",
      "sprite_ref": "spr_c014",
-     "character_type": "검역 대상자(PCR)"
+     "character_type": "전염병 환자"
     },
     {
      "customer_id": "15",
@@ -257,7 +257,7 @@
      "birth_date": "1990-12-12",
      "age": "35",
      "sprite_ref": "spr_c019",
-     "character_type": "검역 대상자(PCR)"
+     "character_type": "전염병 환자"
     },
     {
      "customer_id": "20",
@@ -389,7 +389,7 @@
      "birth_date": "1992-07-07",
      "age": "33",
      "sprite_ref": "spr_c031",
-     "character_type": "검역 대상자(PCR)"
+     "character_type": "전염병 환자"
     },
     {
      "customer_id": "32",
@@ -400,7 +400,7 @@
      "birth_date": "1988-10-19",
      "age": "37",
      "sprite_ref": "spr_c032",
-     "character_type": "검역 대상자(PCR)"
+     "character_type": "전염병 환자"
     },
     {
      "customer_id": "33",
@@ -411,7 +411,7 @@
      "birth_date": "1995-12-01",
      "age": "30",
      "sprite_ref": "spr_c033",
-     "character_type": "검역 대상자(PCR)"
+     "character_type": "전염병 환자"
     },
     {
      "customer_id": "34",
@@ -486,6 +486,11 @@
      "key": "valid_chance",
      "type": "float",
      "label": "정상 확률"
+    },
+    {
+     "key": "force_defect",
+     "type": "varchar(10)",
+     "label": "결함 강제(force_defect)"
     }
    ],
    "rows": [
@@ -494,686 +499,784 @@
      "day": "1",
      "slot": "1",
      "customer_id": "1",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "2",
      "day": "1",
      "slot": "2",
-     "customer_id": "2",
-     "valid_chance": "0"
+     "customer_id": "3",
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "3",
      "day": "1",
      "slot": "3",
-     "customer_id": "3",
-     "valid_chance": "1"
+     "customer_id": "2",
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "4",
      "day": "1",
      "slot": "4",
      "customer_id": "4",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "5",
      "day": "1",
      "slot": "5",
      "customer_id": "5",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "force_defect": null
     },
     {
      "schedule_id": "6",
      "day": "1",
      "slot": "6",
-     "customer_id": "6",
-     "valid_chance": "0"
+     "customer_id": "7",
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "7",
      "day": "1",
      "slot": "7",
-     "customer_id": "7",
-     "valid_chance": "0.7"
+     "customer_id": "6",
+     "valid_chance": "0.7",
+     "force_defect": null
     },
     {
      "schedule_id": "8",
      "day": "2",
      "slot": "1",
      "customer_id": "22",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "9",
      "day": "2",
      "slot": "2",
      "customer_id": "20",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "force_defect": null
     },
     {
      "schedule_id": "10",
      "day": "2",
      "slot": "3",
      "customer_id": "25",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "11",
      "day": "2",
      "slot": "4",
      "customer_id": "23",
-     "valid_chance": "0.85"
+     "valid_chance": "0.85",
+     "force_defect": null
     },
     {
      "schedule_id": "12",
      "day": "2",
      "slot": "5",
      "customer_id": "24",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "13",
      "day": "2",
      "slot": "6",
      "customer_id": "26",
-     "valid_chance": "0.5"
+     "valid_chance": "0.5",
+     "force_defect": null
     },
     {
      "schedule_id": "14",
      "day": "2",
      "slot": "7",
      "customer_id": "28",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "15",
      "day": "3",
      "slot": "1",
      "customer_id": "27",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "16",
      "day": "3",
      "slot": "2",
      "customer_id": "1",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "17",
      "day": "3",
      "slot": "3",
      "customer_id": "12",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "18",
      "day": "3",
      "slot": "4",
      "customer_id": "29",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "force_defect": null
     },
     {
      "schedule_id": "19",
      "day": "3",
      "slot": "5",
      "customer_id": "2",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "20",
      "day": "3",
      "slot": "6",
      "customer_id": "21",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "force_defect": null
     },
     {
      "schedule_id": "21",
      "day": "3",
      "slot": "7",
      "customer_id": "3",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "22",
      "day": "4",
      "slot": "1",
      "customer_id": "5",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "force_defect": null
     },
     {
      "schedule_id": "23",
      "day": "4",
      "slot": "2",
      "customer_id": "6",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "24",
      "day": "4",
      "slot": "3",
      "customer_id": "4",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "25",
      "day": "4",
      "slot": "4",
      "customer_id": "30",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "force_defect": null
     },
     {
      "schedule_id": "26",
      "day": "4",
      "slot": "5",
      "customer_id": "20",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "force_defect": null
     },
     {
      "schedule_id": "27",
      "day": "4",
      "slot": "6",
      "customer_id": "22",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "28",
      "day": "4",
      "slot": "7",
      "customer_id": "7",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "29",
      "day": "5",
      "slot": "1",
      "customer_id": "28",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "force_defect": null
     },
     {
      "schedule_id": "30",
      "day": "5",
      "slot": "2",
      "customer_id": "15",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "31",
      "day": "5",
      "slot": "3",
      "customer_id": "13",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "32",
      "day": "5",
      "slot": "4",
      "customer_id": "12",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "force_defect": null
     },
     {
      "schedule_id": "33",
      "day": "5",
      "slot": "5",
-     "customer_id": "14",
-     "valid_chance": "1"
+     "customer_id": "24",
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "34",
      "day": "5",
      "slot": "6",
-     "customer_id": "19",
-     "valid_chance": "0"
+     "customer_id": "14",
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "35",
      "day": "5",
      "slot": "7",
-     "customer_id": "23",
-     "valid_chance": "1"
+     "customer_id": "1",
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "36",
      "day": "6",
      "slot": "1",
-     "customer_id": "31",
-     "valid_chance": "1"
+     "customer_id": "1",
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "37",
      "day": "6",
      "slot": "2",
      "customer_id": "29",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "force_defect": null
     },
     {
      "schedule_id": "38",
      "day": "6",
      "slot": "3",
      "customer_id": "32",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "39",
      "day": "6",
      "slot": "4",
      "customer_id": "24",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "40",
      "day": "6",
      "slot": "5",
-     "customer_id": "33",
-     "valid_chance": "0"
+     "customer_id": "19",
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "41",
      "day": "6",
      "slot": "6",
      "customer_id": "25",
-     "valid_chance": "0.5"
+     "valid_chance": "0.5",
+     "force_defect": null
     },
     {
      "schedule_id": "42",
      "day": "6",
      "slot": "7",
      "customer_id": "26",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "43",
      "day": "7",
      "slot": "1",
-     "customer_id": "13",
-     "valid_chance": "0"
+     "customer_id": "31",
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "44",
      "day": "7",
      "slot": "2",
      "customer_id": "5",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "force_defect": null
     },
     {
      "schedule_id": "45",
      "day": "7",
      "slot": "3",
-     "customer_id": "14",
-     "valid_chance": "1"
+     "customer_id": "23",
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "46",
      "day": "7",
      "slot": "4",
-     "customer_id": "19",
-     "valid_chance": "0"
+     "customer_id": "33",
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "47",
      "day": "7",
      "slot": "5",
      "customer_id": "27",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "48",
      "day": "7",
      "slot": "6",
      "customer_id": "1",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "49",
      "day": "7",
      "slot": "7",
      "customer_id": "21",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "force_defect": null
     },
     {
      "schedule_id": "50",
      "day": "8",
      "slot": "1",
      "customer_id": "2",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "51",
      "day": "8",
      "slot": "2",
      "customer_id": "20",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "force_defect": null
     },
     {
      "schedule_id": "52",
      "day": "8",
      "slot": "3",
      "customer_id": "3",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "53",
      "day": "8",
      "slot": "4",
      "customer_id": "18",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "54",
      "day": "8",
      "slot": "5",
      "customer_id": "16",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "55",
      "day": "8",
      "slot": "6",
      "customer_id": "4",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "56",
      "day": "8",
      "slot": "7",
      "customer_id": "30",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "force_defect": null
     },
     {
      "schedule_id": "57",
      "day": "9",
      "slot": "1",
      "customer_id": "28",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "force_defect": null
     },
     {
      "schedule_id": "58",
      "day": "9",
      "slot": "2",
      "customer_id": "6",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "59",
      "day": "9",
      "slot": "3",
      "customer_id": "7",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "60",
      "day": "9",
      "slot": "4",
      "customer_id": "17",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "61",
      "day": "9",
      "slot": "5",
      "customer_id": "12",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "force_defect": null
     },
     {
      "schedule_id": "62",
      "day": "9",
      "slot": "6",
      "customer_id": "25",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "63",
      "day": "9",
      "slot": "7",
-     "customer_id": "35",
-     "valid_chance": "1"
+     "customer_id": "1",
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "64",
      "day": "10",
      "slot": "1",
      "customer_id": "23",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "65",
      "day": "10",
      "slot": "2",
      "customer_id": "29",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "force_defect": null
     },
     {
      "schedule_id": "66",
      "day": "10",
      "slot": "3",
      "customer_id": "21",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "force_defect": null
     },
     {
      "schedule_id": "67",
      "day": "10",
      "slot": "4",
      "customer_id": "26",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "68",
      "day": "10",
      "slot": "5",
      "customer_id": "24",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "69",
      "day": "10",
      "slot": "6",
      "customer_id": "5",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "force_defect": null
     },
     {
      "schedule_id": "70",
      "day": "10",
      "slot": "7",
-     "customer_id": "36",
-     "valid_chance": "0"
+     "customer_id": "3",
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "71",
      "day": "11",
      "slot": "1",
      "customer_id": "10",
-     "valid_chance": "0.3"
+     "valid_chance": "0.3",
+     "force_defect": null
     },
     {
      "schedule_id": "72",
      "day": "11",
      "slot": "2",
      "customer_id": "1",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "73",
      "day": "11",
      "slot": "3",
      "customer_id": "3",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "74",
      "day": "11",
      "slot": "4",
      "customer_id": "20",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "force_defect": null
     },
     {
      "schedule_id": "75",
      "day": "11",
      "slot": "5",
      "customer_id": "30",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "force_defect": null
     },
     {
      "schedule_id": "76",
      "day": "11",
      "slot": "6",
-     "customer_id": "37",
-     "valid_chance": "0"
+     "customer_id": "4",
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "77",
      "day": "11",
      "slot": "7",
      "customer_id": "2",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "78",
      "day": "12",
      "slot": "1",
      "customer_id": "6",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "79",
      "day": "12",
      "slot": "2",
      "customer_id": "7",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "80",
      "day": "12",
      "slot": "3",
      "customer_id": "8",
-     "valid_chance": "0.3"
+     "valid_chance": "0.3",
+     "force_defect": null
     },
     {
      "schedule_id": "81",
      "day": "12",
      "slot": "4",
      "customer_id": "28",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "force_defect": null
     },
     {
      "schedule_id": "82",
      "day": "12",
      "slot": "5",
      "customer_id": "12",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "force_defect": null
     },
     {
      "schedule_id": "83",
      "day": "12",
      "slot": "6",
-     "customer_id": "35",
-     "valid_chance": "0"
+     "customer_id": "3",
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "84",
      "day": "12",
      "slot": "7",
      "customer_id": "22",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "85",
      "day": "13",
      "slot": "1",
      "customer_id": "11",
-     "valid_chance": "0.25"
+     "valid_chance": "0.25",
+     "force_defect": null
     },
     {
      "schedule_id": "86",
      "day": "13",
      "slot": "2",
      "customer_id": "23",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "87",
      "day": "13",
      "slot": "3",
      "customer_id": "26",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "88",
      "day": "13",
      "slot": "4",
-     "customer_id": "36",
-     "valid_chance": "1"
+     "customer_id": "1",
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "89",
      "day": "13",
      "slot": "5",
      "customer_id": "29",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "force_defect": null
     },
     {
      "schedule_id": "90",
      "day": "13",
      "slot": "6",
      "customer_id": "21",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "force_defect": null
     },
     {
      "schedule_id": "91",
      "day": "13",
      "slot": "7",
      "customer_id": "27",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "92",
      "day": "14",
      "slot": "1",
      "customer_id": "1",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "force_defect": null
     },
     {
      "schedule_id": "93",
      "day": "14",
      "slot": "2",
      "customer_id": "3",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "94",
      "day": "14",
      "slot": "3",
      "customer_id": "9",
-     "valid_chance": "0.3"
+     "valid_chance": "0.3",
+     "force_defect": null
     },
     {
      "schedule_id": "95",
      "day": "14",
      "slot": "4",
      "customer_id": "34",
-     "valid_chance": "0.25"
+     "valid_chance": "0.25",
+     "force_defect": null
     },
     {
      "schedule_id": "96",
      "day": "14",
      "slot": "5",
      "customer_id": "30",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "force_defect": null
     },
     {
      "schedule_id": "97",
      "day": "14",
      "slot": "6",
      "customer_id": "4",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "force_defect": null
     },
     {
      "schedule_id": "98",
      "day": "14",
      "slot": "7",
-     "customer_id": "37",
-     "valid_chance": "1"
+     "customer_id": "2",
+     "valid_chance": "1",
+     "force_defect": null
     }
    ],
    "layout": "relational"
@@ -2205,14 +2308,14 @@
      "label": "직종"
     },
     {
+     "key": "hire_date",
+     "type": "date",
+     "label": "입사일"
+    },
+    {
      "key": "issue_date",
      "type": "date",
      "label": "발급일"
-    },
-    {
-     "key": "expiry_date",
-     "type": "date",
-     "label": "만료일"
     }
    ],
    "rows": [
@@ -2222,8 +2325,8 @@
      "cert_no": "EMP-FR-2023X",
      "company_name": "삼성전자",
      "job_title": "엔지니어",
-     "issue_date": "2023-01-15",
-     "expiry_date": "2025-01-15"
+     "hire_date": "2021-01-15",
+     "issue_date": "2023-01-15"
     },
     {
      "employment_id": "3",
@@ -2231,8 +2334,8 @@
      "cert_no": "EMP-018",
      "company_name": "대성물류(주)",
      "job_title": "물류 관리자",
-     "issue_date": "2025-03-01",
-     "expiry_date": "2027-03-01"
+     "hire_date": "2023-03-01",
+     "issue_date": "2025-03-01"
     },
     {
      "employment_id": "4",
@@ -2240,8 +2343,8 @@
      "cert_no": "EMP-035",
      "company_name": "한빛전자(주)",
      "job_title": "생산 라인",
-     "issue_date": "2025-04-01",
-     "expiry_date": "2027-04-01"
+     "hire_date": "2023-04-01",
+     "issue_date": "2025-04-01"
     },
     {
      "employment_id": "6",
@@ -2249,8 +2352,8 @@
      "cert_no": "EMP-036",
      "company_name": "동방건설(주)",
      "job_title": "현장 기술자",
-     "issue_date": "2025-02-01",
-     "expiry_date": "2027-02-01"
+     "hire_date": "2023-02-01",
+     "issue_date": "2025-02-01"
     },
     {
      "employment_id": "8",
@@ -2258,8 +2361,8 @@
      "cert_no": "EMP-037",
      "company_name": "서해수산(주)",
      "job_title": "가공 작업",
-     "issue_date": "2025-01-01",
-     "expiry_date": "2027-01-01"
+     "hire_date": "2023-01-01",
+     "issue_date": "2025-01-01"
     }
    ],
    "layout": "relational"
@@ -3545,38 +3648,73 @@
    "rows": [
     {
      "news_id": "1",
-     "day": "1",
-     "news_title": "인천공항 보안 등급 상향",
-     "news_content": "법무부가 오늘부터 인천국제공항의 출입국 심사 보안 등급을 한 단계 상향했다. 모든 입국자의 여권 진위 여부를 더욱 철저히 확인할 것을 심사관들에게 당부했다.",
+     "day": "3",
+     "news_title": "입국장서 의료관광객 신원 확인 지연",
+     "news_content": "오늘 오전 국제선 입국장에서 의료관광 목적 방문객의 여권 사진과 현재 얼굴이 달라 추가 확인이 진행됐다. 일부 방문객은 수술 일정을 이유로 빠른 심사를 요청했으나, 현장에서는 여권과 비자 정보 대조가 우선 적용됐다.",
      "icon_ref": "spr_news_001"
     },
     {
      "news_id": "2",
-     "day": "1",
-     "news_title": "위조 여권 적발 급증",
-     "news_content": "최근 한 달간 위조 여권 적발 건수가 전월 대비 두 배로 증가했다. 당국은 정교해진 위조 수법에 각별한 주의를 요청했다.",
+     "day": "4",
+     "news_title": "친척 방문객 서류 불일치로 추가 조사",
+     "news_content": "친척 방문을 목적으로 입국하려던 방문객의 여권 정보와 제출 서류 내용이 맞지 않아 추가 조사가 이뤄졌다. 공항 관계자는 단순 입력 차이처럼 보이는 정보도 반복되면 허위 진술 가능성을 확인한다고 밝혔다.",
      "icon_ref": "spr_news_002"
     },
     {
      "news_id": "3",
-     "day": "2",
-     "news_title": "해외 단체 관광객 입국 증가",
-     "news_content": "연휴를 맞아 외국인 단체 관광객의 입국이 크게 늘었다. 공항 측은 입국 심사 대기 시간이 길어질 수 있다고 안내했다.",
+     "day": "5",
+     "news_title": "검역대서 고열 의심 승객 분리 조치",
+     "news_content": "오늘 낮 입국 검역대에서 고열 증상을 보인 방문객이 확인돼 임시 대기 구역으로 이동했다. 같은 시간대 입국자 일부도 PCR 검사서와 건강 상태를 추가 확인받으며 검역 절차가 지연됐다.",
      "icon_ref": "spr_news_003"
     },
     {
      "news_id": "4",
-     "day": "3",
-     "news_title": "분실 여권 도용 주의보",
-     "news_content": "분실 신고된 여권을 도용한 입국 시도가 잇따르고 있다. 심사관은 여권 사진과 본인 일치 여부를 반드시 확인해야 한다.",
+     "day": "7",
+     "news_title": "PCR 서류 누락으로 입국장 대기열 혼잡",
+     "news_content": "강화된 검역 절차가 이어지는 가운데 PCR 검사서를 제출하지 않거나 검사 기관 정보가 불명확한 사례가 잇따랐다. 현장에서는 서류 확인이 길어지며 입국 대기열이 한때 크게 늘어났다.",
      "icon_ref": "spr_news_004"
     },
     {
      "news_id": "5",
-     "day": "4",
-     "news_title": "여권 만료 기준 변경 안내",
-     "news_content": "법무부는 입국일 기준 유효기간이 6개월 미만인 여권의 입국 심사 기준을 강화한다고 발표했다.",
+     "day": "8",
+     "news_title": "장기 체류자 서류 대조중 불일치 확인",
+     "news_content": "취업과 유학 등 장기 체류 목적 입국자 심사 과정에서 체류 목적과 제출 서류가 맞지 않는 사례가 확인됐다. 당국은 여권, 비자, 체류 목적 서류의 정보가 서로 이어지는지 확인하고 있다.",
      "icon_ref": "spr_news_005"
+    },
+    {
+     "news_id": "6",
+     "day": "10",
+     "news_title": "완벽해 보인 서류, 통과 직전 위조 적발",
+     "news_content": "오늘 심사 과정에서 겉보기에는 이상이 없던 서류가 최종 확인 단계에서 위조로 드러났다. 보안 관계자는 문서 번호와 발급 정보의 작은 차이가 단서가 됐다고 전했다.",
+     "icon_ref": null
+    },
+    {
+     "news_id": "7",
+     "day": "11",
+     "news_title": "인상 바꾼 수배자 후보, 심사대서 포착",
+     "news_content": "성형으로 인상이 달라진 수배자 후보가 입국 심사 과정에서 포착됐다. 보안팀은 여권 사진만으로 확인이 어려운 경우에도 진술, 신원 정보, 행동 기록을 함께 대조하고 있다고 밝혔다.",
+     "icon_ref": null
+    },
+    {
+     "news_id": "8",
+     "day": "12",
+     "news_title": "도심 폭발 수사, 공항 이동 기록으로 확대",
+     "news_content": "도심 폭발 사건 이후 수사 당국이 위조 신분 사용 가능성과 공항 이동 기록을 함께 조사하고 있다. 오늘 입국장에서는 목적 진술은 자연스러웠지만 행동과 서류 흐름이 맞지 않는 방문객이 추가 확인을 받았다.",
+     "icon_ref": null
+    },
+    {
+     "news_id": "9",
+     "day": "13",
+     "news_title": "정상 서류 소지자, 이상 행동으로 보류",
+     "news_content": "정상 서류를 제출한 입국자가 심사 과정에서 반복적으로 진술을 바꾸고 이동 경로 설명을 피하면서 추가 확인 대상으로 분류됐다. 당국은 서류가 정상이어도 현장 정황이 맞지 않으면 기록을 남겨 확인한다고 밝혔다.",
+     "icon_ref": null
+    },
+    {
+     "news_id": "10",
+     "day": "14",
+     "news_title": "마지막 심사 중 감시 명단 일치자 확인",
+     "news_content": "주요 공항의 최종 보안 점검 중 감시 명단과 정보가 일치하는 방문객이 심사대에서 확인됐다. 당국은 근무 종료 전까지 신원 대조와 현장 확인을 유지하며 추가 위험 인물 여부를 살피고 있다.",
+     "icon_ref": null
     }
    ],
    "layout": "relational"
@@ -3613,44 +3751,72 @@
     {
      "rule_id": "1",
      "day": "1",
-     "rule_title": "여권 필수 지참",
-     "rule_content": "모든 입국자는 유효한 여권을 제시해야 한다. 여권 미제출 시 입국 불가.",
-     "related_field": "여권"
+     "rule_title": "기본",
+     "rule_content": "기본 규정",
+     "related_field": "모든 입국자는 심사관의 허가를 받아야한다. 서류와 진술이 서로 다르면 입국을 거부한다."
     },
     {
      "rule_id": "2",
      "day": "1",
-     "rule_title": "본인 정보 일치",
-     "rule_content": "여권의 사진·성별·생년월일이 본인과 일치해야 한다.",
-     "related_field": "성별"
+     "rule_title": "기본",
+     "rule_content": "신분 확인",
+     "related_field": "여권 사진과 방문자의 얼굴을 반드시 비교해야 한다."
     },
     {
      "rule_id": "3",
-     "day": "2",
-     "rule_title": "외국인 비자 확인",
-     "rule_content": "외국 국적자는 유효한 비자를 소지해야 한다. 비자 없으면 입국 불가.",
-     "related_field": "비자"
+     "day": "1",
+     "rule_title": "기본",
+     "rule_content": "여권 유효기간",
+     "related_field": "모든 입국자는 유효한 여권을 소지해야 한다,"
     },
     {
      "rule_id": "4",
-     "day": "3",
-     "rule_title": "발급국 일치",
-     "rule_content": "여권의 발급국(국적)이 비자/신고 국적과 일치해야 한다. 불일치 시 위조 의심.",
-     "related_field": "발급국"
+     "day": "1",
+     "rule_title": "기본",
+     "rule_content": "금지 물품",
+     "related_field": "마약과 밀수품은 반입할 수 없다"
     },
     {
      "rule_id": "5",
-     "day": "4",
-     "rule_title": "여권 유효기간 강화",
-     "rule_content": "입국일 기준 유효기간 6개월 미만 여권은 입국 불가.",
-     "related_field": "유효기간"
+     "day": "5",
+     "rule_title": "특별",
+     "rule_content": "방역 지시",
+     "related_field": "감염의심자는 PCR 검사서를 제출해야 한다."
     },
     {
      "rule_id": "6",
-     "day": "4",
-     "rule_title": "여권번호 형식 검증",
-     "rule_content": "여권번호가 발급국 형식과 일치해야 한다. 불일치 시 위조 의심.",
-     "related_field": "여권번호"
+     "day": "12",
+     "rule_title": "특별",
+     "rule_content": "테러 발생 지시",
+     "related_field": "테러 발생 시 지정 대상자는 입국할 수 없다."
+    },
+    {
+     "rule_id": "7",
+     "day": "5",
+     "rule_title": "서류",
+     "rule_content": "PCR 검사서",
+     "related_field": "검역대상자는 PCR 검사서를 제출해야 한다."
+    },
+    {
+     "rule_id": "8",
+     "day": "3",
+     "rule_title": "서류",
+     "rule_content": "입국 비자",
+     "related_field": "비자 정보는 여권 정보와 일치해야 한다."
+    },
+    {
+     "rule_id": "9",
+     "day": "8",
+     "rule_title": "서류",
+     "rule_content": "재직증명서",
+     "related_field": "취업 목적 입국자는 재직증명서를 제출해야 한다."
+    },
+    {
+     "rule_id": "10",
+     "day": "8",
+     "rule_title": "서류",
+     "rule_content": "합격통지서",
+     "related_field": "유학 목적 입국자는 합격통지서를 제출해야 한다."
     }
    ],
    "layout": "relational"
@@ -3963,7 +4129,7 @@
      "score_max": null,
      "end_timing": "1~14일",
      "trigger_type": "COUNTER",
-     "trigger_condition": "외국 여권 캐릭터(관광객/장기체류/성형 일반) 출국 도장 없음 묵인 누적 3회"
+     "trigger_condition": "외국인 캐릭터의 결함(불일치)을 적발 가능했음에도 잘못 입국 승인 누적 3회"
     },
     {
      "ending_id": "17",
@@ -4342,7 +4508,7 @@
      "violation_field": "expiry_date",
      "normal_example": "만료일 2030",
      "defect_example": "만료일 2024(만료)",
-     "secondary_check": "-",
+     "secondary_check": "오늘 날짜와 대조 (만료일 지났나)",
      "random_valid_chance": "0.85",
      "note": "유효기간 만료형",
      "corruption_type": "EXPIRE",
@@ -4356,7 +4522,7 @@
      "violation_field": "nationality(발급국)",
      "normal_example": "사진·MRZ 일치",
      "defect_example": "발급국 불일치(위조국)",
-     "secondary_check": "-",
+     "secondary_check": "발급국(국가코드) 명단 대조",
      "random_valid_chance": "0.5",
      "note": "여권 외관 결함",
      "corruption_type": "ALTER_FIELD",
@@ -4370,7 +4536,7 @@
      "violation_field": "expiry_date / visa_no",
      "normal_example": "비자 유효",
      "defect_example": "비자 만료 또는 위조",
-     "secondary_check": "-",
+     "secondary_check": "오늘 날짜와 대조 (비자 만료일)",
      "random_valid_chance": "0.5",
      "note": "①결정: 비자날엔 비자 결함",
      "corruption_type": "EXPIRE",
@@ -4384,7 +4550,7 @@
      "violation_field": "name_en / birth_date",
      "normal_example": "정보 일치",
      "defect_example": "철자·생년월일 불일치",
-     "secondary_check": "-",
+     "secondary_check": "다른 서류의 같은 칸과 대조 (이름·생년월일)",
      "random_valid_chance": "0.75",
      "note": "대체로 정상(0.75)",
      "corruption_type": "ALTER_FIELD",
@@ -4398,7 +4564,7 @@
      "violation_field": "photo_ref",
      "normal_example": "얼굴 사진 일치",
      "defect_example": "얼굴 사진 불일치",
-     "secondary_check": "-",
+     "secondary_check": "손님 얼굴과 사진 대조",
      "random_valid_chance": "0.7",
      "note": "사진 대조형",
      "corruption_type": "MISMATCH_PHOTO",
@@ -4406,13 +4572,13 @@
     },
     {
      "rule_id": "6",
-     "character_type": "검역 대상자(PCR)",
+     "character_type": "전염병 환자",
      "context": "PCR 요구일(5~7일)",
      "defect_document": "pcr_test",
      "violation_field": "result / valid_until",
      "normal_example": "Negative·유효",
      "defect_example": "Positive(양성) 또는 만료",
-     "secondary_check": "-",
+     "secondary_check": "결과=음성 / 검사기관=인증명단 / 요구목록 대조",
      "random_valid_chance": "고정(통과1/거절0)",
      "note": "방역 구간",
      "corruption_type": "POSITIVE | FORGE_SOURCE | MISSING",
@@ -4423,28 +4589,28 @@
      "character_type": "장기체류자",
      "context": "취업증빙 요구일(8일~)",
      "defect_document": "employment_cert",
-     "violation_field": "company_name / expiry",
-     "normal_example": "회사·직위 정상",
-     "defect_example": "회사 위조 또는 만료",
-     "secondary_check": "-",
+     "violation_field": "company_name / hire_date",
+     "normal_example": "회사·직위 정상 / 입사일<발급일",
+     "defect_example": "회사 위조 또는 입사일 논리오류(발급일 이후)",
+     "secondary_check": "회사=등록명단 / 입사일=발급일 이전인지 대조",
      "random_valid_chance": "1",
      "note": "기본 통과",
-     "corruption_type": "FORGE_SOURCE | EXPIRE",
-     "target_field": "company_name / expiry_date"
+     "corruption_type": "FORGE_SOURCE | HIRE_LOGIC",
+     "target_field": "company_name / hire_date"
     },
     {
      "rule_id": "8",
      "character_type": "취업체류자",
      "context": "취업증빙 요구일(8일~)",
      "defect_document": "employment_cert",
-     "violation_field": "company_name / expiry",
-     "normal_example": "회사·직위 정상",
-     "defect_example": "회사 위조 또는 만료",
-     "secondary_check": "-",
+     "violation_field": "company_name / hire_date",
+     "normal_example": "회사·직위 정상 / 입사일<발급일",
+     "defect_example": "회사 위조 또는 입사일 논리오류(발급일 이후)",
+     "secondary_check": "회사=등록명단 / 입사일=발급일 이전인지 대조",
      "random_valid_chance": "1",
      "note": "기본 통과 / 취업체류자 동일",
-     "corruption_type": "FORGE_SOURCE | EXPIRE",
-     "target_field": "company_name / expiry_date"
+     "corruption_type": "FORGE_SOURCE | HIRE_LOGIC",
+     "target_field": "company_name / hire_date"
     },
     {
      "rule_id": "9",
@@ -4543,6 +4709,216 @@
      "note": "고정 통과·이벤트성",
      "corruption_type": "NONE",
      "target_field": "-"
+    },
+    {
+     "rule_id": "16",
+     "character_type": "외국인 관광객",
+     "context": "비자 요구일(3일~)",
+     "defect_document": "비자",
+     "violation_field": "visa_no",
+     "normal_example": "정상 비자번호",
+     "defect_example": "형식 위반 번호",
+     "secondary_check": "번호 형식 규칙 대조",
+     "random_valid_chance": "0.5",
+     "note": "[PLANNED: FORGE_NUMBER] 비자번호 형식 위조 — 형식검증 엔진 필요",
+     "corruption_type": "NONE",
+     "target_field": "visa_no"
+    },
+    {
+     "rule_id": "17",
+     "character_type": "외국인 관광객",
+     "context": "비자 요구일(3일~)",
+     "defect_document": "비자",
+     "violation_field": "visa_type",
+     "normal_example": "요구된 비자종류",
+     "defect_example": "요구와 다른 종류",
+     "secondary_check": "오늘 규정과 대조 (요구 비자종류)",
+     "random_valid_chance": "0.5",
+     "note": "[PLANNED: WRONG_TYPE] 비자종류 오류 — 멤버십비교+apply_defect 코드 필요",
+     "corruption_type": "NONE",
+     "target_field": "visa_type"
+    },
+    {
+     "rule_id": "18",
+     "character_type": "외국인 관광객",
+     "context": "비자 요구일(3일~)",
+     "defect_document": "비자",
+     "violation_field": "nationality",
+     "normal_example": "여권 국적과 일치",
+     "defect_example": "여권 국적과 불일치",
+     "secondary_check": "여권↔비자 국적 대조",
+     "random_valid_chance": "0.5",
+     "note": "[PLANNED: ALTER_FIELD] 비자-여권 국적 교차 불일치",
+     "corruption_type": "NONE",
+     "target_field": "nationality"
+    },
+    {
+     "rule_id": "19",
+     "character_type": "외국인 관광객",
+     "context": "비자 요구일(3일~)",
+     "defect_document": "비자",
+     "violation_field": "issue_date",
+     "normal_example": "발급일 정상",
+     "defect_example": "발급일>만료일/미래",
+     "secondary_check": "비자 만료일/오늘과 비교 (발급일 모순)",
+     "random_valid_chance": "0.5",
+     "note": "[PLANNED: DATE_LOGIC] 비자 발급일 모순 — 필드간 날짜비교 코드 필요",
+     "corruption_type": "NONE",
+     "target_field": "issue_date"
+    },
+    {
+     "rule_id": "20",
+     "character_type": "일반 고객",
+     "context": "상시",
+     "defect_document": "여권",
+     "violation_field": "gender",
+     "normal_example": "성별 일치",
+     "defect_example": "성별 불일치",
+     "secondary_check": "다른 서류와 대조 (성별)",
+     "random_valid_chance": "0.7",
+     "note": "[PLANNED: ALTER_FIELD] 여권 성별 변조",
+     "corruption_type": "NONE",
+     "target_field": "gender"
+    },
+    {
+     "rule_id": "21",
+     "character_type": "일반 고객",
+     "context": "상시",
+     "defect_document": "여권",
+     "violation_field": "issue_date",
+     "normal_example": "발급일 정상",
+     "defect_example": "발급일>만료일/미래",
+     "secondary_check": "여권 만료일/오늘과 비교 (발급일 모순)",
+     "random_valid_chance": "0.8",
+     "note": "[PLANNED: DATE_LOGIC] 여권 발급일 모순 — 필드간 날짜비교 코드 필요",
+     "corruption_type": "NONE",
+     "target_field": "issue_date"
+    },
+    {
+     "rule_id": "22",
+     "character_type": "전염병 환자",
+     "context": "PCR 요구일(5~7일)",
+     "defect_document": "pcr_test",
+     "violation_field": "test_no",
+     "normal_example": "정상 검사번호",
+     "defect_example": "형식 위반 번호",
+     "secondary_check": "번호 형식 규칙 대조",
+     "random_valid_chance": "고정",
+     "note": "[PLANNED: FORGE_NUMBER] 검사번호 위조 — 형식검증 엔진 필요",
+     "corruption_type": "NONE",
+     "target_field": "test_no"
+    },
+    {
+     "rule_id": "23",
+     "character_type": "전염병 환자",
+     "context": "PCR 요구일(5~7일)",
+     "defect_document": "pcr_test",
+     "violation_field": "issue_date",
+     "normal_example": "검사일 정상",
+     "defect_example": "검사일>유효기한/미래",
+     "secondary_check": "유효기한/오늘과 비교 (검사일 모순)",
+     "random_valid_chance": "고정",
+     "note": "[PLANNED: DATE_LOGIC] 검사일 모순 — 필드간 날짜비교 코드 필요",
+     "corruption_type": "NONE",
+     "target_field": "issue_date"
+    },
+    {
+     "rule_id": "24",
+     "character_type": "장기체류자",
+     "context": "취업증빙 요구일(8일~)",
+     "defect_document": "employment_cert",
+     "violation_field": "cert_no",
+     "normal_example": "정상 증빙번호",
+     "defect_example": "형식 위반 번호",
+     "secondary_check": "번호 형식 규칙 대조",
+     "random_valid_chance": "1",
+     "note": "[PLANNED: FORGE_NUMBER] 증빙번호 위조 — 형식검증 엔진 필요",
+     "corruption_type": "NONE",
+     "target_field": "cert_no"
+    },
+    {
+     "rule_id": "25",
+     "character_type": "장기체류자",
+     "context": "취업증빙 요구일(8일~)",
+     "defect_document": "employment_cert",
+     "violation_field": "job_title",
+     "normal_example": "회사·비자와 정합",
+     "defect_example": "안 맞는 직종",
+     "secondary_check": "비자/규정과 대조 (허용 직종)",
+     "random_valid_chance": "1",
+     "note": "[PLANNED: WRONG_TYPE] 직종 오류 — 멤버십비교+apply_defect 코드 필요",
+     "corruption_type": "NONE",
+     "target_field": "job_title"
+    },
+    {
+     "rule_id": "26",
+     "character_type": "장기체류자",
+     "context": "취업증빙 요구일(8일~)",
+     "defect_document": "employment_cert",
+     "violation_field": "issue_date",
+     "normal_example": "발급일 정상",
+     "defect_example": "발급일>만료일/미래",
+     "secondary_check": "만료일/오늘과 비교 (발급일 모순)",
+     "random_valid_chance": "1",
+     "note": "[PLANNED: DATE_LOGIC] 취업증빙 발급일 모순 — 필드간 날짜비교 코드 필요",
+     "corruption_type": "NONE",
+     "target_field": "issue_date"
+    },
+    {
+     "rule_id": "27",
+     "character_type": "일반 고객",
+     "context": "상시",
+     "defect_document": "여권",
+     "violation_field": "document",
+     "normal_example": "여권 제시",
+     "defect_example": "여권 미제시",
+     "secondary_check": "오늘 요구 서류 목록과 대조",
+     "random_valid_chance": "-",
+     "note": "[PLANNED: MISSING] 여권 통째 누락 (caseType 여권 없음 연계)",
+     "corruption_type": "NONE",
+     "target_field": "document"
+    },
+    {
+     "rule_id": "28",
+     "character_type": "외국인 관광객",
+     "context": "비자 요구일(3일~)",
+     "defect_document": "비자",
+     "violation_field": "document",
+     "normal_example": "비자 제시",
+     "defect_example": "비자 미제시",
+     "secondary_check": "오늘 요구 서류 목록과 대조",
+     "random_valid_chance": "-",
+     "note": "[PLANNED: MISSING] 비자 통째 누락",
+     "corruption_type": "NONE",
+     "target_field": "document"
+    },
+    {
+     "rule_id": "29",
+     "character_type": "전염병 환자",
+     "context": "PCR 요구일(5~7일)",
+     "defect_document": "pcr_test",
+     "violation_field": "document",
+     "normal_example": "PCR 제시",
+     "defect_example": "PCR 미제시",
+     "secondary_check": "오늘 요구 서류 목록과 대조",
+     "random_valid_chance": "-",
+     "note": "[PLANNED: MISSING] PCR검사서 통째 누락",
+     "corruption_type": "NONE",
+     "target_field": "document"
+    },
+    {
+     "rule_id": "30",
+     "character_type": "장기체류자",
+     "context": "취업증빙 요구일(8일~)",
+     "defect_document": "employment_cert",
+     "violation_field": "document",
+     "normal_example": "취업증빙 제시",
+     "defect_example": "취업증빙 미제시",
+     "secondary_check": "오늘 요구 서류 목록과 대조",
+     "random_valid_chance": "-",
+     "note": "[PLANNED: MISSING] 취업증빙 통째 누락",
+     "corruption_type": "NONE",
+     "target_field": "document"
     }
    ],
    "layout": "flat"
@@ -4648,6 +5024,60 @@
      "field": "result",
      "fake_value": "Positive",
      "note": "PCR 양성"
+    },
+    {
+     "pool_id": "14",
+     "field": "visa_no",
+     "fake_value": "V-XX-0000",
+     "note": "형식 위반 비자번호(placeholder) — 활성화 시 실제 형식위반값으로 교체"
+    },
+    {
+     "pool_id": "15",
+     "field": "test_no",
+     "fake_value": "PCR-0000",
+     "note": "형식 위반 검사번호(placeholder)"
+    },
+    {
+     "pool_id": "16",
+     "field": "cert_no",
+     "fake_value": "EMP-000",
+     "note": "형식 위반 증빙번호(placeholder)"
+    },
+    {
+     "pool_id": "17",
+     "field": "gender",
+     "fake_value": "여성",
+     "note": "성별 변조(남→여)"
+    },
+    {
+     "pool_id": "18",
+     "field": "gender",
+     "fake_value": "남성",
+     "note": "성별 변조(여→남)"
+    },
+    {
+     "pool_id": "19",
+     "field": "visa_type",
+     "fake_value": "취업",
+     "note": "관광 요구일에 취업비자(종류 불일치)"
+    },
+    {
+     "pool_id": "20",
+     "field": "visa_type",
+     "fake_value": "학생",
+     "note": "요구와 다른 비자종류"
+    },
+    {
+     "pool_id": "21",
+     "field": "job_title",
+     "fake_value": "단순노무",
+     "note": "취업비자 허용직종 외"
+    },
+    {
+     "pool_id": "22",
+     "field": "job_title",
+     "fake_value": "무직",
+     "note": "직종 불일치"
     }
    ],
    "layout": "flat"
@@ -5389,7 +5819,7 @@
      "payout": "-50",
      "formula": "100 × (-0.5)",
      "item_drop": null,
-     "early_ending": null,
+     "early_ending": "#16",
      "appears_round1": "true",
      "note": "신원 미확인 통과"
     },
@@ -5523,7 +5953,7 @@
     },
     {
      "payout_id": "21",
-     "character_type": "검역 대상자(PCR)",
+     "character_type": "전염병 환자",
      "visit_round": null,
      "doc_state": "normal",
      "defect_variant": "1-A",
@@ -5539,7 +5969,7 @@
     },
     {
      "payout_id": "22",
-     "character_type": "검역 대상자(PCR)",
+     "character_type": "전염병 환자",
      "visit_round": null,
      "doc_state": "normal",
      "defect_variant": "1-A",
@@ -5555,7 +5985,7 @@
     },
     {
      "payout_id": "23",
-     "character_type": "검역 대상자(PCR)",
+     "character_type": "전염병 환자",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": "1-B 출국X/만료",
@@ -5571,7 +6001,7 @@
     },
     {
      "payout_id": "24",
-     "character_type": "검역 대상자(PCR)",
+     "character_type": "전염병 환자",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": "1-B 출국X/만료",
@@ -5587,7 +6017,7 @@
     },
     {
      "payout_id": "25",
-     "character_type": "검역 대상자(PCR)",
+     "character_type": "전염병 환자",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": "1-C 백신X",
@@ -5603,7 +6033,7 @@
     },
     {
      "payout_id": "26",
-     "character_type": "검역 대상자(PCR)",
+     "character_type": "전염병 환자",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": "1-C 백신X",
@@ -5619,7 +6049,7 @@
     },
     {
      "payout_id": "27",
-     "character_type": "검역 대상자(PCR)",
+     "character_type": "전염병 환자",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": "1-D 모두 미비",
@@ -5635,7 +6065,7 @@
     },
     {
      "payout_id": "28",
-     "character_type": "검역 대상자(PCR)",
+     "character_type": "전염병 환자",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": "1-D 모두 미비",
@@ -6408,7 +6838,7 @@
      "score": "-7",
      "score_range": null,
      "title": null,
-     "event_id": null,
+     "event_id": "#16",
      "note": "신원 미확인 통과"
     },
     {
@@ -6491,7 +6921,7 @@
     },
     {
      "score_id": "19",
-     "character_type": "검역 대상자(PCR)",
+     "character_type": "전염병 환자",
      "visit_round": null,
      "doc_state": "normal",
      "defect_variant": "1-A",
@@ -6504,7 +6934,7 @@
     },
     {
      "score_id": "20",
-     "character_type": "검역 대상자(PCR)",
+     "character_type": "전염병 환자",
      "visit_round": null,
      "doc_state": "normal",
      "defect_variant": "1-A",
@@ -6517,7 +6947,7 @@
     },
     {
      "score_id": "21",
-     "character_type": "검역 대상자(PCR)",
+     "character_type": "전염병 환자",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": "1-B 출국X/만료",
@@ -6530,7 +6960,7 @@
     },
     {
      "score_id": "22",
-     "character_type": "검역 대상자(PCR)",
+     "character_type": "전염병 환자",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": "1-B 출국X/만료",
@@ -6543,7 +6973,7 @@
     },
     {
      "score_id": "23",
-     "character_type": "검역 대상자(PCR)",
+     "character_type": "전염병 환자",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": "1-C 백신X",
@@ -6556,7 +6986,7 @@
     },
     {
      "score_id": "24",
-     "character_type": "검역 대상자(PCR)",
+     "character_type": "전염병 환자",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": "1-C 백신X",
@@ -6569,7 +6999,7 @@
     },
     {
      "score_id": "25",
-     "character_type": "검역 대상자(PCR)",
+     "character_type": "전염병 환자",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": "1-D 모두 미비",
@@ -6582,7 +7012,7 @@
     },
     {
      "score_id": "26",
-     "character_type": "검역 대상자(PCR)",
+     "character_type": "전염병 환자",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": "1-D 모두 미비",
