@@ -75,9 +75,12 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
             if (card == null) continue;
             foreach (DocumentFieldView row in card.FieldRows)
             {
-                // 활성 슬롯만 대조 후보로 노출한다(미사용 슬롯은 SetActive(false)로 숨겨져 있음 →
-                //  비활성 빈 슬롯이 유령 대조 후보가 되는 것을 막는다).
-                if (row != null && row.gameObject.activeInHierarchy) yield return row;
+                // 사용 슬롯(activeSelf=true)만 대조 후보로 노출한다. activeInHierarchy 가 아니라 activeSelf 를
+                // 쓰는 이유: 카드가 닫혀 있으면(부모 OpenView 비활성) 사용 슬롯도 activeInHierarchy=false 가 되어
+                // 손님 등장 시점(closed) 구독에서 빠지고, 펼쳐도 재구독이 없어 영영 클릭이 안 잡혔다.
+                // activeSelf 는 카드 개폐와 무관하게 "이 슬롯이 사용 슬롯인지"만 보므로, 닫힌 채 미리 구독되고
+                // 펼치면 바로 클릭된다(비활성 카드의 버튼은 어차피 레이캐스트 안 됨). 미사용 빈 슬롯(activeSelf=false)은 그대로 제외.
+                if (row != null && row.gameObject.activeSelf) yield return row;
             }
         }
     }

@@ -497,6 +497,16 @@
           "country": "",
           "fields": [
             {
+              "label": "영문이름",
+              "value": "WEI WANG",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "CN6667788",
+              "key": "passport_no"
+            },
+            {
               "label": "비자 번호",
               "value": "V-CHN-3766",
               "key": "visa_no"
@@ -1191,6 +1201,16 @@
           "spriteRef": "",
           "country": "",
           "fields": [
+            {
+              "label": "영문이름",
+              "value": "BROWN WILLIAM",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "US1027925",
+              "key": "passport_no"
+            },
             {
               "label": "비자 번호",
               "value": "V-USA-1189",

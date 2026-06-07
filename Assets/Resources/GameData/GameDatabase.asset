@@ -25,8 +25,8 @@ MonoBehaviour:
   fakeValuePool: {fileID: 11400000, guid: 33d500d9656dd4d4a80fd86f859918d9, type: 2}
   xray: {fileID: 11400000, guid: 3d717e3b64484fd4a8bfdd3686b0fad8, type: 2}
   fingerprint: {fileID: 11400000, guid: f17d294eb98ed7149b53da8c866bcb0e, type: 2}
-  dialogueCase: {fileID: 11400000, guid: f165a36bb4294da42ba4db8f537f11a5, type: 2}
-  dialogueLine: {fileID: 11400000, guid: 17d9a7ced6e397d48b91d1959eb88af1, type: 2}
+  dialogueCase: {fileID: 0}
+  dialogueLine: {fileID: 0}
   shop: {fileID: 11400000, guid: 751af770bcc89c347b03c4d73db0625d, type: 2}
   reward: {fileID: 11400000, guid: 98d6974aa3f645944aa77a27874cd155, type: 2}
   ending: {fileID: 11400000, guid: 0857109b7c58ca94b8cde52a619b78ec, type: 2}

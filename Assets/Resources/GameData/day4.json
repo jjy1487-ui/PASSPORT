@@ -503,6 +503,16 @@
           "country": "",
           "fields": [
             {
+              "label": "영문이름",
+              "value": "MILLER JAMES",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "US3334455",
+              "key": "passport_no"
+            },
+            {
               "label": "비자 번호",
               "value": "V-USA-2269",
               "key": "visa_no"
@@ -1412,6 +1422,16 @@
           "spriteRef": "",
           "country": "",
           "fields": [
+            {
+              "label": "영문이름",
+              "value": "WEI WANG",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "CN6667788",
+              "key": "passport_no"
+            },
             {
               "label": "비자 번호",
               "value": "V-CHN-3766",

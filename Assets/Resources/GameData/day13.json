@@ -67,6 +67,16 @@
           "country": "",
           "fields": [
             {
+              "label": "영문이름",
+              "value": "HARUKI SATO",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "JP1012287",
+              "key": "passport_no"
+            },
+            {
               "label": "비자 번호",
               "value": "V-JPN-7484",
               "key": "visa_no"
@@ -551,6 +561,16 @@
           "spriteRef": "",
           "country": "",
           "fields": [
+            {
+              "label": "영문이름",
+              "value": "TANAKA HARUTO",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "JP1029042",
+              "key": "passport_no"
+            },
             {
               "label": "비자 번호",
               "value": "V-JPN-8758",
@@ -1473,6 +1493,16 @@
           "spriteRef": "",
           "country": "",
           "fields": [
+            {
+              "label": "영문이름",
+              "value": "WEI ZHANG",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "CN1030159",
+              "key": "passport_no"
+            },
             {
               "label": "비자 번호",
               "value": "V-CHN-7483",

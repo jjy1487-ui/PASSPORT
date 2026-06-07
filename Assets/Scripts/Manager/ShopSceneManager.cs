@@ -14,6 +14,8 @@ public sealed class ShopSceneManager : MonoBehaviour
     [SerializeField] private Button _backButton;         // [돌아가기] 버튼
     [Tooltip("[돌아가기] 시 복귀할 씬 이름.")]
     [SerializeField] private string _returnScene = "ResultScene";
+    [Tooltip("진입 시 ShopPanelView 의 자동 카드 생성을 열지 여부. 수동 배치 아이템을 쓰는 ShopScene 에서는 끈다.")]
+    [SerializeField] private bool _autoOpenShopPanel = true;
 
     private void Awake()
     {
@@ -26,7 +28,9 @@ public sealed class ShopSceneManager : MonoBehaviour
 
     private void Start()
     {
-        if (_shopPanel != null) _shopPanel.Open(); // 진입하면 바로 상점 표시
+        // _autoOpenShopPanel 이 true 일 때만 자동 카드 생성을 연다.
+        // 수동 배치 아이템 방식의 ShopScene 에서는 false 로 두어 중복 카드 생성을 막는다.
+        if (_autoOpenShopPanel && _shopPanel != null) _shopPanel.Open(); // 진입하면 바로 상점 표시
         if (_backButton != null) _backButton.onClick.AddListener(Back);
     }
 

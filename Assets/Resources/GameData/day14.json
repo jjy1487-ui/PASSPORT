@@ -282,6 +282,16 @@
           "country": "",
           "fields": [
             {
+              "label": "영문이름",
+              "value": "CHEN WEI",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "CN5551234",
+              "key": "passport_no"
+            },
+            {
               "label": "비자 번호",
               "value": "V-CN-9864",
               "key": "visa_no"
@@ -784,6 +794,16 @@
           "country": "",
           "fields": [
             {
+              "label": "영문이름",
+              "value": "REN YAMAMOTO",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "JP1037978",
+              "key": "passport_no"
+            },
+            {
               "label": "비자 번호",
               "value": "V-JPN-8863",
               "key": "visa_no"
@@ -1274,6 +1294,16 @@
           "spriteRef": "",
           "country": "",
           "fields": [
+            {
+              "label": "영문이름",
+              "value": "MILLER JAMES",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "US3334455",
+              "key": "passport_no"
+            },
             {
               "label": "비자 번호",
               "value": "V-USA-2269",

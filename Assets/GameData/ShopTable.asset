@@ -38,6 +38,9 @@ MonoBehaviour:
   - key: effect
     label: "\uD6A8\uACFC"
     type: varchar(200)
+  - key: icon
+    label: "\uC544\uC774\uCF58"
+    type: varchar(50)
   rows:
   - keys:
     - shop_item_id
@@ -48,16 +51,18 @@ MonoBehaviour:
     - effect_type
     - effect_value
     - effect
+    - icon
     values:
     - 1
-    - "\uD655\uB300\uACBD"
+    - "\uC2EC\uB9AC\uC0C1\uB2F4\uC9D1"
     - "\uB3C4\uAD6C"
-    - 150
-    - 11
-    - MAGNIFY
+    - 200
+    - 1
+    - COUNSEL_BOOK
     - 
-    - "\uC11C\uB958 \uC138\uBD80 \uC601\uC5ED\uC744 \uD655\uB300\uD574 \uC815\uBC00
-      \uAC80\uD1A0"
+    - "\uC9C4\uC0C1\xB7\uACA9\uC559 \uC190\uB2D8 \uC9C4\uC815 \uBC0F \uC0C1\uB2F4
+      \uBD84\uAE30 \uBCF4\uC870"
+    - "\uC2EC\uB9AC\uC0C1\uB2F4\uC9D1"
   - keys:
     - shop_item_id
     - item_name
@@ -67,15 +72,18 @@ MonoBehaviour:
     - effect_type
     - effect_value
     - effect
+    - icon
     values:
     - 2
-    - "\uC790\uC678\uC120 \uB7A8\uD504"
+    - "\uC548\uBA74\uC778\uC2DD\uC2A4\uCE90\uB108"
     - "\uB3C4\uAD6C"
-    - 250
-    - 11
-    - UV_LIGHT
+    - 350
+    - 1
+    - FACE_SCANNER
     - 
-    - "\uC704\uC870 \uC11C\uB958\xB7\uBCC0\uC870 \uD754\uC801 \uC2DD\uBCC4"
+    - "\uC131\uD615\xB7\uBABD\uD0C0\uC8FC \uC758\uC2EC\uC790 \uC5BC\uAD74 \uC815\uBC00
+      \uB300\uC870"
+    - "\uC548\uBA74 \uC778\uC2DD \uC2A4\uCE90\uB108"
   - keys:
     - shop_item_id
     - item_name
@@ -85,15 +93,17 @@ MonoBehaviour:
     - effect_type
     - effect_value
     - effect
+    - icon
     values:
     - 3
-    - "\uCD94\uAC00 \uAC80\uC0AC \uC2DC\uAC04"
-    - "\uC18C\uBAA8\uD488"
-    - 100
-    - 11
-    - TIME_BONUS
-    - 30
-    - "\uB2F9\uC77C \uC2EC\uC0AC \uC81C\uD55C\uC2DC\uAC04 +30\uCD08"
+    - "\uC798\uBABB\uB41C\uAD50\uB9AC\uC11C"
+    - "\uB3C4\uAD6C"
+    - 250
+    - 1
+    - CULT_DOCTRINE
+    - 
+    - "\uC0AC\uC774\uBE44 \uC2E0\uB3C4 \uAD50\uB9AC \uC2DD\uBCC4\xB7\uB300\uC751"
+    - "\uC798\uBABB\uB41C \uAD50\uB9AC\uC11C"
   - keys:
     - shop_item_id
     - item_name
@@ -103,84 +113,15 @@ MonoBehaviour:
     - effect_type
     - effect_value
     - effect
+    - icon
     values:
     - 4
-    - "\uCEE4\uD53C"
-    - "\uC18C\uBAA8\uD488"
-    - 80
-    - 11
-    - MISTAKE_FORGIVE
-    - 1
-    - "\uC9D1\uC911\uB825 \uD68C\uBCF5: \uB2E4\uC74C \uC2E4\uC218 1\uD68C \uBB34\uD6A8"
-  - keys:
-    - shop_item_id
-    - item_name
-    - category
-    - price
-    - unlock_day
-    - effect_type
-    - effect_value
-    - effect
-    values:
-    - 5
-    - "\uADDC\uC815\uC9D1 \uD558\uC774\uB77C\uC774\uD130"
-    - "\uC5C5\uADF8\uB808\uC774\uB4DC"
+    - "\uC7A5\uAE30\uCCB4\uB958\uC2DD\uBCC4\uC790"
+    - "\uB3C4\uAD6C"
     - 300
-    - 11
-    - AUTO_HIGHLIGHT
-    - 
-    - "\uC704\uBC18 \uD56D\uBAA9 \uC790\uB3D9 \uAC15\uC870 \uD45C\uC2DC"
-  - keys:
-    - shop_item_id
-    - item_name
-    - category
-    - price
-    - unlock_day
-    - effect_type
-    - effect_value
-    - effect
-    values:
-    - 6
-    - "X-ray \uC815\uBC00 \uC2A4\uCE94\uAD8C"
-    - "\uC18C\uBAA8\uD488"
-    - 200
-    - 11
-    - XRAY_SCAN
     - 1
-    - "\uC740\uB2C9 \uC704\uCE58\uAE4C\uC9C0 \uC815\uBC00 \uD0D0\uC9C0(1\uD68C)"
-  - keys:
-    - shop_item_id
-    - item_name
-    - category
-    - price
-    - unlock_day
-    - effect_type
-    - effect_value
-    - effect
-    values:
-    - 7
-    - "\uC9C0\uBB38 DB \uAC31\uC2E0"
-    - "\uC5C5\uADF8\uB808\uC774\uB4DC"
-    - 350
-    - 13
-    - DB_UPDATE
+    - LONGSTAY_ID
     - 
-    - "\uC9C0\uBA85\uC218\uBC30 \uB370\uC774\uD130\uBCA0\uC774\uC2A4 \uCD5C\uC2E0\uD654"
-  - keys:
-    - shop_item_id
-    - item_name
-    - category
-    - price
-    - unlock_day
-    - effect_type
-    - effect_value
-    - effect
-    values:
-    - 8
-    - "\uAC00\uC871 \uC0C1\uBE44\uC57D"
-    - "\uC18C\uBAA8\uD488"
-    - 120
-    - 11
-    - ANGER_CALM
-    - 
-    - "\uAC00\uC871 \uBD80\uC591: \uC0AC\uAE30 \uC800\uD558 \uBC29\uC9C0"
+    - "\uC7A5\uAE30\uCCB4\uB958\xB7\uCDE8\uC5C5 \uC11C\uB958 \uC9C4\uC704 \uC2DD\uBCC4
+      \uBCF4\uC870"
+    - "\uC7A5\uAE30\uCCB4\uB958 \uC2DD\uBCC4 \uB3C4\uAD6C"

@@ -16,6 +16,7 @@ public sealed class ShopItemCardView : MonoBehaviour
     public enum State { Buyable, Owned, NotEnoughMoney, Locked }
 
     [Header("UI 참조")]
+    [SerializeField] private Image    _iconImage;      // icon (Resources/Shop/<icon>) — 없으면 숨김
     [SerializeField] private TMP_Text _nameText;       // item_name
     [SerializeField] private TMP_Text _categoryText;   // category
     [SerializeField] private TMP_Text _priceText;      // price (Money/Gold 색)
@@ -49,6 +50,8 @@ public sealed class ShopItemCardView : MonoBehaviour
         _shopItemId = row.Get("shop_item_id");
         _onBuy = onBuy;
 
+        BindIcon(row.Get("icon"));
+
         if (_nameText != null) _nameText.text = Safe(row.Get("item_name"));
         if (_categoryText != null) _categoryText.text = Safe(row.Get("category"));
         if (_priceText != null)
@@ -57,6 +60,33 @@ public sealed class ShopItemCardView : MonoBehaviour
             _priceText.color = MoneyGold;
         }
         if (_effectText != null) _effectText.text = Safe(row.Get("effect"));
+    }
+
+    /// <summary>
+    /// shop 행의 icon 키로 아이콘 스프라이트를 로드해 표시한다(규약: Resources/Shop/&lt;icon&gt;).
+    /// 아이콘 키가 비었거나 로드 실패면 아이콘 Image 를 숨긴다. 비율 유지(preserveAspect).
+    /// </summary>
+    private void BindIcon(string iconKey)
+    {
+        if (_iconImage == null) return;
+
+        Sprite sprite = string.IsNullOrEmpty(iconKey)
+            ? null
+            : Resources.Load<Sprite>("Shop/" + iconKey);
+
+        if (sprite != null)
+        {
+            _iconImage.sprite = sprite;
+            _iconImage.preserveAspect = true;
+            _iconImage.enabled = true;
+            _iconImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            if (!string.IsNullOrEmpty(iconKey))
+                Debug.LogWarning($"[ShopItemCardView] 아이콘 로드 실패: Resources/Shop/{iconKey}");
+            _iconImage.gameObject.SetActive(false);
+        }
     }
 
     /// <summary>이 카드의 shop_item_id(상위 패널의 상태 갱신 매칭용).</summary>

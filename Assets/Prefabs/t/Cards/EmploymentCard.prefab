@@ -32,7 +32,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2607247584208154941}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.46, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -107,7 +107,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6480376378854461304}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.46, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -406,48 +406,11 @@ MonoBehaviour:
   _coverChn: {fileID: 6596213298035549781, guid: 13a9447ae2bff7b42a6434c66c45544e, type: 3}
   _coverJpn: {fileID: -3662555290725001338, guid: 82a00045f34f3154e804c55820d16ee3, type: 3}
   _coverUsa: {fileID: -8545742617903702263, guid: 1b77e1fcc7c79e34abad1b5aadb58175, type: 3}
+  _visaClosedCover: {fileID: 0}
+  _pcrClosedCover: {fileID: 0}
   _photoImage: {fileID: 0}
   _stampRoot: {fileID: 2758850246925951939}
   _stampText: {fileID: 894143080639875340}
-  _passportTemplate: {fileID: 0}
-  _passportValueFont: {fileID: 0}
-  _passportSignatureFont: {fileID: 0}
-  _passportValueFontSize: 15
-  _posName: {x: 0.126, y: 0.476}
-  _posBirthDate: {x: 0.126, y: 0.624}
-  _posGender: {x: 0.126, y: 0.769}
-  _posPassportNo: {x: 0.58, y: 0.196}
-  _posNationality: {x: 0.58, y: 0.32}
-  _posIssueDate: {x: 0.58, y: 0.453}
-  _posExpiryDate: {x: 0.758, y: 0.453}
-  _posIssueCountry: {x: 0.58, y: 0.611}
-  _posSignature: {x: 0.58, y: 0.769}
-  _offsetIssueCountry: {x: 53, y: -10}
-  _offsetSignature: {x: 49, y: -3}
-  _dateSlotWidth: 120
-  _visaTemplate: {fileID: 0}
-  _visaClosedCover: {fileID: 0}
-  _posVisaName: {x: 0.42, y: 0.305}
-  _posVisaNationality: {x: 0.42, y: 0.38}
-  _posVisaPassportNo: {x: 0.42, y: 0.455}
-  _posVisaNo: {x: 0.42, y: 0.53}
-  _posVisaType: {x: 0.42, y: 0.605}
-  _posVisaIssueDate: {x: 0.42, y: 0.68}
-  _posVisaExpiryDate: {x: 0.42, y: 0.755}
-  _visaValueOffsetX: -100
-  _visaIssueOffsetX: -66
-  _visaExpiryOffsetX: -115
-  _visaDateWidth: 180
-  _pcrTemplateNegative: {fileID: 0}
-  _pcrTemplatePositive: {fileID: 0}
-  _pcrClosedCover: {fileID: 0}
-  _posPcrName: {x: 0.42, y: 0.298}
-  _posPcrNationality: {x: 0.42, y: 0.366}
-  _posPcrTestNo: {x: 0.42, y: 0.432}
-  _posPcrIssueDate: {x: 0.42, y: 0.501}
-  _posPcrValidUntil: {x: 0.42, y: 0.727}
-  _posPcrLabName: {x: 0.42, y: 0.793}
-  _pcrValueOffsetX: 0
   _pcrBackground: {fileID: 0}
   _pcrNegativeSprite: {fileID: 0}
   _pcrPositiveSprite: {fileID: 0}
@@ -505,7 +468,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34, y: 0.45999998}
   m_AnchorMax: {x: 0.34, y: 0.45999998}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -12, y: -15}
   m_SizeDelta: {x: 280, y: 40}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &21966959098636611
@@ -661,7 +624,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2541514048233901280}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.46, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -900,7 +863,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7362582961504101683}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.46, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -1018,7 +981,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34, y: 0.7}
   m_AnchorMax: {x: 0.34, y: 0.7}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -12, y: -15}
   m_SizeDelta: {x: 280, y: 40}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &7098953104989121972
@@ -2214,7 +2177,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34, y: 0.38}
   m_AnchorMax: {x: 0.34, y: 0.38}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -12, y: -15}
   m_SizeDelta: {x: 280, y: 40}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &8600795766481841320
@@ -3011,7 +2974,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34, y: 0.3}
   m_AnchorMax: {x: 0.34, y: 0.3}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -12, y: -15}
   m_SizeDelta: {x: 280, y: 40}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &3986512461523548531
@@ -3167,7 +3130,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3801293941175503278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.46, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -3345,7 +3308,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34, y: 0.53999996}
   m_AnchorMax: {x: 0.34, y: 0.53999996}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -12, y: -15}
   m_SizeDelta: {x: 280, y: 40}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &3916804092933299641
@@ -3501,7 +3464,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8261980975606644370}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.46, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -3576,7 +3539,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6950550501821383789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.46, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -3658,7 +3621,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34, y: 0.62}
   m_AnchorMax: {x: 0.34, y: 0.62}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -12, y: -15}
   m_SizeDelta: {x: 280, y: 40}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &8561325928434995876

@@ -575,6 +575,16 @@
           "country": "",
           "fields": [
             {
+              "label": "영문이름",
+              "value": "JOHNSON ROBERT",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "US1014521",
+              "key": "passport_no"
+            },
+            {
               "label": "비자 번호",
               "value": "V-USA-1529",
               "key": "visa_no"
@@ -1392,6 +1402,16 @@
           "spriteRef": "",
           "country": "",
           "fields": [
+            {
+              "label": "영문이름",
+              "value": "NA LI",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "CN1015638",
+              "key": "passport_no"
+            },
             {
               "label": "비자 번호",
               "value": "V-CHN-2082",

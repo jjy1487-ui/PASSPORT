@@ -249,3 +249,65 @@ MonoBehaviour:
     - job_title
     - "\uBB34\uC9C1"
     - "\uC9C1\uC885 \uBD88\uC77C\uCE58"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 23
+    - face
+    - "\uC774\uD558\uBBFC"
+    - "\uC0AC\uC9C4 \uBD88\uC77C\uCE58 \uB514\uCF54\uC774(\uBBF8\uBC30\uC815 \uC2E4\uC874
+      \uC5D0\uC14B)"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 24
+    - face
+    - "\uC7A5\uC9C0\uC6D0"
+    - "\uC0AC\uC9C4 \uBD88\uC77C\uCE58 \uB514\uCF54\uC774(\uBBF8\uBC30\uC815 \uC2E4\uC874
+      \uC5D0\uC14B)"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 25
+    - face
+    - "\uC774\uC9C0\uC740"
+    - "\uC0AC\uC9C4 \uBD88\uC77C\uCE58 \uB514\uCF54\uC774(\uD0C0 \uD55C\uAD6D \uC5EC\uC131)"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 26
+    - face
+    - "\uCD5C\uC11C\uC5F0"
+    - "\uC0AC\uC9C4 \uBD88\uC77C\uCE58 \uB514\uCF54\uC774(\uD0C0 \uD55C\uAD6D \uC5EC\uC131)"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 27
+    - face
+    - "\uC1A1\uD558\uB298"
+    - "\uC0AC\uC9C4 \uBD88\uC77C\uCE58 \uB514\uCF54\uC774(\uD0C0 \uD55C\uAD6D \uC5EC\uC131)"
+  - keys:
+    - pool_id
+    - field
+    - fake_value
+    - note
+    values:
+    - 28
+    - face
+    - "\uBC30\uC218\uC815"
+    - "\uC0AC\uC9C4 \uBD88\uC77C\uCE58 \uB514\uCF54\uC774(\uD0C0 \uD55C\uAD6D \uC5EC\uC131)"

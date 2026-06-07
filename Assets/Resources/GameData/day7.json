@@ -67,6 +67,16 @@
           "country": "",
           "fields": [
             {
+              "label": "영문이름",
+              "value": "AOI SUZUKI",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "JP1034627",
+              "key": "passport_no"
+            },
+            {
               "label": "비자 번호",
               "value": "V-JPN-5092",
               "key": "visa_no"
@@ -885,6 +895,16 @@
           "country": "",
           "fields": [
             {
+              "label": "영문이름",
+              "value": "YANG LIU",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "CN1036861",
+              "key": "passport_no"
+            },
+            {
               "label": "비자 번호",
               "value": "V-CHN-3482",
               "key": "visa_no"
@@ -1188,6 +1208,16 @@
           "spriteRef": "",
           "country": "",
           "fields": [
+            {
+              "label": "영문이름",
+              "value": "WEI ZHANG",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "CN1030159",
+              "key": "passport_no"
+            },
             {
               "label": "비자 번호",
               "value": "V-CHN-7483",

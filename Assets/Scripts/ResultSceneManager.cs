@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 /// <summary>
@@ -16,6 +17,7 @@ using TMPro;
 public sealed class ResultSceneManager : MonoBehaviour
 {
     private const int LastDay = 14; // 14일 × 7슬롯 = 98건
+    private const int ShopUnlockDay = 7; // 상점 해금: 8일차 진입 전(=7일차 완료 결과)부터 상점 버튼 노출. 그 전 일자엔 숨김.
     private const string CurrentDayKey = "CurrentDay";           // 진행 일차(브리핑/메인메뉴 공유)
     public const string EarnedMoneyKey = "ResultEarnedMoney";    // 오늘 번 돈(ImmigrationManager 가 적음)
 
@@ -34,6 +36,8 @@ public sealed class ResultSceneManager : MonoBehaviour
     [SerializeField] private ShopPanelView _shopPanel;
     [Tooltip("14일차 종료 엔딩 패널(비활성 시작).")]
     [SerializeField] private EndingPanel _endingPanel;
+    [Tooltip("상점 진입 버튼. 8일차 진입 전(=7일차 완료 결과)부터 보이고, 그 전 일자엔 숨긴다.")]
+    [SerializeField] private Button _shopButton;
 
     private ScoreEconomyManager _economy;
     private int _day;
@@ -51,6 +55,7 @@ public sealed class ResultSceneManager : MonoBehaviour
 
         UpdateSettlement();
         UpdateDayLabel();
+        UpdateShopButtonVisibility();
     }
 
     private void OnDestroy()
@@ -101,6 +106,13 @@ public sealed class ResultSceneManager : MonoBehaviour
     private void UpdateDayLabel()
     {
         if (_dayText != null) _dayText.text = $"{_day}일차 완료";
+    }
+
+    /// <summary>상점 진입 버튼 노출 제어: 8일차 진입 전(=7일차 완료 결과, _day&gt;=7)부터 보이고 그 전 일자엔 숨긴다.
+    /// 참조가 비어 있으면(인스펙터 미연결) 아무것도 하지 않는다(NRE 방지).</summary>
+    private void UpdateShopButtonVisibility()
+    {
+        if (_shopButton != null) _shopButton.gameObject.SetActive(_day >= ShopUnlockDay);
     }
 
     // ── 버튼 핸들러(인스펙터 onClick 바인딩) ───────────────────

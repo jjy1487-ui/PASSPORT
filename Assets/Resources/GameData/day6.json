@@ -575,6 +575,16 @@
           "country": "",
           "fields": [
             {
+              "label": "영문이름",
+              "value": "DAVIS MICHAEL",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "US1035744",
+              "key": "passport_no"
+            },
+            {
               "label": "비자 번호",
               "value": "V-USA-2001",
               "key": "visa_no"
@@ -1133,6 +1143,16 @@
           "country": "",
           "fields": [
             {
+              "label": "영문이름",
+              "value": "YUI TANAKA",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "JP1021223",
+              "key": "passport_no"
+            },
+            {
               "label": "비자 번호",
               "value": "V-JPN-3472",
               "key": "visa_no"
@@ -1437,6 +1457,16 @@
           "country": "",
           "fields": [
             {
+              "label": "영문이름",
+              "value": "BROWN WILLIAM",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "US1027925",
+              "key": "passport_no"
+            },
+            {
               "label": "비자 번호",
               "value": "V-USA-1189",
               "key": "visa_no"
@@ -1740,6 +1770,16 @@
           "spriteRef": "",
           "country": "",
           "fields": [
+            {
+              "label": "영문이름",
+              "value": "TANAKA HARUTO",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "JP1029042",
+              "key": "passport_no"
+            },
             {
               "label": "비자 번호",
               "value": "V-JPN-8758",

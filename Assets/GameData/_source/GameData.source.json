@@ -486,6 +486,11 @@
      "key": "valid_chance",
      "type": "float",
      "label": "정상 확률"
+    },
+    {
+     "key": "customer_name",
+     "type": "string",
+     "label": "캐릭터 이름"
     }
    ],
    "rows": [
@@ -494,686 +499,784 @@
      "day": "1",
      "slot": "1",
      "customer_id": "1",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "김민준"
     },
     {
      "schedule_id": "2",
      "day": "1",
      "slot": "2",
      "customer_id": "3",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "첸 웨이"
     },
     {
      "schedule_id": "3",
      "day": "1",
      "slot": "3",
      "customer_id": "2",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "이지은"
     },
     {
      "schedule_id": "4",
      "day": "1",
      "slot": "4",
      "customer_id": "4",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "제임스 밀러"
     },
     {
      "schedule_id": "5",
      "day": "1",
      "slot": "5",
      "customer_id": "5",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "customer_name": "박철수"
     },
     {
      "schedule_id": "6",
      "day": "1",
      "slot": "6",
      "customer_id": "7",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "왕 웨이"
     },
     {
      "schedule_id": "7",
      "day": "1",
      "slot": "7",
      "customer_id": "6",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "customer_name": "최서연"
     },
     {
      "schedule_id": "8",
      "day": "2",
      "slot": "1",
      "customer_id": "22",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "박지훈"
     },
     {
      "schedule_id": "9",
      "day": "2",
      "slot": "2",
      "customer_id": "20",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "customer_name": "한만수"
     },
     {
      "schedule_id": "10",
      "day": "2",
      "slot": "3",
      "customer_id": "25",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "윌리엄 브라운"
     },
     {
      "schedule_id": "11",
      "day": "2",
      "slot": "4",
      "customer_id": "23",
-     "valid_chance": "0.85"
+     "valid_chance": "0.85",
+     "customer_name": "송하늘"
     },
     {
      "schedule_id": "12",
      "day": "2",
      "slot": "5",
      "customer_id": "24",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "임도현"
     },
     {
      "schedule_id": "13",
      "day": "2",
      "slot": "6",
      "customer_id": "26",
-     "valid_chance": "0.5"
+     "valid_chance": "0.5",
+     "customer_name": "다나카 하루토"
     },
     {
      "schedule_id": "14",
      "day": "2",
      "slot": "7",
      "customer_id": "28",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "오만석"
     },
     {
      "schedule_id": "15",
      "day": "3",
      "slot": "1",
      "customer_id": "27",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "장 웨이"
     },
     {
      "schedule_id": "16",
      "day": "3",
      "slot": "2",
      "customer_id": "1",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "김민준"
     },
     {
      "schedule_id": "17",
      "day": "3",
      "slot": "3",
      "customer_id": "12",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "정유나"
     },
     {
      "schedule_id": "18",
      "day": "3",
      "slot": "4",
      "customer_id": "29",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "customer_name": "배수정"
     },
     {
      "schedule_id": "19",
      "day": "3",
      "slot": "5",
      "customer_id": "2",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "이지은"
     },
     {
      "schedule_id": "20",
      "day": "3",
      "slot": "6",
      "customer_id": "21",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "customer_name": "서지호"
     },
     {
      "schedule_id": "21",
      "day": "3",
      "slot": "7",
      "customer_id": "3",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "첸 웨이"
     },
     {
      "schedule_id": "22",
      "day": "4",
      "slot": "1",
      "customer_id": "5",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "customer_name": "박철수"
     },
     {
      "schedule_id": "23",
      "day": "4",
      "slot": "2",
      "customer_id": "6",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "최서연"
     },
     {
      "schedule_id": "24",
      "day": "4",
      "slot": "3",
      "customer_id": "4",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "제임스 밀러"
     },
     {
      "schedule_id": "25",
      "day": "4",
      "slot": "4",
      "customer_id": "30",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "customer_name": "노가은"
     },
     {
      "schedule_id": "26",
      "day": "4",
      "slot": "5",
      "customer_id": "20",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "customer_name": "한만수"
     },
     {
      "schedule_id": "27",
      "day": "4",
      "slot": "6",
      "customer_id": "22",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "박지훈"
     },
     {
      "schedule_id": "28",
      "day": "4",
      "slot": "7",
      "customer_id": "7",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "왕 웨이"
     },
     {
      "schedule_id": "29",
      "day": "5",
      "slot": "1",
      "customer_id": "28",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "customer_name": "오만석"
     },
     {
      "schedule_id": "30",
      "day": "5",
      "slot": "2",
      "customer_id": "15",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "한지원"
     },
     {
      "schedule_id": "31",
      "day": "5",
      "slot": "3",
      "customer_id": "13",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "로버트 존슨"
     },
     {
      "schedule_id": "32",
      "day": "5",
      "slot": "4",
      "customer_id": "12",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "customer_name": "정유나"
     },
     {
      "schedule_id": "33",
      "day": "5",
      "slot": "5",
      "customer_id": "24",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "임도현"
     },
     {
      "schedule_id": "34",
      "day": "5",
      "slot": "6",
      "customer_id": "14",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "리 나"
     },
     {
      "schedule_id": "35",
      "day": "5",
      "slot": "7",
      "customer_id": "1",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "김민준"
     },
     {
      "schedule_id": "36",
      "day": "6",
      "slot": "1",
      "customer_id": "1",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "김민준"
     },
     {
      "schedule_id": "37",
      "day": "6",
      "slot": "2",
      "customer_id": "29",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "customer_name": "배수정"
     },
     {
      "schedule_id": "38",
      "day": "6",
      "slot": "3",
      "customer_id": "32",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "마이클 데이비스"
     },
     {
      "schedule_id": "39",
      "day": "6",
      "slot": "4",
      "customer_id": "24",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "임도현"
     },
     {
      "schedule_id": "40",
      "day": "6",
      "slot": "5",
      "customer_id": "19",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "다나카 유이"
     },
     {
      "schedule_id": "41",
      "day": "6",
      "slot": "6",
      "customer_id": "25",
-     "valid_chance": "0.5"
+     "valid_chance": "0.5",
+     "customer_name": "윌리엄 브라운"
     },
     {
      "schedule_id": "42",
      "day": "6",
      "slot": "7",
      "customer_id": "26",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "다나카 하루토"
     },
     {
      "schedule_id": "43",
      "day": "7",
      "slot": "1",
      "customer_id": "31",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "스즈키 아오이"
     },
     {
      "schedule_id": "44",
      "day": "7",
      "slot": "2",
      "customer_id": "5",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "customer_name": "박철수"
     },
     {
      "schedule_id": "45",
      "day": "7",
      "slot": "3",
      "customer_id": "23",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "송하늘"
     },
     {
      "schedule_id": "46",
      "day": "7",
      "slot": "4",
      "customer_id": "33",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "류 양"
     },
     {
      "schedule_id": "47",
      "day": "7",
      "slot": "5",
      "customer_id": "27",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "장 웨이"
     },
     {
      "schedule_id": "48",
      "day": "7",
      "slot": "6",
      "customer_id": "1",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "김민준"
     },
     {
      "schedule_id": "49",
      "day": "7",
      "slot": "7",
      "customer_id": "21",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "customer_name": "서지호"
     },
     {
      "schedule_id": "50",
      "day": "8",
      "slot": "1",
      "customer_id": "2",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "이지은"
     },
     {
      "schedule_id": "51",
      "day": "8",
      "slot": "2",
      "customer_id": "20",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "customer_name": "한만수"
     },
     {
      "schedule_id": "52",
      "day": "8",
      "slot": "3",
      "customer_id": "3",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "첸 웨이"
     },
     {
      "schedule_id": "53",
      "day": "8",
      "slot": "4",
      "customer_id": "18",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "첸 리"
     },
     {
      "schedule_id": "54",
      "day": "8",
      "slot": "5",
      "customer_id": "16",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "오현석"
     },
     {
      "schedule_id": "55",
      "day": "8",
      "slot": "6",
      "customer_id": "4",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "제임스 밀러"
     },
     {
      "schedule_id": "56",
      "day": "8",
      "slot": "7",
      "customer_id": "30",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "customer_name": "노가은"
     },
     {
      "schedule_id": "57",
      "day": "9",
      "slot": "1",
      "customer_id": "28",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "customer_name": "오만석"
     },
     {
      "schedule_id": "58",
      "day": "9",
      "slot": "2",
      "customer_id": "6",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "최서연"
     },
     {
      "schedule_id": "59",
      "day": "9",
      "slot": "3",
      "customer_id": "7",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "왕 웨이"
     },
     {
      "schedule_id": "60",
      "day": "9",
      "slot": "4",
      "customer_id": "17",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "윤정호"
     },
     {
      "schedule_id": "61",
      "day": "9",
      "slot": "5",
      "customer_id": "12",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "customer_name": "정유나"
     },
     {
      "schedule_id": "62",
      "day": "9",
      "slot": "6",
      "customer_id": "25",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "윌리엄 브라운"
     },
     {
      "schedule_id": "63",
      "day": "9",
      "slot": "7",
      "customer_id": "1",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "김민준"
     },
     {
      "schedule_id": "64",
      "day": "10",
      "slot": "1",
      "customer_id": "23",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "송하늘"
     },
     {
      "schedule_id": "65",
      "day": "10",
      "slot": "2",
      "customer_id": "29",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "customer_name": "배수정"
     },
     {
      "schedule_id": "66",
      "day": "10",
      "slot": "3",
      "customer_id": "21",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "customer_name": "서지호"
     },
     {
      "schedule_id": "67",
      "day": "10",
      "slot": "4",
      "customer_id": "26",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "다나카 하루토"
     },
     {
      "schedule_id": "68",
      "day": "10",
      "slot": "5",
      "customer_id": "24",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "임도현"
     },
     {
      "schedule_id": "69",
      "day": "10",
      "slot": "6",
      "customer_id": "5",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "customer_name": "박철수"
     },
     {
      "schedule_id": "70",
      "day": "10",
      "slot": "7",
      "customer_id": "3",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "첸 웨이"
     },
     {
      "schedule_id": "71",
      "day": "11",
      "slot": "1",
      "customer_id": "10",
-     "valid_chance": "0.3"
+     "valid_chance": "0.3",
+     "customer_name": "윤서린"
     },
     {
      "schedule_id": "72",
      "day": "11",
      "slot": "2",
      "customer_id": "1",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "김민준"
     },
     {
      "schedule_id": "73",
      "day": "11",
      "slot": "3",
      "customer_id": "3",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "첸 웨이"
     },
     {
      "schedule_id": "74",
      "day": "11",
      "slot": "4",
      "customer_id": "20",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "customer_name": "한만수"
     },
     {
      "schedule_id": "75",
      "day": "11",
      "slot": "5",
      "customer_id": "30",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "customer_name": "노가은"
     },
     {
      "schedule_id": "76",
      "day": "11",
      "slot": "6",
      "customer_id": "4",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "제임스 밀러"
     },
     {
      "schedule_id": "77",
      "day": "11",
      "slot": "7",
      "customer_id": "2",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "이지은"
     },
     {
      "schedule_id": "78",
      "day": "12",
      "slot": "1",
      "customer_id": "6",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "최서연"
     },
     {
      "schedule_id": "79",
      "day": "12",
      "slot": "2",
      "customer_id": "7",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "왕 웨이"
     },
     {
      "schedule_id": "80",
      "day": "12",
      "slot": "3",
      "customer_id": "8",
-     "valid_chance": "0.3"
+     "valid_chance": "0.3",
+     "customer_name": "존 카터"
     },
     {
      "schedule_id": "81",
      "day": "12",
      "slot": "4",
      "customer_id": "28",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "customer_name": "오만석"
     },
     {
      "schedule_id": "82",
      "day": "12",
      "slot": "5",
      "customer_id": "12",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "customer_name": "정유나"
     },
     {
      "schedule_id": "83",
      "day": "12",
      "slot": "6",
      "customer_id": "3",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "첸 웨이"
     },
     {
      "schedule_id": "84",
      "day": "12",
      "slot": "7",
      "customer_id": "22",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "박지훈"
     },
     {
      "schedule_id": "85",
      "day": "13",
      "slot": "1",
      "customer_id": "11",
-     "valid_chance": "0.25"
+     "valid_chance": "0.25",
+     "customer_name": "사토 하루키"
     },
     {
      "schedule_id": "86",
      "day": "13",
      "slot": "2",
      "customer_id": "23",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "송하늘"
     },
     {
      "schedule_id": "87",
      "day": "13",
      "slot": "3",
      "customer_id": "26",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "다나카 하루토"
     },
     {
      "schedule_id": "88",
      "day": "13",
      "slot": "4",
      "customer_id": "1",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "김민준"
     },
     {
      "schedule_id": "89",
      "day": "13",
      "slot": "5",
      "customer_id": "29",
-     "valid_chance": "0.75"
+     "valid_chance": "0.75",
+     "customer_name": "배수정"
     },
     {
      "schedule_id": "90",
      "day": "13",
      "slot": "6",
      "customer_id": "21",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "customer_name": "서지호"
     },
     {
      "schedule_id": "91",
      "day": "13",
      "slot": "7",
      "customer_id": "27",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "장 웨이"
     },
     {
      "schedule_id": "92",
      "day": "14",
      "slot": "1",
      "customer_id": "1",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "김민준"
     },
     {
      "schedule_id": "93",
      "day": "14",
      "slot": "2",
      "customer_id": "3",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "첸 웨이"
     },
     {
      "schedule_id": "94",
      "day": "14",
      "slot": "3",
      "customer_id": "9",
-     "valid_chance": "0.3"
+     "valid_chance": "0.3",
+     "customer_name": "강도식"
     },
     {
      "schedule_id": "95",
      "day": "14",
      "slot": "4",
      "customer_id": "34",
-     "valid_chance": "0.25"
+     "valid_chance": "0.25",
+     "customer_name": "야마모토 렌"
     },
     {
      "schedule_id": "96",
      "day": "14",
      "slot": "5",
      "customer_id": "30",
-     "valid_chance": "0.7"
+     "valid_chance": "0.7",
+     "customer_name": "노가은"
     },
     {
      "schedule_id": "97",
      "day": "14",
      "slot": "6",
      "customer_id": "4",
-     "valid_chance": "0"
+     "valid_chance": "0",
+     "customer_name": "제임스 밀러"
     },
     {
      "schedule_id": "98",
      "day": "14",
      "slot": "7",
      "customer_id": "2",
-     "valid_chance": "1"
+     "valid_chance": "1",
+     "customer_name": "이지은"
     }
    ],
    "layout": "relational"
@@ -2877,88 +2980,57 @@
      "key": "effect",
      "type": "varchar(200)",
      "label": "효과"
+    },
+    {
+     "key": "icon",
+     "type": "varchar(50)",
+     "label": "아이콘"
     }
    ],
    "rows": [
     {
      "shop_item_id": "1",
-     "item_name": "확대경",
+     "item_name": "심리상담집",
      "category": "도구",
-     "price": "150",
-     "unlock_day": "11",
-     "effect_type": "MAGNIFY",
+     "price": "200",
+     "unlock_day": "1",
+     "effect_type": "COUNSEL_BOOK",
      "effect_value": null,
-     "effect": "서류 세부 영역을 확대해 정밀 검토"
+     "effect": "진상·격앙 손님 진정 및 상담 분기 보조",
+     "icon": "심리상담집"
     },
     {
      "shop_item_id": "2",
-     "item_name": "자외선 램프",
+     "item_name": "안면인식스캐너",
      "category": "도구",
-     "price": "250",
-     "unlock_day": "11",
-     "effect_type": "UV_LIGHT",
+     "price": "350",
+     "unlock_day": "1",
+     "effect_type": "FACE_SCANNER",
      "effect_value": null,
-     "effect": "위조 서류·변조 흔적 식별"
+     "effect": "성형·몽타주 의심자 얼굴 정밀 대조",
+     "icon": "안면 인식 스캐너"
     },
     {
      "shop_item_id": "3",
-     "item_name": "추가 검사 시간",
-     "category": "소모품",
-     "price": "100",
-     "unlock_day": "11",
-     "effect_type": "TIME_BONUS",
-     "effect_value": "30",
-     "effect": "당일 심사 제한시간 +30초"
+     "item_name": "잘못된교리서",
+     "category": "도구",
+     "price": "250",
+     "unlock_day": "1",
+     "effect_type": "CULT_DOCTRINE",
+     "effect_value": null,
+     "effect": "사이비 신도 교리 식별·대응",
+     "icon": "잘못된 교리서"
     },
     {
      "shop_item_id": "4",
-     "item_name": "커피",
-     "category": "소모품",
-     "price": "80",
-     "unlock_day": "11",
-     "effect_type": "MISTAKE_FORGIVE",
-     "effect_value": "1",
-     "effect": "집중력 회복: 다음 실수 1회 무효"
-    },
-    {
-     "shop_item_id": "5",
-     "item_name": "규정집 하이라이터",
-     "category": "업그레이드",
+     "item_name": "장기체류식별자",
+     "category": "도구",
      "price": "300",
-     "unlock_day": "11",
-     "effect_type": "AUTO_HIGHLIGHT",
+     "unlock_day": "1",
+     "effect_type": "LONGSTAY_ID",
      "effect_value": null,
-     "effect": "위반 항목 자동 강조 표시"
-    },
-    {
-     "shop_item_id": "6",
-     "item_name": "X-ray 정밀 스캔권",
-     "category": "소모품",
-     "price": "200",
-     "unlock_day": "11",
-     "effect_type": "XRAY_SCAN",
-     "effect_value": "1",
-     "effect": "은닉 위치까지 정밀 탐지(1회)"
-    },
-    {
-     "shop_item_id": "7",
-     "item_name": "지문 DB 갱신",
-     "category": "업그레이드",
-     "price": "350",
-     "unlock_day": "13",
-     "effect_type": "DB_UPDATE",
-     "effect_value": null,
-     "effect": "지명수배 데이터베이스 최신화"
-    },
-    {
-     "shop_item_id": "8",
-     "item_name": "가족 상비약",
-     "category": "소모품",
-     "price": "120",
-     "unlock_day": "11",
-     "effect_type": "ANGER_CALM",
-     "effect_value": null,
-     "effect": "가족 부양: 사기 저하 방지"
+     "effect": "장기체류·취업 서류 진위 식별 보조",
+     "icon": "장기체류 식별 도구"
     }
    ],
    "layout": "relational"

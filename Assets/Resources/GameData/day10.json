@@ -718,6 +718,16 @@
           "country": "",
           "fields": [
             {
+              "label": "영문이름",
+              "value": "TANAKA HARUTO",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "JP1029042",
+              "key": "passport_no"
+            },
+            {
               "label": "비자 번호",
               "value": "V-JPN-8758",
               "key": "visa_no"
@@ -1412,6 +1422,16 @@
           "spriteRef": "",
           "country": "",
           "fields": [
+            {
+              "label": "영문이름",
+              "value": "CHEN WEI",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "CN5551234",
+              "key": "passport_no"
+            },
             {
               "label": "비자 번호",
               "value": "V-CN-9864",

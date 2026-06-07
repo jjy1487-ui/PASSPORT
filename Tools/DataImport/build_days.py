@@ -240,6 +240,20 @@ def employment_fields(emp_row, passport_row):
     ]
 
 
+def visa_fields(visa_row, columns, passport_row):
+    """비자 fields[] — VisaCard 양식의 이름/여권번호 슬롯(_fieldKey=name/passport_no)을 채운다.
+    이름·여권번호는 visa 시트에 없고 그 손님 여권과 동일해야 하므로 passport 에서 조인한다
+    (여권 표시값과 같은 소스 = 정상 일치 보장 + 비자↔여권 대조 가능. 여권 필드가 위조되면
+    비자는 원본을 유지하므로 불일치로 적발됨 — 취업증빙과 동일한 조인 규칙).
+    라벨 '영문이름'/'여권번호'는 tag_fields 가 key=name/passport_no 로 변환한다.
+    나머지(비자번호/종류/국적/발급·만료일/입국횟수/비고)는 visa 시트 컬럼에서 가져온다."""
+    joined = [
+        {"label": "영문이름", "value": clean_name(passport_row["name_en"])},
+        {"label": "여권번호", "value": passport_row["passport_no"]},
+    ]
+    return joined + fields_from_sheet(visa_row, columns, {"visa_id", "customer_id"})
+
+
 # ── 결함 주입 ────────────────────────────────────────────────
 # corruption_type 별 변조 함수. 각 함수는 (fields, target_key, ctx) -> 변조된 한글 라벨 반환.
 KO_LABEL = {  # snake_case target_field -> 서류 fields의 한글 라벨
@@ -718,7 +732,7 @@ def build():
                 documents.append({
                     "documentType": "비자", "variant": "정상", "violationField": "없음",
                     "spriteRef": "", "country": "",
-                    "fields": tag_fields(fields_from_sheet(visas[cid], visa_cols, {"visa_id", "customer_id"})),
+                    "fields": tag_fields(visa_fields(visas[cid], visa_cols, pp)),
                 })
             # PCR검사서
             if "PCR검사서" in req_docs and cid in pcrs:
