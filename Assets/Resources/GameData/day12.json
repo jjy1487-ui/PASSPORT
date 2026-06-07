@@ -10,7 +10,7 @@
       "gender": "여성",
       "birthDate": "1988-06-30",
       "age": 37,
-      "spriteRef": "spr_c006",
+      "spriteRef": "최서연",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c6",
+          "spriteRef": "최서연",
           "country": "KOR",
           "fields": [
             {
@@ -225,7 +225,7 @@
       "gender": "남성",
       "birthDate": "1993-12-05",
       "age": 32,
-      "spriteRef": "spr_c007",
+      "spriteRef": "왕 웨이",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -234,7 +234,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_7",
+          "spriteRef": "왕 웨이",
           "country": "CHN",
           "fields": [
             {
@@ -490,7 +490,7 @@
       "gender": "남성",
       "birthDate": "1980-05-20",
       "age": 45,
-      "spriteRef": "spr_c008",
+      "spriteRef": "존 카터",
       "characterType": "범죄자(외국 도피자)",
       "defectVariant": "",
       "correctResult": "정상 거절",
@@ -499,7 +499,7 @@
           "documentType": "여권",
           "variant": "비정상",
           "violationField": "여권번호",
-          "spriteRef": "photo_c8",
+          "spriteRef": "존 카터",
           "country": "USA",
           "fields": [
             {
@@ -766,7 +766,7 @@
       "gender": "남성",
       "birthDate": "1975-02-11",
       "age": 51,
-      "spriteRef": "spr_c028",
+      "spriteRef": "오만석",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 거절",
@@ -775,7 +775,7 @@
           "documentType": "여권",
           "variant": "비정상",
           "violationField": "생년월일",
-          "spriteRef": "photo_c28",
+          "spriteRef": "오만석",
           "country": "KOR",
           "fields": [
             {
@@ -987,7 +987,7 @@
       "gender": "여성",
       "birthDate": "1996-04-12",
       "age": 30,
-      "spriteRef": "spr_c012",
+      "spriteRef": "정유나",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
       "correctResult": "정상 거절",
@@ -996,7 +996,7 @@
           "documentType": "여권",
           "variant": "비정상",
           "violationField": "사진",
-          "spriteRef": "photo_mismatch",
+          "spriteRef": "송하늘",
           "country": "KOR",
           "fields": [
             {
@@ -1208,7 +1208,7 @@
       "gender": "남성",
       "birthDate": "1978-11-08",
       "age": 47,
-      "spriteRef": "spr_c003",
+      "spriteRef": "첸 웨이",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -1217,7 +1217,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_3",
+          "spriteRef": "첸 웨이",
           "country": "CHN",
           "fields": [
             {
@@ -1473,7 +1473,7 @@
       "gender": "남성",
       "birthDate": "1990-01-20",
       "age": 36,
-      "spriteRef": "spr_c022",
+      "spriteRef": "박지훈",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1482,7 +1482,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c22",
+          "spriteRef": "박지훈",
           "country": "KOR",
           "fields": [
             {
@@ -1683,9 +1683,9 @@
   "rules": [
     {
       "ruleId": 6,
-      "title": "특별",
-      "content": "테러 발생 지시",
-      "relatedField": "테러 발생 시 지정 대상자는 입국할 수 없다.",
+      "title": "테러 발생 지시",
+      "content": "테러 발생 시 지정 대상자는 입국할 수 없다.",
+      "relatedField": "",
       "attr": ""
     }
   ],

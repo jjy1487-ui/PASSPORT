@@ -10,7 +10,7 @@
       "gender": "남성",
       "birthDate": "1985-03-15",
       "age": 41,
-      "spriteRef": "spr_c001",
+      "spriteRef": "김민준",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_1",
+          "spriteRef": "김민준",
           "country": "KOR",
           "fields": [
             {
@@ -225,7 +225,7 @@
       "gender": "남성",
       "birthDate": "1978-11-08",
       "age": 47,
-      "spriteRef": "spr_c003",
+      "spriteRef": "첸 웨이",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -234,7 +234,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_3",
+          "spriteRef": "첸 웨이",
           "country": "CHN",
           "fields": [
             {
@@ -490,7 +490,7 @@
       "gender": "남성",
       "birthDate": "1987-03-11",
       "age": 38,
-      "spriteRef": "spr_c009",
+      "spriteRef": "강도식",
       "characterType": "범죄자(국내 유입자)",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -499,7 +499,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c9",
+          "spriteRef": "강도식",
           "country": "KOR",
           "fields": [
             {
@@ -727,7 +727,7 @@
       "gender": "남성",
       "birthDate": "1982-03-22",
       "age": 44,
-      "spriteRef": "spr_c034",
+      "spriteRef": "야마모토 렌",
       "characterType": "테러범",
       "defectVariant": "",
       "correctResult": "정상 거절",
@@ -736,7 +736,7 @@
           "documentType": "여권",
           "variant": "비정상",
           "violationField": "여권번호",
-          "spriteRef": "photo_c34",
+          "spriteRef": "야마모토 렌",
           "country": "JPN",
           "fields": [
             {
@@ -1003,7 +1003,7 @@
       "gender": "여성",
       "birthDate": "1999-05-05",
       "age": 27,
-      "spriteRef": "spr_c030",
+      "spriteRef": "노가은",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1012,7 +1012,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c30",
+          "spriteRef": "노가은",
           "country": "KOR",
           "fields": [
             {
@@ -1218,7 +1218,7 @@
       "gender": "여성",
       "birthDate": "1995-02-28",
       "age": 31,
-      "spriteRef": "spr_c004",
+      "spriteRef": "제임스 밀러",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -1227,7 +1227,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_4",
+          "spriteRef": "제임스 밀러",
           "country": "USA",
           "fields": [
             {
@@ -1483,7 +1483,7 @@
       "gender": "여성",
       "birthDate": "1990-07-22",
       "age": 35,
-      "spriteRef": "spr_c002",
+      "spriteRef": "이지은",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1492,7 +1492,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c2",
+          "spriteRef": "이지은",
           "country": "KOR",
           "fields": [
             {

@@ -319,8 +319,9 @@ def apply_expire(doc, fields):
     return "만료일"
 
 
-def apply_defect(doc, fields, corruption_type, target_key, fake_pool, ctx):
-    """단일 결함 1개 주입. 변조된 한글 라벨을 반환."""
+def apply_defect(doc, fields, corruption_type, target_key, fake_pool, ctx, ctx_self_name=""):
+    """단일 결함 1개 주입. 변조된 한글 라벨을 반환.
+    ctx_self_name: 사진 결함 시 디코이로 본인 에셋을 고르지 않도록 손님 본인 한글 이름."""
     label = KO_LABEL.get(target_key, target_key)
 
     if corruption_type == "EXPIRE":
@@ -347,7 +348,18 @@ def apply_defect(doc, fields, corruption_type, target_key, fake_pool, ctx):
         return label
 
     if corruption_type == "MISMATCH_PHOTO":
-        doc["spriteRef"] = "photo_mismatch"
+        # 사진 결함: 손님 본인이 아닌 다른 실존 인물 에셋(한글 이름)을 디코이로 끼운다.
+        # → 얼굴 대조 시 customer.spriteRef(본인) ≠ 여권 사진(디코이) 로 불일치 적발 가능.
+        # fake_value_pool 의 face 항목(실존 PNG 이름)에서 본인 이름을 제외하고 결정론적 선택.
+        # ctx = (day, slot, customer_id). 본인 이름은 ctx_self_name 으로 전달(없으면 제외 생략).
+        self_name = (ctx_self_name or "").strip()
+        face_cands = [r["fake_value"] for r in fake_pool
+                      if r["field"] == "face" and (r["fake_value"] or "").strip() != self_name]
+        if face_cands:
+            doc["spriteRef"] = seeded_pick(face_cands, "fakeface", *ctx)
+        else:
+            # 폴백: face 풀이 비었으면 표식만 남긴다(로드 실패 → 플레이스홀더).
+            doc["spriteRef"] = "photo_mismatch"
         return "사진"
 
     if corruption_type == "FORGE_NUMBER":
@@ -773,7 +785,7 @@ def build():
 
                     if target_doc is not None:
                         vlabel = apply_defect(target_doc, target_doc["fields"], ct, tf, fake_pool,
-                                              (day, slot, cid))
+                                              (day, slot, cid), ctx_self_name=cust.get("name_kr", ""))
                         if vlabel:
                             target_doc["variant"] = "비정상"
                             target_doc["violationField"] = vlabel
@@ -834,10 +846,12 @@ def build():
             localize_speakers(customer_entry)
             day_customers.append(customer_entry)
 
+        # rule_book 은 사용자가 컬럼을 줄일 수 있다(related_field 제거 등) → .get 으로 흡수.
         day_rules = [
-            {"ruleId": int(r["rule_id"]), "title": r["rule_title"],
-             "content": r["rule_content"], "relatedField": r["related_field"],
-             "attr": attr_for_label(r["related_field"])}
+            {"ruleId": int(r["rule_id"]), "title": r.get("rule_title", ""),
+             "content": r.get("rule_content", ""),
+             "relatedField": r.get("related_field", "") or "",
+             "attr": attr_for_label(r.get("related_field", ""))}
             for r in rule_book if int(r["day"]) == day
         ]
         day_news = [

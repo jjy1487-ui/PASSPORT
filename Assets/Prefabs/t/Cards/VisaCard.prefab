@@ -785,7 +785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PassportDocument
   _openView: {fileID: 5800857303489744225}
   _closedView: {fileID: 4775155849575575030}
-  _openZone: {fileID: 8244922810913390572, guid: 8eb822e3243499945b20a96e83f567cc, type: 3}
+  _openZone: {fileID: 0}
 --- !u!114 &8833700666795877534
 MonoBehaviour:
   m_ObjectHideFlags: 0

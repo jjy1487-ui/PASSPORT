@@ -10,7 +10,7 @@
       "gender": "남성",
       "birthDate": "1984-01-02",
       "age": 41,
-      "spriteRef": "spr_c011",
+      "spriteRef": "사토 하루키",
       "characterType": "테러범",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c11",
+          "spriteRef": "사토 하루키",
           "country": "JPN",
           "fields": [
             {
@@ -280,7 +280,7 @@
       "gender": "여성",
       "birthDate": "1993-04-09",
       "age": 33,
-      "spriteRef": "spr_c023",
+      "spriteRef": "송하늘",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -289,7 +289,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c23",
+          "spriteRef": "송하늘",
           "country": "KOR",
           "fields": [
             {
@@ -495,7 +495,7 @@
       "gender": "남성",
       "birthDate": "1989-11-25",
       "age": 36,
-      "spriteRef": "spr_c026",
+      "spriteRef": "다나카 하루토",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -504,7 +504,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c26",
+          "spriteRef": "다나카 하루토",
           "country": "JPN",
           "fields": [
             {
@@ -760,7 +760,7 @@
       "gender": "남성",
       "birthDate": "1985-03-15",
       "age": 41,
-      "spriteRef": "spr_c001",
+      "spriteRef": "김민준",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -769,7 +769,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_1",
+          "spriteRef": "김민준",
           "country": "KOR",
           "fields": [
             {
@@ -975,7 +975,7 @@
       "gender": "여성",
       "birthDate": "1983-09-30",
       "age": 42,
-      "spriteRef": "spr_c029",
+      "spriteRef": "배수정",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 거절",
@@ -984,7 +984,7 @@
           "documentType": "여권",
           "variant": "비정상",
           "violationField": "생년월일",
-          "spriteRef": "photo_c29",
+          "spriteRef": "배수정",
           "country": "KOR",
           "fields": [
             {
@@ -1196,7 +1196,7 @@
       "gender": "여성",
       "birthDate": "1997-11-20",
       "age": 28,
-      "spriteRef": "spr_c021",
+      "spriteRef": "서지호",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
       "correctResult": "정상 거절",
@@ -1205,7 +1205,7 @@
           "documentType": "여권",
           "variant": "비정상",
           "violationField": "사진",
-          "spriteRef": "photo_mismatch",
+          "spriteRef": "배수정",
           "country": "KOR",
           "fields": [
             {
@@ -1417,7 +1417,7 @@
       "gender": "남성",
       "birthDate": "1991-06-14",
       "age": 34,
-      "spriteRef": "spr_c027",
+      "spriteRef": "장 웨이",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -1426,7 +1426,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c27",
+          "spriteRef": "장 웨이",
           "country": "CHN",
           "fields": [
             {

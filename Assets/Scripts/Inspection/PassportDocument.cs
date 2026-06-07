@@ -66,8 +66,14 @@ public sealed class PassportDocument : MonoBehaviour, IBeginDragHandler, IDragHa
     {
         Camera cam = (_canvas != null && _canvas.renderMode != RenderMode.ScreenSpaceOverlay)
             ? _canvas.worldCamera : null;
-        bool onDesk = _openZone != null
-            && RectTransformUtility.RectangleContainsScreenPoint(_openZone, eventData.position, cam);
+
+        // 펼침 영역(책상)이 비어 있으면 부모 Canvas 를 폴백으로 써서 "화면 위라면 펼침"을 보장한다.
+        // (정상 경로: DocumentView.StartClosed 가 ConfigureOpenZone 으로 실제 책상을 주입)
+        RectTransform zone = _openZone != null ? _openZone
+            : (_canvas != null ? _canvas.transform as RectTransform : null);
+
+        bool onDesk = zone != null
+            && RectTransformUtility.RectangleContainsScreenPoint(zone, eventData.position, cam);
         SetOpen(onDesk); // 책상 위면 펼침, 밖이면 접힘
     }
 }

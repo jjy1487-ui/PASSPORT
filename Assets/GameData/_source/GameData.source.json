@@ -58,7 +58,7 @@
      "gender": "남성",
      "birth_date": "1985-03-15",
      "age": "41",
-     "sprite_ref": "spr_c001",
+     "sprite_ref": "김민준",
      "character_type": "일반 고객"
     },
     {
@@ -69,7 +69,7 @@
      "gender": "여성",
      "birth_date": "1990-07-22",
      "age": "35",
-     "sprite_ref": "spr_c002",
+     "sprite_ref": "이지은",
      "character_type": "일반 고객"
     },
     {
@@ -80,7 +80,7 @@
      "gender": "남성",
      "birth_date": "1978-11-08",
      "age": "47",
-     "sprite_ref": "spr_c003",
+     "sprite_ref": "첸 웨이",
      "character_type": "외국인 관광객"
     },
     {
@@ -91,7 +91,7 @@
      "gender": "여성",
      "birth_date": "1995-02-28",
      "age": "31",
-     "sprite_ref": "spr_c004",
+     "sprite_ref": "제임스 밀러",
      "character_type": "외국인 관광객"
     },
     {
@@ -102,7 +102,7 @@
      "gender": "남성",
      "birth_date": "1982-09-14",
      "age": "43",
-     "sprite_ref": "spr_c005",
+     "sprite_ref": "박철수",
      "character_type": "진상 고객"
     },
     {
@@ -113,7 +113,7 @@
      "gender": "여성",
      "birth_date": "1988-06-30",
      "age": "37",
-     "sprite_ref": "spr_c006",
+     "sprite_ref": "최서연",
      "character_type": "일반 고객"
     },
     {
@@ -124,7 +124,7 @@
      "gender": "남성",
      "birth_date": "1993-12-05",
      "age": "32",
-     "sprite_ref": "spr_c007",
+     "sprite_ref": "왕 웨이",
      "character_type": "외국인 관광객"
     },
     {
@@ -135,7 +135,7 @@
      "gender": "남성",
      "birth_date": "1980-05-20",
      "age": "45",
-     "sprite_ref": "spr_c008",
+     "sprite_ref": "존 카터",
      "character_type": "범죄자(외국 도피자)"
     },
     {
@@ -146,7 +146,7 @@
      "gender": "남성",
      "birth_date": "1987-03-11",
      "age": "38",
-     "sprite_ref": "spr_c009",
+     "sprite_ref": "강도식",
      "character_type": "범죄자(국내 유입자)"
     },
     {
@@ -157,7 +157,7 @@
      "gender": "여성",
      "birth_date": "1991-08-08",
      "age": "34",
-     "sprite_ref": "spr_c010",
+     "sprite_ref": "윤서린",
      "character_type": "범죄자(성형수술)"
     },
     {
@@ -168,7 +168,7 @@
      "gender": "남성",
      "birth_date": "1984-01-02",
      "age": "41",
-     "sprite_ref": "spr_c011",
+     "sprite_ref": "사토 하루키",
      "character_type": "테러범"
     },
     {
@@ -179,7 +179,7 @@
      "gender": "여성",
      "birth_date": "1996-04-12",
      "age": "30",
-     "sprite_ref": "spr_c012",
+     "sprite_ref": "정유나",
      "character_type": "성형 의심 고객"
     },
     {
@@ -190,7 +190,7 @@
      "gender": "남성",
      "birth_date": "1989-09-03",
      "age": "36",
-     "sprite_ref": "spr_c013",
+     "sprite_ref": "로버트 존슨",
      "character_type": "전염병 환자"
     },
     {
@@ -201,7 +201,7 @@
      "gender": "여성",
      "birth_date": "1993-07-19",
      "age": "32",
-     "sprite_ref": "spr_c014",
+     "sprite_ref": "리 나",
      "character_type": "전염병 환자"
     },
     {
@@ -212,7 +212,7 @@
      "gender": "여성",
      "birth_date": "1998-02-25",
      "age": "28",
-     "sprite_ref": "spr_c015",
+     "sprite_ref": "한지원",
      "character_type": "특수(연예인)★"
     },
     {
@@ -223,7 +223,7 @@
      "gender": "남성",
      "birth_date": "1955-06-01",
      "age": "70",
-     "sprite_ref": "spr_c016",
+     "sprite_ref": "오현석",
      "character_type": "특수(현자)★"
     },
     {
@@ -234,7 +234,7 @@
      "gender": "남성",
      "birth_date": "1965-10-10",
      "age": "60",
-     "sprite_ref": "spr_c017",
+     "sprite_ref": "윤정호",
      "character_type": "특수(정치인)★"
     },
     {
@@ -245,7 +245,7 @@
      "gender": "남성",
      "birth_date": "1986-05-30",
      "age": "39",
-     "sprite_ref": "spr_c018",
+     "sprite_ref": "첸 리",
      "character_type": "장기체류자"
     },
     {
@@ -256,7 +256,7 @@
      "gender": "남성",
      "birth_date": "1990-12-12",
      "age": "35",
-     "sprite_ref": "spr_c019",
+     "sprite_ref": "다나카 유이",
      "character_type": "전염병 환자"
     },
     {
@@ -267,7 +267,7 @@
      "gender": "남성",
      "birth_date": "1979-05-05",
      "age": "47",
-     "sprite_ref": "spr_c020",
+     "sprite_ref": "한만수",
      "character_type": "진상 고객"
     },
     {
@@ -278,7 +278,7 @@
      "gender": "여성",
      "birth_date": "1997-11-20",
      "age": "28",
-     "sprite_ref": "spr_c021",
+     "sprite_ref": "서지호",
      "character_type": "성형 의심 고객"
     },
     {
@@ -289,7 +289,7 @@
      "gender": "남성",
      "birth_date": "1990-01-20",
      "age": "36",
-     "sprite_ref": "spr_c022",
+     "sprite_ref": "박지훈",
      "character_type": "일반 고객"
     },
     {
@@ -300,7 +300,7 @@
      "gender": "여성",
      "birth_date": "1993-04-09",
      "age": "33",
-     "sprite_ref": "spr_c023",
+     "sprite_ref": "송하늘",
      "character_type": "일반 고객"
     },
     {
@@ -311,7 +311,7 @@
      "gender": "남성",
      "birth_date": "1986-08-17",
      "age": "39",
-     "sprite_ref": "spr_c024",
+     "sprite_ref": "임도현",
      "character_type": "일반 고객"
     },
     {
@@ -322,7 +322,7 @@
      "gender": "여성",
      "birth_date": "1994-03-03",
      "age": "32",
-     "sprite_ref": "spr_c025",
+     "sprite_ref": "윌리엄 브라운",
      "character_type": "외국인 관광객"
     },
     {
@@ -333,7 +333,7 @@
      "gender": "남성",
      "birth_date": "1989-11-25",
      "age": "36",
-     "sprite_ref": "spr_c026",
+     "sprite_ref": "다나카 하루토",
      "character_type": "외국인 관광객"
     },
     {
@@ -344,7 +344,7 @@
      "gender": "남성",
      "birth_date": "1991-06-14",
      "age": "34",
-     "sprite_ref": "spr_c027",
+     "sprite_ref": "장 웨이",
      "character_type": "외국인 관광객"
     },
     {
@@ -355,7 +355,7 @@
      "gender": "남성",
      "birth_date": "1975-02-11",
      "age": "51",
-     "sprite_ref": "spr_c028",
+     "sprite_ref": "오만석",
      "character_type": "진상 고객"
     },
     {
@@ -366,7 +366,7 @@
      "gender": "여성",
      "birth_date": "1983-09-30",
      "age": "42",
-     "sprite_ref": "spr_c029",
+     "sprite_ref": "배수정",
      "character_type": "진상 고객"
     },
     {
@@ -377,7 +377,7 @@
      "gender": "여성",
      "birth_date": "1999-05-05",
      "age": "27",
-     "sprite_ref": "spr_c030",
+     "sprite_ref": "노가은",
      "character_type": "성형 의심 고객"
     },
     {
@@ -388,7 +388,7 @@
      "gender": "여성",
      "birth_date": "1992-07-07",
      "age": "33",
-     "sprite_ref": "spr_c031",
+     "sprite_ref": "스즈키 아오이",
      "character_type": "전염병 환자"
     },
     {
@@ -399,7 +399,7 @@
      "gender": "남성",
      "birth_date": "1988-10-19",
      "age": "37",
-     "sprite_ref": "spr_c032",
+     "sprite_ref": "마이클 데이비스",
      "character_type": "전염병 환자"
     },
     {
@@ -410,7 +410,7 @@
      "gender": "여성",
      "birth_date": "1995-12-01",
      "age": "30",
-     "sprite_ref": "spr_c033",
+     "sprite_ref": "류 양",
      "character_type": "전염병 환자"
     },
     {
@@ -421,7 +421,7 @@
      "gender": "남성",
      "birth_date": "1982-03-22",
      "age": "44",
-     "sprite_ref": "spr_c034",
+     "sprite_ref": "야마모토 렌",
      "character_type": "테러범"
     },
     {
@@ -432,7 +432,7 @@
      "gender": "여성",
      "birth_date": "1990-06-18",
      "age": "35",
-     "sprite_ref": "spr_c035",
+     "sprite_ref": "지오 레이",
      "character_type": "취업체류자"
     },
     {
@@ -443,7 +443,7 @@
      "gender": "남성",
      "birth_date": "1985-02-09",
      "age": "41",
-     "sprite_ref": "spr_c036",
+     "sprite_ref": "천 징",
      "character_type": "취업체류자"
     },
     {
@@ -454,7 +454,7 @@
      "gender": "남성",
      "birth_date": "1988-11-30",
      "age": "37",
-     "sprite_ref": "spr_c037",
+     "sprite_ref": "제시카 윌슨",
      "character_type": "취업체류자"
     }
    ],
@@ -486,11 +486,6 @@
      "key": "valid_chance",
      "type": "float",
      "label": "정상 확률"
-    },
-    {
-     "key": "force_defect",
-     "type": "varchar(10)",
-     "label": "결함 강제(force_defect)"
     }
    ],
    "rows": [
@@ -499,784 +494,686 @@
      "day": "1",
      "slot": "1",
      "customer_id": "1",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "2",
      "day": "1",
      "slot": "2",
      "customer_id": "3",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "3",
      "day": "1",
      "slot": "3",
      "customer_id": "2",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "4",
      "day": "1",
      "slot": "4",
      "customer_id": "4",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "5",
      "day": "1",
      "slot": "5",
      "customer_id": "5",
-     "valid_chance": "0.7",
-     "force_defect": null
+     "valid_chance": "0.7"
     },
     {
      "schedule_id": "6",
      "day": "1",
      "slot": "6",
      "customer_id": "7",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "7",
      "day": "1",
      "slot": "7",
      "customer_id": "6",
-     "valid_chance": "0.7",
-     "force_defect": null
+     "valid_chance": "0.7"
     },
     {
      "schedule_id": "8",
      "day": "2",
      "slot": "1",
      "customer_id": "22",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "9",
      "day": "2",
      "slot": "2",
      "customer_id": "20",
-     "valid_chance": "0.75",
-     "force_defect": null
+     "valid_chance": "0.75"
     },
     {
      "schedule_id": "10",
      "day": "2",
      "slot": "3",
      "customer_id": "25",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "11",
      "day": "2",
      "slot": "4",
      "customer_id": "23",
-     "valid_chance": "0.85",
-     "force_defect": null
+     "valid_chance": "0.85"
     },
     {
      "schedule_id": "12",
      "day": "2",
      "slot": "5",
      "customer_id": "24",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "13",
      "day": "2",
      "slot": "6",
      "customer_id": "26",
-     "valid_chance": "0.5",
-     "force_defect": null
+     "valid_chance": "0.5"
     },
     {
      "schedule_id": "14",
      "day": "2",
      "slot": "7",
      "customer_id": "28",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "15",
      "day": "3",
      "slot": "1",
      "customer_id": "27",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "16",
      "day": "3",
      "slot": "2",
      "customer_id": "1",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "17",
      "day": "3",
      "slot": "3",
      "customer_id": "12",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "18",
      "day": "3",
      "slot": "4",
      "customer_id": "29",
-     "valid_chance": "0.75",
-     "force_defect": null
+     "valid_chance": "0.75"
     },
     {
      "schedule_id": "19",
      "day": "3",
      "slot": "5",
      "customer_id": "2",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "20",
      "day": "3",
      "slot": "6",
      "customer_id": "21",
-     "valid_chance": "0.7",
-     "force_defect": null
+     "valid_chance": "0.7"
     },
     {
      "schedule_id": "21",
      "day": "3",
      "slot": "7",
      "customer_id": "3",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "22",
      "day": "4",
      "slot": "1",
      "customer_id": "5",
-     "valid_chance": "0.75",
-     "force_defect": null
+     "valid_chance": "0.75"
     },
     {
      "schedule_id": "23",
      "day": "4",
      "slot": "2",
      "customer_id": "6",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "24",
      "day": "4",
      "slot": "3",
      "customer_id": "4",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "25",
      "day": "4",
      "slot": "4",
      "customer_id": "30",
-     "valid_chance": "0.7",
-     "force_defect": null
+     "valid_chance": "0.7"
     },
     {
      "schedule_id": "26",
      "day": "4",
      "slot": "5",
      "customer_id": "20",
-     "valid_chance": "0.75",
-     "force_defect": null
+     "valid_chance": "0.75"
     },
     {
      "schedule_id": "27",
      "day": "4",
      "slot": "6",
      "customer_id": "22",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "28",
      "day": "4",
      "slot": "7",
      "customer_id": "7",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "29",
      "day": "5",
      "slot": "1",
      "customer_id": "28",
-     "valid_chance": "0.75",
-     "force_defect": null
+     "valid_chance": "0.75"
     },
     {
      "schedule_id": "30",
      "day": "5",
      "slot": "2",
      "customer_id": "15",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "31",
      "day": "5",
      "slot": "3",
      "customer_id": "13",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "32",
      "day": "5",
      "slot": "4",
      "customer_id": "12",
-     "valid_chance": "0.7",
-     "force_defect": null
+     "valid_chance": "0.7"
     },
     {
      "schedule_id": "33",
      "day": "5",
      "slot": "5",
      "customer_id": "24",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "34",
      "day": "5",
      "slot": "6",
      "customer_id": "14",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "35",
      "day": "5",
      "slot": "7",
      "customer_id": "1",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "36",
      "day": "6",
      "slot": "1",
      "customer_id": "1",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "37",
      "day": "6",
      "slot": "2",
      "customer_id": "29",
-     "valid_chance": "0.75",
-     "force_defect": null
+     "valid_chance": "0.75"
     },
     {
      "schedule_id": "38",
      "day": "6",
      "slot": "3",
      "customer_id": "32",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "39",
      "day": "6",
      "slot": "4",
      "customer_id": "24",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "40",
      "day": "6",
      "slot": "5",
      "customer_id": "19",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "41",
      "day": "6",
      "slot": "6",
      "customer_id": "25",
-     "valid_chance": "0.5",
-     "force_defect": null
+     "valid_chance": "0.5"
     },
     {
      "schedule_id": "42",
      "day": "6",
      "slot": "7",
      "customer_id": "26",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "43",
      "day": "7",
      "slot": "1",
      "customer_id": "31",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "44",
      "day": "7",
      "slot": "2",
      "customer_id": "5",
-     "valid_chance": "0.75",
-     "force_defect": null
+     "valid_chance": "0.75"
     },
     {
      "schedule_id": "45",
      "day": "7",
      "slot": "3",
      "customer_id": "23",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "46",
      "day": "7",
      "slot": "4",
      "customer_id": "33",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "47",
      "day": "7",
      "slot": "5",
      "customer_id": "27",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "48",
      "day": "7",
      "slot": "6",
      "customer_id": "1",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "49",
      "day": "7",
      "slot": "7",
      "customer_id": "21",
-     "valid_chance": "0.7",
-     "force_defect": null
+     "valid_chance": "0.7"
     },
     {
      "schedule_id": "50",
      "day": "8",
      "slot": "1",
      "customer_id": "2",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "51",
      "day": "8",
      "slot": "2",
      "customer_id": "20",
-     "valid_chance": "0.75",
-     "force_defect": null
+     "valid_chance": "0.75"
     },
     {
      "schedule_id": "52",
      "day": "8",
      "slot": "3",
      "customer_id": "3",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "53",
      "day": "8",
      "slot": "4",
      "customer_id": "18",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "54",
      "day": "8",
      "slot": "5",
      "customer_id": "16",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "55",
      "day": "8",
      "slot": "6",
      "customer_id": "4",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "56",
      "day": "8",
      "slot": "7",
      "customer_id": "30",
-     "valid_chance": "0.7",
-     "force_defect": null
+     "valid_chance": "0.7"
     },
     {
      "schedule_id": "57",
      "day": "9",
      "slot": "1",
      "customer_id": "28",
-     "valid_chance": "0.75",
-     "force_defect": null
+     "valid_chance": "0.75"
     },
     {
      "schedule_id": "58",
      "day": "9",
      "slot": "2",
      "customer_id": "6",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "59",
      "day": "9",
      "slot": "3",
      "customer_id": "7",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "60",
      "day": "9",
      "slot": "4",
      "customer_id": "17",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "61",
      "day": "9",
      "slot": "5",
      "customer_id": "12",
-     "valid_chance": "0.7",
-     "force_defect": null
+     "valid_chance": "0.7"
     },
     {
      "schedule_id": "62",
      "day": "9",
      "slot": "6",
      "customer_id": "25",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "63",
      "day": "9",
      "slot": "7",
      "customer_id": "1",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "64",
      "day": "10",
      "slot": "1",
      "customer_id": "23",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "65",
      "day": "10",
      "slot": "2",
      "customer_id": "29",
-     "valid_chance": "0.75",
-     "force_defect": null
+     "valid_chance": "0.75"
     },
     {
      "schedule_id": "66",
      "day": "10",
      "slot": "3",
      "customer_id": "21",
-     "valid_chance": "0.7",
-     "force_defect": null
+     "valid_chance": "0.7"
     },
     {
      "schedule_id": "67",
      "day": "10",
      "slot": "4",
      "customer_id": "26",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "68",
      "day": "10",
      "slot": "5",
      "customer_id": "24",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "69",
      "day": "10",
      "slot": "6",
      "customer_id": "5",
-     "valid_chance": "0.75",
-     "force_defect": null
+     "valid_chance": "0.75"
     },
     {
      "schedule_id": "70",
      "day": "10",
      "slot": "7",
      "customer_id": "3",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "71",
      "day": "11",
      "slot": "1",
      "customer_id": "10",
-     "valid_chance": "0.3",
-     "force_defect": null
+     "valid_chance": "0.3"
     },
     {
      "schedule_id": "72",
      "day": "11",
      "slot": "2",
      "customer_id": "1",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "73",
      "day": "11",
      "slot": "3",
      "customer_id": "3",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "74",
      "day": "11",
      "slot": "4",
      "customer_id": "20",
-     "valid_chance": "0.75",
-     "force_defect": null
+     "valid_chance": "0.75"
     },
     {
      "schedule_id": "75",
      "day": "11",
      "slot": "5",
      "customer_id": "30",
-     "valid_chance": "0.7",
-     "force_defect": null
+     "valid_chance": "0.7"
     },
     {
      "schedule_id": "76",
      "day": "11",
      "slot": "6",
      "customer_id": "4",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "77",
      "day": "11",
      "slot": "7",
      "customer_id": "2",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "78",
      "day": "12",
      "slot": "1",
      "customer_id": "6",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "79",
      "day": "12",
      "slot": "2",
      "customer_id": "7",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "80",
      "day": "12",
      "slot": "3",
      "customer_id": "8",
-     "valid_chance": "0.3",
-     "force_defect": null
+     "valid_chance": "0.3"
     },
     {
      "schedule_id": "81",
      "day": "12",
      "slot": "4",
      "customer_id": "28",
-     "valid_chance": "0.75",
-     "force_defect": null
+     "valid_chance": "0.75"
     },
     {
      "schedule_id": "82",
      "day": "12",
      "slot": "5",
      "customer_id": "12",
-     "valid_chance": "0.7",
-     "force_defect": null
+     "valid_chance": "0.7"
     },
     {
      "schedule_id": "83",
      "day": "12",
      "slot": "6",
      "customer_id": "3",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "84",
      "day": "12",
      "slot": "7",
      "customer_id": "22",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "85",
      "day": "13",
      "slot": "1",
      "customer_id": "11",
-     "valid_chance": "0.25",
-     "force_defect": null
+     "valid_chance": "0.25"
     },
     {
      "schedule_id": "86",
      "day": "13",
      "slot": "2",
      "customer_id": "23",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "87",
      "day": "13",
      "slot": "3",
      "customer_id": "26",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "88",
      "day": "13",
      "slot": "4",
      "customer_id": "1",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "89",
      "day": "13",
      "slot": "5",
      "customer_id": "29",
-     "valid_chance": "0.75",
-     "force_defect": null
+     "valid_chance": "0.75"
     },
     {
      "schedule_id": "90",
      "day": "13",
      "slot": "6",
      "customer_id": "21",
-     "valid_chance": "0.7",
-     "force_defect": null
+     "valid_chance": "0.7"
     },
     {
      "schedule_id": "91",
      "day": "13",
      "slot": "7",
      "customer_id": "27",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "92",
      "day": "14",
      "slot": "1",
      "customer_id": "1",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     },
     {
      "schedule_id": "93",
      "day": "14",
      "slot": "2",
      "customer_id": "3",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "94",
      "day": "14",
      "slot": "3",
      "customer_id": "9",
-     "valid_chance": "0.3",
-     "force_defect": null
+     "valid_chance": "0.3"
     },
     {
      "schedule_id": "95",
      "day": "14",
      "slot": "4",
      "customer_id": "34",
-     "valid_chance": "0.25",
-     "force_defect": null
+     "valid_chance": "0.25"
     },
     {
      "schedule_id": "96",
      "day": "14",
      "slot": "5",
      "customer_id": "30",
-     "valid_chance": "0.7",
-     "force_defect": null
+     "valid_chance": "0.7"
     },
     {
      "schedule_id": "97",
      "day": "14",
      "slot": "6",
      "customer_id": "4",
-     "valid_chance": "0",
-     "force_defect": null
+     "valid_chance": "0"
     },
     {
      "schedule_id": "98",
      "day": "14",
      "slot": "7",
      "customer_id": "2",
-     "valid_chance": "1",
-     "force_defect": null
+     "valid_chance": "1"
     }
    ],
    "layout": "relational"
@@ -1345,7 +1242,7 @@
      "nationality": "KOR",
      "issue_date": "2017-07-28",
      "expiry_date": "2027-07-28",
-     "photo_ref": "photo_1"
+     "photo_ref": "김민준"
     },
     {
      "passport_id": "3",
@@ -1357,7 +1254,7 @@
      "nationality": "CHN",
      "issue_date": "2019-03-14",
      "expiry_date": "2029-03-14",
-     "photo_ref": "photo_3"
+     "photo_ref": "첸 웨이"
     },
     {
      "passport_id": "4",
@@ -1369,7 +1266,7 @@
      "nationality": "USA",
      "issue_date": "2023-03-28",
      "expiry_date": "2028-03-28",
-     "photo_ref": "photo_4"
+     "photo_ref": "제임스 밀러"
     },
     {
      "passport_id": "5",
@@ -1381,7 +1278,7 @@
      "nationality": "KOR",
      "issue_date": "2019-07-14",
      "expiry_date": "2029-07-14",
-     "photo_ref": "photo_5"
+     "photo_ref": "박철수"
     },
     {
      "passport_id": "8",
@@ -1393,7 +1290,7 @@
      "nationality": "CHN",
      "issue_date": "2017-03-28",
      "expiry_date": "2027-03-28",
-     "photo_ref": "photo_7"
+     "photo_ref": "왕 웨이"
     },
     {
      "passport_id": "10",
@@ -1405,7 +1302,7 @@
      "nationality": "USA",
      "issue_date": "2023-11-14",
      "expiry_date": "2033-11-14",
-     "photo_ref": "photo_c8"
+     "photo_ref": "존 카터"
     },
     {
      "passport_id": "12",
@@ -1417,7 +1314,7 @@
      "nationality": "KOR",
      "issue_date": "2023-11-28",
      "expiry_date": "2028-11-28",
-     "photo_ref": "photo_c9"
+     "photo_ref": "강도식"
     },
     {
      "passport_id": "14",
@@ -1429,7 +1326,7 @@
      "nationality": "KOR",
      "issue_date": "2023-11-14",
      "expiry_date": "2028-11-14",
-     "photo_ref": "photo_c10"
+     "photo_ref": "윤서린"
     },
     {
      "passport_id": "16",
@@ -1441,7 +1338,7 @@
      "nationality": "JPN",
      "issue_date": "2021-07-28",
      "expiry_date": "2031-07-28",
-     "photo_ref": "photo_c11"
+     "photo_ref": "사토 하루키"
     },
     {
      "passport_id": "18",
@@ -1453,7 +1350,7 @@
      "nationality": "KOR",
      "issue_date": "2023-07-14",
      "expiry_date": "2033-07-14",
-     "photo_ref": "photo_c12"
+     "photo_ref": "정유나"
     },
     {
      "passport_id": "20",
@@ -1465,7 +1362,7 @@
      "nationality": "USA",
      "issue_date": "2023-11-28",
      "expiry_date": "2028-11-28",
-     "photo_ref": "photo_c13"
+     "photo_ref": "로버트 존슨"
     },
     {
      "passport_id": "21",
@@ -1477,7 +1374,7 @@
      "nationality": "CHN",
      "issue_date": "2023-03-14",
      "expiry_date": "2033-03-14",
-     "photo_ref": "photo_c14"
+     "photo_ref": "리 나"
     },
     {
      "passport_id": "22",
@@ -1489,7 +1386,7 @@
      "nationality": "KOR",
      "issue_date": "2025-03-28",
      "expiry_date": "2035-03-28",
-     "photo_ref": "photo_c15"
+     "photo_ref": "한지원"
     },
     {
      "passport_id": "23",
@@ -1501,7 +1398,7 @@
      "nationality": "KOR",
      "issue_date": "2017-07-14",
      "expiry_date": "2027-07-14",
-     "photo_ref": "photo_c16"
+     "photo_ref": "오현석"
     },
     {
      "passport_id": "24",
@@ -1513,7 +1410,7 @@
      "nationality": "KOR",
      "issue_date": "2023-07-28",
      "expiry_date": "2028-07-28",
-     "photo_ref": "photo_c17"
+     "photo_ref": "윤정호"
     },
     {
      "passport_id": "25",
@@ -1525,7 +1422,7 @@
      "nationality": "CHN",
      "issue_date": "2023-03-14",
      "expiry_date": "2028-03-14",
-     "photo_ref": "photo_c18"
+     "photo_ref": "첸 리"
     },
     {
      "passport_id": "26",
@@ -1537,7 +1434,7 @@
      "nationality": "JPN",
      "issue_date": "2023-07-28",
      "expiry_date": "2028-07-28",
-     "photo_ref": "photo_c19"
+     "photo_ref": "다나카 유이"
     },
     {
      "passport_id": "27",
@@ -1549,7 +1446,7 @@
      "nationality": "KOR",
      "issue_date": "2019-07-14",
      "expiry_date": "2029-07-14",
-     "photo_ref": "photo_c20"
+     "photo_ref": "한만수"
     },
     {
      "passport_id": "29",
@@ -1561,7 +1458,7 @@
      "nationality": "KOR",
      "issue_date": "2019-07-28",
      "expiry_date": "2029-07-28",
-     "photo_ref": "photo_c21"
+     "photo_ref": "서지호"
     },
     {
      "passport_id": "31",
@@ -1573,7 +1470,7 @@
      "nationality": "KOR",
      "issue_date": "2023-11-14",
      "expiry_date": "2028-11-14",
-     "photo_ref": "photo_c22"
+     "photo_ref": "박지훈"
     },
     {
      "passport_id": "33",
@@ -1585,7 +1482,7 @@
      "nationality": "KOR",
      "issue_date": "2023-11-28",
      "expiry_date": "2028-11-28",
-     "photo_ref": "photo_c23"
+     "photo_ref": "송하늘"
     },
     {
      "passport_id": "35",
@@ -1597,7 +1494,7 @@
      "nationality": "KOR",
      "issue_date": "2023-03-14",
      "expiry_date": "2028-03-14",
-     "photo_ref": "photo_c24"
+     "photo_ref": "임도현"
     },
     {
      "passport_id": "37",
@@ -1609,7 +1506,7 @@
      "nationality": "USA",
      "issue_date": "2019-03-28",
      "expiry_date": "2029-03-28",
-     "photo_ref": "photo_c25"
+     "photo_ref": "윌리엄 브라운"
     },
     {
      "passport_id": "39",
@@ -1621,7 +1518,7 @@
      "nationality": "JPN",
      "issue_date": "2021-03-14",
      "expiry_date": "2031-03-14",
-     "photo_ref": "photo_c26"
+     "photo_ref": "다나카 하루토"
     },
     {
      "passport_id": "41",
@@ -1633,7 +1530,7 @@
      "nationality": "CHN",
      "issue_date": "2023-03-28",
      "expiry_date": "2028-03-28",
-     "photo_ref": "photo_c27"
+     "photo_ref": "장 웨이"
     },
     {
      "passport_id": "43",
@@ -1645,7 +1542,7 @@
      "nationality": "KOR",
      "issue_date": "2017-03-14",
      "expiry_date": "2027-03-14",
-     "photo_ref": "photo_c28"
+     "photo_ref": "오만석"
     },
     {
      "passport_id": "45",
@@ -1657,7 +1554,7 @@
      "nationality": "KOR",
      "issue_date": "2019-07-28",
      "expiry_date": "2029-07-28",
-     "photo_ref": "photo_c29"
+     "photo_ref": "배수정"
     },
     {
      "passport_id": "47",
@@ -1669,7 +1566,7 @@
      "nationality": "KOR",
      "issue_date": "2025-03-14",
      "expiry_date": "2035-03-14",
-     "photo_ref": "photo_c30"
+     "photo_ref": "노가은"
     },
     {
      "passport_id": "49",
@@ -1681,7 +1578,7 @@
      "nationality": "JPN",
      "issue_date": "2023-11-28",
      "expiry_date": "2028-11-28",
-     "photo_ref": "photo_c31"
+     "photo_ref": "스즈키 아오이"
     },
     {
      "passport_id": "50",
@@ -1693,7 +1590,7 @@
      "nationality": "USA",
      "issue_date": "2021-03-14",
      "expiry_date": "2031-03-14",
-     "photo_ref": "photo_c32"
+     "photo_ref": "마이클 데이비스"
     },
     {
      "passport_id": "51",
@@ -1705,7 +1602,7 @@
      "nationality": "CHN",
      "issue_date": "2023-11-28",
      "expiry_date": "2033-11-28",
-     "photo_ref": "photo_c33"
+     "photo_ref": "류 양"
     },
     {
      "passport_id": "52",
@@ -1717,7 +1614,7 @@
      "nationality": "JPN",
      "issue_date": "2023-03-14",
      "expiry_date": "2033-03-14",
-     "photo_ref": "photo_c34"
+     "photo_ref": "야마모토 렌"
     },
     {
      "passport_id": "54",
@@ -1729,7 +1626,7 @@
      "nationality": "CHN",
      "issue_date": "2023-11-28",
      "expiry_date": "2033-11-28",
-     "photo_ref": "photo_c35"
+     "photo_ref": "지오 레이"
     },
     {
      "passport_id": "55",
@@ -1741,7 +1638,7 @@
      "nationality": "CHN",
      "issue_date": "2023-03-14",
      "expiry_date": "2028-03-14",
-     "photo_ref": "photo_c36"
+     "photo_ref": "천 징"
     },
     {
      "passport_id": "56",
@@ -1753,7 +1650,7 @@
      "nationality": "USA",
      "issue_date": "2017-03-28",
      "expiry_date": "2027-03-28",
-     "photo_ref": "photo_c37"
+     "photo_ref": "제시카 윌슨"
     },
     {
      "passport_id": "57",
@@ -1765,7 +1662,7 @@
      "nationality": "KOR",
      "issue_date": "2021-07-14",
      "expiry_date": "2031-07-14",
-     "photo_ref": "photo_c2"
+     "photo_ref": "이지은"
     },
     {
      "passport_id": "58",
@@ -1777,7 +1674,7 @@
      "nationality": "KOR",
      "issue_date": "2023-03-28",
      "expiry_date": "2028-03-28",
-     "photo_ref": "photo_c6"
+     "photo_ref": "최서연"
     }
    ],
    "layout": "relational"
@@ -2367,1256 +2264,6 @@
    ],
    "layout": "relational"
   },
-  "dialogue_case": {
-   "columns": [
-    {
-     "key": "dialogue_case_id",
-     "type": "int",
-     "label": "대화 흐름 ID"
-    },
-    {
-     "key": "schedule_id",
-     "type": "int",
-     "label": "일정 ID"
-    },
-    {
-     "key": "customer_id",
-     "type": "int",
-     "label": "고객 ID"
-    },
-    {
-     "key": "case_type",
-     "type": "varchar(30)",
-     "label": "상황 유형"
-    },
-    {
-     "key": "character_type",
-     "type": "varchar(30)",
-     "label": "캐릭터 유형"
-    },
-    {
-     "key": "document_type",
-     "type": "varchar(20)",
-     "label": "문서 종류"
-    },
-    {
-     "key": "doc_valid",
-     "type": "varchar(10)",
-     "label": "문서 정상 여부"
-    },
-    {
-     "key": "violation_field",
-     "type": "varchar(30)",
-     "label": "위반 항목"
-    },
-    {
-     "key": "game_result",
-     "type": "varchar(30)",
-     "label": "판정 결과"
-    },
-    {
-     "key": "reject_count",
-     "type": "int",
-     "label": "거절 횟수"
-    }
-   ],
-   "rows": [
-    {
-     "dialogue_case_id": "1",
-     "schedule_id": "1",
-     "customer_id": "1",
-     "case_type": "입장",
-     "character_type": "일반 고객",
-     "document_type": "여권",
-     "doc_valid": "-",
-     "violation_field": "없음",
-     "game_result": "-",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "2",
-     "schedule_id": "1",
-     "customer_id": "1",
-     "case_type": "일반 심사",
-     "character_type": "일반 고객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "정상 승인",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "3",
-     "schedule_id": "1",
-     "customer_id": "1",
-     "case_type": "일반 심사",
-     "character_type": "일반 고객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "잘못 거절",
-     "reject_count": "1"
-    },
-    {
-     "dialogue_case_id": "4",
-     "schedule_id": "1",
-     "customer_id": "1",
-     "case_type": "일반 심사",
-     "character_type": "일반 고객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "잘못 거절",
-     "reject_count": "2"
-    },
-    {
-     "dialogue_case_id": "5",
-     "schedule_id": "1",
-     "customer_id": "1",
-     "case_type": "일반 심사",
-     "character_type": "일반 고객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "잘못 거절",
-     "reject_count": "3"
-    },
-    {
-     "dialogue_case_id": "6",
-     "schedule_id": "2",
-     "customer_id": "2",
-     "case_type": "입장",
-     "character_type": "일반 고객",
-     "document_type": "여권",
-     "doc_valid": "-",
-     "violation_field": "없음",
-     "game_result": "-",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "7",
-     "schedule_id": "2",
-     "customer_id": "2",
-     "case_type": "일반 심사",
-     "character_type": "일반 고객",
-     "document_type": "여권",
-     "doc_valid": "비정상",
-     "violation_field": "만료일",
-     "game_result": "정상 거절",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "8",
-     "schedule_id": "2",
-     "customer_id": "2",
-     "case_type": "일반 심사",
-     "character_type": "일반 고객",
-     "document_type": "여권",
-     "doc_valid": "비정상",
-     "violation_field": "비자",
-     "game_result": "잘못 허가",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "9",
-     "schedule_id": "2",
-     "customer_id": "2",
-     "case_type": "여권 없음",
-     "character_type": "일반 고객",
-     "document_type": "여권",
-     "doc_valid": "비정상",
-     "violation_field": "여권 없음",
-     "game_result": "정상 거절",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "10",
-     "schedule_id": "3",
-     "customer_id": "3",
-     "case_type": "입장",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "-",
-     "violation_field": "없음",
-     "game_result": "-",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "11",
-     "schedule_id": "3",
-     "customer_id": "3",
-     "case_type": "일반 심사",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "정상 승인",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "12",
-     "schedule_id": "3",
-     "customer_id": "3",
-     "case_type": "일반 심사",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "잘못 거절",
-     "reject_count": "1"
-    },
-    {
-     "dialogue_case_id": "13",
-     "schedule_id": "3",
-     "customer_id": "3",
-     "case_type": "일반 심사",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "잘못 거절",
-     "reject_count": "2"
-    },
-    {
-     "dialogue_case_id": "14",
-     "schedule_id": "3",
-     "customer_id": "3",
-     "case_type": "일반 심사",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "잘못 거절",
-     "reject_count": "3"
-    },
-    {
-     "dialogue_case_id": "15",
-     "schedule_id": "3",
-     "customer_id": "3",
-     "case_type": "여권 없음",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "비정상",
-     "violation_field": "여권 없음",
-     "game_result": "정상 거절",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "16",
-     "schedule_id": "4",
-     "customer_id": "4",
-     "case_type": "입장",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "-",
-     "violation_field": "없음",
-     "game_result": "-",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "17",
-     "schedule_id": "4",
-     "customer_id": "4",
-     "case_type": "일반 심사",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "정상 승인",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "18",
-     "schedule_id": "4",
-     "customer_id": "4",
-     "case_type": "일반 심사",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "잘못 거절",
-     "reject_count": "1"
-    },
-    {
-     "dialogue_case_id": "19",
-     "schedule_id": "4",
-     "customer_id": "4",
-     "case_type": "일반 심사",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "잘못 거절",
-     "reject_count": "2"
-    },
-    {
-     "dialogue_case_id": "20",
-     "schedule_id": "4",
-     "customer_id": "4",
-     "case_type": "일반 심사",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "잘못 거절",
-     "reject_count": "3"
-    },
-    {
-     "dialogue_case_id": "21",
-     "schedule_id": "5",
-     "customer_id": "5",
-     "case_type": "입장",
-     "character_type": "진상 고객",
-     "document_type": "여권",
-     "doc_valid": "-",
-     "violation_field": "없음",
-     "game_result": "-",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "22",
-     "schedule_id": "5",
-     "customer_id": "5",
-     "case_type": "일반 심사",
-     "character_type": "진상 고객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "정상 승인",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "23",
-     "schedule_id": "5",
-     "customer_id": "5",
-     "case_type": "일반 심사",
-     "character_type": "진상 고객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "잘못 거절",
-     "reject_count": "1"
-    },
-    {
-     "dialogue_case_id": "24",
-     "schedule_id": "5",
-     "customer_id": "5",
-     "case_type": "일반 심사",
-     "character_type": "진상 고객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "잘못 거절",
-     "reject_count": "2"
-    },
-    {
-     "dialogue_case_id": "25",
-     "schedule_id": "5",
-     "customer_id": "5",
-     "case_type": "일반 심사",
-     "character_type": "진상 고객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "잘못 거절",
-     "reject_count": "3"
-    },
-    {
-     "dialogue_case_id": "26",
-     "schedule_id": "5",
-     "customer_id": "5",
-     "case_type": "일반 심사",
-     "character_type": "진상 고객",
-     "document_type": "여권",
-     "doc_valid": "비정상",
-     "violation_field": "성별",
-     "game_result": "정상 거절",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "27",
-     "schedule_id": "5",
-     "customer_id": "5",
-     "case_type": "일반 심사",
-     "character_type": "진상 고객",
-     "document_type": "여권",
-     "doc_valid": "비정상",
-     "violation_field": "성별",
-     "game_result": "잘못 허가",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "28",
-     "schedule_id": "5",
-     "customer_id": "5",
-     "case_type": "여권 없음",
-     "character_type": "진상 고객",
-     "document_type": "여권",
-     "doc_valid": "비정상",
-     "violation_field": "여권 없음",
-     "game_result": "정상 거절",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "29",
-     "schedule_id": "6",
-     "customer_id": "6",
-     "case_type": "입장",
-     "character_type": "일반 고객",
-     "document_type": "여권",
-     "doc_valid": "-",
-     "violation_field": "없음",
-     "game_result": "-",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "30",
-     "schedule_id": "6",
-     "customer_id": "6",
-     "case_type": "일반 심사",
-     "character_type": "일반 고객",
-     "document_type": "여권",
-     "doc_valid": "비정상",
-     "violation_field": "발급국",
-     "game_result": "정상 거절",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "31",
-     "schedule_id": "6",
-     "customer_id": "6",
-     "case_type": "일반 심사",
-     "character_type": "일반 고객",
-     "document_type": "여권",
-     "doc_valid": "비정상",
-     "violation_field": "발급국",
-     "game_result": "잘못 허가",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "32",
-     "schedule_id": "7",
-     "customer_id": "7",
-     "case_type": "입장",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "-",
-     "violation_field": "없음",
-     "game_result": "-",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "33",
-     "schedule_id": "7",
-     "customer_id": "7",
-     "case_type": "일반 심사",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "정상 승인",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "34",
-     "schedule_id": "7",
-     "customer_id": "7",
-     "case_type": "일반 심사",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "잘못 거절",
-     "reject_count": "1"
-    },
-    {
-     "dialogue_case_id": "35",
-     "schedule_id": "7",
-     "customer_id": "7",
-     "case_type": "일반 심사",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "잘못 거절",
-     "reject_count": "2"
-    },
-    {
-     "dialogue_case_id": "36",
-     "schedule_id": "7",
-     "customer_id": "7",
-     "case_type": "일반 심사",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "정상",
-     "violation_field": "없음",
-     "game_result": "잘못 거절",
-     "reject_count": "3"
-    },
-    {
-     "dialogue_case_id": "37",
-     "schedule_id": "7",
-     "customer_id": "7",
-     "case_type": "일반 심사",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "비정상",
-     "violation_field": "여권번호",
-     "game_result": "정상 거절",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "38",
-     "schedule_id": "7",
-     "customer_id": "7",
-     "case_type": "일반 심사",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "비정상",
-     "violation_field": "여권번호",
-     "game_result": "잘못 허가",
-     "reject_count": "0"
-    },
-    {
-     "dialogue_case_id": "39",
-     "schedule_id": "7",
-     "customer_id": "7",
-     "case_type": "입국 도장 없음",
-     "character_type": "외국인 관광객",
-     "document_type": "여권",
-     "doc_valid": "비정상",
-     "violation_field": "입국 도장 없음",
-     "game_result": "정상 거절",
-     "reject_count": "0"
-    }
-   ],
-   "layout": "relational"
-  },
-  "dialogue_line": {
-   "columns": [
-    {
-     "key": "line_id",
-     "type": "int",
-     "label": "라인 ID"
-    },
-    {
-     "key": "dialogue_case_id",
-     "type": "int",
-     "label": "대화 흐름 ID"
-    },
-    {
-     "key": "line_order",
-     "type": "int",
-     "label": "대사 순서"
-    },
-    {
-     "key": "speaker",
-     "type": "varchar(20)",
-     "label": "화자"
-    },
-    {
-     "key": "text_kr",
-     "type": "varchar(500)",
-     "label": "한글 대사"
-    }
-   ],
-   "rows": [
-    {
-     "line_id": "1",
-     "dialogue_case_id": "1",
-     "line_order": "1",
-     "speaker": "캐릭터",
-     "text_kr": "안녕하세요, 여기 여권 드릴게요."
-    },
-    {
-     "line_id": "2",
-     "dialogue_case_id": "1",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "여권 확인 부탁드립니다."
-    },
-    {
-     "line_id": "3",
-     "dialogue_case_id": "2",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "확인 완료되었습니다. 지나가셔도 됩니다."
-    },
-    {
-     "line_id": "4",
-     "dialogue_case_id": "2",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "감사합니다. 즐거운 하루 되세요!"
-    },
-    {
-     "line_id": "5",
-     "dialogue_case_id": "3",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "죄송하지만 입국은 어렵습니다."
-    },
-    {
-     "line_id": "6",
-     "dialogue_case_id": "3",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "어..? 어디가 잘못된 부분이 있나요?"
-    },
-    {
-     "line_id": "7",
-     "dialogue_case_id": "4",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "확인했는데 입국이 어려우실 것 같습니다. 이유는 알려드릴 수 없습니다."
-    },
-    {
-     "line_id": "8",
-     "dialogue_case_id": "4",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요."
-    },
-    {
-     "line_id": "9",
-     "dialogue_case_id": "5",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "죄송합니다만 지나갈 수 없습니다. 양해 부탁드립니다."
-    },
-    {
-     "line_id": "10",
-     "dialogue_case_id": "5",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요!"
-    },
-    {
-     "line_id": "11",
-     "dialogue_case_id": "5",
-     "line_order": "3",
-     "speaker": "심사관",
-     "text_kr": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
-    },
-    {
-     "line_id": "12",
-     "dialogue_case_id": "5",
-     "line_order": "4",
-     "speaker": "캐릭터",
-     "text_kr": "하... 네 알겠습니다. 꼼꼼히 검토 좀 해 주세요."
-    },
-    {
-     "line_id": "13",
-     "dialogue_case_id": "6",
-     "line_order": "1",
-     "speaker": "캐릭터",
-     "text_kr": "안녕하세요! 좋은 아침이에요."
-    },
-    {
-     "line_id": "14",
-     "dialogue_case_id": "6",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "여기 여권 드릴게요."
-    },
-    {
-     "line_id": "15",
-     "dialogue_case_id": "7",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "고객님 여권의 만료일이 지났습니다. 유효기간이 만료된 여권으로는 입국이 어렵습니다."
-    },
-    {
-     "line_id": "16",
-     "dialogue_case_id": "7",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "앗, 제가 확인을 못 했네요. 죄송합니다."
-    },
-    {
-     "line_id": "17",
-     "dialogue_case_id": "8",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "확인 완료되었습니다. 지나가셔도 됩니다."
-    },
-    {
-     "line_id": "18",
-     "dialogue_case_id": "8",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "감사합니다. 안녕히 계세요!"
-    },
-    {
-     "line_id": "19",
-     "dialogue_case_id": "9",
-     "line_order": "1",
-     "speaker": "캐릭터",
-     "text_kr": "안녕하세요! 좋은 아침이에요."
-    },
-    {
-     "line_id": "20",
-     "dialogue_case_id": "9",
-     "line_order": "2",
-     "speaker": "심사관",
-     "text_kr": "고객님, 여권은 어디 있으시죠?"
-    },
-    {
-     "line_id": "21",
-     "dialogue_case_id": "9",
-     "line_order": "3",
-     "speaker": "캐릭터",
-     "text_kr": "여권이 어딨더라... 두고 온 것 같은데요."
-    },
-    {
-     "line_id": "22",
-     "dialogue_case_id": "9",
-     "line_order": "4",
-     "speaker": "심사관",
-     "text_kr": "여권이 없으시면 입국이 어렵습니다."
-    },
-    {
-     "line_id": "23",
-     "dialogue_case_id": "9",
-     "line_order": "5",
-     "speaker": "캐릭터",
-     "text_kr": "큰일났네... 죄송합니다."
-    },
-    {
-     "line_id": "24",
-     "dialogue_case_id": "10",
-     "line_order": "1",
-     "speaker": "캐릭터",
-     "text_kr": "Hello! Nice to meet you!"
-    },
-    {
-     "line_id": "25",
-     "dialogue_case_id": "10",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "Here is my passport."
-    },
-    {
-     "line_id": "26",
-     "dialogue_case_id": "11",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "확인 완료되었습니다. 지나가셔도 됩니다."
-    },
-    {
-     "line_id": "27",
-     "dialogue_case_id": "11",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "Thank you! Have a nice day!"
-    },
-    {
-     "line_id": "28",
-     "dialogue_case_id": "12",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "죄송하지만 입국은 어렵습니다."
-    },
-    {
-     "line_id": "29",
-     "dialogue_case_id": "12",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "What? 분명 서류를 다 챙긴 것 같았는데요?"
-    },
-    {
-     "line_id": "30",
-     "dialogue_case_id": "13",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "확인했는데 입국이 어려우실 것 같습니다. 이유는 알려드릴 수 없습니다."
-    },
-    {
-     "line_id": "31",
-     "dialogue_case_id": "13",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "Really? 꼼꼼하게 다 확인하고 온 건데 다시 한 번 확인해 줘요."
-    },
-    {
-     "line_id": "32",
-     "dialogue_case_id": "14",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "죄송합니다만 지나갈 수 없습니다. 양해 부탁드립니다."
-    },
-    {
-     "line_id": "33",
-     "dialogue_case_id": "14",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "No way... 이해할 수 없어요. 왜 들어갈 수 없는 거예요?"
-    },
-    {
-     "line_id": "34",
-     "dialogue_case_id": "14",
-     "line_order": "3",
-     "speaker": "심사관",
-     "text_kr": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
-    },
-    {
-     "line_id": "35",
-     "dialogue_case_id": "14",
-     "line_order": "4",
-     "speaker": "캐릭터",
-     "text_kr": "기분이 안 좋아요. You are so rude."
-    },
-    {
-     "line_id": "36",
-     "dialogue_case_id": "15",
-     "line_order": "1",
-     "speaker": "캐릭터",
-     "text_kr": "Hello! Nice to meet you!"
-    },
-    {
-     "line_id": "37",
-     "dialogue_case_id": "15",
-     "line_order": "2",
-     "speaker": "심사관",
-     "text_kr": "고객님, 여권은 어디 있으시죠?"
-    },
-    {
-     "line_id": "38",
-     "dialogue_case_id": "15",
-     "line_order": "3",
-     "speaker": "캐릭터",
-     "text_kr": "My passport... 오마이갓, 여권이 없어진 것 같아요."
-    },
-    {
-     "line_id": "39",
-     "dialogue_case_id": "15",
-     "line_order": "4",
-     "speaker": "심사관",
-     "text_kr": "여권이 없으시면 입국이 어렵습니다."
-    },
-    {
-     "line_id": "40",
-     "dialogue_case_id": "15",
-     "line_order": "5",
-     "speaker": "캐릭터",
-     "text_kr": "OMG... 이런 실수를 하다니. 죄송합니다."
-    },
-    {
-     "line_id": "41",
-     "dialogue_case_id": "16",
-     "line_order": "1",
-     "speaker": "캐릭터",
-     "text_kr": "안녕하세요! 여행 와서 너무 신나요!"
-    },
-    {
-     "line_id": "42",
-     "dialogue_case_id": "16",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "여권 여기 있습니다."
-    },
-    {
-     "line_id": "43",
-     "dialogue_case_id": "17",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "확인 완료되었습니다. 지나가셔도 됩니다."
-    },
-    {
-     "line_id": "44",
-     "dialogue_case_id": "17",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "감사합니다. 한국 너무 좋아요!"
-    },
-    {
-     "line_id": "45",
-     "dialogue_case_id": "18",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "죄송하지만 입국은 어렵습니다."
-    },
-    {
-     "line_id": "46",
-     "dialogue_case_id": "18",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "What? 분명 서류를 다 챙긴 것 같았는데요?"
-    },
-    {
-     "line_id": "47",
-     "dialogue_case_id": "19",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "확인했는데 입국이 어려우실 것 같습니다. 이유는 알려드릴 수 없습니다."
-    },
-    {
-     "line_id": "48",
-     "dialogue_case_id": "19",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "Really? 꼼꼼하게 다 확인하고 온 건데 다시 한 번 확인해 줘요."
-    },
-    {
-     "line_id": "49",
-     "dialogue_case_id": "20",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "죄송합니다만 지나갈 수 없습니다. 양해 부탁드립니다."
-    },
-    {
-     "line_id": "50",
-     "dialogue_case_id": "20",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "No way... 이해할 수 없어요. 왜 들어갈 수 없는 거예요?"
-    },
-    {
-     "line_id": "51",
-     "dialogue_case_id": "20",
-     "line_order": "3",
-     "speaker": "심사관",
-     "text_kr": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
-    },
-    {
-     "line_id": "52",
-     "dialogue_case_id": "20",
-     "line_order": "4",
-     "speaker": "캐릭터",
-     "text_kr": "기분이 안 좋아요. You are so rude."
-    },
-    {
-     "line_id": "53",
-     "dialogue_case_id": "21",
-     "line_order": "1",
-     "speaker": "캐릭터",
-     "text_kr": "빨리 도장이나 찍고 보내줘."
-    },
-    {
-     "line_id": "54",
-     "dialogue_case_id": "21",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "여권 냈으니까 빨리 처리해."
-    },
-    {
-     "line_id": "55",
-     "dialogue_case_id": "22",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "확인 완료되었습니다. 지나가셔도 됩니다."
-    },
-    {
-     "line_id": "56",
-     "dialogue_case_id": "22",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "일처리 하나는 빨라서 맘에 드네."
-    },
-    {
-     "line_id": "57",
-     "dialogue_case_id": "23",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "죄송하지만 입국은 어렵습니다."
-    },
-    {
-     "line_id": "58",
-     "dialogue_case_id": "23",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "무슨 소리야? 서류에 잘못된 부분이 없는데!"
-    },
-    {
-     "line_id": "59",
-     "dialogue_case_id": "24",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "확인했는데 입국이 어려우실 것 같습니다. 이유는 알려드릴 수 없습니다."
-    },
-    {
-     "line_id": "60",
-     "dialogue_case_id": "24",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "눈을 어디에 둔 거야? 서류 다 맞게 챙겼잖아!"
-    },
-    {
-     "line_id": "61",
-     "dialogue_case_id": "25",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "죄송합니다만 지나갈 수 없습니다. 양해 부탁드립니다."
-    },
-    {
-     "line_id": "62",
-     "dialogue_case_id": "25",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "진짜 미치겠네! 다시 제대로 확인해!"
-    },
-    {
-     "line_id": "63",
-     "dialogue_case_id": "25",
-     "line_order": "3",
-     "speaker": "심사관",
-     "text_kr": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
-    },
-    {
-     "line_id": "64",
-     "dialogue_case_id": "25",
-     "line_order": "4",
-     "speaker": "캐릭터",
-     "text_kr": "진작 이럴 것이지. 내가 꼭 민원 넣을 거야!"
-    },
-    {
-     "line_id": "65",
-     "dialogue_case_id": "26",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "고객님 여권의 성별 정보가 본인과 일치하지 않습니다. 입국이 어렵습니다."
-    },
-    {
-     "line_id": "66",
-     "dialogue_case_id": "26",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "진짜 사람 빡빡하게 구네. 더러워서 그냥 가고 만다."
-    },
-    {
-     "line_id": "67",
-     "dialogue_case_id": "27",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "확인 완료되었습니다. 지나가셔도 됩니다."
-    },
-    {
-     "line_id": "68",
-     "dialogue_case_id": "27",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "일처리 하나는 빨라서 맘에 드네."
-    },
-    {
-     "line_id": "69",
-     "dialogue_case_id": "28",
-     "line_order": "1",
-     "speaker": "캐릭터",
-     "text_kr": "빨리 검사해."
-    },
-    {
-     "line_id": "70",
-     "dialogue_case_id": "28",
-     "line_order": "2",
-     "speaker": "심사관",
-     "text_kr": "고객님, 여권은 어디 있으시죠?"
-    },
-    {
-     "line_id": "71",
-     "dialogue_case_id": "28",
-     "line_order": "3",
-     "speaker": "캐릭터",
-     "text_kr": "어? 여권이 어딨지? 그냥 보내주면 안 돼?"
-    },
-    {
-     "line_id": "72",
-     "dialogue_case_id": "28",
-     "line_order": "4",
-     "speaker": "심사관",
-     "text_kr": "여권 없이는 입국이 불가합니다. 양해 부탁드립니다."
-    },
-    {
-     "line_id": "73",
-     "dialogue_case_id": "28",
-     "line_order": "5",
-     "speaker": "캐릭터",
-     "text_kr": "진짜 융통성 없이 일하네. 됐어!"
-    },
-    {
-     "line_id": "74",
-     "dialogue_case_id": "29",
-     "line_order": "1",
-     "speaker": "캐릭터",
-     "text_kr": "안녕하세요, 여기 여권 드릴게요."
-    },
-    {
-     "line_id": "75",
-     "dialogue_case_id": "29",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "여권 확인 부탁드립니다."
-    },
-    {
-     "line_id": "76",
-     "dialogue_case_id": "30",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "고객님 여권의 MRZ 코드와 여권번호가 일치하지 않습니다. 입국이 어렵습니다."
-    },
-    {
-     "line_id": "77",
-     "dialogue_case_id": "30",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "앗..! 제가 착각했네요. 죄송합니다."
-    },
-    {
-     "line_id": "78",
-     "dialogue_case_id": "31",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "확인 완료되었습니다. 지나가셔도 됩니다."
-    },
-    {
-     "line_id": "79",
-     "dialogue_case_id": "31",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "감사합니다. 즐거운 하루 되세요!"
-    },
-    {
-     "line_id": "80",
-     "dialogue_case_id": "32",
-     "line_order": "1",
-     "speaker": "캐릭터",
-     "text_kr": "Hello! Nice to meet you!"
-    },
-    {
-     "line_id": "81",
-     "dialogue_case_id": "32",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "Here is my passport."
-    },
-    {
-     "line_id": "82",
-     "dialogue_case_id": "33",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "확인 완료되었습니다. 지나가셔도 됩니다."
-    },
-    {
-     "line_id": "83",
-     "dialogue_case_id": "33",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "Thank you! Have a nice day!"
-    },
-    {
-     "line_id": "84",
-     "dialogue_case_id": "34",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "죄송하지만 입국은 어렵습니다."
-    },
-    {
-     "line_id": "85",
-     "dialogue_case_id": "34",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "What? 분명 서류를 다 챙긴 것 같았는데요?"
-    },
-    {
-     "line_id": "86",
-     "dialogue_case_id": "35",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "확인했는데 입국이 어려우실 것 같습니다. 이유는 알려드릴 수 없습니다."
-    },
-    {
-     "line_id": "87",
-     "dialogue_case_id": "35",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "Really? 꼼꼼하게 다 확인하고 온 건데 다시 한 번 확인해 줘요."
-    },
-    {
-     "line_id": "88",
-     "dialogue_case_id": "36",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "죄송합니다만 지나갈 수 없습니다. 양해 부탁드립니다."
-    },
-    {
-     "line_id": "89",
-     "dialogue_case_id": "36",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "No way... 이해할 수 없어요. 왜 들어갈 수 없는 거예요?"
-    },
-    {
-     "line_id": "90",
-     "dialogue_case_id": "36",
-     "line_order": "3",
-     "speaker": "심사관",
-     "text_kr": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
-    },
-    {
-     "line_id": "91",
-     "dialogue_case_id": "36",
-     "line_order": "4",
-     "speaker": "캐릭터",
-     "text_kr": "기분이 안 좋아요. You are so rude."
-    },
-    {
-     "line_id": "92",
-     "dialogue_case_id": "37",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "고객님 여권번호 형식이 발급 국가와 일치하지 않습니다. 입국이 어렵습니다."
-    },
-    {
-     "line_id": "93",
-     "dialogue_case_id": "37",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "Oh... I am sorry. I think I made a mistake."
-    },
-    {
-     "line_id": "94",
-     "dialogue_case_id": "38",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "확인 완료되었습니다. 지나가셔도 됩니다."
-    },
-    {
-     "line_id": "95",
-     "dialogue_case_id": "38",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "Thank you! Have a nice day!"
-    },
-    {
-     "line_id": "96",
-     "dialogue_case_id": "39",
-     "line_order": "1",
-     "speaker": "심사관",
-     "text_kr": "고객님, 입국 도장이 누락되어 있습니다."
-    },
-    {
-     "line_id": "97",
-     "dialogue_case_id": "39",
-     "line_order": "2",
-     "speaker": "캐릭터",
-     "text_kr": "What? 도장이 없어요?"
-    },
-    {
-     "line_id": "98",
-     "dialogue_case_id": "39",
-     "line_order": "3",
-     "speaker": "심사관",
-     "text_kr": "도장이 누락될 경우 입국이 어렵습니다."
-    },
-    {
-     "line_id": "99",
-     "dialogue_case_id": "39",
-     "line_order": "4",
-     "speaker": "캐릭터",
-     "text_kr": "OMG... 알겠어요. 돌아가 볼게요."
-    }
-   ],
-   "layout": "relational"
-  },
   "news": {
    "columns": [
     {
@@ -3740,83 +2387,68 @@
      "key": "rule_content",
      "type": "varchar(1000)",
      "label": "규정 내용"
-    },
-    {
-     "key": "related_field",
-     "type": "varchar(30)",
-     "label": "관련 항목"
     }
    ],
    "rows": [
     {
      "rule_id": "1",
      "day": "1",
-     "rule_title": "기본",
-     "rule_content": "기본 규정",
-     "related_field": "모든 입국자는 심사관의 허가를 받아야한다. 서류와 진술이 서로 다르면 입국을 거부한다."
+     "rule_title": "기본 규정",
+     "rule_content": "모든 입국자는 심사관의 허가를 받아야한다. 서류와 진술이 서로 다르면 입국을 거부한다."
     },
     {
      "rule_id": "2",
      "day": "1",
-     "rule_title": "기본",
-     "rule_content": "신분 확인",
-     "related_field": "여권 사진과 방문자의 얼굴을 반드시 비교해야 한다."
+     "rule_title": "신분 확인",
+     "rule_content": "여권 사진과 방문자의 얼굴을 반드시 비교해야 한다."
     },
     {
      "rule_id": "3",
      "day": "1",
-     "rule_title": "기본",
-     "rule_content": "여권 유효기간",
-     "related_field": "모든 입국자는 유효한 여권을 소지해야 한다,"
+     "rule_title": "여권 유효기간",
+     "rule_content": "모든 입국자는 유효한 여권을 소지해야 한다,"
     },
     {
      "rule_id": "4",
      "day": "1",
-     "rule_title": "기본",
-     "rule_content": "금지 물품",
-     "related_field": "마약과 밀수품은 반입할 수 없다"
+     "rule_title": "금지 물품",
+     "rule_content": "마약과 밀수품은 반입할 수 없다"
     },
     {
      "rule_id": "5",
      "day": "5",
-     "rule_title": "특별",
-     "rule_content": "방역 지시",
-     "related_field": "감염의심자는 PCR 검사서를 제출해야 한다."
+     "rule_title": "방역 지시",
+     "rule_content": "감염의심자는 PCR 검사서를 제출해야 한다."
     },
     {
      "rule_id": "6",
      "day": "12",
-     "rule_title": "특별",
-     "rule_content": "테러 발생 지시",
-     "related_field": "테러 발생 시 지정 대상자는 입국할 수 없다."
+     "rule_title": "테러 발생 지시",
+     "rule_content": "테러 발생 시 지정 대상자는 입국할 수 없다."
     },
     {
      "rule_id": "7",
      "day": "5",
-     "rule_title": "서류",
-     "rule_content": "PCR 검사서",
-     "related_field": "검역대상자는 PCR 검사서를 제출해야 한다."
+     "rule_title": "PCR 검사서",
+     "rule_content": "검역대상자는 PCR 검사서를 제출해야 한다."
     },
     {
      "rule_id": "8",
      "day": "3",
-     "rule_title": "서류",
-     "rule_content": "입국 비자",
-     "related_field": "비자 정보는 여권 정보와 일치해야 한다."
+     "rule_title": "입국 비자",
+     "rule_content": "비자 정보는 여권 정보와 일치해야 한다."
     },
     {
      "rule_id": "9",
      "day": "8",
-     "rule_title": "서류",
-     "rule_content": "재직증명서",
-     "related_field": "취업 목적 입국자는 재직증명서를 제출해야 한다."
+     "rule_title": "재직증명서",
+     "rule_content": "취업 목적 입국자는 재직증명서를 제출해야 한다."
     },
     {
      "rule_id": "10",
      "day": "8",
-     "rule_title": "서류",
-     "rule_content": "합격통지서",
-     "related_field": "유학 목적 입국자는 합격통지서를 제출해야 한다."
+     "rule_title": "합격통지서",
+     "rule_content": "유학 목적 입국자는 합격통지서를 제출해야 한다."
     }
    ],
    "layout": "relational"
@@ -5078,6 +3710,42 @@
      "field": "job_title",
      "fake_value": "무직",
      "note": "직종 불일치"
+    },
+    {
+     "pool_id": "23",
+     "field": "face",
+     "fake_value": "이하민",
+     "note": "사진 불일치 디코이(미배정 실존 에셋)"
+    },
+    {
+     "pool_id": "24",
+     "field": "face",
+     "fake_value": "장지원",
+     "note": "사진 불일치 디코이(미배정 실존 에셋)"
+    },
+    {
+     "pool_id": "25",
+     "field": "face",
+     "fake_value": "이지은",
+     "note": "사진 불일치 디코이(타 한국 여성)"
+    },
+    {
+     "pool_id": "26",
+     "field": "face",
+     "fake_value": "최서연",
+     "note": "사진 불일치 디코이(타 한국 여성)"
+    },
+    {
+     "pool_id": "27",
+     "field": "face",
+     "fake_value": "송하늘",
+     "note": "사진 불일치 디코이(타 한국 여성)"
+    },
+    {
+     "pool_id": "28",
+     "field": "face",
+     "fake_value": "배수정",
+     "note": "사진 불일치 디코이(타 한국 여성)"
     }
    ],
    "layout": "flat"
@@ -7769,6 +6437,8 @@
   }
  },
  "warnings": [
+  "기대 시트 누락: dialogue_case",
+  "기대 시트 누락: dialogue_line",
   "character_payout: 메인 엑셀 1차 소스 사용(EXTRA 무시)",
   "character_score: 메인 엑셀 1차 소스 사용(EXTRA 무시)"
  ]

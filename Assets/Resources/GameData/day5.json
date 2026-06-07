@@ -10,7 +10,7 @@
       "gender": "남성",
       "birthDate": "1975-02-11",
       "age": 51,
-      "spriteRef": "spr_c028",
+      "spriteRef": "오만석",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c28",
+          "spriteRef": "오만석",
           "country": "KOR",
           "fields": [
             {
@@ -264,7 +264,7 @@
       "gender": "여성",
       "birthDate": "1998-02-25",
       "age": 28,
-      "spriteRef": "spr_c015",
+      "spriteRef": "한지원",
       "characterType": "특수(연예인)★",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -273,7 +273,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c15",
+          "spriteRef": "한지원",
           "country": "KOR",
           "fields": [
             {
@@ -518,7 +518,7 @@
       "gender": "남성",
       "birthDate": "1989-09-03",
       "age": 36,
-      "spriteRef": "spr_c013",
+      "spriteRef": "로버트 존슨",
       "characterType": "전염병 환자",
       "defectVariant": "1-C 백신X",
       "correctResult": "정상 거절",
@@ -527,7 +527,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c13",
+          "spriteRef": "로버트 존슨",
           "country": "USA",
           "fields": [
             {
@@ -822,7 +822,7 @@
       "gender": "여성",
       "birthDate": "1996-04-12",
       "age": 30,
-      "spriteRef": "spr_c012",
+      "spriteRef": "정유나",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
       "correctResult": "정상 거절",
@@ -831,7 +831,7 @@
           "documentType": "여권",
           "variant": "비정상",
           "violationField": "사진",
-          "spriteRef": "photo_mismatch",
+          "spriteRef": "최서연",
           "country": "KOR",
           "fields": [
             {
@@ -1082,7 +1082,7 @@
       "gender": "남성",
       "birthDate": "1986-08-17",
       "age": 39,
-      "spriteRef": "spr_c024",
+      "spriteRef": "임도현",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1091,7 +1091,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c24",
+          "spriteRef": "임도현",
           "country": "KOR",
           "fields": [
             {
@@ -1336,7 +1336,7 @@
       "gender": "여성",
       "birthDate": "1993-07-19",
       "age": 32,
-      "spriteRef": "spr_c014",
+      "spriteRef": "리 나",
       "characterType": "전염병 환자",
       "defectVariant": "1-D 모두 미비",
       "correctResult": "정상 거절",
@@ -1345,7 +1345,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c14",
+          "spriteRef": "리 나",
           "country": "CHN",
           "fields": [
             {
@@ -1640,7 +1640,7 @@
       "gender": "남성",
       "birthDate": "1985-03-15",
       "age": 41,
-      "spriteRef": "spr_c001",
+      "spriteRef": "김민준",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1649,7 +1649,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_1",
+          "spriteRef": "김민준",
           "country": "KOR",
           "fields": [
             {
@@ -1889,16 +1889,16 @@
   "rules": [
     {
       "ruleId": 5,
-      "title": "특별",
-      "content": "방역 지시",
-      "relatedField": "감염의심자는 PCR 검사서를 제출해야 한다.",
+      "title": "방역 지시",
+      "content": "감염의심자는 PCR 검사서를 제출해야 한다.",
+      "relatedField": "",
       "attr": ""
     },
     {
       "ruleId": 7,
-      "title": "서류",
-      "content": "PCR 검사서",
-      "relatedField": "검역대상자는 PCR 검사서를 제출해야 한다.",
+      "title": "PCR 검사서",
+      "content": "검역대상자는 PCR 검사서를 제출해야 한다.",
+      "relatedField": "",
       "attr": ""
     }
   ],

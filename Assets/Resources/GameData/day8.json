@@ -10,7 +10,7 @@
       "gender": "여성",
       "birthDate": "1990-07-22",
       "age": 35,
-      "spriteRef": "spr_c002",
+      "spriteRef": "이지은",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c2",
+          "spriteRef": "이지은",
           "country": "KOR",
           "fields": [
             {
@@ -225,7 +225,7 @@
       "gender": "남성",
       "birthDate": "1979-05-05",
       "age": 47,
-      "spriteRef": "spr_c020",
+      "spriteRef": "한만수",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -234,7 +234,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c20",
+          "spriteRef": "한만수",
           "country": "KOR",
           "fields": [
             {
@@ -440,7 +440,7 @@
       "gender": "남성",
       "birthDate": "1978-11-08",
       "age": 47,
-      "spriteRef": "spr_c003",
+      "spriteRef": "첸 웨이",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -449,7 +449,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_3",
+          "spriteRef": "첸 웨이",
           "country": "CHN",
           "fields": [
             {
@@ -705,7 +705,7 @@
       "gender": "남성",
       "birthDate": "1986-05-30",
       "age": 39,
-      "spriteRef": "spr_c018",
+      "spriteRef": "첸 리",
       "characterType": "장기체류자",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -714,7 +714,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c18",
+          "spriteRef": "첸 리",
           "country": "CHN",
           "fields": [
             {
@@ -1003,7 +1003,7 @@
       "gender": "남성",
       "birthDate": "1955-06-01",
       "age": 70,
-      "spriteRef": "spr_c016",
+      "spriteRef": "오현석",
       "characterType": "특수(현자)★",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1012,7 +1012,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c16",
+          "spriteRef": "오현석",
           "country": "KOR",
           "fields": [
             {
@@ -1218,7 +1218,7 @@
       "gender": "여성",
       "birthDate": "1995-02-28",
       "age": 31,
-      "spriteRef": "spr_c004",
+      "spriteRef": "제임스 밀러",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -1227,7 +1227,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_4",
+          "spriteRef": "제임스 밀러",
           "country": "USA",
           "fields": [
             {
@@ -1483,7 +1483,7 @@
       "gender": "여성",
       "birthDate": "1999-05-05",
       "age": 27,
-      "spriteRef": "spr_c030",
+      "spriteRef": "노가은",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1492,7 +1492,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c30",
+          "spriteRef": "노가은",
           "country": "KOR",
           "fields": [
             {
@@ -1693,16 +1693,16 @@
   "rules": [
     {
       "ruleId": 9,
-      "title": "서류",
-      "content": "재직증명서",
-      "relatedField": "취업 목적 입국자는 재직증명서를 제출해야 한다.",
+      "title": "재직증명서",
+      "content": "취업 목적 입국자는 재직증명서를 제출해야 한다.",
+      "relatedField": "",
       "attr": ""
     },
     {
       "ruleId": 10,
-      "title": "서류",
-      "content": "합격통지서",
-      "relatedField": "유학 목적 입국자는 합격통지서를 제출해야 한다.",
+      "title": "합격통지서",
+      "content": "유학 목적 입국자는 합격통지서를 제출해야 한다.",
+      "relatedField": "",
       "attr": ""
     }
   ],

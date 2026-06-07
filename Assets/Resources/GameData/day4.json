@@ -10,7 +10,7 @@
       "gender": "남성",
       "birthDate": "1982-09-14",
       "age": 43,
-      "spriteRef": "spr_c005",
+      "spriteRef": "박철수",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 거절",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "비정상",
           "violationField": "생년월일",
-          "spriteRef": "photo_5",
+          "spriteRef": "박철수",
           "country": "KOR",
           "fields": [
             {
@@ -231,7 +231,7 @@
       "gender": "여성",
       "birthDate": "1988-06-30",
       "age": 37,
-      "spriteRef": "spr_c006",
+      "spriteRef": "최서연",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -240,7 +240,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c6",
+          "spriteRef": "최서연",
           "country": "KOR",
           "fields": [
             {
@@ -446,7 +446,7 @@
       "gender": "여성",
       "birthDate": "1995-02-28",
       "age": 31,
-      "spriteRef": "spr_c004",
+      "spriteRef": "제임스 밀러",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -455,7 +455,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_4",
+          "spriteRef": "제임스 밀러",
           "country": "USA",
           "fields": [
             {
@@ -711,7 +711,7 @@
       "gender": "여성",
       "birthDate": "1999-05-05",
       "age": 27,
-      "spriteRef": "spr_c030",
+      "spriteRef": "노가은",
       "characterType": "성형 의심 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -720,7 +720,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c30",
+          "spriteRef": "노가은",
           "country": "KOR",
           "fields": [
             {
@@ -926,7 +926,7 @@
       "gender": "남성",
       "birthDate": "1979-05-05",
       "age": 47,
-      "spriteRef": "spr_c020",
+      "spriteRef": "한만수",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -935,7 +935,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c20",
+          "spriteRef": "한만수",
           "country": "KOR",
           "fields": [
             {
@@ -1141,7 +1141,7 @@
       "gender": "남성",
       "birthDate": "1990-01-20",
       "age": 36,
-      "spriteRef": "spr_c022",
+      "spriteRef": "박지훈",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1150,7 +1150,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c22",
+          "spriteRef": "박지훈",
           "country": "KOR",
           "fields": [
             {
@@ -1356,7 +1356,7 @@
       "gender": "남성",
       "birthDate": "1993-12-05",
       "age": 32,
-      "spriteRef": "spr_c007",
+      "spriteRef": "왕 웨이",
       "characterType": "외국인 관광객",
       "defectVariant": "출국X",
       "correctResult": "정상 거절",
@@ -1365,7 +1365,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_7",
+          "spriteRef": "왕 웨이",
           "country": "CHN",
           "fields": [
             {

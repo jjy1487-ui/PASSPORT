@@ -10,7 +10,7 @@
       "gender": "남성",
       "birthDate": "1985-03-15",
       "age": 41,
-      "spriteRef": "spr_c001",
+      "spriteRef": "김민준",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -19,7 +19,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_1",
+          "spriteRef": "김민준",
           "country": "KOR",
           "fields": [
             {
@@ -225,7 +225,7 @@
       "gender": "남성",
       "birthDate": "1978-11-08",
       "age": 47,
-      "spriteRef": "spr_c003",
+      "spriteRef": "첸 웨이",
       "characterType": "외국인 관광객",
       "defectVariant": "분실",
       "correctResult": "정상 거절",
@@ -234,7 +234,7 @@
           "documentType": "여권",
           "variant": "비정상",
           "violationField": "국적",
-          "spriteRef": "photo_3",
+          "spriteRef": "첸 웨이",
           "country": "CHN",
           "fields": [
             {
@@ -446,7 +446,7 @@
       "gender": "여성",
       "birthDate": "1990-07-22",
       "age": 35,
-      "spriteRef": "spr_c002",
+      "spriteRef": "이지은",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -455,7 +455,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c2",
+          "spriteRef": "이지은",
           "country": "KOR",
           "fields": [
             {
@@ -661,7 +661,7 @@
       "gender": "여성",
       "birthDate": "1995-02-28",
       "age": 31,
-      "spriteRef": "spr_c004",
+      "spriteRef": "제임스 밀러",
       "characterType": "외국인 관광객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -670,7 +670,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_4",
+          "spriteRef": "제임스 밀러",
           "country": "USA",
           "fields": [
             {
@@ -876,7 +876,7 @@
       "gender": "남성",
       "birthDate": "1982-09-14",
       "age": 43,
-      "spriteRef": "spr_c005",
+      "spriteRef": "박철수",
       "characterType": "진상 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -885,7 +885,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_5",
+          "spriteRef": "박철수",
           "country": "KOR",
           "fields": [
             {
@@ -1091,7 +1091,7 @@
       "gender": "남성",
       "birthDate": "1993-12-05",
       "age": 32,
-      "spriteRef": "spr_c007",
+      "spriteRef": "왕 웨이",
       "characterType": "외국인 관광객",
       "defectVariant": "분실",
       "correctResult": "정상 거절",
@@ -1100,7 +1100,7 @@
           "documentType": "여권",
           "variant": "비정상",
           "violationField": "국적",
-          "spriteRef": "photo_7",
+          "spriteRef": "왕 웨이",
           "country": "CHN",
           "fields": [
             {
@@ -1312,7 +1312,7 @@
       "gender": "여성",
       "birthDate": "1988-06-30",
       "age": 37,
-      "spriteRef": "spr_c006",
+      "spriteRef": "최서연",
       "characterType": "일반 고객",
       "defectVariant": "",
       "correctResult": "정상 승인",
@@ -1321,7 +1321,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "photo_c6",
+          "spriteRef": "최서연",
           "country": "KOR",
           "fields": [
             {
@@ -1522,30 +1522,30 @@
   "rules": [
     {
       "ruleId": 1,
-      "title": "기본",
-      "content": "기본 규정",
-      "relatedField": "모든 입국자는 심사관의 허가를 받아야한다. 서류와 진술이 서로 다르면 입국을 거부한다.",
+      "title": "기본 규정",
+      "content": "모든 입국자는 심사관의 허가를 받아야한다. 서류와 진술이 서로 다르면 입국을 거부한다.",
+      "relatedField": "",
       "attr": ""
     },
     {
       "ruleId": 2,
-      "title": "기본",
-      "content": "신분 확인",
-      "relatedField": "여권 사진과 방문자의 얼굴을 반드시 비교해야 한다.",
+      "title": "신분 확인",
+      "content": "여권 사진과 방문자의 얼굴을 반드시 비교해야 한다.",
+      "relatedField": "",
       "attr": ""
     },
     {
       "ruleId": 3,
-      "title": "기본",
-      "content": "여권 유효기간",
-      "relatedField": "모든 입국자는 유효한 여권을 소지해야 한다,",
+      "title": "여권 유효기간",
+      "content": "모든 입국자는 유효한 여권을 소지해야 한다,",
+      "relatedField": "",
       "attr": ""
     },
     {
       "ruleId": 4,
-      "title": "기본",
-      "content": "금지 물품",
-      "relatedField": "마약과 밀수품은 반입할 수 없다",
+      "title": "금지 물품",
+      "content": "마약과 밀수품은 반입할 수 없다",
+      "relatedField": "",
       "attr": ""
     }
   ],
