@@ -768,10 +768,10 @@
         "type": "fingerprint",
         "result": "적발",
         "detail": "지명수배 일치",
-        "extra": "해외 도피 사기범 지명수배",
+        "extra": "국제 밀수 조직 수배자",
         "claim": {
           "attr": "name",
-          "value": "해외 도피 사기범 지명수배",
+          "value": "국제 밀수 조직 수배자",
           "label": "지문 대조 신원",
           "unlocksScan": ""
         }

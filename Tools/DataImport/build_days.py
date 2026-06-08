@@ -460,9 +460,8 @@ SCAN_TRIGGERS = [
     (13, "11", "passport_no", "JP1012287", ["xray"]),
     # day14 손님9(xray+지문) — KOR 가 day14에 3명 → passport_no, 스캔 2종 각각 트리거
     (14, "9", "passport_no", "KO1010053", ["xray", "fingerprint"]),
-    # day14 손님34(xray) — 재배정 JPN. 손님37을 USA로 옮겨 day14 JPN 유일 → nationality 코드.
-    #   (손님34 여권번호는 변조될 수 있어 nationality 사용)
-    (14, "34", "nationality", "JPN", ["xray"]),
+    # day14 손님34(야마모토)는 테러범→외국인 관광객(정상 통과)으로 전환됨(260608). 스캔 결함 없음 →
+    #   기존 (14,"34","nationality","JPN",["xray"]) 트리거 제거(헛 단서 방지). day14 JPN 유일이라 안전.
 ]
 
 # 스캔 종류별 테마 라벨(label). 값에 식별값(국적코드/여권번호)을 끼워 연출.
@@ -826,6 +825,12 @@ def build():
                 stats.setdefault("variants", {})
                 stats["variants"][defect_variant] = stats["variants"].get(defect_variant, 0) + 1
 
+            # 적발물(X-ray/지문)은 '거부가 정답'(=실제 범죄 버전)일 때만 부여한다.
+            # 정상으로 굴러 '승인이 정답'이면 깨끗(적발물 None). 성형수술 범죄자는 항상 거부.
+            correct_result = ("정상 거절" if ctype == "범죄자(성형수술)"
+                              else ("정상 승인" if is_normal else "정상 거절"))
+            caught = correct_result == "정상 거절"
+
             customer_entry = {
                 "customerId": int(cid),
                 "slot": slot,
@@ -840,16 +845,16 @@ def build():
                 "defectVariant": defect_variant,   # baked 변이 키(없으면 ""). 게임플레이가 branch 조인에 사용.
                 # 변장 지명수배범: 서류는 정상이나 '거부가 정답'(승인=잘못 허가 페널티).
                 # 거부 시 InspectionController 가 rejectAdvancedBranchKey 로 가이드 최선 분기 정산.
-                "correctResult": "정상 거절" if ctype == "범죄자(성형수술)"
-                    else ("정상 승인" if is_normal else "정상 거절"),
+                "correctResult": correct_result,
                 "documents": documents,
                 "dialogueCases": make_dialogue_cases(
                     nat_code, violation_label, attr_for_label(violation_label), character_type=ctype),
                 # 고급 분기 손님 플래그: 거부 시 가이드 대사+최선 분기 정산(대상 외 손님은 빈 문자열).
                 "rejectAdvancedBranchKey": "detect_montage_xray_reject" if ctype == "범죄자(성형수술)" else "",
                 "rejectGuidedCaseType": "분기 거부" if ctype == "범죄자(성형수술)" else "",
-                "xray": xray_scans.get(cid),                # 없으면 None -> JSON null
-                "fingerprint": fingerprint_scans.get(cid),  # 없으면 None -> JSON null
+                # 적발물은 '거부가 정답'일 때만(정상 손님이면 깨끗 → None). valid_chance 도박/엔딩 밸런스 불변.
+                "xray": xray_scans.get(cid) if caught else None,
+                "fingerprint": fingerprint_scans.get(cid) if caught else None,
             }
             # 시나리오 대사 주입: dialogueCases 의 [TODO 대사] text 를 branch 대사로 교체.
             # 구조(개수/order/speaker) 불변. 매핑 불가 라인은 [TODO] 유지(리포트에 집계).

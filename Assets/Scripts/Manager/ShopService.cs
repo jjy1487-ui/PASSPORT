@@ -68,9 +68,17 @@ public sealed class ShopService : MonoBehaviour
 
     // ── 조회 API(UI 가 호출) ──────────────────────────────────
 
-    /// <summary>해당 일차에 구매 가능한(unlock_day &lt;= day) 품목 행 목록. shop 테이블 그대로.</summary>
+    /// <summary>해당 일차+회차에 구매 가능한 품목 행 목록.
+    /// unlock_day &lt;= day 이고 unlock_run &lt;= 현재 회차(GameProgressSave.CurrentPlaythrough)인 행만.
+    /// unlock_run 컬럼/값이 없으면 1(=1회차부터)로 간주 → 기존 데이터 호환.</summary>
     public List<DataRow> GetAvailableItems(int day)
-        => Shop != null ? Shop.AvailableOn(day) : new List<DataRow>();
+    {
+        if (Shop == null) return new List<DataRow>();
+        int run = GameProgressSave.CurrentPlaythrough;
+        List<DataRow> list = Shop.AvailableOn(day);
+        list.RemoveAll(r => r == null || r.GetInt("unlock_run", 1) > run);
+        return list;
+    }
 
     /// <summary>effect_type 영구 활성 여부(MAGNIFY 등 UI/스캐너 게이팅용).</summary>
     public bool IsEffectActive(string effectType)
@@ -99,7 +107,8 @@ public sealed class ShopService : MonoBehaviour
         if (row == null) { Debug.LogWarning($"[ShopService] shop_item_id={shopItemId} 행 없음"); return false; }
 
         int unlockDay = row.GetInt("unlock_day", int.MaxValue);
-        if (currentDay < unlockDay) return false; // 아직 잠김
+        if (currentDay < unlockDay) return false; // 아직 잠김(일차)
+        if (GameProgressSave.CurrentPlaythrough < row.GetInt("unlock_run", 1)) return false; // 아직 잠김(회차)
 
         string effectType = row.Get("effect_type");
         // 영구 효과 중복 구매 차단(이미 켜져 있으면 돈 낭비 방지).

@@ -137,6 +137,9 @@ public sealed class ResultSceneManager : MonoBehaviour
             if (_endingShown) return; // 중복 발동 가드
             _endingShown = true;
 
+            // 회차 완료(14일 엔딩 도달) → 회차 카운터 +1. 다음 플레이가 '2회차'가 되어 회차 해금 상점템이 열린다.
+            GameProgressSave.IncrementCompletedRuns();
+
             int score = _economy != null ? _economy.Score : 0;
             EndingResult e = EndingResolver.ResolveByScore(score);
             if (_endingPanel != null) _endingPanel.Show(e);

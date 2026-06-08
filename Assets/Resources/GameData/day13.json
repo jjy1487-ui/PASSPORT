@@ -13,7 +13,7 @@
       "spriteRef": "사토 하루키",
       "characterType": "테러범",
       "defectVariant": "",
-      "correctResult": "정상 승인",
+      "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
@@ -269,12 +269,12 @@
       "rejectGuidedCaseType": "",
       "xray": {
         "type": "xray",
-        "result": "적발",
-        "detail": "폭발물 부품",
-        "extra": "다리",
+        "result": "위험",
+        "detail": "폭발물 의심 부품",
+        "extra": "수하물 이중 바닥",
         "claim": {
           "attr": "contraband",
-          "value": "폭발물 부품",
+          "value": "폭발물 의심 부품",
           "label": "X-ray 적발물",
           "unlocksScan": ""
         }

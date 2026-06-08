@@ -16,7 +16,20 @@ public static class GameProgressSave
     private const string KItems   = "SE_Items";    // '|' 구분
     private const string KEvents  = "SE_Events";   // "id:count|id:count"
     private const string KSage    = "SE_SageCount";
+    private const string KRuns    = "SE_CompletedRuns"; // 완료한 회차 수(메타: 새 게임에도 유지)
     private const char Sep = '|';
+
+    // ── 회차(플레이 횟수) — 메타: '새 게임'에도 유지되고, 전체 삭제(Clear)에서만 0으로 ──
+    /// <summary>지금까지 완료(14일 엔딩 도달)한 회차 수. 기본 0.</summary>
+    public static int CompletedRuns => PlayerPrefs.GetInt(KRuns, 0);
+    /// <summary>현재 회차(1부터). = 완료 회차 + 1. (상점 unlock_run 비교용)</summary>
+    public static int CurrentPlaythrough => CompletedRuns + 1;
+    /// <summary>회차 완료 처리: 14일 엔딩 도달 시 1 증가 → 다음 플레이가 +1회차가 된다.</summary>
+    public static void IncrementCompletedRuns()
+    {
+        PlayerPrefs.SetInt(KRuns, CompletedRuns + 1);
+        PlayerPrefs.Save();
+    }
 
     /// <summary>저장된 진행이 있는가.</summary>
     public static bool HasSave() => PlayerPrefs.HasKey(KScore);
@@ -63,7 +76,7 @@ public static class GameProgressSave
     /// <summary>세이브 전체 삭제(점수/돈/정확도/호칭/아이템/엔딩카운터 모두).</summary>
     public static void Clear()
     {
-        foreach (var k in new[] { KScore, KMoney, KCorrect, KJudged, KTitles, KItems, KEvents, KSage })
+        foreach (var k in new[] { KScore, KMoney, KCorrect, KJudged, KTitles, KItems, KEvents, KSage, KRuns })
             PlayerPrefs.DeleteKey(k);
         PlayerPrefs.Save();
     }

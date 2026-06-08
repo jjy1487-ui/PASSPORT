@@ -52,8 +52,8 @@ MonoBehaviour:
     - 1
     - "\uB178\uBA40"
     - "\uC804\uC124\uC758 \uAC80\uBB38\uAD00"
-    - 540
-    - 100000
+    - 
+    - 
     - "\uD68C\uCC28 \uC885\uB8CC"
     - SCORE_RANGE
     - "14\uC77C \uB204\uC801 \uC810\uC218 +500 \uC774\uC0C1"
@@ -70,8 +70,8 @@ MonoBehaviour:
     - 2
     - "\uB178\uBA40"
     - "\uCCAD\uB834\uD55C \uAC80\uBB38\uAD00"
-    - 400
-    - 539
+    - 
+    - 
     - "\uD68C\uCC28 \uC885\uB8CC"
     - SCORE_RANGE
     - "\uB204\uC801 \uC810\uC218 +400~+499"
@@ -88,8 +88,8 @@ MonoBehaviour:
     - 3
     - "\uB178\uBA40"
     - "\uB9CC\uC778\uC758 \uADC0\uAC10"
-    - 250
-    - 399
+    - 
+    - 
     - "\uD68C\uCC28 \uC885\uB8CC"
     - SCORE_RANGE
     - "\uB204\uC801 \uC810\uC218 +300~+399"
@@ -106,8 +106,8 @@ MonoBehaviour:
     - 4
     - "\uB178\uBA40"
     - "\uC6B0\uC218 \uC0AC\uC6D0"
-    - 80
-    - 249
+    - -100000
+    - 100000
     - "\uD68C\uCC28 \uC885\uB8CC"
     - SCORE_RANGE
     - "\uB204\uC801 \uC810\uC218 +200~+299"
@@ -124,8 +124,8 @@ MonoBehaviour:
     - 5
     - "\uB178\uBA40"
     - "\uD3C9\uBC94\uD55C \uAC80\uBB38\uAD00"
-    - 1
-    - 79
+    - 
+    - 
     - "\uD68C\uCC28 \uC885\uB8CC"
     - SCORE_RANGE
     - "\uB204\uC801 \uC810\uC218 +100~+199"
@@ -142,8 +142,8 @@ MonoBehaviour:
     - 6
     - "\uB178\uBA40"
     - "\uB098\uC058\uC9C4 \uC54A\uC558\uC5B4"
-    - -120
-    - 0
+    - 
+    - 
     - "\uD68C\uCC28 \uC885\uB8CC"
     - SCORE_RANGE
     - "\uB204\uC801 \uC810\uC218 -49~+99"
@@ -160,8 +160,8 @@ MonoBehaviour:
     - 7
     - "\uB178\uBA40"
     - "\uBBF8\uC219\uD55C \uC9C1\uC6D0"
-    - -280
-    - -121
+    - 
+    - 
     - "\uD68C\uCC28 \uC885\uB8CC"
     - SCORE_RANGE
     - "\uB204\uC801 \uC810\uC218 -150~-50"
@@ -178,8 +178,8 @@ MonoBehaviour:
     - 8
     - "\uB178\uBA40"
     - "\uC9C4\uB85C \uACE0\uBBFC"
-    - -440
-    - -281
+    - 
+    - 
     - "\uD68C\uCC28 \uC885\uB8CC"
     - SCORE_RANGE
     - "\uB204\uC801 \uC810\uC218 -280~-151"
@@ -196,8 +196,8 @@ MonoBehaviour:
     - 9
     - "\uB178\uBA40"
     - "\uB10C \uD574\uACE0\uC57C"
-    - -640
-    - -441
+    - 
+    - 
     - "\uD68C\uCC28 \uC885\uB8CC"
     - SCORE_RANGE
     - "\uB204\uC801 \uC810\uC218 -400~-281"
@@ -214,8 +214,8 @@ MonoBehaviour:
     - 10
     - "\uB178\uBA40"
     - "\uD615\uC0AC \uCC98\uBC8C"
-    - -100000
-    - -641
+    - 
+    - 
     - "\uD68C\uCC28 \uC885\uB8CC"
     - SCORE_RANGE
     - "\uB204\uC801 \uC810\uC218 -600~-401"

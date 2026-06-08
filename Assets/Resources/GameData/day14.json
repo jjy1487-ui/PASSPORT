@@ -503,7 +503,7 @@
       "spriteRef": "강도식",
       "characterType": "범죄자(국내 유입자)",
       "defectVariant": "",
-      "correctResult": "정상 승인",
+      "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
@@ -706,23 +706,23 @@
       "xray": {
         "type": "xray",
         "result": "적발",
-        "detail": "마약",
-        "extra": "복부",
+        "detail": "마약 은닉",
+        "extra": "수하물 이중 바닥",
         "claim": {
           "attr": "contraband",
-          "value": "마약",
+          "value": "마약 은닉",
           "label": "X-ray 적발물",
           "unlocksScan": ""
         }
       },
       "fingerprint": {
         "type": "fingerprint",
-        "result": "위험",
+        "result": "적발",
         "detail": "지명수배 일치",
-        "extra": "국내 마약 유통 수배자와 지문 일치",
+        "extra": "국내 마약 유통 수배자",
         "claim": {
           "attr": "name",
-          "value": "국내 마약 유통 수배자와 지문 일치",
+          "value": "국내 마약 유통 수배자",
           "label": "지문 대조 신원",
           "unlocksScan": ""
         }
@@ -738,20 +738,20 @@
       "birthDate": "1982-03-22",
       "age": 44,
       "spriteRef": "야마모토 렌",
-      "characterType": "테러범",
+      "characterType": "외국인 관광객",
       "defectVariant": "",
-      "correctResult": "정상 거절",
+      "correctResult": "정상 승인",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "비정상",
-          "violationField": "여권번호",
+          "variant": "정상",
+          "violationField": "없음",
           "spriteRef": "야마모토 렌",
           "country": "JPN",
           "fields": [
             {
               "label": "여권번호",
-              "value": "##INVALID_PATTERN##",
+              "value": "JP1037978",
               "key": "passport_no"
             },
             {
@@ -850,12 +850,12 @@
             {
               "order": 1,
               "speaker": "야마모토 렌",
-              "text": "저 이거 다 터뜨려 버릴 거야! 아무도 못 막아!"
+              "text": "안녕하세요! 좋은 아침이네요."
             },
             {
               "order": 2,
               "speaker": "야마모토 렌",
-              "text": "여권 여기 있다. 빨리 처리해."
+              "text": "여기 제 여권입니다."
             }
           ]
         },
@@ -867,12 +867,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다."
+              "text": "확인 완료되었습니다. 즐거운 여행 되세요!"
             },
             {
               "order": 2,
               "speaker": "야마모토 렌",
-              "text": "...수고해."
+              "text": "정말 감사합니다! 좋은 하루 보내세요!"
             }
           ]
         },
@@ -884,18 +884,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 항목에 문제가 있습니다. 입국은 어렵습니다.",
-              "claim": {
-                "attr": "passport_no",
-                "value": "",
-                "label": "여권번호 불일치",
-                "unlocksScan": ""
-              }
+              "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다."
             },
             {
               "order": 2,
               "speaker": "야마모토 렌",
-              "text": "뭐? 무슨 근거로 막는 거지."
+              "text": "이런... 정말 죄송합니다. 전혀 몰랐어요."
             }
           ]
         },
@@ -907,12 +901,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다."
+              "text": "확인 완료되었습니다. 즐거운 여행 되세요!"
             },
             {
               "order": 2,
               "speaker": "야마모토 렌",
-              "text": "현명한 선택이군. 그럼 들어가지."
+              "text": "감사합니다! 빠르게 끝났네요."
             }
           ]
         },
@@ -924,12 +918,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다."
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
               "speaker": "야마모토 렌",
-              "text": "막을 이유가 없을 텐데. 다시 봐."
+              "text": "이건 정말 말도 안 돼요! 제 서류는 아무 문제 없는데요!"
             },
             {
               "order": 3,
@@ -939,7 +933,7 @@
             {
               "order": 4,
               "speaker": "야마모토 렌",
-              "text": "...그래. 들어가지."
+              "text": "오, 정말 다행이에요! 고마워요!"
             }
           ]
         },
@@ -951,12 +945,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다."
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
               "speaker": "야마모토 렌",
-              "text": "쓸데없이 시간 끌지 마. 통과시켜."
+              "text": "이건 정말 말도 안 돼요! 제 서류는 아무 문제 없는데요!"
             },
             {
               "order": 3,
@@ -966,7 +960,7 @@
             {
               "order": 4,
               "speaker": "야마모토 렌",
-              "text": "진작 그럴 것이지."
+              "text": "정말 다행이에요. 여행할 수 있어서 다행이에요."
             }
           ]
         },
@@ -978,12 +972,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다."
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
               "speaker": "야마모토 렌",
-              "text": "지금 누구한테 이러는 거야. 당장 보내."
+              "text": "이건 정말 말도 안 돼요! 제 서류는 아무 문제 없는데요!"
             },
             {
               "order": 3,
@@ -993,25 +987,14 @@
             {
               "order": 4,
               "speaker": "야마모토 렌",
-              "text": "...기억해 두지. 비켜."
+              "text": "기분이 안 좋네요. 너무 무례하시군요."
             }
           ]
         }
       ],
       "rejectAdvancedBranchKey": "",
       "rejectGuidedCaseType": "",
-      "xray": {
-        "type": "xray",
-        "result": "위험",
-        "detail": "폭발물 의심 부품",
-        "extra": "수하물 이중 바닥",
-        "claim": {
-          "attr": "contraband",
-          "value": "폭발물 의심 부품",
-          "label": "X-ray 적발물",
-          "unlocksScan": ""
-        }
-      },
+      "xray": null,
       "fingerprint": null
     },
     {
@@ -1754,20 +1737,6 @@
           "value": "KO1010053",
           "label": "위조신원/수배자 입국 경보: KO1010053 대상자 주의",
           "unlocksScan": "fingerprint"
-        }
-      ]
-    },
-    {
-      "newsId": 914010,
-      "title": "[속보] 위험물 반입 경보",
-      "content": "국제 공조 수사 결과 JPN 경유 입국자 중 폭발물·밀수품 은닉 사례가 다수 적발되었습니다. 해당 대상과 정보가 일치하면 X-ray 정밀 검사를 시행하십시오.",
-      "iconRef": "",
-      "claims": [
-        {
-          "attr": "nationality",
-          "value": "JPN",
-          "label": "폭발물/밀수 경보: JPN발 위험물 주의",
-          "unlocksScan": "xray"
         }
       ]
     }
