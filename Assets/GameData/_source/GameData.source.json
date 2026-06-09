@@ -650,9 +650,9 @@
      "schedule_id": "20",
      "day": "3",
      "slot": "6",
-     "customer_id": "21",
+     "customer_id": "10",
      "valid_chance": "0.7",
-     "customer_name": "서지호"
+     "customer_name": "윤서린"
     },
     {
      "schedule_id": "21",
@@ -1058,9 +1058,9 @@
      "schedule_id": "71",
      "day": "11",
      "slot": "1",
-     "customer_id": "10",
+     "customer_id": "8",
      "valid_chance": "0",
-     "customer_name": "윤서린"
+     "customer_name": "존 카터"
     },
     {
      "schedule_id": "72",
@@ -1122,17 +1122,17 @@
      "schedule_id": "79",
      "day": "12",
      "slot": "2",
-     "customer_id": "7",
+     "customer_id": "11",
      "valid_chance": "0",
-     "customer_name": "왕 웨이"
+     "customer_name": "사토 하루키"
     },
     {
      "schedule_id": "80",
      "day": "12",
      "slot": "3",
-     "customer_id": "8",
+     "customer_id": "21",
      "valid_chance": "0",
-     "customer_name": "존 카터"
+     "customer_name": "서지호"
     },
     {
      "schedule_id": "81",
@@ -1170,9 +1170,9 @@
      "schedule_id": "85",
      "day": "13",
      "slot": "1",
-     "customer_id": "11",
+     "customer_id": "7",
      "valid_chance": "0",
-     "customer_name": "사토 하루키"
+     "customer_name": "왕 웨이"
     },
     {
      "schedule_id": "86",

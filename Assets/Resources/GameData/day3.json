@@ -1137,34 +1137,34 @@
       "fingerprint": null
     },
     {
-      "customerId": 21,
+      "customerId": 10,
       "slot": 6,
-      "nameKr": "서지호",
-      "nameEn": "SEO JIHO",
+      "nameKr": "윤서린",
+      "nameEn": "YOON SEORIN",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
-      "birthDate": "1997-11-20",
-      "age": 28,
-      "spriteRef": "서지호",
-      "characterType": "성형 의심 고객",
+      "birthDate": "1991-08-08",
+      "age": 34,
+      "spriteRef": "윤서린",
+      "characterType": "범죄자(성형수술)",
       "defectVariant": "",
       "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
           "variant": "비정상",
-          "violationField": "사진",
-          "spriteRef": "이지은",
+          "violationField": "만료일",
+          "spriteRef": "윤서린",
           "country": "KOR",
           "fields": [
             {
               "label": "여권번호",
-              "value": "KO1023457",
+              "value": "KO1011170",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "SEO JIHO",
+              "value": "YOON SEORIN",
               "key": "name"
             },
             {
@@ -1174,7 +1174,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1997-11-20",
+              "value": "1991-08-08",
               "key": "birth_date"
             },
             {
@@ -1184,12 +1184,12 @@
             },
             {
               "label": "발급일",
-              "value": "2019-07-28",
+              "value": "2013-01-01",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2029-07-28",
+              "value": "2023-01-01",
               "key": "expiry_date"
             }
           ]
@@ -1203,13 +1203,13 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "서지호",
-              "text": "안녕하세요. (마스크와 모자로 얼굴을 가린 채 서류를 내려놓는다.)"
+              "speaker": "윤서린",
+              "text": "안녕하세요. (마스크, 모자, 선글라스로 얼굴을 완전히 가린 채 여권을 내민다.)"
             },
             {
               "order": 2,
-              "speaker": "서지호",
-              "text": "사진이랑 좀 달라 보여도 저 맞아요."
+              "speaker": "윤서린",
+              "text": "얼굴 좀 바꿨어도 본인 맞아요. 여권 드릴게요."
             }
           ]
         },
@@ -1221,12 +1221,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다."
             },
             {
               "order": 2,
-              "speaker": "서지호",
-              "text": "감사합니다! 수술 잘 됐다고 해주세요, 하하."
+              "speaker": "윤서린",
+              "text": "감사합니다. 역시 알아봐 주시네요."
             }
           ]
         },
@@ -1238,18 +1238,18 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요.",
+              "text": "서류 항목에 문제가 있습니다. 입국은 어렵습니다.",
               "claim": {
-                "attr": "face",
+                "attr": "expiry_date",
                 "value": "",
-                "label": "사진 불일치",
+                "label": "만료일 불일치",
                 "unlocksScan": ""
               }
             },
             {
               "order": 2,
-              "speaker": "서지호",
-              "text": "아... 다른 서류에 문제가 있었군요. 죄송합니다."
+              "speaker": "윤서린",
+              "text": "사진이랑 다르다고요? 저 본인 맞는데요..."
             }
           ]
         },
@@ -1261,12 +1261,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
+              "text": "지문 인식을 진행하겠습니다. 손을 올려주세요."
             },
             {
               "order": 2,
-              "speaker": "서지호",
-              "text": "감사합니다! 수술 잘 됐다고 해주세요, 하하."
+              "speaker": "윤서린",
+              "text": "감사합니다! (안도하며 빠르게 입국한다.)"
             }
           ]
         },
@@ -1282,8 +1282,8 @@
             },
             {
               "order": 2,
-              "speaker": "서지호",
-              "text": "네? 분명히 저 본인인데요?"
+              "speaker": "윤서린",
+              "text": "왜요? 분명히 저 맞는데요."
             },
             {
               "order": 3,
@@ -1292,8 +1292,8 @@
             },
             {
               "order": 4,
-              "speaker": "서지호",
-              "text": "거 봐요, 저 맞잖아요. 감사합니다."
+              "speaker": "윤서린",
+              "text": "거 봐요, 저 맞잖아요."
             }
           ]
         },
@@ -1309,8 +1309,8 @@
             },
             {
               "order": 2,
-              "speaker": "서지호",
-              "text": "성형 좀 했다고 거절하시는 거예요? 저 맞아요."
+              "speaker": "윤서린",
+              "text": "얼굴 좀 고쳤다고 이러시는 거예요? 저예요."
             },
             {
               "order": 3,
@@ -1319,8 +1319,8 @@
             },
             {
               "order": 4,
-              "speaker": "서지호",
-              "text": "그쵸? 본인 맞다니까요. 감사합니다."
+              "speaker": "윤서린",
+              "text": "그쵸? 본인 맞다니까요."
             }
           ]
         },
@@ -1336,8 +1336,8 @@
             },
             {
               "order": 2,
-              "speaker": "서지호",
-              "text": "어떻게 본인을 못 알아봐요? 다시 확인하세요!"
+              "speaker": "윤서린",
+              "text": "본인을 못 알아보면 어떡해요? 다시 확인하세요!"
             },
             {
               "order": 3,
@@ -1346,16 +1346,99 @@
             },
             {
               "order": 4,
-              "speaker": "서지호",
-              "text": "하... 사람 무안하게. 다음엔 잘 봐 주세요."
+              "speaker": "윤서린",
+              "text": "하... 사람 의심하지 좀 마세요. 갑니다."
+            }
+          ]
+        },
+        {
+          "caseType": "분기 거부",
+          "gameResult": "정상 거절",
+          "rejectCount": 0,
+          "lines": [
+            {
+              "order": 1,
+              "speaker": "윤서린",
+              "text": "안녕하세요. (마스크, 모자, 선글라스로 얼굴을 완전히 가린 채 여권을 내민다.)"
+            },
+            {
+              "order": 2,
+              "speaker": "심사관",
+              "text": "(플레이어) 여권 사진 ↔ 현재 외모 대조"
+            },
+            {
+              "order": 3,
+              "speaker": "시스템",
+              "text": "[시스템] 여권 사진 ↔ 현재 외모 대조 결과: 불일치 (성형+마스크·선글라스로 인한 외모 차이 — 본 단계에서는 정상/불량 미확정)"
+            },
+            {
+              "order": 4,
+              "speaker": "심사관",
+              "text": "마스크와 선글라스를 잠깐 벗어주시겠어요?"
+            },
+            {
+              "order": 5,
+              "speaker": "윤서린",
+              "text": "네, 저 맞아요. 수술 때문에 좀 달라 보이죠? (태연하게) (마스크 제거)"
+            },
+            {
+              "order": 6,
+              "speaker": "심사관",
+              "text": "(플레이어) 신문 기사 몽타주 ↔ 현재 외모 재대조"
+            },
+            {
+              "order": 7,
+              "speaker": "시스템",
+              "text": "[시스템] 몽타주 인식 성공 — 수배자 일치 의심 → 지문 인식 진행"
+            },
+            {
+              "order": 8,
+              "speaker": "심사관",
+              "text": "지문 인식을 진행하겠습니다. 손을 올려주세요."
+            },
+            {
+              "order": 9,
+              "speaker": "시스템",
+              "text": "[시스템] 지문 인식 결과: 일치 ✔ → 본인 = 수배자 확정 → 서류 불량 확정"
+            },
+            {
+              "order": 10,
+              "speaker": "심사관",
+              "text": "X-ray 검사를 받아주시기 바랍니다."
+            },
+            {
+              "order": 11,
+              "speaker": "시스템",
+              "text": "[시스템] X-ray — 소지품 이상 없음"
+            },
+            {
+              "order": 12,
+              "speaker": "심사관",
+              "text": "신원이 확인되었습니다. 당신은 지명수배자입니다. 입국하실 수 없습니다."
+            },
+            {
+              "order": 13,
+              "speaker": "윤서린",
+              "text": "...! (굳은 표정으로 잠시 침묵한다.) 저 변호사 부를게요."
             }
           ]
         }
       ],
-      "rejectAdvancedBranchKey": "",
-      "rejectGuidedCaseType": "",
+      "rejectAdvancedBranchKey": "detect_montage_xray_reject",
+      "rejectGuidedCaseType": "분기 거부",
       "xray": null,
-      "fingerprint": null
+      "fingerprint": {
+        "type": "fingerprint",
+        "result": "적발",
+        "detail": "위장 신원",
+        "extra": "성형 전 지명수배자와 지문 일치",
+        "claim": {
+          "attr": "name",
+          "value": "성형 전 지명수배자와 지문 일치",
+          "label": "지문 대조 신원",
+          "unlocksScan": ""
+        }
+      }
     },
     {
       "customerId": 34,
@@ -1649,6 +1732,20 @@
       "content": "오늘 오전 국제선 입국장에서 의료관광 목적 방문객의 여권 사진과 현재 얼굴이 달라 추가 확인이 진행됐다. 일부 방문객은 수술 일정을 이유로 빠른 심사를 요청했으나, 현장에서는 여권과 비자 정보 대조가 우선 적용됐다.",
       "iconRef": "spr_news_001",
       "claims": []
+    },
+    {
+      "newsId": 903000,
+      "title": "[속보] 위조신원·수배자 입국 경보",
+      "content": "위조 신원으로 입국을 시도한 국제 수배자 정보가 공유되었습니다. YOON SEORIN 관련 대상은 지문 대조로 신원 진위를 반드시 확인하십시오.",
+      "iconRef": "",
+      "claims": [
+        {
+          "attr": "name",
+          "value": "YOON SEORIN",
+          "label": "위조신원/수배자 입국 경보: YOON SEORIN 대상자 주의",
+          "unlocksScan": "fingerprint"
+        }
+      ]
     }
   ]
 }

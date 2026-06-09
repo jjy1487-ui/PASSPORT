@@ -54,6 +54,26 @@ public sealed class ScanData
     public string detail;  // xray=detected_item / fingerprint=match_status
     public string extra;   // xray=hidden_location / fingerprint=matched_person
     public Claim claim;    // 대조용 단서(여권 이름/뉴스 등과 같은 속성 키로 비교)
+    public FingerprintRecord record; // fingerprint 전용: DB 조회 레코드(스캔 3단계 표시용). 없으면 null.
+}
+
+/// <summary>
+/// 지문판독기 DB 조회 레코드(성형수술 손님용). 지문으로 식별한 "진짜 신원" + 범죄기록.
+/// 판정은 시스템이 하지 않는다 — 플레이어가 이 DB 신원을 여권 정보와 직접 대조한다(교차 대조).
+///   DB 이름/생년월일 ↔ 여권 이름/생년월일 → 다르면 도용. 범죄기록 있으면 수배자.
+/// </summary>
+[Serializable]
+public sealed class FingerprintRecord
+{
+    public string dbName;         // 지문으로 식별한 실제 이름 (예: 김서린(성명불상) / 박도윤 / 정유나)
+    public string dbBirth;        // 실제 생년월일
+    public string dbNationality;  // 실제 국적
+    public string criminalRecord; // 범죄/수배 기록 ("없음" 또는 "성형 위장 / 지명수배 중")
+    public string wantedNo;       // 수배 번호 (수배자만, 없으면 "")
+
+    /// <summary>DB에 범죄/수배 기록이 있는가(표시·경고용. 판정은 플레이어가 함).</summary>
+    public bool IsWanted =>
+        !string.IsNullOrEmpty(criminalRecord) && criminalRecord.Trim() != "없음";
 }
 
 /// <summary>서류 1장(여권/비자/PCR/취업증빙 공통). 세부 항목은 fields[]로.</summary>

@@ -7,7 +7,7 @@ employment_cert        layout=relational cols=7 rows=5
 news                   layout=relational cols=5 rows=10
 rule_book              layout=relational cols=4 rows=10
 xray                   layout=relational cols=6 rows=3
-fingerprint            layout=relational cols=6 rows=1
+fingerprint            layout=relational cols=8 rows=4
 ending                 layout=relational cols=8 rows=23
 shop                   layout=relational cols=9 rows=4
 reward                 layout=relational cols=7 rows=7
@@ -20,6 +20,7 @@ rule_section           layout=relational cols=13 rows=6
 character_payout       layout=relational cols=14 rows=62
 character_score        layout=relational cols=11 rows=83
 --- warnings ---
+알 수 없는 시트(스킵): 고객순서(유형·이름)
 기대 시트 누락: dialogue_case
 기대 시트 누락: dialogue_line
 character_payout: 메인 엑셀 1차 소스 사용(EXTRA 무시)

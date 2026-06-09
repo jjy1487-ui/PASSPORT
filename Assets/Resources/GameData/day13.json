@@ -2,34 +2,34 @@
   "day": 13,
   "customers": [
     {
-      "customerId": 11,
+      "customerId": 7,
       "slot": 1,
-      "nameKr": "사토 하루키",
-      "nameEn": "SATO HARUKI",
-      "nationality": "일본(JPN)",
+      "nameKr": "왕 웨이",
+      "nameEn": "WANG WEI",
+      "nationality": "중국(CHN)",
       "gender": "남성",
-      "birthDate": "1984-01-02",
-      "age": 41,
-      "spriteRef": "사토 하루키",
-      "characterType": "테러범",
-      "defectVariant": "",
+      "birthDate": "1993-12-05",
+      "age": 32,
+      "spriteRef": "왕 웨이",
+      "characterType": "외국인 관광객",
+      "defectVariant": "출국X",
       "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "비정상",
-          "violationField": "여권번호",
-          "spriteRef": "사토 하루키",
-          "country": "JPN",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "왕 웨이",
+          "country": "CHN",
           "fields": [
             {
               "label": "여권번호",
-              "value": "##INVALID_PATTERN##",
+              "value": "CN6667788",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "HARUKI SATO",
+              "value": "WEI WANG",
               "key": "name"
             },
             {
@@ -39,46 +39,46 @@
             },
             {
               "label": "생년월일",
-              "value": "1984-01-02",
+              "value": "1993-12-05",
               "key": "birth_date"
             },
             {
               "label": "국적",
-              "value": "JPN",
+              "value": "CHN",
               "key": "nationality"
             },
             {
               "label": "발급일",
-              "value": "2021-07-28",
+              "value": "2017-03-28",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2031-07-28",
+              "value": "2027-03-28",
               "key": "expiry_date"
             }
           ]
         },
         {
           "documentType": "비자",
-          "variant": "정상",
-          "violationField": "없음",
+          "variant": "비정상",
+          "violationField": "만료일",
           "spriteRef": "",
           "country": "",
           "fields": [
             {
               "label": "영문이름",
-              "value": "HARUKI SATO",
+              "value": "WEI WANG",
               "key": "name"
             },
             {
               "label": "여권번호",
-              "value": "JP1012287",
+              "value": "CN6667788",
               "key": "passport_no"
             },
             {
               "label": "비자 번호",
-              "value": "V-JPN-7484",
+              "value": "V-CHN-3766",
               "key": "visa_no"
             },
             {
@@ -88,17 +88,17 @@
             },
             {
               "label": "국적",
-              "value": "JPN",
+              "value": "CHN",
               "key": "nationality"
             },
             {
               "label": "발급일",
-              "value": "2024-09-08",
+              "value": "2022-01-01",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2026-09-08",
+              "value": "2023-01-01",
               "key": "expiry_date"
             },
             {
@@ -122,13 +122,13 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "사토 하루키",
-              "text": "저 이거 다 터뜨려 버릴 거야! 아무도 못 막아!"
+              "speaker": "왕 웨이",
+              "text": "Hello! Good morning~"
             },
             {
               "order": 2,
-              "speaker": "사토 하루키",
-              "text": "여권 여기 있다. 빨리 처리해."
+              "speaker": "왕 웨이",
+              "text": "Here is my passport."
             }
           ]
         },
@@ -140,12 +140,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다."
+              "text": "Have a pleasant trip!"
             },
             {
               "order": 2,
-              "speaker": "사토 하루키",
-              "text": "...수고해."
+              "speaker": "왕 웨이",
+              "text": "Thank you so much! Have a wonderful day!"
             }
           ]
         },
@@ -157,18 +157,18 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 항목에 문제가 있습니다. 입국은 어렵습니다.",
+              "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다.",
               "claim": {
-                "attr": "passport_no",
+                "attr": "expiry_date",
                 "value": "",
-                "label": "여권번호 불일치",
+                "label": "만료일 불일치",
                 "unlocksScan": ""
               }
             },
             {
               "order": 2,
-              "speaker": "사토 하루키",
-              "text": "뭐? 무슨 근거로 막는 거지."
+              "speaker": "왕 웨이",
+              "text": "Oh no... I'm so sorry, I had no idea."
             }
           ]
         },
@@ -180,12 +180,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다."
+              "text": "Have a pleasant trip!"
             },
             {
               "order": 2,
-              "speaker": "사토 하루키",
-              "text": "현명한 선택이군. 그럼 들어가지."
+              "speaker": "왕 웨이",
+              "text": "Thank you! That was quick~"
             }
           ]
         },
@@ -197,12 +197,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다."
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "사토 하루키",
-              "text": "막을 이유가 없을 텐데. 다시 봐."
+              "speaker": "왕 웨이",
+              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
               "order": 3,
@@ -211,8 +211,8 @@
             },
             {
               "order": 4,
-              "speaker": "사토 하루키",
-              "text": "...그래. 들어가지."
+              "speaker": "왕 웨이",
+              "text": "Oh 정말 다행이에요! 고마워요!"
             }
           ]
         },
@@ -224,12 +224,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다."
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "사토 하루키",
-              "text": "쓸데없이 시간 끌지 마. 통과시켜."
+              "speaker": "왕 웨이",
+              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
               "order": 3,
@@ -238,8 +238,8 @@
             },
             {
               "order": 4,
-              "speaker": "사토 하루키",
-              "text": "진작 그럴 것이지."
+              "speaker": "왕 웨이",
+              "text": "정말 다행이에요. 여행할 수 있어서 다행이에요."
             }
           ]
         },
@@ -251,12 +251,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다."
+              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
             },
             {
               "order": 2,
-              "speaker": "사토 하루키",
-              "text": "지금 누구한테 이러는 거야. 당장 보내."
+              "speaker": "왕 웨이",
+              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
               "order": 3,
@@ -265,26 +265,15 @@
             },
             {
               "order": 4,
-              "speaker": "사토 하루키",
-              "text": "...기억해 두지. 비켜."
+              "speaker": "왕 웨이",
+              "text": "기분이 안 좋아요. You are so rude."
             }
           ]
         }
       ],
       "rejectAdvancedBranchKey": "",
       "rejectGuidedCaseType": "",
-      "xray": {
-        "type": "xray",
-        "result": "적발",
-        "detail": "폭발물 부품",
-        "extra": "다리",
-        "claim": {
-          "attr": "contraband",
-          "value": "폭발물 부품",
-          "label": "X-ray 적발물",
-          "unlocksScan": ""
-        }
-      },
+      "xray": null,
       "fingerprint": null
     },
     {
@@ -1817,20 +1806,6 @@
       "content": "정상 서류를 제출한 입국자가 심사 과정에서 반복적으로 진술을 바꾸고 이동 경로 설명을 피하면서 추가 확인 대상으로 분류됐다. 당국은 서류가 정상이어도 현장 정황이 맞지 않으면 기록을 남겨 확인한다고 밝혔다.",
       "iconRef": null,
       "claims": []
-    },
-    {
-      "newsId": 913000,
-      "title": "[속보] 위험물 반입 경보",
-      "content": "국제 공조 수사 결과 JP1012287 경유 입국자 중 폭발물·밀수품 은닉 사례가 다수 적발되었습니다. 해당 대상과 정보가 일치하면 X-ray 정밀 검사를 시행하십시오.",
-      "iconRef": "",
-      "claims": [
-        {
-          "attr": "passport_no",
-          "value": "JP1012287",
-          "label": "폭발물/밀수 경보: JP1012287발 위험물 주의",
-          "unlocksScan": "xray"
-        }
-      ]
     }
   ]
 }

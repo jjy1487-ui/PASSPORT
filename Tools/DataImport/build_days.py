@@ -453,24 +453,24 @@ def derive_news_claims(news_id, title, content):
 # 여기서는 그 "트리거 단서 데이터"를 합성한다(news 시트 원본은 못 늘리므로 day별 주입).
 #
 # 각 트리거 claim 의 attr/value 는 그 손님이 day JSON 에서 실제로 가진 여권 필드와 일치해야
-# 대조 시 Match 가 보장된다(passport 필드: nationality=국가코드, passport_no=여권번호).
-# 같은 날 같은 국적 손님이 여럿이면 nationality 로는 그 손님만 못 가리므로 passport_no 사용.
+# 대조 시 Match 가 보장된다. 식별 키는 **위조되지 않는 안정 필드 nameEn(attr="name")** 으로 통일한다.
+#   - passport_no 는 밀수/마약범 등에서 런타임 위조될 수 있어 트리거 식별값으로 부적합(불일치로 미해금).
+#   - nationality 는 같은 날 동일 국적이 여럿이면 단일 손님을 못 가린다.
+#   nameEn 은 위조 대상이 아니고 같은 날 중복도 없어(검증 완료) 그 손님 1명에게만 정확히 매칭된다.
 #
-# 형식: (day, customer_id, attr, value, [unlocksScan...], label)
-#   attr/value  : 손님 식별(여권 필드와 동일). nationality=코드, passport_no=번호.
-#   unlocksScan : 이 손님이 보유한 검사 종류(들). 손님9는 xray+fingerprint 둘 다.
+# 형식: (day, customer_id, attr, value, [unlocksScan...])
+#   attr/value  : 손님 식별(여권 필드와 동일). attr="name", value=손님 영문이름(name_en).
+#   unlocksScan : 이 손님이 보유한 검사 종류(들).
 SCAN_TRIGGERS = [
-    # day11 손님10(지문) — KOR 국적이 day11에 5명 → passport_no 로 그 손님만 매칭
-    (11, "10", "passport_no", "KO1011170", ["fingerprint"]),
-    # day12 손님8(지문) — USA 가 day12 유일 → nationality 코드로 매칭 (여권번호는 변조될 수 있어 비사용)
-    (12, "8", "nationality", "USA", ["fingerprint"]),
-    # day13 손님11(xray) — 재배정 JPN. day13에 JPN이 11/26(기존 일본) 둘 → passport_no 유일키.
-    #   손님11 여권번호는 정상(JP1012287, 국적/만료일 변조만) → 안정 식별 가능.
-    (13, "11", "passport_no", "JP1012287", ["xray"]),
-    # day14 손님9(xray+지문) — KOR 가 day14에 3명 → passport_no, 스캔 2종 각각 트리거
-    (14, "9", "passport_no", "KO1010053", ["xray", "fingerprint"]),
-    # day14 손님34(야마모토)는 테러범→외국인 관광객(정상 통과)으로 전환됨(260608). 스캔 결함 없음 →
-    #   기존 (14,"34","nationality","JPN",["xray"]) 트리거 제거(헛 단서 방지). day14 JPN 유일이라 안전.
+    # day3 손님10 윤서린(지문, 성형 위장 지명수배) — day3 등장으로 이동. 영문이름 유일.
+    (3, "10", "name", "YOON SEORIN", ["fingerprint"]),
+    # day11 손님8 존 카터(xray, 밀수품) — day11 slot1. 영문이름 유일.
+    (11, "8", "name", "JOHN CARTER", ["xray"]),
+    # day12 손님11 사토 하루키(xray, 폭발물 부품) — day12 slot2. 영문이름 유일.
+    (12, "11", "name", "SATO HARUKI", ["xray"]),
+    # day14 손님9 강도식(xray, 마약) — day14 slot3. 영문이름 유일.
+    (14, "9", "name", "KANG DOSIK", ["xray"]),
+    # day13 은 더 이상 주요 스캔 범죄자 없음(사토 하루키 day12 이동) → xray 트리거 제거(헛 단서 방지).
 ]
 
 # 스캔 종류별 테마 라벨(label). 값에 식별값(국적코드/여권번호)을 끼워 연출.

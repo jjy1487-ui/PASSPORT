@@ -1710,28 +1710,14 @@
     {
       "newsId": 914000,
       "title": "[속보] 위험물 반입 경보",
-      "content": "국제 공조 수사 결과 KO1010053 경유 입국자 중 폭발물·밀수품 은닉 사례가 다수 적발되었습니다. 해당 대상과 정보가 일치하면 X-ray 정밀 검사를 시행하십시오.",
+      "content": "국제 공조 수사 결과 KANG DOSIK 경유 입국자 중 폭발물·밀수품 은닉 사례가 다수 적발되었습니다. 해당 대상과 정보가 일치하면 X-ray 정밀 검사를 시행하십시오.",
       "iconRef": "",
       "claims": [
         {
-          "attr": "passport_no",
-          "value": "KO1010053",
-          "label": "폭발물/밀수 경보: KO1010053발 위험물 주의",
+          "attr": "name",
+          "value": "KANG DOSIK",
+          "label": "폭발물/밀수 경보: KANG DOSIK발 위험물 주의",
           "unlocksScan": "xray"
-        }
-      ]
-    },
-    {
-      "newsId": 914001,
-      "title": "[속보] 위조신원·수배자 입국 경보",
-      "content": "위조 신원으로 입국을 시도한 국제 수배자 정보가 공유되었습니다. KO1010053 관련 대상은 지문 대조로 신원 진위를 반드시 확인하십시오.",
-      "iconRef": "",
-      "claims": [
-        {
-          "attr": "passport_no",
-          "value": "KO1010053",
-          "label": "위조신원/수배자 입국 경보: KO1010053 대상자 주의",
-          "unlocksScan": "fingerprint"
         }
       ]
     }

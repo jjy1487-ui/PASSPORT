@@ -25,14 +25,18 @@
 - **인게임 반영 남음**: Unity Play 정지 → Assets > Refresh (day JSON 재로딩). [완료시 이 줄 삭제]
 - 잔여 옛이름(무해): 백업본(_backup_*/.bak), QA/문서툴(gen_day_walkthrough·scenario_walkthrough·BRANCH_CATALOG), dead 마이그레이션 `branch_normalize.py`, 생성 리포트(*.txt). 파이프라인·런타임 무관.
 
-## 2. UIPreview 씬 생성 (Unity Edit Mode 필요)
-- `Assets/Scripts/Debug/UIPreviewController.cs`(완성)를 쓸 씬 만들기: CoreRig + EventSystem + 컨트롤러.
-- **레이어 3종 세트** 적용: ①풀스크린 모달 백드롭(RaycastTarget) ②팝업별 Canvas+OverrideSorting+sortingOrder ③CanvasGroup(열때 blocksRaycasts). → 드래그 시 활성 팝업만 잡히게.
+## 2. UIPreview 씬 생성 (Unity Edit Mode 필요)  ✅ 완료(260609)
+- `Assets/Scenes/UIPreview.unity` 생성: CoreRig + EventSystem + UIPreviewController + SamplePassport(PreviewPassport).
+- 모달 백드롭: `PopupModalSetup`(메뉴 `Tools/Passport/Setup Popup Modal Backdrop`) 실행 완료 → CoreRig `Popups`에 풀스크린 투명 `ModalBackdrop`(RaycastTarget) + `PopupModalBackdrop` 컨트롤러 설치. 팝업 열리면 backdrop 켜져 바깥 클릭이 뒤로 안 샘. InventoryPanel 기본 꺼짐.
+- **단독 재생 픽스(중요)**: CoreRig를 올리면 `ImmigrationManager.Start`가 1일차 손님을 로드하며 `OnCustomerChanged`를 계속 쏴 주입한 미리보기 데이터(DB 대조행)를 비활성화시킴 → 클릭 불가. `UIPreviewController.Awake`의 `DisableLiveGameLoop()`가 ImmigrationManager를 끔(모든 Awake는 Start보다 먼저 → 그 Start 스킵). Play 검증: enabled=false, 손님 미로드, DB행 3개 클릭가능 유지.
+- ⚠️ 미커밋(이 작업분) — 다음 커밋 대상.
 
-## 3. 지문판독기 3단계 팝업 구현
-- 스캔중 → DB조회 → 지문대조 → 일치/불일치 분기. **이미지+글씨**(드래그 X, 버튼/자동 트리거).
-- **자립형(데이터 주입식)** 으로 만들면 UIPreview 씬에서 단독 재생 가능.
-- 기존 `ScanData`/`CrossCheckController`/`ScanResultPanel` 재사용.
+## 3. 지문판독기 3단계 팝업 구현  ✅ 완료(260609)
+- `ScanResultPanel._useSequence`/`PreviewPlay(ScanData)` + `FingerprintRecord`(DataModels.cs): ①지문 스캔 중 → ②DB 조회 결과(이름/생년월일/국적 + 범죄기록). 자동판정 폐지(시스템이 일치/불일치 안 정함) — 플레이어가 DB 신원 ↔ 여권을 **직접 대조**.
+- `FingerprintNextButtonSetup`(메뉴 `Tools/Passport/Setup Fingerprint Panel`) 실행 완료 → FingerprintPanel에 DB 대조행 3개(`DbRow_Name/Birth/Nat`) 생성+`_dbRows` 연결. NextButton/ClaimSelectable 숨김.
+- 자립형(데이터 주입식): UIPreviewController 버튼 3종(수배자 윤서린/본인 정유나/도용 노가은). 기존 `ScanData`/`CrossCheckController`/`ScanResultPanel` 재사용.
+- **Play 검증(수배자 케이스)**: 1단계 "지문 스캔 중" → 2단계 "지문 DB 조회 결과"(이름 김서린, 범죄기록 성형위장·지명수배 WA-2023-001192 빨강). 대조 판정 = 여권 윤서린↔DB 김서린 **불일치**, 생년월일 **불일치**, 국적 **일치**(Evaluate 직접 확인).
+- ⚠️ 에디터 포커스 안 주면 play time이 frame=1에서 안 흘러 코루틴 1.1s 단계전환이 멈춤(에디터 포커스/Run In Background면 정상). 코드 문제 아님.
 
 ## 4. (선택) 기존 팝업 8종 레이어 레트로핏
 - News 등 CoreRig 내 8개 팝업에 모달 백드롭 + Canvas 분리 (현재 단일 Canvas+박스라 바깥 클릭이 뒤로 샘).

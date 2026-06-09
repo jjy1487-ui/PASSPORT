@@ -2,60 +2,114 @@
   "day": 11,
   "customers": [
     {
-      "customerId": 10,
+      "customerId": 8,
       "slot": 1,
-      "nameKr": "윤서린",
-      "nameEn": "YOON SEORIN",
-      "nationality": "대한민국(KOR)",
-      "gender": "여성",
-      "birthDate": "1991-08-08",
-      "age": 34,
-      "spriteRef": "윤서린",
-      "characterType": "범죄자(성형수술)",
+      "nameKr": "존 카터",
+      "nameEn": "JOHN CARTER",
+      "nationality": "미국(USA)",
+      "gender": "남성",
+      "birthDate": "1980-05-20",
+      "age": 45,
+      "spriteRef": "존 카터",
+      "characterType": "범죄자(밀수품 범죄자)",
       "defectVariant": "",
       "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
           "variant": "비정상",
-          "violationField": "만료일",
-          "spriteRef": "윤서린",
-          "country": "KOR",
+          "violationField": "여권번호",
+          "spriteRef": "존 카터",
+          "country": "USA",
           "fields": [
             {
               "label": "여권번호",
-              "value": "KO1011170",
+              "value": "##INVALID_PATTERN##",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "YOON SEORIN",
+              "value": "JOHN CARTER",
               "key": "name"
             },
             {
               "label": "성별",
-              "value": "여성",
+              "value": "남성",
               "key": "gender"
             },
             {
               "label": "생년월일",
-              "value": "1991-08-08",
+              "value": "1980-05-20",
               "key": "birth_date"
             },
             {
               "label": "국적",
-              "value": "KOR",
+              "value": "USA",
               "key": "nationality"
             },
             {
               "label": "발급일",
-              "value": "2013-01-01",
+              "value": "2023-11-14",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2023-01-01",
+              "value": "2033-11-14",
               "key": "expiry_date"
+            }
+          ]
+        },
+        {
+          "documentType": "비자",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "",
+          "country": "",
+          "fields": [
+            {
+              "label": "영문이름",
+              "value": "JOHN CARTER",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "US1008936",
+              "key": "passport_no"
+            },
+            {
+              "label": "비자 번호",
+              "value": "V-USA-5667",
+              "key": "visa_no"
+            },
+            {
+              "label": "비자 종류",
+              "value": "관광",
+              "key": "visa_type"
+            },
+            {
+              "label": "국적",
+              "value": "USA",
+              "key": "nationality"
+            },
+            {
+              "label": "발급일",
+              "value": "2026-03-22",
+              "key": "issue_date"
+            },
+            {
+              "label": "만료일",
+              "value": "2026-09-22",
+              "key": "expiry_date"
+            },
+            {
+              "label": "입국 횟수",
+              "value": "단수",
+              "key": "entry_type"
+            },
+            {
+              "label": "비고",
+              "value": "외국인 정상 비자",
+              "key": "memo"
             }
           ]
         }
@@ -68,13 +122,13 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "윤서린",
-              "text": "안녕하세요. (마스크, 모자, 선글라스로 얼굴을 완전히 가린 채 여권을 내민다.)"
+              "speaker": "존 카터",
+              "text": "...(모자를 깊이 눌러쓴 채 여권만 내밀며 시선을 피한다.)"
             },
             {
               "order": 2,
-              "speaker": "윤서린",
-              "text": "얼굴 좀 바꿨어도 본인 맞아요. 여권 드릴게요."
+              "speaker": "존 카터",
+              "text": "여권 여기 있어요. 빨리 좀 부탁드려요."
             }
           ]
         },
@@ -90,8 +144,8 @@
             },
             {
               "order": 2,
-              "speaker": "윤서린",
-              "text": "감사합니다. 역시 알아봐 주시네요."
+              "speaker": "존 카터",
+              "text": "후... 감사합니다. 그럼 들어갈게요."
             }
           ]
         },
@@ -103,18 +157,18 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 항목에 문제가 있습니다. 입국은 어렵습니다.",
+              "text": "잠깐, 모자를 벗어주시겠어요?",
               "claim": {
-                "attr": "expiry_date",
+                "attr": "passport_no",
                 "value": "",
-                "label": "만료일 불일치",
+                "label": "여권번호 불일치",
                 "unlocksScan": ""
               }
             },
             {
               "order": 2,
-              "speaker": "윤서린",
-              "text": "사진이랑 다르다고요? 저 본인 맞는데요..."
+              "speaker": "존 카터",
+              "text": "...! (눈이 흔들린다.) 저는 그런 사람이 아닌데요."
             }
           ]
         },
@@ -126,12 +180,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "지문 인식을 진행하겠습니다. 손을 올려주세요."
+              "text": "서류 검토 결과 입국이 어렵습니다."
             },
             {
               "order": 2,
-              "speaker": "윤서린",
-              "text": "감사합니다! (안도하며 빠르게 입국한다.)"
+              "speaker": "존 카터",
+              "text": "...감사합니다. (빠르게 사라진다.)"
             }
           ]
         },
@@ -147,8 +201,8 @@
             },
             {
               "order": 2,
-              "speaker": "윤서린",
-              "text": "왜요? 분명히 저 맞는데요."
+              "speaker": "존 카터",
+              "text": "예? 제 서류는 아무 문제 없는데요."
             },
             {
               "order": 3,
@@ -157,8 +211,8 @@
             },
             {
               "order": 4,
-              "speaker": "윤서린",
-              "text": "거 봐요, 저 맞잖아요."
+              "speaker": "존 카터",
+              "text": "거 봐요. 그럼 들어갈게요."
             }
           ]
         },
@@ -174,8 +228,8 @@
             },
             {
               "order": 2,
-              "speaker": "윤서린",
-              "text": "얼굴 좀 고쳤다고 이러시는 거예요? 저예요."
+              "speaker": "존 카터",
+              "text": "왜 자꾸 붙잡으세요. 다 정상이잖아요."
             },
             {
               "order": 3,
@@ -184,8 +238,8 @@
             },
             {
               "order": 4,
-              "speaker": "윤서린",
-              "text": "그쵸? 본인 맞다니까요."
+              "speaker": "존 카터",
+              "text": "네, 그럼 이만 가보겠습니다."
             }
           ]
         },
@@ -201,8 +255,8 @@
             },
             {
               "order": 2,
-              "speaker": "윤서린",
-              "text": "본인을 못 알아보면 어떡해요? 다시 확인하세요!"
+              "speaker": "존 카터",
+              "text": "이거 왜 이래요, 그냥 보내달라니까요!"
             },
             {
               "order": 3,
@@ -211,99 +265,27 @@
             },
             {
               "order": 4,
-              "speaker": "윤서린",
-              "text": "하... 사람 의심하지 좀 마세요. 갑니다."
-            }
-          ]
-        },
-        {
-          "caseType": "분기 거부",
-          "gameResult": "정상 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "윤서린",
-              "text": "안녕하세요. (마스크, 모자, 선글라스로 얼굴을 완전히 가린 채 여권을 내민다.)"
-            },
-            {
-              "order": 2,
-              "speaker": "심사관",
-              "text": "(플레이어) 여권 사진 ↔ 현재 외모 대조"
-            },
-            {
-              "order": 3,
-              "speaker": "시스템",
-              "text": "[시스템] 여권 사진 ↔ 현재 외모 대조 결과: 불일치 (성형+마스크·선글라스로 인한 외모 차이 — 본 단계에서는 정상/불량 미확정)"
-            },
-            {
-              "order": 4,
-              "speaker": "심사관",
-              "text": "마스크와 선글라스를 잠깐 벗어주시겠어요?"
-            },
-            {
-              "order": 5,
-              "speaker": "윤서린",
-              "text": "네, 저 맞아요. 수술 때문에 좀 달라 보이죠? (태연하게) (마스크 제거)"
-            },
-            {
-              "order": 6,
-              "speaker": "심사관",
-              "text": "(플레이어) 신문 기사 몽타주 ↔ 현재 외모 재대조"
-            },
-            {
-              "order": 7,
-              "speaker": "시스템",
-              "text": "[시스템] 몽타주 인식 성공 — 수배자 일치 의심 → 지문 인식 진행"
-            },
-            {
-              "order": 8,
-              "speaker": "심사관",
-              "text": "지문 인식을 진행하겠습니다. 손을 올려주세요."
-            },
-            {
-              "order": 9,
-              "speaker": "시스템",
-              "text": "[시스템] 지문 인식 결과: 일치 ✔ → 본인 = 수배자 확정 → 서류 불량 확정"
-            },
-            {
-              "order": 10,
-              "speaker": "심사관",
-              "text": "X-ray 검사를 받아주시기 바랍니다."
-            },
-            {
-              "order": 11,
-              "speaker": "시스템",
-              "text": "[시스템] X-ray — 소지품 이상 없음"
-            },
-            {
-              "order": 12,
-              "speaker": "심사관",
-              "text": "신원이 확인되었습니다. 당신은 지명수배자입니다. 입국하실 수 없습니다."
-            },
-            {
-              "order": 13,
-              "speaker": "윤서린",
-              "text": "...! (굳은 표정으로 잠시 침묵한다.) 저 변호사 부를게요."
+              "speaker": "존 카터",
+              "text": "참... 진작 보내주지. 갑니다."
             }
           ]
         }
       ],
-      "rejectAdvancedBranchKey": "detect_montage_xray_reject",
-      "rejectGuidedCaseType": "분기 거부",
-      "xray": null,
-      "fingerprint": {
-        "type": "fingerprint",
+      "rejectAdvancedBranchKey": "",
+      "rejectGuidedCaseType": "",
+      "xray": {
+        "type": "xray",
         "result": "적발",
-        "detail": "위장 신원",
-        "extra": "성형 전 지명수배자와 지문 일치",
+        "detail": "밀수품",
+        "extra": "가슴",
         "claim": {
-          "attr": "name",
-          "value": "성형 전 지명수배자와 지문 일치",
-          "label": "지문 대조 신원",
+          "attr": "contraband",
+          "value": "밀수품",
+          "label": "X-ray 적발물",
           "unlocksScan": ""
         }
-      }
+      },
+      "fingerprint": null
     },
     {
       "customerId": 1,
@@ -1826,15 +1808,15 @@
     },
     {
       "newsId": 911000,
-      "title": "[속보] 위조신원·수배자 입국 경보",
-      "content": "위조 신원으로 입국을 시도한 국제 수배자 정보가 공유되었습니다. KO1011170 관련 대상은 지문 대조로 신원 진위를 반드시 확인하십시오.",
+      "title": "[속보] 위험물 반입 경보",
+      "content": "국제 공조 수사 결과 JOHN CARTER 경유 입국자 중 폭발물·밀수품 은닉 사례가 다수 적발되었습니다. 해당 대상과 정보가 일치하면 X-ray 정밀 검사를 시행하십시오.",
       "iconRef": "",
       "claims": [
         {
-          "attr": "passport_no",
-          "value": "KO1011170",
-          "label": "위조신원/수배자 입국 경보: KO1011170 대상자 주의",
-          "unlocksScan": "fingerprint"
+          "attr": "name",
+          "value": "JOHN CARTER",
+          "label": "폭발물/밀수 경보: JOHN CARTER발 위험물 주의",
+          "unlocksScan": "xray"
         }
       ]
     }

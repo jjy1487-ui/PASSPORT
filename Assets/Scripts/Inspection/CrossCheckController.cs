@@ -250,6 +250,7 @@ public sealed class CrossCheckController : MonoBehaviour
         }
 
         DetectScanUnlock(a, b, result);
+        DetectFaceMismatchUnlock(a, b, result); // 얼굴↔여권사진 불일치 → 지문 잠금해제(뉴스와 이중 트리거)
 
         // 결과별 보조 대사:
         // - 불일치: 서류 정합 항목이면 "안 맞네요" 지적. 단, 경보(워치리스트) 단서와의 불일치는
@@ -543,6 +544,32 @@ public sealed class CrossCheckController : MonoBehaviour
 
     private static bool IsCustomerSource(string sourceType) =>
         sourceType == "서류" || sourceType == "캐릭터";
+
+    /// <summary>
+    /// 성형수술 고객(마스크 착용 → 얼굴 확인 불가)에 한해, 얼굴↔여권 사진을 대조하면 지문 스캔 잠금 해제.
+    /// 다른 종류 손님은 사진을 대조해도 지문판독기가 열리지 않는다(설계: 성형수술 전용).
+    /// </summary>
+    private void DetectFaceMismatchUnlock(ICrossCheckSelectable a, ICrossCheckSelectable b, CrossCheckResult result)
+    {
+        if (result == CrossCheckResult.Unrelated) return;   // 실제 얼굴↔사진 대조가 성립한 경우만
+        if (!IsPhotoKey(a) && !IsPhotoKey(b)) return;        // 사진/얼굴 대조일 때만
+        if (!IsPlasticSurgeryCustomer()) return;            // 성형수술 고객만
+        OnScanUnlocked?.Invoke("fingerprint");
+    }
+
+    /// <summary>현재 손님이 성형수술 관련 종류인가(성형 의심 고객 / 범죄자(성형수술)).</summary>
+    private bool IsPlasticSurgeryCustomer()
+    {
+        string ct = _inspection != null ? _inspection.CurrentCharacterType : null;
+        return ct == CharacterTypes.PlasticSuspect || ct == CharacterTypes.CriminalPlastic;
+    }
+
+    private static bool IsPhotoKey(ICrossCheckSelectable s)
+    {
+        if (s == null) return false;
+        string k = NormalizeKey(s.AttributeKey);
+        return k == "photo" || k == "photo_ref" || k == "face";
+    }
 
     /// <summary>
     /// 4-상태 평가:
