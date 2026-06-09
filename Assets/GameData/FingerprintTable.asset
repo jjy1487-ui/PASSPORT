@@ -29,6 +29,9 @@ MonoBehaviour:
   - key: matched_person
     label: "\uC77C\uCE58 \uC778\uBB3C/\uC804\uACFC"
     type: varchar(100)
+  - key: customer_name
+    label: "\uCE90\uB9AD\uD130 \uC774\uB984"
+    type: varchar(30)
   rows:
   - keys:
     - fingerprint_id
@@ -36,34 +39,11 @@ MonoBehaviour:
     - result
     - match_status
     - matched_person
-    values:
-    - 1
-    - 8
-    - "\uC801\uBC1C"
-    - "\uC9C0\uBA85\uC218\uBC30 \uC77C\uCE58"
-    - "\uD574\uC678 \uB3C4\uD53C \uC0AC\uAE30\uBC94 \uC9C0\uBA85\uC218\uBC30"
-  - keys:
-    - fingerprint_id
-    - customer_id
-    - result
-    - match_status
-    - matched_person
+    - customer_name
     values:
     - 2
     - 10
     - "\uC801\uBC1C"
     - "\uC704\uC7A5 \uC2E0\uC6D0"
     - "\uC131\uD615 \uC804 \uC9C0\uBA85\uC218\uBC30\uC790\uC640 \uC9C0\uBB38 \uC77C\uCE58"
-  - keys:
-    - fingerprint_id
-    - customer_id
-    - result
-    - match_status
-    - matched_person
-    values:
-    - 3
-    - 9
-    - "\uC704\uD5D8"
-    - "\uC9C0\uBA85\uC218\uBC30 \uC77C\uCE58"
-    - "\uAD6D\uB0B4 \uB9C8\uC57D \uC720\uD1B5 \uC218\uBC30\uC790\uC640 \uC9C0\uBB38
-      \uC77C\uCE58"
+    - "\uC724\uC11C\uB9B0"

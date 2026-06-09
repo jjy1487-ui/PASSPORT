@@ -217,15 +217,15 @@
       "fingerprint": null
     },
     {
-      "customerId": 3,
+      "customerId": 25,
       "slot": 2,
-      "nameKr": "첸 웨이",
-      "nameEn": "CHEN WEI",
-      "nationality": "중국(CHN)",
-      "gender": "남성",
-      "birthDate": "1978-11-08",
-      "age": 47,
-      "spriteRef": "첸 웨이",
+      "nameKr": "윌리엄 브라운",
+      "nameEn": "WILLIAM BROWN",
+      "nationality": "미국(USA)",
+      "gender": "여성",
+      "birthDate": "1994-03-03",
+      "age": 32,
+      "spriteRef": "윌리엄 브라운",
       "characterType": "외국인 관광객",
       "defectVariant": "분실",
       "correctResult": "정상 거절",
@@ -234,27 +234,27 @@
           "documentType": "여권",
           "variant": "비정상",
           "violationField": "국적",
-          "spriteRef": "첸 웨이",
-          "country": "CHN",
+          "spriteRef": "윌리엄 브라운",
+          "country": "USA",
           "fields": [
             {
               "label": "여권번호",
-              "value": "CN5551234",
+              "value": "US1027925",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "CHEN WEI",
+              "value": "BROWN WILLIAM",
               "key": "name"
             },
             {
               "label": "성별",
-              "value": "남성",
+              "value": "여성",
               "key": "gender"
             },
             {
               "label": "생년월일",
-              "value": "1978-11-08",
+              "value": "1994-03-03",
               "key": "birth_date"
             },
             {
@@ -264,12 +264,12 @@
             },
             {
               "label": "발급일",
-              "value": "2019-03-14",
+              "value": "2019-03-28",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2029-03-14",
+              "value": "2029-03-28",
               "key": "expiry_date"
             }
           ]
@@ -283,12 +283,12 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "첸 웨이",
+              "speaker": "윌리엄 브라운",
               "text": "Hello! Good morning~"
             },
             {
               "order": 2,
-              "speaker": "첸 웨이",
+              "speaker": "윌리엄 브라운",
               "text": "Here is my passport."
             }
           ]
@@ -305,7 +305,7 @@
             },
             {
               "order": 2,
-              "speaker": "첸 웨이",
+              "speaker": "윌리엄 브라운",
               "text": "Thank you so much! Have a wonderful day!"
             }
           ]
@@ -328,7 +328,7 @@
             },
             {
               "order": 2,
-              "speaker": "첸 웨이",
+              "speaker": "윌리엄 브라운",
               "text": "Oh no... I'm so sorry, I had no idea."
             }
           ]
@@ -345,7 +345,7 @@
             },
             {
               "order": 2,
-              "speaker": "첸 웨이",
+              "speaker": "윌리엄 브라운",
               "text": "Thank you! That was quick~"
             }
           ]
@@ -362,7 +362,7 @@
             },
             {
               "order": 2,
-              "speaker": "첸 웨이",
+              "speaker": "윌리엄 브라운",
               "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
@@ -372,7 +372,7 @@
             },
             {
               "order": 4,
-              "speaker": "첸 웨이",
+              "speaker": "윌리엄 브라운",
               "text": "Oh 정말 다행이에요! 고마워요!"
             }
           ]
@@ -389,7 +389,7 @@
             },
             {
               "order": 2,
-              "speaker": "첸 웨이",
+              "speaker": "윌리엄 브라운",
               "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
@@ -399,7 +399,7 @@
             },
             {
               "order": 4,
-              "speaker": "첸 웨이",
+              "speaker": "윌리엄 브라운",
               "text": "정말 다행이에요. 여행할 수 있어서 다행이에요."
             }
           ]
@@ -416,7 +416,7 @@
             },
             {
               "order": 2,
-              "speaker": "첸 웨이",
+              "speaker": "윌리엄 브라운",
               "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
@@ -426,7 +426,7 @@
             },
             {
               "order": 4,
-              "speaker": "첸 웨이",
+              "speaker": "윌리엄 브라운",
               "text": "기분이 안 좋아요. You are so rude."
             }
           ]

@@ -201,7 +201,7 @@ MonoBehaviour:
     - 1980-05-20
     - 45
     - "\uC874 \uCE74\uD130"
-    - "\uBC94\uC8C4\uC790(\uC678\uAD6D \uB3C4\uD53C\uC790)"
+    - "\uBC94\uC8C4\uC790(\uBC00\uC218\uD488 \uBC94\uC8C4\uC790)"
   - keys:
     - customer_id
     - name_kr
@@ -221,7 +221,7 @@ MonoBehaviour:
     - 1987-03-11
     - 38
     - "\uAC15\uB3C4\uC2DD"
-    - "\uBC94\uC8C4\uC790(\uAD6D\uB0B4 \uC720\uC785\uC790)"
+    - "\uBC94\uC8C4\uC790(\uB9C8\uC57D \uBC94\uC8C4\uC790)"
   - keys:
     - customer_id
     - name_kr
@@ -721,7 +721,7 @@ MonoBehaviour:
     - 1982-03-22
     - 44
     - "\uC57C\uB9C8\uBAA8\uD1A0 \uB80C"
-    - "\uD14C\uB7EC\uBC94"
+    - "\uC678\uAD6D\uC778 \uAD00\uAD11\uAC1D"
   - keys:
     - customer_id
     - name_kr
@@ -741,7 +741,7 @@ MonoBehaviour:
     - 1990-06-18
     - 35
     - "\uC9C0\uC624 \uB808\uC774"
-    - "\uCDE8\uC5C5\uCCB4\uB958\uC790"
+    - "\uC7A5\uAE30\uCCB4\uB958\uC790"
   - keys:
     - customer_id
     - name_kr
@@ -761,7 +761,7 @@ MonoBehaviour:
     - 1985-02-09
     - 41
     - "\uCC9C \uC9D5"
-    - "\uCDE8\uC5C5\uCCB4\uB958\uC790"
+    - "\uC7A5\uAE30\uCCB4\uB958\uC790"
   - keys:
     - customer_id
     - name_kr
@@ -781,4 +781,4 @@ MonoBehaviour:
     - 1988-11-30
     - 37
     - "\uC81C\uC2DC\uCE74 \uC70C\uC2A8"
-    - "\uCDE8\uC5C5\uCCB4\uB958\uC790"
+    - "\uC7A5\uAE30\uCCB4\uB958\uC790"

@@ -1412,16 +1412,16 @@
       "fingerprint": null
     },
     {
-      "customerId": 1,
+      "customerId": 35,
       "slot": 7,
-      "nameKr": "김민준",
-      "nameEn": "KIM MINJUN",
-      "nationality": "대한민국(KOR)",
-      "gender": "남성",
-      "birthDate": "1985-03-15",
-      "age": 41,
-      "spriteRef": "김민준",
-      "characterType": "일반 고객",
+      "nameKr": "자오 레이",
+      "nameEn": "ZHAO LEI",
+      "nationality": "중국(CHN)",
+      "gender": "여성",
+      "birthDate": "1990-06-18",
+      "age": 35,
+      "spriteRef": "지오 레이",
+      "characterType": "장기체류자",
       "defectVariant": "",
       "correctResult": "정상 승인",
       "documents": [
@@ -1429,43 +1429,136 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "김민준",
-          "country": "KOR",
+          "spriteRef": "지오 레이",
+          "country": "CHN",
           "fields": [
             {
               "label": "여권번호",
-              "value": "AB1234567",
+              "value": "CN1039095",
               "key": "passport_no"
             },
             {
               "label": "영문이름",
-              "value": "KIM MINJUN",
+              "value": "LEI ZHAO",
               "key": "name"
             },
             {
               "label": "성별",
-              "value": "남성",
+              "value": "여성",
               "key": "gender"
             },
             {
               "label": "생년월일",
-              "value": "1985-03-15",
+              "value": "1990-06-18",
               "key": "birth_date"
             },
             {
               "label": "국적",
-              "value": "KOR",
+              "value": "CHN",
               "key": "nationality"
             },
             {
               "label": "발급일",
-              "value": "2017-07-28",
+              "value": "2023-11-28",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2027-07-28",
+              "value": "2033-11-28",
               "key": "expiry_date"
+            }
+          ]
+        },
+        {
+          "documentType": "비자",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "",
+          "country": "",
+          "fields": [
+            {
+              "label": "영문이름",
+              "value": "LEI ZHAO",
+              "key": "name"
+            },
+            {
+              "label": "여권번호",
+              "value": "CN1039095",
+              "key": "passport_no"
+            },
+            {
+              "label": "비자 번호",
+              "value": "V-CHN-1208",
+              "key": "visa_no"
+            },
+            {
+              "label": "비자 종류",
+              "value": "취업",
+              "key": "visa_type"
+            },
+            {
+              "label": "국적",
+              "value": "CHN",
+              "key": "nationality"
+            },
+            {
+              "label": "발급일",
+              "value": "2025-09-08",
+              "key": "issue_date"
+            },
+            {
+              "label": "만료일",
+              "value": "2026-09-08",
+              "key": "expiry_date"
+            },
+            {
+              "label": "입국 횟수",
+              "value": "복수",
+              "key": "entry_type"
+            },
+            {
+              "label": "비고",
+              "value": "취업 정상 비자",
+              "key": "memo"
+            }
+          ]
+        },
+        {
+          "documentType": "취업증빙",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "",
+          "country": "",
+          "fields": [
+            {
+              "label": "이름",
+              "value": "LEI ZHAO",
+              "key": "name"
+            },
+            {
+              "label": "증빙 번호",
+              "value": "EMP-035",
+              "key": "cert_no"
+            },
+            {
+              "label": "고용 회사",
+              "value": "한빛전자(주)",
+              "key": "company_name"
+            },
+            {
+              "label": "직종",
+              "value": "생산 라인",
+              "key": "job_title"
+            },
+            {
+              "label": "입사일",
+              "value": "2023-04-01",
+              "key": "hire_date"
+            },
+            {
+              "label": "발급일",
+              "value": "2025-04-01",
+              "key": "issue_date"
             }
           ]
         }
@@ -1478,13 +1571,13 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "김민준",
-              "text": "좋은 아침이예요! 너무 설레네요."
+              "speaker": "자오 레이",
+              "text": "Hello! I have my university acceptance letter with me too."
             },
             {
               "order": 2,
-              "speaker": "김민준",
-              "text": "여권 확인 부탁드립니다."
+              "speaker": "자오 레이",
+              "text": "체류 관련 서류도 같이 드릴게요."
             }
           ]
         },
@@ -1496,12 +1589,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
+              "text": "Best of luck with your studies!"
             },
             {
               "order": 2,
-              "speaker": "김민준",
-              "text": "감사합니다! 즐거운 하루 되세요."
+              "speaker": "자오 레이",
+              "text": "Thank you! I'm so excited to start university!"
             }
           ]
         },
@@ -1513,12 +1606,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
+              "text": "이전 출국 기록이 확인되지 않아 입국하실 수 없습니다."
             },
             {
               "order": 2,
-              "speaker": "김민준",
-              "text": "앗 이 부분을 놓쳤네요! 죄송합니다."
+              "speaker": "자오 레이",
+              "text": "Oh no... I see. I'll come back with everything in order."
             }
           ]
         },
@@ -1530,12 +1623,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
+              "text": "Best of luck with your studies!"
             },
             {
               "order": 2,
-              "speaker": "김민준",
-              "text": "감사합니다! 즐거운 하루 되세요."
+              "speaker": "자오 레이",
+              "text": "Thank you! Can't wait to get started!"
             }
           ]
         },
@@ -1551,8 +1644,8 @@
             },
             {
               "order": 2,
-              "speaker": "김민준",
-              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
+              "speaker": "자오 레이",
+              "text": "I have all the right documents including my acceptance letter!"
             },
             {
               "order": 3,
@@ -1561,8 +1654,8 @@
             },
             {
               "order": 4,
-              "speaker": "김민준",
-              "text": "앗 네! 감사합니다!"
+              "speaker": "자오 레이",
+              "text": "다행이네요. 감사합니다."
             }
           ]
         },
@@ -1578,8 +1671,8 @@
             },
             {
               "order": 2,
-              "speaker": "김민준",
-              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
+              "speaker": "자오 레이",
+              "text": "I have all the right documents including my acceptance letter!"
             },
             {
               "order": 3,
@@ -1588,8 +1681,8 @@
             },
             {
               "order": 4,
-              "speaker": "김민준",
-              "text": "네 알겠습니다. 앞으로는 주의해 주세요."
+              "speaker": "자오 레이",
+              "text": "네, 확인 감사합니다."
             }
           ]
         },
@@ -1605,8 +1698,8 @@
             },
             {
               "order": 2,
-              "speaker": "김민준",
-              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
+              "speaker": "자오 레이",
+              "text": "I have all the right documents including my acceptance letter!"
             },
             {
               "order": 3,
@@ -1615,8 +1708,8 @@
             },
             {
               "order": 4,
-              "speaker": "김민준",
-              "text": "하... 네 알겠습니다. 꼼꼼히 검토 좀 해 주세요."
+              "speaker": "자오 레이",
+              "text": "하... 이제야 되네요. 꼼꼼히 봐 주세요."
             }
           ]
         }

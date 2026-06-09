@@ -174,6 +174,15 @@ def seeded_pick(options, *parts):
     return options[idx]
 
 
+# 특정 손님의 결함 종류를 설계 의도대로 고정(복수 corruption_type 규칙에서 시드 우연 회피).
+# 키=customer_id, 값=(corruption_type, target_field). seeded_pick 결과가 규칙의 유효 쌍이 아니면 무시.
+# 장기체류자 7/8 규칙은 [FORGE_SOURCE(회사위조) | HIRE_LOGIC(입사일오류)] 둘 다 가능 →
+#   천징(36)=회사명 위조 / 제시카(37)=입사일 오류 로 검사 종류를 분산(설계 문서 준수).
+FORCED_DEFECT = {
+    "36": ("FORGE_SOURCE", "company_name"),   # 천 징(11일): 회사명 위조 (cid 는 source 원본 문자열)
+}
+
+
 # ── 자료 로드 & 인덱싱 ───────────────────────────────────────
 def load_source():
     with open(SOURCE, encoding="utf-8") as f:
@@ -788,6 +797,10 @@ def build():
                         tf = tf_opts[i] if i < len(tf_opts) else tf_opts[-1]
                         pairs.append((ct, tf))
                     ct, tf = seeded_pick(pairs, "defect", day, slot, cid)
+                    # 설계 고정: 특정 손님은 규칙의 유효 쌍 안에서 결함 종류를 지정값으로 덮어쓴다.
+                    forced = FORCED_DEFECT.get(str(cid))
+                    if forced and forced in pairs:
+                        ct, tf = forced
 
                     # 결함 대상 서류 찾기
                     defect_doc_name = rule["defect_document"]

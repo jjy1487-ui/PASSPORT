@@ -136,7 +136,7 @@
      "birth_date": "1980-05-20",
      "age": "45",
      "sprite_ref": "존 카터",
-     "character_type": "범죄자(외국 도피자)"
+     "character_type": "범죄자(밀수품 범죄자)"
     },
     {
      "customer_id": "9",
@@ -147,7 +147,7 @@
      "birth_date": "1987-03-11",
      "age": "38",
      "sprite_ref": "강도식",
-     "character_type": "범죄자(국내 유입자)"
+     "character_type": "범죄자(마약 범죄자)"
     },
     {
      "customer_id": "10",
@@ -422,7 +422,7 @@
      "birth_date": "1982-03-22",
      "age": "44",
      "sprite_ref": "야마모토 렌",
-     "character_type": "테러범"
+     "character_type": "외국인 관광객"
     },
     {
      "customer_id": "35",
@@ -433,7 +433,7 @@
      "birth_date": "1990-06-18",
      "age": "35",
      "sprite_ref": "지오 레이",
-     "character_type": "취업체류자"
+     "character_type": "장기체류자"
     },
     {
      "customer_id": "36",
@@ -444,7 +444,7 @@
      "birth_date": "1985-02-09",
      "age": "41",
      "sprite_ref": "천 징",
-     "character_type": "취업체류자"
+     "character_type": "장기체류자"
     },
     {
      "customer_id": "37",
@@ -455,7 +455,7 @@
      "birth_date": "1988-11-30",
      "age": "37",
      "sprite_ref": "제시카 윌슨",
-     "character_type": "취업체류자"
+     "character_type": "장기체류자"
     }
    ],
    "layout": "relational"
@@ -506,9 +506,9 @@
      "schedule_id": "2",
      "day": "1",
      "slot": "2",
-     "customer_id": "3",
+     "customer_id": "25",
      "valid_chance": "0",
-     "customer_name": "첸 웨이"
+     "customer_name": "윌리엄 브라운"
     },
     {
      "schedule_id": "3",
@@ -618,9 +618,9 @@
      "schedule_id": "16",
      "day": "3",
      "slot": "2",
-     "customer_id": "1",
+     "customer_id": "24",
      "valid_chance": "1",
-     "customer_name": "김민준"
+     "customer_name": "임도현"
     },
     {
      "schedule_id": "17",
@@ -658,9 +658,9 @@
      "schedule_id": "21",
      "day": "3",
      "slot": "7",
-     "customer_id": "3",
+     "customer_id": "34",
      "valid_chance": "0",
-     "customer_name": "첸 웨이"
+     "customer_name": "야마모토 렌"
     },
     {
      "schedule_id": "22",
@@ -906,9 +906,9 @@
      "schedule_id": "52",
      "day": "8",
      "slot": "3",
-     "customer_id": "3",
+     "customer_id": "27",
      "valid_chance": "0",
-     "customer_name": "첸 웨이"
+     "customer_name": "장 웨이"
     },
     {
      "schedule_id": "53",
@@ -994,9 +994,9 @@
      "schedule_id": "63",
      "day": "9",
      "slot": "7",
-     "customer_id": "1",
+     "customer_id": "35",
      "valid_chance": "1",
-     "customer_name": "김민준"
+     "customer_name": "자오 레이"
     },
     {
      "schedule_id": "64",
@@ -1034,9 +1034,9 @@
      "schedule_id": "68",
      "day": "10",
      "slot": "5",
-     "customer_id": "24",
+     "customer_id": "18",
      "valid_chance": "1",
-     "customer_name": "임도현"
+     "customer_name": "첸 리"
     },
     {
      "schedule_id": "69",
@@ -1059,7 +1059,7 @@
      "day": "11",
      "slot": "1",
      "customer_id": "10",
-     "valid_chance": "0.3",
+     "valid_chance": "0",
      "customer_name": "윤서린"
     },
     {
@@ -1106,9 +1106,9 @@
      "schedule_id": "77",
      "day": "11",
      "slot": "7",
-     "customer_id": "2",
-     "valid_chance": "1",
-     "customer_name": "이지은"
+     "customer_id": "36",
+     "valid_chance": "0",
+     "customer_name": "천 징"
     },
     {
      "schedule_id": "78",
@@ -1131,7 +1131,7 @@
      "day": "12",
      "slot": "3",
      "customer_id": "8",
-     "valid_chance": "0.3",
+     "valid_chance": "0",
      "customer_name": "존 카터"
     },
     {
@@ -1171,7 +1171,7 @@
      "day": "13",
      "slot": "1",
      "customer_id": "11",
-     "valid_chance": "0.25",
+     "valid_chance": "0",
      "customer_name": "사토 하루키"
     },
     {
@@ -1194,9 +1194,9 @@
      "schedule_id": "88",
      "day": "13",
      "slot": "4",
-     "customer_id": "1",
-     "valid_chance": "1",
-     "customer_name": "김민준"
+     "customer_id": "37",
+     "valid_chance": "0",
+     "customer_name": "제시카 윌슨"
     },
     {
      "schedule_id": "89",
@@ -1243,7 +1243,7 @@
      "day": "14",
      "slot": "3",
      "customer_id": "9",
-     "valid_chance": "0.3",
+     "valid_chance": "0",
      "customer_name": "강도식"
     },
     {
@@ -1251,7 +1251,7 @@
      "day": "14",
      "slot": "4",
      "customer_id": "34",
-     "valid_chance": "0.25",
+     "valid_chance": "1",
      "customer_name": "야마모토 렌"
     },
     {
@@ -2582,6 +2582,11 @@
      "key": "hidden_location",
      "type": "varchar(50)",
      "label": "은닉 위치"
+    },
+    {
+     "key": "customer_name",
+     "type": "varchar(30)",
+     "label": "캐릭터 이름"
     }
    ],
    "rows": [
@@ -2590,21 +2595,24 @@
      "customer_id": "9",
      "result": "적발",
      "detected_item": "마약",
-     "hidden_location": "복부"
+     "hidden_location": "복부",
+     "customer_name": "강도식"
     },
     {
      "xray_id": "2",
      "customer_id": "11",
      "result": "적발",
      "detected_item": "폭발물 부품",
-     "hidden_location": "다리"
+     "hidden_location": "다리",
+     "customer_name": "사토 하루키"
     },
     {
      "xray_id": "3",
-     "customer_id": "34",
-     "result": "위험",
-     "detected_item": "폭발물 의심 부품",
-     "hidden_location": "수하물 이중 바닥"
+     "customer_id": "8",
+     "result": "적발",
+     "detected_item": "밀수품",
+     "hidden_location": "가슴",
+     "customer_name": "존 카터"
     }
    ],
    "layout": "relational"
@@ -2635,29 +2643,21 @@
      "key": "matched_person",
      "type": "varchar(100)",
      "label": "일치 인물/전과"
+    },
+    {
+     "key": "customer_name",
+     "type": "varchar(30)",
+     "label": "캐릭터 이름"
     }
    ],
    "rows": [
-    {
-     "fingerprint_id": "1",
-     "customer_id": "8",
-     "result": "적발",
-     "match_status": "지명수배 일치",
-     "matched_person": "해외 도피 사기범 지명수배"
-    },
     {
      "fingerprint_id": "2",
      "customer_id": "10",
      "result": "적발",
      "match_status": "위장 신원",
-     "matched_person": "성형 전 지명수배자와 지문 일치"
-    },
-    {
-     "fingerprint_id": "3",
-     "customer_id": "9",
-     "result": "위험",
-     "match_status": "지명수배 일치",
-     "matched_person": "국내 마약 유통 수배자와 지문 일치"
+     "matched_person": "성형 전 지명수배자와 지문 일치",
+     "customer_name": "윤서린"
     }
    ],
    "layout": "relational"
@@ -2814,7 +2814,7 @@
      "score_max": null,
      "end_timing": "11~14일",
      "trigger_type": "SEQUENCE",
-     "trigger_condition": "범죄자(국내 유입자) 인식O + 제안 응함 + 입국 + 마약/밀수품 수령"
+     "trigger_condition": "범죄자(마약 범죄자) 인식O + 제안 응함 + 입국 + 마약/밀수품 수령"
     },
     {
      "ending_id": "12",
@@ -2924,7 +2924,7 @@
      "score_max": null,
      "end_timing": "회차 종료",
      "trigger_type": "COUNTER",
-     "trigger_condition": "외국 도피자 뇌물 2회 + 국내/성형 범죄자 금괴 1회 누적"
+     "trigger_condition": "밀수품 범죄자 뇌물 2회 + 마약/성형 범죄자 금괴 1회 누적"
     },
     {
      "ending_id": "23",
@@ -2996,7 +2996,7 @@
      "unlock_day": "1",
      "effect_type": "COUNSEL_BOOK",
      "effect_value": null,
-     "effect": "진상·격앙 손님 진정 및 상담 분기 보조",
+     "effect": null,
      "icon": "심리상담집"
     },
     {
@@ -3007,7 +3007,7 @@
      "unlock_day": "1",
      "effect_type": "FACE_SCANNER",
      "effect_value": null,
-     "effect": "성형·몽타주 의심자 얼굴 정밀 대조",
+     "effect": null,
      "icon": "안면 인식 스캐너"
     },
     {
@@ -3018,7 +3018,7 @@
      "unlock_day": "1",
      "effect_type": "CULT_DOCTRINE",
      "effect_value": null,
-     "effect": "사이비 신도 교리 식별·대응",
+     "effect": null,
      "icon": "잘못된 교리서"
     },
     {
@@ -3029,7 +3029,7 @@
      "unlock_day": "1",
      "effect_type": "LONGSTAY_ID",
      "effect_value": null,
-     "effect": "장기체류·취업 서류 진위 식별 보조",
+     "effect": null,
      "icon": "장기체류 식별 도구"
     }
    ],
@@ -3304,7 +3304,7 @@
     },
     {
      "rule_id": "8",
-     "character_type": "취업체류자",
+     "character_type": "장기체류자",
      "context": "취업증빙 요구일(8일~)",
      "defect_document": "employment_cert",
      "violation_field": "company_name / hire_date",
@@ -3318,29 +3318,29 @@
     },
     {
      "rule_id": "9",
-     "character_type": "범죄자(외국 도피자)",
+     "character_type": "범죄자(밀수품 범죄자)",
      "context": "상시",
      "defect_document": "여권",
      "violation_field": "passport_no",
      "normal_example": "정상 번호",
      "defect_example": "위조 번호·형식 위반",
-     "secondary_check": "지문 = 지명수배자 일치",
+     "secondary_check": "X-ray = 밀수품 탐지",
      "random_valid_chance": "0.3",
-     "note": "②결정: 지문 부가검사",
+     "note": "②결정: X-ray 부가검사",
      "corruption_type": "FORGE_NUMBER",
      "target_field": "passport_no"
     },
     {
      "rule_id": "10",
-     "character_type": "범죄자(국내 유입자)",
+     "character_type": "범죄자(마약 범죄자)",
      "context": "상시",
      "defect_document": "여권",
      "violation_field": "passport_no",
      "normal_example": "정상 번호",
      "defect_example": "위조 번호·형식 위반",
-     "secondary_check": "지문 = 지명수배자 일치",
+     "secondary_check": "X-ray = 마약 탐지",
      "random_valid_chance": "0.3",
-     "note": "②결정: 지문 부가검사",
+     "note": "②결정: X-ray 부가검사",
      "corruption_type": "FORGE_NUMBER",
      "target_field": "passport_no"
     },
@@ -4949,7 +4949,7 @@
     },
     {
      "payout_id": "37",
-     "character_type": "범죄자(외국 도피자)",
+     "character_type": "범죄자(밀수품 범죄자)",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": null,
@@ -4965,7 +4965,7 @@
     },
     {
      "payout_id": "38",
-     "character_type": "범죄자(외국 도피자)",
+     "character_type": "범죄자(밀수품 범죄자)",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": null,
@@ -4981,7 +4981,7 @@
     },
     {
      "payout_id": "39",
-     "character_type": "범죄자(외국 도피자)",
+     "character_type": "범죄자(밀수품 범죄자)",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": null,
@@ -4997,7 +4997,7 @@
     },
     {
      "payout_id": "40",
-     "character_type": "범죄자(외국 도피자)",
+     "character_type": "범죄자(밀수품 범죄자)",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": null,
@@ -5013,7 +5013,7 @@
     },
     {
      "payout_id": "41",
-     "character_type": "범죄자(외국 도피자)",
+     "character_type": "범죄자(밀수품 범죄자)",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": null,
@@ -5869,7 +5869,7 @@
     },
     {
      "score_id": "35",
-     "character_type": "범죄자(외국 도피자)",
+     "character_type": "범죄자(밀수품 범죄자)",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": null,
@@ -5882,7 +5882,7 @@
     },
     {
      "score_id": "36",
-     "character_type": "범죄자(외국 도피자)",
+     "character_type": "범죄자(밀수품 범죄자)",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": null,
@@ -5895,7 +5895,7 @@
     },
     {
      "score_id": "37",
-     "character_type": "범죄자(외국 도피자)",
+     "character_type": "범죄자(밀수품 범죄자)",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": null,
@@ -5908,7 +5908,7 @@
     },
     {
      "score_id": "38",
-     "character_type": "범죄자(국내 유입자)",
+     "character_type": "범죄자(마약 범죄자)",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": null,
@@ -5921,7 +5921,7 @@
     },
     {
      "score_id": "39",
-     "character_type": "범죄자(국내 유입자)",
+     "character_type": "범죄자(마약 범죄자)",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": null,
@@ -5934,7 +5934,7 @@
     },
     {
      "score_id": "40",
-     "character_type": "범죄자(국내 유입자)",
+     "character_type": "범죄자(마약 범죄자)",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": null,
@@ -5947,7 +5947,7 @@
     },
     {
      "score_id": "41",
-     "character_type": "범죄자(국내 유입자)",
+     "character_type": "범죄자(마약 범죄자)",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": null,

@@ -501,20 +501,20 @@
       "birthDate": "1987-03-11",
       "age": 38,
       "spriteRef": "강도식",
-      "characterType": "범죄자(국내 유입자)",
+      "characterType": "범죄자(마약 범죄자)",
       "defectVariant": "",
       "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
+          "variant": "비정상",
+          "violationField": "여권번호",
           "spriteRef": "강도식",
           "country": "KOR",
           "fields": [
             {
               "label": "여권번호",
-              "value": "KO1010053",
+              "value": "##INVALID_PATTERN##",
               "key": "passport_no"
             },
             {
@@ -593,7 +593,13 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "잠깐, 모자를 벗어주시겠어요?"
+              "text": "잠깐, 모자를 벗어주시겠어요?",
+              "claim": {
+                "attr": "passport_no",
+                "value": "",
+                "label": "여권번호 불일치",
+                "unlocksScan": ""
+              }
             },
             {
               "order": 2,
@@ -706,27 +712,16 @@
       "xray": {
         "type": "xray",
         "result": "적발",
-        "detail": "마약 은닉",
-        "extra": "수하물 이중 바닥",
+        "detail": "마약",
+        "extra": "복부",
         "claim": {
           "attr": "contraband",
-          "value": "마약 은닉",
+          "value": "마약",
           "label": "X-ray 적발물",
           "unlocksScan": ""
         }
       },
-      "fingerprint": {
-        "type": "fingerprint",
-        "result": "적발",
-        "detail": "지명수배 일치",
-        "extra": "국내 마약 유통 수배자",
-        "claim": {
-          "attr": "name",
-          "value": "국내 마약 유통 수배자",
-          "label": "지문 대조 신원",
-          "unlocksScan": ""
-        }
-      }
+      "fingerprint": null
     },
     {
       "customerId": 34,
@@ -850,12 +845,12 @@
             {
               "order": 1,
               "speaker": "야마모토 렌",
-              "text": "안녕하세요! 좋은 아침이네요."
+              "text": "Hello! Good morning~"
             },
             {
               "order": 2,
               "speaker": "야마모토 렌",
-              "text": "여기 제 여권입니다."
+              "text": "Here is my passport."
             }
           ]
         },
@@ -867,12 +862,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 즐거운 여행 되세요!"
+              "text": "Have a pleasant trip!"
             },
             {
               "order": 2,
               "speaker": "야마모토 렌",
-              "text": "정말 감사합니다! 좋은 하루 보내세요!"
+              "text": "Thank you so much! Have a wonderful day!"
             }
           ]
         },
@@ -889,7 +884,7 @@
             {
               "order": 2,
               "speaker": "야마모토 렌",
-              "text": "이런... 정말 죄송합니다. 전혀 몰랐어요."
+              "text": "Oh no... I'm so sorry, I had no idea."
             }
           ]
         },
@@ -901,12 +896,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 즐거운 여행 되세요!"
+              "text": "Have a pleasant trip!"
             },
             {
               "order": 2,
               "speaker": "야마모토 렌",
-              "text": "감사합니다! 빠르게 끝났네요."
+              "text": "Thank you! That was quick~"
             }
           ]
         },
@@ -923,7 +918,7 @@
             {
               "order": 2,
               "speaker": "야마모토 렌",
-              "text": "이건 정말 말도 안 돼요! 제 서류는 아무 문제 없는데요!"
+              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
               "order": 3,
@@ -933,7 +928,7 @@
             {
               "order": 4,
               "speaker": "야마모토 렌",
-              "text": "오, 정말 다행이에요! 고마워요!"
+              "text": "Oh 정말 다행이에요! 고마워요!"
             }
           ]
         },
@@ -950,7 +945,7 @@
             {
               "order": 2,
               "speaker": "야마모토 렌",
-              "text": "이건 정말 말도 안 돼요! 제 서류는 아무 문제 없는데요!"
+              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
               "order": 3,
@@ -977,7 +972,7 @@
             {
               "order": 2,
               "speaker": "야마모토 렌",
-              "text": "이건 정말 말도 안 돼요! 제 서류는 아무 문제 없는데요!"
+              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
               "order": 3,
@@ -987,7 +982,7 @@
             {
               "order": 4,
               "speaker": "야마모토 렌",
-              "text": "기분이 안 좋네요. 너무 무례하시군요."
+              "text": "기분이 안 좋아요. You are so rude."
             }
           ]
         }

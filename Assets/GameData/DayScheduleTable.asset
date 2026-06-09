@@ -58,9 +58,9 @@ MonoBehaviour:
     - 2
     - 1
     - 2
-    - 3
+    - 25
     - 0
-    - "\uCCB8 \uC6E8\uC774"
+    - "\uC70C\uB9AC\uC5C4 \uBE0C\uB77C\uC6B4"
   - keys:
     - schedule_id
     - day
@@ -254,9 +254,9 @@ MonoBehaviour:
     - 16
     - 3
     - 2
+    - 24
     - 1
-    - 1
-    - "\uAE40\uBBFC\uC900"
+    - "\uC784\uB3C4\uD604"
   - keys:
     - schedule_id
     - day
@@ -324,9 +324,9 @@ MonoBehaviour:
     - 21
     - 3
     - 7
-    - 3
+    - 34
     - 0
-    - "\uCCB8 \uC6E8\uC774"
+    - "\uC57C\uB9C8\uBAA8\uD1A0 \uB80C"
   - keys:
     - schedule_id
     - day
@@ -758,9 +758,9 @@ MonoBehaviour:
     - 52
     - 8
     - 3
-    - 3
+    - 27
     - 0
-    - "\uCCB8 \uC6E8\uC774"
+    - "\uC7A5 \uC6E8\uC774"
   - keys:
     - schedule_id
     - day
@@ -912,9 +912,9 @@ MonoBehaviour:
     - 63
     - 9
     - 7
+    - 35
     - 1
-    - 1
-    - "\uAE40\uBBFC\uC900"
+    - "\uC790\uC624 \uB808\uC774"
   - keys:
     - schedule_id
     - day
@@ -982,9 +982,9 @@ MonoBehaviour:
     - 68
     - 10
     - 5
-    - 24
+    - 18
     - 1
-    - "\uC784\uB3C4\uD604"
+    - "\uCCB8 \uB9AC"
   - keys:
     - schedule_id
     - day
@@ -1025,7 +1025,7 @@ MonoBehaviour:
     - 11
     - 1
     - 10
-    - 0.3
+    - 0
     - "\uC724\uC11C\uB9B0"
   - keys:
     - schedule_id
@@ -1108,9 +1108,9 @@ MonoBehaviour:
     - 77
     - 11
     - 7
-    - 2
-    - 1
-    - "\uC774\uC9C0\uC740"
+    - 36
+    - 0
+    - "\uCC9C \uC9D5"
   - keys:
     - schedule_id
     - day
@@ -1151,7 +1151,7 @@ MonoBehaviour:
     - 12
     - 3
     - 8
-    - 0.3
+    - 0
     - "\uC874 \uCE74\uD130"
   - keys:
     - schedule_id
@@ -1221,7 +1221,7 @@ MonoBehaviour:
     - 13
     - 1
     - 11
-    - 0.25
+    - 0
     - "\uC0AC\uD1A0 \uD558\uB8E8\uD0A4"
   - keys:
     - schedule_id
@@ -1262,9 +1262,9 @@ MonoBehaviour:
     - 88
     - 13
     - 4
-    - 1
-    - 1
-    - "\uAE40\uBBFC\uC900"
+    - 37
+    - 0
+    - "\uC81C\uC2DC\uCE74 \uC70C\uC2A8"
   - keys:
     - schedule_id
     - day
@@ -1347,7 +1347,7 @@ MonoBehaviour:
     - 14
     - 3
     - 9
-    - 0.3
+    - 0
     - "\uAC15\uB3C4\uC2DD"
   - keys:
     - schedule_id
@@ -1361,7 +1361,7 @@ MonoBehaviour:
     - 14
     - 4
     - 34
-    - 0.25
+    - 1
     - "\uC57C\uB9C8\uBAA8\uD1A0 \uB80C"
   - keys:
     - schedule_id

@@ -6,8 +6,8 @@ pcr_test               layout=relational cols=8 rows=19
 employment_cert        layout=relational cols=7 rows=5
 news                   layout=relational cols=5 rows=10
 rule_book              layout=relational cols=4 rows=10
-xray                   layout=relational cols=5 rows=3
-fingerprint            layout=relational cols=5 rows=3
+xray                   layout=relational cols=6 rows=3
+fingerprint            layout=relational cols=6 rows=1
 ending                 layout=relational cols=8 rows=23
 shop                   layout=relational cols=9 rows=4
 reward                 layout=relational cols=7 rows=7

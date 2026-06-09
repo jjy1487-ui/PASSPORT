@@ -98,8 +98,9 @@ public static class CharacterTypes
     public const string Infected         = "전염병 환자";
     public const string LongStay         = "장기체류자";
     public const string Worker           = "취업체류자";
-    public const string CriminalForeign  = "범죄자(외국 도피자)";
-    public const string CriminalDomestic = "범죄자(국내 유입자)";
+    // 260609 개명: 엑셀(단일소스)을 마약/밀수 범죄자로 정리 → 코드 상수도 동일하게 통일.
+    public const string CriminalSmuggler = "범죄자(밀수품 범죄자)";   // 존 카터(12일). 구: 범죄자(외국 도피자)
+    public const string CriminalDrug     = "범죄자(마약 범죄자)";     // 강도식(14일). 구: 범죄자(국내 유입자)
     public const string CriminalPlastic  = "범죄자(성형수술)";
     public const string Terrorist        = "테러범";
     public const string Cult             = "사이비 신도";

@@ -29,6 +29,9 @@ MonoBehaviour:
   - key: hidden_location
     label: "\uC740\uB2C9 \uC704\uCE58"
     type: varchar(50)
+  - key: customer_name
+    label: "\uCE90\uB9AD\uD130 \uC774\uB984"
+    type: varchar(30)
   rows:
   - keys:
     - xray_id
@@ -36,33 +39,39 @@ MonoBehaviour:
     - result
     - detected_item
     - hidden_location
+    - customer_name
     values:
     - 1
     - 9
     - "\uC801\uBC1C"
     - "\uB9C8\uC57D"
     - "\uBCF5\uBD80"
+    - "\uAC15\uB3C4\uC2DD"
   - keys:
     - xray_id
     - customer_id
     - result
     - detected_item
     - hidden_location
+    - customer_name
     values:
     - 2
     - 11
     - "\uC801\uBC1C"
     - "\uD3ED\uBC1C\uBB3C \uBD80\uD488"
     - "\uB2E4\uB9AC"
+    - "\uC0AC\uD1A0 \uD558\uB8E8\uD0A4"
   - keys:
     - xray_id
     - customer_id
     - result
     - detected_item
     - hidden_location
+    - customer_name
     values:
     - 3
-    - 34
-    - "\uC704\uD5D8"
-    - "\uD3ED\uBC1C\uBB3C \uC758\uC2EC \uBD80\uD488"
-    - "\uC218\uD558\uBB3C \uC774\uC911 \uBC14\uB2E5"
+    - 8
+    - "\uC801\uBC1C"
+    - "\uBC00\uC218\uD488"
+    - "\uAC00\uC2B4"
+    - "\uC874 \uCE74\uD130"

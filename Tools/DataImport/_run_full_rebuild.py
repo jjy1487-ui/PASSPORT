@@ -28,13 +28,14 @@ while not writable(XLSX):
     time.sleep(3)
 
 lines.append('xlsx writable -> 파이프라인 시작')
+# 모든 단계 동일 규약: cwd=REPO, 경로는 REPO 기준 상대경로(스크립트는 __file__로 REPO 재계산하므로 cwd 무관).
 rc, o = run(['Tools/DataImport/patch_sprite_refs.py'], REPO)
 lines.append('[patch_sprite_refs] rc=%d %s' % (rc, o.strip()))
-rc, o = run(['Tools/DataImport/xlsx_to_json.py'], os.path.join(REPO,'Tools','DataImport'))
+rc, o = run(['Tools/DataImport/xlsx_to_json.py'], REPO)
 lines.append('[xlsx_to_json] rc=%d %s' % (rc, o.strip()))
-rc, o = run(['Tools/DataImport/build_days.py'], os.path.join(REPO,'Tools','DataImport'))
+rc, o = run(['Tools/DataImport/build_days.py'], REPO)
 lines.append('[build_days] rc=%d %s' % (rc, o.strip()))
-rc, o = run(['Tools/DataImport/validate_data.py'], os.path.join(REPO,'Tools','DataImport'))
+rc, o = run(['Tools/DataImport/validate_data.py'], REPO)
 lines.append('[validate_data] rc=%d %s' % (rc, o.strip()))
 lines.append('DONE')
 open(LOG,'w',encoding='utf-8').write('\n'.join(lines))

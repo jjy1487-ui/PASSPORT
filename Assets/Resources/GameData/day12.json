@@ -501,7 +501,7 @@
       "birthDate": "1980-05-20",
       "age": 45,
       "spriteRef": "존 카터",
-      "characterType": "범죄자(외국 도피자)",
+      "characterType": "범죄자(밀수품 범죄자)",
       "defectVariant": "",
       "correctResult": "정상 거절",
       "documents": [
@@ -763,19 +763,19 @@
       ],
       "rejectAdvancedBranchKey": "",
       "rejectGuidedCaseType": "",
-      "xray": null,
-      "fingerprint": {
-        "type": "fingerprint",
+      "xray": {
+        "type": "xray",
         "result": "적발",
-        "detail": "지명수배 일치",
-        "extra": "국제 밀수 조직 수배자",
+        "detail": "밀수품",
+        "extra": "가슴",
         "claim": {
-          "attr": "name",
-          "value": "국제 밀수 조직 수배자",
-          "label": "지문 대조 신원",
+          "attr": "contraband",
+          "value": "밀수품",
+          "label": "X-ray 적발물",
           "unlocksScan": ""
         }
-      }
+      },
+      "fingerprint": null
     },
     {
       "customerId": 28,

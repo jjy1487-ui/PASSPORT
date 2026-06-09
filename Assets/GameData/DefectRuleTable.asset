@@ -251,7 +251,7 @@ MonoBehaviour:
     - target_field
     values:
     - 8
-    - "\uCDE8\uC5C5\uCCB4\uB958\uC790"
+    - "\uC7A5\uAE30\uCCB4\uB958\uC790"
     - "\uCDE8\uC5C5\uC99D\uBE59 \uC694\uAD6C\uC77C(8\uC77C~)"
     - employment_cert
     - company_name / hire_date
@@ -279,15 +279,15 @@ MonoBehaviour:
     - target_field
     values:
     - 9
-    - "\uBC94\uC8C4\uC790(\uC678\uAD6D \uB3C4\uD53C\uC790)"
+    - "\uBC94\uC8C4\uC790(\uBC00\uC218\uD488 \uBC94\uC8C4\uC790)"
     - "\uC0C1\uC2DC"
     - "\uC5EC\uAD8C"
     - passport_no
     - "\uC815\uC0C1 \uBC88\uD638"
     - "\uC704\uC870 \uBC88\uD638\xB7\uD615\uC2DD \uC704\uBC18"
-    - "\uC9C0\uBB38 = \uC9C0\uBA85\uC218\uBC30\uC790 \uC77C\uCE58"
+    - "X-ray = \uBC00\uC218\uD488 \uD0D0\uC9C0"
     - 0.3
-    - "\u2461\uACB0\uC815: \uC9C0\uBB38 \uBD80\uAC00\uAC80\uC0AC"
+    - "\u2461\uACB0\uC815: X-ray \uBD80\uAC00\uAC80\uC0AC"
     - FORGE_NUMBER
     - passport_no
   - keys:
@@ -305,15 +305,15 @@ MonoBehaviour:
     - target_field
     values:
     - 10
-    - "\uBC94\uC8C4\uC790(\uAD6D\uB0B4 \uC720\uC785\uC790)"
+    - "\uBC94\uC8C4\uC790(\uB9C8\uC57D \uBC94\uC8C4\uC790)"
     - "\uC0C1\uC2DC"
     - "\uC5EC\uAD8C"
     - passport_no
     - "\uC815\uC0C1 \uBC88\uD638"
     - "\uC704\uC870 \uBC88\uD638\xB7\uD615\uC2DD \uC704\uBC18"
-    - "\uC9C0\uBB38 = \uC9C0\uBA85\uC218\uBC30\uC790 \uC77C\uCE58"
+    - "X-ray = \uB9C8\uC57D \uD0D0\uC9C0"
     - 0.3
-    - "\u2461\uACB0\uC815: \uC9C0\uBB38 \uBD80\uAC00\uAC80\uC0AC"
+    - "\u2461\uACB0\uC815: X-ray \uBD80\uAC00\uAC80\uC0AC"
     - FORGE_NUMBER
     - passport_no
   - keys:

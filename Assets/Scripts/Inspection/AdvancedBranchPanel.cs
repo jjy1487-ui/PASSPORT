@@ -13,7 +13,7 @@ using TMPro;
 ///
 /// 버튼 배치 규약(UI-CONVENTIONS 1장): 호의/수령(긍정 결과) = 왼쪽, 거부/신고(부정 결과) = 오른쪽 통일.
 ///
-/// 데이터 등장 현황: 범죄자(외국/국내/성형)·테러범은 정상 baked 경로엔 일반 거절 손님으로만 들어오고,
+/// 데이터 등장 현황: 범죄자(밀수품/마약/성형)·테러범은 정상 baked 경로엔 일반 거절 손님으로만 들어오고,
 /// 사이비/꼬마/현자/연예인/정치인은 day_schedule 미등장이라 현재는 실제 트리거되지 않는다(컴포넌트는 대기).
 /// 데이터가 채워지면 OnCustomerChanged 시점에 자동 작동한다(추가 코드 불필요).
 /// </summary>
@@ -102,9 +102,9 @@ public sealed class AdvancedBranchPanel : MonoBehaviour
         prompt = null; left = default; right = default;
         switch (type)
         {
-            // 범죄자(외국 도피자/국내 유입자): 금괴 뇌물 제안. 좌=수령+입국(부패, 조기엔딩#11), 우=거부(정의).
-            case CharacterTypes.CriminalForeign:
-            case CharacterTypes.CriminalDomestic:
+            // 범죄자(밀수품/마약): 금괴 뇌물 제안. 좌=수령+입국(부패, 조기엔딩#11), 우=거부(정의).
+            case CharacterTypes.CriminalSmuggler:
+            case CharacterTypes.CriminalDrug:
                 prompt = "손님이 금괴를 슬쩍 내밉니다. 어떻게 하시겠습니까?";
                 left = new Choice("뇌물 수령 + 입국", BranchKeys.CorruptAcceptGold);
                 right = new Choice("거부 (신고)", BranchKeys.DetectMontageReject);
