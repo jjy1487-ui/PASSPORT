@@ -459,7 +459,7 @@
             },
             {
               "label": "영문이름",
-              "value": "YAN LIU",
+              "value": "LIU YAN",
               "key": "name"
             },
             {
@@ -498,7 +498,7 @@
           "fields": [
             {
               "label": "영문이름",
-              "value": "YAN LIU",
+              "value": "LIU YAN",
               "key": "name"
             },
             {
@@ -933,7 +933,7 @@
       "spriteRef": "정유나",
       "characterType": "성형 수술 고객",
       "defectVariant": "",
-      "correctResult": "정상 승인",
+      "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
@@ -1136,19 +1136,19 @@
       "xray": null,
       "fingerprint": {
         "type": "fingerprint",
-        "result": "일치",
-        "detail": "본인 일치",
-        "extra": "LEE JIWOO",
+        "result": "불일치",
+        "detail": "신원 불일치",
+        "extra": "박도윤",
         "claim": {
           "attr": "name",
-          "value": "LEE JIWOO",
+          "value": "박도윤",
           "label": "지문 대조 신원",
           "unlocksScan": ""
         },
         "record": {
           "mode": "성형",
-          "dbName": "LEE JIWOO",
-          "dbBirth": "1996-04-12",
+          "dbName": "박도윤",
+          "dbBirth": "1995-02-18",
           "dbNationality": "KOR",
           "criminalRecord": "없음",
           "wantedNo": ""
@@ -1183,7 +1183,7 @@
             },
             {
               "label": "영문이름",
-              "value": "THOMAS CHRIS",
+              "value": "CHRIS THOMAS",
               "key": "name"
             },
             {
@@ -1222,7 +1222,7 @@
           "fields": [
             {
               "label": "영문이름",
-              "value": "THOMAS CHRIS",
+              "value": "CHRIS THOMAS",
               "key": "name"
             },
             {

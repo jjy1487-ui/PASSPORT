@@ -443,7 +443,7 @@
       "spriteRef": "서지호",
       "characterType": "성형 수술 고객",
       "defectVariant": "",
-      "correctResult": "정상 거절",
+      "correctResult": "정상 승인",
       "documents": [
         {
           "documentType": "여권",
@@ -646,19 +646,19 @@
       "xray": null,
       "fingerprint": {
         "type": "fingerprint",
-        "result": "불일치",
-        "detail": "신원 불일치",
-        "extra": "강민호",
+        "result": "일치",
+        "detail": "본인 일치",
+        "extra": "JEONG DAEUN",
         "claim": {
           "attr": "name",
-          "value": "강민호",
+          "value": "JEONG DAEUN",
           "label": "지문 대조 신원",
           "unlocksScan": ""
         },
         "record": {
           "mode": "성형",
-          "dbName": "강민호",
-          "dbBirth": "1994-03-09",
+          "dbName": "JEONG DAEUN",
+          "dbBirth": "1997-11-20",
           "dbNationality": "KOR",
           "criminalRecord": "없음",
           "wantedNo": ""

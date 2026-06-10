@@ -18,10 +18,10 @@
 - [확률주의] defect_rule rule_id=28 random_valid_chance 비수치='-' (런타임 특수처리 필요)
 - [확률주의] defect_rule rule_id=29 random_valid_chance 비수치='-' (런타임 특수처리 필요)
 - [확률주의] defect_rule rule_id=30 random_valid_chance 비수치='-' (런타임 특수처리 필요)
-- 비자 보유 고객 수: 19
-- PCR 보유 고객 수: 19
-- 취업증빙 보유 고객 수: 5
-- fingerprint 행 수: 4 (옵션B 컬럼 OK)
+- 비자 보유 고객 수: 40
+- PCR 보유 고객 수: 58
+- 취업증빙 보유 고객 수: 9
+- fingerprint 행 수: 13 (옵션B 컬럼 OK)
 
 ## 변환기 경고
 - 알 수 없는 시트(스킵): 고객순서(유형·이름)

@@ -1004,7 +1004,7 @@
       "spriteRef": "노가은",
       "characterType": "성형 수술 고객",
       "defectVariant": "",
-      "correctResult": "정상 승인",
+      "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
@@ -1207,19 +1207,19 @@
       "xray": null,
       "fingerprint": {
         "type": "fingerprint",
-        "result": "일치",
-        "detail": "본인 일치",
-        "extra": "JANG SOYUL",
+        "result": "불일치",
+        "detail": "신원 불일치",
+        "extra": "윤하늘",
         "claim": {
           "attr": "name",
-          "value": "JANG SOYUL",
+          "value": "윤하늘",
           "label": "지문 대조 신원",
           "unlocksScan": ""
         },
         "record": {
           "mode": "성형",
-          "dbName": "JANG SOYUL",
-          "dbBirth": "1999-05-05",
+          "dbName": "윤하늘",
+          "dbBirth": "1996-12-01",
           "dbNationality": "KOR",
           "criminalRecord": "없음",
           "wantedNo": ""
@@ -1254,7 +1254,7 @@
             },
             {
               "label": "영문이름",
-              "value": "WHITE ANDREW",
+              "value": "ANDREW WHITE",
               "key": "name"
             },
             {
@@ -1293,7 +1293,7 @@
           "fields": [
             {
               "label": "영문이름",
-              "value": "WHITE ANDREW",
+              "value": "ANDREW WHITE",
               "key": "name"
             },
             {

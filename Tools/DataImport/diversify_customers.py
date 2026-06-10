@@ -15,7 +15,13 @@ diversify_customers.py — dayN.json 손님 전역 중복 제거(고유화)
 파이프라인: build_days.py 가 dayN.json 을 (재)생성한 '뒤'에 실행한다(_run_full_rebuild.py 에 단계 추가).
 재실행 안전(idempotent): 이미 고유한(=중복 없는) 데이터에 돌리면 아무 것도 바꾸지 않는다.
 """
-import json, os, sys
+import json, os, sys, io
+
+# cp949 콘솔에서도 한글/em-dash 가 깨지거나 죽지 않게 stdout 을 UTF-8 로 재설정(직접 실행 안전).
+try:
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
+except Exception:
+    pass
 
 GDIR = os.path.join(os.path.dirname(__file__), "..", "..", "Assets", "Resources", "GameData")
 GDIR = os.path.normpath(GDIR)

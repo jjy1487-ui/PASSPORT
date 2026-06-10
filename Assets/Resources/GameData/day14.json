@@ -751,7 +751,7 @@
             },
             {
               "label": "영문이름",
-              "value": "HANA WATANABE",
+              "value": "WATANABE HANA",
               "key": "name"
             },
             {
@@ -790,7 +790,7 @@
           "fields": [
             {
               "label": "영문이름",
-              "value": "HANA WATANABE",
+              "value": "WATANABE HANA",
               "key": "name"
             },
             {
@@ -1254,7 +1254,7 @@
             },
             {
               "label": "영문이름",
-              "value": "CLARK EMILY",
+              "value": "EMILY CLARK",
               "key": "name"
             },
             {
@@ -1293,7 +1293,7 @@
           "fields": [
             {
               "label": "영문이름",
-              "value": "CLARK EMILY",
+              "value": "EMILY CLARK",
               "key": "name"
             },
             {

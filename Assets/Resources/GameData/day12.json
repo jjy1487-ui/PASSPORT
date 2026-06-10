@@ -748,12 +748,12 @@
       "spriteRef": "오만석",
       "characterType": "진상 고객",
       "defectVariant": "",
-      "correctResult": "정상 거절",
+      "correctResult": "정상 승인",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "비정상",
-          "violationField": "생년월일",
+          "variant": "정상",
+          "violationField": "없음",
           "spriteRef": "오만석",
           "country": "KOR",
           "fields": [
@@ -774,7 +774,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1900-01-01",
+              "value": "1975-02-11",
               "key": "birth_date"
             },
             {
@@ -838,13 +838,7 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다.",
-              "claim": {
-                "attr": "birth_date",
-                "value": "",
-                "label": "생년월일 불일치",
-                "unlocksScan": ""
-              }
+              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
             },
             {
               "order": 2,
@@ -969,7 +963,7 @@
       "spriteRef": "정유나",
       "characterType": "성형 수술 고객",
       "defectVariant": "",
-      "correctResult": "정상 거절",
+      "correctResult": "정상 승인",
       "documents": [
         {
           "documentType": "여권",
@@ -1172,19 +1166,19 @@
       "xray": null,
       "fingerprint": {
         "type": "fingerprint",
-        "result": "불일치",
-        "detail": "신원 불일치",
-        "extra": "박도윤",
+        "result": "일치",
+        "detail": "본인 일치",
+        "extra": "SEO HARIN",
         "claim": {
           "attr": "name",
-          "value": "박도윤",
+          "value": "SEO HARIN",
           "label": "지문 대조 신원",
           "unlocksScan": ""
         },
         "record": {
           "mode": "성형",
-          "dbName": "박도윤",
-          "dbBirth": "1995-02-18",
+          "dbName": "SEO HARIN",
+          "dbBirth": "1996-04-12",
           "dbNationality": "KOR",
           "criminalRecord": "없음",
           "wantedNo": ""

@@ -13,12 +13,12 @@
       "spriteRef": "박철수",
       "characterType": "진상 고객",
       "defectVariant": "",
-      "correctResult": "정상 거절",
+      "correctResult": "정상 승인",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "비정상",
-          "violationField": "생년월일",
+          "variant": "정상",
+          "violationField": "없음",
           "spriteRef": "박철수",
           "country": "KOR",
           "fields": [
@@ -39,7 +39,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1900-01-01",
+              "value": "1982-09-14",
               "key": "birth_date"
             },
             {
@@ -103,13 +103,7 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다.",
-              "claim": {
-                "attr": "birth_date",
-                "value": "",
-                "label": "생년월일 불일치",
-                "unlocksScan": ""
-              }
+              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
             },
             {
               "order": 2,
@@ -465,7 +459,7 @@
             },
             {
               "label": "영문이름",
-              "value": "MOORE THOMAS",
+              "value": "THOMAS MOORE",
               "key": "name"
             },
             {
@@ -504,7 +498,7 @@
           "fields": [
             {
               "label": "영문이름",
-              "value": "MOORE THOMAS",
+              "value": "THOMAS MOORE",
               "key": "name"
             },
             {
@@ -958,12 +952,12 @@
       "spriteRef": "한만수",
       "characterType": "진상 고객",
       "defectVariant": "",
-      "correctResult": "정상 승인",
+      "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
+          "variant": "비정상",
+          "violationField": "생년월일",
           "spriteRef": "한만수",
           "country": "KOR",
           "fields": [
@@ -984,7 +978,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1979-05-05",
+              "value": "1900-01-01",
               "key": "birth_date"
             },
             {
@@ -1048,7 +1042,13 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
+              "text": "서류 오류가 확인되어 입국하실 수 없습니다.",
+              "claim": {
+                "attr": "birth_date",
+                "value": "",
+                "label": "생년월일 불일치",
+                "unlocksScan": ""
+              }
             },
             {
               "order": 2,
@@ -1404,7 +1404,7 @@
             },
             {
               "label": "영문이름",
-              "value": "GANG LI",
+              "value": "LI GANG",
               "key": "name"
             },
             {
@@ -1443,7 +1443,7 @@
           "fields": [
             {
               "label": "영문이름",
-              "value": "GANG LI",
+              "value": "LI GANG",
               "key": "name"
             },
             {

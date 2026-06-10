@@ -1402,8 +1402,8 @@
       "age": 32,
       "spriteRef": "윌리엄 브라운",
       "characterType": "외국인 관광객",
-      "defectVariant": "출국X",
-      "correctResult": "정상 거절",
+      "defectVariant": "",
+      "correctResult": "정상 승인",
       "documents": [
         {
           "documentType": "여권",
@@ -1419,7 +1419,7 @@
             },
             {
               "label": "영문이름",
-              "value": "TAYLOR DANIEL",
+              "value": "DANIEL TAYLOR",
               "key": "name"
             },
             {
@@ -1451,14 +1451,14 @@
         },
         {
           "documentType": "비자",
-          "variant": "비정상",
-          "violationField": "만료일",
+          "variant": "정상",
+          "violationField": "없음",
           "spriteRef": "",
           "country": "",
           "fields": [
             {
               "label": "영문이름",
-              "value": "TAYLOR DANIEL",
+              "value": "DANIEL TAYLOR",
               "key": "name"
             },
             {
@@ -1483,12 +1483,12 @@
             },
             {
               "label": "발급일",
-              "value": "2022-01-01",
+              "value": "2025-04-03",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2023-01-01",
+              "value": "2027-04-03",
               "key": "expiry_date"
             },
             {
@@ -1586,13 +1586,7 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다.",
-              "claim": {
-                "attr": "expiry_date",
-                "value": "",
-                "label": "만료일 불일치",
-                "unlocksScan": ""
-              }
+              "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다."
             },
             {
               "order": 2,

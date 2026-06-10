@@ -40,6 +40,12 @@ CHARDIR = os.path.join(_REPO, "Assets", "Resources", "Characters")
 # 엑셀 name_kr → 실존 에셋명 보정(파일명이 다른 손님만).
 NAME_OVERRIDE = {"35": "지오 레이"}
 
+# 클론 캐릭터(customer_id >= CLONE_ID_START)는 원본의 얼굴 이미지를 '재활용'한다.
+# 클론의 sprite_ref/photo_ref 는 원본 name_kr(실존 PNG)을 가리키므로, 여기서 클론의
+# 새 name_kr 로 덮어쓰면 안 된다(클론 새 이름은 PNG 가 없어 얼굴 깨짐). → 클론 행은 보존한다.
+# (materialize_clones_to_xlsx.py 가 진실 레벨에서 클론을 만들 때 이미 올바른 얼굴 참조를 넣어 둠.)
+CLONE_ID_START = 1001
+
 # 사진 불일치 디코이 풀(전원 실존 PNG). build_days 가 본인 이름을 제외하고 고른다.
 # 미배정 실존 에셋 + 타 한국 여성(사진 결함 손님 10/12/21/30 이 전원 한국 여성).
 FACE_DECOYS = [
@@ -92,6 +98,11 @@ def main():
     for r in range(5, cust.max_row + 1):
         cid = norm_id(cust.cell(r, c_id).value)
         if cid is None:
+            continue
+        # 클론 행: 원본 얼굴 재활용 → sprite_ref 를 클론 새 이름으로 덮지 않고 현재 값(원본 참조)을 유지.
+        if cid.isdigit() and int(cid) >= CLONE_ID_START:
+            cur_sr = cust.cell(r, c_sr).value
+            namekr_by_id[cid] = str(cur_sr).strip() if cur_sr else ""
             continue
         nk = cust.cell(r, c_nk).value
         sprite = NAME_OVERRIDE.get(cid, str(nk).strip())

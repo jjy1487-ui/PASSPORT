@@ -111,3 +111,165 @@ MonoBehaviour:
     - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
     - "\uC131\uD615 \uC704\uC7A5 / \uC9C0\uBA85\uC218\uBC30 \uC911"
     - WA-2023-001192
+  - keys:
+    - fingerprint_id
+    - customer_id
+    - mode
+    - alt_name
+    - alt_birth
+    - alt_nationality
+    - criminal_record
+    - wanted_no
+    values:
+    - 1011
+    - 1011
+    - "\uC131\uD615"
+    - "\uBC15\uB3C4\uC724"
+    - 1995-02-18
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5C6\uC74C"
+    - 
+  - keys:
+    - fingerprint_id
+    - customer_id
+    - mode
+    - alt_name
+    - alt_birth
+    - alt_nationality
+    - criminal_record
+    - wanted_no
+    values:
+    - 1027
+    - 1027
+    - "\uC131\uD615"
+    - "\uC724\uD558\uB298"
+    - 1996-12-01
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5C6\uC74C"
+    - 
+  - keys:
+    - fingerprint_id
+    - customer_id
+    - mode
+    - alt_name
+    - alt_birth
+    - alt_nationality
+    - criminal_record
+    - wanted_no
+    values:
+    - 1031
+    - 1031
+    - "\uC131\uD615"
+    - "\uBC15\uB3C4\uC724"
+    - 1995-02-18
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5C6\uC74C"
+    - 
+  - keys:
+    - fingerprint_id
+    - customer_id
+    - mode
+    - alt_name
+    - alt_birth
+    - alt_nationality
+    - criminal_record
+    - wanted_no
+    values:
+    - 1035
+    - 1035
+    - "\uC131\uD615"
+    - "\uAC15\uBBFC\uD638"
+    - 1994-03-09
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5C6\uC74C"
+    - 
+  - keys:
+    - fingerprint_id
+    - customer_id
+    - mode
+    - alt_name
+    - alt_birth
+    - alt_nationality
+    - criminal_record
+    - wanted_no
+    values:
+    - 1042
+    - 1042
+    - "\uC131\uD615"
+    - "\uC724\uD558\uB298"
+    - 1996-12-01
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5C6\uC74C"
+    - 
+  - keys:
+    - fingerprint_id
+    - customer_id
+    - mode
+    - alt_name
+    - alt_birth
+    - alt_nationality
+    - criminal_record
+    - wanted_no
+    values:
+    - 1045
+    - 1045
+    - "\uC131\uD615"
+    - "\uAC15\uBBFC\uD638"
+    - 1994-03-09
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5C6\uC74C"
+    - 
+  - keys:
+    - fingerprint_id
+    - customer_id
+    - mode
+    - alt_name
+    - alt_birth
+    - alt_nationality
+    - criminal_record
+    - wanted_no
+    values:
+    - 1047
+    - 1047
+    - "\uC131\uD615"
+    - "\uBC15\uB3C4\uC724"
+    - 1995-02-18
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5C6\uC74C"
+    - 
+  - keys:
+    - fingerprint_id
+    - customer_id
+    - mode
+    - alt_name
+    - alt_birth
+    - alt_nationality
+    - criminal_record
+    - wanted_no
+    values:
+    - 1054
+    - 1054
+    - "\uC131\uD615"
+    - "\uAC15\uBBFC\uD638"
+    - 1994-03-09
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5C6\uC74C"
+    - 
+  - keys:
+    - fingerprint_id
+    - customer_id
+    - mode
+    - alt_name
+    - alt_birth
+    - alt_nationality
+    - criminal_record
+    - wanted_no
+    values:
+    - 1059
+    - 1059
+    - "\uC131\uD615"
+    - "\uC724\uD558\uB298"
+    - 1996-12-01
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5C6\uC74C"
+    - 

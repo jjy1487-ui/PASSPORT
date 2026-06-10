@@ -116,3 +116,67 @@ MonoBehaviour:
     - "\uAC00\uACF5 \uC791\uC5C5"
     - 2023-01-01
     - 2025-01-01
+  - keys:
+    - employment_id
+    - customer_id
+    - cert_no
+    - company_name
+    - job_title
+    - hire_date
+    - issue_date
+    values:
+    - 1009
+    - 1009
+    - EMP-FR-2023X
+    - "\uC0BC\uC131\uC804\uC790"
+    - "\uC5D4\uC9C0\uB2C8\uC5B4"
+    - 2021-01-15
+    - 2023-01-15
+  - keys:
+    - employment_id
+    - customer_id
+    - cert_no
+    - company_name
+    - job_title
+    - hire_date
+    - issue_date
+    values:
+    - 1030
+    - 1030
+    - EMP-FR-2023X
+    - "\uC0BC\uC131\uC804\uC790"
+    - "\uC5D4\uC9C0\uB2C8\uC5B4"
+    - 2021-01-15
+    - 2023-01-15
+  - keys:
+    - employment_id
+    - customer_id
+    - cert_no
+    - company_name
+    - job_title
+    - hire_date
+    - issue_date
+    values:
+    - 1037
+    - 1037
+    - EMP-018
+    - "\uB300\uC131\uBB3C\uB958(\uC8FC)"
+    - "\uBB3C\uB958 \uAD00\uB9AC\uC790"
+    - 2023-03-01
+    - 2025-03-01
+  - keys:
+    - employment_id
+    - customer_id
+    - cert_no
+    - company_name
+    - job_title
+    - hire_date
+    - issue_date
+    values:
+    - 1050
+    - 1050
+    - EMP-FR-2023X
+    - "\uC0BC\uC131\uC804\uC790"
+    - "\uC5D4\uC9C0\uB2C8\uC5B4"
+    - 2021-01-15
+    - 2023-01-15
