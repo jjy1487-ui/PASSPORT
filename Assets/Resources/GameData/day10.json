@@ -2,10 +2,10 @@
   "day": 10,
   "customers": [
     {
-      "customerId": 23,
+      "customerId": 1033,
       "slot": 1,
-      "nameKr": "송하늘",
-      "nameEn": "SONG HANEUL",
+      "nameKr": "박하윤",
+      "nameEn": "PARK HAYUN",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
       "birthDate": "1993-04-09",
@@ -29,7 +29,7 @@
             },
             {
               "label": "영문이름",
-              "value": "SONG HANEUL",
+              "value": "PARK HAYUN",
               "key": "name"
             },
             {
@@ -68,12 +68,12 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "송하늘",
+              "speaker": "박하윤",
               "text": "좋은 아침이예요! 너무 설레네요."
             },
             {
               "order": 2,
-              "speaker": "송하늘",
+              "speaker": "박하윤",
               "text": "여권 확인 부탁드립니다."
             }
           ]
@@ -90,7 +90,7 @@
             },
             {
               "order": 2,
-              "speaker": "송하늘",
+              "speaker": "박하윤",
               "text": "감사합니다! 즐거운 하루 되세요."
             }
           ]
@@ -107,7 +107,7 @@
             },
             {
               "order": 2,
-              "speaker": "송하늘",
+              "speaker": "박하윤",
               "text": "앗 이 부분을 놓쳤네요! 죄송합니다."
             }
           ]
@@ -124,7 +124,7 @@
             },
             {
               "order": 2,
-              "speaker": "송하늘",
+              "speaker": "박하윤",
               "text": "감사합니다! 즐거운 하루 되세요."
             }
           ]
@@ -141,7 +141,7 @@
             },
             {
               "order": 2,
-              "speaker": "송하늘",
+              "speaker": "박하윤",
               "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
             },
             {
@@ -151,7 +151,7 @@
             },
             {
               "order": 4,
-              "speaker": "송하늘",
+              "speaker": "박하윤",
               "text": "앗 네! 감사합니다!"
             }
           ]
@@ -168,7 +168,7 @@
             },
             {
               "order": 2,
-              "speaker": "송하늘",
+              "speaker": "박하윤",
               "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
             },
             {
@@ -178,7 +178,7 @@
             },
             {
               "order": 4,
-              "speaker": "송하늘",
+              "speaker": "박하윤",
               "text": "네 알겠습니다. 앞으로는 주의해 주세요."
             }
           ]
@@ -195,7 +195,7 @@
             },
             {
               "order": 2,
-              "speaker": "송하늘",
+              "speaker": "박하윤",
               "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
             },
             {
@@ -205,7 +205,7 @@
             },
             {
               "order": 4,
-              "speaker": "송하늘",
+              "speaker": "박하윤",
               "text": "하... 네 알겠습니다. 꼼꼼히 검토 좀 해 주세요."
             }
           ]
@@ -217,10 +217,10 @@
       "fingerprint": null
     },
     {
-      "customerId": 29,
+      "customerId": 1034,
       "slot": 2,
-      "nameKr": "배수정",
-      "nameEn": "BAE SUJEONG",
+      "nameKr": "최수아",
+      "nameEn": "CHOI SUAH",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
       "birthDate": "1983-09-30",
@@ -244,7 +244,7 @@
             },
             {
               "label": "영문이름",
-              "value": "BAE SUJEONG",
+              "value": "CHOI SUAH",
               "key": "name"
             },
             {
@@ -283,12 +283,12 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "배수정",
+              "speaker": "최수아",
               "text": "빨리 좀 해요, 나 바쁜 사람이야."
             },
             {
               "order": 2,
-              "speaker": "배수정",
+              "speaker": "최수아",
               "text": "여권 냈으니까 빨리 처리해."
             }
           ]
@@ -305,7 +305,7 @@
             },
             {
               "order": 2,
-              "speaker": "배수정",
+              "speaker": "최수아",
               "text": "흥, 당연히 통과지. 시간 아깝게 뭘 그렇게 들여다봐."
             }
           ]
@@ -322,7 +322,7 @@
             },
             {
               "order": 2,
-              "speaker": "배수정",
+              "speaker": "최수아",
               "text": "에이 진짜... 알겠어요, 알겠어."
             }
           ]
@@ -339,7 +339,7 @@
             },
             {
               "order": 2,
-              "speaker": "배수정",
+              "speaker": "최수아",
               "text": "흥, 당연히 통과지. 시간 아깝게 뭘 그렇게 들여다봐."
             }
           ]
@@ -356,7 +356,7 @@
             },
             {
               "order": 2,
-              "speaker": "배수정",
+              "speaker": "최수아",
               "text": "상관 불러요, 상관! 이게 말이 돼?"
             },
             {
@@ -366,7 +366,7 @@
             },
             {
               "order": 4,
-              "speaker": "배수정",
+              "speaker": "최수아",
               "text": "이런... 눈 똑바로 뜨고 일해!"
             }
           ]
@@ -383,7 +383,7 @@
             },
             {
               "order": 2,
-              "speaker": "배수정",
+              "speaker": "최수아",
               "text": "상관 불러요, 상관! 이게 말이 돼?"
             },
             {
@@ -393,7 +393,7 @@
             },
             {
               "order": 4,
-              "speaker": "배수정",
+              "speaker": "최수아",
               "text": "시간 낭비하게 만들고 있어!"
             }
           ]
@@ -410,7 +410,7 @@
             },
             {
               "order": 2,
-              "speaker": "배수정",
+              "speaker": "최수아",
               "text": "상관 불러요, 상관! 이게 말이 돼?"
             },
             {
@@ -420,7 +420,7 @@
             },
             {
               "order": 4,
-              "speaker": "배수정",
+              "speaker": "최수아",
               "text": "진작 이럴 것이지. 내가 꼭 민원 넣을 거야!"
             }
           ]
@@ -432,24 +432,24 @@
       "fingerprint": null
     },
     {
-      "customerId": 21,
+      "customerId": 1035,
       "slot": 3,
-      "nameKr": "서지호",
-      "nameEn": "SEO JIHO",
+      "nameKr": "정다은",
+      "nameEn": "JEONG DAEUN",
       "nationality": "대한민국(KOR)",
       "gender": "여성",
       "birthDate": "1997-11-20",
       "age": 28,
       "spriteRef": "서지호",
-      "characterType": "성형 의심 고객",
+      "characterType": "성형 수술 고객",
       "defectVariant": "",
       "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "비정상",
-          "violationField": "사진",
-          "spriteRef": "장지원",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "서지호",
           "country": "KOR",
           "fields": [
             {
@@ -459,7 +459,7 @@
             },
             {
               "label": "영문이름",
-              "value": "SEO JIHO",
+              "value": "JEONG DAEUN",
               "key": "name"
             },
             {
@@ -498,13 +498,13 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "서지호",
-              "text": "안녕하세요. (마스크와 모자로 얼굴을 가린 채 서류를 내려놓는다.)"
+              "speaker": "정다은",
+              "text": "안녕하세요, 서류 드릴게요. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "서지호",
-              "text": "사진이랑 좀 달라 보여도 저 맞아요."
+              "speaker": "정다은",
+              "text": "확인 부탁드립니다. [TODO 대사]"
             }
           ]
         },
@@ -516,12 +516,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "서지호",
-              "text": "감사합니다! 수술 잘 됐다고 해주세요, 하하."
+              "speaker": "정다은",
+              "text": "감사합니다! [TODO 대사]"
             }
           ]
         },
@@ -533,18 +533,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요.",
-              "claim": {
-                "attr": "face",
-                "value": "",
-                "label": "사진 불일치",
-                "unlocksScan": ""
-              }
+              "text": "서류 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "서지호",
-              "text": "아... 다른 서류에 문제가 있었군요. 죄송합니다."
+              "speaker": "정다은",
+              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
             }
           ]
         },
@@ -556,12 +550,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
+              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "서지호",
-              "text": "감사합니다! 수술 잘 됐다고 해주세요, 하하."
+              "speaker": "정다은",
+              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
             }
           ]
         },
@@ -573,22 +567,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다."
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "서지호",
-              "text": "네? 분명히 저 본인인데요?"
+              "speaker": "정다은",
+              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
             },
             {
               "order": 4,
-              "speaker": "서지호",
-              "text": "거 봐요, 저 맞잖아요. 감사합니다."
+              "speaker": "정다은",
+              "text": "네, 알겠습니다. [TODO 대사]"
             }
           ]
         },
@@ -600,22 +594,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다."
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "서지호",
-              "text": "성형 좀 했다고 거절하시는 거예요? 저 맞아요."
+              "speaker": "정다은",
+              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
             },
             {
               "order": 4,
-              "speaker": "서지호",
-              "text": "그쵸? 본인 맞다니까요. 감사합니다."
+              "speaker": "정다은",
+              "text": "네, 알겠습니다. [TODO 대사]"
             }
           ]
         },
@@ -627,22 +621,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다."
+              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
             },
             {
               "order": 2,
-              "speaker": "서지호",
-              "text": "어떻게 본인을 못 알아봐요? 다시 확인하세요!"
+              "speaker": "정다은",
+              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
             },
             {
               "order": 4,
-              "speaker": "서지호",
-              "text": "하... 사람 무안하게. 다음엔 잘 봐 주세요."
+              "speaker": "정다은",
+              "text": "네, 알겠습니다. [TODO 대사]"
             }
           ]
         }
@@ -650,13 +644,32 @@
       "rejectAdvancedBranchKey": "",
       "rejectGuidedCaseType": "",
       "xray": null,
-      "fingerprint": null
+      "fingerprint": {
+        "type": "fingerprint",
+        "result": "불일치",
+        "detail": "신원 불일치",
+        "extra": "강민호",
+        "claim": {
+          "attr": "name",
+          "value": "강민호",
+          "label": "지문 대조 신원",
+          "unlocksScan": ""
+        },
+        "record": {
+          "mode": "성형",
+          "dbName": "강민호",
+          "dbBirth": "1994-03-09",
+          "dbNationality": "KOR",
+          "criminalRecord": "없음",
+          "wantedNo": ""
+        }
+      }
     },
     {
-      "customerId": 26,
+      "customerId": 1036,
       "slot": 4,
-      "nameKr": "다나카 하루토",
-      "nameEn": "TANAKA HARUTO",
+      "nameKr": "스즈키 소라",
+      "nameEn": "SUZUKI SORA",
       "nationality": "일본(JPN)",
       "gender": "남성",
       "birthDate": "1989-11-25",
@@ -680,7 +693,7 @@
             },
             {
               "label": "영문이름",
-              "value": "TANAKA HARUTO",
+              "value": "SUZUKI SORA",
               "key": "name"
             },
             {
@@ -719,7 +732,7 @@
           "fields": [
             {
               "label": "영문이름",
-              "value": "TANAKA HARUTO",
+              "value": "SUZUKI SORA",
               "key": "name"
             },
             {
@@ -773,12 +786,12 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "다나카 하루토",
+              "speaker": "스즈키 소라",
               "text": "Hello! Good morning~"
             },
             {
               "order": 2,
-              "speaker": "다나카 하루토",
+              "speaker": "스즈키 소라",
               "text": "Here is my passport."
             }
           ]
@@ -795,7 +808,7 @@
             },
             {
               "order": 2,
-              "speaker": "다나카 하루토",
+              "speaker": "스즈키 소라",
               "text": "Thank you so much! Have a wonderful day!"
             }
           ]
@@ -818,7 +831,7 @@
             },
             {
               "order": 2,
-              "speaker": "다나카 하루토",
+              "speaker": "스즈키 소라",
               "text": "Oh no... I'm so sorry, I had no idea."
             }
           ]
@@ -835,7 +848,7 @@
             },
             {
               "order": 2,
-              "speaker": "다나카 하루토",
+              "speaker": "스즈키 소라",
               "text": "Thank you! That was quick~"
             }
           ]
@@ -852,7 +865,7 @@
             },
             {
               "order": 2,
-              "speaker": "다나카 하루토",
+              "speaker": "스즈키 소라",
               "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
@@ -862,7 +875,7 @@
             },
             {
               "order": 4,
-              "speaker": "다나카 하루토",
+              "speaker": "스즈키 소라",
               "text": "Oh 정말 다행이에요! 고마워요!"
             }
           ]
@@ -879,7 +892,7 @@
             },
             {
               "order": 2,
-              "speaker": "다나카 하루토",
+              "speaker": "스즈키 소라",
               "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
@@ -889,7 +902,7 @@
             },
             {
               "order": 4,
-              "speaker": "다나카 하루토",
+              "speaker": "스즈키 소라",
               "text": "정말 다행이에요. 여행할 수 있어서 다행이에요."
             }
           ]
@@ -906,7 +919,7 @@
             },
             {
               "order": 2,
-              "speaker": "다나카 하루토",
+              "speaker": "스즈키 소라",
               "text": "This is absolutely ridiculous! My documents are perfectly fine!"
             },
             {
@@ -916,7 +929,7 @@
             },
             {
               "order": 4,
-              "speaker": "다나카 하루토",
+              "speaker": "스즈키 소라",
               "text": "기분이 안 좋아요. You are so rude."
             }
           ]
@@ -928,10 +941,10 @@
       "fingerprint": null
     },
     {
-      "customerId": 18,
+      "customerId": 1037,
       "slot": 5,
-      "nameKr": "첸 리",
-      "nameEn": "CHEN LI",
+      "nameKr": "첸 하오",
+      "nameEn": "CHEN HAO",
       "nationality": "중국(CHN)",
       "gender": "남성",
       "birthDate": "1986-05-30",
@@ -955,7 +968,7 @@
             },
             {
               "label": "영문이름",
-              "value": "CHEN LI",
+              "value": "CHEN HAO",
               "key": "name"
             },
             {
@@ -994,7 +1007,7 @@
           "fields": [
             {
               "label": "영문이름",
-              "value": "CHEN LI",
+              "value": "CHEN HAO",
               "key": "name"
             },
             {
@@ -1048,7 +1061,7 @@
           "fields": [
             {
               "label": "이름",
-              "value": "CHEN LI",
+              "value": "CHEN HAO",
               "key": "name"
             },
             {
@@ -1087,12 +1100,12 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "첸 리",
+              "speaker": "첸 하오",
               "text": "Hello! I have my university acceptance letter with me too."
             },
             {
               "order": 2,
-              "speaker": "첸 리",
+              "speaker": "첸 하오",
               "text": "체류 관련 서류도 같이 드릴게요."
             }
           ]
@@ -1109,7 +1122,7 @@
             },
             {
               "order": 2,
-              "speaker": "첸 리",
+              "speaker": "첸 하오",
               "text": "Thank you! I'm so excited to start university!"
             }
           ]
@@ -1126,7 +1139,7 @@
             },
             {
               "order": 2,
-              "speaker": "첸 리",
+              "speaker": "첸 하오",
               "text": "Oh no... I see. I'll come back with everything in order."
             }
           ]
@@ -1143,7 +1156,7 @@
             },
             {
               "order": 2,
-              "speaker": "첸 리",
+              "speaker": "첸 하오",
               "text": "Thank you! Can't wait to get started!"
             }
           ]
@@ -1160,7 +1173,7 @@
             },
             {
               "order": 2,
-              "speaker": "첸 리",
+              "speaker": "첸 하오",
               "text": "I have all the right documents including my acceptance letter!"
             },
             {
@@ -1170,7 +1183,7 @@
             },
             {
               "order": 4,
-              "speaker": "첸 리",
+              "speaker": "첸 하오",
               "text": "다행이네요. 감사합니다."
             }
           ]
@@ -1187,7 +1200,7 @@
             },
             {
               "order": 2,
-              "speaker": "첸 리",
+              "speaker": "첸 하오",
               "text": "I have all the right documents including my acceptance letter!"
             },
             {
@@ -1197,7 +1210,7 @@
             },
             {
               "order": 4,
-              "speaker": "첸 리",
+              "speaker": "첸 하오",
               "text": "네, 확인 감사합니다."
             }
           ]
@@ -1214,7 +1227,7 @@
             },
             {
               "order": 2,
-              "speaker": "첸 리",
+              "speaker": "첸 하오",
               "text": "I have all the right documents including my acceptance letter!"
             },
             {
@@ -1224,7 +1237,7 @@
             },
             {
               "order": 4,
-              "speaker": "첸 리",
+              "speaker": "첸 하오",
               "text": "하... 이제야 되네요. 꼼꼼히 봐 주세요."
             }
           ]
@@ -1236,10 +1249,10 @@
       "fingerprint": null
     },
     {
-      "customerId": 5,
+      "customerId": 1038,
       "slot": 6,
-      "nameKr": "박철수",
-      "nameEn": "PARK CHEOLSU",
+      "nameKr": "강예린",
+      "nameEn": "KANG YERIN",
       "nationality": "대한민국(KOR)",
       "gender": "남성",
       "birthDate": "1982-09-14",
@@ -1263,7 +1276,7 @@
             },
             {
               "label": "영문이름",
-              "value": "PARK CHEOLSU",
+              "value": "KANG YERIN",
               "key": "name"
             },
             {
@@ -1302,12 +1315,12 @@
           "lines": [
             {
               "order": 1,
-              "speaker": "박철수",
+              "speaker": "강예린",
               "text": "빨리 좀 해요, 나 바쁜 사람이야."
             },
             {
               "order": 2,
-              "speaker": "박철수",
+              "speaker": "강예린",
               "text": "여권 냈으니까 빨리 처리해."
             }
           ]
@@ -1324,7 +1337,7 @@
             },
             {
               "order": 2,
-              "speaker": "박철수",
+              "speaker": "강예린",
               "text": "흥, 당연히 통과지. 시간 아깝게 뭘 그렇게 들여다봐."
             }
           ]
@@ -1341,7 +1354,7 @@
             },
             {
               "order": 2,
-              "speaker": "박철수",
+              "speaker": "강예린",
               "text": "에이 진짜... 알겠어요, 알겠어."
             }
           ]
@@ -1358,7 +1371,7 @@
             },
             {
               "order": 2,
-              "speaker": "박철수",
+              "speaker": "강예린",
               "text": "흥, 당연히 통과지. 시간 아깝게 뭘 그렇게 들여다봐."
             }
           ]
@@ -1375,7 +1388,7 @@
             },
             {
               "order": 2,
-              "speaker": "박철수",
+              "speaker": "강예린",
               "text": "상관 불러요, 상관! 이게 말이 돼?"
             },
             {
@@ -1385,7 +1398,7 @@
             },
             {
               "order": 4,
-              "speaker": "박철수",
+              "speaker": "강예린",
               "text": "이런... 눈 똑바로 뜨고 일해!"
             }
           ]
@@ -1402,7 +1415,7 @@
             },
             {
               "order": 2,
-              "speaker": "박철수",
+              "speaker": "강예린",
               "text": "상관 불러요, 상관! 이게 말이 돼?"
             },
             {
@@ -1412,7 +1425,7 @@
             },
             {
               "order": 4,
-              "speaker": "박철수",
+              "speaker": "강예린",
               "text": "시간 낭비하게 만들고 있어!"
             }
           ]
@@ -1429,7 +1442,7 @@
             },
             {
               "order": 2,
-              "speaker": "박철수",
+              "speaker": "강예린",
               "text": "상관 불러요, 상관! 이게 말이 돼?"
             },
             {
@@ -1439,7 +1452,7 @@
             },
             {
               "order": 4,
-              "speaker": "박철수",
+              "speaker": "강예린",
               "text": "진작 이럴 것이지. 내가 꼭 민원 넣을 거야!"
             }
           ]

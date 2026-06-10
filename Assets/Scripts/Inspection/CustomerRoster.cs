@@ -29,6 +29,9 @@ public static class CustomerRoster
     private static Dictionary<string, List<CustomerData>> _pool;
     // day*100+slot → 정상 확률(valid_chance, 0~1).
     private static Dictionary<int, float> _validChance;
+    // 한 playthrough(1~14일) 동안 이미 등장시킨 인물(customerId). 날짜를 넘나들며 같은 인물이
+    // 다시 뽑히지 않게 한다(전역 중복 방지). 새 게임 첫날에 BeginPlaythrough()로 비운다.
+    private static readonly HashSet<int> _usedGlobal = new HashSet<int>();
 
     // 키에 서류 구성(비자/PCR 보유)을 포함 → 셔플이 day5-7 PCR·외국인 비자 요건을 보존(다른 날 패키지로 바뀌어도).
     private static string Key(string type, string correct, string docSig) => (type ?? "") + "|" + (correct ?? "") + "|" + docSig;
@@ -88,9 +91,14 @@ public static class CustomerRoster
         }
     }
 
+    /// <summary>새 playthrough(1일차) 시작 시 호출 — 전역 등장 기록을 비운다.
+    /// 이후 14일 동안 같은 인물(customerId)이 두 번 등장하지 않게 한다(풀이 충분할 때).</summary>
+    public static void BeginPlaythrough() => _usedGlobal.Clear();
+
     /// <summary>
     /// data.customers 각 슬롯을 재배정한다. 유형은 유지하고, valid_chance 로 정상/결함을 매 플레이 굴린 뒤
-    /// 같은 (유형,정답) 풀에서 무작위 인물을 뽑는다. 같은 날 동일 인물(customerId) 중복은 피한다.
+    /// 같은 (유형,정답) 풀에서 무작위 인물을 뽑는다. 전역 기록(_usedGlobal)으로 playthrough(1~14일)
+    /// 전체에서 동일 인물(customerId)이 다시 등장하지 않게 한다(풀이 충분할 때 반복 0).
     /// </summary>
     /// <param name="data">교체 대상 하루치 데이터(in-place 수정).</param>
     /// <param name="rng">난수원(시드 주입 가능 → 재현성).</param>
@@ -100,7 +108,6 @@ public static class CustomerRoster
         EnsureLoaded();
         EnsureSchedule();
 
-        var usedIds = new HashSet<int>();
         for (int i = 0; i < data.customers.Length; i++)
         {
             CustomerData orig = data.customers[i];
@@ -111,14 +118,17 @@ public static class CustomerRoster
             if (_validChance.TryGetValue(SlotKey(data.day, orig.slot), out float vc))
                 targetCorrect = (rng.NextDouble() < vc) ? CorrectApprove : CorrectReject;
 
-            // 2) (유형, 목표정답, 서류셋) 풀에서 뽑기 → 없으면 (유형, 원래정답, 서류셋) → 그래도 없으면 원본 유지.
+            // 2) 미사용 인물을 (유형,목표정답,서류셋) → (유형,원래정답) → (유형,같은 서류셋의 어느 정답이든)
+            //    순으로 찾는다. 모두 소진되면 원본 유지. _usedGlobal 로 14일 전체 인물 중복을 막는다.
             //    서류셋(비자/PCR)을 보존해 day5-7 PCR·외국인 비자가 셔플로 사라지지 않게 한다.
             string sig = DocSig(orig);
-            CustomerData pick = PickFromPool(orig.characterType, targetCorrect, sig, usedIds, rng)
-                             ?? PickFromPool(orig.characterType, orig.correctResult, sig, usedIds, rng)
+            CustomerData pick = PickFromPool(orig.characterType, targetCorrect, sig, _usedGlobal, rng)
+                             ?? PickFromPool(orig.characterType, orig.correctResult, sig, _usedGlobal, rng)
+                             ?? PickFromPool(orig.characterType, CorrectApprove, sig, _usedGlobal, rng)
+                             ?? PickFromPool(orig.characterType, CorrectReject, sig, _usedGlobal, rng)
                              ?? orig;
 
-            usedIds.Add(pick.customerId);
+            _usedGlobal.Add(pick.customerId);
             data.customers[i] = pick;
         }
     }
@@ -136,5 +146,5 @@ public static class CustomerRoster
     }
 
     /// <summary>테스트/재빌드용 캐시 초기화.</summary>
-    public static void ClearCache() { _pool = null; _validChance = null; }
+    public static void ClearCache() { _pool = null; _validChance = null; _usedGlobal.Clear(); }
 }

@@ -56,7 +56,11 @@ public sealed class DialogueLogPopup : MonoBehaviour, ICrossCheckProvider
                 _logText.text = sb.ToString().TrimEnd('\n');
             }
         }
-        if (_root != null) _root.SetActive(true);
+        if (_root != null)
+        {
+            _root.SetActive(true);
+            BringToFrontCentered(_root.transform);
+        }
         OnSelectablesChanged?.Invoke();
     }
 
@@ -95,7 +99,11 @@ public sealed class DialogueLogPopup : MonoBehaviour, ICrossCheckProvider
         }
 
         if (_logText != null) _logText.text = sb.ToString().TrimEnd('\n');
-        if (_root != null) _root.SetActive(true);
+        if (_root != null)
+        {
+            _root.SetActive(true);
+            BringToFrontCentered(_root.transform);
+        }
         OnSelectablesChanged?.Invoke();
     }
 
@@ -105,6 +113,22 @@ public sealed class DialogueLogPopup : MonoBehaviour, ICrossCheckProvider
         ClearClaims();
         if (_root != null) _root.SetActive(false);
         OnSelectablesChanged?.Invoke();
+    }
+
+    /// <summary>
+    /// 팝업을 형제 중 맨 앞(=다른 UI 위)으로 올리고 화면 중앙에 놓는다.
+    /// 검사 데스크/서류·말풍선보다 항상 위에 그려지고(형제 순서), 닫기·드래그가 가려지지 않게 한다.
+    /// 씬마다 다른 위치 오버라이드가 있어도 열 때마다 중앙으로 정렬된다.
+    /// </summary>
+    private static void BringToFrontCentered(Transform t)
+    {
+        if (t == null) return;
+        t.SetAsLastSibling();
+        if (t is RectTransform rt)
+        {
+            rt.anchorMin = rt.anchorMax = rt.pivot = new Vector2(0.5f, 0.5f);
+            rt.anchoredPosition = Vector2.zero;
+        }
     }
 
     private void ClearClaims()

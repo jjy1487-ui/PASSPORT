@@ -35,6 +35,10 @@ rc, o = run(['Tools/DataImport/xlsx_to_json.py'], REPO)
 lines.append('[xlsx_to_json] rc=%d %s' % (rc, o.strip()))
 rc, o = run(['Tools/DataImport/build_days.py'], REPO)
 lines.append('[build_days] rc=%d %s' % (rc, o.strip()))
+# day_schedule 가 38명을 98슬롯에 재사용하므로, 빌드된 dayN.json 의 중복 인물을 고유화한다
+# (전역 customerId 고유 → CustomerRoster 전역 중복방지와 함께 한 playthrough 인물 반복 0).
+rc, o = run(['Tools/DataImport/diversify_customers.py'], REPO)
+lines.append('[diversify_customers] rc=%d %s' % (rc, o.strip()))
 rc, o = run(['Tools/DataImport/validate_data.py'], REPO)
 lines.append('[validate_data] rc=%d %s' % (rc, o.strip()))
 lines.append('DONE')

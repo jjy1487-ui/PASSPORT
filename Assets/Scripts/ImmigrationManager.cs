@@ -171,7 +171,12 @@ public sealed class ImmigrationManager : MonoBehaviour
         //  메인 메뉴 '게임 시작'을 거치지 않고 ImmigrationScene/DayNScene 을 직접 Play 하면
         //  이전 회차 세이브가 복원돼(누적 엔딩 #16 카운터 등) 1일차에 누적 엔딩이 조기 발동한다.
         //  1일차엔 정상적으로 누적이 0이므로 여기서 리셋해도 안전(호칭/아이템 메타는 보존).
-        if (CurrentDay <= FirstDay && _economy != null) _economy.ResetProgressKeepMeta();
+        if (CurrentDay <= FirstDay)
+        {
+            if (_economy != null) _economy.ResetProgressKeepMeta();
+            // 새 게임 첫날 → 손님 전역 중복방지 기록 초기화(이후 14일 동안 같은 인물 재등장 방지).
+            CustomerRoster.BeginPlaythrough();
+        }
 
         BeginDay(CurrentDay, resetGold: true);
 

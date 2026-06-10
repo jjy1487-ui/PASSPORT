@@ -18,10 +18,6 @@ using UnityEngine;
 /// </summary>
 public sealed class UIPreviewController : MonoBehaviour
 {
-    [Header("뉴스(데이터 직접 주입 — 완전 단독 재생)")]
-    [Tooltip("비워두면 씬에서 자동으로 찾는다.")]
-    [SerializeField] private NewsPopup newsPopup;
-
     [Header("지문판독기(3단계 연출 — 데이터 주입식 단독 재생)")]
     [Tooltip("비워두면 씬에서 fingerprint 종류 패널을 자동으로 찾는다.")]
     [SerializeField] private ScanResultPanel fingerprintPanel;
@@ -31,6 +27,10 @@ public sealed class UIPreviewController : MonoBehaviour
     [Header("X-ray 전신 검사(데이터 주입식 단독 재생)")]
     [Tooltip("비워두면 씬에서 XrayInspectionPanel 을 자동으로 찾는다.")]
     [SerializeField] private XrayInspectionPanel xrayPanel;
+
+    [Header("서류 카드 미리보기(종류별 드래그 확인)")]
+    [Tooltip("비워두면 씬에서 DocumentView(검사 데스크)를 자동으로 찾는다.")]
+    [SerializeField] private DocumentView documentView;
 
     [Header("그 외 팝업 루트 (드래그해 넣으면 켜기/끄기 버튼 생성)")]
     [Tooltip("NewsPanel/FingerprintPanel/XrayPanel/EndingPanel 등의 루트 GameObject")]
@@ -45,9 +45,6 @@ public sealed class UIPreviewController : MonoBehaviour
         // 끈다. Awake 단계에서 끄면(모든 Awake 는 어떤 Start 보다 먼저 실행) 그 Start 가 스킵된다.
         DisableLiveGameLoop();
 
-        if (newsPopup == null)
-            newsPopup = FindFirstObjectByType<NewsPopup>(FindObjectsInactive.Include);
-
         if (fingerprintPanel == null)
         {
             foreach (var p in FindObjectsByType<ScanResultPanel>(FindObjectsInactive.Include, FindObjectsSortMode.None))
@@ -57,6 +54,8 @@ public sealed class UIPreviewController : MonoBehaviour
             samplePassport = FindFirstObjectByType<PreviewPassport>(FindObjectsInactive.Include);
         if (xrayPanel == null)
             xrayPanel = FindFirstObjectByType<XrayInspectionPanel>(FindObjectsInactive.Include);
+        if (documentView == null)
+            documentView = FindFirstObjectByType<DocumentView>(FindObjectsInactive.Include);
     }
 
     /// <summary>
@@ -79,18 +78,6 @@ public sealed class UIPreviewController : MonoBehaviour
         GUILayout.Label("<b>=== UI 미리보기 ===</b>");
 
         GUILayout.Space(6);
-        GUILayout.Label("[뉴스]");
-        if (newsPopup != null)
-        {
-            if (GUILayout.Button("뉴스 팝업 열기 (샘플)")) ShowSampleNews();
-            if (GUILayout.Button("뉴스 팝업 닫기")) newsPopup.Close();
-        }
-        else
-        {
-            GUILayout.Label("NewsPopup 없음 — CoreRig를 올렸나요?");
-        }
-
-        GUILayout.Space(10);
         GUILayout.Label("[지문판독기 3단계 연출]");
         if (fingerprintPanel != null)
         {
@@ -118,6 +105,22 @@ public sealed class UIPreviewController : MonoBehaviour
         }
 
         GUILayout.Space(10);
+        GUILayout.Label("[서류 카드 — 종류별 드래그 확인]");
+        if (documentView != null)
+        {
+            if (GUILayout.Button("여권 띄우기")) ShowDocument(SampleDoc.Passport);
+            if (GUILayout.Button("비자 띄우기")) ShowDocument(SampleDoc.Visa);
+            if (GUILayout.Button("PCR검사서 띄우기")) ShowDocument(SampleDoc.Pcr);
+            if (GUILayout.Button("취업증빙 띄우기")) ShowDocument(SampleDoc.Employment);
+            if (GUILayout.Button("심사오류고지서 발부")) ShowNotice();
+            if (GUILayout.Button("서류 치우기")) ClearDocuments();
+        }
+        else
+        {
+            GUILayout.Label("DocumentView 없음 — CoreRig를 올렸나요?");
+        }
+
+        GUILayout.Space(10);
         GUILayout.Label("[그 외 팝업 토글]");
         if (extraPanels.Count == 0)
             GUILayout.Label("인스펙터 extraPanels 에 팝업을 드래그하세요.");
@@ -129,31 +132,6 @@ public sealed class UIPreviewController : MonoBehaviour
                 go.SetActive(!on);
         }
         GUILayout.EndArea();
-    }
-
-    /// <summary>샘플 뉴스 2건을 넣어 뉴스 팝업을 연다(이전/다음/닫기까지 실제 동작).</summary>
-    private void ShowSampleNews()
-    {
-        var sample = new List<NewsData>
-        {
-            new NewsData
-            {
-                newsId = 1,
-                title = "[속보] 위조 여권 적발 급증",
-                content = "최근 위조 여권을 이용한 입국 시도가 늘고 있습니다. 만료일과 출국 도장을 반드시 확인하십시오.",
-                iconRef = "",
-                claims = new[] { new Claim { attr = "nationality", value = "VNM", label = "주의 국적", unlocksScan = "" } }
-            },
-            new NewsData
-            {
-                newsId = 2,
-                title = "[수배] 성형 위장 범죄자 주의",
-                content = "성형으로 얼굴을 바꾼 수배자가 입국을 시도할 수 있습니다. 의심 시 지문 대조를 실시하세요.",
-                iconRef = "",
-                claims = new[] { new Claim { attr = "name", value = "", label = "수배 단서", unlocksScan = "fingerprint" } }
-            },
-        };
-        newsPopup.Open(sample);
     }
 
     private enum FpCase { Wanted, Self, Stolen }
@@ -213,4 +191,118 @@ public sealed class UIPreviewController : MonoBehaviour
         };
         xrayPanel.PreviewPlay(data);
     }
+
+    // ── 서류 카드 미리보기 ────────────────────────────────────────
+    // 각 서류 양식에 맞는 그럴듯한 샘플 데이터를 DocumentView 에 주입해
+    // 종류별 카드를 띄운다. 사용자가 닫힌 썸네일을 책상으로 드래그하면 펼쳐지고,
+    // 마우스를 올리면 확대된다(MagnifyOnHover). 판정/변조 로직은 없다 — 표시 전용.
+
+    private enum SampleDoc { Passport, Visa, Pcr, Employment }
+
+    /// <summary>
+    /// 한 종류의 서류 카드만 책상에 띄운다(Show 는 기존 카드를 지우고 새로 깐다).
+    /// 필드 라벨/키는 실제 양식·속성 키 어휘(SHARED-CONVENTIONS 3.8)와 맞춘다.
+    /// </summary>
+    private void ShowDocument(SampleDoc kind)
+    {
+        DocumentData doc = kind switch
+        {
+            SampleDoc.Passport   => SamplePassportDoc(),
+            SampleDoc.Visa       => SampleVisaDoc(),
+            SampleDoc.Pcr        => SamplePcrDoc(),
+            SampleDoc.Employment => SampleEmploymentDoc(),
+            _                    => SamplePassportDoc(),
+        };
+        documentView.Show(new[] { doc });
+    }
+
+    /// <summary>심사 오류 고지서를 발부한다(SpawnNotice — 누적·드래그 가능). 전용 NoticeCard 확인용.</summary>
+    private void ShowNotice()
+    {
+        var notice = new DocumentData
+        {
+            documentType = "심사 오류 고지서",
+            variant = "정상",
+            violationField = "없음",
+            country = "",
+            spriteRef = "",
+            fields = new[]
+            {
+                new FieldEntry { label = "판정", value = "입국 거부 대상이었습니다", key = "" },
+                new FieldEntry { label = "여권",  value = "유효기간 항목이 올바르지 않습니다", key = "" },
+                new FieldEntry { label = "사유",  value = "만료된 서류로 입국을 시도했습니다", key = "" },
+            },
+        };
+        documentView.SpawnNotice(notice);
+    }
+
+    /// <summary>띄운 서류 카드를 모두 치운다(고지서 포함).</summary>
+    private void ClearDocuments()
+    {
+        documentView.Clear();
+        documentView.ClearNotices();
+    }
+
+    private static DocumentData SamplePassportDoc() => new DocumentData
+    {
+        documentType = "여권",
+        variant = "정상", violationField = "없음", country = "KOR", spriteRef = "김민준.png",
+        fields = new[]
+        {
+            new FieldEntry { label = "이름",     value = "KIM MINJUN",  key = "name" },
+            new FieldEntry { label = "성별",     value = "남성",         key = "gender" },
+            new FieldEntry { label = "생년월일", value = "1990-07-15",   key = "birth_date" },
+            new FieldEntry { label = "국적",     value = "KOR",          key = "nationality" },
+            new FieldEntry { label = "여권번호", value = "KO1010053",    key = "passport_no" },
+            new FieldEntry { label = "발급일",   value = "2020-03-10",   key = "issue_date" },
+            new FieldEntry { label = "유효기간", value = "2030-03-09",   key = "expiry_date" },
+        },
+    };
+
+    private static DocumentData SampleVisaDoc() => new DocumentData
+    {
+        documentType = "비자",
+        variant = "정상", violationField = "없음", country = "", spriteRef = "",
+        fields = new[]
+        {
+            new FieldEntry { label = "이름",     value = "KIM MINJUN", key = "name" },
+            new FieldEntry { label = "국적",     value = "KOR",        key = "nationality" },
+            new FieldEntry { label = "여권번호", value = "KO1010053",  key = "passport_no" },
+            new FieldEntry { label = "비자번호", value = "V-2024-0451", key = "visa_no" },
+            new FieldEntry { label = "비자종류", value = "단기방문(C-3)", key = "visa_type" },
+            new FieldEntry { label = "발급일",   value = "2024-01-12", key = "issue_date" },
+            new FieldEntry { label = "유효기간", value = "2024-07-12", key = "expiry_date" },
+        },
+    };
+
+    private static DocumentData SamplePcrDoc() => new DocumentData
+    {
+        documentType = "PCR검사서",
+        variant = "정상", violationField = "없음", country = "", spriteRef = "",
+        fields = new[]
+        {
+            new FieldEntry { label = "이름",     value = "KIM MINJUN", key = "name" },
+            new FieldEntry { label = "국적",     value = "KOR",        key = "nationality" },
+            new FieldEntry { label = "검사번호", value = "PCR-77120",  key = "test_no" },
+            new FieldEntry { label = "검사결과", value = "음성",        key = "pcr_result" },
+            new FieldEntry { label = "검사일",   value = "2024-05-01", key = "issue_date" },
+            new FieldEntry { label = "유효기한", value = "2024-05-04", key = "valid_until" },
+            new FieldEntry { label = "검사기관", value = "서울중앙검사소", key = "lab_name" },
+        },
+    };
+
+    private static DocumentData SampleEmploymentDoc() => new DocumentData
+    {
+        documentType = "취업증빙",
+        variant = "정상", violationField = "없음", country = "", spriteRef = "",
+        fields = new[]
+        {
+            new FieldEntry { label = "이름",     value = "KIM MINJUN",  key = "name" },
+            new FieldEntry { label = "직책",     value = "소프트웨어 엔지니어", key = "job_title" },
+            new FieldEntry { label = "회사명",   value = "한빛테크 주식회사",  key = "company_name" },
+            new FieldEntry { label = "증명번호", value = "EMP-2024-318", key = "cert_no" },
+            new FieldEntry { label = "입사일",   value = "2022-04-01",   key = "hire_date" },
+            new FieldEntry { label = "발급일",   value = "2024-05-20",   key = "issue_date" },
+        },
+    };
 }

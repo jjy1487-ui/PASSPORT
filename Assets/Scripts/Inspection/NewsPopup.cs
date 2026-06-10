@@ -5,7 +5,7 @@ using TMPro;
 
 /// <summary>
 /// 1일차 뉴스 팝업. 이전/다음으로 항목 넘김, 닫기로 종료. 비활성 시작.
-/// 현재 뉴스의 claims[] 를 클릭 가능한 대조 항목(CrossCheckItemView)으로 노출한다(ICrossCheckProvider).
+/// 뉴스 본문(content) 자체를 클릭 가능한 대조 항목(CrossCheckItemView)으로 노출한다(ICrossCheckProvider).
 /// </summary>
 public sealed class NewsPopup : MonoBehaviour, ICrossCheckProvider
 {
@@ -19,14 +19,11 @@ public sealed class NewsPopup : MonoBehaviour, ICrossCheckProvider
     [SerializeField] private Button _nextButton;
     [SerializeField] private Button _closeButton;
 
-    [Header("교차 대조 단서(선택)")]
-    [SerializeField] private Transform _claimContainer;       // 단서 위젯 부모(VerticalLayoutGroup 권장)
-    [SerializeField] private CrossCheckItemView _claimTemplate; // 비활성 템플릿
-    [SerializeField] private CrossCheckItemView _contentSelectable; // 본문 자체를 클릭 대조 항목으로(있으면 본문 클릭 가능)
+    [Header("교차 대조")]
+    [SerializeField] private CrossCheckItemView _contentSelectable; // 본문(content) 자체가 클릭 대조 항목
 
     private IReadOnlyList<NewsData> _items;
     private int _index;
-    private readonly List<CrossCheckItemView> _claimViews = new List<CrossCheckItemView>();
 
     /// <summary>selectable 구성 변경 통지.</summary>
     public event System.Action OnSelectablesChanged;
@@ -51,14 +48,33 @@ public sealed class NewsPopup : MonoBehaviour, ICrossCheckProvider
     {
         _items = items;
         _index = 0;
-        if (_root != null) _root.SetActive(true);
+        if (_root != null)
+        {
+            _root.SetActive(true);
+            BringToFrontCentered(_root.transform);
+        }
         Render();
+    }
+
+    /// <summary>
+    /// 팝업을 형제 중 맨 앞(=다른 UI 위)으로 올리고 화면 중앙에 놓는다.
+    /// 검사 데스크/서류·말풍선보다 항상 위에 그려지고(형제 순서), 닫기·드래그가 가려지지 않게 한다.
+    /// 씬마다 다른 위치 오버라이드가 있어도 열 때마다 중앙으로 정렬된다.
+    /// </summary>
+    private static void BringToFrontCentered(Transform t)
+    {
+        if (t == null) return;
+        t.SetAsLastSibling();
+        if (t is RectTransform rt)
+        {
+            rt.anchorMin = rt.anchorMax = rt.pivot = new Vector2(0.5f, 0.5f);
+            rt.anchoredPosition = Vector2.zero;
+        }
     }
 
     /// <summary>팝업을 닫는다.</summary>
     public void Close()
     {
-        ClearClaims();
         if (_root != null) _root.SetActive(false);
         OnSelectablesChanged?.Invoke();
     }
@@ -103,7 +119,7 @@ public sealed class NewsPopup : MonoBehaviour, ICrossCheckProvider
                 c0 != null ? c0.unlocksScan : "");
         }
 
-        BuildClaims(item);
+        OnSelectablesChanged?.Invoke();
     }
 
     /// <summary>iconRef 에서 확장자를 떼어 Resources 키로 만든다("spr_news_001.png" → "spr_news_001").</summary>
@@ -113,46 +129,10 @@ public sealed class NewsPopup : MonoBehaviour, ICrossCheckProvider
         return dot > 0 ? s.Substring(0, dot) : s;
     }
 
-    // ── 교차 대조 단서 ───────────────────────────────────────────
-    private void BuildClaims(NewsData item)
-    {
-        ClearClaims();
-
-        if (_claimContainer == null || _claimTemplate == null || item.claims == null)
-        {
-            OnSelectablesChanged?.Invoke();
-            return;
-        }
-
-        foreach (Claim c in item.claims)
-        {
-            if (c == null || string.IsNullOrEmpty(c.attr)) continue;
-            CrossCheckItemView v = Instantiate(_claimTemplate, _claimContainer);
-            v.gameObject.SetActive(true);
-            v.Bind("뉴스", c.attr, c.value, c.label, c.label, c.unlocksScan);
-            _claimViews.Add(v);
-        }
-
-        OnSelectablesChanged?.Invoke();
-    }
-
-    private void ClearClaims()
-    {
-        foreach (CrossCheckItemView v in _claimViews)
-        {
-            if (v != null) Destroy(v.gameObject);
-        }
-        _claimViews.Clear();
-    }
-
     // ── ICrossCheckProvider ──────────────────────────────────────
     public IEnumerable<ICrossCheckSelectable> GetSelectables()
     {
         if (_root == null || !_root.activeInHierarchy) yield break;
-        if (_contentSelectable != null) yield return _contentSelectable; // 본문 항목
-        foreach (CrossCheckItemView v in _claimViews)
-        {
-            if (v != null) yield return v;
-        }
+        if (_contentSelectable != null) yield return _contentSelectable; // 본문(content) 자체가 대조 항목
     }
 }
