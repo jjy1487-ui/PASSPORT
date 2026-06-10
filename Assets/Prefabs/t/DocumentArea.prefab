@@ -611,6 +611,8 @@ MonoBehaviour:
     prefab: {fileID: 2474562848604789110, guid: 284f02b45dc8d5c4c9ac5a4e429ee857, type: 3}
   - documentType: "\uCDE8\uC5C5\uC99D\uBE59"
     prefab: {fileID: 9209478158666006378, guid: 23a75120267d6ff4fa582b9e1a39b9b4, type: 3}
+  - documentType: "\uC2EC\uC0AC \uC624\uB958 \uACE0\uC9C0\uC11C"
+    prefab: {fileID: 7000000000000000005, guid: 7e0c1a9b2d4f5a6c8b3e7d1f0a2c4e69, type: 3}
   _spawnStagger: {x: 40, y: 36}
   _cardHalfSize: {x: 30, y: 28}
   _noticeBasePos: {x: -1173, y: -88}
@@ -907,7 +909,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &870119496615325858
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1404,7 +1406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7414968669003108509
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1484,7 +1486,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7436011210492589828
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1583,48 +1585,11 @@ MonoBehaviour:
   _coverChn: {fileID: 6596213298035549781, guid: 13a9447ae2bff7b42a6434c66c45544e, type: 3}
   _coverJpn: {fileID: -3662555290725001338, guid: 82a00045f34f3154e804c55820d16ee3, type: 3}
   _coverUsa: {fileID: -8545742617903702263, guid: 1b77e1fcc7c79e34abad1b5aadb58175, type: 3}
+  _visaClosedCover: {fileID: 0}
+  _pcrClosedCover: {fileID: 0}
   _photoImage: {fileID: 0}
   _stampRoot: {fileID: 2006801338072642237}
   _stampText: {fileID: 4213368619087427132}
-  _passportTemplate: {fileID: 0}
-  _passportValueFont: {fileID: 0}
-  _passportSignatureFont: {fileID: 0}
-  _passportValueFontSize: 15
-  _posName: {x: 0.126, y: 0.476}
-  _posBirthDate: {x: 0.126, y: 0.624}
-  _posGender: {x: 0.126, y: 0.769}
-  _posPassportNo: {x: 0.58, y: 0.196}
-  _posNationality: {x: 0.58, y: 0.32}
-  _posIssueDate: {x: 0.58, y: 0.453}
-  _posExpiryDate: {x: 0.758, y: 0.453}
-  _posIssueCountry: {x: 0.58, y: 0.611}
-  _posSignature: {x: 0.58, y: 0.769}
-  _offsetIssueCountry: {x: 53, y: -10}
-  _offsetSignature: {x: 49, y: -3}
-  _dateSlotWidth: 120
-  _visaTemplate: {fileID: 0}
-  _visaClosedCover: {fileID: 0}
-  _posVisaName: {x: 0.42, y: 0.305}
-  _posVisaNationality: {x: 0.42, y: 0.38}
-  _posVisaPassportNo: {x: 0.42, y: 0.455}
-  _posVisaNo: {x: 0.42, y: 0.53}
-  _posVisaType: {x: 0.42, y: 0.605}
-  _posVisaIssueDate: {x: 0.42, y: 0.68}
-  _posVisaExpiryDate: {x: 0.42, y: 0.755}
-  _visaValueOffsetX: -100
-  _visaIssueOffsetX: -66
-  _visaExpiryOffsetX: -115
-  _visaDateWidth: 180
-  _pcrTemplateNegative: {fileID: 0}
-  _pcrTemplatePositive: {fileID: 0}
-  _pcrClosedCover: {fileID: 0}
-  _posPcrName: {x: 0.42, y: 0.298}
-  _posPcrNationality: {x: 0.42, y: 0.366}
-  _posPcrTestNo: {x: 0.42, y: 0.432}
-  _posPcrIssueDate: {x: 0.42, y: 0.501}
-  _posPcrValidUntil: {x: 0.42, y: 0.727}
-  _posPcrLabName: {x: 0.42, y: 0.793}
-  _pcrValueOffsetX: 0
   _pcrBackground: {fileID: 0}
   _pcrNegativeSprite: {fileID: 0}
   _pcrPositiveSprite: {fileID: 0}

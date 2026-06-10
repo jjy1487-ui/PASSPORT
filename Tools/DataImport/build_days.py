@@ -105,6 +105,14 @@ def tag_fields(fields):
 
 # document_requirement 의 취업증빙 대상 캐릭터 유형(실제 DB 표기)
 EMPLOYMENT_TYPES = {"취업체류자", "장기체류자"}
+
+# 지문(옵션B)으로 본인/도용을 가리는 캐릭터 유형. 이 손님들은 서류를 변조하지 않고,
+# 본인/도용 차이는 오직 지문 DB record(이름/생일/국적)에만 나타난다.
+#   - 성형 수술 고객(mode=성형): is_normal 에 따라 본인(승인 정답)/도용(거절 정답).
+#   - 범죄자(성형수술)(mode=수배자): 양쪽 모두 항상 수배(거절 정답, is_normal 무시).
+# 주의: 문자열은 customer 시트 character_type 실값과 정확히 일치해야 한다(성형 수술 고객).
+FINGERPRINT_DISCRIMINATED_TYPES = {"성형 수술 고객", "범죄자(성형수술)"}
+PLASTIC_WANTED_TYPE = "범죄자(성형수술)"   # 수배자: 지문 record 가 항상 alt 신원 + 수배번호
 PCR_RULE_KEY = "PCR검사"   # defect_rule/character_score 의 PCR 보편 키(손님 종류 아님 — 5~7일 전원 공통 서류 검사)
 TOURIST_TYPE = "외국인 관광객"
 
@@ -529,15 +537,68 @@ def build_xray_scan(row):
     }
 
 
-def build_fingerprint_scan(row):
-    """fingerprint row -> ScanData(dict). claim.attr=name(matched_person -> 여권 이름과 대조)."""
-    matched = row.get("matched_person") or ""
+def _nat_code(value, fallback=""):
+    """'대한민국(KOR)' / '대한민국 (KOR)' -> 'KOR'. 괄호 코드가 없으면 fallback(여권 nat_code) 사용."""
+    if not value:
+        return fallback
+    s = str(value)
+    l = s.rfind("(")
+    r = s.rfind(")")
+    if 0 <= l < r:
+        code = s[l + 1:r].strip()
+        if code:
+            return code
+    return fallback or s.strip()
+
+
+def build_fingerprint_scan(fp_row, customer, passport, is_self):
+    """지문 시트 1행(옵션B) + 손님/여권 + 본인여부 -> ScanData(dict, record 포함).
+
+    옵션B 컬럼: mode(성형|수배자), alt_name, alt_birth, alt_nationality, criminal_record, wanted_no.
+    - 본인(is_self=True): record 의 이름/생일/국적을 그 손님 '여권'에서 복제 → 교차대조 시 Match.
+      (데스크 name 셀렉터블/여권 영문이름은 모두 영문이므로 dbName 도 여권 영문이름으로 둔다.)
+    - 도용/수배(is_self=False): alt_name/alt_birth 를 쓰고 국적은 여권 형식 코드로 통일 →
+      이름(과 생일)만 불일치 → 플레이어가 도용으로 판정.
+    수배자(mode=수배자)는 호출부에서 항상 is_self=False 로 들어온다(양쪽 모두 수배).
+    """
+    pname = clean_name(passport["name_en"])          # 영문 (데스크 name 비교 기준)
+    pbirth = passport["birth_date"]                  # 여권 형식(YYYY-MM-DD)
+    pnat = passport["nationality"]                   # 여권 국가코드(KOR 등)
+
+    if is_self:
+        db_name = pname
+        db_birth = pbirth
+        db_nat = pnat
+        criminal = "없음"
+        wanted = ""
+        result = "일치"
+        match_status = "본인 일치"
+    else:
+        # 도용/수배: 지문 DB 가 가리키는 '진짜 신원'(여권 주장 신원과 다름).
+        db_name = (fp_row.get("alt_name") or "").strip()
+        db_birth = (fp_row.get("alt_birth") or "").strip()
+        db_nat = _nat_code(fp_row.get("alt_nationality"), fallback=pnat)
+        criminal = (fp_row.get("criminal_record") or "없음").strip() or "없음"
+        wanted = (fp_row.get("wanted_no") or "").strip()
+        result = "불일치"
+        match_status = "신원 불일치"
+
+    record = {
+        "mode": (fp_row.get("mode") or "").strip(),
+        "dbName": db_name,
+        "dbBirth": db_birth,
+        "dbNationality": db_nat,
+        "criminalRecord": criminal,
+        "wantedNo": wanted,
+    }
     return {
         "type": "fingerprint",
-        "result": row.get("result") or "",
-        "detail": row.get("match_status") or "",  # match_status
-        "extra": matched,                          # matched_person
-        "claim": {"attr": "name", "value": matched, "label": "지문 대조 신원", "unlocksScan": ""},
+        "result": result,
+        "detail": match_status,                    # 대조 상태(표시용)
+        "extra": db_name,                          # 진짜 신원 이름(표시용)
+        # claim.attr=name: 지문 DB 이름을 여권/캐릭터 이름(attr=name)과 교차대조.
+        "claim": {"attr": "name", "value": db_name, "label": "지문 대조 신원", "unlocksScan": ""},
+        "record": record,
     }
 
 
@@ -696,8 +757,8 @@ def build():
 
     # 보조검사: customer_id -> ScanData(dict). 한 손님에 동종 검사 여러 건이면 마지막 행 채택.
     xray_scans = {r["customer_id"]: build_xray_scan(r) for r in rows(sheets["xray"])}
-    fingerprint_scans = {r["customer_id"]: build_fingerprint_scan(r)
-                         for r in rows(sheets["fingerprint"])}
+    # 지문(옵션B)은 등장마다 본인/도용이 달라지므로 '행'만 인덱싱하고 record 는 손님 루프 안에서 생성.
+    fingerprint_rows = {r["customer_id"]: r for r in rows(sheets["fingerprint"])}
 
     # day_schedule grouped by day
     schedule = {}
@@ -762,8 +823,18 @@ def build():
             applied_tf = ""   # 실제 적용된 target_field
             applied_doc = ""  # 실제 결함이 들어간 서류(defect_document) — PCR 변이 판별용
 
-            if is_normal:
-                stats["normal"] += 1
+            # 지문 대조로 본인/도용을 가리는 손님(성형 수술 고객 / 성형수술 범죄자)은
+            # 서류(여권)를 변조하지 않는다. 본인이면 여권=지문DB(일치), 도용이면 지문DB만 다르다.
+            # 이렇게 해야 '여권은 정상인데 지문 신원만 다르다'는 옵션B 설계가 성립한다.
+            # 판별: 캐릭터 유형 set(설계 의도) 또는 그 손님이 지문 행을 가졌는지(데이터 주도, 리네임 안전).
+            fp_discriminated = (ctype in FINGERPRINT_DISCRIMINATED_TYPES
+                                or cid in fingerprint_rows)
+
+            if is_normal or fp_discriminated:
+                if is_normal:
+                    stats["normal"] += 1
+                else:
+                    stats["abnormal"] += 1
             else:
                 stats["abnormal"] += 1
                 # 상황별 규칙 선택: 결함서류가 요구 서류에 포함된 규칙 우선
@@ -838,11 +909,21 @@ def build():
                 stats.setdefault("variants", {})
                 stats["variants"][defect_variant] = stats["variants"].get(defect_variant, 0) + 1
 
-            # 적발물(X-ray/지문)은 '거부가 정답'(=실제 범죄 버전)일 때만 부여한다.
+            # 적발물(X-ray)은 '거부가 정답'(=실제 범죄 버전)일 때만 부여한다.
             # 정상으로 굴러 '승인이 정답'이면 깨끗(적발물 None). 성형수술 범죄자는 항상 거부.
             correct_result = ("정상 거절" if ctype == "범죄자(성형수술)"
                               else ("정상 승인" if is_normal else "정상 거절"))
             caught = correct_result == "정상 거절"
+
+            # ── 지문(옵션B): 등장마다 본인/도용을 생성. caught 게이팅과 독립. ──
+            # 그 손님의 지문 행이 있으면 항상 부착(성형 의심 고객은 본인=승인 정답일 때도 노출).
+            #  - 본인 여부: 수배자(범죄자(성형수술))는 항상 도용(False), 그 외는 is_normal 그대로.
+            #    valid_chance 가 본인/도용 갈림을 결정하므로 (day,slot,cid) 시드로 결정론 보장.
+            fp_scan = None
+            fp_row = fingerprint_rows.get(cid)
+            if fp_row is not None:
+                fp_is_self = False if ctype == PLASTIC_WANTED_TYPE else is_normal
+                fp_scan = build_fingerprint_scan(fp_row, cust, pp, fp_is_self)
 
             customer_entry = {
                 "customerId": int(cid),
@@ -865,9 +946,10 @@ def build():
                 # 고급 분기 손님 플래그: 거부 시 가이드 대사+최선 분기 정산(대상 외 손님은 빈 문자열).
                 "rejectAdvancedBranchKey": "detect_montage_xray_reject" if ctype == "범죄자(성형수술)" else "",
                 "rejectGuidedCaseType": "분기 거부" if ctype == "범죄자(성형수술)" else "",
-                # 적발물은 '거부가 정답'일 때만(정상 손님이면 깨끗 → None). valid_chance 도박/엔딩 밸런스 불변.
+                # X-ray 적발물은 '거부가 정답'일 때만(정상 손님이면 깨끗 → None). valid_chance 도박/엔딩 밸런스 불변.
                 "xray": xray_scans.get(cid) if caught else None,
-                "fingerprint": fingerprint_scans.get(cid) if caught else None,
+                # 지문은 caught 와 독립 — 지문 행이 있으면 본인/도용 record 를 항상 부착(옵션B).
+                "fingerprint": fp_scan,
             }
             # 시나리오 대사 주입: dialogueCases 의 [TODO 대사] text 를 branch 대사로 교체.
             # 구조(개수/order/speaker) 불변. 매핑 불가 라인은 [TODO] 유지(리포트에 집계).

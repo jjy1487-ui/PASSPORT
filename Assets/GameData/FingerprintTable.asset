@@ -15,35 +15,99 @@ MonoBehaviour:
   sheetName: fingerprint
   columns:
   - key: fingerprint_id
-    label: "\uC9C0\uBB38 ID"
+    label: "\uC9C0\uBB38ID"
     type: int
   - key: customer_id
-    label: "\uACE0\uAC1D ID"
+    label: "\uACE0\uAC1DID"
     type: int
-  - key: result
-    label: "\uAC80\uC0AC \uACB0\uACFC"
+  - key: mode
+    label: "\uBAA8\uB4DC"
     type: varchar(20)
-  - key: match_status
-    label: "\uC77C\uCE58 \uC0C1\uD0DC"
-    type: varchar(30)
-  - key: matched_person
-    label: "\uC77C\uCE58 \uC778\uBB3C/\uC804\uACFC"
-    type: varchar(100)
-  - key: customer_name
-    label: "\uCE90\uB9AD\uD130 \uC774\uB984"
+  - key: alt_name
+    label: "\uC704\uC7A5\uC774\uB984"
+    type: varchar(40)
+  - key: alt_birth
+    label: "\uC704\uC7A5\uC0DD\uB144\uC6D4\uC77C"
+    type: varchar(20)
+  - key: alt_nationality
+    label: "\uC704\uC7A5\uAD6D\uC801"
+    type: varchar(20)
+  - key: criminal_record
+    label: "\uBC94\uC8C4\uAE30\uB85D"
+    type: varchar(60)
+  - key: wanted_no
+    label: "\uC218\uBC30\uBC88\uD638"
     type: varchar(30)
   rows:
   - keys:
     - fingerprint_id
     - customer_id
-    - result
-    - match_status
-    - matched_person
-    - customer_name
+    - mode
+    - alt_name
+    - alt_birth
+    - alt_nationality
+    - criminal_record
+    - wanted_no
+    values:
+    - 1
+    - 12
+    - "\uC131\uD615"
+    - "\uBC15\uB3C4\uC724"
+    - 1995-02-18
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5C6\uC74C"
+    - 
+  - keys:
+    - fingerprint_id
+    - customer_id
+    - mode
+    - alt_name
+    - alt_birth
+    - alt_nationality
+    - criminal_record
+    - wanted_no
     values:
     - 2
+    - 21
+    - "\uC131\uD615"
+    - "\uAC15\uBBFC\uD638"
+    - 1994-03-09
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5C6\uC74C"
+    - 
+  - keys:
+    - fingerprint_id
+    - customer_id
+    - mode
+    - alt_name
+    - alt_birth
+    - alt_nationality
+    - criminal_record
+    - wanted_no
+    values:
+    - 3
+    - 30
+    - "\uC131\uD615"
+    - "\uC724\uD558\uB298"
+    - 1996-12-01
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC5C6\uC74C"
+    - 
+  - keys:
+    - fingerprint_id
+    - customer_id
+    - mode
+    - alt_name
+    - alt_birth
+    - alt_nationality
+    - criminal_record
+    - wanted_no
+    values:
+    - 4
     - 10
-    - "\uC801\uBC1C"
-    - "\uC704\uC7A5 \uC2E0\uC6D0"
-    - "\uC131\uD615 \uC804 \uC9C0\uBA85\uC218\uBC30\uC790\uC640 \uC9C0\uBB38 \uC77C\uCE58"
-    - "\uC724\uC11C\uB9B0"
+    - "\uC218\uBC30\uC790"
+    - "\uAE40\uC11C\uB9B0"
+    - 1988-04-12
+    - "\uB300\uD55C\uBBFC\uAD6D(KOR)"
+    - "\uC131\uD615 \uC704\uC7A5 / \uC9C0\uBA85\uC218\uBC30 \uC911"
+    - WA-2023-001192

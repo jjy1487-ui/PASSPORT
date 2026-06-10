@@ -15,7 +15,7 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
 
     [Header("서류 종류별 카드 프리팹")]
     [Tooltip("documentType 에 맞는 전용 카드 프리팹을 복제한다. 매핑에 없으면 _cardTemplate(범용)을 쓴다.\n" +
-             "예: 여권→PassportCard, 비자→VisaCard, PCR검사서→PcrCard, 취업증빙→EmploymentCard")]
+             "예: 여권→PassportCard, 비자→VisaCard, PCR검사서→PcrCard, 취업증빙→EmploymentCard, 심사 오류 고지서→NoticeCard")]
     [SerializeField] private CardPrefabEntry[] _cardPrefabs;
 
     /// <summary>서류 종류 → 전용 카드 프리팹 매핑 1건.</summary>
@@ -176,9 +176,14 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
     /// </summary>
     public DocumentCardView SpawnNotice(DocumentData notice)
     {
-        if (notice == null || _cardContainer == null || _cardTemplate == null) return null;
+        if (notice == null || _cardContainer == null) return null;
 
-        DocumentCardView card = Instantiate(_cardTemplate, _cardContainer);
+        // 고지서도 다른 서류 카드와 동일하게 _cardPrefabs 매핑(documentType→프리팹)으로 해석한다.
+        // "심사 오류 고지서" 항목이 등록돼 있으면 NoticeCard, 없으면 범용 _cardTemplate으로 폴백.
+        DocumentCardView prefab = ResolveCardPrefab(notice.documentType);
+        if (prefab == null) return null;
+
+        DocumentCardView card = Instantiate(prefab, _cardContainer);
         card.gameObject.SetActive(true);
         PositionNotice(card.transform as RectTransform, _notices.Count); // 좌상단부터 누적
         card.Bind(notice);
@@ -188,6 +193,18 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
 
         // _spawned 가 아니라 _notices 에 보관 → Clear()(손님 교체) 에도 사라지지 않는다.
         _notices.Add(card);
+
+        // '닫기' 버튼: 누르면 이 고지서를 책상에서 제거한다.
+        if (card.CloseButton != null)
+        {
+            DocumentCardView self = card;
+            card.CloseButton.onClick.AddListener(() =>
+            {
+                _notices.Remove(self);
+                if (self != null) Destroy(self.gameObject);
+                OnSelectablesChanged?.Invoke();
+            });
+        }
         return card;
     }
 

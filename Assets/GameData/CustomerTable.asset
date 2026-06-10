@@ -281,7 +281,7 @@ MonoBehaviour:
     - 1996-04-12
     - 30
     - "\uC815\uC720\uB098"
-    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+    - "\uC131\uD615 \uC218\uC220 \uACE0\uAC1D"
   - keys:
     - customer_id
     - name_kr
@@ -461,7 +461,7 @@ MonoBehaviour:
     - 1997-11-20
     - 28
     - "\uC11C\uC9C0\uD638"
-    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+    - "\uC131\uD615 \uC218\uC220 \uACE0\uAC1D"
   - keys:
     - customer_id
     - name_kr
@@ -641,7 +641,7 @@ MonoBehaviour:
     - 1999-05-05
     - 27
     - "\uB178\uAC00\uC740"
-    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+    - "\uC131\uD615 \uC218\uC220 \uACE0\uAC1D"
   - keys:
     - customer_id
     - name_kr

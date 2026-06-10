@@ -1,6 +1,0 @@
-backup: C:\Users\chris\Documents\produc_build_reecture\data\여권_정리_updated.backup_260604_202936.xlsx
-main xlsx: C:\Users\chris\Documents\produc_build_reecture\data\여권_정리_updated.xlsx
-기존 시트 수: 22
-최종 시트 수: 23
-최종 시트 순서: customer, day_schedule, passport, visa, pcr_test, employment_cert, dialogue_case, dialogue_line, news, rule_book, xray, fingerprint, ending, shop, reward, defect_rule, score_model, fake_value_pool, document_requirement, character_payout, character_score, inspection_notice, rule_section
-추가됨: rule_section rows=6

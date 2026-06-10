@@ -344,34 +344,31 @@ public sealed class InspectionController : MonoBehaviour
     {
         if (_documentView == null || c?.documents == null) return;
 
-        var fields = new System.Collections.Generic.List<FieldEntry>();
-        fields.Add(new FieldEntry { label = "판정", value = "입국 거부 대상이었습니다", key = "" });
-
+        // 첫 결함 서류를 찾아, 사유 문구는 엑셀 inspection_notice 시트에서 가져온다(데이터 주도).
+        DocumentData defectDoc = null;
         foreach (DocumentData d in c.documents)
         {
             if (d == null) continue;
             bool isDefect = (!string.IsNullOrEmpty(d.variant) && d.variant.Contains("비정상"))
                          || (!string.IsNullOrEmpty(d.violationField) && d.violationField != "없음");
-            if (isDefect)
-            {
-                string vf = string.IsNullOrEmpty(d.violationField) || d.violationField == "없음" ? "서류 이상" : d.violationField;
-                fields.Add(new FieldEntry { label = d.documentType, value = $"{vf} 항목이 올바르지 않습니다", key = "" });
-            }
+            if (isDefect) { defectDoc = d; break; }
         }
-
-        if (fields.Count <= 1)
-        {
-            fields.Add(new FieldEntry { label = "사유", value = "서류 정보 불일치", key = "" });
-        }
+        string reason = defectDoc != null
+            ? NoticeReason(defectDoc.documentType, defectDoc.violationField)
+            : "입국 거부 대상인 손님을 통과시켰습니다.";
 
         var notice = new DocumentData
         {
-            documentType = "⚠ 심사 오류 고지서",
+            documentType = "심사 오류 고지서",
             variant = "정상",
             violationField = "없음",
             country = "",
             spriteRef = "",
-            fields = fields.ToArray(),
+            fields = new[]
+            {
+                new FieldEntry { label = "판정", value = "입국 거부 대상", key = "" },
+                new FieldEntry { label = "사유", value = reason, key = "" },
+            },
         };
 
         _documentView.SpawnNotice(notice);
@@ -383,18 +380,60 @@ public sealed class InspectionController : MonoBehaviour
         if (_documentView == null) return;
         var notice = new DocumentData
         {
-            documentType = "⚠ 심사 오류 고지서",
+            documentType = "심사 오류 고지서",
             variant = "정상",
             violationField = "없음",
             country = "",
             spriteRef = "",
             fields = new[]
             {
-                new FieldEntry { label = "판정", value = "입국 허가 대상이었습니다", key = "" },
-                new FieldEntry { label = "사유", value = "정상 서류를 잘못 거부했습니다", key = "" },
+                new FieldEntry { label = "판정", value = "입국 허가 대상", key = "" },
+                new FieldEntry { label = "사유", value = "제출한 서류가 모두 정상이었으나 입국을 거부하였습니다.", key = "" },
             },
         };
         _documentView.SpawnNotice(notice);
+    }
+
+    /// <summary>위반 서류 종류·항목으로 엑셀 inspection_notice 시트에서 거부 사유 문구를 가져온다(없으면 일반 문장).
+    /// body 의 {field}/{document} 치환자를 실제 항목/서류명으로 치환한다.</summary>
+    private string NoticeReason(string docType, string violationField)
+    {
+        string field = string.IsNullOrEmpty(violationField) || violationField == "없음" ? "" : violationField;
+        string errorType = NoticeErrorType(docType, field);
+
+        var db = GameDatabaseProvider.Database;
+        InspectionNoticeTable table = db != null ? db.inspectionNotice : null;
+        DataRow row = null;
+        if (table != null)
+        {
+            row = table.Find(errorType, docType);
+            if (row == null)
+            {
+                // 같은 error_type 의 다른 서류 행: 서류명이 {document} 치환자인 행만 재사용(여권 전용 문구를 다른 서류에 오용 방지).
+                DataRow any = table.Find(errorType, null);
+                if (any != null && (any.Get("body") ?? "").Contains("{document}")) row = any;
+            }
+        }
+
+        string fieldLabel = string.IsNullOrEmpty(field) ? docType : field;
+        if (row == null)
+            return $"{docType}의 {fieldLabel} 항목이 규정에 부합하지 않는 서류였으나 입국을 허가하였습니다.";
+
+        string body = row.Get("body") ?? "";
+        return body.Replace("{field}", fieldLabel).Replace("{document}", docType);
+    }
+
+    /// <summary>위반 항목(한글 라벨)/서류 종류 → inspection_notice 의 error_type 으로 매핑.</summary>
+    private static string NoticeErrorType(string docType, string field)
+    {
+        if (docType == "PCR검사서") return "검사부적합";
+        switch (field)
+        {
+            case "만료일": case "유효기간": return "기간만료";
+            case "사진": case "얼굴": return "사진불일치";
+            case "여권번호": return "위조";
+            default: return "정보불일치";
+        }
     }
 
     /// <summary>

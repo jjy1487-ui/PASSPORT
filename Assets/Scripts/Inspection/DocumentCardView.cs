@@ -54,6 +54,16 @@ public sealed class DocumentCardView : MonoBehaviour
     [SerializeField] private TMP_Text _issueCountryText;
     [SerializeField] private TMP_Text _signatureText;
 
+    [Header("심사 오류 고지서 — 판정/사유 값칸")]
+    [Tooltip("심사 오류 고지서 전용. 양식 이미지의 '판정 :'·'사유 :' 옆 값 TMP. 둘 중 하나라도 연결되면 이 카드를 고지서로 인식해 데이터의 판정/사유를 자동으로 채운다(라벨은 양식 이미지에 baked).")]
+    [SerializeField] private TMP_Text _noticeJudge;
+    [SerializeField] private TMP_Text _noticeReason;
+    [Tooltip("심사 오류 고지서 '닫기' 버튼. 누르면 고지서를 책상에서 제거한다(고지서 프리팹에만 연결).")]
+    [SerializeField] private UnityEngine.UI.Button _closeButton;
+
+    /// <summary>고지서 '닫기' 버튼(없으면 null). DocumentView 가 스폰 시 제거 핸들러를 건다.</summary>
+    public UnityEngine.UI.Button CloseButton => _closeButton;
+
     // 프리팹에 미리 배치된 슬롯(key→슬롯). Awake에서 1회 인덱싱. 비어 있으면 일반(고지서) 경로.
     private readonly Dictionary<string, DocumentFieldView> _slotByKey = new Dictionary<string, DocumentFieldView>();
     private bool _slotsIndexed;
@@ -74,6 +84,15 @@ public sealed class DocumentCardView : MonoBehaviour
         {
             FillAuthoredSlots(doc);
             if (_background != null) _background.color = new Color(1f, 1f, 1f, 0f);
+            BuildClosedCover(doc);
+            HideStamp();
+            return;
+        }
+
+        // ── 심사 오류 고지서: 판정/사유 값칸을 데이터에서 직접 채운다(라벨은 양식 이미지에 baked) ──
+        if (_noticeJudge != null || _noticeReason != null)
+        {
+            FillNotice(doc);
             BuildClosedCover(doc);
             HideStamp();
             return;
@@ -355,6 +374,25 @@ public sealed class DocumentCardView : MonoBehaviour
             if (row != null) SafeDestroy(row.gameObject);
         }
         _fieldRows.Clear();
+    }
+
+    /// <summary>심사 오류 고지서 전용: 데이터의 '판정' 필드는 판정칸에, 나머지(사유/위반)는 사유칸에 합쳐 채운다.
+    /// 라벨은 양식 이미지에 그려져 있으므로 값만 얹는다. 대조 대상 아님(피드백 표시 전용).</summary>
+    private void FillNotice(DocumentData doc)
+    {
+        string judge = "";
+        var reasons = new List<string>();
+        if (doc.fields != null)
+        {
+            foreach (FieldEntry f in doc.fields)
+            {
+                if (f == null) continue;
+                if (f.label == "판정") judge = f.value;
+                else if (!string.IsNullOrEmpty(f.value)) reasons.Add(f.value);
+            }
+        }
+        if (_noticeJudge != null) _noticeJudge.text = judge;
+        if (_noticeReason != null) _noticeReason.text = string.Join("\n", reasons);
     }
 
     private Sprite CoverFor(string country)

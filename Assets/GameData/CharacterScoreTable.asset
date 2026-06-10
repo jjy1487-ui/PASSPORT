@@ -398,7 +398,7 @@ MonoBehaviour:
     - note
     values:
     - 15
-    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+    - "\uC131\uD615 \uC218\uC220 \uACE0\uAC1D"
     - 
     - defect
     - "\uB9C8\uC2A4\uD06C \uBBF8\uC694\uCCAD"
@@ -422,7 +422,7 @@ MonoBehaviour:
     - note
     values:
     - 16
-    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+    - "\uC131\uD615 \uC218\uC220 \uACE0\uAC1D"
     - 
     - defect
     - "\uC9C0\uBB38 \uBBF8\uC694\uCCAD"
@@ -446,7 +446,7 @@ MonoBehaviour:
     - note
     values:
     - 17
-    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+    - "\uC131\uD615 \uC218\uC220 \uACE0\uAC1D"
     - 
     - defect
     - "\uBABD\uD0C0\uC8FCO + \uBC94\uC778 \uC544\uB2D8"
@@ -470,7 +470,7 @@ MonoBehaviour:
     - note
     values:
     - 18
-    - "\uC131\uD615 \uC758\uC2EC \uACE0\uAC1D"
+    - "\uC131\uD615 \uC218\uC220 \uACE0\uAC1D"
     - 
     - defect
     - "\uBABD\uD0C0\uC8FCX"

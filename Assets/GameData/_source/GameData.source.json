@@ -180,7 +180,7 @@
      "birth_date": "1996-04-12",
      "age": "30",
      "sprite_ref": "정유나",
-     "character_type": "성형 의심 고객"
+     "character_type": "성형 수술 고객"
     },
     {
      "customer_id": "13",
@@ -279,7 +279,7 @@
      "birth_date": "1997-11-20",
      "age": "28",
      "sprite_ref": "서지호",
-     "character_type": "성형 의심 고객"
+     "character_type": "성형 수술 고객"
     },
     {
      "customer_id": "22",
@@ -378,7 +378,7 @@
      "birth_date": "1999-05-05",
      "age": "27",
      "sprite_ref": "노가은",
-     "character_type": "성형 의심 고객"
+     "character_type": "성형 수술 고객"
     },
     {
      "customer_id": "31",
@@ -2401,35 +2401,35 @@
      "day": "3",
      "news_title": "입국장서 의료관광객 신원 확인 지연",
      "news_content": "오늘 오전 국제선 입국장에서 의료관광 목적 방문객의 여권 사진과 현재 얼굴이 달라 추가 확인이 진행됐다. 일부 방문객은 수술 일정을 이유로 빠른 심사를 요청했으나, 현장에서는 여권과 비자 정보 대조가 우선 적용됐다.",
-     "icon_ref": "spr_news_001"
+     "icon_ref": null
     },
     {
      "news_id": "2",
      "day": "4",
      "news_title": "친척 방문객 서류 불일치로 추가 조사",
      "news_content": "친척 방문을 목적으로 입국하려던 방문객의 여권 정보와 제출 서류 내용이 맞지 않아 추가 조사가 이뤄졌다. 공항 관계자는 단순 입력 차이처럼 보이는 정보도 반복되면 허위 진술 가능성을 확인한다고 밝혔다.",
-     "icon_ref": "spr_news_002"
+     "icon_ref": null
     },
     {
      "news_id": "3",
      "day": "5",
      "news_title": "검역대서 고열 의심 승객 분리 조치",
      "news_content": "오늘 낮 입국 검역대에서 고열 증상을 보인 방문객이 확인돼 임시 대기 구역으로 이동했다. 같은 시간대 입국자 일부도 PCR 검사서와 건강 상태를 추가 확인받으며 검역 절차가 지연됐다.",
-     "icon_ref": "spr_news_003"
+     "icon_ref": "spr_news_001"
     },
     {
      "news_id": "4",
      "day": "7",
      "news_title": "PCR 서류 누락으로 입국장 대기열 혼잡",
      "news_content": "강화된 검역 절차가 이어지는 가운데 PCR 검사서를 제출하지 않거나 검사 기관 정보가 불명확한 사례가 잇따랐다. 현장에서는 서류 확인이 길어지며 입국 대기열이 한때 크게 늘어났다.",
-     "icon_ref": "spr_news_004"
+     "icon_ref": "spr_news_002"
     },
     {
      "news_id": "5",
      "day": "8",
      "news_title": "장기 체류자 서류 대조중 불일치 확인",
      "news_content": "취업과 유학 등 장기 체류 목적 입국자 심사 과정에서 체류 목적과 제출 서류가 맞지 않는 사례가 확인됐다. 당국은 여권, 비자, 체류 목적 서류의 정보가 서로 이어지는지 확인하고 있다.",
-     "icon_ref": "spr_news_005"
+     "icon_ref": "spr_news_003"
     },
     {
      "news_id": "6",
@@ -2443,14 +2443,14 @@
      "day": "11",
      "news_title": "범죄 조직 연계 밀반입 정황 포착",
      "news_content": "최근 입국 심사 과정에서 범죄 조직과 연계된 밀반입 시도가 잇따라 확인됐다. 보안팀은 가방뿐 아니라 신체에 위험물이나 밀수품을 숨겨 들여오는 사례가 있어, 의심 정황이 보이면 전신 검색을 병행한다고 밝혔다.",
-     "icon_ref": null
+     "icon_ref": "spr_news_004"
     },
     {
      "news_id": "8",
      "day": "12",
      "news_title": "도심 폭발 수사, 공항 이동 기록으로 확대",
      "news_content": "도심 폭발 사건 이후 수사 당국이 위조 신분 사용 가능성과 공항 이동 기록을 함께 조사하고 있다. 오늘 입국장에서는 목적 진술은 자연스러웠지만 행동과 서류 흐름이 맞지 않는 방문객이 추가 확인을 받았다.",
-     "icon_ref": null
+     "icon_ref": "spr_news_005"
     },
     {
      "news_id": "9",
@@ -2622,42 +2622,84 @@
     {
      "key": "fingerprint_id",
      "type": "int",
-     "label": "지문 ID"
+     "label": "지문ID"
     },
     {
      "key": "customer_id",
      "type": "int",
-     "label": "고객 ID"
+     "label": "고객ID"
     },
     {
-     "key": "result",
+     "key": "mode",
      "type": "varchar(20)",
-     "label": "검사 결과"
+     "label": "모드"
     },
     {
-     "key": "match_status",
+     "key": "alt_name",
+     "type": "varchar(40)",
+     "label": "위장이름"
+    },
+    {
+     "key": "alt_birth",
+     "type": "varchar(20)",
+     "label": "위장생년월일"
+    },
+    {
+     "key": "alt_nationality",
+     "type": "varchar(20)",
+     "label": "위장국적"
+    },
+    {
+     "key": "criminal_record",
+     "type": "varchar(60)",
+     "label": "범죄기록"
+    },
+    {
+     "key": "wanted_no",
      "type": "varchar(30)",
-     "label": "일치 상태"
-    },
-    {
-     "key": "matched_person",
-     "type": "varchar(100)",
-     "label": "일치 인물/전과"
-    },
-    {
-     "key": "customer_name",
-     "type": "varchar(30)",
-     "label": "캐릭터 이름"
+     "label": "수배번호"
     }
    ],
    "rows": [
     {
+     "fingerprint_id": "1",
+     "customer_id": "12",
+     "mode": "성형",
+     "alt_name": "박도윤",
+     "alt_birth": "1995-02-18",
+     "alt_nationality": "대한민국(KOR)",
+     "criminal_record": "없음",
+     "wanted_no": null
+    },
+    {
      "fingerprint_id": "2",
+     "customer_id": "21",
+     "mode": "성형",
+     "alt_name": "강민호",
+     "alt_birth": "1994-03-09",
+     "alt_nationality": "대한민국(KOR)",
+     "criminal_record": "없음",
+     "wanted_no": null
+    },
+    {
+     "fingerprint_id": "3",
+     "customer_id": "30",
+     "mode": "성형",
+     "alt_name": "윤하늘",
+     "alt_birth": "1996-12-01",
+     "alt_nationality": "대한민국(KOR)",
+     "criminal_record": "없음",
+     "wanted_no": null
+    },
+    {
+     "fingerprint_id": "4",
      "customer_id": "10",
-     "result": "적발",
-     "match_status": "위장 신원",
-     "matched_person": "성형 전 지명수배자와 지문 일치",
-     "customer_name": "윤서린"
+     "mode": "수배자",
+     "alt_name": "김서린",
+     "alt_birth": "1988-04-12",
+     "alt_nationality": "대한민국(KOR)",
+     "criminal_record": "성형 위장 / 지명수배 중",
+     "wanted_no": "WA-2023-001192"
     }
    ],
    "layout": "relational"
@@ -3262,7 +3304,7 @@
     },
     {
      "rule_id": "5",
-     "character_type": "성형 의심 고객",
+     "character_type": "성형 수술 고객",
      "context": "상시",
      "defect_document": "여권",
      "violation_field": "photo_ref",
@@ -4030,7 +4072,7 @@
      "document_type": "여권",
      "violation_field": "name",
      "title": "심사 오류 고지서 — 인적사항 불일치",
-     "body": "귀하의 여권 인적사항({field})이 본인 진술 및 등록 정보와 일치하지 않아 입국이 거부되었습니다. 정확한 서류를 재발급받아 재신청하시기 바랍니다.",
+     "body": "여권 인적사항({field})이 본인 진술·등록 정보와 일치하지 않는 손님이었으나, 입국을 허가하였습니다.",
      "legal_basis": "출입국관리법 제12조(입국심사) 및 본인 정보 일치 규정",
      "severity": "중대",
      "rule_ref": "2",
@@ -4042,7 +4084,7 @@
      "document_type": "여권",
      "violation_field": "face",
      "title": "심사 오류 고지서 — 사진 불일치",
-     "body": "여권 사진이 현재 본인의 용모와 상이하여 신원 확인이 불가하므로 입국이 거부되었습니다. 사진 갱신 후 재신청하시기 바랍니다.",
+     "body": "여권 사진이 본인의 용모와 상이하여 신원 확인이 불가한 손님이었으나, 입국을 허가하였습니다.",
      "legal_basis": "출입국관리법 제12조(입국심사) 신원확인 규정",
      "severity": "중대",
      "rule_ref": "2",
@@ -4054,7 +4096,7 @@
      "document_type": "여권",
      "violation_field": "expiry_date",
      "title": "심사 오류 고지서 — 유효기간 경과",
-     "body": "제출하신 {document}의 유효기간이 만료되어 효력이 없으므로 입국이 거부되었습니다. 유효한 서류로 재신청하시기 바랍니다.",
+     "body": "{document}의 유효기간이 만료되어 효력이 없는 서류였으나, 입국을 허가하였습니다.",
      "legal_basis": "출입국관리법 제7조(외국인의 입국) 여권 유효기간 규정",
      "severity": "중대",
      "rule_ref": "5",
@@ -4066,7 +4108,7 @@
      "document_type": "여권",
      "violation_field": "passport_no",
      "title": "심사 오류 고지서 — 위·변조 의심",
-     "body": "제출하신 {document}에서 위·변조 흔적이 확인되어 입국이 거부되었습니다. 본 건은 관계 기관에 통보될 수 있습니다.",
+     "body": "{document}에서 위·변조 흔적이 확인된 손님이었으나, 입국을 허가하였습니다.",
      "legal_basis": "출입국관리법 제7조의2(허위초청 등 금지) 및 형법 제225조(공문서위조)",
      "severity": "심각",
      "rule_ref": "6",
@@ -4078,7 +4120,7 @@
      "document_type": "여권",
      "violation_field": "none",
      "title": "심사 오류 고지서 — 필수 서류 미비",
-     "body": "입국에 필요한 필수 서류({document})가 제출되지 않아 입국이 거부되었습니다. 누락된 서류를 구비하여 재신청하시기 바랍니다.",
+     "body": "입국에 필요한 필수 서류({document})가 누락된 손님이었으나, 입국을 허가하였습니다.",
      "legal_basis": "출입국관리법 제12조(입국심사) 필수 서류 제출 규정",
      "severity": "경미",
      "rule_ref": "1",
@@ -4090,7 +4132,7 @@
      "document_type": "비자",
      "violation_field": "visa_type",
      "title": "심사 오류 고지서 — 비자 부적합",
-     "body": "체류 목적에 부합하지 않거나 정보가 일치하지 않는 비자가 제출되어 입국이 거부되었습니다. 적합한 비자를 발급받아 재신청하시기 바랍니다.",
+     "body": "체류 목적에 부합하지 않거나 정보가 일치하지 않는 비자를 제출한 손님이었으나, 입국을 허가하였습니다.",
      "legal_basis": "출입국관리법 제10조(체류자격) 및 외국인 비자 확인 규정",
      "severity": "중대",
      "rule_ref": "3",
@@ -4102,7 +4144,7 @@
      "document_type": "PCR검사서",
      "violation_field": "pcr_result",
      "title": "심사 오류 고지서 — 검역 기준 미충족",
-     "body": "제출하신 검역 서류의 검사 결과 또는 유효기한이 입국 기준에 부합하지 않아 입국이 거부되었습니다.",
+     "body": "검역 서류의 검사 결과 또는 유효기한이 입국 기준에 부합하지 않는 손님이었으나, 입국을 허가하였습니다.",
      "legal_basis": "검역법 제12조(검역조치) 및 검역 대상자 확인 규정",
      "severity": "심각",
      "rule_ref": null,
@@ -4114,7 +4156,7 @@
      "document_type": "여권",
      "violation_field": "contraband",
      "title": "심사 오류 고지서 — 반입 금지 물품 적발",
-     "body": "X-ray 정밀 검사 결과 반입이 금지된 물품({field})이 적발되어 입국이 거부되었습니다. 본 건은 관계 기관에 인계됩니다.",
+     "body": "X-ray 검사 결과 반입 금지 물품({field})이 적발된 손님이었으나, 입국을 허가하였습니다.",
      "legal_basis": "관세법 제234조(수출입 금지물품) 및 출입국관리법 위반",
      "severity": "심각",
      "rule_ref": null,
@@ -4126,7 +4168,7 @@
      "document_type": "여권",
      "violation_field": "name",
      "title": "심사 오류 고지서 — 신원 위장 적발",
-     "body": "지문 대조 결과 제출하신 신원 정보가 위조된 것으로 확인되어 입국이 거부되었습니다. 본 건은 관계 기관에 통보됩니다.",
+     "body": "지문 대조 결과 신원 정보가 위조된 것으로 확인된 손님이었으나, 입국을 허가하였습니다.",
      "legal_basis": "출입국관리법 제7조의2 및 형법 제225조(공문서위조)",
      "severity": "심각",
      "rule_ref": null,
@@ -4597,7 +4639,7 @@
     },
     {
      "payout_id": "15",
-     "character_type": "성형 의심 고객",
+     "character_type": "성형 수술 고객",
      "visit_round": null,
      "doc_state": "normal",
      "defect_variant": null,
@@ -4613,7 +4655,7 @@
     },
     {
      "payout_id": "16",
-     "character_type": "성형 의심 고객",
+     "character_type": "성형 수술 고객",
      "visit_round": null,
      "doc_state": "normal",
      "defect_variant": null,
@@ -4629,7 +4671,7 @@
     },
     {
      "payout_id": "17",
-     "character_type": "성형 의심 고객",
+     "character_type": "성형 수술 고객",
      "visit_round": null,
      "doc_state": "normal",
      "defect_variant": null,
@@ -4645,7 +4687,7 @@
     },
     {
      "payout_id": "18",
-     "character_type": "성형 의심 고객",
+     "character_type": "성형 수술 고객",
      "visit_round": null,
      "doc_state": "normal",
      "defect_variant": null,
@@ -4661,7 +4703,7 @@
     },
     {
      "payout_id": "19",
-     "character_type": "성형 의심 고객",
+     "character_type": "성형 수술 고객",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": null,
@@ -4677,7 +4719,7 @@
     },
     {
      "payout_id": "20",
-     "character_type": "성형 의심 고객",
+     "character_type": "성형 수술 고객",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": null,
@@ -5609,7 +5651,7 @@
     },
     {
      "score_id": "15",
-     "character_type": "성형 의심 고객",
+     "character_type": "성형 수술 고객",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": "마스크 미요청",
@@ -5622,7 +5664,7 @@
     },
     {
      "score_id": "16",
-     "character_type": "성형 의심 고객",
+     "character_type": "성형 수술 고객",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": "지문 미요청",
@@ -5635,7 +5677,7 @@
     },
     {
      "score_id": "17",
-     "character_type": "성형 의심 고객",
+     "character_type": "성형 수술 고객",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": "몽타주O + 범인 아님",
@@ -5648,7 +5690,7 @@
     },
     {
      "score_id": "18",
-     "character_type": "성형 의심 고객",
+     "character_type": "성형 수술 고객",
      "visit_round": null,
      "doc_state": "defect",
      "defect_variant": "몽타주X",
@@ -6509,6 +6551,7 @@
   }
  },
  "warnings": [
+  "알 수 없는 시트(스킵): 고객순서(유형·이름)",
   "기대 시트 누락: dialogue_case",
   "기대 시트 누락: dialogue_line",
   "character_payout: 메인 엑셀 1차 소스 사용(EXTRA 무시)",

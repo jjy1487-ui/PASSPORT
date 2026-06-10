@@ -147,6 +147,39 @@ def main():
     notes.append("PCR 보유 고객 수: %d" % len(set(r.get("customer_id") for r in rows("pcr_test"))))
     notes.append("취업증빙 보유 고객 수: %d" % len(set(r.get("customer_id") for r in rows("employment_cert"))))
 
+    # ── 5. fingerprint 옵션B 스키마 가드 ──
+    # 옛 컬럼(result/match_status/matched_person)이 남아 있으면 build_days 가 옛 구조로 굴러
+    # 지문 record 가 전부 빈칸이 되는 landmine. 옵션B 필수 컬럼 + mode 어휘를 검증한다.
+    fp_sheet = sheets.get("fingerprint", {})
+    fp_cols = set(c.get("key") for c in fp_sheet.get("columns", []))
+    fp_rows = fp_sheet.get("rows", [])
+    OLD_FP_COLS = {"result", "match_status", "matched_person", "customer_name"}
+    REQUIRED_FP_COLS = {"fingerprint_id", "customer_id", "mode", "alt_name",
+                        "alt_birth", "alt_nationality", "criminal_record", "wanted_no"}
+    ALLOWED_FP_MODES = {"성형", "수배자"}
+    if fp_cols:
+        stale = OLD_FP_COLS & fp_cols
+        if stale:
+            errors.append("[지문스키마] fingerprint 에 옛 컬럼 잔존=%s "
+                          "(옵션B 미반영 → xlsx_to_json 재실행 필요)" % ", ".join(sorted(stale)))
+        missing_fp = REQUIRED_FP_COLS - fp_cols
+        if missing_fp:
+            errors.append("[지문스키마] fingerprint 옵션B 필수 컬럼 누락=%s" % ", ".join(sorted(missing_fp)))
+        for r in fp_rows:
+            mode = (r.get("mode") or "").strip()
+            if mode and mode not in ALLOWED_FP_MODES:
+                errors.append("[지문mode] fingerprint_id=%s mode=%r (허용: 성형|수배자)"
+                              % (r.get("fingerprint_id"), mode))
+            # 수배자 모드는 범죄기록/수배번호가 있어야 한다(빈칸이면 표시 깨짐).
+            if mode == "수배자":
+                if not (r.get("criminal_record") or "").strip():
+                    errors.append("[지문수배] fingerprint_id=%s 수배자인데 criminal_record 비어있음"
+                                  % r.get("fingerprint_id"))
+                if not (r.get("wanted_no") or "").strip():
+                    errors.append("[지문수배] fingerprint_id=%s 수배자인데 wanted_no 비어있음"
+                                  % r.get("fingerprint_id"))
+        notes.append("fingerprint 행 수: %d (옵션B 컬럼 OK)" % len(fp_rows))
+
     # 진실서류 미보유 고객 (passport 없는 customer) — 참고용
     pass_customers = set(r.get("customer_id") for r in rows("passport"))
     no_pass = sorted([c for c in customer_ids if c not in pass_customers], key=lambda x: to_int(x) or 0)

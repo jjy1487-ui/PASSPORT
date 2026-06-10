@@ -4,7 +4,7 @@ passport               layout=relational cols=10 rows=37
 visa                   layout=relational cols=9 rows=19
 pcr_test               layout=relational cols=8 rows=19
 employment_cert        layout=relational cols=7 rows=5
-news                   layout=relational cols=5 rows=14
+news                   layout=relational cols=5 rows=10
 rule_book              layout=relational cols=4 rows=10
 xray                   layout=relational cols=6 rows=3
 fingerprint            layout=relational cols=8 rows=4

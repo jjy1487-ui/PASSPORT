@@ -65,9 +65,10 @@ public sealed class ScanData
 [Serializable]
 public sealed class FingerprintRecord
 {
-    public string dbName;         // 지문으로 식별한 실제 이름 (예: 김서린(성명불상) / 박도윤 / 정유나)
-    public string dbBirth;        // 실제 생년월일
-    public string dbNationality;  // 실제 국적
+    public string mode;           // "성형" | "수배자" (지문 시트 mode 컬럼). 본인/도용 갈림과 무관한 등장 유형.
+    public string dbName;         // 지문으로 식별한 실제 이름 (본인=여권 영문이름 동일 / 도용·수배=다른 신원)
+    public string dbBirth;        // 실제 생년월일 (여권 형식 YYYY-MM-DD)
+    public string dbNationality;  // 실제 국적 (여권 형식 국가코드 KOR 등)
     public string criminalRecord; // 범죄/수배 기록 ("없음" 또는 "성형 위장 / 지명수배 중")
     public string wantedNo;       // 수배 번호 (수배자만, 없으면 "")
 

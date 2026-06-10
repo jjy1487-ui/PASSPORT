@@ -310,9 +310,9 @@ MonoBehaviour:
     - 20
     - 3
     - 6
-    - 21
+    - 10
     - 0.7
-    - "\uC11C\uC9C0\uD638"
+    - "\uC724\uC11C\uB9B0"
   - keys:
     - schedule_id
     - day
@@ -1024,9 +1024,9 @@ MonoBehaviour:
     - 71
     - 11
     - 1
-    - 10
+    - 8
     - 0
-    - "\uC724\uC11C\uB9B0"
+    - "\uC874 \uCE74\uD130"
   - keys:
     - schedule_id
     - day
@@ -1136,9 +1136,9 @@ MonoBehaviour:
     - 79
     - 12
     - 2
-    - 7
+    - 11
     - 0
-    - "\uC655 \uC6E8\uC774"
+    - "\uC0AC\uD1A0 \uD558\uB8E8\uD0A4"
   - keys:
     - schedule_id
     - day
@@ -1150,9 +1150,9 @@ MonoBehaviour:
     - 80
     - 12
     - 3
-    - 8
+    - 21
     - 0
-    - "\uC874 \uCE74\uD130"
+    - "\uC11C\uC9C0\uD638"
   - keys:
     - schedule_id
     - day
@@ -1220,9 +1220,9 @@ MonoBehaviour:
     - 85
     - 13
     - 1
-    - 11
+    - 7
     - 0
-    - "\uC0AC\uD1A0 \uD558\uB8E8\uD0A4"
+    - "\uC655 \uC6E8\uC774"
   - keys:
     - schedule_id
     - day
