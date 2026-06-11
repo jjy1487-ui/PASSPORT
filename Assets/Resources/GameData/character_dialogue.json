@@ -1,0 +1,1276 @@
+{
+  "1": {
+    "day": 1,
+    "slot": 1,
+    "nameKr": "김민준",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요."
+    ],
+    "approveReaction": "고맙습니다. 빠르네요!",
+    "rejectReaction": "그럴 리 없는데요. 다시 봐주세요.",
+    "todo": []
+  },
+  "25": {
+    "day": 1,
+    "slot": 2,
+    "nameKr": "윌리엄 브라운",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "Hello, could you check this please?"
+    ],
+    "approveReaction": "Thank you! Appreciate your help.",
+    "rejectReaction": "I'm sorry, I'll fix it.",
+    "todo": []
+  },
+  "2": {
+    "day": 1,
+    "slot": 3,
+    "nameKr": "이지은",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 무사히 왔네요."
+    ],
+    "approveReaction": "감사합니다. 좋은 하루 되세요.",
+    "rejectReaction": "이상한데요? 제 서류 문제없어요.",
+    "todo": []
+  },
+  "4": {
+    "day": 1,
+    "slot": 4,
+    "nameKr": "제임스 밀러",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "Good morning~ Excited to be here!"
+    ],
+    "approveReaction": "Thanks~ I'm so excited!",
+    "rejectReaction": "This is ridiculous! My documents are all correct!",
+    "todo": []
+  },
+  "5": {
+    "day": 1,
+    "slot": 5,
+    "nameKr": "박철수",
+    "characterType": "진상 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "아니 왜 이렇게 오래 걸려요?"
+    ],
+    "approveReaction": "됐어요.",
+    "rejectReaction": "이건 정말 아니에요!",
+    "todo": []
+  },
+  "7": {
+    "day": 1,
+    "slot": 6,
+    "nameKr": "왕 웨이",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "您好，请帮我看看。"
+    ],
+    "approveReaction": "Thank you! Lovely service.",
+    "rejectReaction": "对不起，我不知道这个。",
+    "todo": []
+  },
+  "6": {
+    "day": 1,
+    "slot": 7,
+    "nameKr": "최서연",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 많이 기다렸어요."
+    ],
+    "approveReaction": "감사합니다. 잘 다녀올게요.",
+    "rejectReaction": "저 분명히 제대로 챙겨왔는데요.",
+    "todo": []
+  },
+  "22": {
+    "day": 2,
+    "slot": 1,
+    "nameKr": "박지훈",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "아, 안녕하세요. 요즘 팬미팅 때문에 줄이 엄청 길어졌네요. (여권 내밀며)"
+    ],
+    "approveReaction": "감사합니다. 좋은 하루 되세요.",
+    "rejectReaction": "정말 이상하네요. 제가 확인했거든요.",
+    "todo": []
+  },
+  "20": {
+    "day": 2,
+    "slot": 2,
+    "nameKr": "한만수",
+    "characterType": "진상 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "팬미팅이라고 사람들이 왜 이렇게 많아요? 줄도 길고, 어서 처리해줘요."
+    ],
+    "approveReaction": "그래요, 이제 가요.",
+    "rejectReaction": "말이 안 되잖아요!",
+    "todo": []
+  },
+  "38": {
+    "day": 2,
+    "slot": 3,
+    "nameKr": "데이비드 스미스",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "Hello! Is that a fan meeting going on over there? Huge crowd outside. Anyway, here's my passport."
+    ],
+    "approveReaction": "Thank you! Appreciate your help.",
+    "rejectReaction": "I'm sorry, I'll fix it.",
+    "todo": []
+  },
+  "23": {
+    "day": 2,
+    "slot": 4,
+    "nameKr": "송하늘",
+    "characterType": "일반 고객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "안녕하세요. 여권 여기 있습니다."
+    ],
+    "approveReaction": "감사합니다!",
+    "rejectReaction": "알겠습니다. 죄송합니다.",
+    "todo": []
+  },
+  "24": {
+    "day": 2,
+    "slot": 5,
+    "nameKr": "임도현",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "아이돌 팬미팅이 있다고 하던데, 그래서 사람이 입국 수속이 이렇게 오래 걸렸나 봐요."
+    ],
+    "approveReaction": "감사합니다~ 즐거운 하루 되세요!",
+    "rejectReaction": "정말 이상하네요. 제가 확인했거든요.",
+    "todo": []
+  },
+  "26": {
+    "day": 2,
+    "slot": 6,
+    "nameKr": "다나카 하루토",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "よろしくお願いします。外がすごく混んでいました。ファンの方が多いみたいですね。"
+    ],
+    "approveReaction": "Thanks! Can't wait to explore!",
+    "rejectReaction": "Please reconsider, my documents are valid.",
+    "todo": []
+  },
+  "28": {
+    "day": 2,
+    "slot": 7,
+    "nameKr": "오만석",
+    "characterType": "진상 고객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "빨리 좀 해줘요."
+    ],
+    "approveReaction": "이제 가겠어요.",
+    "rejectReaction": "에이, 됐어요.",
+    "todo": []
+  },
+  "27": {
+    "day": 3,
+    "slot": 1,
+    "nameKr": "장 웨이",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "你好～准备好了！"
+    ],
+    "approveReaction": "Thank you! Have a great day!",
+    "rejectReaction": "哦，原来那里有问题。",
+    "todo": []
+  },
+  "39": {
+    "day": 3,
+    "slot": 2,
+    "nameKr": "김도윤",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 여기 여권이요."
+    ],
+    "approveReaction": "감사합니다~ 즐거운 하루 되세요!",
+    "rejectReaction": "정말 이상하네요. 제가 확인했거든요.",
+    "todo": []
+  },
+  "12": {
+    "day": 3,
+    "slot": 3,
+    "nameKr": "정유나",
+    "characterType": "성형 수술 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. (짧게 인사하고 서류를 준비한다.)"
+    ],
+    "approveReaction": "감사합니다! 생각보다 수술이 잘 됐죠? 하하",
+    "rejectReaction": "잠깐만요, 저 맞는데요! 지문 다시 확인해 주세요!",
+    "todo": []
+  },
+  "29": {
+    "day": 3,
+    "slot": 4,
+    "nameKr": "배수정",
+    "characterType": "진상 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "아니 성형하는 사람들이 많아졌다고 줄이 이렇게 긴 거예요? 어서 해줘요."
+    ],
+    "approveReaction": "뭘 이렇게 오래 걸려요. 됐어요.",
+    "rejectReaction": "말이 안 되잖아요!",
+    "todo": []
+  },
+  "40": {
+    "day": 3,
+    "slot": 5,
+    "nameKr": "이서준",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. (여권 제출)"
+    ],
+    "approveReaction": "감사합니다. 좋은 하루 되세요.",
+    "rejectReaction": "이상한데요? 제 서류 문제없어요.",
+    "todo": []
+  },
+  "10": {
+    "day": 3,
+    "slot": 6,
+    "nameKr": "윤서린",
+    "characterType": "범죄자(성형수술)",
+    "correctResult": "정상 거절",
+    "entry": [
+      "...(선글라스를 내리지 않은 채 조용히 여권을 내민다.)"
+    ],
+    "approveReaction": "...고마워요. (서둘러 창구를 빠져나간다.)",
+    "rejectReaction": "...저는 그런 사람이 아닌데요. (눈이 흔들린다.)",
+    "todo": []
+  },
+  "34": {
+    "day": 3,
+    "slot": 7,
+    "nameKr": "야마모토 렌",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "おはようございます！"
+    ],
+    "approveReaction": "Thank you so much!",
+    "rejectReaction": "あ、そうなんですか。すみません。",
+    "todo": []
+  },
+  "41": {
+    "day": 4,
+    "slot": 1,
+    "nameKr": "박하준",
+    "characterType": "진상 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "아니 왜 이렇게 오래 걸려요?"
+    ],
+    "approveReaction": "됐어요.",
+    "rejectReaction": "이건 정말 아니에요!",
+    "todo": []
+  },
+  "42": {
+    "day": 4,
+    "slot": 2,
+    "nameKr": "최예준",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 요즘 여권 사진 때문에 문제됐다는 얘기 들었어요."
+    ],
+    "approveReaction": "감사합니다. 잘 다녀올게요.",
+    "rejectReaction": "저 분명히 제대로 챙겨왔는데요.",
+    "todo": []
+  },
+  "43": {
+    "day": 4,
+    "slot": 3,
+    "nameKr": "토머스 무어",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "Good morning~ Excited to be here!"
+    ],
+    "approveReaction": "Thank you~ So happy!",
+    "rejectReaction": "My apologies, I'll fix this.",
+    "todo": []
+  },
+  "30": {
+    "day": 4,
+    "slot": 4,
+    "nameKr": "노가은",
+    "characterType": "성형 수술 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "사진 때문에 민원이 많다고 들었어요...잘 봐주세요. (여권 내밀며)"
+    ],
+    "approveReaction": "감사합니다. (안도하며 빠르게 이동한다.)",
+    "rejectReaction": "다시 한번만 봐주시면 안 될까요?",
+    "todo": []
+  },
+  "44": {
+    "day": 4,
+    "slot": 5,
+    "nameKr": "정시우",
+    "characterType": "진상 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "신원 조사 때문에 이렇게 기다려야해? 빨리 처리해줘요."
+    ],
+    "approveReaction": "그래요, 이제 가요.",
+    "rejectReaction": "말이 안 되잖아요!",
+    "todo": []
+  },
+  "45": {
+    "day": 4,
+    "slot": 6,
+    "nameKr": "강주원",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 사진이랑 똑같이 생겼으니 걱정 없겠죠? (웃으며 여권 내밀며)"
+    ],
+    "approveReaction": "감사합니다. 좋은 하루 되세요.",
+    "rejectReaction": "정말 이상하네요. 제가 확인했거든요.",
+    "todo": []
+  },
+  "46": {
+    "day": 4,
+    "slot": 7,
+    "nameKr": "리 강",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "您好，请帮我看看。"
+    ],
+    "approveReaction": "Thank you! Lovely service.",
+    "rejectReaction": "对不起，我不知道这个。",
+    "todo": []
+  },
+  "47": {
+    "day": 5,
+    "slot": 1,
+    "nameKr": "조지호",
+    "characterType": "진상 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "건강 이상자 때문에 심사 강화됐다는 거 알겠는데, 저는 멀쩡하다고요. 어서 처리해줘요."
+    ],
+    "approveReaction": "이제 가겠어요.",
+    "rejectReaction": "이건 정말 아니에요!",
+    "todo": []
+  },
+  "15": {
+    "day": 5,
+    "slot": 2,
+    "nameKr": "한지원",
+    "characterType": "특수(연예인)★",
+    "correctResult": "정상 승인",
+    "entry": [
+      "네, 안녕하세요."
+    ],
+    "approveReaction": "감사합니다. 잘 다녀올게요.",
+    "rejectReaction": "정말요? 이상한데요.",
+    "todo": []
+  },
+  "13": {
+    "day": 5,
+    "slot": 3,
+    "nameKr": "로버트 존슨",
+    "characterType": "전염병 환자",
+    "correctResult": "정상 거절",
+    "entry": [
+      "Hello, I heard there were some health concerns at the airport recently. I'm perfectly fine, here's my passport."
+    ],
+    "approveReaction": "감사해요. 빨리 쉬어야 해요.",
+    "rejectReaction": "Oh, I see. Thank you for letting me know.",
+    "todo": []
+  },
+  "48": {
+    "day": 5,
+    "slot": 4,
+    "nameKr": "윤건우",
+    "characterType": "성형 수술 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. (짧게 인사하고 서류를 준비한다.)"
+    ],
+    "approveReaction": "감사합니다! 수술 잘 됐다고 해주세요, 하하.",
+    "rejectReaction": "잠깐만요, 저 맞는데요! 지문 다시 확인해 주세요!",
+    "todo": []
+  },
+  "49": {
+    "day": 5,
+    "slot": 5,
+    "nameKr": "장우진",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. (여권 내밀며)"
+    ],
+    "approveReaction": "감사합니다~ 즐거운 하루 되세요!",
+    "rejectReaction": "정말 이상하네요. 제가 확인했거든요.",
+    "todo": []
+  },
+  "14": {
+    "day": 5,
+    "slot": 6,
+    "nameKr": "리 나",
+    "characterType": "전염병 환자",
+    "correctResult": "정상 거절",
+    "entry": [
+      "你好！第一次来韩国。"
+    ],
+    "approveReaction": "감사해요. 빨리 나가야겠어요.",
+    "rejectReaction": "哦，真的吗？不知道，对不起。",
+    "todo": []
+  },
+  "50": {
+    "day": 5,
+    "slot": 7,
+    "nameKr": "임선우",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 공항에서 건강 이상자 있었다고 방송 들었는데, 저는 멀쩡해요. 바로 확인해 주세요."
+    ],
+    "approveReaction": "고맙습니다. 빠르네요!",
+    "rejectReaction": "그럴 리 없는데요. 다시 봐주세요.",
+    "todo": []
+  },
+  "51": {
+    "day": 6,
+    "slot": 1,
+    "nameKr": "한현우",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. PCR 결과지 미리 챙겨왔어요. 방역 서류 더 보자고 한다길래요. 여기 있습니다."
+    ],
+    "approveReaction": "고맙습니다. 빠르네요!",
+    "rejectReaction": "그럴 리 없는데요. 다시 봐주세요.",
+    "todo": []
+  },
+  "52": {
+    "day": 6,
+    "slot": 2,
+    "nameKr": "오은우",
+    "characterType": "진상 고객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "아니 왜 이렇게 오래 걸려요?"
+    ],
+    "approveReaction": "뭘 이렇게 오래 걸려요. 됐어요.",
+    "rejectReaction": "에이, 됐어요.",
+    "todo": []
+  },
+  "32": {
+    "day": 6,
+    "slot": 3,
+    "nameKr": "마이클 데이비스",
+    "characterType": "전염병 환자",
+    "correctResult": "정상 거절",
+    "entry": [
+      "Hello, I brought all my health documents just in case. I heard the requirements have been updated. Here."
+    ],
+    "approveReaction": "감사합니다. 몸이 안 좋아서 빨리 가야 해요.",
+    "rejectReaction": "I see, my mistake.",
+    "todo": []
+  },
+  "53": {
+    "day": 6,
+    "slot": 4,
+    "nameKr": "서지안",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 방역 서류 더 늘어났다는 얘기 들었는데, 저는 여권만 있으면 되는 거 맞죠? (서류 꺼내며)"
+    ],
+    "approveReaction": "감사합니다~ 즐거운 하루 되세요!",
+    "rejectReaction": "정말 이상하네요. 제가 확인했거든요.",
+    "todo": []
+  },
+  "19": {
+    "day": 6,
+    "slot": 5,
+    "nameKr": "다나카 유이",
+    "characterType": "전염병 환자",
+    "correctResult": "정상 거절",
+    "entry": [
+      "よろしくお願いします。"
+    ],
+    "approveReaction": "고맙습니다. (지친 표정으로 이동한다.)",
+    "rejectReaction": "あ、分かりました。ごめんなさい。",
+    "todo": []
+  },
+  "54": {
+    "day": 6,
+    "slot": 6,
+    "nameKr": "다니엘 테일러",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "Good morning, here's my passport."
+    ],
+    "approveReaction": "Thank you so much!",
+    "rejectReaction": "Oh no... I'm so sorry, I didn't realize.",
+    "todo": []
+  },
+  "55": {
+    "day": 6,
+    "slot": 7,
+    "nameKr": "사토 유토",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "こんにちは。確認お願いします。"
+    ],
+    "approveReaction": "Thanks! Can't wait to explore!",
+    "rejectReaction": "あ、そうなんですか。すみません。",
+    "todo": []
+  },
+  "31": {
+    "day": 7,
+    "slot": 1,
+    "nameKr": "스즈키 아오이",
+    "characterType": "전염병 환자",
+    "correctResult": "정상 거절",
+    "entry": [
+      "よろしくお願いします。"
+    ],
+    "approveReaction": "감사해요. 빨리 쉬어야 해요.",
+    "rejectReaction": "あ、本当ですか？知らなかったです。",
+    "todo": []
+  },
+  "56": {
+    "day": 7,
+    "slot": 2,
+    "nameKr": "신유준",
+    "characterType": "진상 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "아니 왜 이렇게 오래 걸려요?"
+    ],
+    "approveReaction": "됐어요.",
+    "rejectReaction": "이건 정말 아니에요!",
+    "todo": []
+  },
+  "57": {
+    "day": 7,
+    "slot": 3,
+    "nameKr": "권민재",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 심사가 꼼꼼해졌다고 해서 서류 두 번 세 번 확인하고 왔어요. 다 맞죠?"
+    ],
+    "approveReaction": "감사합니다. 잘 다녀오겠습니다.",
+    "rejectReaction": "왜요? 문제가 뭔가요?",
+    "todo": []
+  },
+  "33": {
+    "day": 7,
+    "slot": 4,
+    "nameKr": "류 양",
+    "characterType": "전염병 환자",
+    "correctResult": "정상 거절",
+    "entry": [
+      "你好～准备好了！"
+    ],
+    "approveReaction": "고맙습니다. 빨리 들어가고 싶네요.",
+    "rejectReaction": "哎呀，我搞错了。",
+    "todo": []
+  },
+  "58": {
+    "day": 7,
+    "slot": 5,
+    "nameKr": "왕 팡",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "안녕하세요. 기준 강화됐다는 얘기 듣고 좀 긴장했어요. (서류 꺼내며) 다 갖춰왔습니다."
+    ],
+    "approveReaction": "Thank you! Have a great day!",
+    "rejectReaction": "哦，原来那里有问题。",
+    "todo": []
+  },
+  "59": {
+    "day": 7,
+    "slot": 6,
+    "nameKr": "황지환",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "こんにちは。審査が厳しくなったって聞いて少し緊張してます。書類は全部持ってきました。"
+    ],
+    "approveReaction": "고맙습니다. 빠르네요!",
+    "rejectReaction": "그럴 리 없는데요. 다시 봐주세요.",
+    "todo": []
+  },
+  "21": {
+    "day": 7,
+    "slot": 7,
+    "nameKr": "서지호",
+    "characterType": "성형 수술 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. (선글라스를 낀 채 여권을 조용히 내민다.)"
+    ],
+    "approveReaction": "고마워요. (서둘러 창구를 빠져나간다.)",
+    "rejectReaction": "저 맞아요. 성형을 해서 좀 달라 보일 뿐이에요.",
+    "todo": []
+  },
+  "60": {
+    "day": 8,
+    "slot": 1,
+    "nameKr": "안준영",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 요즘 한국에서 살고 싶다는 외국인 친구들이 많더라고요. 저는 그냥 쇼핑이지만요."
+    ],
+    "approveReaction": "감사합니다. 좋은 하루 되세요.",
+    "rejectReaction": "이상한데요? 제 서류 문제없어요.",
+    "todo": []
+  },
+  "61": {
+    "day": 8,
+    "slot": 2,
+    "nameKr": "송재윤",
+    "characterType": "진상 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "아니 왜 이렇게 오래 걸려요?"
+    ],
+    "approveReaction": "그래요, 이제 가요.",
+    "rejectReaction": "말이 안 되잖아요!",
+    "todo": []
+  },
+  "62": {
+    "day": 8,
+    "slot": 3,
+    "nameKr": "장 민",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "你好～准备好了！"
+    ],
+    "approveReaction": "Thank you! Have a great day!",
+    "rejectReaction": "哦，原来那里有问题。",
+    "todo": []
+  },
+  "18": {
+    "day": 8,
+    "slot": 4,
+    "nameKr": "첸 리",
+    "characterType": "장기체류자",
+    "correctResult": "정상 승인",
+    "entry": [
+      "Hello, I've heard a lot of people are applying for long-term stay here recently. I have all my work documents ready."
+    ],
+    "approveReaction": "谢谢！终于过了！",
+    "rejectReaction": "我把一切都准备好了！",
+    "todo": []
+  },
+  "16": {
+    "day": 8,
+    "slot": 5,
+    "nameKr": "오현석",
+    "characterType": "특수(현자)★",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하신가."
+    ],
+    "approveReaction": "감사합니다. 좋은 하루 되세요.",
+    "rejectReaction": "저 분명히 맞게 준비했어요!",
+    "todo": []
+  },
+  "63": {
+    "day": 8,
+    "slot": 6,
+    "nameKr": "매튜 앤더슨",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "Good morning~ Excited to be here!"
+    ],
+    "approveReaction": "Thank you~ So happy!",
+    "rejectReaction": "My apologies, I'll fix this.",
+    "todo": []
+  },
+  "64": {
+    "day": 8,
+    "slot": 7,
+    "nameKr": "전도현",
+    "characterType": "성형 수술 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 요즘 한국에 오래 머물려는 분들이 많죠?"
+    ],
+    "approveReaction": "감사합니다. (안도하며 빠르게 이동한다.)",
+    "rejectReaction": "다시 한번만 봐주시면 안 될까요?",
+    "todo": []
+  },
+  "65": {
+    "day": 9,
+    "slot": 1,
+    "nameKr": "홍성민",
+    "characterType": "진상 고객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "아니 요즘 취업이니 유학이니 목적이 다양해져서 심사가 더 복잡해진 거예요? 빨리 해줘요."
+    ],
+    "approveReaction": "됐어요, 고마워요.",
+    "rejectReaction": "진짜 됐어요.",
+    "todo": []
+  },
+  "66": {
+    "day": 9,
+    "slot": 2,
+    "nameKr": "김서아",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 저는 친척 보려고 잠깐 들렀어요."
+    ],
+    "approveReaction": "감사합니다. 잘 다녀올게요.",
+    "rejectReaction": "저 분명히 제대로 챙겨왔는데요.",
+    "todo": []
+  },
+  "67": {
+    "day": 9,
+    "slot": 3,
+    "nameKr": "류 옌",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "您好，请帮我看看。"
+    ],
+    "approveReaction": "Thank you! Lovely service.",
+    "rejectReaction": "对不起，我不知道这个。",
+    "todo": []
+  },
+  "17": {
+    "day": 9,
+    "slot": 4,
+    "nameKr": "윤정호",
+    "characterType": "특수(정치인)★",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 외교 일정 마치고 왔는데, 요즘 입국 목적이 다양해졌다고 들었습니다. 여권 드리겠습니다."
+    ],
+    "approveReaction": "감사합니다! 수고 많으세요.",
+    "rejectReaction": "저 분명히 제대로 챙겨왔는데요.",
+    "todo": []
+  },
+  "68": {
+    "day": 9,
+    "slot": 5,
+    "nameKr": "이지우",
+    "characterType": "성형 수술 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. (조용히 서류를 준비하며) 저는 성형 때문에 왔어요."
+    ],
+    "approveReaction": "감사합니다! 수술 잘 됐다고 해주세요, 하하.",
+    "rejectReaction": "잠깐만요, 저 맞는데요! 지문 다시 확인해 주세요!",
+    "todo": []
+  },
+  "69": {
+    "day": 9,
+    "slot": 6,
+    "nameKr": "크리스 토머스",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "Hello, could you check this please?"
+    ],
+    "approveReaction": "Thank you! Appreciate your help.",
+    "rejectReaction": "I'm sorry, I'll fix it.",
+    "todo": []
+  },
+  "35": {
+    "day": 9,
+    "slot": 7,
+    "nameKr": "자오 레이",
+    "characterType": "장기체류자",
+    "correctResult": "정상 승인",
+    "entry": [
+      "最近很多人来韩国工作或留学。我也是来工作的，文件都带来了。(최근 취업·유학 방문이 많다. 나도 취업 목적이고 서류 다 준비했다.)"
+    ],
+    "approveReaction": "谢谢，很快啊！",
+    "rejectReaction": "来之前我仔细检查过了！",
+    "todo": []
+  },
+  "70": {
+    "day": 10,
+    "slot": 1,
+    "nameKr": "박하윤",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 요즘 서류 꼼꼼히 다 맞춰야 한다고 들어서... 이거 다 맞는 거 맞죠? (서류 다시 확인하며)"
+    ],
+    "approveReaction": "감사합니다. 잘 다녀오겠습니다.",
+    "rejectReaction": "왜요? 문제가 뭔가요?",
+    "todo": []
+  },
+  "71": {
+    "day": 10,
+    "slot": 2,
+    "nameKr": "최수아",
+    "characterType": "진상 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "아니 서류를 왜 이렇게 빡빡하게 봐요? 저는 다 맞아요, 빨리 확인해줘요."
+    ],
+    "approveReaction": "뭘 이렇게 오래 걸려요. 됐어요.",
+    "rejectReaction": "말이 안 되잖아요!",
+    "todo": []
+  },
+  "72": {
+    "day": 10,
+    "slot": 3,
+    "nameKr": "정다은",
+    "characterType": "성형 수술 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. (조용히 여권 내밀며) 서류 불일치로 거절되는 사례가 많다고 들어서 꼼꼼히 챙겼어요."
+    ],
+    "approveReaction": "고마워요. (서둘러 창구를 빠져나간다.)",
+    "rejectReaction": "저 맞아요. 성형을 해서 좀 달라 보일 뿐이에요.",
+    "todo": []
+  },
+  "73": {
+    "day": 10,
+    "slot": 4,
+    "nameKr": "스즈키 소라",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "こんにちは。確認お願いします。"
+    ],
+    "approveReaction": "Thanks! Can't wait to explore!",
+    "rejectReaction": "あ、そうなんですか。すみません。",
+    "todo": []
+  },
+  "74": {
+    "day": 10,
+    "slot": 5,
+    "nameKr": "첸 하오",
+    "characterType": "장기체류자",
+    "correctResult": "정상 승인",
+    "entry": [
+      "I double-checked everything before coming. Heard someone got rejected over a tiny mismatch. Here you go."
+    ],
+    "approveReaction": "谢谢！终于过了！",
+    "rejectReaction": "我把一切都准备好了！",
+    "todo": []
+  },
+  "75": {
+    "day": 10,
+    "slot": 6,
+    "nameKr": "강예린",
+    "characterType": "진상 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "아니 왜 이렇게 오래 걸려요?"
+    ],
+    "approveReaction": "됐어요.",
+    "rejectReaction": "이건 정말 아니에요!",
+    "todo": []
+  },
+  "3": {
+    "day": 10,
+    "slot": 7,
+    "nameKr": "첸 웨이",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "你好！第一次来韩国。"
+    ],
+    "approveReaction": "Thank you! Have a great day!",
+    "rejectReaction": "对不起。我再确认一下来。",
+    "todo": []
+  },
+  "8": {
+    "day": 11,
+    "slot": 1,
+    "nameKr": "존 카터",
+    "characterType": "범죄자(밀수품 범죄자)",
+    "correctResult": "정상 거절",
+    "entry": [
+      "안녕하세요. (최대한 자연스러운 척 하며)"
+    ],
+    "approveReaction": "...감사합니다. (서둘러 이동한다.)",
+    "rejectReaction": "Sorry about that, I'll sort it.",
+    "todo": []
+  },
+  "76": {
+    "day": 11,
+    "slot": 2,
+    "nameKr": "조유진",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 요즘 신원 확인을 더 꼼꼼히 한다고 들었어요. 저는 뭐 숨길 거 없어요. (여권 내밀며)"
+    ],
+    "approveReaction": "고맙습니다. 빠르네요!",
+    "rejectReaction": "그럴 리 없는데요. 다시 봐주세요.",
+    "todo": []
+  },
+  "77": {
+    "day": 11,
+    "slot": 3,
+    "nameKr": "자오 친",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "Hello. I heard there's been more identity verification lately. I have everything in order."
+    ],
+    "approveReaction": "Thank you! Have a great day!",
+    "rejectReaction": "对不起。我再确认一下来。",
+    "todo": []
+  },
+  "78": {
+    "day": 11,
+    "slot": 4,
+    "nameKr": "윤채원",
+    "characterType": "진상 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "신원 조사 때문에 이렇게 기다려야해? 빨리 처리해줘요."
+    ],
+    "approveReaction": "그래요, 이제 가요.",
+    "rejectReaction": "말이 안 되잖아요!",
+    "todo": []
+  },
+  "79": {
+    "day": 11,
+    "slot": 5,
+    "nameKr": "장소율",
+    "characterType": "성형 수술 고객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "안녕하세요. (손가락을 떨며) 신원 확인이 강화됐다고 들었어요. 저는... 별 거 없어요."
+    ],
+    "approveReaction": "고맙습니다. 얼굴이 좀 달라졌죠? 하하.",
+    "rejectReaction": "알겠습니다. 죄송해요.",
+    "todo": []
+  },
+  "80": {
+    "day": 11,
+    "slot": 6,
+    "nameKr": "앤드류 화이트",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "Good morning~ Excited to be here!"
+    ],
+    "approveReaction": "Thank you~ So happy!",
+    "rejectReaction": "My apologies, I'll fix this.",
+    "todo": []
+  },
+  "36": {
+    "day": 11,
+    "slot": 7,
+    "nameKr": "천 징",
+    "characterType": "장기체류자",
+    "correctResult": "정상 거절",
+    "entry": [
+      "안녕하세요. 공항에서 뭔가 조사한다는 얘기 들었어요. 저는 친척 방문이라 별 관계 없겠죠? (조심스럽게)"
+    ],
+    "approveReaction": "감사합니다. 잘 다녀오겠습니다.",
+    "rejectReaction": "哦，原来那里有问题。",
+    "todo": []
+  },
+  "81": {
+    "day": 12,
+    "slot": 1,
+    "nameKr": "임가은",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 뉴스 보니까 공항 보안이 강화됐다고 하던데, 그래서 그런가 분위기 삼살벌하네요."
+    ],
+    "approveReaction": "감사합니다. 잘 다녀올게요.",
+    "rejectReaction": "저 분명히 제대로 챙겨왔는데요.",
+    "todo": []
+  },
+  "11": {
+    "day": 12,
+    "slot": 2,
+    "nameKr": "사토 하루키",
+    "characterType": "테러범",
+    "correctResult": "정상 거절",
+    "entry": [
+      "…(굳은 표정으로 주위를 살피며 말없이 여권을 내민다.)"
+    ],
+    "approveReaction": "...(아무 말 없이 빠르게 통과한다.)",
+    "rejectReaction": "すみません。また確認して来ます。",
+    "todo": []
+  },
+  "82": {
+    "day": 12,
+    "slot": 3,
+    "nameKr": "한지아",
+    "characterType": "성형 수술 고객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "안녕하세요. (조심스럽게) 요즘 공항 분위기가 무겁죠. 저는 성형 목적이에요."
+    ],
+    "approveReaction": "감사합니다. (조용히 고개를 숙이고 이동한다.)",
+    "rejectReaction": "...알겠습니다. (침울하게 고개를 숙인다.)",
+    "todo": []
+  },
+  "83": {
+    "day": 12,
+    "slot": 4,
+    "nameKr": "오나은",
+    "characterType": "진상 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "저는 아무것도 아니에요, 어서 검사해 주세요."
+    ],
+    "approveReaction": "이제 가겠어요.",
+    "rejectReaction": "이건 정말 아니에요!",
+    "todo": []
+  },
+  "84": {
+    "day": 12,
+    "slot": 5,
+    "nameKr": "서하린",
+    "characterType": "성형 수술 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. (조용히 서류 꺼내며) 공항 분위기가 좀 무거워졌죠. 저는 그냥 성형하러 왔어요."
+    ],
+    "approveReaction": "감사합니다! 하하.",
+    "rejectReaction": "잠깐만요, 저 맞는데요! 지문 다시 확인해 주세요!",
+    "todo": []
+  },
+  "85": {
+    "day": 12,
+    "slot": 6,
+    "nameKr": "황 레이",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "你好！第一次来韩国。"
+    ],
+    "approveReaction": "Thank you! Have a great day!",
+    "rejectReaction": "对不起。我再确认一下来。",
+    "todo": []
+  },
+  "86": {
+    "day": 12,
+    "slot": 7,
+    "nameKr": "신예은",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 아까 입국장에서 누가 보안 검색 걸리는 거 봤어요. 좀 무섭더라고요. (여권 내밀며)"
+    ],
+    "approveReaction": "감사합니다. 좋은 하루 되세요.",
+    "rejectReaction": "정말 이상하네요. 제가 확인했거든요.",
+    "todo": []
+  },
+  "87": {
+    "day": 13,
+    "slot": 1,
+    "nameKr": "우 팅",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "您好，请帮我看看。"
+    ],
+    "approveReaction": "Thank you! Lovely service.",
+    "rejectReaction": "对不起，我不知道这个。",
+    "todo": []
+  },
+  "88": {
+    "day": 13,
+    "slot": 2,
+    "nameKr": "권서윤",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 테러 뉴스 보고 좀 망설였는데... 그래도 친척이 기다리고 있어서요. (조용히 여권 내밀며)"
+    ],
+    "approveReaction": "감사합니다. 잘 다녀오겠습니다.",
+    "rejectReaction": "왜요? 문제가 뭔가요?",
+    "todo": []
+  },
+  "89": {
+    "day": 13,
+    "slot": 3,
+    "nameKr": "다카하시 리쿠",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "Hello. After everything that happened... I wasn't sure about coming, but here I am. Passport."
+    ],
+    "approveReaction": "Thanks! Can't wait to explore!",
+    "rejectReaction": "あ、そうなんですか。すみません。",
+    "todo": []
+  },
+  "37": {
+    "day": 13,
+    "slot": 4,
+    "nameKr": "제시카 윌슨",
+    "characterType": "장기체류자",
+    "correctResult": "정상 거절",
+    "entry": [
+      "안녕하세요. 사람 많은 데 오는 게 좀 무섭긴 한데, 뭐 별 수 없죠. (억지로 웃으며) 여권 여기요."
+    ],
+    "approveReaction": "감사합니다~ 좋은 하루 보내세요.",
+    "rejectReaction": "I understand, I'll sort it out.",
+    "todo": []
+  },
+  "90": {
+    "day": 13,
+    "slot": 5,
+    "nameKr": "황민서",
+    "characterType": "진상 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "테러 이후로 공항이 공포의 장소가 됐네, 얼른 뜨던가 해야지."
+    ],
+    "approveReaction": "뭘 이렇게 오래 걸려요. 됐어요.",
+    "rejectReaction": "말이 안 되잖아요!",
+    "todo": []
+  },
+  "91": {
+    "day": 13,
+    "slot": 6,
+    "nameKr": "배은서",
+    "characterType": "성형 수술 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. (마스크를 고쳐 쓰며) 테러 이후로 사람들이 긴장해 있는 것 같아요. 저는 수술하러 왔어요."
+    ],
+    "approveReaction": "고마워요. (서둘러 창구를 빠져나간다.)",
+    "rejectReaction": "저 맞아요. 성형을 해서 좀 달라 보일 뿐이에요.",
+    "todo": []
+  },
+  "92": {
+    "day": 13,
+    "slot": 7,
+    "nameKr": "쉬 펑",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "你好～准备好了！"
+    ],
+    "approveReaction": "Thank you! Have a great day!",
+    "rejectReaction": "哦，原来那里有问题。",
+    "todo": []
+  },
+  "93": {
+    "day": 14,
+    "slot": 1,
+    "nameKr": "문지유",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 공항이 좀 조용해진 것 같아요. 얼마 전까지만 해도 엄청 북적거렸는데. (여권 내밀며)"
+    ],
+    "approveReaction": "고맙습니다. 빠르네요!",
+    "rejectReaction": "그럴 리 없는데요. 다시 봐주세요.",
+    "todo": []
+  },
+  "94": {
+    "day": 14,
+    "slot": 2,
+    "nameKr": "선 메이",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "你好！第一次来韩国。"
+    ],
+    "approveReaction": "Thank you! Have a great day!",
+    "rejectReaction": "对不起。我再确认一下来。",
+    "todo": []
+  },
+  "9": {
+    "day": 14,
+    "slot": 3,
+    "nameKr": "강도식",
+    "characterType": "범죄자(마약 범죄자)",
+    "correctResult": "정상 거절",
+    "entry": [
+      "...(모자를 깊이 눌러쓴 채 여권만 내밀며 시선을 피한다.)"
+    ],
+    "approveReaction": "네. (안도하며 빠르게 사라진다.)",
+    "rejectReaction": "(침묵 후) ...법적으로 대응할게요.",
+    "todo": []
+  },
+  "95": {
+    "day": 14,
+    "slot": 4,
+    "nameKr": "와타나베 하나",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 요즘 공항 분위기가 많이 가라앉았죠? 덕분에 편하게 왔어요."
+    ],
+    "approveReaction": "ありがとう！韓国楽しみます。",
+    "rejectReaction": "何かの間違いだと思います！",
+    "todo": []
+  },
+  "96": {
+    "day": 14,
+    "slot": 5,
+    "nameKr": "양수빈",
+    "characterType": "성형 수술 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. (긴장을 풀며) 공항이 안정됐으니 입국도 수월하겠죠? 서류 여기 있어요."
+    ],
+    "approveReaction": "감사합니다. (안도하며 빠르게 이동한다.)",
+    "rejectReaction": "다시 한번만 봐주시면 안 될까요?",
+    "todo": []
+  },
+  "97": {
+    "day": 14,
+    "slot": 6,
+    "nameKr": "에밀리 클락",
+    "characterType": "외국인 관광객",
+    "correctResult": "정상 거절",
+    "entry": [
+      "Good morning~ Excited to be here!"
+    ],
+    "approveReaction": "Thank you~ So happy!",
+    "rejectReaction": "My apologies, I'll fix this.",
+    "todo": []
+  },
+  "98": {
+    "day": 14,
+    "slot": 7,
+    "nameKr": "백지원",
+    "characterType": "일반 고객",
+    "correctResult": "정상 승인",
+    "entry": [
+      "안녕하세요. 요즘 공항이 많이 안정됐죠? 전엔 무슨 일인가 싶었는데..."
+    ],
+    "approveReaction": "감사합니다. 좋은 하루 되세요.",
+    "rejectReaction": "이상한데요? 제 서류 문제없어요.",
+    "todo": []
+  }
+}

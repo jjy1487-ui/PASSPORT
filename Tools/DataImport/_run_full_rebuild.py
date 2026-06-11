@@ -33,8 +33,21 @@ rc, o = run(['Tools/DataImport/patch_sprite_refs.py'], REPO)
 lines.append('[patch_sprite_refs] rc=%d %s' % (rc, o.strip()))
 rc, o = run(['Tools/DataImport/xlsx_to_json.py'], REPO)
 lines.append('[xlsx_to_json] rc=%d %s' % (rc, o.strip()))
+# 1차 build_days: 유형 대사 + (있으면)기존 character_dialogue.json 오버라이드로 dayN.json 생성.
+#   correctResult 가 채워진 dayN.json 이 extract 단계의 권위 소스가 된다.
 rc, o = run(['Tools/DataImport/build_days.py'], REPO)
-lines.append('[build_days] rc=%d %s' % (rc, o.strip()))
+lines.append('[build_days#1] rc=%d %s' % (rc, o.strip()))
+# 손글 캐논 → character_dialogue.json 재생성(읽기 전용 xlsx + 방금 빌드된 dayN.json 조인).
+rc, o = run(['Tools/DataImport/extract_character_dialogue.py'], REPO)
+lines.append('[extract_character_dialogue] rc=%d %s' % (rc, o.strip()))
+# 2차 build_days: 갱신된 character_dialogue.json 으로 손님 대사를 캐릭터별로 덮어쓴다(영속).
+#   주의: build_days 는 day2~14 만 생성(day1 보호 가드). day1 은 아래 별도 단계로 주입.
+rc, o = run(['Tools/DataImport/build_days.py'], REPO)
+lines.append('[build_days#2] rc=%d %s' % (rc, o.strip()))
+# day1 캐릭터 대사 주입: 수작업 day1.json 을 재생성하지 않고 손님 라인 text 만 캐릭터별로 교체.
+#   (build_days 가 day1 을 건드리지 않으므로 여기서 character_dialogue.json 을 직접 덮어쓴다.)
+rc, o = run(['Tools/DataImport/apply_character_dialogue_day1.py'], REPO)
+lines.append('[apply_character_dialogue_day1] rc=%d %s' % (rc, o.strip()))
 # day_schedule 가 38명을 98슬롯에 재사용하므로, 빌드된 dayN.json 의 중복 인물을 고유화한다
 # (전역 customerId 고유 → CustomerRoster 전역 중복방지와 함께 한 playthrough 인물 반복 0).
 rc, o = run(['Tools/DataImport/diversify_customers.py'], REPO)

@@ -272,6 +272,14 @@ CHAR_LINES = {
 }
 
 
+# ── characterType 별칭 (소스 갱신으로 day JSON 유형명이 바뀐 경우 흡수) ──────────
+# day JSON 의 현행 characterType 이 CHAR_LINES 키와 다르면 같은 톤의 기존 항목으로 매핑한다.
+# (캐릭터 손글 대사는 character_dialogue_map 가 이미 손님 라인을 덮으므로, 여기서는
+#  심사관 라인·번복 후 수긍 라인 등 잔여 [TODO] 폴백만 채운다.)
+CHAR_LINES["전염병 환자"] = CHAR_LINES["검역 대상자(PCR)"]
+CHAR_LINES["성형 수술 고객"] = CHAR_LINES["성형 의심 고객"]
+
+
 def _char(ctype):
     return CHAR_LINES.get(ctype)
 

@@ -69,7 +69,7 @@
             {
               "order": 1,
               "speaker": "김민준",
-              "text": "좋은 아침이예요! 너무 설레네요."
+              "text": "안녕하세요."
             },
             {
               "order": 2,
@@ -91,7 +91,7 @@
             {
               "order": 2,
               "speaker": "김민준",
-              "text": "감사합니다! 즐거운 하루 되세요."
+              "text": "고맙습니다. 빠르네요!"
             }
           ]
         },
@@ -108,7 +108,7 @@
             {
               "order": 2,
               "speaker": "김민준",
-              "text": "앗 이 부분을 놓쳤네요! 죄송합니다."
+              "text": "그럴 리 없는데요. 다시 봐주세요."
             }
           ]
         },
@@ -125,7 +125,7 @@
             {
               "order": 2,
               "speaker": "김민준",
-              "text": "감사합니다! 즐거운 하루 되세요."
+              "text": "고맙습니다. 빠르네요!"
             }
           ]
         },
@@ -142,7 +142,7 @@
             {
               "order": 2,
               "speaker": "김민준",
-              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
+              "text": "그럴 리 없는데요. 다시 봐주세요."
             },
             {
               "order": 3,
@@ -169,7 +169,7 @@
             {
               "order": 2,
               "speaker": "김민준",
-              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
+              "text": "그럴 리 없는데요. 다시 봐주세요."
             },
             {
               "order": 3,
@@ -196,7 +196,7 @@
             {
               "order": 2,
               "speaker": "김민준",
-              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
+              "text": "그럴 리 없는데요. 다시 봐주세요."
             },
             {
               "order": 3,
@@ -233,8 +233,8 @@
         {
           "documentType": "여권",
           "variant": "비정상",
-          "violationField": "국적",
-          "spriteRef": "윌리엄 브라운",
+          "violationField": "사진",
+          "spriteRef": "제임스 밀러",
           "country": "USA",
           "fields": [
             {
@@ -259,7 +259,7 @@
             },
             {
               "label": "국적",
-              "value": "JPN",
+              "value": "USA",
               "key": "nationality"
             },
             {
@@ -284,12 +284,12 @@
             {
               "order": 1,
               "speaker": "윌리엄 브라운",
-              "text": "Hello! Good morning~"
+              "text": "Hello, could you check this, please? (안녕하세요, 이것 좀 확인해 주시겠어요?)"
             },
             {
               "order": 2,
               "speaker": "윌리엄 브라운",
-              "text": "Here is my passport."
+              "text": "Here is my passport. (여기 여권 드릴게요.)"
             }
           ]
         },
@@ -306,7 +306,7 @@
             {
               "order": 2,
               "speaker": "윌리엄 브라운",
-              "text": "Thank you so much! Have a wonderful day!"
+              "text": "Thank you! I appreciate your help. (감사합니다! 도와주셔서 고마워요.)"
             }
           ]
         },
@@ -329,7 +329,7 @@
             {
               "order": 2,
               "speaker": "윌리엄 브라운",
-              "text": "Oh no... I'm so sorry, I had no idea."
+              "text": "I'm sorry, I'll fix it. (죄송해요, 제가 고칠게요.)"
             }
           ]
         },
@@ -346,7 +346,7 @@
             {
               "order": 2,
               "speaker": "윌리엄 브라운",
-              "text": "Thank you! That was quick~"
+              "text": "Thank you! I appreciate your help. (감사합니다! 도와주셔서 고마워요.)"
             }
           ]
         },
@@ -363,7 +363,7 @@
             {
               "order": 2,
               "speaker": "윌리엄 브라운",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "I'm sorry, I'll fix it. (죄송해요, 제가 고칠게요.)"
             },
             {
               "order": 3,
@@ -373,7 +373,7 @@
             {
               "order": 4,
               "speaker": "윌리엄 브라운",
-              "text": "Oh 정말 다행이에요! 고마워요!"
+              "text": "Oh, what a relief! Thank you! (아, 정말 다행이에요! 고마워요!)"
             }
           ]
         },
@@ -390,7 +390,7 @@
             {
               "order": 2,
               "speaker": "윌리엄 브라운",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "I'm sorry, I'll fix it. (죄송해요, 제가 고칠게요.)"
             },
             {
               "order": 3,
@@ -400,7 +400,7 @@
             {
               "order": 4,
               "speaker": "윌리엄 브라운",
-              "text": "정말 다행이에요. 여행할 수 있어서 다행이에요."
+              "text": "What a relief. I'm so glad I can travel after all. (정말 다행이에요. 여행할 수 있어서 다행이에요.)"
             }
           ]
         },
@@ -417,7 +417,7 @@
             {
               "order": 2,
               "speaker": "윌리엄 브라운",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "I'm sorry, I'll fix it. (죄송해요, 제가 고칠게요.)"
             },
             {
               "order": 3,
@@ -427,7 +427,7 @@
             {
               "order": 4,
               "speaker": "윌리엄 브라운",
-              "text": "기분이 안 좋아요. You are so rude."
+              "text": "That was unpleasant. You were quite rude. (기분이 좀 상하네요. 너무 무례하셨어요.)"
             }
           ]
         }
@@ -505,7 +505,7 @@
             {
               "order": 1,
               "speaker": "이지은",
-              "text": "좋은 아침이예요! 너무 설레네요."
+              "text": "안녕하세요. 무사히 왔네요."
             },
             {
               "order": 2,
@@ -527,7 +527,7 @@
             {
               "order": 2,
               "speaker": "이지은",
-              "text": "감사합니다! 즐거운 하루 되세요."
+              "text": "감사합니다. 좋은 하루 되세요."
             }
           ]
         },
@@ -544,7 +544,7 @@
             {
               "order": 2,
               "speaker": "이지은",
-              "text": "앗 이 부분을 놓쳤네요! 죄송합니다."
+              "text": "이상한데요? 제 서류 문제없어요."
             }
           ]
         },
@@ -561,7 +561,7 @@
             {
               "order": 2,
               "speaker": "이지은",
-              "text": "감사합니다! 즐거운 하루 되세요."
+              "text": "감사합니다. 좋은 하루 되세요."
             }
           ]
         },
@@ -578,7 +578,7 @@
             {
               "order": 2,
               "speaker": "이지은",
-              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
+              "text": "이상한데요? 제 서류 문제없어요."
             },
             {
               "order": 3,
@@ -605,7 +605,7 @@
             {
               "order": 2,
               "speaker": "이지은",
-              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
+              "text": "이상한데요? 제 서류 문제없어요."
             },
             {
               "order": 3,
@@ -632,7 +632,7 @@
             {
               "order": 2,
               "speaker": "이지은",
-              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
+              "text": "이상한데요? 제 서류 문제없어요."
             },
             {
               "order": 3,
@@ -720,12 +720,12 @@
             {
               "order": 1,
               "speaker": "제임스 밀러",
-              "text": "Hello! Good morning~"
+              "text": "Good morning! I'm so excited to be here. (안녕하세요! 오게 되어 정말 설레요.)"
             },
             {
               "order": 2,
               "speaker": "제임스 밀러",
-              "text": "Here is my passport."
+              "text": "Here is my passport. (여기 여권 드릴게요.)"
             }
           ]
         },
@@ -742,7 +742,7 @@
             {
               "order": 2,
               "speaker": "제임스 밀러",
-              "text": "Thank you so much! Have a wonderful day!"
+              "text": "Thanks! I'm so excited! (고맙습니다! 너무 신나요!)"
             }
           ]
         },
@@ -759,7 +759,7 @@
             {
               "order": 2,
               "speaker": "제임스 밀러",
-              "text": "Oh no... I'm so sorry, I had no idea."
+              "text": "This is ridiculous! My documents are all correct! (말도 안 돼요! 제 서류는 다 정상이라고요!)"
             }
           ]
         },
@@ -776,7 +776,7 @@
             {
               "order": 2,
               "speaker": "제임스 밀러",
-              "text": "Thank you! That was quick~"
+              "text": "Thanks! I'm so excited! (고맙습니다! 너무 신나요!)"
             }
           ]
         },
@@ -793,7 +793,7 @@
             {
               "order": 2,
               "speaker": "제임스 밀러",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "This is ridiculous! My documents are all correct! (말도 안 돼요! 제 서류는 다 정상이라고요!)"
             },
             {
               "order": 3,
@@ -803,7 +803,7 @@
             {
               "order": 4,
               "speaker": "제임스 밀러",
-              "text": "Oh 정말 다행이에요! 고마워요!"
+              "text": "Oh, what a relief! Thank you! (아, 정말 다행이에요! 고마워요!)"
             }
           ]
         },
@@ -820,7 +820,7 @@
             {
               "order": 2,
               "speaker": "제임스 밀러",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "This is ridiculous! My documents are all correct! (말도 안 돼요! 제 서류는 다 정상이라고요!)"
             },
             {
               "order": 3,
@@ -830,7 +830,7 @@
             {
               "order": 4,
               "speaker": "제임스 밀러",
-              "text": "정말 다행이에요. 여행할 수 있어서 다행이에요."
+              "text": "What a relief. I'm so glad I can travel after all. (정말 다행이에요. 여행할 수 있어서 다행이에요.)"
             }
           ]
         },
@@ -847,7 +847,7 @@
             {
               "order": 2,
               "speaker": "제임스 밀러",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "This is ridiculous! My documents are all correct! (말도 안 돼요! 제 서류는 다 정상이라고요!)"
             },
             {
               "order": 3,
@@ -857,7 +857,7 @@
             {
               "order": 4,
               "speaker": "제임스 밀러",
-              "text": "기분이 안 좋아요. You are so rude."
+              "text": "That was unpleasant. You were quite rude. (기분이 좀 상하네요. 너무 무례하셨어요.)"
             }
           ]
         }
@@ -935,7 +935,7 @@
             {
               "order": 1,
               "speaker": "박철수",
-              "text": "빨리 좀 해요, 나 바쁜 사람이야."
+              "text": "아니 왜 이렇게 오래 걸려요?"
             },
             {
               "order": 2,
@@ -957,7 +957,7 @@
             {
               "order": 2,
               "speaker": "박철수",
-              "text": "흥, 당연히 통과지. 시간 아깝게 뭘 그렇게 들여다봐."
+              "text": "됐어요."
             }
           ]
         },
@@ -974,7 +974,7 @@
             {
               "order": 2,
               "speaker": "박철수",
-              "text": "에이 진짜... 알겠어요, 알겠어."
+              "text": "이건 정말 아니에요!"
             }
           ]
         },
@@ -991,7 +991,7 @@
             {
               "order": 2,
               "speaker": "박철수",
-              "text": "흥, 당연히 통과지. 시간 아깝게 뭘 그렇게 들여다봐."
+              "text": "됐어요."
             }
           ]
         },
@@ -1008,7 +1008,7 @@
             {
               "order": 2,
               "speaker": "박철수",
-              "text": "상관 불러요, 상관! 이게 말이 돼?"
+              "text": "이건 정말 아니에요!"
             },
             {
               "order": 3,
@@ -1035,7 +1035,7 @@
             {
               "order": 2,
               "speaker": "박철수",
-              "text": "상관 불러요, 상관! 이게 말이 돼?"
+              "text": "이건 정말 아니에요!"
             },
             {
               "order": 3,
@@ -1062,7 +1062,7 @@
             {
               "order": 2,
               "speaker": "박철수",
-              "text": "상관 불러요, 상관! 이게 말이 돼?"
+              "text": "이건 정말 아니에요!"
             },
             {
               "order": 3,
@@ -1099,8 +1099,8 @@
         {
           "documentType": "여권",
           "variant": "비정상",
-          "violationField": "국적",
-          "spriteRef": "왕 웨이",
+          "violationField": "사진",
+          "spriteRef": "박지훈",
           "country": "CHN",
           "fields": [
             {
@@ -1125,7 +1125,7 @@
             },
             {
               "label": "국적",
-              "value": "USA",
+              "value": "CHN",
               "key": "nationality"
             },
             {
@@ -1150,12 +1150,12 @@
             {
               "order": 1,
               "speaker": "왕 웨이",
-              "text": "Hello! Good morning~"
+              "text": "您好，请帮我看看。 (안녕하세요, 좀 봐주세요.)"
             },
             {
               "order": 2,
               "speaker": "왕 웨이",
-              "text": "Here is my passport."
+              "text": "这是我的护照。 (여기 여권 드릴게요.)"
             }
           ]
         },
@@ -1172,7 +1172,7 @@
             {
               "order": 2,
               "speaker": "왕 웨이",
-              "text": "Thank you so much! Have a wonderful day!"
+              "text": "谢谢！服务真好。 (감사합니다! 친절하시네요.)"
             }
           ]
         },
@@ -1195,7 +1195,7 @@
             {
               "order": 2,
               "speaker": "왕 웨이",
-              "text": "Oh no... I'm so sorry, I had no idea."
+              "text": "对不起，我不知道这个。 (죄송합니다. 이건 몰랐어요.)"
             }
           ]
         },
@@ -1212,7 +1212,7 @@
             {
               "order": 2,
               "speaker": "왕 웨이",
-              "text": "Thank you! That was quick~"
+              "text": "谢谢！服务真好。 (감사합니다! 친절하시네요.)"
             }
           ]
         },
@@ -1229,7 +1229,7 @@
             {
               "order": 2,
               "speaker": "왕 웨이",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "对不起，我不知道这个。 (죄송합니다. 이건 몰랐어요.)"
             },
             {
               "order": 3,
@@ -1239,7 +1239,7 @@
             {
               "order": 4,
               "speaker": "왕 웨이",
-              "text": "Oh 정말 다행이에요! 고마워요!"
+              "text": "啊，太好了！谢谢您！ (아, 정말 다행이에요! 고마워요!)"
             }
           ]
         },
@@ -1256,7 +1256,7 @@
             {
               "order": 2,
               "speaker": "왕 웨이",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "对不起，我不知道这个。 (죄송합니다. 이건 몰랐어요.)"
             },
             {
               "order": 3,
@@ -1266,7 +1266,7 @@
             {
               "order": 4,
               "speaker": "왕 웨이",
-              "text": "정말 다행이에요. 여행할 수 있어서 다행이에요."
+              "text": "真是太好了，能旅行真让人安心。 (정말 다행이에요. 여행할 수 있어서 다행이에요.)"
             }
           ]
         },
@@ -1283,7 +1283,7 @@
             {
               "order": 2,
               "speaker": "왕 웨이",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "对不起，我不知道这个。 (죄송합니다. 이건 몰랐어요.)"
             },
             {
               "order": 3,
@@ -1293,7 +1293,7 @@
             {
               "order": 4,
               "speaker": "왕 웨이",
-              "text": "기분이 안 좋아요. You are so rude."
+              "text": "我有点不高兴。您太没礼貌了。 (기분이 좀 상하네요. 너무 무례하시네요.)"
             }
           ]
         }
@@ -1371,7 +1371,7 @@
             {
               "order": 1,
               "speaker": "최서연",
-              "text": "좋은 아침이예요! 너무 설레네요."
+              "text": "안녕하세요. 많이 기다렸어요."
             },
             {
               "order": 2,
@@ -1393,7 +1393,7 @@
             {
               "order": 2,
               "speaker": "최서연",
-              "text": "감사합니다! 즐거운 하루 되세요."
+              "text": "감사합니다. 잘 다녀올게요."
             }
           ]
         },
@@ -1410,7 +1410,7 @@
             {
               "order": 2,
               "speaker": "최서연",
-              "text": "앗 이 부분을 놓쳤네요! 죄송합니다."
+              "text": "저 분명히 제대로 챙겨왔는데요."
             }
           ]
         },
@@ -1427,7 +1427,7 @@
             {
               "order": 2,
               "speaker": "최서연",
-              "text": "감사합니다! 즐거운 하루 되세요."
+              "text": "감사합니다. 잘 다녀올게요."
             }
           ]
         },
@@ -1444,7 +1444,7 @@
             {
               "order": 2,
               "speaker": "최서연",
-              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
+              "text": "저 분명히 제대로 챙겨왔는데요."
             },
             {
               "order": 3,
@@ -1471,7 +1471,7 @@
             {
               "order": 2,
               "speaker": "최서연",
-              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
+              "text": "저 분명히 제대로 챙겨왔는데요."
             },
             {
               "order": 3,
@@ -1498,7 +1498,7 @@
             {
               "order": 2,
               "speaker": "최서연",
-              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
+              "text": "저 분명히 제대로 챙겨왔는데요."
             },
             {
               "order": 3,

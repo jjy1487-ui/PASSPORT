@@ -2,7 +2,7 @@
   "day": 9,
   "customers": [
     {
-      "customerId": 1028,
+      "customerId": 65,
       "slot": 1,
       "nameKr": "홍성민",
       "nameEn": "HONG SEONGMIN",
@@ -13,12 +13,12 @@
       "spriteRef": "오만석",
       "characterType": "진상 고객",
       "defectVariant": "",
-      "correctResult": "정상 승인",
+      "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
+          "variant": "비정상",
+          "violationField": "생년월일",
           "spriteRef": "오만석",
           "country": "KOR",
           "fields": [
@@ -39,7 +39,7 @@
             },
             {
               "label": "생년월일",
-              "value": "1975-02-11",
+              "value": "1900-01-01",
               "key": "birth_date"
             },
             {
@@ -69,7 +69,7 @@
             {
               "order": 1,
               "speaker": "홍성민",
-              "text": "빨리 좀 해요, 나 바쁜 사람이야."
+              "text": "아니 요즘 취업이니 유학이니 목적이 다양해져서 심사가 더 복잡해진 거예요? 빨리 해줘요."
             },
             {
               "order": 2,
@@ -91,7 +91,7 @@
             {
               "order": 2,
               "speaker": "홍성민",
-              "text": "흥, 당연히 통과지. 시간 아깝게 뭘 그렇게 들여다봐."
+              "text": "됐어요, 고마워요."
             }
           ]
         },
@@ -103,12 +103,18 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
+              "text": "서류 오류가 확인되어 입국하실 수 없습니다.",
+              "claim": {
+                "attr": "birth_date",
+                "value": "",
+                "label": "생년월일 불일치",
+                "unlocksScan": ""
+              }
             },
             {
               "order": 2,
               "speaker": "홍성민",
-              "text": "에이 진짜... 알겠어요, 알겠어."
+              "text": "진짜 됐어요."
             }
           ]
         },
@@ -125,7 +131,7 @@
             {
               "order": 2,
               "speaker": "홍성민",
-              "text": "흥, 당연히 통과지. 시간 아깝게 뭘 그렇게 들여다봐."
+              "text": "됐어요, 고마워요."
             }
           ]
         },
@@ -142,7 +148,7 @@
             {
               "order": 2,
               "speaker": "홍성민",
-              "text": "상관 불러요, 상관! 이게 말이 돼?"
+              "text": "진짜 됐어요."
             },
             {
               "order": 3,
@@ -169,7 +175,7 @@
             {
               "order": 2,
               "speaker": "홍성민",
-              "text": "상관 불러요, 상관! 이게 말이 돼?"
+              "text": "진짜 됐어요."
             },
             {
               "order": 3,
@@ -196,7 +202,7 @@
             {
               "order": 2,
               "speaker": "홍성민",
-              "text": "상관 불러요, 상관! 이게 말이 돼?"
+              "text": "진짜 됐어요."
             },
             {
               "order": 3,
@@ -217,7 +223,7 @@
       "fingerprint": null
     },
     {
-      "customerId": 1029,
+      "customerId": 66,
       "slot": 2,
       "nameKr": "김서아",
       "nameEn": "KIM SEOAH",
@@ -284,7 +290,7 @@
             {
               "order": 1,
               "speaker": "김서아",
-              "text": "좋은 아침이예요! 너무 설레네요."
+              "text": "안녕하세요. 저는 친척 보려고 잠깐 들렀어요."
             },
             {
               "order": 2,
@@ -306,7 +312,7 @@
             {
               "order": 2,
               "speaker": "김서아",
-              "text": "감사합니다! 즐거운 하루 되세요."
+              "text": "감사합니다. 잘 다녀올게요."
             }
           ]
         },
@@ -323,7 +329,7 @@
             {
               "order": 2,
               "speaker": "김서아",
-              "text": "앗 이 부분을 놓쳤네요! 죄송합니다."
+              "text": "저 분명히 제대로 챙겨왔는데요."
             }
           ]
         },
@@ -340,7 +346,7 @@
             {
               "order": 2,
               "speaker": "김서아",
-              "text": "감사합니다! 즐거운 하루 되세요."
+              "text": "감사합니다. 잘 다녀올게요."
             }
           ]
         },
@@ -357,7 +363,7 @@
             {
               "order": 2,
               "speaker": "김서아",
-              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
+              "text": "저 분명히 제대로 챙겨왔는데요."
             },
             {
               "order": 3,
@@ -384,7 +390,7 @@
             {
               "order": 2,
               "speaker": "김서아",
-              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
+              "text": "저 분명히 제대로 챙겨왔는데요."
             },
             {
               "order": 3,
@@ -411,7 +417,7 @@
             {
               "order": 2,
               "speaker": "김서아",
-              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
+              "text": "저 분명히 제대로 챙겨왔는데요."
             },
             {
               "order": 3,
@@ -432,7 +438,7 @@
       "fingerprint": null
     },
     {
-      "customerId": 1030,
+      "customerId": 67,
       "slot": 3,
       "nameKr": "류 옌",
       "nameEn": "LIU YAN",
@@ -442,14 +448,14 @@
       "age": 32,
       "spriteRef": "왕 웨이",
       "characterType": "외국인 관광객",
-      "defectVariant": "출국X",
+      "defectVariant": "",
       "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "왕 웨이",
+          "variant": "비정상",
+          "violationField": "사진",
+          "spriteRef": "첸 리",
           "country": "CHN",
           "fields": [
             {
@@ -491,8 +497,8 @@
         },
         {
           "documentType": "비자",
-          "variant": "비정상",
-          "violationField": "만료일",
+          "variant": "정상",
+          "violationField": "없음",
           "spriteRef": "",
           "country": "",
           "fields": [
@@ -523,12 +529,12 @@
             },
             {
               "label": "발급일",
-              "value": "2022-01-01",
+              "value": "2024-09-17",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2023-01-01",
+              "value": "2026-09-17",
               "key": "expiry_date"
             },
             {
@@ -553,12 +559,12 @@
             {
               "order": 1,
               "speaker": "류 옌",
-              "text": "Hello! Good morning~"
+              "text": "您好，请帮我看看。 (안녕하세요, 좀 봐주세요.)"
             },
             {
               "order": 2,
               "speaker": "류 옌",
-              "text": "Here is my passport."
+              "text": "这是我的护照。 (여기 여권 드릴게요.)"
             }
           ]
         },
@@ -575,7 +581,7 @@
             {
               "order": 2,
               "speaker": "류 옌",
-              "text": "Thank you so much! Have a wonderful day!"
+              "text": "谢谢！服务真好。 (감사합니다! 친절하시네요.)"
             }
           ]
         },
@@ -589,16 +595,16 @@
               "speaker": "심사관",
               "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다.",
               "claim": {
-                "attr": "expiry_date",
+                "attr": "face",
                 "value": "",
-                "label": "만료일 불일치",
+                "label": "사진 불일치",
                 "unlocksScan": ""
               }
             },
             {
               "order": 2,
               "speaker": "류 옌",
-              "text": "Oh no... I'm so sorry, I had no idea."
+              "text": "对不起，我不知道这个。 (죄송합니다. 이건 몰랐어요.)"
             }
           ]
         },
@@ -615,7 +621,7 @@
             {
               "order": 2,
               "speaker": "류 옌",
-              "text": "Thank you! That was quick~"
+              "text": "谢谢！服务真好。 (감사합니다! 친절하시네요.)"
             }
           ]
         },
@@ -632,7 +638,7 @@
             {
               "order": 2,
               "speaker": "류 옌",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "对不起，我不知道这个。 (죄송합니다. 이건 몰랐어요.)"
             },
             {
               "order": 3,
@@ -642,7 +648,7 @@
             {
               "order": 4,
               "speaker": "류 옌",
-              "text": "Oh 정말 다행이에요! 고마워요!"
+              "text": "啊，太好了！谢谢您！ (아, 정말 다행이에요! 고마워요!)"
             }
           ]
         },
@@ -659,7 +665,7 @@
             {
               "order": 2,
               "speaker": "류 옌",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "对不起，我不知道这个。 (죄송합니다. 이건 몰랐어요.)"
             },
             {
               "order": 3,
@@ -669,7 +675,7 @@
             {
               "order": 4,
               "speaker": "류 옌",
-              "text": "정말 다행이에요. 여행할 수 있어서 다행이에요."
+              "text": "真是太好了，能旅行真让人安心。 (정말 다행이에요. 여행할 수 있어서 다행이에요.)"
             }
           ]
         },
@@ -686,7 +692,7 @@
             {
               "order": 2,
               "speaker": "류 옌",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "对不起，我不知道这个。 (죄송합니다. 이건 몰랐어요.)"
             },
             {
               "order": 3,
@@ -696,7 +702,7 @@
             {
               "order": 4,
               "speaker": "류 옌",
-              "text": "기분이 안 좋아요. You are so rude."
+              "text": "我有点不高兴。您太没礼貌了。 (기분이 좀 상하네요. 너무 무례하시네요.)"
             }
           ]
         }
@@ -774,7 +780,7 @@
             {
               "order": 1,
               "speaker": "윤정호",
-              "text": "수고가 많으십니다. (정중하게 여권을 내밀며) 공무로 입국합니다. 잘 부탁드립니다."
+              "text": "안녕하세요. 외교 일정 마치고 왔는데, 요즘 입국 목적이 다양해졌다고 들었습니다. 여권 드리겠습니다."
             },
             {
               "order": 2,
@@ -796,7 +802,7 @@
             {
               "order": 2,
               "speaker": "윤정호",
-              "text": "수고하셨소. 나라를 위한 길에 늘 애써주시오."
+              "text": "감사합니다! 수고 많으세요."
             }
           ]
         },
@@ -813,7 +819,7 @@
             {
               "order": 2,
               "speaker": "윤정호",
-              "text": "지금 공무로 입국하는 사람을 막겠다는 거요? 누구 재가를 받았소?"
+              "text": "저 분명히 제대로 챙겨왔는데요."
             }
           ]
         },
@@ -830,7 +836,7 @@
             {
               "order": 2,
               "speaker": "윤정호",
-              "text": "그래, 일을 알아서 처리할 줄 아는군. 기억해 두겠소."
+              "text": "감사합니다! 수고 많으세요."
             }
           ]
         },
@@ -847,7 +853,7 @@
             {
               "order": 2,
               "speaker": "윤정호",
-              "text": "이런 식으로 일하면 곤란하오. 서류는 보좌관이 다 검토한 것이니 다시 보시오."
+              "text": "저 분명히 제대로 챙겨왔는데요."
             },
             {
               "order": 3,
@@ -874,7 +880,7 @@
             {
               "order": 2,
               "speaker": "윤정호",
-              "text": "허, 내가 누군지 모르나? 의정활동에 차질이 생기면 자네가 책임질 텐가?"
+              "text": "저 분명히 제대로 챙겨왔는데요."
             },
             {
               "order": 3,
@@ -901,7 +907,7 @@
             {
               "order": 2,
               "speaker": "윤정호",
-              "text": "이 일이 기사로 나가도 좋겠소? 나는 국민의 표로 선 사람이오. 당장 통과시키시오!"
+              "text": "저 분명히 제대로 챙겨왔는데요."
             },
             {
               "order": 3,
@@ -922,7 +928,7 @@
       "fingerprint": null
     },
     {
-      "customerId": 1031,
+      "customerId": 68,
       "slot": 5,
       "nameKr": "이지우",
       "nameEn": "LEE JIWOO",
@@ -933,7 +939,7 @@
       "spriteRef": "정유나",
       "characterType": "성형 수술 고객",
       "defectVariant": "",
-      "correctResult": "정상 거절",
+      "correctResult": "정상 승인",
       "documents": [
         {
           "documentType": "여권",
@@ -989,12 +995,12 @@
             {
               "order": 1,
               "speaker": "이지우",
-              "text": "안녕하세요, 서류 드릴게요. [TODO 대사]"
+              "text": "안녕하세요. (조용히 서류를 준비하며) 저는 성형 때문에 왔어요."
             },
             {
               "order": 2,
               "speaker": "이지우",
-              "text": "확인 부탁드립니다. [TODO 대사]"
+              "text": "사진이랑 좀 달라 보여도 저 맞아요."
             }
           ]
         },
@@ -1006,12 +1012,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
             },
             {
               "order": 2,
               "speaker": "이지우",
-              "text": "감사합니다! [TODO 대사]"
+              "text": "감사합니다! 수술 잘 됐다고 해주세요, 하하."
             }
           ]
         },
@@ -1023,12 +1029,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]"
+              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
             },
             {
               "order": 2,
               "speaker": "이지우",
-              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
+              "text": "잠깐만요, 저 맞는데요! 지문 다시 확인해 주세요!"
             }
           ]
         },
@@ -1040,12 +1046,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "즐거운 여행 되십시오."
             },
             {
               "order": 2,
               "speaker": "이지우",
-              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
+              "text": "감사합니다! 수술 잘 됐다고 해주세요, 하하."
             }
           ]
         },
@@ -1057,22 +1063,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "죄송하지만 입국은 어렵습니다."
             },
             {
               "order": 2,
               "speaker": "이지우",
-              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
+              "text": "잠깐만요, 저 맞는데요! 지문 다시 확인해 주세요!"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
             },
             {
               "order": 4,
               "speaker": "이지우",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "text": "거 봐요, 저 맞잖아요. 감사합니다."
             }
           ]
         },
@@ -1084,22 +1090,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "죄송하지만 입국은 어렵습니다."
             },
             {
               "order": 2,
               "speaker": "이지우",
-              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
+              "text": "잠깐만요, 저 맞는데요! 지문 다시 확인해 주세요!"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
             },
             {
               "order": 4,
               "speaker": "이지우",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "text": "그쵸? 본인 맞다니까요. 감사합니다."
             }
           ]
         },
@@ -1111,22 +1117,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "죄송하지만 입국은 어렵습니다."
             },
             {
               "order": 2,
               "speaker": "이지우",
-              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
+              "text": "잠깐만요, 저 맞는데요! 지문 다시 확인해 주세요!"
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
             },
             {
               "order": 4,
               "speaker": "이지우",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "text": "하... 사람 무안하게. 다음엔 잘 봐 주세요."
             }
           ]
         }
@@ -1136,19 +1142,19 @@
       "xray": null,
       "fingerprint": {
         "type": "fingerprint",
-        "result": "불일치",
-        "detail": "신원 불일치",
-        "extra": "박도윤",
+        "result": "일치",
+        "detail": "본인 일치",
+        "extra": "LEE JIWOO",
         "claim": {
           "attr": "name",
-          "value": "박도윤",
+          "value": "LEE JIWOO",
           "label": "지문 대조 신원",
           "unlocksScan": ""
         },
         "record": {
           "mode": "성형",
-          "dbName": "박도윤",
-          "dbBirth": "1995-02-18",
+          "dbName": "LEE JIWOO",
+          "dbBirth": "1996-04-12",
           "dbNationality": "KOR",
           "criminalRecord": "없음",
           "wantedNo": ""
@@ -1156,7 +1162,7 @@
       }
     },
     {
-      "customerId": 1032,
+      "customerId": 69,
       "slot": 6,
       "nameKr": "크리스 토머스",
       "nameEn": "CHRIS THOMAS",
@@ -1166,14 +1172,14 @@
       "age": 32,
       "spriteRef": "윌리엄 브라운",
       "characterType": "외국인 관광객",
-      "defectVariant": "출국X",
+      "defectVariant": "",
       "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "윌리엄 브라운",
+          "variant": "비정상",
+          "violationField": "사진",
+          "spriteRef": "제임스 밀러",
           "country": "USA",
           "fields": [
             {
@@ -1215,8 +1221,8 @@
         },
         {
           "documentType": "비자",
-          "variant": "비정상",
-          "violationField": "만료일",
+          "variant": "정상",
+          "violationField": "없음",
           "spriteRef": "",
           "country": "",
           "fields": [
@@ -1247,12 +1253,12 @@
             },
             {
               "label": "발급일",
-              "value": "2022-01-01",
+              "value": "2025-04-03",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2023-01-01",
+              "value": "2027-04-03",
               "key": "expiry_date"
             },
             {
@@ -1277,12 +1283,12 @@
             {
               "order": 1,
               "speaker": "크리스 토머스",
-              "text": "Hello! Good morning~"
+              "text": "Hello, could you check this, please? (안녕하세요, 이것 좀 확인해 주시겠어요?)"
             },
             {
               "order": 2,
               "speaker": "크리스 토머스",
-              "text": "Here is my passport."
+              "text": "Here is my passport. (여기 여권 드릴게요.)"
             }
           ]
         },
@@ -1299,7 +1305,7 @@
             {
               "order": 2,
               "speaker": "크리스 토머스",
-              "text": "Thank you so much! Have a wonderful day!"
+              "text": "Thank you! I appreciate your help. (감사합니다! 도와주셔서 고마워요.)"
             }
           ]
         },
@@ -1313,16 +1319,16 @@
               "speaker": "심사관",
               "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다.",
               "claim": {
-                "attr": "expiry_date",
+                "attr": "face",
                 "value": "",
-                "label": "만료일 불일치",
+                "label": "사진 불일치",
                 "unlocksScan": ""
               }
             },
             {
               "order": 2,
               "speaker": "크리스 토머스",
-              "text": "Oh no... I'm so sorry, I had no idea."
+              "text": "I'm sorry, I'll fix it. (죄송해요, 제가 고칠게요.)"
             }
           ]
         },
@@ -1339,7 +1345,7 @@
             {
               "order": 2,
               "speaker": "크리스 토머스",
-              "text": "Thank you! That was quick~"
+              "text": "Thank you! I appreciate your help. (감사합니다! 도와주셔서 고마워요.)"
             }
           ]
         },
@@ -1356,7 +1362,7 @@
             {
               "order": 2,
               "speaker": "크리스 토머스",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "I'm sorry, I'll fix it. (죄송해요, 제가 고칠게요.)"
             },
             {
               "order": 3,
@@ -1366,7 +1372,7 @@
             {
               "order": 4,
               "speaker": "크리스 토머스",
-              "text": "Oh 정말 다행이에요! 고마워요!"
+              "text": "Oh, what a relief! Thank you! (아, 정말 다행이에요! 고마워요!)"
             }
           ]
         },
@@ -1383,7 +1389,7 @@
             {
               "order": 2,
               "speaker": "크리스 토머스",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "I'm sorry, I'll fix it. (죄송해요, 제가 고칠게요.)"
             },
             {
               "order": 3,
@@ -1393,7 +1399,7 @@
             {
               "order": 4,
               "speaker": "크리스 토머스",
-              "text": "정말 다행이에요. 여행할 수 있어서 다행이에요."
+              "text": "What a relief. I'm so glad I can travel after all. (정말 다행이에요. 여행할 수 있어서 다행이에요.)"
             }
           ]
         },
@@ -1410,7 +1416,7 @@
             {
               "order": 2,
               "speaker": "크리스 토머스",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "I'm sorry, I'll fix it. (죄송해요, 제가 고칠게요.)"
             },
             {
               "order": 3,
@@ -1420,7 +1426,7 @@
             {
               "order": 4,
               "speaker": "크리스 토머스",
-              "text": "기분이 안 좋아요. You are so rude."
+              "text": "That was unpleasant. You were quite rude. (기분이 좀 상하네요. 너무 무례하셨어요.)"
             }
           ]
         }
@@ -1591,12 +1597,12 @@
             {
               "order": 1,
               "speaker": "자오 레이",
-              "text": "Hello! I have my university acceptance letter with me too."
+              "text": "最近很多人来韩国工作或留学。我也是来工作的，文件都带来了。 (요즘 취업·유학으로 한국 오는 사람이 많죠. 저도 취업하러 왔고 서류 다 준비했어요.)"
             },
             {
               "order": 2,
               "speaker": "자오 레이",
-              "text": "체류 관련 서류도 같이 드릴게요."
+              "text": "居留相关材料也一起给您。 (체류 관련 서류도 같이 드릴게요.)"
             }
           ]
         },
@@ -1613,7 +1619,7 @@
             {
               "order": 2,
               "speaker": "자오 레이",
-              "text": "Thank you! I'm so excited to start university!"
+              "text": "谢谢，很快啊！ (감사합니다, 빠르네요!)"
             }
           ]
         },
@@ -1630,7 +1636,7 @@
             {
               "order": 2,
               "speaker": "자오 레이",
-              "text": "Oh no... I see. I'll come back with everything in order."
+              "text": "来之前我仔细检查过了！ (오기 전에 꼼꼼히 확인했어요!)"
             }
           ]
         },
@@ -1647,7 +1653,7 @@
             {
               "order": 2,
               "speaker": "자오 레이",
-              "text": "Thank you! Can't wait to get started!"
+              "text": "谢谢，很快啊！ (감사합니다, 빠르네요!)"
             }
           ]
         },
@@ -1664,7 +1670,7 @@
             {
               "order": 2,
               "speaker": "자오 레이",
-              "text": "I have all the right documents including my acceptance letter!"
+              "text": "来之前我仔细检查过了！ (오기 전에 꼼꼼히 확인했어요!)"
             },
             {
               "order": 3,
@@ -1674,7 +1680,7 @@
             {
               "order": 4,
               "speaker": "자오 레이",
-              "text": "다행이네요. 감사합니다."
+              "text": "太好了，谢谢。 (다행이네요. 감사합니다.)"
             }
           ]
         },
@@ -1691,7 +1697,7 @@
             {
               "order": 2,
               "speaker": "자오 레이",
-              "text": "I have all the right documents including my acceptance letter!"
+              "text": "来之前我仔细检查过了！ (오기 전에 꼼꼼히 확인했어요!)"
             },
             {
               "order": 3,
@@ -1701,7 +1707,7 @@
             {
               "order": 4,
               "speaker": "자오 레이",
-              "text": "네, 확인 감사합니다."
+              "text": "好的，谢谢确认。 (네, 확인 감사합니다.)"
             }
           ]
         },
@@ -1718,7 +1724,7 @@
             {
               "order": 2,
               "speaker": "자오 레이",
-              "text": "I have all the right documents including my acceptance letter!"
+              "text": "来之前我仔细检查过了！ (오기 전에 꼼꼼히 확인했어요!)"
             },
             {
               "order": 3,
@@ -1728,7 +1734,7 @@
             {
               "order": 4,
               "speaker": "자오 레이",
-              "text": "하... 이제야 되네요. 꼼꼼히 봐 주세요."
+              "text": "唉…终于可以了。请仔细看清楚。 (하... 이제야 되네요. 좀 꼼꼼히 봐 주세요.)"
             }
           ]
         }

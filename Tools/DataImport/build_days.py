@@ -23,9 +23,16 @@ import hashlib
 from branch_dialogue_map import (
     load_branch, index_branch, fill_customer_dialogue, load_guided_block, TYPE_MAP,
 )
+# 캐릭터별 손글 대사 오버라이드(character_dialogue.json 조인). 유형 레이어 위에 덮어씀.
+# 손님 라인 text 만 customerId별 캐논 대사로 교체(구조 불변). 심사관 라인은 보존.
+from character_dialogue_map import load_char_dialogue, apply_character_override
 # branch 에 없는 슬롯(유형×결과×구조)을 day1 톤 작성본으로 채우는 폴백 테이블.
 # branch 가 못 채운 잔여 [TODO 대사] 만 채운다(이미 채운 라인은 불변).
 from authored_lines import fill_authored
+# 대사 정화(post-processing) — 파이프라인 마지막 손질(단일 정화 지점, 6장).
+#   (1) 액션/시스템/몽타주 narration 라인 제거 (2) 외국인 대사 {모국어}({한국어}) 통일
+#   (3) 윤서린(범죄자(성형수술)) 거절 반응 다양화 + 마스크 흐름 정리.
+from dialogue_polish import polish_customer
 
 # ── 경로 ─────────────────────────────────────────────────────
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -191,6 +198,179 @@ FORCED_DEFECT = {
 }
 
 
+# ── 사진(얼굴) 불일치 결함 강제 (외국인 관광객, 손글 스크립트 설계) ─────────────
+# 손글 스크립트(방문객_스크립트_일자별_260609_2)에서 '서류: 불량(여권 사진 불일치)'로
+# 설계된 슬롯 중 '외국인 관광객' 손님(day_schedule (day,slot) 조인 결과)을 사진 결함으로 강제한다.
+# - 이 손님들은 vc=0(또는 비정상으로 굴렀을 때)이면 여권 photo_ref 를 '다른 인물 얼굴'로 교체 →
+#   얼굴 대조 시 customer.spriteRef ≠ 여권.spriteRef 로 '불일치' 적발이 정답(=거절)이 된다.
+# - 기존 결함(국적/만료일 등)을 '추가'가 아니라 '대체'한다(비정상 슬롯 수·correctResult 불변).
+# - 성형 수술 고객/범죄자(성형수술)는 지문(옵션B)으로 본인/도용을 가리는 설계라 제외한다
+#   (여권 사진은 일치시켜야 옵션B 가 성립 — 사진을 깨면 지문 메커니즘이 무력화됨).
+# - day1(cid 25 윌리엄·7 왕웨이)은 수작업본이라 build_days 가 건드리지 않는다(day1.json 직접 수정).
+#   디코이 현실화(260611): 윌리엄→제임스 밀러(USA여31), 왕웨이→박지훈(KOR남36)로 교정
+#   (옛 한지원=특수연예인★/사토하루키=테러범은 외형이 튀어 부적합 → 같은 성별·나이대·국적권으로 교체).
+# 키는 source 원본 customer_id 문자열. (day,slot) 은 주석 참고용.
+FORCED_PHOTO_DEFECT_TOURIST = {
+    "38",  # day2 slot3  데이비드 스미스(여)
+    "26",  # day2 slot6  다나카 하루토(남)  vc=0.5 → 비정상 시에만 적용
+    "27",  # day3 slot1  장 웨이(남)
+    "34",  # day3 slot7  야마모토 렌(남)
+    "43",  # day4 slot3  토머스 무어(여)
+    "46",  # day4 slot7  리 강(남)
+    "54",  # day6 slot6  다니엘 테일러(여)  vc=0.5 → 비정상 시에만 적용
+    "55",  # day6 slot7  사토 유토(남)
+    "58",  # day7 slot5  왕 팡(남)
+    "62",  # day8 slot3  장 민(남)
+    "63",  # day8 slot6  매튜 앤더슨(여)
+    "67",  # day9 slot3  류 옌(남)
+    "69",  # day9 slot6  크리스 토머스(여)
+    "73",  # day10 slot4 스즈키 소라(남)
+    "3",   # day10 slot7 첸 웨이(남)
+    "77",  # day11 slot3 자오 친(남)
+    "80",  # day11 slot6 앤드류 화이트(여)
+    "85",  # day12 slot6 황 레이(남)
+    "87",  # day13 slot1 우 팅(남)  ← 왕웨이 클론(스크립트=사진불일치), 누락분 보강
+    "89",  # day13 slot3 다카하시 리쿠(남)
+    "92",  # day13 slot7 쉬 펑(남)
+    "94",  # day14 slot2 선 메이(남)
+    "97",  # day14 slot6 에밀리 클락(여)
+}
+
+
+# ── 얼굴 디코이(사진 불일치 위장) — 현실적 선택 ─────────────────────────
+# 사진 불일치 결함은 외국인 손님 여권 사진을 '다른 인물 얼굴'(디코이)로 바꾼다.
+# 위장이 그럴듯하려면 디코이가 **같은 성별 + 나이대 근접 + 가능하면 같은 국적권**이어야 한다.
+# 한눈에 너무 다른 인물(노인/아동/특수★/범죄·테러 등 스토리상 튀는 얼굴)은 디코이로 쓰지 않는다.
+#
+# 디코이 후보 메타데이터는 **customer 시트(진실 소스)에서 자동 도출**한다(6장: 변경 흡수 한 곳).
+#  - 키 = sprite_ref(= Resources/Characters/<이름>.png 실존 에셋 이름).
+#  - 한 sprite_ref 를 여러 클론이 공유하므로 '원본 소유자'(name_kr==sprite_ref) 행의 속성을 대표값으로 쓴다.
+#  - 에셋이 없는 sprite_ref 나 customer 에 안 쓰이는 고아 PNG(이하민/장지원 등)는 메타가 없어 후보에서 자동 제외.
+#
+# 제외 규칙(외형이 튀어 위장에 부적합):
+#  - 특수 유형(특수(현자/연예인/정치인)★)
+#  - 범죄자/테러범(스토리 식별 얼굴 — 남의 여권에 붙으면 '그 수배자'로 보여 위장이 깨짐)
+#  - 성인 범위를 벗어난 나이(노인/아동): age < 20 또는 age > 55
+DECOY_AGE_WINDOW = 12          # 나이대 근접 허용 폭(±세). 이 범위 내를 '비슷한 나이'로 본다.
+DECOY_MIN_AGE = 20
+DECOY_MAX_AGE = 55
+
+# 국적권(region): 동아시아(KOR/CHN/JPN) vs 그 외(서양 등). 같은 권역끼리 우선 매칭.
+EAST_ASIA = {"KOR", "CHN", "JPN"}
+
+
+def _nat_region(nat_value):
+    """'대한민국(KOR)' / 'KOR' -> 'EA'(동아시아) | 'W'(그 외)."""
+    code = ""
+    s = str(nat_value or "")
+    l, r = s.rfind("("), s.rfind(")")
+    if 0 <= l < r:
+        code = s[l + 1:r].strip()
+    else:
+        code = s.strip()
+    return "EA" if code in EAST_ASIA else "W"
+
+
+def _decoy_eligible(character_type, age):
+    """디코이 후보 적격 여부. 특수/범죄/테러·노인/아동 제외."""
+    ct = character_type or ""
+    if "★" in ct:                         # 특수(현자/연예인/정치인)
+        return False
+    if "범죄자" in ct or "테러" in ct:      # 스토리 식별 얼굴
+        return False
+    try:
+        a = int(age)
+    except (TypeError, ValueError):
+        return False
+    return DECOY_MIN_AGE <= a <= DECOY_MAX_AGE
+
+
+def build_face_meta(customer_rows):
+    """customer 시트 rows -> { sprite_ref: {gender, age, region, eligible} }.
+    원본 소유자(name_kr==sprite_ref) 행을 대표값으로 사용(클론은 같은 속성 복제이므로 동일)."""
+    by_sprite = {}
+    for r in customer_rows:
+        by_sprite.setdefault(r["sprite_ref"], []).append(r)
+    meta = {}
+    for sprite, rs in by_sprite.items():
+        owner = next((x for x in rs if x.get("name_kr") == sprite), rs[0])
+        try:
+            age = int(owner.get("age", 0))
+        except (TypeError, ValueError):
+            age = 0
+        meta[sprite] = {
+            "gender": owner.get("gender", ""),
+            "age": age,
+            "region": _nat_region(owner.get("nationality", "")),
+            "eligible": _decoy_eligible(owner.get("character_type", ""), age),
+        }
+    return meta
+
+
+# 모듈 전역 캐시. build() 에서 source 로드 후 채워진다(테스트가 직접 호출 시에도 안전하게 lazy 로드).
+FACE_META = {}
+
+
+def _ensure_face_meta():
+    global FACE_META
+    if not FACE_META:
+        FACE_META = build_face_meta(rows(load_source()["customer"]))
+    return FACE_META
+
+
+def pick_decoy_face(self_sprite, self_gender, self_age, self_nat, *ctx):
+    """사진 불일치 디코이를 '같은 성별 + 나이 근접 + 같은 국적권' 우선으로 결정론 선택.
+
+    절차(본인/부적격/에셋없음 제외 후):
+      1) 같은 성별 + 같은 권역 + 나이 ±DECOY_AGE_WINDOW   (가장 그럴듯)
+      2) 같은 성별 + 나이 ±DECOY_AGE_WINDOW (권역 무관)
+      3) 같은 성별 + 같은 권역 (나이 무관)
+      4) 같은 성별 내 나이 최근접 1명들(동률 풀)
+    각 단계에서 후보가 있으면 그 단계 풀에서 seeded_pick(결정론). 같은 성별 후보가 전혀 없으면
+    적격 전체에서 나이 최근접 폴백. 그래도 없으면 'photo_mismatch'.
+    """
+    meta = _ensure_face_meta()
+    try:
+        my_age = int(self_age)
+    except (TypeError, ValueError):
+        my_age = 0
+    my_region = _nat_region(self_nat)
+
+    # 적격 + 본인 제외 후보. (sprite, gender, age, region)
+    cands = [
+        (sp, m["gender"], m["age"], m["region"])
+        for sp, m in meta.items()
+        if m["eligible"] and sp != self_sprite
+    ]
+    if not cands:
+        return "photo_mismatch"
+
+    same_gender = [c for c in cands if c[1] == self_gender]
+
+    def near(c):
+        return abs(c[2] - my_age) <= DECOY_AGE_WINDOW
+
+    # 1) 같은 성별 + 같은 권역 + 나이 근접
+    tier = [c for c in same_gender if c[3] == my_region and near(c)]
+    # 2) 같은 성별 + 나이 근접(권역 무관)
+    if not tier:
+        tier = [c for c in same_gender if near(c)]
+    # 3) 같은 성별 + 같은 권역(나이 무관)
+    if not tier:
+        tier = [c for c in same_gender if c[3] == my_region]
+    # 4) 같은 성별 내 나이 최근접(동률 풀)
+    if not tier and same_gender:
+        best = min(abs(c[2] - my_age) for c in same_gender)
+        tier = [c for c in same_gender if abs(c[2] - my_age) == best]
+    # 폴백: 같은 성별 후보가 전무 → 적격 전체에서 나이 최근접
+    if not tier:
+        best = min(abs(c[2] - my_age) for c in cands)
+        tier = [c for c in cands if abs(c[2] - my_age) == best]
+
+    names = sorted(c[0] for c in tier)   # 정렬로 결정론적 인덱싱 안정화
+    return seeded_pick(names, "decoyface", *ctx)
+
+
 # ── 자료 로드 & 인덱싱 ───────────────────────────────────────
 def load_source():
     with open(SOURCE, encoding="utf-8") as f:
@@ -350,9 +530,13 @@ def apply_expire(doc, fields):
     return "만료일"
 
 
-def apply_defect(doc, fields, corruption_type, target_key, fake_pool, ctx, ctx_self_name=""):
+def apply_defect(doc, fields, corruption_type, target_key, fake_pool, ctx,
+                 ctx_self_name="", ctx_self_gender="", ctx_self_sprite="",
+                 ctx_self_age="", ctx_self_nat=""):
     """단일 결함 1개 주입. 변조된 한글 라벨을 반환.
-    ctx_self_name: 사진 결함 시 디코이로 본인 에셋을 고르지 않도록 손님 본인 한글 이름."""
+    ctx_self_name: 사진 결함 시 디코이로 본인 에셋을 고르지 않도록 손님 본인 한글 이름.
+    ctx_self_gender/ctx_self_sprite: 사진 결함 시 같은 성별의 다른 얼굴을 고르기 위한 손님 성별/본인 sprite_ref.
+    ctx_self_age/ctx_self_nat: 사진 결함 시 나이대 근접·국적권 매칭에 쓰는 손님 나이/국적."""
     label = KO_LABEL.get(target_key, target_key)
 
     if corruption_type == "EXPIRE":
@@ -379,18 +563,20 @@ def apply_defect(doc, fields, corruption_type, target_key, fake_pool, ctx, ctx_s
         return label
 
     if corruption_type == "MISMATCH_PHOTO":
-        # 사진 결함: 손님 본인이 아닌 다른 실존 인물 에셋(한글 이름)을 디코이로 끼운다.
-        # → 얼굴 대조 시 customer.spriteRef(본인) ≠ 여권 사진(디코이) 로 불일치 적발 가능.
-        # fake_value_pool 의 face 항목(실존 PNG 이름)에서 본인 이름을 제외하고 결정론적 선택.
-        # ctx = (day, slot, customer_id). 본인 이름은 ctx_self_name 으로 전달(없으면 제외 생략).
-        self_name = (ctx_self_name or "").strip()
-        face_cands = [r["fake_value"] for r in fake_pool
-                      if r["field"] == "face" and (r["fake_value"] or "").strip() != self_name]
-        if face_cands:
-            doc["spriteRef"] = seeded_pick(face_cands, "fakeface", *ctx)
-        else:
-            # 폴백: face 풀이 비었으면 표식만 남긴다(로드 실패 → 플레이스홀더).
-            doc["spriteRef"] = "photo_mismatch"
+        # 사진 결함: 손님 본인이 아닌 '그럴듯한 다른 실존 인물' 얼굴 에셋을 디코이로 끼운다.
+        # → 얼굴 대조 시 customer.spriteRef(본인) ≠ 여권 사진(디코이) 로 '불일치' 적발이 정답.
+        # 현실성: 같은 성별 + 나이대 근접 + 가능하면 같은 국적권. 노인/특수/범죄 얼굴은 후보에서 제외.
+        #   (build_face_meta 가 customer 시트에서 적격 후보만 도출 → 외형이 튀는 디코이가 안 나온다.)
+        # ctx = (day, slot, customer_id). 본인은 ctx_self_sprite(=customer.sprite_ref) 로 제외.
+        self_sprite = (ctx_self_sprite or ctx_self_name or "").strip()
+        gender = (ctx_self_gender or "").strip()
+        decoy = pick_decoy_face(self_sprite, gender, ctx_self_age, ctx_self_nat, *ctx)
+        if not decoy or decoy == "photo_mismatch":
+            # 폴백: 적격 메타가 비는 극단 상황 — fake_value_pool 의 face 항목(실존 PNG)에서 본인 제외.
+            face_cands = [r["fake_value"] for r in fake_pool
+                          if r["field"] == "face" and (r["fake_value"] or "").strip() != self_sprite]
+            decoy = seeded_pick(face_cands, "fakeface", *ctx) if face_cands else "photo_mismatch"
+        doc["spriteRef"] = decoy
         return "사진"
 
     if corruption_type == "FORGE_NUMBER":
@@ -767,8 +953,12 @@ def build():
 
     # 시나리오 대사 인덱스(characterType -> 블록들). [TODO 대사] 채우기에 사용.
     branch_index = index_branch(load_branch())
+    # 캐릭터별 손글 대사 인덱스(customerId -> entry). 유형 대사 위에 덮어쓴다.
+    char_index = load_char_dialogue()
     dialogue_report = {}   # (dayCharType, caseType, gameResult) -> {filled,todo}
+    char_report = {}       # (caseType, gameResult) -> {override, skip}
     authored_report = {}   # (ctype, caseType, gameResult) -> {authored, still_todo}
+    polish_report = {}     # {removed, foreign, yoon, unmapped:[...]} 누적(정화 통계)
 
     report = {}
 
@@ -837,71 +1027,96 @@ def build():
                     stats["abnormal"] += 1
             else:
                 stats["abnormal"] += 1
-                # 상황별 규칙 선택: 결함서류가 요구 서류에 포함된 규칙 우선
-                doc_name_map = {"여권": "여권", "비자": "비자", "pcr_test": "PCR검사서",
-                                "employment_cert": "취업증빙"}
-                # 종류 기반 결함 선택(전염병 환자=PCR 결함 규칙을 가짐 → 자동으로 PCR 주입).
-                candidate_rules = [cr for cr in defect_rules.get(ctype, [])
-                                   if cr.get("corruption_type", "NONE") != "NONE"]
-                # 결함서류가 요구 서류에 포함된 규칙 중, 비여권(특수 서류) 우선 선택.
-                rule = None
-                applicable = [cr for cr in candidate_rules
-                              if doc_name_map.get(cr["defect_document"], cr["defect_document"]) in req_docs]
-                non_passport = [cr for cr in applicable if cr["defect_document"] != "여권"]
-                if non_passport:
-                    rule = seeded_pick(non_passport, "rulesel", day, slot, cid)
-                elif applicable:
-                    rule = seeded_pick(applicable, "rulesel", day, slot, cid)
-                if rule is None and candidate_rules:
-                    # 폴백: corruption 있는 첫 규칙
-                    rule = candidate_rules[0]
-                applied = False
-                if rule and rule.get("corruption_type", "NONE") != "NONE":
-                    # 복수 corruption_type / target_field -> 시드로 1개 선택(쌍으로)
-                    ct_opts = [x.strip() for x in rule["corruption_type"].replace("|", "/").split("/")]
-                    tf_opts = [x.strip() for x in rule["target_field"].replace("|", "/").split("/")]
-                    # 짝 맞추기: 같은 인덱스로 묶되 길이 다르면 잘라서 안전하게
-                    pairs = []
-                    n = max(len(ct_opts), len(tf_opts))
-                    for i in range(n):
-                        ct = ct_opts[i] if i < len(ct_opts) else ct_opts[-1]
-                        tf = tf_opts[i] if i < len(tf_opts) else tf_opts[-1]
-                        pairs.append((ct, tf))
-                    ct, tf = seeded_pick(pairs, "defect", day, slot, cid)
-                    # 설계 고정: 특정 손님은 규칙의 유효 쌍 안에서 결함 종류를 지정값으로 덮어쓴다.
-                    forced = FORCED_DEFECT.get(str(cid))
-                    if forced and forced in pairs:
-                        ct, tf = forced
-
-                    # 결함 대상 서류 찾기
-                    defect_doc_name = rule["defect_document"]
-                    doc_map = {"여권": "여권", "비자": "비자", "pcr_test": "PCR검사서",
-                               "employment_cert": "취업증빙"}
-                    target_doc_type = doc_map.get(defect_doc_name, defect_doc_name)
-                    target_doc = next((d for d in documents if d["documentType"] == target_doc_type), None)
-
-                    if target_doc is not None:
-                        vlabel = apply_defect(target_doc, target_doc["fields"], ct, tf, fake_pool,
-                                              (day, slot, cid), ctx_self_name=cust.get("name_kr", ""))
-                        if vlabel:
-                            target_doc["variant"] = "비정상"
-                            target_doc["violationField"] = vlabel
-                            violation_label = vlabel
-                            applied = True
-                            applied_ct = ct
-                            applied_tf = tf
-                            applied_doc = rule["defect_document"]
-                            stats["defects"][rule["rule_id"]] = stats["defects"].get(rule["rule_id"], 0) + 1
-                if not applied:
-                    # 결함 주입 실패(요구 서류에 결함서류가 없거나 NONE) → 여권 만료로 폴백
-                    apply_expire(pdoc, pdoc["fields"])
+                # ── 사진 결함 강제(외국인 관광객, 손글 스크립트 '여권 사진 불일치' 슬롯) ──
+                # 규칙 선택보다 우선. 여권 photo_ref 를 같은 성별의 다른 인물 얼굴로 교체해
+                # 얼굴 대조 시 '불일치'(=거절 정답)가 되게 한다. 기존 결함을 '대체'(추가 아님).
+                forced_photo = (str(cid) in FORCED_PHOTO_DEFECT_TOURIST
+                                and ctype == TOURIST_TYPE)
+                if forced_photo:
+                    vlabel = apply_defect(
+                        pdoc, pdoc["fields"], "MISMATCH_PHOTO", "photo_ref", fake_pool,
+                        (day, slot, cid),
+                        ctx_self_name=cust.get("name_kr", ""),
+                        ctx_self_gender=cust.get("gender", ""),
+                        ctx_self_sprite=cust.get("sprite_ref", ""),
+                        ctx_self_age=cust.get("age", ""),
+                        ctx_self_nat=cust.get("nationality", ""))
                     pdoc["variant"] = "비정상"
-                    pdoc["violationField"] = "만료일"
-                    violation_label = "만료일"
-                    applied_ct = "EXPIRE"
-                    applied_tf = "expiry_date"
+                    pdoc["violationField"] = vlabel
+                    violation_label = vlabel
+                    applied_ct = "MISMATCH_PHOTO"
+                    applied_tf = "photo_ref"
                     applied_doc = "여권"
-                    stats["defects"]["fallback"] = stats["defects"].get("fallback", 0) + 1
+                    stats["defects"]["photo_forced"] = stats["defects"].get("photo_forced", 0) + 1
+                    # baked 변이/정산은 기존 흐름과 동일하게 아래에서 처리되며, 규칙 선택은 건너뛴다.
+                    # (외국인 관광객 분실/출국X 변이는 사진 불일치엔 해당 없음 → defect_variant="")
+                    # 강제 사진 결함을 적용했으니 일반 규칙 주입 블록을 통째로 우회한다.
+                if not forced_photo:
+                    # 상황별 규칙 선택: 결함서류가 요구 서류에 포함된 규칙 우선
+                    doc_name_map = {"여권": "여권", "비자": "비자", "pcr_test": "PCR검사서",
+                                    "employment_cert": "취업증빙"}
+                    # 종류 기반 결함 선택(전염병 환자=PCR 결함 규칙을 가짐 → 자동으로 PCR 주입).
+                    candidate_rules = [cr for cr in defect_rules.get(ctype, [])
+                                       if cr.get("corruption_type", "NONE") != "NONE"]
+                    # 결함서류가 요구 서류에 포함된 규칙 중, 비여권(특수 서류) 우선 선택.
+                    rule = None
+                    applicable = [cr for cr in candidate_rules
+                                  if doc_name_map.get(cr["defect_document"], cr["defect_document"]) in req_docs]
+                    non_passport = [cr for cr in applicable if cr["defect_document"] != "여권"]
+                    if non_passport:
+                        rule = seeded_pick(non_passport, "rulesel", day, slot, cid)
+                    elif applicable:
+                        rule = seeded_pick(applicable, "rulesel", day, slot, cid)
+                    if rule is None and candidate_rules:
+                        # 폴백: corruption 있는 첫 규칙
+                        rule = candidate_rules[0]
+                    applied = False
+                    if rule and rule.get("corruption_type", "NONE") != "NONE":
+                        # 복수 corruption_type / target_field -> 시드로 1개 선택(쌍으로)
+                        ct_opts = [x.strip() for x in rule["corruption_type"].replace("|", "/").split("/")]
+                        tf_opts = [x.strip() for x in rule["target_field"].replace("|", "/").split("/")]
+                        # 짝 맞추기: 같은 인덱스로 묶되 길이 다르면 잘라서 안전하게
+                        pairs = []
+                        n = max(len(ct_opts), len(tf_opts))
+                        for i in range(n):
+                            ct = ct_opts[i] if i < len(ct_opts) else ct_opts[-1]
+                            tf = tf_opts[i] if i < len(tf_opts) else tf_opts[-1]
+                            pairs.append((ct, tf))
+                        ct, tf = seeded_pick(pairs, "defect", day, slot, cid)
+                        # 설계 고정: 특정 손님은 규칙의 유효 쌍 안에서 결함 종류를 지정값으로 덮어쓴다.
+                        forced = FORCED_DEFECT.get(str(cid))
+                        if forced and forced in pairs:
+                            ct, tf = forced
+
+                        # 결함 대상 서류 찾기
+                        defect_doc_name = rule["defect_document"]
+                        doc_map = {"여권": "여권", "비자": "비자", "pcr_test": "PCR검사서",
+                                   "employment_cert": "취업증빙"}
+                        target_doc_type = doc_map.get(defect_doc_name, defect_doc_name)
+                        target_doc = next((d for d in documents if d["documentType"] == target_doc_type), None)
+
+                        if target_doc is not None:
+                            vlabel = apply_defect(target_doc, target_doc["fields"], ct, tf, fake_pool,
+                                                  (day, slot, cid), ctx_self_name=cust.get("name_kr", ""))
+                            if vlabel:
+                                target_doc["variant"] = "비정상"
+                                target_doc["violationField"] = vlabel
+                                violation_label = vlabel
+                                applied = True
+                                applied_ct = ct
+                                applied_tf = tf
+                                applied_doc = rule["defect_document"]
+                                stats["defects"][rule["rule_id"]] = stats["defects"].get(rule["rule_id"], 0) + 1
+                    if not applied:
+                        # 결함 주입 실패(요구 서류에 결함서류가 없거나 NONE) → 여권 만료로 폴백
+                        apply_expire(pdoc, pdoc["fields"])
+                        pdoc["variant"] = "비정상"
+                        pdoc["violationField"] = "만료일"
+                        violation_label = "만료일"
+                        applied_ct = "EXPIRE"
+                        applied_tf = "expiry_date"
+                        applied_doc = "여권"
+                        stats["defects"]["fallback"] = stats["defects"].get("fallback", 0) + 1
 
             # defect_variant 도출(baked 로 가능한 변이만; 그 외 ""→게임플레이 결정)
             defect_variant = resolve_defect_variant(ctype, is_normal, applied_ct, applied_tf, applied_doc)
@@ -954,10 +1169,15 @@ def build():
             # 시나리오 대사 주입: dialogueCases 의 [TODO 대사] text 를 branch 대사로 교체.
             # 구조(개수/order/speaker) 불변. 매핑 불가 라인은 [TODO] 유지(리포트에 집계).
             fill_customer_dialogue(customer_entry, branch_index, dialogue_report)
+            # 1.5차: 캐릭터별 손글 대사 오버라이드(유형 위에 덮어씀). 손님 라인 text 만 교체.
+            # 캐논에 없는 라인은 유형 대사 유지. 심사관 라인·구조는 불변.
+            apply_character_override(customer_entry, char_index, char_report)
             # 2차: branch 에 없는 잔여 [TODO 대사] 를 작성 폴백으로 채운다(구조 불변, text 만).
             fill_authored(customer_entry, authored_report)
             # 3차: 손님측 화자명(캐릭터/손님)을 그 손님 실제 이름(nameKr)으로 치환(표시용).
             localize_speakers(customer_entry)
+            # 4차(정화): 액션/시스템 라인 제거 + 외국인 언어 통일 + 윤서린 거절 변주.
+            polish_customer(customer_entry, polish_report)
             day_customers.append(customer_entry)
 
         # rule_book 은 사용자가 컬럼을 줄일 수 있다(related_field 제거 등) → .get 으로 흡수.
@@ -979,13 +1199,20 @@ def build():
 
         data = {"day": day, "customers": day_customers, "rules": day_rules, "news": day_news}
 
+        # day1.json 은 수작업 완성본(손글 톤)이므로 절대 덮어쓰지 않는다.
+        # build_days 는 day2~14 만 영속화한다(작업 지시: "build_days 가 2~14만 생성").
+        # BUILD_DAYS_INCLUDE_DAY1=1 로 명시할 때만 day1 도 쓴다(스테이징 비교용).
+        if day == 1 and os.environ.get("BUILD_DAYS_INCLUDE_DAY1") != "1":
+            report[day] = stats
+            continue
+
         out_path = os.path.join(OUT_DIR, f"day{day}.json")
         with open(out_path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
 
         report[day] = stats
 
-    return report, dialogue_report, authored_report
+    return report, dialogue_report, authored_report, char_report, polish_report
 
 
 def write_report(report):
@@ -1050,13 +1277,34 @@ def write_authored_report(authored_report):
     return grand_a, grand_t
 
 
+def write_char_report(char_report):
+    """캐릭터 오버라이드 커버리지(케이스×결과별 교체/건너뜀 손님 라인 수)."""
+    lines = ["# 캐릭터 손글 대사 오버라이드 커버리지", ""]
+    grand_ov = grand_sk = 0
+    for (casetype, gr), v in sorted(char_report.items()):
+        grand_ov += v["override"]
+        grand_sk += v["skip"]
+        lines.append(f"  - {casetype} / {gr}: 교체 {v['override']} / 건너뜀 {v['skip']}")
+    lines.insert(1, f"총 교체 {grand_ov} / 총 건너뜀(캐논 결측·연출보존) {grand_sk}")
+    with open(os.path.join(os.path.dirname(__file__), "character_override_report.txt"),
+              "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+    return grand_ov, grand_sk
+
+
 if __name__ == "__main__":
-    rep, drep, arep = build()
+    rep, drep, arep, crep, prep = build()
     write_report(rep)
     gf, gt = write_dialogue_report(drep)
     ga, gtleft = write_authored_report(arep)
+    co, cs = write_char_report(crep)
     # stdout 한글 깨짐 방지 위해 숫자만 출력
     total = sum(v["normal"] + v["abnormal"] for v in rep.values())
     print(f"days generated: {len(rep)} customers total: {total}")
     print(f"branch filled: {gf} (branch todo: {gt})")
+    print(f"char override: {co} (skipped: {cs})")
     print(f"authored filled: {ga} todo remaining: {gtleft}")
+    print(f"polish: removed action/system={prep.get('removed', 0)} "
+          f"foreign normalized={prep.get('foreign', 0)} "
+          f"yoon variants={prep.get('yoon', 0)} "
+          f"unmapped foreign lines={len(prep.get('unmapped', []))}")

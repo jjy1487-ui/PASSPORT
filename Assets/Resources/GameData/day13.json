@@ -2,7 +2,7 @@
   "day": 13,
   "customers": [
     {
-      "customerId": 1050,
+      "customerId": 87,
       "slot": 1,
       "nameKr": "우 팅",
       "nameEn": "WU TING",
@@ -12,14 +12,14 @@
       "age": 32,
       "spriteRef": "왕 웨이",
       "characterType": "외국인 관광객",
-      "defectVariant": "출국X",
+      "defectVariant": "",
       "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "왕 웨이",
+          "variant": "비정상",
+          "violationField": "사진",
+          "spriteRef": "장 웨이",
           "country": "CHN",
           "fields": [
             {
@@ -61,8 +61,8 @@
         },
         {
           "documentType": "비자",
-          "variant": "비정상",
-          "violationField": "만료일",
+          "variant": "정상",
+          "violationField": "없음",
           "spriteRef": "",
           "country": "",
           "fields": [
@@ -93,12 +93,12 @@
             },
             {
               "label": "발급일",
-              "value": "2022-01-01",
+              "value": "2024-09-17",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2023-01-01",
+              "value": "2026-09-17",
               "key": "expiry_date"
             },
             {
@@ -123,12 +123,12 @@
             {
               "order": 1,
               "speaker": "우 팅",
-              "text": "Hello! Good morning~"
+              "text": "您好，请帮我看看。 (안녕하세요, 좀 봐주세요.)"
             },
             {
               "order": 2,
               "speaker": "우 팅",
-              "text": "Here is my passport."
+              "text": "这是我的护照。 (여기 여권 드릴게요.)"
             }
           ]
         },
@@ -145,7 +145,7 @@
             {
               "order": 2,
               "speaker": "우 팅",
-              "text": "Thank you so much! Have a wonderful day!"
+              "text": "谢谢！服务真好。 (감사합니다! 친절하시네요.)"
             }
           ]
         },
@@ -159,16 +159,16 @@
               "speaker": "심사관",
               "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다.",
               "claim": {
-                "attr": "expiry_date",
+                "attr": "face",
                 "value": "",
-                "label": "만료일 불일치",
+                "label": "사진 불일치",
                 "unlocksScan": ""
               }
             },
             {
               "order": 2,
               "speaker": "우 팅",
-              "text": "Oh no... I'm so sorry, I had no idea."
+              "text": "对不起，我不知道这个。 (죄송합니다. 이건 몰랐어요.)"
             }
           ]
         },
@@ -185,7 +185,7 @@
             {
               "order": 2,
               "speaker": "우 팅",
-              "text": "Thank you! That was quick~"
+              "text": "谢谢！服务真好。 (감사합니다! 친절하시네요.)"
             }
           ]
         },
@@ -202,7 +202,7 @@
             {
               "order": 2,
               "speaker": "우 팅",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "对不起，我不知道这个。 (죄송합니다. 이건 몰랐어요.)"
             },
             {
               "order": 3,
@@ -212,7 +212,7 @@
             {
               "order": 4,
               "speaker": "우 팅",
-              "text": "Oh 정말 다행이에요! 고마워요!"
+              "text": "啊，太好了！谢谢您！ (아, 정말 다행이에요! 고마워요!)"
             }
           ]
         },
@@ -229,7 +229,7 @@
             {
               "order": 2,
               "speaker": "우 팅",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "对不起，我不知道这个。 (죄송합니다. 이건 몰랐어요.)"
             },
             {
               "order": 3,
@@ -239,7 +239,7 @@
             {
               "order": 4,
               "speaker": "우 팅",
-              "text": "정말 다행이에요. 여행할 수 있어서 다행이에요."
+              "text": "真是太好了，能旅行真让人安心。 (정말 다행이에요. 여행할 수 있어서 다행이에요.)"
             }
           ]
         },
@@ -256,7 +256,7 @@
             {
               "order": 2,
               "speaker": "우 팅",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "对不起，我不知道这个。 (죄송합니다. 이건 몰랐어요.)"
             },
             {
               "order": 3,
@@ -266,7 +266,7 @@
             {
               "order": 4,
               "speaker": "우 팅",
-              "text": "기분이 안 좋아요. You are so rude."
+              "text": "我有点不高兴。您太没礼貌了。 (기분이 좀 상하네요. 너무 무례하시네요.)"
             }
           ]
         }
@@ -277,7 +277,7 @@
       "fingerprint": null
     },
     {
-      "customerId": 1051,
+      "customerId": 88,
       "slot": 2,
       "nameKr": "권서윤",
       "nameEn": "KWON SEOYUN",
@@ -344,7 +344,7 @@
             {
               "order": 1,
               "speaker": "권서윤",
-              "text": "좋은 아침이예요! 너무 설레네요."
+              "text": "안녕하세요. 테러 뉴스 보고 좀 망설였는데... 그래도 친척이 기다리고 있어서요. (조용히 여권 내밀며)"
             },
             {
               "order": 2,
@@ -366,7 +366,7 @@
             {
               "order": 2,
               "speaker": "권서윤",
-              "text": "감사합니다! 즐거운 하루 되세요."
+              "text": "감사합니다. 잘 다녀오겠습니다."
             }
           ]
         },
@@ -383,7 +383,7 @@
             {
               "order": 2,
               "speaker": "권서윤",
-              "text": "앗 이 부분을 놓쳤네요! 죄송합니다."
+              "text": "왜요? 문제가 뭔가요?"
             }
           ]
         },
@@ -400,7 +400,7 @@
             {
               "order": 2,
               "speaker": "권서윤",
-              "text": "감사합니다! 즐거운 하루 되세요."
+              "text": "감사합니다. 잘 다녀오겠습니다."
             }
           ]
         },
@@ -417,7 +417,7 @@
             {
               "order": 2,
               "speaker": "권서윤",
-              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
+              "text": "왜요? 문제가 뭔가요?"
             },
             {
               "order": 3,
@@ -444,7 +444,7 @@
             {
               "order": 2,
               "speaker": "권서윤",
-              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
+              "text": "왜요? 문제가 뭔가요?"
             },
             {
               "order": 3,
@@ -471,7 +471,7 @@
             {
               "order": 2,
               "speaker": "권서윤",
-              "text": "말도 안 돼요! 제가 꼼꼼히 봤다구요!"
+              "text": "왜요? 문제가 뭔가요?"
             },
             {
               "order": 3,
@@ -492,7 +492,7 @@
       "fingerprint": null
     },
     {
-      "customerId": 1052,
+      "customerId": 89,
       "slot": 3,
       "nameKr": "다카하시 리쿠",
       "nameEn": "TAKAHASHI RIKU",
@@ -502,14 +502,14 @@
       "age": 36,
       "spriteRef": "다나카 하루토",
       "characterType": "외국인 관광객",
-      "defectVariant": "출국X",
+      "defectVariant": "",
       "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "다나카 하루토",
+          "variant": "비정상",
+          "violationField": "사진",
+          "spriteRef": "왕 웨이",
           "country": "JPN",
           "fields": [
             {
@@ -551,8 +551,8 @@
         },
         {
           "documentType": "비자",
-          "variant": "비정상",
-          "violationField": "만료일",
+          "variant": "정상",
+          "violationField": "없음",
           "spriteRef": "",
           "country": "",
           "fields": [
@@ -583,12 +583,12 @@
             },
             {
               "label": "발급일",
-              "value": "2022-01-01",
+              "value": "2024-09-27",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2023-01-01",
+              "value": "2026-09-27",
               "key": "expiry_date"
             },
             {
@@ -613,12 +613,12 @@
             {
               "order": 1,
               "speaker": "다카하시 리쿠",
-              "text": "Hello! Good morning~"
+              "text": "色々あって…来るか迷いましたが、来ました。パスポートです。 (여러 일이 있어서… 올지 망설였는데, 결국 왔어요. 여권입니다.)"
             },
             {
               "order": 2,
               "speaker": "다카하시 리쿠",
-              "text": "Here is my passport."
+              "text": "パスポートをどうぞ。 (여기 여권 드릴게요.)"
             }
           ]
         },
@@ -635,7 +635,7 @@
             {
               "order": 2,
               "speaker": "다카하시 리쿠",
-              "text": "Thank you so much! Have a wonderful day!"
+              "text": "ありがとう！早く見て回りたいです！ (고맙습니다! 빨리 둘러보고 싶어요!)"
             }
           ]
         },
@@ -649,16 +649,16 @@
               "speaker": "심사관",
               "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다.",
               "claim": {
-                "attr": "expiry_date",
+                "attr": "face",
                 "value": "",
-                "label": "만료일 불일치",
+                "label": "사진 불일치",
                 "unlocksScan": ""
               }
             },
             {
               "order": 2,
               "speaker": "다카하시 리쿠",
-              "text": "Oh no... I'm so sorry, I had no idea."
+              "text": "あ、そうなんですか。すみません。 (아, 그래요? 죄송합니다.)"
             }
           ]
         },
@@ -675,7 +675,7 @@
             {
               "order": 2,
               "speaker": "다카하시 리쿠",
-              "text": "Thank you! That was quick~"
+              "text": "ありがとう！早く見て回りたいです！ (고맙습니다! 빨리 둘러보고 싶어요!)"
             }
           ]
         },
@@ -692,7 +692,7 @@
             {
               "order": 2,
               "speaker": "다카하시 리쿠",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "あ、そうなんですか。すみません。 (아, 그래요? 죄송합니다.)"
             },
             {
               "order": 3,
@@ -702,7 +702,7 @@
             {
               "order": 4,
               "speaker": "다카하시 리쿠",
-              "text": "Oh 정말 다행이에요! 고마워요!"
+              "text": "ああ、よかった！ありがとうございます！ (아, 정말 다행이에요! 고마워요!)"
             }
           ]
         },
@@ -719,7 +719,7 @@
             {
               "order": 2,
               "speaker": "다카하시 리쿠",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "あ、そうなんですか。すみません。 (아, 그래요? 죄송합니다.)"
             },
             {
               "order": 3,
@@ -729,7 +729,7 @@
             {
               "order": 4,
               "speaker": "다카하시 리쿠",
-              "text": "정말 다행이에요. 여행할 수 있어서 다행이에요."
+              "text": "本当によかったです。旅行できて安心しました。 (정말 다행이에요. 여행할 수 있어서 다행이에요.)"
             }
           ]
         },
@@ -746,7 +746,7 @@
             {
               "order": 2,
               "speaker": "다카하시 리쿠",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "あ、そうなんですか。すみません。 (아, 그래요? 죄송합니다.)"
             },
             {
               "order": 3,
@@ -756,7 +756,7 @@
             {
               "order": 4,
               "speaker": "다카하시 리쿠",
-              "text": "기분이 안 좋아요. You are so rude."
+              "text": "少し気分が悪いです。失礼ですよ。 (기분이 좀 상하네요. 너무 무례하시네요.)"
             }
           ]
         }
@@ -927,12 +927,12 @@
             {
               "order": 1,
               "speaker": "제시카 윌슨",
-              "text": "Hello! I have my university acceptance letter with me too."
+              "text": "Hello. Crowded places make me a little nervous, but what can you do. (억지로 웃으며) Here's my passport. (안녕하세요. 사람 많은 데 오는 게 좀 무섭긴 한데, 뭐 별 수 없죠. 여권 여기요.)"
             },
             {
               "order": 2,
               "speaker": "제시카 윌슨",
-              "text": "체류 관련 서류도 같이 드릴게요."
+              "text": "I'll give you my residence documents as well. (체류 관련 서류도 같이 드릴게요.)"
             }
           ]
         },
@@ -949,7 +949,7 @@
             {
               "order": 2,
               "speaker": "제시카 윌슨",
-              "text": "Thank you! I'm so excited to start university!"
+              "text": "Thank you! Have a good day. (감사합니다! 좋은 하루 보내세요.)"
             }
           ]
         },
@@ -972,7 +972,7 @@
             {
               "order": 2,
               "speaker": "제시카 윌슨",
-              "text": "Oh no... I see. I'll come back with everything in order."
+              "text": "I understand. I'll sort it out. (알겠습니다. 제가 정리할게요.)"
             }
           ]
         },
@@ -989,7 +989,7 @@
             {
               "order": 2,
               "speaker": "제시카 윌슨",
-              "text": "Thank you! Can't wait to get started!"
+              "text": "Thank you! Have a good day. (감사합니다! 좋은 하루 보내세요.)"
             }
           ]
         },
@@ -1006,7 +1006,7 @@
             {
               "order": 2,
               "speaker": "제시카 윌슨",
-              "text": "I have all the right documents including my acceptance letter!"
+              "text": "I understand. I'll sort it out. (알겠습니다. 제가 정리할게요.)"
             },
             {
               "order": 3,
@@ -1016,7 +1016,7 @@
             {
               "order": 4,
               "speaker": "제시카 윌슨",
-              "text": "다행이네요. 감사합니다."
+              "text": "What a relief. Thank you. (다행이네요. 감사합니다.)"
             }
           ]
         },
@@ -1033,7 +1033,7 @@
             {
               "order": 2,
               "speaker": "제시카 윌슨",
-              "text": "I have all the right documents including my acceptance letter!"
+              "text": "I understand. I'll sort it out. (알겠습니다. 제가 정리할게요.)"
             },
             {
               "order": 3,
@@ -1043,7 +1043,7 @@
             {
               "order": 4,
               "speaker": "제시카 윌슨",
-              "text": "네, 확인 감사합니다."
+              "text": "Yes, thank you for checking. (네, 확인 감사합니다.)"
             }
           ]
         },
@@ -1060,7 +1060,7 @@
             {
               "order": 2,
               "speaker": "제시카 윌슨",
-              "text": "I have all the right documents including my acceptance letter!"
+              "text": "I understand. I'll sort it out. (알겠습니다. 제가 정리할게요.)"
             },
             {
               "order": 3,
@@ -1070,7 +1070,7 @@
             {
               "order": 4,
               "speaker": "제시카 윌슨",
-              "text": "하... 이제야 되네요. 꼼꼼히 봐 주세요."
+              "text": "Ugh... finally. Please look more carefully. (하... 이제야 되네요. 좀 꼼꼼히 봐 주세요.)"
             }
           ]
         }
@@ -1081,7 +1081,7 @@
       "fingerprint": null
     },
     {
-      "customerId": 1053,
+      "customerId": 90,
       "slot": 5,
       "nameKr": "황민서",
       "nameEn": "HWANG MINSEO",
@@ -1148,7 +1148,7 @@
             {
               "order": 1,
               "speaker": "황민서",
-              "text": "빨리 좀 해요, 나 바쁜 사람이야."
+              "text": "테러 이후로 공항이 공포의 장소가 됐네, 얼른 뜨던가 해야지."
             },
             {
               "order": 2,
@@ -1170,7 +1170,7 @@
             {
               "order": 2,
               "speaker": "황민서",
-              "text": "흥, 당연히 통과지. 시간 아깝게 뭘 그렇게 들여다봐."
+              "text": "뭘 이렇게 오래 걸려요. 됐어요."
             }
           ]
         },
@@ -1187,7 +1187,7 @@
             {
               "order": 2,
               "speaker": "황민서",
-              "text": "에이 진짜... 알겠어요, 알겠어."
+              "text": "말이 안 되잖아요!"
             }
           ]
         },
@@ -1204,7 +1204,7 @@
             {
               "order": 2,
               "speaker": "황민서",
-              "text": "흥, 당연히 통과지. 시간 아깝게 뭘 그렇게 들여다봐."
+              "text": "뭘 이렇게 오래 걸려요. 됐어요."
             }
           ]
         },
@@ -1221,7 +1221,7 @@
             {
               "order": 2,
               "speaker": "황민서",
-              "text": "상관 불러요, 상관! 이게 말이 돼?"
+              "text": "말이 안 되잖아요!"
             },
             {
               "order": 3,
@@ -1248,7 +1248,7 @@
             {
               "order": 2,
               "speaker": "황민서",
-              "text": "상관 불러요, 상관! 이게 말이 돼?"
+              "text": "말이 안 되잖아요!"
             },
             {
               "order": 3,
@@ -1275,7 +1275,7 @@
             {
               "order": 2,
               "speaker": "황민서",
-              "text": "상관 불러요, 상관! 이게 말이 돼?"
+              "text": "말이 안 되잖아요!"
             },
             {
               "order": 3,
@@ -1296,7 +1296,7 @@
       "fingerprint": null
     },
     {
-      "customerId": 1054,
+      "customerId": 91,
       "slot": 6,
       "nameKr": "배은서",
       "nameEn": "BAE EUNSEO",
@@ -1307,7 +1307,7 @@
       "spriteRef": "서지호",
       "characterType": "성형 수술 고객",
       "defectVariant": "",
-      "correctResult": "정상 거절",
+      "correctResult": "정상 승인",
       "documents": [
         {
           "documentType": "여권",
@@ -1363,12 +1363,12 @@
             {
               "order": 1,
               "speaker": "배은서",
-              "text": "안녕하세요, 서류 드릴게요. [TODO 대사]"
+              "text": "안녕하세요. (마스크를 고쳐 쓰며) 테러 이후로 사람들이 긴장해 있는 것 같아요. 저는 수술하러 왔어요."
             },
             {
               "order": 2,
               "speaker": "배은서",
-              "text": "확인 부탁드립니다. [TODO 대사]"
+              "text": "사진이랑 좀 달라 보여도 저 맞아요."
             }
           ]
         },
@@ -1380,12 +1380,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
             },
             {
               "order": 2,
               "speaker": "배은서",
-              "text": "감사합니다! [TODO 대사]"
+              "text": "고마워요. (서둘러 창구를 빠져나간다.)"
             }
           ]
         },
@@ -1397,12 +1397,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 항목에 문제가 있습니다. 입국은 어렵습니다. [TODO 대사]"
+              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
             },
             {
               "order": 2,
               "speaker": "배은서",
-              "text": "앗, 제가 확인을 못 했네요. 죄송합니다. [TODO 대사]"
+              "text": "저 맞아요. 성형을 해서 좀 달라 보일 뿐이에요."
             }
           ]
         },
@@ -1414,12 +1414,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "즐거운 여행 되십시오."
             },
             {
               "order": 2,
               "speaker": "배은서",
-              "text": "감사합니다. 안녕히 계세요! [TODO 대사]"
+              "text": "고마워요. (서둘러 창구를 빠져나간다.)"
             }
           ]
         },
@@ -1431,22 +1431,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "죄송하지만 입국은 어렵습니다."
             },
             {
               "order": 2,
               "speaker": "배은서",
-              "text": "어..? 어디가 잘못된 부분이 있나요? [TODO 대사]"
+              "text": "저 맞아요. 성형을 해서 좀 달라 보일 뿐이에요."
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다. [TODO 대사]"
+              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
             },
             {
               "order": 4,
               "speaker": "배은서",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "text": "거 봐요, 저 맞잖아요. 감사합니다."
             }
           ]
         },
@@ -1458,22 +1458,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "죄송하지만 입국은 어렵습니다."
             },
             {
               "order": 2,
               "speaker": "배은서",
-              "text": "분명 제대로 다 챙겼어요. 다시 한 번 확인해 주세요. [TODO 대사]"
+              "text": "저 맞아요. 성형을 해서 좀 달라 보일 뿐이에요."
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다. [TODO 대사]"
+              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
             },
             {
               "order": 4,
               "speaker": "배은서",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "text": "그쵸? 본인 맞다니까요. 감사합니다."
             }
           ]
         },
@@ -1485,22 +1485,22 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다. [TODO 대사]"
+              "text": "죄송하지만 입국은 어렵습니다."
             },
             {
               "order": 2,
               "speaker": "배은서",
-              "text": "아니, 뭐 때문에 입국이 안 된다는 거예요? 다시 제대로 확인하세요! [TODO 대사]"
+              "text": "저 맞아요. 성형을 해서 좀 달라 보일 뿐이에요."
             },
             {
               "order": 3,
               "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다. [TODO 대사]"
+              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
             },
             {
               "order": 4,
               "speaker": "배은서",
-              "text": "네, 알겠습니다. [TODO 대사]"
+              "text": "하... 사람 무안하게. 다음엔 잘 봐 주세요."
             }
           ]
         }
@@ -1510,19 +1510,19 @@
       "xray": null,
       "fingerprint": {
         "type": "fingerprint",
-        "result": "불일치",
-        "detail": "신원 불일치",
-        "extra": "강민호",
+        "result": "일치",
+        "detail": "본인 일치",
+        "extra": "BAE EUNSEO",
         "claim": {
           "attr": "name",
-          "value": "강민호",
+          "value": "BAE EUNSEO",
           "label": "지문 대조 신원",
           "unlocksScan": ""
         },
         "record": {
           "mode": "성형",
-          "dbName": "강민호",
-          "dbBirth": "1994-03-09",
+          "dbName": "BAE EUNSEO",
+          "dbBirth": "1997-11-20",
           "dbNationality": "KOR",
           "criminalRecord": "없음",
           "wantedNo": ""
@@ -1530,7 +1530,7 @@
       }
     },
     {
-      "customerId": 1055,
+      "customerId": 92,
       "slot": 7,
       "nameKr": "쉬 펑",
       "nameEn": "XU FENG",
@@ -1540,14 +1540,14 @@
       "age": 34,
       "spriteRef": "장 웨이",
       "characterType": "외국인 관광객",
-      "defectVariant": "출국X",
+      "defectVariant": "",
       "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "장 웨이",
+          "variant": "비정상",
+          "violationField": "사진",
+          "spriteRef": "왕 웨이",
           "country": "CHN",
           "fields": [
             {
@@ -1589,8 +1589,8 @@
         },
         {
           "documentType": "비자",
-          "variant": "비정상",
-          "violationField": "만료일",
+          "variant": "정상",
+          "violationField": "없음",
           "spriteRef": "",
           "country": "",
           "fields": [
@@ -1621,12 +1621,12 @@
             },
             {
               "label": "발급일",
-              "value": "2022-01-01",
+              "value": "2025-09-12",
               "key": "issue_date"
             },
             {
               "label": "만료일",
-              "value": "2023-01-01",
+              "value": "2026-09-12",
               "key": "expiry_date"
             },
             {
@@ -1651,12 +1651,12 @@
             {
               "order": 1,
               "speaker": "쉬 펑",
-              "text": "Hello! Good morning~"
+              "text": "你好，都准备好了！ (안녕하세요, 준비 다 됐어요!)"
             },
             {
               "order": 2,
               "speaker": "쉬 펑",
-              "text": "Here is my passport."
+              "text": "这是我的护照。 (여기 여권 드릴게요.)"
             }
           ]
         },
@@ -1673,7 +1673,7 @@
             {
               "order": 2,
               "speaker": "쉬 펑",
-              "text": "Thank you so much! Have a wonderful day!"
+              "text": "谢谢！祝您愉快！ (감사합니다! 좋은 하루 되세요!)"
             }
           ]
         },
@@ -1687,16 +1687,16 @@
               "speaker": "심사관",
               "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다.",
               "claim": {
-                "attr": "expiry_date",
+                "attr": "face",
                 "value": "",
-                "label": "만료일 불일치",
+                "label": "사진 불일치",
                 "unlocksScan": ""
               }
             },
             {
               "order": 2,
               "speaker": "쉬 펑",
-              "text": "Oh no... I'm so sorry, I had no idea."
+              "text": "哦，原来那里有问题。 (아, 거기에 문제가 있었군요.)"
             }
           ]
         },
@@ -1713,7 +1713,7 @@
             {
               "order": 2,
               "speaker": "쉬 펑",
-              "text": "Thank you! That was quick~"
+              "text": "谢谢！祝您愉快！ (감사합니다! 좋은 하루 되세요!)"
             }
           ]
         },
@@ -1730,7 +1730,7 @@
             {
               "order": 2,
               "speaker": "쉬 펑",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "哦，原来那里有问题。 (아, 거기에 문제가 있었군요.)"
             },
             {
               "order": 3,
@@ -1740,7 +1740,7 @@
             {
               "order": 4,
               "speaker": "쉬 펑",
-              "text": "Oh 정말 다행이에요! 고마워요!"
+              "text": "啊，太好了！谢谢您！ (아, 정말 다행이에요! 고마워요!)"
             }
           ]
         },
@@ -1757,7 +1757,7 @@
             {
               "order": 2,
               "speaker": "쉬 펑",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "哦，原来那里有问题。 (아, 거기에 문제가 있었군요.)"
             },
             {
               "order": 3,
@@ -1767,7 +1767,7 @@
             {
               "order": 4,
               "speaker": "쉬 펑",
-              "text": "정말 다행이에요. 여행할 수 있어서 다행이에요."
+              "text": "真是太好了，能旅行真让人安心。 (정말 다행이에요. 여행할 수 있어서 다행이에요.)"
             }
           ]
         },
@@ -1784,7 +1784,7 @@
             {
               "order": 2,
               "speaker": "쉬 펑",
-              "text": "This is absolutely ridiculous! My documents are perfectly fine!"
+              "text": "哦，原来那里有问题。 (아, 거기에 문제가 있었군요.)"
             },
             {
               "order": 3,
@@ -1794,7 +1794,7 @@
             {
               "order": 4,
               "speaker": "쉬 펑",
-              "text": "기분이 안 좋아요. You are so rude."
+              "text": "我有点不高兴。您太没礼貌了。 (기분이 좀 상하네요. 너무 무례하시네요.)"
             }
           ]
         }
