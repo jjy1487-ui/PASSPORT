@@ -48,6 +48,10 @@ __pycache__/
 # Excel temp lock files
 ~$*
 
+# Tool-generated backups (canonical state is committed in git)
+*.bak_*
+_backup_*
+
 # Unity crash recovery
 Assets/_Recovery/
 Assets/_Recovery.meta
