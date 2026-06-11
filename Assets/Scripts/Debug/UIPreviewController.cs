@@ -112,6 +112,7 @@ public sealed class UIPreviewController : MonoBehaviour
             if (GUILayout.Button("비자 띄우기")) ShowDocument(SampleDoc.Visa);
             if (GUILayout.Button("PCR검사서 띄우기")) ShowDocument(SampleDoc.Pcr);
             if (GUILayout.Button("취업증빙 띄우기")) ShowDocument(SampleDoc.Employment);
+            if (GUILayout.Button("★ 4종 한꺼번에 (여권+비자+PCR+취업)")) ShowAllDocuments();
             if (GUILayout.Button("심사오류고지서 발부")) ShowNotice();
             if (GUILayout.Button("서류 치우기")) ClearDocuments();
         }
@@ -214,6 +215,18 @@ public sealed class UIPreviewController : MonoBehaviour
             _                    => SamplePassportDoc(),
         };
         documentView.Show(new[] { doc });
+    }
+
+    /// <summary>여권·비자·PCR검사서·취업증빙 4종을 한꺼번에 책상에 깐다(여러 서류 동시 배치 확인).</summary>
+    private void ShowAllDocuments()
+    {
+        documentView.Show(new[]
+        {
+            SamplePassportDoc(),
+            SampleVisaDoc(),
+            SamplePcrDoc(),
+            SampleEmploymentDoc(),
+        });
     }
 
     /// <summary>심사 오류 고지서를 발부한다(SpawnNotice — 누적·드래그 가능). 전용 NoticeCard 확인용.</summary>

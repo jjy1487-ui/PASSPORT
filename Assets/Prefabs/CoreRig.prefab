@@ -2334,8 +2334,8 @@ MonoBehaviour:
   rulebookPopup: {fileID: 1031033659254488846}
   dialogueLogPopup: {fileID: 6743009454818419098}
   endingPanel: {fileID: 7086283742101179824}
-  startDay: 3
-  randomizeCustomerIdentities: 1
+  startDay: 1
+  randomizeCustomerIdentities: 0
   shuffleSeed: -1
   briefingScene: BriefingScene
 --- !u!1 &4695210811279842893

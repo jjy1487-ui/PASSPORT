@@ -93,7 +93,9 @@ public static class CharacterTypes
     public const string General          = "일반 고객";
     public const string Annoying         = "진상 고객";
     public const string Tourist          = "외국인 관광객";
-    public const string PlasticSuspect   = "성형 의심 고객";
+    // 데이터(customer/day JSON)는 "성형 수술 고객"으로 통일됨 → 상수도 일치시킴(260611).
+    // (옛 "성형 의심 고객"이면 얼굴↔사진 대조 시 지문 해금·감액 분기가 매칭 실패해 작동 안 했음)
+    public const string PlasticSuspect   = "성형 수술 고객";
     // 검역 대상자(PCR) 폐지 → 전염병 환자 종류로 정리(260606). 5~7일 PCR 결함(양성/위조/미제출) 전용 손님.
     public const string Infected         = "전염병 환자";
     public const string LongStay         = "장기체류자";
