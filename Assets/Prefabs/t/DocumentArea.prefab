@@ -615,7 +615,7 @@ MonoBehaviour:
     prefab: {fileID: 7000000000000000005, guid: 7e0c1a9b2d4f5a6c8b3e7d1f0a2c4e69, type: 3}
   _spawnStagger: {x: 40, y: 36}
   _cardHalfSize: {x: 30, y: 28}
-  _noticeBasePos: {x: -1173, y: -88}
+  _noticeBasePos: {x: -300, y: 300}
   _noticeSize: {x: 83.8205, y: 86.6596}
   _noticeStagger: {x: 26, y: 24}
 --- !u!1 &2968834776527255774
@@ -1595,6 +1595,9 @@ MonoBehaviour:
   _pcrPositiveSprite: {fileID: 0}
   _issueCountryText: {fileID: 0}
   _signatureText: {fileID: 0}
+  _noticeJudge: {fileID: 0}
+  _noticeReason: {fileID: 0}
+  _closeButton: {fileID: 0}
 --- !u!114 &7326607941386732445
 MonoBehaviour:
   m_ObjectHideFlags: 0

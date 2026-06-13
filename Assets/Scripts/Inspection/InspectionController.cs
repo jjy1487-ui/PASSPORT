@@ -19,8 +19,6 @@ public sealed class InspectionController : MonoBehaviour
     [SerializeField] private TMP_Text _goldText;
     [SerializeField] private GameObject _dayCompleteRoot;
 
-    private const int MaxWrongReject = 3; // 오거부 3회 후 강제 통과
-
     private int _gold; // HUD 표시 캐시(실제 누적은 ScoreEconomyManager.Money)
 
     // 정산 허브 참조. 진행 매니저가 명시 주입(SetEconomy)하면 그 인스턴스를 우선 사용하고,
@@ -34,7 +32,6 @@ public sealed class InspectionController : MonoBehaviour
 
     private Day1Data _data;
     private int _index;
-    private int _wrongRejectCount;
     private bool _customerSettled; // 현재 손님 확정 정산 1회 가드(중복 정산·이중 진행 방지)
     private bool _ended;           // 엔딩 확정 시 true → 손님 진행/일자완료 패널 차단(엔딩 패널이 화면 점유)
     private readonly List<string> _dialogueLog = new List<string>(); // 현재 손님의 대화 기록(표시용 문자열)
@@ -91,6 +88,44 @@ public sealed class InspectionController : MonoBehaviour
 
     /// <summary>현재 손님의 제출 서류(없으면 null). 취조 힌트 산출용 읽기 전용 — 판정에는 영향 없음.</summary>
     public DocumentData[] CurrentDocuments => Current?.documents;
+
+    /// <summary>현재 손님의 교차 대조 전용 대사(없으면 null). 대조 불일치 시 그 손님 전용 검사관·손님 대사 — 표시 전용, 판정 무영향.</summary>
+    public CrossCheckLine[] CurrentCrossCheckLines => Current?.crossCheckLines;
+
+    /// <summary>현재 손님 여권의 여권번호(passport_no 필드 값). 없으면 "". 규정↔여권번호 대조 보조용 — 판정 무영향.</summary>
+    public string CurrentPassportNumber => PassportFieldValue("passport_no");
+
+    /// <summary>현재 손님 여권의 발급 국가코드(여권 country, 없으면 nationality 필드). 없으면 "". 규정↔여권번호 대조 보조용 — 판정 무영향.</summary>
+    public string CurrentPassportCountry
+    {
+        get
+        {
+            DocumentData p = FindPassportDocument();
+            if (p == null) return string.Empty;
+            if (!string.IsNullOrEmpty(p.country)) return p.country;
+            return PassportFieldValue("nationality");
+        }
+    }
+
+    /// <summary>현재 손님의 여권 문서를 찾는다(documentType 에 "여권" 포함). 없으면 null.</summary>
+    private DocumentData FindPassportDocument()
+    {
+        DocumentData[] docs = Current?.documents;
+        if (docs == null) return null;
+        foreach (DocumentData d in docs)
+            if (d != null && !string.IsNullOrEmpty(d.documentType) && d.documentType.Contains("여권")) return d;
+        return null;
+    }
+
+    /// <summary>여권 문서에서 주어진 key 의 항목 값을 읽는다. 없으면 "".</summary>
+    private string PassportFieldValue(string key)
+    {
+        DocumentData p = FindPassportDocument();
+        if (p?.fields == null) return string.Empty;
+        foreach (FieldEntry f in p.fields)
+            if (f != null && f.key == key) return f.value ?? string.Empty;
+        return string.Empty;
+    }
 
     /// <summary>현재 손님의 defect_variant(없으면 null). 고급 분기 키 산출용 — 판정에는 영향 없음.</summary>
     public string CurrentDefectVariant => Current?.defectVariant;
@@ -195,7 +230,6 @@ public sealed class InspectionController : MonoBehaviour
         }
 
         CustomerData c = _data.customers[index];
-        _wrongRejectCount = 0;
         _customerSettled = false;
         _dialogueLog.Clear();
         _dialogueLines.Clear();
@@ -245,6 +279,43 @@ public sealed class InspectionController : MonoBehaviour
         return "";
     }
 
+#if UNITY_EDITOR
+    // [디버그/QA 전용 · 빌드 미포함] 검수 편의 단축키.
+    //   [ / ]  = 이전/다음 손님,   숫자 1~7 = N번째 손님으로 점프.
+    //   ※ 점프는 현재 손님 판정·정산을 건너뛴다(검수용). 정식 진행/점수와 무관.
+    private void Update()
+    {
+        if (_data == null || _ended) return;
+        var kb = UnityEngine.InputSystem.Keyboard.current;
+        if (kb == null) return;
+        int last = _data.customers.Length;
+        if (kb.rightBracketKey.wasPressedThisFrame) ShowCustomer(Mathf.Min(last, _index + 1));
+        else if (kb.leftBracketKey.wasPressedThisFrame) ShowCustomer(Mathf.Max(0, _index - 1));
+        else if (kb.digit1Key.wasPressedThisFrame && last >= 1) ShowCustomer(0);
+        else if (kb.digit2Key.wasPressedThisFrame && last >= 2) ShowCustomer(1);
+        else if (kb.digit3Key.wasPressedThisFrame && last >= 3) ShowCustomer(2);
+        else if (kb.digit4Key.wasPressedThisFrame && last >= 4) ShowCustomer(3);
+        else if (kb.digit5Key.wasPressedThisFrame && last >= 5) ShowCustomer(4);
+        else if (kb.digit6Key.wasPressedThisFrame && last >= 6) ShowCustomer(5);
+        else if (kb.digit7Key.wasPressedThisFrame && last >= 7) ShowCustomer(6);
+    }
+#endif
+
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    /// <summary>
+    /// [QA/검수 전용] 현재 로드된 일차 안에서 index(0-base) 손님으로 즉시 점프한다.
+    /// 판정·정산·대사를 건너뛰고 그 손님 화면을 바로 보여준다(정식 진행/점수와 무관).
+    /// 화면 오버레이(QaJumpOverlay)·ImmigrationManager.DebugJumpTo 가 호출한다.
+    /// </summary>
+    public void DebugJumpToSlot(int index)
+    {
+        if (_data == null || _data.customers == null || _data.customers.Length == 0) return;
+        _ended = false; // 엔딩/일자완료로 막혀 있었어도 검수 점프는 허용
+        index = Mathf.Clamp(index, 0, _data.customers.Length - 1);
+        ShowCustomer(index);
+    }
+#endif
+
     private void UpdateGold()
     {
         if (_goldText != null) _goldText.text = _gold.ToString();
@@ -281,55 +352,29 @@ public sealed class InspectionController : MonoBehaviour
         if (approve == shouldApprove)
         {
             // 정답: 정상 승인 / 정상 거절. 확정 → 정산(점수≠돈, 캐릭터별 테이블).
-            //  정상 손님을 (재거절 끝에) 승인한 경우 wrongRejectCount 가 분기에 반영된다.
-            SettleCustomer(c, approve, _wrongRejectCount, forcedPass: false);
+            SettleCustomer(c, approve, 0, forcedPass: false);
             DialogueCaseData ok = FindCase(c, c.correctResult, -1);
             PlayThen(ok, AdvanceNext);
         }
         else if (!approve)
         {
-            // 정상 손님을 거부(오거부). 3회 항의→강제통과 루프는 연예인/정치인(클라우트로 밀어붙이는 VIP)만.
-            // 일반 손님은 즉시 오판 확정(페널티) — 거부하면 그대로 돌려보낸다(되돌림/강제통과 없음).
+            // 정상 서류 손님을 거부(오판). 손글 스크립트 모델대로 작성된 항의 대사 1교환
+            // (검문관 거부 안내 → 방문객 항의)을 그대로 재생하고, 페널티 확정 후 다음 손님으로 넘어간다.
+            // 오거부 횟수·재심사·강제통과 루프는 없다(연예인/정치인 포함 모두 동일).
             // (고급 분기 손님은 위 if-체인 앞에서 이미 인터셉트되어 여기 도달하지 않는다.)
-            bool usesRejectProtest = c.characterType == CharacterTypes.Celebrity
-                                  || c.characterType == CharacterTypes.Politician;
-            if (!usesRejectProtest)
+            SettleCustomer(c, approve, 0, forcedPass: false); // 오거부 페널티 확정
+            SpawnWrongRejectNotice(c);                        // 정상 서류를 거부 → 오류 고지서로 피드백
+            DialogueCaseData wrongReject = FindCase(c, GameResults.WrongReject, -1) ?? new DialogueCaseData
             {
-                SettleCustomer(c, approve, _wrongRejectCount, forcedPass: false); // 오거부 페널티 확정
-                SpawnWrongRejectNotice(c); // 정상 서류를 거부 → 오류 고지서로 피드백
-                DialogueCaseData rejectFinal = new DialogueCaseData
-                {
-                    caseType = "오거부 확정", gameResult = "-", rejectCount = 0,
-                    lines = new[] { new DialogueLineData { order = 0, speaker = "심사관", text = "입국이 거부되었습니다." } },
-                };
-                PlayThen(rejectFinal, AdvanceNext);
-            }
-            else
-            {
-                // VIP(연예인/정치인): 1→3단계 항의 연출, 3회 후 강제 통과.
-                _wrongRejectCount++;
-                DialogueCaseData wrong = FindCase(c, GameResults.WrongReject, _wrongRejectCount);
-                if (_wrongRejectCount >= MaxWrongReject || wrong == null)
-                {
-                    // 강제 통과 = 정정 입국. 확정 시점 1회만 정산(루프 중 중복 금지).
-                    SettleCustomer(c, approved: true, _wrongRejectCount, forcedPass: true);
-                    PlayThen(wrong, AdvanceNext); // 강제 통과
-                }
-                else
-                {
-                    // 같은 손님 재시도 허용(도장 자국 지움). 아직 미확정 → 정산하지 않는다.
-                    PlayThen(wrong, () =>
-                    {
-                        if (_documentView != null) _documentView.ClearStamps();
-                        if (_judgmentPanel != null) _judgmentPanel.ResetForNextCustomer(true);
-                    });
-                }
-            }
+                caseType = "오거부 확정", gameResult = "-", rejectCount = 0,
+                lines = new[] { new DialogueLineData { order = 1, speaker = "심사관", text = "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다." } },
+            };
+            PlayThen(wrongReject, AdvanceNext);
         }
         else
         {
             // 오허가(거부해야 하는데 승인): 확정 → 오판 정산.
-            SettleCustomer(c, approve, _wrongRejectCount, forcedPass: false);
+            SettleCustomer(c, approve, 0, forcedPass: false);
             SpawnViolationNotice(c); // 무엇이 틀렸는지 '고지서' 서류로 알림
             DialogueCaseData wrong = FindCase(c, GameResults.WrongApprove, -1);
             PlayThen(wrong, AdvanceNext);

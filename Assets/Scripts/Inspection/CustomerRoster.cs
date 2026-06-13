@@ -133,6 +133,41 @@ public static class CustomerRoster
         }
     }
 
+    /// <summary>
+    /// 확률 변형 굴림: altVariant 를 가진 손님(박철수 등)을 매 플레이 valid_chance 로 굴려,
+    /// 굴림 결과(정상/불량)가 baked 와 다르면 그 손님 위에 altVariant(서류·대사·정답·검사)를 덮어쓴다.
+    /// 신원(이름·얼굴·생년월일 등)은 유지 — 셔플(Reassign)과 독립적으로, 인물은 그대로 두고
+    /// 서류 정상/불량만 매번 달라지게 한다. validChance 가 0/1 이거나 altVariant 가 없으면 건너뛴다.
+    /// </summary>
+    public static void RollVariants(Day1Data data, System.Random rng)
+    {
+        if (data == null || data.customers == null || rng == null) return;
+        foreach (var c in data.customers)
+        {
+            if (c == null) continue;
+            if (c.validChance <= 0f || c.validChance >= 1f) continue; // 고정/미설정 → 굴리지 않음
+            // JsonUtility 는 없는 중첩객체를 null 이 아니라 '빈 인스턴스'로 역직렬화한다 →
+            // correctResult 가 비면 실제 변형이 아니므로 건너뛴다(빈 altVariant 오버레이 방지).
+            var a = c.altVariant;
+            if (a == null || string.IsNullOrEmpty(a.correctResult)) continue;
+
+            bool baseIsNormal = c.correctResult == CorrectApprove;
+            bool rollNormal = rng.NextDouble() < c.validChance;
+            if (rollNormal == baseIsNormal) continue; // 굴림이 baked 와 같음 → 그대로 둠
+
+            // 반대 변형으로 오버레이(신원 필드는 보존)
+            c.correctResult = a.correctResult;
+            c.defectVariant = a.defectVariant;
+            c.rejectAdvancedBranchKey = a.rejectAdvancedBranchKey;
+            c.rejectGuidedCaseType = a.rejectGuidedCaseType;
+            c.documents = a.documents;
+            c.dialogueCases = a.dialogueCases;
+            c.xray = a.xray;
+            c.fingerprint = a.fingerprint;
+            c.crossCheckLines = a.crossCheckLines; // 불량 변형의 대조 대사도 함께 오버레이(없으면 null → 폴백)
+        }
+    }
+
     /// <summary>(유형,정답) 풀에서 이 날 아직 안 쓴 인물 1명 무작위. 없으면 null.</summary>
     private static CustomerData PickFromPool(string type, string correct, string docSig, HashSet<int> usedIds, System.Random rng)
     {

@@ -56,18 +56,26 @@ public sealed class XrayInspectionPanel : MonoBehaviour, ICrossCheckProvider
     private ScanData _injected;  // 자립 재생용 주입 데이터(UIPreview)
     private Coroutine _seq;
 
+    // 적발물 항목(_contrabandItem)의 원래 배치(그림 위로 겹치기 전). 그림 없는 케이스에서 복원용.
+    private Transform _itemHomeParent;
+    private Vector2 _itemHomeAnchorMin, _itemHomeAnchorMax, _itemHomePivot, _itemHomeAnchoredPos, _itemHomeSizeDelta;
+    private bool _itemHomeCached;
+
     private void Awake()
     {
         if (_closeButton != null) _closeButton.onClick.AddListener(Close);
-        SetStage(0);
-        if (_root != null) _root.SetActive(false);
-    }
+        CacheItemHome();
 
-    private void Start()
-    {
+        // 구독은 반드시 Awake 에서(아래 _root.SetActive(false) 보다 먼저) 한다.
+        //  _root 가 자기 자신이면 SetActive(false) 로 이 GameObject 가 비활성화되어 Start 가 실행되지 않는다.
+        //  구독을 Start 에 두면 OnScanUnlocked(대조 잠금해제) 트리거를 영영 받지 못해 X-ray 가 자동으로 안 열린다.
+        //  이벤트 구독은 GameObject 가 비활성이어도 유지되고, HandleScanUnlocked→Open→ShowRoot 가 다시 활성화한다.
         if (_controller != null) _controller.OnCustomerChanged += HandleCustomerChanged;
         else Debug.LogWarning("[XrayInspectionPanel] _controller 미연결");
         if (_crossCheck != null) _crossCheck.OnScanUnlocked += HandleScanUnlocked;
+
+        SetStage(0);
+        if (_root != null) _root.SetActive(false);
     }
 
     private void OnDestroy()
@@ -214,19 +222,73 @@ public sealed class XrayInspectionPanel : MonoBehaviour, ICrossCheckProvider
             if (detected) _highlight.anchoredPosition = loc;
         }
 
-        // 적발물 그림을 같은 부위에 표시(마약/금괴 등). 그림 없으면(폭발물) 글로우만.
+        // 적발물 그림을 같은 부위에 표시(마약/금괴/폭발물). 이 그림이 곧 교차대조 클릭 항목이다.
+        bool hasIcon = false;
         if (_contrabandImage != null)
         {
             Sprite icon = detected ? SpriteFor(s.detail) : null;
-            _contrabandImage.gameObject.SetActive(icon != null);
-            if (icon != null)
+            hasIcon = icon != null;
+            _contrabandImage.gameObject.SetActive(hasIcon);
+            if (hasIcon)
             {
                 _contrabandImage.sprite = icon;
                 ((RectTransform)_contrabandImage.transform).anchoredPosition = loc;
             }
         }
 
+        // 적발물 그림 위에 대조 클릭 항목을 겹쳐 둔다 → 플레이어가 그림을 클릭해 대조한다.
+        AlignItemToImage(hasIcon);
         BuildContraband(s);
+    }
+
+    /// <summary>적발물 항목의 원래 배치(부모/앵커/크기)를 1회 캐시한다(그림 위 겹치기 전 상태).</summary>
+    private void CacheItemHome()
+    {
+        if (_itemHomeCached || _contrabandItem == null) return;
+        RectTransform rt = _contrabandItem.transform as RectTransform;
+        if (rt == null) return;
+        _itemHomeParent     = rt.parent;
+        _itemHomeAnchorMin  = rt.anchorMin;
+        _itemHomeAnchorMax  = rt.anchorMax;
+        _itemHomePivot      = rt.pivot;
+        _itemHomeAnchoredPos= rt.anchoredPosition;
+        _itemHomeSizeDelta  = rt.sizeDelta;
+        _itemHomeCached     = true;
+    }
+
+    /// <summary>
+    /// 적발물 교차대조 항목(<see cref="_contrabandItem"/>)을 적발물 그림(<see cref="_contrabandImage"/>) 위에 정확히 겹쳐 둔다.
+    /// 그림의 자식으로 stretch 시키므로, 그림이 은닉 부위로 이동하거나 크기가 커져도 클릭 영역이 항상 그림과 일치한다.
+    /// 그림이 없으면(글로우만) 항목을 원래 자리(하단)로 되돌려 글씨로 대조하게 한다.
+    /// </summary>
+    private void AlignItemToImage(bool overlayOnImage)
+    {
+        if (_contrabandItem == null || _contrabandImage == null) return;
+        RectTransform itemRt = _contrabandItem.transform as RectTransform;
+        if (itemRt == null) return;
+
+        if (overlayOnImage)
+        {
+            RectTransform imgRt = _contrabandImage.transform as RectTransform;
+            if (itemRt.parent != imgRt) itemRt.SetParent(imgRt, false);
+            itemRt.anchorMin = Vector2.zero;
+            itemRt.anchorMax = Vector2.one;
+            itemRt.pivot = new Vector2(0.5f, 0.5f);
+            itemRt.offsetMin = Vector2.zero;
+            itemRt.offsetMax = Vector2.zero;
+            itemRt.localScale = Vector3.one;
+        }
+        else if (_itemHomeCached && _itemHomeParent != null && itemRt.parent != _itemHomeParent)
+        {
+            // 그림이 없는 케이스: 원래 하단 자리로 복원(글씨 대조 폴백).
+            itemRt.SetParent(_itemHomeParent, false);
+            itemRt.anchorMin = _itemHomeAnchorMin;
+            itemRt.anchorMax = _itemHomeAnchorMax;
+            itemRt.pivot = _itemHomePivot;
+            itemRt.anchoredPosition = _itemHomeAnchoredPos;
+            itemRt.sizeDelta = _itemHomeSizeDelta;
+            itemRt.localScale = Vector3.one;
+        }
     }
 
     /// <summary>적발물 이름(detail) → 표시 스프라이트 매핑.</summary>
@@ -265,7 +327,15 @@ public sealed class XrayInspectionPanel : MonoBehaviour, ICrossCheckProvider
         Claim c = s != null ? s.claim : null;
         bool has = c != null && !string.IsNullOrEmpty(c.attr);
         _contrabandItem.gameObject.SetActive(has);
-        if (has) _contrabandItem.Bind("X-ray", c.attr, c.value, c.label, c.label);
+        if (has)
+        {
+            // 항목이 적발물 그림 위에 겹쳐져 있으면(그림이 곧 클릭 대상) 글씨 라벨은 비운다.
+            // 그림이 없어 항목이 하단에 글씨로 남는 경우(폴백)에만 라벨을 표시한다.
+            bool overlayedOnImage = _contrabandImage != null
+                && _contrabandItem.transform.parent == _contrabandImage.transform;
+            string display = overlayedOnImage ? " " : c.label;
+            _contrabandItem.Bind("X-ray", c.attr, c.value, c.label, display);
+        }
         OnSelectablesChanged?.Invoke();
     }
 

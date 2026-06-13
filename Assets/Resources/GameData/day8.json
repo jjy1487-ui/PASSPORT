@@ -132,81 +132,17 @@
         {
           "caseType": "일반 심사",
           "gameResult": "잘못 거절",
-          "rejectCount": 1,
+          "rejectCount": 0,
           "lines": [
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
+              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
             },
             {
               "order": 2,
               "speaker": "안준영",
               "text": "이상한데요? 제 서류 문제없어요."
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
-            },
-            {
-              "order": 4,
-              "speaker": "안준영",
-              "text": "앗 네! 감사합니다!"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 2,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
-            },
-            {
-              "order": 2,
-              "speaker": "안준영",
-              "text": "이상한데요? 제 서류 문제없어요."
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
-            },
-            {
-              "order": 4,
-              "speaker": "안준영",
-              "text": "네 알겠습니다. 앞으로는 주의해 주세요."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 3,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
-            },
-            {
-              "order": 2,
-              "speaker": "안준영",
-              "text": "이상한데요? 제 서류 문제없어요."
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
-            },
-            {
-              "order": 4,
-              "speaker": "안준영",
-              "text": "하... 네 알겠습니다. 꼼꼼히 검토 좀 해 주세요."
             }
           ]
         }
@@ -347,81 +283,17 @@
         {
           "caseType": "일반 심사",
           "gameResult": "잘못 거절",
-          "rejectCount": 1,
+          "rejectCount": 0,
           "lines": [
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
+              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
             },
             {
               "order": 2,
               "speaker": "송재윤",
               "text": "말이 안 되잖아요!"
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
-            },
-            {
-              "order": 4,
-              "speaker": "송재윤",
-              "text": "이런... 눈 똑바로 뜨고 일해!"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 2,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
-            },
-            {
-              "order": 2,
-              "speaker": "송재윤",
-              "text": "말이 안 되잖아요!"
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
-            },
-            {
-              "order": 4,
-              "speaker": "송재윤",
-              "text": "시간 낭비하게 만들고 있어!"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 3,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
-            },
-            {
-              "order": 2,
-              "speaker": "송재윤",
-              "text": "말이 안 되잖아요!"
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
-            },
-            {
-              "order": 4,
-              "speaker": "송재윤",
-              "text": "진작 이럴 것이지. 내가 꼭 민원 넣을 거야!"
             }
           ]
         }
@@ -429,7 +301,158 @@
       "rejectAdvancedBranchKey": "",
       "rejectGuidedCaseType": "",
       "xray": null,
-      "fingerprint": null
+      "fingerprint": null,
+      "validChance": 0.75,
+      "altVariant": {
+        "correctResult": "정상 거절",
+        "defectVariant": "",
+        "rejectAdvancedBranchKey": "",
+        "rejectGuidedCaseType": "",
+        "documents": [
+          {
+            "documentType": "여권",
+            "variant": "비정상",
+            "violationField": "여권번호",
+            "spriteRef": "한만수",
+            "country": "KOR",
+            "fields": [
+              {
+                "label": "여권번호",
+                "value": "JP1022340",
+                "key": "passport_no"
+              },
+              {
+                "label": "영문이름",
+                "value": "SONG JAEYUN",
+                "key": "name"
+              },
+              {
+                "label": "성별",
+                "value": "남성",
+                "key": "gender"
+              },
+              {
+                "label": "생년월일",
+                "value": "1979-05-05",
+                "key": "birth_date"
+              },
+              {
+                "label": "국적",
+                "value": "KOR",
+                "key": "nationality"
+              },
+              {
+                "label": "발급일",
+                "value": "2019-07-14",
+                "key": "issue_date"
+              },
+              {
+                "label": "만료일",
+                "value": "2029-07-14",
+                "key": "expiry_date"
+              }
+            ]
+          }
+        ],
+        "dialogueCases": [
+          {
+            "caseType": "입장",
+            "gameResult": "-",
+            "rejectCount": 0,
+            "lines": [
+              {
+                "order": 1,
+                "speaker": "송재윤",
+                "text": "아 진짜, 빨리 좀 해줘요."
+              }
+            ]
+          },
+          {
+            "caseType": "일반 심사",
+            "gameResult": "정상 승인",
+            "rejectCount": 0,
+            "lines": [
+              {
+                "order": 1,
+                "speaker": "심사관",
+                "text": "즐거운 여행 되십시오."
+              },
+              {
+                "order": 2,
+                "speaker": "송재윤",
+                "text": "이제 됐죠?"
+              }
+            ]
+          },
+          {
+            "caseType": "일반 심사",
+            "gameResult": "정상 거절",
+            "rejectCount": 0,
+            "lines": [
+              {
+                "order": 1,
+                "speaker": "심사관",
+                "text": "여권번호가 발급국 코드와 일치하지 않아 입국하실 수 없습니다.",
+                "claim": {
+                  "attr": "passport_no",
+                  "value": "",
+                  "label": "여권번호 불일치",
+                  "unlocksScan": ""
+                }
+              },
+              {
+                "order": 2,
+                "speaker": "송재윤",
+                "text": "됐어요, 알겠어요."
+              }
+            ]
+          },
+          {
+            "caseType": "일반 심사",
+            "gameResult": "잘못 허가",
+            "rejectCount": 0,
+            "lines": [
+              {
+                "order": 1,
+                "speaker": "심사관",
+                "text": "즐거운 여행 되십시오."
+              },
+              {
+                "order": 2,
+                "speaker": "송재윤",
+                "text": "이제 됐죠?"
+              }
+            ]
+          },
+          {
+            "caseType": "일반 심사",
+            "gameResult": "잘못 거절",
+            "rejectCount": 0,
+            "lines": [
+              {
+                "order": 1,
+                "speaker": "심사관",
+                "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+              },
+              {
+                "order": 2,
+                "speaker": "송재윤",
+                "text": "됐어요, 알겠어요."
+              }
+            ]
+          }
+        ],
+        "xray": null,
+        "fingerprint": null,
+        "crossCheckLines": [
+          {
+            "attr": "passport_no",
+            "inspector": "여권번호 앞자리가… 발급국이랑 안 맞는데요? 이거 확실해요?",
+            "customer": "네? 그럴 리가요. 다시 확인해 주세요.",
+            "unlocksScan": ""
+          }
+        ]
+      }
     },
     {
       "customerId": 62,
@@ -441,15 +464,15 @@
       "birthDate": "1991-06-14",
       "age": 34,
       "spriteRef": "장 웨이",
-      "characterType": "외국인 관광객",
+      "characterType": "장기체류자",
       "defectVariant": "",
       "correctResult": "정상 거절",
       "documents": [
         {
           "documentType": "여권",
-          "variant": "비정상",
-          "violationField": "사진",
-          "spriteRef": "다나카 하루토",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "장 웨이",
           "country": "CHN",
           "fields": [
             {
@@ -513,7 +536,7 @@
             },
             {
               "label": "비자 종류",
-              "value": "관광",
+              "value": "장기 체류",
               "key": "visa_type"
             },
             {
@@ -542,6 +565,43 @@
               "key": "memo"
             }
           ]
+        },
+        {
+          "documentType": "취업증빙",
+          "variant": "비정상",
+          "violationField": "이름",
+          "fields": [
+            {
+              "label": "이름",
+              "value": "ZHANG WEI",
+              "key": "name"
+            },
+            {
+              "label": "증빙 번호",
+              "value": "EMP-062",
+              "key": "cert_no"
+            },
+            {
+              "label": "고용 회사",
+              "value": "한성테크(주)",
+              "key": "company_name"
+            },
+            {
+              "label": "직종",
+              "value": "생산 라인",
+              "key": "job_title"
+            },
+            {
+              "label": "입사일",
+              "value": "2023-05-01",
+              "key": "hire_date"
+            },
+            {
+              "label": "발급일",
+              "value": "2025-05-01",
+              "key": "issue_date"
+            }
+          ]
         }
       ],
       "dialogueCases": [
@@ -553,10 +613,20 @@
             {
               "order": 1,
               "speaker": "장 민",
-              "text": "你好，都准备好了！ (안녕하세요, 준비 다 됐어요!)"
+              "text": "你好，我是来这边工作的。材料都带来了。(안녕하세요, 여기로 일하러 왔어요. 서류 다 가져왔습니다.)"
             },
             {
               "order": 2,
+              "speaker": "심사관",
+              "text": "아, 일하러 오셨구나. 오늘부터 취업·체류로 오신 분들은 재직증명서도 같이 확인해요. 보여주시겠어요?"
+            },
+            {
+              "order": 3,
+              "speaker": "장 민",
+              "text": "好的，给您。(네, 여기 있습니다.)"
+            },
+            {
+              "order": 4,
               "speaker": "장 민",
               "text": "这是我的护照。 (여기 여권 드릴게요.)"
             }
@@ -587,11 +657,11 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다.",
+              "text": "재직증명서가 본인 것과 맞지 않아서, 이대로는 입국이 어렵습니다.",
               "claim": {
-                "attr": "face",
-                "value": "",
-                "label": "사진 불일치",
+                "attr": "name",
+                "value": "ZHANG WEI",
+                "label": "재직증명서 이름 불일치",
                 "unlocksScan": ""
               }
             },
@@ -622,81 +692,17 @@
         {
           "caseType": "일반 심사",
           "gameResult": "잘못 거절",
-          "rejectCount": 1,
+          "rejectCount": 0,
           "lines": [
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
+              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
             },
             {
               "order": 2,
               "speaker": "장 민",
               "text": "哦，原来那里有问题。 (아, 거기에 문제가 있었군요.)"
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
-            },
-            {
-              "order": 4,
-              "speaker": "장 민",
-              "text": "啊，太好了！谢谢您！ (아, 정말 다행이에요! 고마워요!)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 2,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
-            },
-            {
-              "order": 2,
-              "speaker": "장 민",
-              "text": "哦，原来那里有问题。 (아, 거기에 문제가 있었군요.)"
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
-            },
-            {
-              "order": 4,
-              "speaker": "장 민",
-              "text": "真是太好了，能旅行真让人安心。 (정말 다행이에요. 여행할 수 있어서 다행이에요.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 3,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
-            },
-            {
-              "order": 2,
-              "speaker": "장 민",
-              "text": "哦，原来那里有问题。 (아, 거기에 문제가 있었군요.)"
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
-            },
-            {
-              "order": 4,
-              "speaker": "장 민",
-              "text": "我有点不高兴。您太没礼貌了。 (기분이 좀 상하네요. 너무 무례하시네요.)"
             }
           ]
         }
@@ -704,7 +710,15 @@
       "rejectAdvancedBranchKey": "",
       "rejectGuidedCaseType": "",
       "xray": null,
-      "fingerprint": null
+      "fingerprint": null,
+      "crossCheckLines": [
+        {
+          "attr": "name",
+          "inspector": "어… 그런데 여기 적힌 이름이 여권하고 다른데요?",
+          "customer": "啊？应该没问题的…(어? 문제 없을 텐데요…)",
+          "unlocksScan": ""
+        }
+      ]
     },
     {
       "customerId": 18,
@@ -729,7 +743,7 @@
           "fields": [
             {
               "label": "여권번호",
-              "value": "CH1020106",
+              "value": "CN1020106",
               "key": "passport_no"
             },
             {
@@ -778,7 +792,7 @@
             },
             {
               "label": "여권번호",
-              "value": "CH1020106",
+              "value": "CN1020106",
               "key": "passport_no"
             },
             {
@@ -884,7 +898,7 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "Best of luck with your studies!"
+              "text": "네, 재직 서류까지 다 확인했어요. 한국에서 좋은 일자리 구하시길 바랄게요."
             },
             {
               "order": 2,
@@ -930,81 +944,17 @@
         {
           "caseType": "일반 심사",
           "gameResult": "잘못 거절",
-          "rejectCount": 1,
+          "rejectCount": 0,
           "lines": [
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
+              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
             },
             {
               "order": 2,
               "speaker": "첸 리",
               "text": "我把一切都准备好了！ (전 다 준비해 왔다고요!)"
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
-            },
-            {
-              "order": 4,
-              "speaker": "첸 리",
-              "text": "太好了，谢谢。 (다행이네요. 감사합니다.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 2,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
-            },
-            {
-              "order": 2,
-              "speaker": "첸 리",
-              "text": "我把一切都准备好了！ (전 다 준비해 왔다고요!)"
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
-            },
-            {
-              "order": 4,
-              "speaker": "첸 리",
-              "text": "好的，谢谢确认。 (네, 확인 감사합니다.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 3,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
-            },
-            {
-              "order": 2,
-              "speaker": "첸 리",
-              "text": "我把一切都准备好了！ (전 다 준비해 왔다고요!)"
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
-            },
-            {
-              "order": 4,
-              "speaker": "첸 리",
-              "text": "唉…终于可以了。请仔细看清楚。 (하... 이제야 되네요. 좀 꼼꼼히 봐 주세요.)"
             }
           ]
         }
@@ -1082,12 +1032,12 @@
             {
               "order": 1,
               "speaker": "오현석",
-              "text": "안녕하신가."
+              "text": "안녕하신가. 천천히 보게나, 급할 것 없네."
             },
             {
               "order": 2,
               "speaker": "오현석",
-              "text": "여기 여권일세. 천천히 보게나."
+              "text": "여기 여권일세. 인연이 닿았으니 보아주시게."
             }
           ]
         },
@@ -1099,12 +1049,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인 완료되었습니다. 지나가셔도 됩니다."
+              "text": "즐거운 여행 되십시오."
             },
             {
               "order": 2,
               "speaker": "오현석",
-              "text": "감사합니다. 좋은 하루 되세요."
+              "text": "고맙네. 수고하는 그대에게 작은 정표를 두고 가지… 부디 가는 길이 환하기를."
             }
           ]
         },
@@ -1145,81 +1095,17 @@
         {
           "caseType": "일반 심사",
           "gameResult": "잘못 거절",
-          "rejectCount": 1,
+          "rejectCount": 0,
           "lines": [
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다."
+              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
             },
             {
               "order": 2,
               "speaker": "오현석",
               "text": "저 분명히 맞게 준비했어요!"
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
-            },
-            {
-              "order": 4,
-              "speaker": "오현석",
-              "text": "그래, 다행이군. 고맙네."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 2,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "오현석",
-              "text": "저 분명히 맞게 준비했어요!"
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
-            },
-            {
-              "order": 4,
-              "speaker": "오현석",
-              "text": "허허, 수고가 많으셨네."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 3,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "오현석",
-              "text": "저 분명히 맞게 준비했어요!"
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
-            },
-            {
-              "order": 4,
-              "speaker": "오현석",
-              "text": "괜찮네. 다음엔 천천히 보시게나."
             }
           ]
         }
@@ -1245,9 +1131,9 @@
       "documents": [
         {
           "documentType": "여권",
-          "variant": "비정상",
-          "violationField": "사진",
-          "spriteRef": "윌리엄 브라운",
+          "variant": "정상",
+          "violationField": "없음",
+          "spriteRef": "제임스 밀러",
           "country": "USA",
           "fields": [
             {
@@ -1289,14 +1175,14 @@
         },
         {
           "documentType": "비자",
-          "variant": "정상",
-          "violationField": "없음",
+          "variant": "비정상",
+          "violationField": "영문이름",
           "spriteRef": "",
           "country": "",
           "fields": [
             {
               "label": "영문이름",
-              "value": "MATTHEW ANDERSON",
+              "value": "MATHEW ANDERSEN",
               "key": "name"
             },
             {
@@ -1385,11 +1271,11 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "여권 본인 확인이 되지 않아 입국하실 수 없습니다.",
+              "text": "비자의 이름이 여권과 일치하지 않아 입국하실 수 없습니다.",
               "claim": {
-                "attr": "face",
-                "value": "",
-                "label": "사진 불일치",
+                "attr": "name",
+                "value": "MATHEW ANDERSEN",
+                "label": "비자 이름 불일치",
                 "unlocksScan": ""
               }
             },
@@ -1420,81 +1306,17 @@
         {
           "caseType": "일반 심사",
           "gameResult": "잘못 거절",
-          "rejectCount": 1,
+          "rejectCount": 0,
           "lines": [
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
+              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
             },
             {
               "order": 2,
               "speaker": "매튜 앤더슨",
               "text": "My apologies, I'll fix this. (죄송합니다, 제가 바로잡을게요.)"
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
-            },
-            {
-              "order": 4,
-              "speaker": "매튜 앤더슨",
-              "text": "Oh, what a relief! Thank you! (아, 정말 다행이에요! 고마워요!)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 2,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
-            },
-            {
-              "order": 2,
-              "speaker": "매튜 앤더슨",
-              "text": "My apologies, I'll fix this. (죄송합니다, 제가 바로잡을게요.)"
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
-            },
-            {
-              "order": 4,
-              "speaker": "매튜 앤더슨",
-              "text": "What a relief. I'm so glad I can travel after all. (정말 다행이에요. 여행할 수 있어서 다행이에요.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 3,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "확인되지 않은 사유로 입국이 어렵습니다. 죄송합니다."
-            },
-            {
-              "order": 2,
-              "speaker": "매튜 앤더슨",
-              "text": "My apologies, I'll fix this. (죄송합니다, 제가 바로잡을게요.)"
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
-            },
-            {
-              "order": 4,
-              "speaker": "매튜 앤더슨",
-              "text": "That was unpleasant. You were quite rude. (기분이 좀 상하네요. 너무 무례하셨어요.)"
             }
           ]
         }
@@ -1502,7 +1324,15 @@
       "rejectAdvancedBranchKey": "",
       "rejectGuidedCaseType": "",
       "xray": null,
-      "fingerprint": null
+      "fingerprint": null,
+      "crossCheckLines": [
+        {
+          "attr": "visa_type",
+          "inspector": "어… 여권엔 이 이름인데, 비자엔 다른 이름이 적혀 있네요? 이거 어떻게 된 거죠?",
+          "customer": "What? That should be fine…(네? 문제 없을 텐데요…)",
+          "unlocksScan": ""
+        }
+      ]
     },
     {
       "customerId": 64,
@@ -1522,7 +1352,7 @@
           "documentType": "여권",
           "variant": "정상",
           "violationField": "없음",
-          "spriteRef": "노가은",
+          "spriteRef": "노가은(원본)",
           "country": "KOR",
           "fields": [
             {
@@ -1635,81 +1465,17 @@
         {
           "caseType": "일반 심사",
           "gameResult": "잘못 거절",
-          "rejectCount": 1,
+          "rejectCount": 0,
           "lines": [
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다."
+              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
             },
             {
               "order": 2,
               "speaker": "전도현",
               "text": "다시 한번만 봐주시면 안 될까요?"
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "다시 확인해보니 서류가 맞네요. 지나가시면 됩니다."
-            },
-            {
-              "order": 4,
-              "speaker": "전도현",
-              "text": "거 봐요, 저 맞잖아요. 감사합니다."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 2,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "전도현",
-              "text": "다시 한번만 봐주시면 안 될까요?"
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "다시 확인했는데 서류가 모두 맞네요. 죄송합니다. 지나가셔도 됩니다."
-            },
-            {
-              "order": 4,
-              "speaker": "전도현",
-              "text": "그쵸? 본인 맞다니까요. 감사합니다."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 3,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "죄송하지만 입국은 어렵습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "전도현",
-              "text": "다시 한번만 봐주시면 안 될까요?"
-            },
-            {
-              "order": 3,
-              "speaker": "심사관",
-              "text": "고객님 서류 확인되셔서 바로 지나가시면 될 것 같습니다. 정말 죄송합니다."
-            },
-            {
-              "order": 4,
-              "speaker": "전도현",
-              "text": "하... 사람 무안하게. 다음엔 잘 봐 주세요."
             }
           ]
         }
@@ -1736,6 +1502,168 @@
           "criminalRecord": "없음",
           "wantedNo": ""
         }
+      },
+      "validChance": 0.7,
+      "altVariant": {
+        "correctResult": "정상 거절",
+        "defectVariant": "",
+        "rejectAdvancedBranchKey": "",
+        "rejectGuidedCaseType": "",
+        "documents": [
+          {
+            "documentType": "여권",
+            "variant": "정상",
+            "violationField": "없음",
+            "spriteRef": "노가은(원본)",
+            "country": "KOR",
+            "fields": [
+              {
+                "label": "여권번호",
+                "value": "KO1033510",
+                "key": "passport_no"
+              },
+              {
+                "label": "영문이름",
+                "value": "JEON DOHYUN",
+                "key": "name"
+              },
+              {
+                "label": "성별",
+                "value": "여성",
+                "key": "gender"
+              },
+              {
+                "label": "생년월일",
+                "value": "1999-05-05",
+                "key": "birth_date"
+              },
+              {
+                "label": "국적",
+                "value": "KOR",
+                "key": "nationality"
+              },
+              {
+                "label": "발급일",
+                "value": "2025-03-14",
+                "key": "issue_date"
+              },
+              {
+                "label": "만료일",
+                "value": "2035-03-14",
+                "key": "expiry_date"
+              }
+            ]
+          }
+        ],
+        "dialogueCases": [
+          {
+            "caseType": "입장",
+            "gameResult": "-",
+            "rejectCount": 0,
+            "lines": [
+              {
+                "order": 1,
+                "speaker": "전도현",
+                "text": "요즘 유학생이며 취업자며 참 많이들 오는군요. (여권 제출)"
+              }
+            ]
+          },
+          {
+            "caseType": "일반 심사",
+            "gameResult": "정상 승인",
+            "rejectCount": 0,
+            "lines": [
+              {
+                "order": 1,
+                "speaker": "심사관",
+                "text": "즐거운 여행 되십시오."
+              },
+              {
+                "order": 2,
+                "speaker": "전도현",
+                "text": "고맙습니다. 얼굴이 좀 달라졌죠? 하하."
+              }
+            ]
+          },
+          {
+            "caseType": "일반 심사",
+            "gameResult": "정상 거절",
+            "rejectCount": 0,
+            "lines": [
+              {
+                "order": 1,
+                "speaker": "심사관",
+                "text": "지문 신원이 여권 이름과 일치하지 않습니다. 입국하실 수 없습니다.",
+                "claim": {
+                  "attr": "name",
+                  "value": "CHOI JUWON",
+                  "label": "지문 대조 신원",
+                  "unlocksScan": ""
+                }
+              },
+              {
+                "order": 2,
+                "speaker": "전도현",
+                "text": "알겠습니다. 죄송해요."
+              }
+            ]
+          },
+          {
+            "caseType": "일반 심사",
+            "gameResult": "잘못 허가",
+            "rejectCount": 0,
+            "lines": [
+              {
+                "order": 1,
+                "speaker": "심사관",
+                "text": "즐거운 여행 되십시오."
+              },
+              {
+                "order": 2,
+                "speaker": "전도현",
+                "text": "고맙습니다. 얼굴이 좀 달라졌죠? 하하."
+              }
+            ]
+          },
+          {
+            "caseType": "일반 심사",
+            "gameResult": "잘못 거절",
+            "rejectCount": 0,
+            "lines": [
+              {
+                "order": 1,
+                "speaker": "심사관",
+                "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+              },
+              {
+                "order": 2,
+                "speaker": "전도현",
+                "text": "알겠습니다. 죄송해요."
+              }
+            ]
+          }
+        ],
+        "xray": null,
+        "fingerprint": {
+          "type": "fingerprint",
+          "result": "불일치",
+          "detail": "신원 불일치",
+          "extra": "CHOI JUWON",
+          "claim": {
+            "attr": "name",
+            "value": "CHOI JUWON",
+            "label": "지문 대조 신원",
+            "unlocksScan": ""
+          },
+          "record": {
+            "mode": "성형",
+            "dbName": "CHOI JUWON",
+            "dbBirth": "1999-05-05",
+            "dbNationality": "KOR",
+            "criminalRecord": "없음",
+            "wantedNo": ""
+          }
+        }
       }
     }
   ],
@@ -1743,24 +1671,17 @@
     {
       "ruleId": 9,
       "title": "재직증명서",
-      "content": "취업 목적 입국자는 재직증명서를 제출해야 한다.",
-      "relatedField": "",
-      "attr": ""
-    },
-    {
-      "ruleId": 10,
-      "title": "합격통지서",
-      "content": "유학 목적 입국자는 합격통지서를 제출해야 한다.",
+      "content": "취업 목적 입국자는 재직증명서를 제출해야 한다. 증빙번호·고용 회사·직종·입사일·발급일은 다른 서류와 일치해야 하며, 항목이 누락되거나 위조 흔적이 있으면 입국을 거부한다.",
       "relatedField": "",
       "attr": ""
     }
   ],
   "news": [
     {
-      "newsId": 5,
-      "title": "장기 체류자 서류 대조중 불일치 확인",
-      "content": "취업과 유학 등 장기 체류 목적 입국자 심사 과정에서 체류 목적과 제출 서류가 맞지 않는 사례가 확인됐다. 당국은 여권, 비자, 체류 목적 서류의 정보가 서로 이어지는지 확인하고 있다.",
-      "iconRef": "spr_news_003",
+      "newsId": 8,
+      "title": "\"한국에서 일하고 싶습니다\" 취업 비자 신청 증가",
+      "content": "국내 기업들의 해외 인재 채용 확대에 따라 취업 비자 신청 건수가 꾸준히 증가하고 있다. 특히 전문 기술 인력을 중심으로 한국 취업을 희망하는 외국인들의 문의가 이어지고 있으며 해외 취업 설명회도 활발하게 진행되고 있다.",
+      "iconRef": null,
       "claims": []
     }
   ]

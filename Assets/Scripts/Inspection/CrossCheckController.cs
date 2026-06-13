@@ -160,7 +160,11 @@ public sealed class CrossCheckController : MonoBehaviour
     private void Rebind()
     {
         UnsubscribeAll();
-        ClearSelection();
+        // 진행 중인 대조 선택은 보존한다. 제공자 구성 변경(규정집/뉴스 팝업 개폐 등)만으로는 지우지 않는다.
+        // 예전엔 여기서 무조건 ClearSelection() 을 호출해서, 규정을 고르고 규정집을 '닫는 순간'
+        // (RulebookPopup.Close 가 OnSelectablesChanged 를 발행 → Rebind) 첫 선택이 날아가
+        // 규정 ↔ 서류 대조를 영영 못 맞췄다. 손님 교체로 서류 카드가 파괴된 항목만 버린다(아래).
+        PruneDeadSelection();
         if (_mismatchDialogue != null) _mismatchDialogue.Hide();
 
         foreach (ICrossCheckProvider p in _providers)
@@ -175,6 +179,29 @@ public sealed class CrossCheckController : MonoBehaviour
                 _subscribed.Add(item);
             }
         }
+
+        // 재바인딩 후에도 살아남은 선택의 하이라이트를 복원(규정집을 닫아도 선택 표시 유지).
+        if (_first != null) _first.SetSelected(true);
+        if (_second != null) _second.SetSelected(true);
+    }
+
+    /// <summary>파괴된(손님 교체로 Destroy 된 서류 카드 등) 선택만 비우고, 단지 비활성화된
+    /// (규정집/뉴스 팝업 닫힘 등) 살아있는 선택은 보존한다. _first 가 비고 _second 만 남으면 앞으로 당긴다.</summary>
+    private void PruneDeadSelection()
+    {
+        if (!IsSelectableAlive(_first)) _first = null;
+        if (!IsSelectableAlive(_second)) _second = null;
+        if (_first == null && _second != null) { _first = _second; _second = null; }
+        if (_first == null && _second == null && _connectorView != null) _connectorView.Hide();
+    }
+
+    /// <summary>선택 항목이 아직 유효한가. Unity 오브젝트(MonoBehaviour)면 파괴 여부까지 본다
+    /// (파괴된 컴포넌트는 == null 이 true). 단순 비활성(SetActive(false))은 '살아있음'으로 본다.</summary>
+    private static bool IsSelectableAlive(ICrossCheckSelectable s)
+    {
+        if (s == null) return false;
+        if (s is UnityEngine.Object obj) return obj != null; // Unity 파괴 감지 == 연산자
+        return true;
     }
 
     private void UnsubscribeAll()
@@ -230,13 +257,18 @@ public sealed class CrossCheckController : MonoBehaviour
 
     private void Compare(ICrossCheckSelectable a, ICrossCheckSelectable b)
     {
-        // 오늘 날짜 ↔ 날짜 필드면 문자열 일치 대신 날짜 비교(만료됨/유효 등). 성립하면 라벨 텍스트 오버라이드.
-        // 보조 표시 — 판정/점수 무영향.
+        // 보조 평가(판정/점수 무영향) 우선순위:
+        //  1) 규정(여권번호 규정) ↔ 여권번호: 앞 2자리=발급국 코드면 일치(정상), 다르면 불일치(위조 의심).
+        //  2) 오늘 날짜 ↔ 날짜 필드: 문자열 일치 대신 날짜 유효성(만료됨/유효 등). 성립 시 라벨 오버라이드.
+        //  3) 그 외: 일반 4-상태 평가(속성 키 관련성 + 값 정규화 비교).
         string overrideText = null;
-        CrossCheckResult result =
-            TryEvaluateDate(a, b, out CrossCheckResult dateResult, out overrideText)
-                ? dateResult
-                : Evaluate(a, b);
+        CrossCheckResult result;
+        if (TryEvaluatePassportRule(a, b, out CrossCheckResult passportResult))
+            result = passportResult;
+        else if (TryEvaluateDate(a, b, out CrossCheckResult dateResult, out overrideText))
+            result = dateResult;
+        else
+            result = Evaluate(a, b);
 
         Debug.Log($"[CrossCheckDBG] compare a={a.SourceType}/{a.AttributeKey}/'{a.Value}' b={b.SourceType}/{b.AttributeKey}/'{b.Value}' -> {result}");
 
@@ -252,13 +284,19 @@ public sealed class CrossCheckController : MonoBehaviour
         DetectScanUnlock(a, b, result);
         DetectFaceMismatchUnlock(a, b, result); // 얼굴↔여권사진 불일치 → 지문 잠금해제(뉴스와 이중 트리거)
 
+        // 여권번호 불일치(비자↔여권) → X-ray 잠금해제. 단, 즉시 열지 않고 "대사 먼저, 그 다음 X-ray" 순서로 연다.
+        //  (대조하자마자 X-ray 가 튀어나오면 어색 → 불일치 지적 대사가 끝난 뒤 X-ray 를 연다.)
+        bool xrayPending = ShouldUnlockXrayOnPassportMismatch(a, b, result);
+        System.Action openXray = xrayPending ? (System.Action)(() => OnScanUnlocked?.Invoke("xray")) : null;
+
         // 결과별 보조 대사:
         // - 불일치: 서류 정합 항목이면 "안 맞네요" 지적. 단, 경보(워치리스트) 단서와의 불일치는
         //   "대상 아님"을 뜻하므로 조용히 넘어간다(기계적 오발 대사 방지).
         // - 일치: 경보 단서가 손님과 일치하면 위험 경고 대사(해당 스캔 안내).
         if (result == CrossCheckResult.Mismatch)
         {
-            if (!IsWatchlistInvolved(a, b)) ShowMismatchComment(a, b);
+            if (!IsWatchlistInvolved(a, b)) ShowMismatchComment(a, b, openXray); // 대사 재생 끝나면 X-ray 열기
+            else openXray?.Invoke();                                             // 대사 생략(워치리스트)이면 즉시
         }
         else if (result == CrossCheckResult.Match)
         {
@@ -286,21 +324,28 @@ public sealed class CrossCheckController : MonoBehaviour
     /// 항목 종류(이름/사진/기간/번호)에 따라 손님 반응이 달라진다.
     /// 메인 손님 대사 흐름과 충돌하지 않도록 별도 DialogueView 인스턴스를 사용한다.
     /// </summary>
-    private void ShowMismatchComment(ICrossCheckSelectable a, ICrossCheckSelectable b)
+    private void ShowMismatchComment(ICrossCheckSelectable a, ICrossCheckSelectable b, System.Action onComplete = null)
     {
-        if (_mismatchDialogue == null) return;
-        string label = a != null && !string.IsNullOrEmpty(a.DisplayLabel) ? a.DisplayLabel
-                     : (b != null && !string.IsNullOrEmpty(b.DisplayLabel) ? b.DisplayLabel : "정보");
-        string key = NormalizeKey(a != null && !string.IsNullOrEmpty(a.AttributeKey) ? a.AttributeKey
-                               : (b != null ? b.AttributeKey : string.Empty));
+        if (_mismatchDialogue == null) { onComplete?.Invoke(); return; } // 대사 못 띄우면 후속(예: X-ray)만 즉시
+        // 불일치 항목의 "실질 속성 키"를 고른다. 한쪽이 보조 소스('today'/규정)면 다른 쪽(서류 필드)의
+        // 키를 쓴다 — 예: 만료일↔오늘 대조는 'today' 가 아니라 'expiry_date' 로 보고 대사를 고른다.
+        string key = ResolveMismatchKey(a, b);
+        string label = LabelForKey(a, b, key);
 
         // 현재 손님의 실제 이름·유형을 읽어 화자명과 반응 톤을 맞춘다(없으면 "손님"/일반 톤).
         string customerName = _inspection != null && !string.IsNullOrEmpty(_inspection.CurrentCustomerName)
             ? _inspection.CurrentCustomerName : "손님";
         string characterType = _inspection != null ? _inspection.CurrentCharacterType : null;
 
-        string inspectorLine = InterrogationQuestionFor(key, label); // 불일치 → 필드별 취조 질문 자동 표시
-        string customerLine = CustomerReactionFor(key, characterType);
+        // 1순위: 이 손님 + 이 속성(attr)에 맞는 대사_스크립트 대조 대사가 데이터에 있으면 그걸 쓴다.
+        // 2순위(폴백): 없으면 기존 항목별 일반 취조 문구/일반 반응.
+        CrossCheckLine scripted = FindCrossCheckLine(key);
+        string inspectorLine = scripted != null && !string.IsNullOrEmpty(scripted.inspector)
+            ? scripted.inspector
+            : InterrogationQuestionFor(key, label); // 불일치 → 필드별 취조 질문 자동 표시(폴백)
+        string customerLine = scripted != null && !string.IsNullOrEmpty(scripted.customer)
+            ? scripted.customer
+            : CustomerReactionFor(key, characterType); // 일반 반응(폴백)
 
         // 기존 일반 대사와 동일한 데이터 구조로 2줄(검사관 → 손님)을 만들어 같은 위치·스타일로 재생.
         // 검사관 라인은 "심사관" 표기, 손님 라인은 실제 이름(예 "박철수")으로.
@@ -315,7 +360,63 @@ public sealed class CrossCheckController : MonoBehaviour
                 new DialogueLineData { order = 1, speaker = customerName, text = customerLine },
             },
         };
-        _mismatchDialogue.Play(mismatchCase, null);
+        _mismatchDialogue.Play(mismatchCase, onComplete); // 2줄 대사 재생이 끝나면 후속(예: X-ray 열기) 실행
+    }
+
+    /// <summary>
+    /// 불일치 두 항목에서 "실질 속성 키"를 고른다. 한쪽이 보조 소스('today' 또는 규정)면 다른 쪽(서류 필드)
+    /// 키를 우선한다. 그래야 만료일↔오늘 대조가 'today' 가 아니라 'expiry_date' 로 대사를 선택한다.
+    /// 둘 다 실질 키면 a 우선(기존 동작 보존). 둘 다 비면 빈 문자열.
+    /// </summary>
+    private static string ResolveMismatchKey(ICrossCheckSelectable a, ICrossCheckSelectable b)
+    {
+        string ka = a != null ? NormalizeKey(a.AttributeKey) : string.Empty;
+        string kb = b != null ? NormalizeKey(b.AttributeKey) : string.Empty;
+        bool aGeneric = IsGenericKey(ka) || IsRuleSource(a);
+        bool bGeneric = IsGenericKey(kb) || IsRuleSource(b);
+
+        // 한쪽만 보조 소스면 실질 쪽 키를 쓴다.
+        if (aGeneric && !bGeneric && kb.Length > 0) return kb;
+        if (bGeneric && !aGeneric && ka.Length > 0) return ka;
+
+        // 그 외: a 우선(비었으면 b).
+        if (ka.Length > 0) return ka;
+        return kb;
+    }
+
+    /// <summary>대사·라벨 선택에서 제외할 보조(비실질) 속성 키. 'today' 는 날짜 대조의 기준일.</summary>
+    private static bool IsGenericKey(string key) => key == "today";
+
+    /// <summary>규정집 항목(SourceType="규정")인가. 규정은 "이 속성에 관한 규정" 관련성 표시용이라 실질 키로 보지 않는다.</summary>
+    private static bool IsRuleSource(ICrossCheckSelectable s) => s != null && s.SourceType == "규정";
+
+    /// <summary>선택된 두 항목 중 <paramref name="key"/>(실질 키)에 해당하는 항목의 표시 라벨을 고른다. 없으면 a/b/"정보".</summary>
+    private static string LabelForKey(ICrossCheckSelectable a, ICrossCheckSelectable b, string key)
+    {
+        if (a != null && NormalizeKey(a.AttributeKey) == key && !string.IsNullOrEmpty(a.DisplayLabel)) return a.DisplayLabel;
+        if (b != null && NormalizeKey(b.AttributeKey) == key && !string.IsNullOrEmpty(b.DisplayLabel)) return b.DisplayLabel;
+        if (a != null && !string.IsNullOrEmpty(a.DisplayLabel)) return a.DisplayLabel;
+        if (b != null && !string.IsNullOrEmpty(b.DisplayLabel)) return b.DisplayLabel;
+        return "정보";
+    }
+
+    /// <summary>
+    /// 현재 손님의 교차 대조 전용 대사(<see cref="CrossCheckLine"/>) 중, 불일치 속성 키(<paramref name="key"/>)와
+    /// 일치하는 항목을 찾는다. 데이터(대사_스크립트)가 있으면 일반 문구 대신 그 손님 구체 대사를 쓰기 위함.
+    /// 없으면 null(→ 호출부가 일반 취조 문구로 폴백). 표시 전용 — 판정/점수 무영향.
+    /// 속성 키는 정규화(소문자·트림) 후 비교하므로 데이터의 대소문자/공백 차이를 흡수한다.
+    /// </summary>
+    private CrossCheckLine FindCrossCheckLine(string key)
+    {
+        if (_inspection == null || string.IsNullOrEmpty(key)) return null;
+        CrossCheckLine[] lines = _inspection.CurrentCrossCheckLines;
+        if (lines == null) return null;
+        foreach (CrossCheckLine ln in lines)
+        {
+            if (ln == null) continue;
+            if (NormalizeKey(ln.attr) == key) return ln; // key 는 호출부에서 이미 NormalizeKey 됨
+        }
+        return null;
     }
 
     /// <summary>불일치한 항목(key)에 대한 검사관의 취조 질문. 항목별로 추궁 질문이 다르다.
@@ -366,8 +467,10 @@ public sealed class CrossCheckController : MonoBehaviour
                 warn = "위험물·밀수 경보 대상과 일치합니다. X-ray 정밀 검사를 시행하세요.";
                 break;
             case "fingerprint":
-                warn = "수배자 경보 대상과 일치합니다. 지문 대조로 신원을 확인하세요.";
-                break;
+                // 수배자 경보 단서가 손님과 일치하면 지문 검사 화면이 자동으로 열린다
+                // (DetectScanUnlock → ScanResultPanel 자동 Open). 안내 대사("지문 대조로 신원을 확인하세요")는
+                // 화면과 중복이라 띄우지 않고, 곧장 지문 검사 화면만 뜨게 한다. (handled → true 반환)
+                return true;
             default:
                 warn = "경보 대상과 일치합니다. 추가 검사가 필요합니다.";
                 break;
@@ -451,6 +554,52 @@ public sealed class CrossCheckController : MonoBehaviour
         char last = word[word.Length - 1];
         if (last < 0xAC00 || last > 0xD7A3) return withoutBatchim; // 한글 음절 아님
         return ((last - 0xAC00) % 28) != 0 ? withBatchim : withoutBatchim;
+    }
+
+    // ── 규정(여권번호) ↔ 여권번호 대조 ────────────────────────────
+    /// <summary>
+    /// 규정집의 "여권번호 규정"(SourceType="규정", attr="passport_no") ↔ 손님 여권번호 특수 대조.
+    /// 여권번호 앞 2자리가 발급 국가코드(KOR→KO / USA→US / CHN→CN / JPN→JP …)와 같으면 일치(정상),
+    /// 다르면 불일치(위조 의심)로 본다. 날짜 대조(TryEvaluateDate)와 같은 보조 표시 — 판정/점수 무영향.
+    /// 한쪽이 규정의 여권번호 항목일 때만 성립한다(여권↔비자 번호 일치 같은 일반 값 대조는 가로채지 않음).
+    /// 번호·발급국은 클릭한 항목 값이 아니라 현재 손님 여권 본문(InspectionController)에서 읽는다.
+    /// </summary>
+    private bool TryEvaluatePassportRule(ICrossCheckSelectable a, ICrossCheckSelectable b, out CrossCheckResult result)
+    {
+        result = CrossCheckResult.Unrelated;
+
+        ICrossCheckSelectable rule = IsPassportRuleSelectable(a) ? a : (IsPassportRuleSelectable(b) ? b : null);
+        if (rule == null) return false;
+        ICrossCheckSelectable other = ReferenceEquals(rule, a) ? b : a;
+        if (other == null || NormalizeKey(other.AttributeKey) != "passport_no") return false;
+
+        string number = _inspection != null ? _inspection.CurrentPassportNumber : null;
+        if (string.IsNullOrEmpty(number)) number = other.Value; // 폴백: 선택 항목 값
+        string expect = ExpectedPassportPrefix(_inspection != null ? _inspection.CurrentPassportCountry : null);
+        if (string.IsNullOrEmpty(number) || string.IsNullOrEmpty(expect)) return false; // 못 읽으면 일반 로직으로
+
+        string actual = number.Trim().ToUpperInvariant();
+        if (actual.Length >= 2) actual = actual.Substring(0, 2);
+        result = actual == expect ? CrossCheckResult.Match : CrossCheckResult.Mismatch;
+        return true;
+    }
+
+    private static bool IsPassportRuleSelectable(ICrossCheckSelectable s)
+        => s != null && s.SourceType == "규정" && NormalizeKey(s.AttributeKey) == "passport_no";
+
+    /// <summary>발급 국가코드(KOR 등) → 여권번호 앞 2자리 규정 코드. day1 ruleId3 매핑(대한민국 KO / 미국 US / 중국 CN / 일본 JP). 미등록 국가는 국가코드 앞 2자리.</summary>
+    private static string ExpectedPassportPrefix(string country)
+    {
+        if (string.IsNullOrEmpty(country)) return string.Empty;
+        string c = country.Trim().ToUpperInvariant();
+        switch (c)
+        {
+            case "KOR": return "KO";
+            case "USA": return "US";
+            case "CHN": return "CN";
+            case "JPN": return "JP";
+            default: return c.Length >= 2 ? c.Substring(0, 2) : c;
+        }
     }
 
     // ── 오늘 날짜 인식 대조 ───────────────────────────────────────
@@ -569,6 +718,22 @@ public sealed class CrossCheckController : MonoBehaviour
         if (s == null) return false;
         string k = NormalizeKey(s.AttributeKey);
         return k == "photo" || k == "photo_ref" || k == "face";
+    }
+
+    /// <summary>
+    /// 여권번호 불일치(서류↔서류, 예 비자 ↔ 여권 의 passport_no 가 다름)가 X-ray 잠금해제 조건을 만족하는가.
+    /// 그 손님에게 X-ray 데이터가 있으면(=위험물 의심: 테러범 등) true. 실제 열기는 호출부가 '대사 재생 후'로 지연한다.
+    /// X-ray 데이터가 없는 손님(단순 여권번호 불일치)은 false — 그건 그 자체로 거절 사유.
+    /// 규정↔여권 대조(SourceType="규정")는 제외(서류끼리일 때만). 표시·게이팅 전용 — 판정/점수 무영향.
+    /// </summary>
+    private bool ShouldUnlockXrayOnPassportMismatch(ICrossCheckSelectable a, ICrossCheckSelectable b, CrossCheckResult result)
+    {
+        if (result != CrossCheckResult.Mismatch) return false;
+        if (a == null || b == null) return false;
+        if (!IsCustomerSource(a.SourceType) || !IsCustomerSource(b.SourceType)) return false; // 서류↔서류만(규정 제외)
+        if (NormalizeKey(a.AttributeKey) != "passport_no" || NormalizeKey(b.AttributeKey) != "passport_no") return false;
+        if (_inspection == null || _inspection.CurrentXray == null) return false; // X-ray 보유 손님만(위험물 의심 = 테러범 등)
+        return true;
     }
 
     /// <summary>

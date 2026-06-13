@@ -36,6 +36,44 @@ public sealed class CustomerData
     public DialogueCaseData[] dialogueCases;
     public ScanData xray;          // 보조검사 결과(없으면 null)
     public ScanData fingerprint;   // 보조검사 결과(없으면 null)
+    public CrossCheckLine[] crossCheckLines; // 교차 대조 불일치 시 이 손님 전용 대사(없으면 빈/널 → 일반 문구 폴백)
+
+    // ── 확률 변형(박철수처럼 매 플레이 서류 정상/불량이 갈리는 손님) ──
+    public float validChance;          // 정상(승인) 확률 0~1. 0/1 또는 altVariant 없음 → 굴리지 않음(고정).
+    public CustomerVariant altVariant; // 반대 변형(없으면 null). 런타임에 validChance로 굴려 이 손님 위에 오버레이한다.
+}
+
+/// <summary>
+/// 확률 손님의 '반대 변형' 묶음(정상↔불량). 신원(이름·얼굴·생년월일 등)은 그대로 두고,
+/// 런타임 굴림 결과가 baked 와 다르면 아래 항목만 손님 위에 덮어쓴다(서류/대사/정답/검사).
+/// JsonUtility 호환: 자기참조 없음(altVariant 미포함).
+/// </summary>
+[Serializable]
+public sealed class CustomerVariant
+{
+    public string correctResult;           // "정상 승인" | "정상 거절"
+    public string defectVariant;
+    public string rejectAdvancedBranchKey;
+    public string rejectGuidedCaseType;
+    public DocumentData[] documents;
+    public DialogueCaseData[] dialogueCases;
+    public ScanData xray;
+    public ScanData fingerprint;
+    public CrossCheckLine[] crossCheckLines; // 변형이 적용되면 손님 위에 함께 덮어쓴다(불량 변형의 대조 대사).
+}
+
+/// <summary>
+/// 교차 대조(서류↔서류 등)에서 특정 속성이 불일치할 때 재생할, 그 손님 전용 검사관·손님 대사 1쌍.
+/// 대사_스크립트.xlsx 의 "서류 대조" 단계 대사를 손님별로 운반한다.
+/// 대조 결과가 Mismatch 이고 <see cref="attr"/>(속성 키)가 일치하는 항목이 있으면 일반 문구 대신 이걸 쓴다.
+/// 비면 CrossCheckController 가 항목별 일반 취조 문구로 폴백한다(데이터 없어도 동작 보장).
+/// </summary>
+[Serializable]
+public sealed class CrossCheckLine
+{
+    public string attr;       // 불일치 속성 키(passport_no/gender/expiry_date/name/nationality/company_name/lab_name/pcr_result/test_date/hire_date 등). FieldEntry.key 어휘.
+    public string inspector;  // 검사관 지적 대사(예: "비자에 적힌 여권번호와 여권의 번호가 다른데요? 본인 여권이 맞습니까?")
+    public string customer;   // 손님 반응 대사(예: "…(말없이 주위를 살핀다)")
 }
 
 /// <summary>
@@ -146,6 +184,7 @@ public sealed class RuleData
     public string content;
     public string relatedField; // 한글 필드명(표시용)
     public string attr;         // 속성 키. 매핑 불가/없으면 "".
+    public int endDay;          // 이벤트성 규정의 종료 일차(이날까지만 규정집에 표시). 0=종료 없음(도입 후 계속). 예: PCR 규정=7.
 }
 
 /// <summary>1일차 뉴스 1건.</summary>

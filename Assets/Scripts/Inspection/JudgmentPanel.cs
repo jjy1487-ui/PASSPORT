@@ -18,6 +18,9 @@ public sealed class JudgmentPanel : MonoBehaviour
     [SerializeField] private Button _approveStampButton; // 입국 허가(녹색)
     [SerializeField] private Button _rejectStampButton;  // 입국 거부(빨강)
 
+    [Tooltip("두 도장(허가/거부) 한 변 크기(px). 이 숫자만 바꾸면 양쪽 도장이 같이 커지고, 아래 안내문구와 안 겹치게 줄 높이도 자동 조절됩니다. 0 이하면 건드리지 않음(프리팹 값 유지). 에디터에서 바꾸면(플레이 안 해도) 즉시 반영.")]
+    [SerializeField] private float _stampSize = 110f;
+
     /// <summary>true=승인, false=거부.</summary>
     public event Action<bool> OnDecision;
 
@@ -29,8 +32,31 @@ public sealed class JudgmentPanel : MonoBehaviour
         if (_drawerButton != null) _drawerButton.onClick.AddListener(OpenTray);
         if (_approveStampButton != null) _approveStampButton.onClick.AddListener(StampApprove);
         if (_rejectStampButton != null) _rejectStampButton.onClick.AddListener(StampReject);
+        // (도장 크기는 Awake 에서 강제 적용하지 않는다 — 그러면 수동으로 옮기거나 키운 도장이 플레이마다
+        //  _stampSize 값으로 덮어써져 "되돌아감". 크기 조절은 에디터에서 OnValidate 로만 반영(아래) → 직렬화 값이 유지됨.)
         ResetForNextCustomer(false);
     }
+
+    /// <summary>두 도장 크기를 _stampSize 로 맞추고, 도장이 든 가로줄 높이도 키워 안내문구와 겹치지 않게 한다.</summary>
+    private void ApplyStampSize()
+    {
+        if (_stampSize <= 0f) return;
+        Vector2 sz = new Vector2(_stampSize, _stampSize);
+        if (_approveStampButton != null && _approveStampButton.transform is RectTransform ar) ar.sizeDelta = sz;
+        if (_rejectStampButton != null && _rejectStampButton.transform is RectTransform rr) rr.sizeDelta = sz;
+        // 도장이 든 가로줄(StampRow = 도장 버튼의 부모)의 LayoutElement 높이도 키운다(있으면).
+        Transform row = _rejectStampButton != null ? _rejectStampButton.transform.parent
+                      : (_approveStampButton != null ? _approveStampButton.transform.parent : null);
+        if (row != null && row.TryGetComponent(out LayoutElement le)) le.preferredHeight = _stampSize + 12f;
+    }
+
+#if UNITY_EDITOR
+    /// <summary>에디터에서 _stampSize 를 바꾸면 플레이하지 않아도 즉시 도장 크기를 반영(직접 조절 편의).</summary>
+    private void OnValidate()
+    {
+        if (!Application.isPlaying) ApplyStampSize();
+    }
+#endif
 
     private void OnDestroy()
     {

@@ -24,6 +24,7 @@ public sealed class NewsPopup : MonoBehaviour, ICrossCheckProvider
 
     private IReadOnlyList<NewsData> _items;
     private int _index;
+    private bool _centeredOnce;  // 최초 1회만 중앙 정렬. 이후엔 드래그한 위치를 유지.
 
     /// <summary>selectable 구성 변경 통지.</summary>
     public event System.Action OnSelectablesChanged;
@@ -51,21 +52,23 @@ public sealed class NewsPopup : MonoBehaviour, ICrossCheckProvider
         if (_root != null)
         {
             _root.SetActive(true);
-            BringToFrontCentered(_root.transform);
+            // 최초 1회만 중앙 정렬, 이후엔 드래그한 위치 유지(맨 앞으로 올리기는 매번).
+            BringToFront(_root.transform, !_centeredOnce);
+            _centeredOnce = true;
         }
         Render();
     }
 
     /// <summary>
-    /// 팝업을 형제 중 맨 앞(=다른 UI 위)으로 올리고 화면 중앙에 놓는다.
-    /// 검사 데스크/서류·말풍선보다 항상 위에 그려지고(형제 순서), 닫기·드래그가 가려지지 않게 한다.
-    /// 씬마다 다른 위치 오버라이드가 있어도 열 때마다 중앙으로 정렬된다.
+    /// 팝업을 형제 중 맨 앞(=다른 UI 위)으로 올린다. 닫기·드래그가 가려지지 않게 항상 맨 앞.
+    /// 위치/앵커 중앙 정렬은 <paramref name="recenter"/>가 true 일 때(=최초 1회)만 한다 —
+    /// 그 뒤엔 플레이어가 드래그(<see cref="DraggablePanel"/>)로 옮긴 위치를 유지한다.
     /// </summary>
-    private static void BringToFrontCentered(Transform t)
+    private static void BringToFront(Transform t, bool recenter)
     {
         if (t == null) return;
         t.SetAsLastSibling();
-        if (t is RectTransform rt)
+        if (recenter && t is RectTransform rt)
         {
             rt.anchorMin = rt.anchorMax = rt.pivot = new Vector2(0.5f, 0.5f);
             rt.anchoredPosition = Vector2.zero;

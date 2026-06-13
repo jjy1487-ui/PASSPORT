@@ -66,6 +66,8 @@ SHEET_LAYOUT = {
     "shop": LAYOUT_A,
     "reward": LAYOUT_A,
     "defect_rule": LAYOUT_B,
+    # 결함 배정(손님별 결함 종류 명시): PCR 양성/누락/기관위조 + 회사 위조 등 시드 자동배정 대신 표로 제어.
+    "defect_assign": LAYOUT_A,
     "fake_value_pool": LAYOUT_B,
     "document_requirement": LAYOUT_B,
     "score_model": LAYOUT_C,

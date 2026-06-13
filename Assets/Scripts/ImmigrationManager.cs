@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -200,7 +201,8 @@ public sealed class ImmigrationManager : MonoBehaviour
     }
 
     /// <summary>지정 일차 데이터를 로드해 심사를 시작한다.</summary>
-    private void BeginDay(int day, bool resetGold)
+    /// <param name="openNews">일차 전환 시 해당 일자 뉴스를 자동으로 띄울지(검수 점프는 false 로 끈다).</param>
+    private void BeginDay(int day, bool resetGold, bool openNews = true)
     {
         _data = _loader.Load(day);
         if (_data == null)
@@ -210,12 +212,14 @@ public sealed class ImmigrationManager : MonoBehaviour
             return;
         }
 
-        // 인물 셔플: 슬롯별 유형·정답은 그대로 두고 같은 풀에서 다른 인물로 교체(매 플레이 다른 얼굴).
-        if (randomizeCustomerIdentities)
-        {
-            _rng ??= shuffleSeed >= 0 ? new System.Random(shuffleSeed) : new System.Random();
-            CustomerRoster.Reassign(_data, _rng);
-        }
+        // 매 플레이 난수원(시드 ≥0이면 재현, -1이면 매번 다름). 셔플·확률변형 공용.
+        _rng ??= shuffleSeed >= 0 ? new System.Random(shuffleSeed) : new System.Random();
+
+        // 인물 셔플(옵션): 슬롯별 유형·정답은 그대로 두고 같은 풀에서 다른 인물로 교체(매 플레이 다른 얼굴).
+        if (randomizeCustomerIdentities) CustomerRoster.Reassign(_data, _rng);
+
+        // 확률 변형(항상): 인물은 고정(셔플과 독립). 박철수 등 valid_chance 손님의 서류 정상/불량만 매 플레이 굴린다.
+        CustomerRoster.RollVariants(_data, _rng);
 
         CurrentDay = day;
         // ResultScene "오늘 번 돈" 산출 기준선: 일자 시작 시점 잔액을 캐시한다.
@@ -231,11 +235,42 @@ public sealed class ImmigrationManager : MonoBehaviour
 
         // 일차 전환(이전 일차 종료 → 다음 일차 진입) 사이에 해당 일자 뉴스 자동 표시.
         // 최초 게임 시작(resetGold=true)에는 띄우지 않는다(수동 뉴스 버튼/브리핑으로 처리).
-        if (!resetGold)
+        if (!resetGold && openNews)
         {
             OpenNews();
         }
     }
+
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    // ── [QA/검수 전용 · 릴리스 빌드 미포함] 손님 점프 ──────────────────
+    //  처음부터 다시 플레이하지 않고 "N일차의 M번째 손님"으로 즉시 건너뛴다.
+    //  같은 일차 안의 이동은 데이터를 다시 로드하지 않아(셔플/확률변형 보존) 이전/다음 손님이 그대로 유지된다.
+    //  날짜를 바꿀 때만 해당 일차 데이터를 로드한다. 브리핑·뉴스·정산 흐름은 건너뛴다(정식 점수와 무관).
+
+    /// <summary>[QA] 임의의 일차(1~14)·손님(1~7)으로 즉시 점프. 화면 오버레이(QaJumpOverlay)가 호출한다.</summary>
+    public void DebugJumpTo(int day, int slot)
+    {
+        day = Mathf.Clamp(day, FirstDay, LastDay);
+        _endingTriggered = false; // 점프 시 엔딩 차단 해제(이전 점프에서 엔딩이 떴을 수 있음)
+
+        // 날짜가 바뀌거나 아직 데이터가 없을 때만 해당 일차를 새로 로드한다(같은 날이면 셔플/변형 보존).
+        if (day != CurrentDay || _data == null)
+        {
+            EnsureEconomy();
+            PlayerPrefs.SetInt(CurrentDayKey, day);
+            PlayerPrefs.Save();
+            BeginDay(day, resetGold: false, openNews: false);
+        }
+
+        if (inspectionController != null) inspectionController.DebugJumpToSlot(slot - 1);
+    }
+
+    /// <summary>[QA] 현재 손님 번호(1-base, 손님 없으면 0). 오버레이 표시용.</summary>
+    public int CurrentSlot1Based => inspectionController != null ? inspectionController.CurrentSlotIndex + 1 : 0;
+
+    /// <summary>[QA] 현재 일차 손님 수(데이터 없으면 0). 오버레이 표시용.</summary>
+    public int CurrentDayCustomerCount => inspectionController != null ? inspectionController.CustomerCount : 0;
+#endif
 
     /// <summary>
     /// InspectionController 가 일자 완료를 통지하면 결과 씬(ResultScene)으로 전환한다.
@@ -308,13 +343,40 @@ public sealed class ImmigrationManager : MonoBehaviour
         }
     }
 
-    /// <summary>규정집 버튼: 현재 일차 규정 팝업.</summary>
+    /// <summary>규정집 버튼: 현재 일차에 적용되는 규정 팝업(기초 규정 + 활성 이벤트 규정).</summary>
     public void OnRulebookButton()
     {
-        if (_data != null && rulebookPopup != null)
+        if (rulebookPopup != null)
         {
-            rulebookPopup.Open(_data.rules);
+            rulebookPopup.Open(BuildActiveRules());
         }
+    }
+
+    /// <summary>
+    /// 규정집에 표시할 규정을 만든다 = day1..현재일차에 "도입"된 규정 중 "아직 유효한" 것만(ruleId 중복 제거, 등장 순서 유지).
+    /// - 도입: 각 dayN.json 은 그날 새로 생기는 규정만 담으므로(day2/14 는 비기도 한다) day1..현재까지 훑어 누적한다.
+    ///   누적하지 않으면 day1 의 기초 규정(여권/신분/사진/금지품)이 2일차부터 사라진다.
+    /// - 종료: 이벤트성 규정(endDay>0, 예 PCR=7)은 그 일차가 지나면 제외한다(시작 전엔 도입 전이라 자연히 없음).
+    ///   → 기초 규정은 항상, 이벤트 규정은 활성 기간에만 표시된다.
+    /// </summary>
+    private List<RuleData> BuildActiveRules()
+    {
+        var list = new List<RuleData>();
+        var seen = new HashSet<int>();
+        for (int d = FirstDay; d <= CurrentDay; d++)
+        {
+            // 현재 일차는 이미 로드된 _data 를 재사용하고, 이전 일차는 그때그때 로드한다(규정집 열 때만, 가벼움).
+            Day1Data dd = (d == CurrentDay && _data != null) ? _data : _loader.Load(d);
+            if (dd?.rules == null) continue;
+            foreach (RuleData r in dd.rules)
+            {
+                if (r == null) continue;
+                if (r.endDay > 0 && CurrentDay > r.endDay) continue; // 이벤트 종료 규정 제외(예: PCR 은 8일차부터 안 보임)
+                if (r.ruleId != 0 && !seen.Add(r.ruleId)) continue;  // 같은 규정 재등장 시 1회만(ruleId 0=미지정은 그대로 추가)
+                list.Add(r);
+            }
+        }
+        return list;
     }
 
     private IEnumerator FadeIn()

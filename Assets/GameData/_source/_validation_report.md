@@ -1,12 +1,12 @@
 # 여권 주세요 — 데이터 검증 리포트
 
 - 원본: `여권_정리_updated.xlsx`
-- 시트: 21개
-- **오류(error): 0건**
+- 시트: 22개
+- **오류(error): 1건**
 - 참고(note): 13건
 
 ## 오류 (해결 필요)
-- 없음 (참조 누락/범위 오류 0)
+- [지문스키마] fingerprint 옵션B 필수 컬럼 누락=alt_birth, alt_name, alt_nationality
 
 ## 참고 / 정보
 - day_schedule 데이터 행 수: 98 (기대 98)

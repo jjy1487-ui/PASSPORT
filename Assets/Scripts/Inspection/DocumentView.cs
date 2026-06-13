@@ -47,7 +47,7 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
 
     [Header("고지서(오판 피드백) 배치")]
     [Tooltip("고지서 카드 기준 위치(anchoredPosition, _cardContainer 기준). 첫 고지서가 놓일 자리.")]
-    [SerializeField] private Vector2 _noticeBasePos = new Vector2(-1173f, -88f);
+    [SerializeField] private Vector2 _noticeBasePos = new Vector2(-300f, 300f);
     [Tooltip("고지서 카드 크기(sizeDelta). 닫힌 썸네일 크기.")]
     [SerializeField] private Vector2 _noticeSize = new Vector2(83.8205f, 86.6596f);
     [Tooltip("고지서가 여러 장일 때 카드끼리 어긋나는 간격(px).")]
@@ -160,13 +160,37 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
         }
     }
 
-    /// <summary>고지서를 고정 기준 위치(_noticeBasePos)·크기(_noticeSize)로 배치한다.
+    /// <summary>
+    /// 고지서를 일반 서류와 같은 출현 영역(_spawnArea = 검사 데스크의 서류 스폰 자리)에 띄운다.
+    /// 서있는 캐릭터(CustomerArea) 위/중앙을 가리지 않도록, 서류가 뜨는 곳과 동일한 위치에 둔다.
+    /// _spawnArea 가 없으면 기존 고정 기준 위치(_noticeBasePos) 폴백.
     /// 여러 장이면 인덱스만큼 어긋나게(_noticeStagger) 누적해 겹침을 막는다.
     /// 런타임 클론이라 인스펙터로 직접 못 박으므로 스폰 시 코드로 고정한다.</summary>
     private void PositionNotice(RectTransform card, int i)
     {
         if (card == null) return;
         card.sizeDelta = _noticeSize;
+
+        if (_spawnArea != null)
+        {
+            // 일반 서류 스폰과 동일한 영역(SpawnArea) 중앙을 기준으로, 누적 인덱스만큼만 어긋나게.
+            Vector3[] c = new Vector3[4];
+            _spawnArea.GetWorldCorners(c); // 0=좌하 1=좌상 2=우상 3=우하
+            float minX = c[0].x + _cardHalfSize.x, maxX = c[2].x - _cardHalfSize.x;
+            float minY = c[0].y + _cardHalfSize.y, maxY = c[1].y - _cardHalfSize.y;
+
+            float cx = (minX + maxX) * 0.5f;
+            float cy = (minY + maxY) * 0.5f;
+            float x = cx + i * _noticeStagger.x;
+            float y = cy - i * _noticeStagger.y;
+            if (maxX > minX) x = Mathf.Clamp(x, minX, maxX);
+            if (maxY > minY) y = Mathf.Clamp(y, minY, maxY);
+
+            card.position = new Vector3(x, y, _spawnArea.position.z);
+            return;
+        }
+
+        // 폴백: SpawnArea 미연결 시 기존 고정 기준 위치.
         card.anchoredPosition = _noticeBasePos + new Vector2(i * _noticeStagger.x, -i * _noticeStagger.y);
     }
 

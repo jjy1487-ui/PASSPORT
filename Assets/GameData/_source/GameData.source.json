@@ -1666,7 +1666,7 @@
      "day": "9",
      "slot": "7",
      "customer_id": "35",
-     "valid_chance": "1",
+     "valid_chance": "0",
      "customer_name": "자오 레이"
     },
     {
@@ -1778,7 +1778,7 @@
      "day": "11",
      "slot": "7",
      "customer_id": "36",
-     "valid_chance": "0",
+     "valid_chance": "1",
      "customer_name": "천 징"
     },
     {
@@ -2009,7 +2009,7 @@
     {
      "passport_id": "1",
      "customer_id": "1",
-     "passport_no": "AB1234567",
+     "passport_no": "KO1234567",
      "name_en": "KIM<<MINJUN",
      "gender": "남성",
      "birth_date": "1985-03-15",
@@ -2045,7 +2045,7 @@
     {
      "passport_id": "5",
      "customer_id": "5",
-     "passport_no": "EG7778899",
+     "passport_no": "KO7778899",
      "name_en": "PARK<<CHEOLSU",
      "gender": "남성",
      "birth_date": "1982-09-14",
@@ -2189,7 +2189,7 @@
     {
      "passport_id": "25",
      "customer_id": "18",
-     "passport_no": "CH1020106",
+     "passport_no": "CN1020106",
      "name_en": "CHEN<<LI",
      "gender": "남성",
      "birth_date": "1986-05-30",
@@ -2489,7 +2489,7 @@
     {
      "passport_id": "62",
      "customer_id": "41",
-     "passport_no": "EG7778899",
+     "passport_no": "KO7778899",
      "name_en": "PARK<<HAJUN",
      "gender": "남성",
      "birth_date": "1982-09-14",
@@ -2597,7 +2597,7 @@
     {
      "passport_id": "71",
      "customer_id": "50",
-     "passport_no": "AB1234567",
+     "passport_no": "KO1234567",
      "name_en": "IM<<SEONWOO",
      "gender": "남성",
      "birth_date": "1985-03-15",
@@ -2609,7 +2609,7 @@
     {
      "passport_id": "72",
      "customer_id": "51",
-     "passport_no": "AB1234567",
+     "passport_no": "KO1234567",
      "name_en": "HAN<<HYUNWOO",
      "gender": "남성",
      "birth_date": "1985-03-15",
@@ -2669,7 +2669,7 @@
     {
      "passport_id": "77",
      "customer_id": "56",
-     "passport_no": "EG7778899",
+     "passport_no": "KO7778899",
      "name_en": "SHIN<<YUJUN",
      "gender": "남성",
      "birth_date": "1982-09-14",
@@ -2705,7 +2705,7 @@
     {
      "passport_id": "80",
      "customer_id": "59",
-     "passport_no": "AB1234567",
+     "passport_no": "KO1234567",
      "name_en": "HWANG<<JIHWAN",
      "gender": "남성",
      "birth_date": "1985-03-15",
@@ -2885,7 +2885,7 @@
     {
      "passport_id": "95",
      "customer_id": "74",
-     "passport_no": "CH1020106",
+     "passport_no": "CN1020106",
      "name_en": "CHEN<<HAO",
      "gender": "남성",
      "birth_date": "1986-05-30",
@@ -2897,7 +2897,7 @@
     {
      "passport_id": "96",
      "customer_id": "75",
-     "passport_no": "EG7778899",
+     "passport_no": "KO7778899",
      "name_en": "KANG<<YERIN",
      "gender": "남성",
      "birth_date": "1982-09-14",
@@ -2909,7 +2909,7 @@
     {
      "passport_id": "97",
      "customer_id": "76",
-     "passport_no": "AB1234567",
+     "passport_no": "KO1234567",
      "name_en": "JO<<YUJIN",
      "gender": "남성",
      "birth_date": "1985-03-15",
@@ -3113,7 +3113,7 @@
     {
      "passport_id": "114",
      "customer_id": "93",
-     "passport_no": "AB1234567",
+     "passport_no": "KO1234567",
      "name_en": "MOON<<JIYU",
      "gender": "남성",
      "birth_date": "1985-03-15",
@@ -3221,16 +3221,6 @@
      "key": "expiry_date",
      "type": "date",
      "label": "만료일"
-    },
-    {
-     "key": "entry_type",
-     "type": "varchar(20)",
-     "label": "입국 횟수"
-    },
-    {
-     "key": "memo",
-     "type": "varchar(200)",
-     "label": "비고"
     }
    ],
    "rows": [
@@ -3241,9 +3231,7 @@
      "visa_type": "관광",
      "nationality": "CHN",
      "issue_date": "2023-09-20",
-     "expiry_date": "2024-03-20",
-     "entry_type": "단수",
-     "memo": "첸웨이 정상 관광비자"
+     "expiry_date": "2024-03-20"
     },
     {
      "visa_id": "3",
@@ -3252,9 +3240,7 @@
      "visa_type": "관광",
      "nationality": "USA",
      "issue_date": "2025-08-12",
-     "expiry_date": "2027-08-12",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2027-08-12"
     },
     {
      "visa_id": "4",
@@ -3263,9 +3249,7 @@
      "visa_type": "관광",
      "nationality": "CHN",
      "issue_date": "2024-09-17",
-     "expiry_date": "2026-09-17",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-17"
     },
     {
      "visa_id": "5",
@@ -3274,9 +3258,7 @@
      "visa_type": "관광",
      "nationality": "USA",
      "issue_date": "2026-03-22",
-     "expiry_date": "2026-09-22",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-22"
     },
     {
      "visa_id": "6",
@@ -3285,9 +3267,7 @@
      "visa_type": "관광",
      "nationality": "JPN",
      "issue_date": "2024-09-08",
-     "expiry_date": "2026-09-08",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-08"
     },
     {
      "visa_id": "7",
@@ -3296,9 +3276,7 @@
      "visa_type": "관광",
      "nationality": "USA",
      "issue_date": "2025-12-03",
-     "expiry_date": "2027-12-03",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2027-12-03"
     },
     {
      "visa_id": "8",
@@ -3307,9 +3285,7 @@
      "visa_type": "관광",
      "nationality": "CHN",
      "issue_date": "2024-09-17",
-     "expiry_date": "2026-09-17",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-17"
     },
     {
      "visa_id": "9",
@@ -3318,9 +3294,7 @@
      "visa_type": "장기체류",
      "nationality": "CHN",
      "issue_date": "2025-09-03",
-     "expiry_date": "2026-09-03",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-03"
     },
     {
      "visa_id": "10",
@@ -3329,9 +3303,7 @@
      "visa_type": "관광",
      "nationality": "JPN",
      "issue_date": "2026-03-08",
-     "expiry_date": "2026-09-08",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-08"
     },
     {
      "visa_id": "11",
@@ -3340,9 +3312,7 @@
      "visa_type": "관광",
      "nationality": "USA",
      "issue_date": "2025-04-03",
-     "expiry_date": "2027-04-03",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2027-04-03"
     },
     {
      "visa_id": "12",
@@ -3351,9 +3321,7 @@
      "visa_type": "관광",
      "nationality": "JPN",
      "issue_date": "2024-09-27",
-     "expiry_date": "2026-09-27",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-27"
     },
     {
      "visa_id": "13",
@@ -3362,9 +3330,7 @@
      "visa_type": "관광",
      "nationality": "CHN",
      "issue_date": "2025-09-12",
-     "expiry_date": "2026-09-12",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-12"
     },
     {
      "visa_id": "14",
@@ -3373,9 +3339,7 @@
      "visa_type": "관광",
      "nationality": "JPN",
      "issue_date": "2025-09-08",
-     "expiry_date": "2026-09-08",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-08"
     },
     {
      "visa_id": "15",
@@ -3384,9 +3348,7 @@
      "visa_type": "관광",
      "nationality": "USA",
      "issue_date": "2025-09-12",
-     "expiry_date": "2026-09-12",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-12"
     },
     {
      "visa_id": "16",
@@ -3395,9 +3357,7 @@
      "visa_type": "관광",
      "nationality": "CHN",
      "issue_date": "2024-09-27",
-     "expiry_date": "2026-09-27",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-27"
     },
     {
      "visa_id": "17",
@@ -3406,9 +3366,7 @@
      "visa_type": "관광",
      "nationality": "JPN",
      "issue_date": "2026-03-03",
-     "expiry_date": "2026-09-03",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-03"
     },
     {
      "visa_id": "23",
@@ -3417,9 +3375,7 @@
      "visa_type": "취업",
      "nationality": "CHN",
      "issue_date": "2025-09-08",
-     "expiry_date": "2026-09-08",
-     "entry_type": "복수",
-     "memo": "취업 정상 비자"
+     "expiry_date": "2026-09-08"
     },
     {
      "visa_id": "24",
@@ -3428,9 +3384,7 @@
      "visa_type": "취업",
      "nationality": "CHN",
      "issue_date": "2025-04-22",
-     "expiry_date": "2027-04-22",
-     "entry_type": "복수",
-     "memo": "취업 정상 비자"
+     "expiry_date": "2027-04-22"
     },
     {
      "visa_id": "25",
@@ -3439,9 +3393,7 @@
      "visa_type": "취업",
      "nationality": "USA",
      "issue_date": "2025-09-27",
-     "expiry_date": "2026-09-27",
-     "entry_type": "복수",
-     "memo": "취업 정상 비자"
+     "expiry_date": "2026-09-27"
     },
     {
      "visa_id": "1001",
@@ -3450,9 +3402,7 @@
      "visa_type": "관광",
      "nationality": "USA",
      "issue_date": "2025-04-03",
-     "expiry_date": "2027-04-03",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2027-04-03"
     },
     {
      "visa_id": "1006",
@@ -3461,9 +3411,7 @@
      "visa_type": "관광",
      "nationality": "USA",
      "issue_date": "2025-08-12",
-     "expiry_date": "2027-08-12",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2027-08-12"
     },
     {
      "visa_id": "1009",
@@ -3472,9 +3420,7 @@
      "visa_type": "관광",
      "nationality": "CHN",
      "issue_date": "2024-09-17",
-     "expiry_date": "2026-09-17",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-17"
     },
     {
      "visa_id": "1017",
@@ -3483,9 +3429,7 @@
      "visa_type": "관광",
      "nationality": "USA",
      "issue_date": "2025-04-03",
-     "expiry_date": "2027-04-03",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2027-04-03"
     },
     {
      "visa_id": "1018",
@@ -3494,9 +3438,7 @@
      "visa_type": "관광",
      "nationality": "JPN",
      "issue_date": "2024-09-27",
-     "expiry_date": "2026-09-27",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-27"
     },
     {
      "visa_id": "1021",
@@ -3505,9 +3447,7 @@
      "visa_type": "관광",
      "nationality": "CHN",
      "issue_date": "2025-09-12",
-     "expiry_date": "2026-09-12",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-12"
     },
     {
      "visa_id": "1025",
@@ -3516,9 +3456,7 @@
      "visa_type": "관광",
      "nationality": "CHN",
      "issue_date": "2025-09-12",
-     "expiry_date": "2026-09-12",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-12"
     },
     {
      "visa_id": "1026",
@@ -3527,9 +3465,7 @@
      "visa_type": "관광",
      "nationality": "USA",
      "issue_date": "2025-08-12",
-     "expiry_date": "2027-08-12",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2027-08-12"
     },
     {
      "visa_id": "1030",
@@ -3538,9 +3474,7 @@
      "visa_type": "관광",
      "nationality": "CHN",
      "issue_date": "2024-09-17",
-     "expiry_date": "2026-09-17",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-17"
     },
     {
      "visa_id": "1032",
@@ -3549,9 +3483,7 @@
      "visa_type": "관광",
      "nationality": "USA",
      "issue_date": "2025-04-03",
-     "expiry_date": "2027-04-03",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2027-04-03"
     },
     {
      "visa_id": "1036",
@@ -3560,9 +3492,7 @@
      "visa_type": "관광",
      "nationality": "JPN",
      "issue_date": "2024-09-27",
-     "expiry_date": "2026-09-27",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-27"
     },
     {
      "visa_id": "1037",
@@ -3571,9 +3501,7 @@
      "visa_type": "장기체류",
      "nationality": "CHN",
      "issue_date": "2025-09-03",
-     "expiry_date": "2026-09-03",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-03"
     },
     {
      "visa_id": "1040",
@@ -3582,9 +3510,7 @@
      "visa_type": "관광",
      "nationality": "CHN",
      "issue_date": "2023-09-20",
-     "expiry_date": "2024-03-20",
-     "entry_type": "단수",
-     "memo": "첸웨이 정상 관광비자"
+     "expiry_date": "2024-03-20"
     },
     {
      "visa_id": "1043",
@@ -3593,9 +3519,7 @@
      "visa_type": "관광",
      "nationality": "USA",
      "issue_date": "2025-08-12",
-     "expiry_date": "2027-08-12",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2027-08-12"
     },
     {
      "visa_id": "1048",
@@ -3604,9 +3528,7 @@
      "visa_type": "관광",
      "nationality": "CHN",
      "issue_date": "2023-09-20",
-     "expiry_date": "2024-03-20",
-     "entry_type": "단수",
-     "memo": "첸웨이 정상 관광비자"
+     "expiry_date": "2024-03-20"
     },
     {
      "visa_id": "1050",
@@ -3615,9 +3537,7 @@
      "visa_type": "관광",
      "nationality": "CHN",
      "issue_date": "2024-09-17",
-     "expiry_date": "2026-09-17",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-17"
     },
     {
      "visa_id": "1052",
@@ -3626,9 +3546,7 @@
      "visa_type": "관광",
      "nationality": "JPN",
      "issue_date": "2024-09-27",
-     "expiry_date": "2026-09-27",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-27"
     },
     {
      "visa_id": "1055",
@@ -3637,9 +3555,7 @@
      "visa_type": "관광",
      "nationality": "CHN",
      "issue_date": "2025-09-12",
-     "expiry_date": "2026-09-12",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-12"
     },
     {
      "visa_id": "1057",
@@ -3648,9 +3564,7 @@
      "visa_type": "관광",
      "nationality": "CHN",
      "issue_date": "2023-09-20",
-     "expiry_date": "2024-03-20",
-     "entry_type": "단수",
-     "memo": "첸웨이 정상 관광비자"
+     "expiry_date": "2024-03-20"
     },
     {
      "visa_id": "1058",
@@ -3659,9 +3573,7 @@
      "visa_type": "관광",
      "nationality": "JPN",
      "issue_date": "2026-03-03",
-     "expiry_date": "2026-09-03",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2026-09-03"
     },
     {
      "visa_id": "1060",
@@ -3670,9 +3582,7 @@
      "visa_type": "관광",
      "nationality": "USA",
      "issue_date": "2025-08-12",
-     "expiry_date": "2027-08-12",
-     "entry_type": "단수",
-     "memo": "외국인 정상 비자"
+     "expiry_date": "2027-08-12"
     }
    ],
    "layout": "relational"
@@ -3715,9 +3625,14 @@
      "label": "검사 기관"
     },
     {
-     "key": "memo",
-     "type": "varchar(200)",
-     "label": "비고"
+     "key": "name",
+     "type": "varchar(50)",
+     "label": "이름"
+    },
+    {
+     "key": "nationality",
+     "type": "varchar(10)",
+     "label": "국적"
     }
    ],
    "rows": [
@@ -3726,10 +3641,11 @@
      "customer_id": "4",
      "test_no": "PCR-ES-2024A",
      "test_date": "2025-06-26",
-     "result": "음성",
+     "result": "Negative",
      "valid_until": "2025-06-29",
      "lab_name": "인천공항검역소",
-     "memo": "마리아 정상 음성"
+     "name": "JAMES MILLER",
+     "nationality": "USA"
     },
     {
      "pcr_id": "3",
@@ -3738,8 +3654,9 @@
      "test_date": "2026-05-20",
      "result": "Negative",
      "valid_until": "2026-06-20",
-     "lab_name": "한국공항검역본부",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "인천공항검역소",
+     "name": "KIM MINJUN",
+     "nationality": "KOR"
     },
     {
      "pcr_id": "4",
@@ -3748,8 +3665,9 @@
      "test_date": "2026-05-20",
      "result": "Negative",
      "valid_until": "2026-06-17",
-     "lab_name": "인천공항검역소",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "PARK CHEOLSU",
+     "nationality": "KOR"
     },
     {
      "pcr_id": "5",
@@ -3758,28 +3676,31 @@
      "test_date": "2026-05-28",
      "result": "Negative",
      "valid_until": "2026-06-18",
-     "lab_name": "삼성서울병원진단검사의학과",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "국립검역소",
+     "name": "JEONG YUNA",
+     "nationality": "KOR"
     },
     {
      "pcr_id": "6",
      "customer_id": "13",
      "test_no": "PCR-013",
      "test_date": "2026-05-20",
-     "result": "Negative",
+     "result": "Positive",
      "valid_until": "2026-06-17",
-     "lab_name": "서울시립보건연구원",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "인천공항검역소",
+     "name": "ROBERT JOHNSON",
+     "nationality": "USA"
     },
     {
      "pcr_id": "7",
      "customer_id": "14",
      "test_no": "PCR-014",
      "test_date": "2026-06-05",
-     "result": "Negative",
+     "result": "(누락)",
      "valid_until": "2026-06-19",
-     "lab_name": "국립검역소",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "LI NA",
+     "nationality": "CHN"
     },
     {
      "pcr_id": "8",
@@ -3788,18 +3709,20 @@
      "test_date": "2026-05-22",
      "result": "Negative",
      "valid_until": "2026-06-19",
-     "lab_name": "연세대학교의료원검사센터",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "국립검역소",
+     "name": "HAN JIWON",
+     "nationality": "KOR"
     },
     {
      "pcr_id": "9",
      "customer_id": "19",
      "test_no": "PCR-019",
      "test_date": "2026-05-24",
-     "result": "Negative",
+     "result": "Positive",
      "valid_until": "2026-06-14",
-     "lab_name": "부산국제공항검역소",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "인천공항검역소",
+     "name": "TANAKA YUI",
+     "nationality": "JPN"
     },
     {
      "pcr_id": "10",
@@ -3808,8 +3731,9 @@
      "test_date": "2026-06-05",
      "result": "Negative",
      "valid_until": "2026-06-26",
-     "lab_name": "질병관리청진단검사센터",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "국립검역소",
+     "name": "SEO JIHO",
+     "nationality": "KOR"
     },
     {
      "pcr_id": "11",
@@ -3818,8 +3742,9 @@
      "test_date": "2026-05-24",
      "result": "Negative",
      "valid_until": "2026-06-14",
-     "lab_name": "한국공항검역본부",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "SONG HANEUL",
+     "nationality": "KOR"
     },
     {
      "pcr_id": "12",
@@ -3828,8 +3753,9 @@
      "test_date": "2026-05-26",
      "result": "Negative",
      "valid_until": "2026-06-16",
-     "lab_name": "인천공항검역소",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "국립검역소",
+     "name": "IM DOHYUN",
+     "nationality": "KOR"
     },
     {
      "pcr_id": "13",
@@ -3838,8 +3764,9 @@
      "test_date": "2026-05-28",
      "result": "Negative",
      "valid_until": "2026-06-14",
-     "lab_name": "삼성서울병원진단검사의학과",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "인천공항검역소",
+     "name": "WILLIAM BROWN",
+     "nationality": "USA"
     },
     {
      "pcr_id": "14",
@@ -3848,8 +3775,9 @@
      "test_date": "2026-06-02",
      "result": "Negative",
      "valid_until": "2026-06-16",
-     "lab_name": "서울시립보건연구원",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "TANAKA HARUTO",
+     "nationality": "JPN"
     },
     {
      "pcr_id": "15",
@@ -3859,7 +3787,8 @@
      "result": "Negative",
      "valid_until": "2026-06-17",
      "lab_name": "국립검역소",
-     "memo": "정상 PCR(음성)"
+     "name": "ZHANG WEI",
+     "nationality": "CHN"
     },
     {
      "pcr_id": "16",
@@ -3868,8 +3797,9 @@
      "test_date": "2026-05-30",
      "result": "Negative",
      "valid_until": "2026-06-20",
-     "lab_name": "연세대학교의료원검사센터",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "인천공항검역소",
+     "name": "OH MANSEOK",
+     "nationality": "KOR"
     },
     {
      "pcr_id": "17",
@@ -3878,8 +3808,9 @@
      "test_date": "2026-06-05",
      "result": "Negative",
      "valid_until": "2026-06-26",
-     "lab_name": "부산국제공항검역소",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "BAE SUJEONG",
+     "nationality": "KOR"
     },
     {
      "pcr_id": "18",
@@ -3888,8 +3819,9 @@
      "test_date": "2026-05-26",
      "result": "Negative",
      "valid_until": "2026-06-16",
-     "lab_name": "질병관리청진단검사센터",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "퀵메디 사설랩",
+     "name": "SUZUKI AOI",
+     "nationality": "JPN"
     },
     {
      "pcr_id": "19",
@@ -3898,8 +3830,9 @@
      "test_date": "2026-06-02",
      "result": "Negative",
      "valid_until": "2026-06-23",
-     "lab_name": "한국공항검역본부",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "무허가검진센터",
+     "name": "MICHAEL DAVIS",
+     "nationality": "USA"
     },
     {
      "pcr_id": "20",
@@ -3908,398 +3841,438 @@
      "test_date": "2026-06-05",
      "result": "Negative",
      "valid_until": "2026-06-19",
-     "lab_name": "인천공항검역소",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "24시 익명검사소",
+     "name": "LIU YANG",
+     "nationality": "CHN"
     },
     {
-     "pcr_id": "1001",
+     "pcr_id": "21",
      "customer_id": "38",
      "test_no": "PCR-025",
      "test_date": "2026-05-28",
      "result": "Negative",
      "valid_until": "2026-06-14",
-     "lab_name": "삼성서울병원진단검사의학과",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "DAVID SMITH",
+     "nationality": "USA"
     },
     {
-     "pcr_id": "1002",
+     "pcr_id": "22",
      "customer_id": "39",
      "test_no": "PCR-024",
      "test_date": "2026-05-26",
      "result": "Negative",
      "valid_until": "2026-06-16",
-     "lab_name": "인천공항검역소",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "국립검역소",
+     "name": "KIM DOYUN",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1004",
+     "pcr_id": "23",
      "customer_id": "41",
      "test_no": "PCR-005",
      "test_date": "2026-05-20",
      "result": "Negative",
      "valid_until": "2026-06-17",
-     "lab_name": "인천공항검역소",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "PARK HAJUN",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1006",
+     "pcr_id": "24",
      "customer_id": "43",
      "test_no": "PCR-ES-2024A",
      "test_date": "2025-06-26",
-     "result": "음성",
+     "result": "Negative",
      "valid_until": "2025-06-29",
      "lab_name": "인천공항검역소",
-     "memo": "마리아 정상 음성"
+     "name": "THOMAS MOORE",
+     "nationality": "USA"
     },
     {
-     "pcr_id": "1010",
+     "pcr_id": "25",
      "customer_id": "47",
      "test_no": "PCR-028",
      "test_date": "2026-05-30",
      "result": "Negative",
      "valid_until": "2026-06-20",
-     "lab_name": "연세대학교의료원검사센터",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "JO JIHO",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1011",
+     "pcr_id": "26",
      "customer_id": "48",
      "test_no": "PCR-012",
      "test_date": "2026-05-28",
      "result": "Negative",
      "valid_until": "2026-06-18",
-     "lab_name": "삼성서울병원진단검사의학과",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "국립검역소",
+     "name": "YOON GEONWOO",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1012",
+     "pcr_id": "27",
      "customer_id": "49",
      "test_no": "PCR-024",
      "test_date": "2026-05-26",
      "result": "Negative",
      "valid_until": "2026-06-16",
      "lab_name": "인천공항검역소",
-     "memo": "정상 PCR(음성)"
+     "name": "JANG WOOJIN",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1013",
+     "pcr_id": "28",
      "customer_id": "50",
      "test_no": "PCR-001",
      "test_date": "2026-05-20",
      "result": "Negative",
      "valid_until": "2026-06-20",
-     "lab_name": "한국공항검역본부",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "IM SEONWOO",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1014",
+     "pcr_id": "29",
      "customer_id": "51",
      "test_no": "PCR-001",
      "test_date": "2026-05-20",
      "result": "Negative",
      "valid_until": "2026-06-20",
-     "lab_name": "한국공항검역본부",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "국립검역소",
+     "name": "HAN HYUNWOO",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1015",
+     "pcr_id": "30",
      "customer_id": "52",
      "test_no": "PCR-029",
      "test_date": "2026-06-05",
      "result": "Negative",
      "valid_until": "2026-06-26",
-     "lab_name": "부산국제공항검역소",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "인천공항검역소",
+     "name": "OH EUNWOO",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1016",
+     "pcr_id": "31",
      "customer_id": "53",
      "test_no": "PCR-024",
      "test_date": "2026-05-26",
      "result": "Negative",
      "valid_until": "2026-06-16",
-     "lab_name": "인천공항검역소",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "SEO JIAN",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1017",
+     "pcr_id": "32",
      "customer_id": "54",
      "test_no": "PCR-025",
      "test_date": "2026-05-28",
      "result": "Negative",
      "valid_until": "2026-06-14",
-     "lab_name": "삼성서울병원진단검사의학과",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "국립검역소",
+     "name": "DANIEL TAYLOR",
+     "nationality": "USA"
     },
     {
-     "pcr_id": "1018",
+     "pcr_id": "33",
      "customer_id": "55",
      "test_no": "PCR-026",
      "test_date": "2026-06-02",
      "result": "Negative",
      "valid_until": "2026-06-16",
-     "lab_name": "서울시립보건연구원",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "인천공항검역소",
+     "name": "SATO YUTO",
+     "nationality": "JPN"
     },
     {
-     "pcr_id": "1019",
+     "pcr_id": "34",
      "customer_id": "56",
      "test_no": "PCR-005",
      "test_date": "2026-05-20",
      "result": "Negative",
      "valid_until": "2026-06-17",
-     "lab_name": "인천공항검역소",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "SHIN YUJUN",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1020",
+     "pcr_id": "35",
      "customer_id": "57",
      "test_no": "PCR-023",
      "test_date": "2026-05-24",
      "result": "Negative",
      "valid_until": "2026-06-14",
-     "lab_name": "한국공항검역본부",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "국립검역소",
+     "name": "KWON MINJAE",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1021",
+     "pcr_id": "36",
      "customer_id": "58",
      "test_no": "PCR-027",
      "test_date": "2026-05-20",
      "result": "Negative",
      "valid_until": "2026-06-17",
-     "lab_name": "국립검역소",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "인천공항검역소",
+     "name": "WANG FANG",
+     "nationality": "CHN"
     },
     {
-     "pcr_id": "1022",
+     "pcr_id": "37",
      "customer_id": "59",
      "test_no": "PCR-001",
      "test_date": "2026-05-20",
      "result": "Negative",
      "valid_until": "2026-06-20",
-     "lab_name": "한국공항검역본부",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "HWANG JIHWAN",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1025",
+     "pcr_id": "38",
      "customer_id": "62",
      "test_no": "PCR-027",
      "test_date": "2026-05-20",
      "result": "Negative",
      "valid_until": "2026-06-17",
-     "lab_name": "국립검역소",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "ZHANG MIN",
+     "nationality": "CHN"
     },
     {
-     "pcr_id": "1026",
+     "pcr_id": "39",
      "customer_id": "63",
      "test_no": "PCR-ES-2024A",
      "test_date": "2025-06-26",
-     "result": "음성",
+     "result": "Negative",
      "valid_until": "2025-06-29",
-     "lab_name": "인천공항검역소",
-     "memo": "마리아 정상 음성"
+     "lab_name": "국립검역소",
+     "name": "MATTHEW ANDERSON",
+     "nationality": "USA"
     },
     {
-     "pcr_id": "1028",
+     "pcr_id": "40",
      "customer_id": "65",
      "test_no": "PCR-028",
      "test_date": "2026-05-30",
      "result": "Negative",
      "valid_until": "2026-06-20",
-     "lab_name": "연세대학교의료원검사센터",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "HONG SEONGMIN",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1031",
+     "pcr_id": "41",
      "customer_id": "68",
      "test_no": "PCR-012",
      "test_date": "2026-05-28",
      "result": "Negative",
      "valid_until": "2026-06-18",
-     "lab_name": "삼성서울병원진단검사의학과",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "LEE JIWOO",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1032",
+     "pcr_id": "42",
      "customer_id": "69",
      "test_no": "PCR-025",
      "test_date": "2026-05-28",
      "result": "Negative",
      "valid_until": "2026-06-14",
-     "lab_name": "삼성서울병원진단검사의학과",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "국립검역소",
+     "name": "CHRIS THOMAS",
+     "nationality": "USA"
     },
     {
-     "pcr_id": "1033",
+     "pcr_id": "43",
      "customer_id": "70",
      "test_no": "PCR-023",
      "test_date": "2026-05-24",
      "result": "Negative",
      "valid_until": "2026-06-14",
-     "lab_name": "한국공항검역본부",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "인천공항검역소",
+     "name": "PARK HAYUN",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1034",
+     "pcr_id": "44",
      "customer_id": "71",
      "test_no": "PCR-029",
      "test_date": "2026-06-05",
      "result": "Negative",
      "valid_until": "2026-06-26",
-     "lab_name": "부산국제공항검역소",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "CHOI SUAH",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1035",
+     "pcr_id": "45",
      "customer_id": "72",
      "test_no": "PCR-021",
      "test_date": "2026-06-05",
      "result": "Negative",
      "valid_until": "2026-06-26",
-     "lab_name": "질병관리청진단검사센터",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "국립검역소",
+     "name": "JEONG DAEUN",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1036",
+     "pcr_id": "46",
      "customer_id": "73",
      "test_no": "PCR-026",
      "test_date": "2026-06-02",
      "result": "Negative",
      "valid_until": "2026-06-16",
-     "lab_name": "서울시립보건연구원",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "인천공항검역소",
+     "name": "SUZUKI SORA",
+     "nationality": "JPN"
     },
     {
-     "pcr_id": "1038",
+     "pcr_id": "47",
      "customer_id": "75",
      "test_no": "PCR-005",
      "test_date": "2026-05-20",
      "result": "Negative",
      "valid_until": "2026-06-17",
-     "lab_name": "인천공항검역소",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "국립검역소",
+     "name": "KANG YERIN",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1039",
+     "pcr_id": "48",
      "customer_id": "76",
      "test_no": "PCR-001",
      "test_date": "2026-05-20",
      "result": "Negative",
      "valid_until": "2026-06-20",
-     "lab_name": "한국공항검역본부",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "인천공항검역소",
+     "name": "JO YUJIN",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1043",
+     "pcr_id": "49",
      "customer_id": "80",
      "test_no": "PCR-ES-2024A",
      "test_date": "2025-06-26",
-     "result": "음성",
+     "result": "Negative",
      "valid_until": "2025-06-29",
-     "lab_name": "인천공항검역소",
-     "memo": "마리아 정상 음성"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "ANDREW WHITE",
+     "nationality": "USA"
     },
     {
-     "pcr_id": "1045",
+     "pcr_id": "50",
      "customer_id": "82",
      "test_no": "PCR-021",
      "test_date": "2026-06-05",
      "result": "Negative",
      "valid_until": "2026-06-26",
-     "lab_name": "질병관리청진단검사센터",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "인천공항검역소",
+     "name": "HAN JIA",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1046",
+     "pcr_id": "51",
      "customer_id": "83",
      "test_no": "PCR-028",
      "test_date": "2026-05-30",
      "result": "Negative",
      "valid_until": "2026-06-20",
-     "lab_name": "연세대학교의료원검사센터",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "OH NAEUN",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1047",
+     "pcr_id": "52",
      "customer_id": "84",
      "test_no": "PCR-012",
      "test_date": "2026-05-28",
      "result": "Negative",
      "valid_until": "2026-06-18",
-     "lab_name": "삼성서울병원진단검사의학과",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "국립검역소",
+     "name": "SEO HARIN",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1051",
+     "pcr_id": "53",
      "customer_id": "88",
      "test_no": "PCR-023",
      "test_date": "2026-05-24",
      "result": "Negative",
      "valid_until": "2026-06-14",
-     "lab_name": "한국공항검역본부",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "인천공항검역소",
+     "name": "KWON SEOYUN",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1052",
+     "pcr_id": "54",
      "customer_id": "89",
      "test_no": "PCR-026",
      "test_date": "2026-06-02",
      "result": "Negative",
      "valid_until": "2026-06-16",
-     "lab_name": "서울시립보건연구원",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "TAKAHASHI RIKU",
+     "nationality": "JPN"
     },
     {
-     "pcr_id": "1053",
+     "pcr_id": "55",
      "customer_id": "90",
      "test_no": "PCR-029",
      "test_date": "2026-06-05",
      "result": "Negative",
      "valid_until": "2026-06-26",
-     "lab_name": "부산국제공항검역소",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "국립검역소",
+     "name": "HWANG MINSEO",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1054",
+     "pcr_id": "56",
      "customer_id": "91",
      "test_no": "PCR-021",
      "test_date": "2026-06-05",
      "result": "Negative",
      "valid_until": "2026-06-26",
-     "lab_name": "질병관리청진단검사센터",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "인천공항검역소",
+     "name": "BAE EUNSEO",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1055",
+     "pcr_id": "57",
      "customer_id": "92",
      "test_no": "PCR-027",
      "test_date": "2026-05-20",
      "result": "Negative",
      "valid_until": "2026-06-17",
-     "lab_name": "국립검역소",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "질병관리청진단검사센터",
+     "name": "XU FENG",
+     "nationality": "CHN"
     },
     {
-     "pcr_id": "1056",
+     "pcr_id": "58",
      "customer_id": "93",
      "test_no": "PCR-001",
      "test_date": "2026-05-20",
      "result": "Negative",
      "valid_until": "2026-06-20",
-     "lab_name": "한국공항검역본부",
-     "memo": "정상 PCR(음성)"
+     "lab_name": "국립검역소",
+     "name": "MOON JIYU",
+     "nationality": "KOR"
     },
     {
-     "pcr_id": "1060",
+     "pcr_id": "59",
      "customer_id": "97",
      "test_no": "PCR-ES-2024A",
      "test_date": "2025-06-26",
-     "result": "음성",
+     "result": "Negative",
      "valid_until": "2025-06-29",
      "lab_name": "인천공항검역소",
-     "memo": "마리아 정상 음성"
+     "name": "EMILY CLARK",
+     "nationality": "USA"
     }
    ],
    "layout": "relational"
@@ -4353,7 +4326,7 @@
      "issue_date": "2023-01-15"
     },
     {
-     "employment_id": "3",
+     "employment_id": "2",
      "customer_id": "18",
      "cert_no": "EMP-018",
      "company_name": "대성물류(주)",
@@ -4362,7 +4335,7 @@
      "issue_date": "2025-03-01"
     },
     {
-     "employment_id": "4",
+     "employment_id": "3",
      "customer_id": "35",
      "cert_no": "EMP-035",
      "company_name": "한빛전자(주)",
@@ -4371,7 +4344,7 @@
      "issue_date": "2025-04-01"
     },
     {
-     "employment_id": "6",
+     "employment_id": "4",
      "customer_id": "36",
      "cert_no": "EMP-036",
      "company_name": "동방건설(주)",
@@ -4380,7 +4353,7 @@
      "issue_date": "2025-02-01"
     },
     {
-     "employment_id": "8",
+     "employment_id": "5",
      "customer_id": "37",
      "cert_no": "EMP-037",
      "company_name": "서해수산(주)",
@@ -4389,7 +4362,7 @@
      "issue_date": "2025-01-01"
     },
     {
-     "employment_id": "1009",
+     "employment_id": "6",
      "customer_id": "46",
      "cert_no": "EMP-FR-2023X",
      "company_name": "삼성전자",
@@ -4398,7 +4371,7 @@
      "issue_date": "2023-01-15"
     },
     {
-     "employment_id": "1030",
+     "employment_id": "7",
      "customer_id": "67",
      "cert_no": "EMP-FR-2023X",
      "company_name": "삼성전자",
@@ -4407,7 +4380,7 @@
      "issue_date": "2023-01-15"
     },
     {
-     "employment_id": "1037",
+     "employment_id": "8",
      "customer_id": "74",
      "cert_no": "EMP-018",
      "company_name": "대성물류(주)",
@@ -4416,7 +4389,7 @@
      "issue_date": "2025-03-01"
     },
     {
-     "employment_id": "1050",
+     "employment_id": "9",
      "customer_id": "87",
      "cert_no": "EMP-FR-2023X",
      "company_name": "삼성전자",
@@ -4453,78 +4426,162 @@
      "key": "icon_ref",
      "type": "varchar(50)",
      "label": "아이콘 스프라이트"
+    },
+    {
+     "key": "attrirube",
+     "type": "varchar(100)",
+     "label": "단서"
+    },
+    {
+     "key": "value",
+     "type": "varchar(100)",
+     "label": "단서"
     }
    ],
    "rows": [
     {
      "news_id": "1",
-     "day": "3",
-     "news_title": "입국장서 의료관광객 신원 확인 지연",
-     "news_content": "오늘 오전 국제선 입국장에서 의료관광 목적 방문객의 여권 사진과 현재 얼굴이 달라 추가 확인이 진행됐다. 일부 방문객은 수술 일정을 이유로 빠른 심사를 요청했으나, 현장에서는 여권과 비자 정보 대조가 우선 적용됐다.",
-     "icon_ref": null
+     "day": "2",
+     "news_title": "\"한국에서 만나자!\" H엔터 팬미팅에 해외 팬 몰린다",
+     "news_content": "국내 대형 엔터테인먼트 기업 H엔터가 서울에서 대규모 팬미팅 행사를 개최한다고 발표했다. 행사 소식이 알려지자 해외 팬들의 항공권 예약과 숙박 문의가 급증하고 있으며, 관광업계 역시 방문객 증가에 대한 기대감을 나타내고 있다.",
+     "icon_ref": null,
+     "attrirube": null,
+     "value": "한지원"
     },
     {
      "news_id": "2",
-     "day": "4",
-     "news_title": "친척 방문객 서류 불일치로 추가 조사",
-     "news_content": "친척 방문을 목적으로 입국하려던 방문객의 여권 정보와 제출 서류 내용이 맞지 않아 추가 조사가 이뤄졌다. 공항 관계자는 단순 입력 차이처럼 보이는 정보도 반복되면 허위 진술 가능성을 확인한다고 밝혔다.",
-     "icon_ref": null
+     "day": "3",
+     "news_title": "\"한 번으로는 부족하다\" 재시술 위해 한국 찾는 외국인 증가",
+     "news_content": "한국의 성형 기술이 해외에서 주목받으면서 추가 시술과 재수술을 목적으로 한국을 다시 찾는 외국인 방문객이 늘고 있다. 최근에는 과거 한국에서 시술을 받은 뒤 결과에 만족해 재방문하는 사례도 증가하는 추세다.",
+     "icon_ref": null,
+     "attrirube": null,
+     "value": null
     },
     {
      "news_id": "3",
-     "day": "5",
-     "news_title": "검역대서 고열 의심 승객 분리 조치",
-     "news_content": "오늘 낮 입국 검역대에서 고열 증상을 보인 방문객이 확인돼 임시 대기 구역으로 이동했다. 같은 시간대 입국자 일부도 PCR 검사서와 건강 상태를 추가 확인받으며 검역 절차가 지연됐다.",
-     "icon_ref": "spr_news_001"
+     "day": "3",
+     "news_title": "[속보] 해외 범죄자 추적중.. 외모 변화 정보 확보",
+     "news_content": "해외 수사기관이 추적 중인 범죄 용의자의 이동 정황이 최근 확인된 것으로 알려졌다. 관계 당국은 해당 인물이 여러 국가를 거쳐 이동한 것으로 보고 있으며 현재 행방을 추적하고 있다.",
+     "icon_ref": null,
+     "attrirube": "지문인식, 사진 대조",
+     "value": "윤서린"
     },
     {
      "news_id": "4",
-     "day": "7",
-     "news_title": "PCR 서류 누락으로 입국장 대기열 혼잡",
-     "news_content": "강화된 검역 절차가 이어지는 가운데 PCR 검사서를 제출하지 않거나 검사 기관 정보가 불명확한 사례가 잇따랐다. 현장에서는 서류 확인이 길어지며 입국 대기열이 한때 크게 늘어났다.",
-     "icon_ref": "spr_news_002"
+     "day": "4",
+     "news_title": "\"왜 저만 검사하죠?\" 입국 심사 민원 증가",
+     "news_content": "최근 입국 심사 과정에서 추가 확인 절차를 받는 사례가 늘어나면서 관련 민원도 증가하고 있다. 일부 방문객들은 심사 시간이 길어지는 것에 불편을 호소하고 있으며 온라인 커뮤니티에도 관련 경험담이 이어지고 있다.",
+     "icon_ref": null,
+     "attrirube": null,
+     "value": ""
     },
     {
      "news_id": "5",
-     "day": "8",
-     "news_title": "장기 체류자 서류 대조중 불일치 확인",
-     "news_content": "취업과 유학 등 장기 체류 목적 입국자 심사 과정에서 체류 목적과 제출 서류가 맞지 않는 사례가 확인됐다. 당국은 여권, 비자, 체류 목적 서류의 정보가 서로 이어지는지 확인하고 있다.",
-     "icon_ref": "spr_news_003"
+     "day": "5",
+     "news_title": "해외 감염병 확산 우려 각국 검역 체계 강화",
+     "news_content": "해외 일부 지역에서 감염병 사례가 증가하면서 여러 국가가 검역 절차를 강화하고 있다. 보건 당국은 해외 이동 과정에서의 감염 확산 가능성을 예의주시하고 있으며 관련 대응 체계를 점검하고 있다고 밝혔다.",
+     "icon_ref": null,
+     "attrirube": null,
+     "value": null
     },
     {
      "news_id": "6",
-     "day": "10",
-     "news_title": "완벽해 보인 서류, 통과 직전 위조 적발",
-     "news_content": "오늘 심사 과정에서 겉보기에는 이상이 없던 서류가 최종 확인 단계에서 위조로 드러났다. 보안 관계자는 문서 번호와 발급 정보의 작은 차이가 단서가 됐다고 전했다.",
-     "icon_ref": null
+     "day": "6",
+     "news_title": "강화된 방역 장기화 공항 현장 부담 증가",
+     "news_content": "강화된 방역 장기화 관련 업계 긴장 지속 검역 절차가 장기간 이어지면서 여행업계와 관련 기관들이 상황을 예의주시하고 있다. 보건 당국은 현재 대응 체계를 유지하며 추가 확산 여부를 관찰하고 있다고 밝혔다.",
+     "icon_ref": null,
+     "attrirube": null,
+     "value": null
     },
     {
      "news_id": "7",
-     "day": "11",
-     "news_title": "범죄 조직 연계 밀반입 정황 포착",
-     "news_content": "최근 입국 심사 과정에서 범죄 조직과 연계된 밀반입 시도가 잇따라 확인됐다. 보안팀은 가방뿐 아니라 신체에 위험물이나 밀수품을 숨겨 들여오는 사례가 있어, 의심 정황이 보이면 전신 검색을 병행한다고 밝혔다.",
-     "icon_ref": "spr_news_004"
+     "day": "7",
+     "news_title": "장기화되는 검역 체계 현장 피로 누적 우려",
+     "news_content": "감염병 확산 방지를 위한 검역 절차가 장기간 이어지면서 관련 기관과 현장 인력의 피로 누적에 대한 우려가 나오고 있다. 보건 당국은 현재 대응 체계를 유지하고 있으며 해외 이동과 관련된 상황을 지속적으로 관찰하고 있다고 밝혔다.",
+     "icon_ref": null,
+     "attrirube": null,
+     "value": null
     },
     {
      "news_id": "8",
-     "day": "12",
-     "news_title": "도심 폭발 수사, 공항 이동 기록으로 확대",
-     "news_content": "도심 폭발 사건 이후 수사 당국이 위조 신분 사용 가능성과 공항 이동 기록을 함께 조사하고 있다. 오늘 입국장에서는 목적 진술은 자연스러웠지만 행동과 서류 흐름이 맞지 않는 방문객이 추가 확인을 받았다.",
-     "icon_ref": "spr_news_005"
+     "day": "8",
+     "news_title": "\"한국에서 일하고 싶습니다\" 취업 비자 신청 증가",
+     "news_content": "국내 기업들의 해외 인재 채용 확대에 따라 취업 비자 신청 건수가 꾸준히 증가하고 있다. 특히 전문 기술 인력을 중심으로 한국 취업을 희망하는 외국인들의 문의가 이어지고 있으며 해외 취업 설명회도 활발하게 진행되고 있다.",
+     "icon_ref": null,
+     "attrirube": null,
+     "value": null
     },
     {
      "news_id": "9",
-     "day": "13",
-     "news_title": "정상 서류 소지자, 이상 행동으로 보류",
-     "news_content": "정상 서류를 제출한 입국자가 심사 과정에서 반복적으로 진술을 바꾸고 이동 경로 설명을 피하면서 추가 확인 대상으로 분류됐다. 당국은 서류가 정상이어도 현장 정황이 맞지 않으면 기록을 남겨 확인한다고 밝혔다.",
-     "icon_ref": null
+     "day": "9",
+     "news_title": "[속보] 취업 알선 위장 '유령회사' 무더기 적발... 명의 취업증빙 입국 차단",
+     "news_content": "취업을 미끼로 입국을 알선해 온 유령회사들이 무더기로 적발됐다. 당국은 사업자 미등록·폐업 상태의 회사 명의로 발급된 취업증빙은 모두 무효라며, 해당 회사 증빙을 제출한 입국자는 서류가 정상으로 보여도 입국을 거부하라고 지시했다.",
+     "icon_ref": null,
+     "attrirube": null,
+     "value": null
     },
     {
      "news_id": "10",
+     "day": "10",
+     "news_title": "국제 공조 강화 국가 간 정보 공유 확대",
+     "news_content": "최근 여러 국가가 범죄 예방과 안전 강화를 위해 정보 공유 체계를 확대하고 있는 것으로 알려졌다. 수사 기관들은 국가 간 이동이 잦아지는 범죄 용의자와 국제 범죄 조직에 대응하기 위해 협력을 강화하고 있으며 관련 정보 교환도 지속적으로 이루어지고 있다.",
+     "icon_ref": null,
+     "attrirube": null,
+     "value": null
+    },
+    {
+     "news_id": "11",
+     "day": "11",
+     "news_title": "국제 공조 수사 확대 감시 대상 이동 정황 확인",
+     "news_content": "국제 수사기관들이 공조 수사를 확대하는 가운데 특정 감시 대상의 이동 정황이 확인 된 것으로 알려졌다. 관계 기관은 관련 정보를 공유하며 이동 경로를 추적하고 있으나 구체적인 위험 징후는 확인되지 않았다고 밝혔다.",
+     "icon_ref": null,
+     "attrirube": "X-RAY",
+     "value": "존 카터"
+    },
+    {
+     "news_id": "12",
+     "day": "11",
+     "news_title": "국제 평화 포럼 서울 개최 세계 각국 주요 인사 집결",
+     "news_content": "서울에서 열리는 국제 평화 포럼에 세계 각국의 정치인과 정부 관계자들이 참석할 예정이다. 행사 준비를 위해 도심 주요 시설에 대한 안전 점검과 경계 활동도 함께 진행되고 있는 것으로 알려졌다.",
+     "icon_ref": null,
+     "attrirube": null,
+     "value": "윤정호"
+    },
+    {
+     "news_id": "13",
+     "day": "12",
+     "news_title": "[속보] 서울 도심 폭발 사고 국가 보안 단계 격상",
+     "news_content": "서울 도심에서 발생한 폭발 사고로 인해 정부가 국가 보안 단계를 상향 조정했다. 관계 기관은 사건 경위를 조사하고 있으며 공항과 항만을 포함한 주요 시설의 보안 점검도 강화되고 있다.",
+     "icon_ref": null,
+     "attrirube": "X-RAY, 비자 종류 확인",
+     "value": null
+    },
+    {
+     "news_id": "14",
+     "day": "13",
+     "news_title": "사건 이후 이어지는 경계 보안 강화 조치 지속",
+     "news_content": "최근 발생한 폭발 사고 이후 관계 기관들은 주요 시설에 대한 보안 점검과 감시 활동을 이어가고 있다. 도심 곳곳에서는 안전 점검이 강화되고 있으며 시민들 역시 이전보다 주변 상황에 더욱 주의를 기울이는 모습이다.",
+     "icon_ref": null,
+     "attrirube": null,
+     "value": null
+    },
+    {
+     "news_id": "15",
      "day": "14",
-     "news_title": "마지막 심사 중 감시 명단 일치자 확인",
-     "news_content": "주요 공항의 최종 보안 점검 중 감시 명단과 정보가 일치하는 방문객이 심사대에서 확인됐다. 당국은 근무 종료 전까지 신원 대조와 현장 확인을 유지하며 추가 위험 인물 여부를 살피고 있다.",
-     "icon_ref": null
+     "news_title": "사건 이후 보안 체계 재점검 현장 대응 중요성 재조명",
+     "news_content": "최근 발생한 사건들에 대한 후속 조치가 이어지는 가운데 관계 기관들은 현장 대응 체계 전반에 대한 점검을 진행하고 있다. 전문가들은 위험 상황을 조기에 발견하고 대응하는 과정에서 현장 인력의 판단과 역할이 무엇보다 중요하다고 평가했다.",
+     "icon_ref": null,
+     "attrirube": null,
+     "value": null
+    },
+    {
+     "news_id": "16",
+     "day": "14",
+     "news_title": "[속보] 국제 마약 밀수 조직 추가 검거 관계 당국 수사 확대",
+     "news_content": "관계 당국은 최근 국제 공조 수사를 통해 해외 마약 밀수 조직 일부를 검거했다고 밝혔다. 수사 과정에서 여러 국가를 오가며 활동했던 조직원들이 확인됐으며 관련 수사는 계속 진행 중인 것으로 알려졌다.",
+     "icon_ref": null,
+     "attrirube": "X-RAY",
+     "value": "강도식"
     }
    ],
    "layout": "relational"
@@ -4550,6 +4607,16 @@
      "key": "rule_content",
      "type": "varchar(1000)",
      "label": "규정 내용"
+    },
+    {
+     "key": "related_field",
+     "type": "varchar(50)",
+     "label": "연계 항목"
+    },
+    {
+     "key": "end_day",
+     "type": "int",
+     "label": "종료 일차"
     }
    ],
    "rows": [
@@ -4557,61 +4624,97 @@
      "rule_id": "1",
      "day": "1",
      "rule_title": "기본 규정",
-     "rule_content": "모든 입국자는 심사관의 허가를 받아야한다. 서류와 진술이 서로 다르면 입국을 거부한다."
+     "rule_content": "모든 입국자는 유효한 서류를 갖추고 심사관의 허가를 받아야 입국할 수 있다. 제출 서류·본인·진술의 정보가 모두 일치할 때만 허가하며, 어느 하나라도 어긋나면 입국을 거부한다.",
+     "related_field": null,
+     "end_day": null
     },
     {
      "rule_id": "2",
      "day": "1",
      "rule_title": "신분 확인",
-     "rule_content": "여권 사진과 방문자의 얼굴을 반드시 비교해야 한다."
+     "rule_content": "여권의 이름·생년월일·성별·사진은 입국자 본인과 일치해야 한다. 어느 한 항목이라도 본인과 다르면 입국을 거부한다.",
+     "related_field": null,
+     "end_day": null
     },
     {
      "rule_id": "3",
      "day": "1",
-     "rule_title": "여권 유효기간",
-     "rule_content": "모든 입국자는 유효한 여권을 소지해야 한다,"
+     "rule_title": "여권 확인",
+     "rule_content": "여권은 여권번호·영문 이름·성별·생년월일·국적·발급일·만료일을 모두 갖추어야 한다. 여권번호 앞 두 자리는 발급 국가 코드와 일치해야 한다(대한민국 KO·미국 US·중국 CN·일본 JP). 앞자리가 국적과 다르면 위조 여권이다. 정보가 본인이나 다른 서류와 다르거나 만료일이 오늘 이전이면 입국을 거부한다.",
+     "related_field": "여권번호",
+     "end_day": null
     },
     {
      "rule_id": "4",
-     "day": "1",
+     "day": "11",
      "rule_title": "금지 물품",
-     "rule_content": "마약과 밀수품은 반입할 수 없다"
-    },
-    {
-     "rule_id": "5",
-     "day": "5",
-     "rule_title": "방역 지시",
-     "rule_content": "감염의심자는 PCR 검사서를 제출해야 한다."
-    },
-    {
-     "rule_id": "6",
-     "day": "12",
-     "rule_title": "테러 발생 지시",
-     "rule_content": "테러 발생 시 지정 대상자는 입국할 수 없다."
-    },
-    {
-     "rule_id": "7",
-     "day": "5",
-     "rule_title": "PCR 검사서",
-     "rule_content": "검역대상자는 PCR 검사서를 제출해야 한다."
+     "rule_content": "무기·마약·폭발물·밀수품 등은 반입할 수 없다. 신원이 의심되거나 위험물 반입 경보가 있는 입국자는 X-ray 정밀 검사로 확인하며, 금지 물품이 적발되면 입국을 거부한다.",
+     "related_field": null,
+     "end_day": null
     },
     {
      "rule_id": "8",
      "day": "3",
      "rule_title": "입국 비자",
-     "rule_content": "비자 정보는 여권 정보와 일치해야 한다."
+     "rule_content": "관광·취업·장기 체류 목적의 외국인은 비자를 함께 제출해야 한다. 비자의 비자번호·비자종류·국적·발급일·만료일은 여권과 일치해야 하며, 만료되었거나 여권과 어긋나는 비자는 입국을 거부한다.",
+     "related_field": null,
+     "end_day": null
+    },
+    {
+     "rule_id": "15",
+     "day": "3",
+     "rule_title": "성형·지문 확인",
+     "rule_content": "성형 등으로 얼굴이 여권 사진과 달라 보이는 경우, 본인 여부는 지문 신원으로 가린다. 지문 신원(이름·생년월일·국적)이 여권과 다르면 신분 도용으로 보아 입국을 거부한다.",
+     "related_field": null,
+     "end_day": null
+    },
+    {
+     "rule_id": "11",
+     "day": "4",
+     "rule_title": "방문 목적 확인",
+     "rule_content": "외국인의 실제 방문 목적은 비자에 기재된 방문 목적과 일치해야 한다. 진술한 목적이 비자와 다르면(거짓 진술) 입국을 거부한다.",
+     "related_field": null,
+     "end_day": null
+    },
+    {
+     "rule_id": "7",
+     "day": "5",
+     "rule_title": "PCR 검사서",
+     "rule_content": "검역 대상 입국자는 PCR 검사서를 제출해야 한다. 검사 결과가 양성이거나, 유효 기간이 지났거나, 검사서의 이름·국적이 여권과 다르면 입국을 거부한다.",
+     "related_field": null,
+     "end_day": "7"
+    },
+    {
+     "rule_id": "14",
+     "day": "6",
+     "rule_title": "PCR 인증 검사 기관",
+     "rule_content": "PCR 검사서는 공인 기관(국립검역소·인천공항검역소·질병관리청진단검사센터)이 발급한 것만 유효하다. 명단에 없는 사설·무허가 기관의 검사서는 무효이며 입국을 거부한다.",
+     "related_field": null,
+     "end_day": "7"
     },
     {
      "rule_id": "9",
      "day": "8",
      "rule_title": "재직증명서",
-     "rule_content": "취업 목적 입국자는 재직증명서를 제출해야 한다."
+     "rule_content": "취업 목적 입국자는 재직증명서를 제출해야 한다. 증빙번호·고용 회사·직종·입사일·발급일은 다른 서류와 일치해야 하며, 항목이 누락되거나 위조 흔적이 있으면 입국을 거부한다.",
+     "related_field": null,
+     "end_day": null
     },
     {
-     "rule_id": "10",
-     "day": "8",
-     "rule_title": "합격통지서",
-     "rule_content": "유학 목적 입국자는 합격통지서를 제출해야 한다."
+     "rule_id": "13",
+     "day": "9",
+     "rule_title": "입국 금지 회사",
+     "rule_content": "고용 회사가 실재하지 않는 유령회사(사업자 미등록·폐업)이거나 입국 금지 명단에 오른 회사이면, 서류가 정상으로 보여도 입국을 거부한다.",
+     "related_field": null,
+     "end_day": null
+    },
+    {
+     "rule_id": "6",
+     "day": "12",
+     "rule_title": "테러 발생 지시",
+     "rule_content": "테러·폭발 등 특별 보안 경보가 발령된 기간에는 심사를 강화한다. 서류나 신원에 의심이 있는 입국자는 X-ray 정밀 검사와 보안 명단 대조를 시행하며, 위험물이 적발되거나 수배자로 확인되면 즉시 입국을 거부한다.",
+     "related_field": null,
+     "end_day": null
     }
    ],
    "layout": "relational"
@@ -4695,19 +4798,19 @@
      "label": "모드"
     },
     {
-     "key": "alt_name",
+     "key": "name",
      "type": "varchar(40)",
-     "label": "위장이름"
+     "label": "이름"
     },
     {
-     "key": "alt_birth",
+     "key": "birth",
      "type": "varchar(20)",
-     "label": "위장생년월일"
+     "label": "생년월일"
     },
     {
-     "key": "alt_nationality",
+     "key": "nationality",
      "type": "varchar(20)",
-     "label": "위장국적"
+     "label": "국적"
     },
     {
      "key": "criminal_record",
@@ -4725,9 +4828,9 @@
      "fingerprint_id": "1",
      "customer_id": "12",
      "mode": "성형",
-     "alt_name": "박도윤",
-     "alt_birth": "1995-02-18",
-     "alt_nationality": "대한민국(KOR)",
+     "name": "박도윤",
+     "birth": "1995-02-18",
+     "nationality": "대한민국(KOR)",
      "criminal_record": "없음",
      "wanted_no": null
     },
@@ -4735,9 +4838,9 @@
      "fingerprint_id": "2",
      "customer_id": "21",
      "mode": "성형",
-     "alt_name": "강민호",
-     "alt_birth": "1994-03-09",
-     "alt_nationality": "대한민국(KOR)",
+     "name": "강민호",
+     "birth": "1994-03-09",
+     "nationality": "대한민국(KOR)",
      "criminal_record": "없음",
      "wanted_no": null
     },
@@ -4745,9 +4848,9 @@
      "fingerprint_id": "3",
      "customer_id": "30",
      "mode": "성형",
-     "alt_name": "윤하늘",
-     "alt_birth": "1996-12-01",
-     "alt_nationality": "대한민국(KOR)",
+     "name": "윤하늘",
+     "birth": "1996-12-01",
+     "nationality": "대한민국(KOR)",
      "criminal_record": "없음",
      "wanted_no": null
     },
@@ -4755,99 +4858,99 @@
      "fingerprint_id": "4",
      "customer_id": "10",
      "mode": "수배자",
-     "alt_name": "김서린",
-     "alt_birth": "1988-04-12",
-     "alt_nationality": "대한민국(KOR)",
+     "name": "김서린",
+     "birth": "1988-04-12",
+     "nationality": "대한민국(KOR)",
      "criminal_record": "성형 위장 / 지명수배 중",
      "wanted_no": "WA-2023-001192"
     },
     {
-     "fingerprint_id": "1011",
+     "fingerprint_id": "5",
      "customer_id": "48",
      "mode": "성형",
-     "alt_name": "박도윤",
-     "alt_birth": "1995-02-18",
-     "alt_nationality": "대한민국(KOR)",
+     "name": "박도윤",
+     "birth": "1995-02-18",
+     "nationality": "대한민국(KOR)",
      "criminal_record": "없음",
      "wanted_no": null
     },
     {
-     "fingerprint_id": "1027",
+     "fingerprint_id": "6",
      "customer_id": "64",
      "mode": "성형",
-     "alt_name": "윤하늘",
-     "alt_birth": "1996-12-01",
-     "alt_nationality": "대한민국(KOR)",
+     "name": "윤하늘",
+     "birth": "1996-12-01",
+     "nationality": "대한민국(KOR)",
      "criminal_record": "없음",
      "wanted_no": null
     },
     {
-     "fingerprint_id": "1031",
+     "fingerprint_id": "7",
      "customer_id": "68",
      "mode": "성형",
-     "alt_name": "박도윤",
-     "alt_birth": "1995-02-18",
-     "alt_nationality": "대한민국(KOR)",
+     "name": "박도윤",
+     "birth": "1995-02-18",
+     "nationality": "대한민국(KOR)",
      "criminal_record": "없음",
      "wanted_no": null
     },
     {
-     "fingerprint_id": "1035",
+     "fingerprint_id": "8",
      "customer_id": "72",
      "mode": "성형",
-     "alt_name": "강민호",
-     "alt_birth": "1994-03-09",
-     "alt_nationality": "대한민국(KOR)",
+     "name": "강민호",
+     "birth": "1994-03-09",
+     "nationality": "대한민국(KOR)",
      "criminal_record": "없음",
      "wanted_no": null
     },
     {
-     "fingerprint_id": "1042",
+     "fingerprint_id": "9",
      "customer_id": "79",
      "mode": "성형",
-     "alt_name": "윤하늘",
-     "alt_birth": "1996-12-01",
-     "alt_nationality": "대한민국(KOR)",
+     "name": "윤하늘",
+     "birth": "1996-12-01",
+     "nationality": "대한민국(KOR)",
      "criminal_record": "없음",
      "wanted_no": null
     },
     {
-     "fingerprint_id": "1045",
+     "fingerprint_id": "10",
      "customer_id": "82",
      "mode": "성형",
-     "alt_name": "강민호",
-     "alt_birth": "1994-03-09",
-     "alt_nationality": "대한민국(KOR)",
+     "name": "강민호",
+     "birth": "1994-03-09",
+     "nationality": "대한민국(KOR)",
      "criminal_record": "없음",
      "wanted_no": null
     },
     {
-     "fingerprint_id": "1047",
+     "fingerprint_id": "11",
      "customer_id": "84",
      "mode": "성형",
-     "alt_name": "박도윤",
-     "alt_birth": "1995-02-18",
-     "alt_nationality": "대한민국(KOR)",
+     "name": "박도윤",
+     "birth": "1995-02-18",
+     "nationality": "대한민국(KOR)",
      "criminal_record": "없음",
      "wanted_no": null
     },
     {
-     "fingerprint_id": "1054",
+     "fingerprint_id": "12",
      "customer_id": "91",
      "mode": "성형",
-     "alt_name": "강민호",
-     "alt_birth": "1994-03-09",
-     "alt_nationality": "대한민국(KOR)",
+     "name": "강민호",
+     "birth": "1994-03-09",
+     "nationality": "대한민국(KOR)",
      "criminal_record": "없음",
      "wanted_no": null
     },
     {
-     "fingerprint_id": "1059",
+     "fingerprint_id": "13",
      "customer_id": "96",
      "mode": "성형",
-     "alt_name": "윤하늘",
-     "alt_birth": "1996-12-01",
-     "alt_nationality": "대한민국(KOR)",
+     "name": "윤하늘",
+     "birth": "1996-12-01",
+     "nationality": "대한민국(KOR)",
      "criminal_record": "없음",
      "wanted_no": null
     }
@@ -5819,6 +5922,120 @@
    ],
    "layout": "flat"
   },
+  "defect_assign": {
+   "columns": [
+    {
+     "key": "customer_id",
+     "type": "int",
+     "label": "고객 ID"
+    },
+    {
+     "key": "day",
+     "type": "int",
+     "label": "일차"
+    },
+    {
+     "key": "document",
+     "type": "varchar(20)",
+     "label": "결함 서류"
+    },
+    {
+     "key": "corruption_type",
+     "type": "varchar(20)",
+     "label": "결함 종류"
+    },
+    {
+     "key": "target_field",
+     "type": "varchar(30)",
+     "label": "대상 필드"
+    },
+    {
+     "key": "value",
+     "type": "varchar(60)",
+     "label": "적용 값"
+    },
+    {
+     "key": "note",
+     "type": "varchar(60)",
+     "label": "비고"
+    }
+   ],
+   "rows": [
+    {
+     "customer_id": "13",
+     "day": "5",
+     "document": "pcr_test",
+     "corruption_type": "POSITIVE",
+     "target_field": "result",
+     "value": "Positive",
+     "note": "로버트 존슨 — 양성"
+    },
+    {
+     "customer_id": "14",
+     "day": "5",
+     "document": "pcr_test",
+     "corruption_type": "MISSING",
+     "target_field": "result",
+     "value": "(누락)",
+     "note": "리 나 — 결과 누락"
+    },
+    {
+     "customer_id": "19",
+     "day": "6",
+     "document": "pcr_test",
+     "corruption_type": "POSITIVE",
+     "target_field": "result",
+     "value": "Positive",
+     "note": "다나카 유이 — 양성"
+    },
+    {
+     "customer_id": "32",
+     "day": "6",
+     "document": "pcr_test",
+     "corruption_type": "FORGE_SOURCE",
+     "target_field": "lab_name",
+     "value": "무허가검진센터",
+     "note": "마이클 데이비스 — 검사기관 위조"
+    },
+    {
+     "customer_id": "31",
+     "day": "7",
+     "document": "pcr_test",
+     "corruption_type": "FORGE_SOURCE",
+     "target_field": "lab_name",
+     "value": "퀵메디 사설랩",
+     "note": "스즈키 아오이 — 검사기관 위조"
+    },
+    {
+     "customer_id": "33",
+     "day": "7",
+     "document": "pcr_test",
+     "corruption_type": "FORGE_SOURCE",
+     "target_field": "lab_name",
+     "value": "24시 익명검사소",
+     "note": "류 양 — 검사기관 위조"
+    },
+    {
+     "customer_id": "35",
+     "day": "9",
+     "document": "employment_cert",
+     "corruption_type": "FORGE_SOURCE",
+     "target_field": "company_name",
+     "value": "페이퍼컴퍼니(주)",
+     "note": "자오 레이 — 유령회사(입국 금지 회사)"
+    },
+    {
+     "customer_id": "11",
+     "day": "12",
+     "document": "여권",
+     "corruption_type": "FORGE_NUMBER",
+     "target_field": "passport_no",
+     "value": "JP9911287",
+     "note": "사토 하루키 — 여권번호 위조(비자 JP1012287과 불일치, X-ray 트리거)"
+    }
+   ],
+   "layout": "relational"
+  },
   "fake_value_pool": {
    "columns": [
     {
@@ -5912,8 +6129,8 @@
     {
      "pool_id": "12",
      "field": "passport_no",
-     "fake_value": "##INVALID_PATTERN##",
-     "note": "형식/체크섬 불일치 번호 생성"
+     "fake_value": "XX9999999",
+     "note": "발급국 코드와 불일치하는 형식위반 여권번호(앞 2자리 XX=무효 국가코드). 실제 위조값은 dayN.json 손님별로 명시 패치됨."
     },
     {
      "pool_id": "13",

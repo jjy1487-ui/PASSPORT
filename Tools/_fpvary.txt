@@ -1,0 +1,12 @@
+day 이름       패턴               여권이름 | 도용 지문DB(이름/생일/국적)
+--------------------------------------------------------------------------------
+  4 노가은      이름만 다름           NOH GAEUN   | PARK DOYUN / 1999-05-05 / KOR
+  5 윤건우      생년월일만 다름         YOON GEONWOO | YOON GEONWOO / 1993-04-12 / KOR
+  7 서지호      국적만 다름           SEO JIHO    | SEO JIHO / 1997-11-20 / USA
+  8 전도현      이름+생년월일 다름       JEON DOHYUN | CHOI JUWON / 1996-05-05 / KOR
+  9 이지우      이름만 다름           LEE JIWOO   | LIM SEOAH / 1996-04-12 / KOR
+ 10 정다은      생년월일만 다름         JEONG DAEUN | JEONG DAEUN / 1994-11-20 / KOR
+ 11 장소율      국적만 다름           JANG SOYUL  | JANG SOYUL / 1999-05-05 / CHN
+ 12 서하린      이름+생년월일 다름       SEO HARIN   | NA EUNBI / 1993-04-12 / KOR
+ 13 배은서      이름만 다름           BAE EUNSEO  | KIM TAEYANG / 1997-11-20 / KOR
+ 14 양수빈      생년월일만 다름         YANG SUBIN  | YANG SUBIN / 1996-05-05 / KOR

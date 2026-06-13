@@ -131,10 +131,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoreRig
       objectReference: {fileID: 0}
-    - target: {fileID: 3741299074126465248, guid: 0ee00b344948b8844a9240cba69e9804, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2240537525103583205, guid: 2fed11592b0df2a4aa2bb4f3827f7a37, type: 2}
     - target: {fileID: 5105619935671959779, guid: 0ee00b344948b8844a9240cba69e9804, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

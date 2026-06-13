@@ -89,6 +89,8 @@ LABEL_TO_ATTR = {
     # rule_book related_field 전용(중복 키는 위와 동일)
     "여권": "passport_no",
     "비자": "visa_type",
+    "위험물": "contraband",   # 테러 발생 지시 규정 ↔ X-ray 적발물 대조
+    "적발물": "contraband",
 }
 
 
@@ -191,11 +193,10 @@ def seeded_pick(options, *parts):
 
 # 특정 손님의 결함 종류를 설계 의도대로 고정(복수 corruption_type 규칙에서 시드 우연 회피).
 # 키=customer_id, 값=(corruption_type, target_field). seeded_pick 결과가 규칙의 유효 쌍이 아니면 무시.
-# 장기체류자 7/8 규칙은 [FORGE_SOURCE(회사위조) | HIRE_LOGIC(입사일오류)] 둘 다 가능 →
-#   천징(36)=회사명 위조 / 제시카(37)=입사일 오류 로 검사 종류를 분산(설계 문서 준수).
-FORCED_DEFECT = {
-    "36": ("FORGE_SOURCE", "company_name"),   # 천 징(11일): 회사명 위조 (cid 는 source 원본 문자열)
-}
+# [레거시] 코드 레벨 결함 고정. 이제 결함 배정은 엑셀 'defect_assign' 시트(data-driven)로 관리한다.
+#   - 자오레이(35)=회사위조, PCR 전염병 환자(양성/누락/기관위조) 등은 모두 defect_assign 표에 있음.
+#   - 표에 없는 손님만 이 dict로 폴백 고정 가능(현재 비어 있음).
+FORCED_DEFECT = {}
 
 
 # ── 사진(얼굴) 불일치 결함 강제 (외국인 관광객, 손글 스크립트 설계) ─────────────
@@ -211,29 +212,19 @@ FORCED_DEFECT = {
 #   (옛 한지원=특수연예인★/사토하루키=테러범은 외형이 튀어 부적합 → 같은 성별·나이대·국적권으로 교체).
 # 키는 source 원본 customer_id 문자열. (day,slot) 은 주석 참고용.
 FORCED_PHOTO_DEFECT_TOURIST = {
-    "38",  # day2 slot3  데이비드 스미스(여)
-    "26",  # day2 slot6  다나카 하루토(남)  vc=0.5 → 비정상 시에만 적용
-    "27",  # day3 slot1  장 웨이(남)
-    "34",  # day3 slot7  야마모토 렌(남)
-    "43",  # day4 slot3  토머스 무어(여)
-    "46",  # day4 slot7  리 강(남)
-    "54",  # day6 slot6  다니엘 테일러(여)  vc=0.5 → 비정상 시에만 적용
-    "55",  # day6 slot7  사토 유토(남)
-    "58",  # day7 slot5  왕 팡(남)
-    "62",  # day8 slot3  장 민(남)
-    "63",  # day8 slot6  매튜 앤더슨(여)
-    "67",  # day9 slot3  류 옌(남)
-    "69",  # day9 slot6  크리스 토머스(여)
-    "73",  # day10 slot4 스즈키 소라(남)
-    "3",   # day10 slot7 첸 웨이(남)
-    "77",  # day11 slot3 자오 친(남)
-    "80",  # day11 slot6 앤드류 화이트(여)
-    "85",  # day12 slot6 황 레이(남)
-    "87",  # day13 slot1 우 팅(남)  ← 왕웨이 클론(스크립트=사진불일치), 누락분 보강
-    "89",  # day13 slot3 다카하시 리쿠(남)
-    "92",  # day13 slot7 쉬 펑(남)
-    "94",  # day14 slot2 선 메이(남)
-    "97",  # day14 slot6 에밀리 클락(여)
+    # [2026-06-12] day2~7 외국인은 결함배분표에 맞춰 사진 외 결함으로 재정합 → 사진 강제 제외.
+    #   제외: 38(데이비드 여권번호) 26(다나카하루토 만료일) 27(장웨이 비자국적) 34(야마모토 비자만료)
+    #         43(토머스 비자만료) 46(리강 방문목적) 54(다니엘 비자이름) 58(왕팡 방문목적)
+    #   런타임 day*.json은 이미 직접 패치됨. 이 제외는 리빌드 시 사진으로 되돌림 방지. 상세: Tools/_design_reconcile_plan.md
+    # [2026-06-12] 사토 유토(55)는 사진→PCR 이름 불일치로 전환(결함배분표·day6.json·대사 동기화). 사진 강제 제외.
+    # [2026-06-13] day8~14 외국인도 결함배분표(권위)에 맞춰 사진 외 결함으로 재정합 → 사진 강제 제외.
+    #   런타임 day*.json 은 _patch_day{8..14}_defects.py + _patch_jangmin_employment.py 로 직접 패치됨.
+    #   이 제외는 리빌드 시 사진으로 되돌림 방지(상세: Tools/_design_reconcile_plan.md "8~14일차 정합").
+    #   제외(=사진 아님): 62 장 민(재직증명서 이름) 63 매튜 앤더슨(비자 이름) 67 류 옌(비자종류거짓)
+    #     69 크리스 토머스(비자 번호) 73 스즈키 소라(비자 번호) 3 첸 웨이(비자종류거짓) 77 자오 친(비자 국적)
+    #     80 앤드류 화이트(여권 만료) 85 황 레이(비자종류거짓) 87 우 팅(비자 이름) 89 다카하시 리쿠(비자 국적)
+    #     92 쉬 펑(비자종류거짓) 94 선 메이(비자 번호)
+    "97",  # day14 slot6 에밀리 클락(여)  ← 결함배분표 14DAY=여권 사진(유지). 유일하게 사진 강제 유지.
 }
 
 
@@ -451,6 +442,31 @@ def visa_fields(visa_row, columns, passport_row):
     return joined + fields_from_sheet(visa_row, columns, {"visa_id", "customer_id"})
 
 
+def pcr_fields(pcr_row, passport_row):
+    """PCR검사서 fields[] — PcrCard 양식 슬롯(_fieldKey)에 정확히 정렬.
+    이름/국적/검사 번호/검사일/검사 결과/유효 기한/검사 기관 순.
+
+    이름·국적은 PcrCard 의 Slot_name(_fieldKey=name)/Slot_nationality(_fieldKey=nationality)
+    슬롯을 채우기 위한 신원 필드다. pcr_test 시트에도 name/nationality 컬럼이 있으나
+    **그 손님 여권과 정확히 동일해야** PCR↔여권 대조가 일치하므로 passport 에서 조인한다
+    (visa_fields/employment_fields 와 같은 조인 규칙 = 단일 진실).
+
+    라벨을 시트 row4 가 아니라 여기서 한글로 고정하는 이유: 현재 엑셀 row4(한글 라벨)가
+    인코딩 손상(mojibake)이라 fields_from_sheet 로는 깨진 라벨/빈 key 가 나온다. 안정적인
+    영문 컬럼 key(row3)만 값 소스로 쓰고, 표시 라벨/속성 key 는 코드에서 확정한다
+    (6장: 변경 흡수 한 곳 — 컬럼 라벨이 바뀌어도 PCR 표시는 안 흔들린다).
+    신원(이름/국적)은 결함(양성/위조/미제출)과 무관하게 항상 본인(여권 동일)."""
+    return [
+        {"label": "이름", "value": clean_name(passport_row["name_en"])},
+        {"label": "국적", "value": passport_row["nationality"]},
+        {"label": "검사 번호", "value": pcr_row.get("test_no", "")},
+        {"label": "검사일", "value": pcr_row.get("test_date", "")},
+        {"label": "검사 결과", "value": pcr_row.get("result", "")},
+        {"label": "유효 기한", "value": pcr_row.get("valid_until", "")},
+        {"label": "검사 기관", "value": pcr_row.get("lab_name", "")},
+    ]
+
+
 # ── 결함 주입 ────────────────────────────────────────────────
 # corruption_type 별 변조 함수. 각 함수는 (fields, target_key, ctx) -> 변조된 한글 라벨 반환.
 KO_LABEL = {  # snake_case target_field -> 서류 fields의 한글 라벨
@@ -660,12 +676,29 @@ SCAN_TRIGGERS = [
     (3, "10", "name", "YOON SEORIN", ["fingerprint"]),
     # day11 손님8 존 카터(xray, 밀수품) — day11 slot1. 영문이름 유일.
     (11, "8", "name", "JOHN CARTER", ["xray"]),
-    # day12 손님11 사토 하루키(xray, 폭발물 부품) — day12 slot2. 영문이름 유일.
-    (12, "11", "name", "SATO HARUKI", ["xray"]),
     # day14 손님9 강도식(xray, 마약) — day14 slot3. 영문이름 유일.
     (14, "9", "name", "KANG DOSIK", ["xray"]),
+    # day12 사토 하루키(테러범)는 이름 지목 뉴스로 해금하지 않는다(2026-06).
+    #   → 비자↔여권 여권번호 불일치(visa JP1012287 ≠ passport JP9911287)를 적발하면 CrossCheckController 의
+    #     DetectPassportNoMismatchUnlock 이 X-ray 를 잠금 해제한다(서류↔서류 passport_no Mismatch + 손님이 X-ray 보유).
+    #   → day12 위험물 뉴스는 특정인 미지목 일반 경보(GENERIC_ALERT_NEWS)로 대체. name-기반 unlocksScan 의존 제거.
     # day13 은 더 이상 주요 스캔 범죄자 없음(사토 하루키 day12 이동) → xray 트리거 제거(헛 단서 방지).
 ]
+
+# ── 특정인 미지목 일반 경보 뉴스 (이름/unlocksScan 없는 연출 뉴스) ──────────────
+# SCAN_TRIGGERS(이름 지목 해금)와 달리, 손님을 직접 가리키지 않는 일반 경보를 day 에 주입한다.
+# claim 은 contraband(위험물) 관련성만 표기하고 unlocksScan=""(트리거 아님) → 해금은 다른 경로(예: 여권번호 불일치)가 담당.
+# 형식: (day, title, content, claim_label)
+GENERIC_ALERT_NEWS = [
+    # day12: 사토 하루키는 여권번호 불일치 → X-ray 흐름으로 해금. 뉴스는 일반 폭발물/위험물 경보(미지목).
+    (12, "[속보] 위험물 반입 경보",
+     "국제 공조 수사 결과 최근 입국 경로에서 폭발물 부품·밀수품 은닉 사례가 다수 적발되었습니다. "
+     "여권·비자 등 서류 정보가 서로 일치하지 않는 입국자는 위험물 반입 가능성을 의심해 정밀 검사를 시행하십시오.",
+     "위험물 반입 주의"),
+]
+# day별 일반 경보 뉴스 ID(원본/스캔트리거 ID와 충돌 방지). SCAN_TRIGGER_NEWS_ID_BASE 와 동일 대역(900000)에서
+# day12 사토 자리를 유지(기존 912000 보존) — idempotent.
+GENERIC_ALERT_NEWS_ID_BASE = 900000
 
 # 스캔 종류별 테마 라벨(label). 값에 식별값(국적코드/여권번호)을 끼워 연출.
 SCAN_TRIGGER_LABEL = {
@@ -707,6 +740,30 @@ def build_scan_trigger_news(day):
                     "unlocksScan": scan,
                 }],
             })
+    return out
+
+
+def build_generic_alert_news(day):
+    """특정인 미지목 일반 경보 뉴스(이름/unlocksScan 없음)를 합성 생성. 없으면 빈 리스트.
+    claim 은 contraband 관련성만(unlocksScan="") → 손님 해금은 다른 경로(여권번호 불일치 등)가 담당.
+    idempotent: 같은 GENERIC_ALERT_NEWS 입력이면 같은 news_id(day12=912000 보존)."""
+    out = []
+    for (d, title, content, claim_label) in GENERIC_ALERT_NEWS:
+        if d != day:
+            continue
+        news_id = GENERIC_ALERT_NEWS_ID_BASE + d * 1000
+        out.append({
+            "newsId": news_id,
+            "title": title,
+            "content": content,
+            "iconRef": "",
+            "claims": [{
+                "attr": "contraband",
+                "value": "",
+                "label": claim_label,
+                "unlocksScan": "",
+            }],
+        })
     return out
 
 
@@ -841,11 +898,25 @@ def entry_lines(nat_code):
     ]
 
 
-def make_dialogue_cases(nat_code, violation_label, violation_attr="", character_type=""):
+# ── 손님별 '정상 거절' 심사관 라인 특수 오버라이드 (customer_id -> (text, claim_label)) ──
+# 일반 경로(make_dialogue_cases)는 "{위반항목} 항목에 문제가 있습니다" 를 쓰지만, 특정 손님은
+# 흐름상 더 자연스러운 거절 멘트가 필요하다. 여기 등록된 손님만 '정상 거절' 1번 심사관 라인을 덮어쓴다.
+# (구조/케이스 수/order/speaker 불변, 심사관 text 와 claim.label 만 교체. claim.attr 은 violation_attr 유지.)
+REJECT_INSPECTOR_OVERRIDE = {
+    # day12 사토 하루키(테러범): 여권번호 불일치(비자 JP1012287 ≠ 여권 JP9911287) → X-ray 해금 → 위험물 적발.
+    # X-ray 해금은 이 불일치 적발(CrossCheckController)로 일어나므로 뉴스 이름 지목 불필요.
+    # 정상 거절 멘트는 정밀 검사(X-ray) 위험물 적발 결과로 통일(번호 불일치 멘트 대체).
+    11: ("정밀 검사에서 위험물이 발견되었습니다. 입국을 허가할 수 없으며, 보안 절차에 회부됩니다.",
+         "위험물 적발"),
+}
+
+
+def make_dialogue_cases(nat_code, violation_label, violation_attr="", character_type="", customer_id=None):
     """손님마다 7케이스 보장(입장/정상승인/정상거절/잘못허가/잘못거절1·2·3).
 
     violation_attr가 있으면 '정상 거절' 케이스의 심사관 지적 라인에 claim을 달아
     뉴스/서류와 같은 속성 키로 대조 가능하게 한다(placeholder 대사 한계 내 최선).
+    customer_id 가 REJECT_INSPECTOR_OVERRIDE 에 있으면 '정상 거절' 심사관 라인을 그 손님 전용 멘트로 교체.
     """
     cases = []
     # 1. 입장
@@ -860,14 +931,23 @@ def make_dialogue_cases(nat_code, violation_label, violation_attr="", character_
     })
     # 3. 정상 거절 — 심사관이 지적하는 위반 항목에 claim(속성 키) 부여
     vf = violation_label or "서류"
-    reject_inspector_line = {
-        "order": 1, "speaker": "심사관",
-        "text": f"{vf} 항목에 문제가 있습니다. 입국은 어렵습니다. {TODO}",
-    }
-    if violation_attr:
-        reject_inspector_line["claim"] = {
-            "attr": violation_attr, "value": "", "label": f"{vf} 불일치", "unlocksScan": "",
+    override = REJECT_INSPECTOR_OVERRIDE.get(customer_id)
+    if override is not None:
+        ov_text, ov_claim_label = override
+        reject_inspector_line = {"order": 1, "speaker": "심사관", "text": ov_text}
+        if violation_attr:
+            reject_inspector_line["claim"] = {
+                "attr": violation_attr, "value": "", "label": ov_claim_label, "unlocksScan": "",
+            }
+    else:
+        reject_inspector_line = {
+            "order": 1, "speaker": "심사관",
+            "text": f"{vf} 항목에 문제가 있습니다. 입국은 어렵습니다. {TODO}",
         }
+        if violation_attr:
+            reject_inspector_line["claim"] = {
+                "attr": violation_attr, "value": "", "label": f"{vf} 불일치", "unlocksScan": "",
+            }
     cases.append({
         "caseType": "일반 심사", "gameResult": "정상 거절", "rejectCount": 0,
         "lines": [
@@ -927,8 +1007,17 @@ def build():
     pcrs = {r["customer_id"]: r for r in rows(sheets["pcr_test"])}
     emps = {r["customer_id"]: r for r in rows(sheets["employment_cert"])}
 
+    # 결함 배정 표(손님별 결함 종류 명시): 시드 자동배정/코드 FORCED_DEFECT 대신 표로 제어.
+    # cid(str) -> {document, corruption_type, target_field}. 시트 없으면 빈 dict(레거시 동작 유지).
+    defect_assign = {}
+    if sheets.get("defect_assign"):
+        for r in rows(sheets["defect_assign"]):
+            cid_k = r.get("customer_id")
+            if cid_k not in (None, ""):
+                defect_assign[str(int(cid_k))] = r
+
     visa_cols = sheets["visa"]["columns"]
-    pcr_cols = sheets["pcr_test"]["columns"]
+    # pcr 은 pcr_fields() 가 안정 영문 key 로 직접 조립(엑셀 라벨 mojibake 회피)하므로 cols 불요.
     emp_cols = sheets["employment_cert"]["columns"]
 
     fake_pool = rows(sheets["fake_value_pool"])
@@ -998,7 +1087,7 @@ def build():
                 documents.append({
                     "documentType": "PCR검사서", "variant": "정상", "violationField": "없음",
                     "spriteRef": "", "country": "",
-                    "fields": tag_fields(fields_from_sheet(pcrs[cid], pcr_cols, {"pcr_id", "customer_id"})),
+                    "fields": tag_fields(pcr_fields(pcrs[cid], pp)),
                 })
             # 취업증빙 — EmploymentCard 양식 정렬(이름은 여권 조인, 만료일 제거)
             if "취업증빙" in req_docs and cid in emps:
@@ -1083,10 +1172,16 @@ def build():
                             tf = tf_opts[i] if i < len(tf_opts) else tf_opts[-1]
                             pairs.append((ct, tf))
                         ct, tf = seeded_pick(pairs, "defect", day, slot, cid)
-                        # 설계 고정: 특정 손님은 규칙의 유효 쌍 안에서 결함 종류를 지정값으로 덮어쓴다.
-                        forced = FORCED_DEFECT.get(str(cid))
-                        if forced and forced in pairs:
-                            ct, tf = forced
+                        # 결함 배정 표(data-driven) 우선: cid가 표에 있고 대상 서류가 현재 규칙과 같으면
+                        # 시드 결과를 무시하고 표의 명시값(결함 종류/대상 필드)을 그대로 적용한다.
+                        asg = defect_assign.get(str(cid))
+                        if asg and str(asg.get("document", "")) == rule.get("defect_document"):
+                            ct, tf = asg["corruption_type"], asg["target_field"]
+                        else:
+                            # 레거시 코드 고정(표로 이전 안 된 경우만). 규칙의 유효 쌍 안에서만 덮어쓴다.
+                            forced = FORCED_DEFECT.get(str(cid))
+                            if forced and forced in pairs:
+                                ct, tf = forced
 
                         # 결함 대상 서류 찾기
                         defect_doc_name = rule["defect_document"]
@@ -1101,6 +1196,10 @@ def build():
                             if vlabel:
                                 target_doc["variant"] = "비정상"
                                 target_doc["violationField"] = vlabel
+                                # 결함 배정 표에 명시값(value)이 있으면 그 값으로 고정 → 랜덤 FORGE 대신 결정론(소스=게임 일치).
+                                if asg and str(asg.get("document", "")) == rule.get("defect_document") \
+                                        and asg.get("value") not in (None, ""):
+                                    set_field(target_doc["fields"], vlabel, asg["value"])
                                 violation_label = vlabel
                                 applied = True
                                 applied_ct = ct
@@ -1157,7 +1256,8 @@ def build():
                 "correctResult": correct_result,
                 "documents": documents,
                 "dialogueCases": make_dialogue_cases(
-                    nat_code, violation_label, attr_for_label(violation_label), character_type=ctype),
+                    nat_code, violation_label, attr_for_label(violation_label),
+                    character_type=ctype, customer_id=int(cid)),
                 # 고급 분기 손님 플래그: 거부 시 가이드 대사+최선 분기 정산(대상 외 손님은 빈 문자열).
                 "rejectAdvancedBranchKey": "detect_montage_xray_reject" if ctype == "범죄자(성형수술)" else "",
                 "rejectGuidedCaseType": "분기 거부" if ctype == "범죄자(성형수술)" else "",
@@ -1181,13 +1281,23 @@ def build():
             day_customers.append(customer_entry)
 
         # rule_book 은 사용자가 컬럼을 줄일 수 있다(related_field 제거 등) → .get 으로 흡수.
-        day_rules = [
-            {"ruleId": int(r["rule_id"]), "title": r.get("rule_title", ""),
-             "content": r.get("rule_content", ""),
-             "relatedField": r.get("related_field", "") or "",
-             "attr": attr_for_label(r.get("related_field", ""))}
-            for r in rule_book if int(r["day"]) == day
-        ]
+        # end_day: 이벤트성 규정의 종료 일차(이 일차 이후 규정집에서 제외). 값이 없으면 0(=종료 없음).
+        # C# RuleData.endDay 가 0=무기한이므로, 양수일 때만 endDay 를 출력한다(다른 규정은 필드 부재).
+        def _rule_obj(r):
+            obj = {"ruleId": int(r["rule_id"]), "title": r.get("rule_title", ""),
+                   "content": r.get("rule_content", ""),
+                   "relatedField": r.get("related_field", "") or "",
+                   "attr": attr_for_label(r.get("related_field", ""))}
+            end_day_raw = r.get("end_day", "")
+            try:
+                end_day = int(end_day_raw) if str(end_day_raw).strip() not in ("", "None") else 0
+            except (TypeError, ValueError):
+                end_day = 0
+            if end_day > 0:
+                obj["endDay"] = end_day
+            return obj
+
+        day_rules = [_rule_obj(r) for r in rule_book if int(r["day"]) == day]
         day_news = [
             {"newsId": int(r["news_id"]), "title": r["news_title"],
              "content": r["news_content"], "iconRef": r["icon_ref"],
@@ -1196,6 +1306,8 @@ def build():
         ]
         # 스캔 잠금 해제 트리거 뉴스(합성) 주입 — idempotent, 11~14일차에만 존재
         day_news.extend(build_scan_trigger_news(day))
+        # 특정인 미지목 일반 경보 뉴스(합성) 주입 — idempotent, day12 위험물 경보(이름 지목 없음)
+        day_news.extend(build_generic_alert_news(day))
 
         data = {"day": day, "customers": day_customers, "rules": day_rules, "news": day_news}
 
