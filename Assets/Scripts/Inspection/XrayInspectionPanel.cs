@@ -38,6 +38,14 @@ public sealed class XrayInspectionPanel : MonoBehaviour, ICrossCheckProvider
     [Tooltip("적발물 교차대조 항목(attr=contraband). 결과 단계에만 노출.")]
     [SerializeField] private CrossCheckItemView _contrabandItem;
 
+    [Header("적발물 그림 크기 (폭발물만 크게)")]
+    [Tooltip("마약·밀수품 등 기본 적발물 그림 크기.")]
+    [SerializeField] private Vector2 _contrabandBaseSize = new Vector2(115f, 115f);
+    [Tooltip("폭발물 적발물 그림 크기 — 이것만 크게.")]
+    [SerializeField] private Vector2 _contrabandExplosiveSize = new Vector2(280f, 280f);
+    [Tooltip("은닉 부위 하이라이트(글로우) 크기 — 품목 무관 고정(이전 크기).")]
+    [SerializeField] private Vector2 _highlightSize = new Vector2(120f, 120f);
+
     [Header("2단계 레이어 (선택)")]
     [Tooltip("스캔 중 레이어(있으면). 없으면 텍스트만 전환.")]
     [SerializeField] private GameObject _scanningGroup;
@@ -219,7 +227,7 @@ public sealed class XrayInspectionPanel : MonoBehaviour, ICrossCheckProvider
         if (_highlight != null)
         {
             _highlight.gameObject.SetActive(detected);
-            if (detected) _highlight.anchoredPosition = loc;
+            if (detected) { _highlight.anchoredPosition = loc; _highlight.sizeDelta = _highlightSize; }
         }
 
         // 적발물 그림을 같은 부위에 표시(마약/금괴/폭발물). 이 그림이 곧 교차대조 클릭 항목이다.
@@ -232,7 +240,11 @@ public sealed class XrayInspectionPanel : MonoBehaviour, ICrossCheckProvider
             if (hasIcon)
             {
                 _contrabandImage.sprite = icon;
-                ((RectTransform)_contrabandImage.transform).anchoredPosition = loc;
+                RectTransform irt = (RectTransform)_contrabandImage.transform;
+                irt.anchoredPosition = loc;
+                // 폭발물만 크게, 마약·밀수품 등은 기본 크기(공유 이미지라 매번 설정해 재사용 시 잔류 방지).
+                bool isExplosive = !string.IsNullOrEmpty(s.detail) && s.detail.Contains("폭발");
+                irt.sizeDelta = isExplosive ? _contrabandExplosiveSize : _contrabandBaseSize;
             }
         }
 

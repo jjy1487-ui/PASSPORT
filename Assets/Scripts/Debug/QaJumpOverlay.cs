@@ -105,8 +105,26 @@ public sealed class QaJumpOverlay : MonoBehaviour
             mgr.DebugJumpTo(mgr.CurrentDay, mgr.CurrentSlot1Based + 1);
         GUILayout.EndHorizontal();
 
+        GUILayout.Space(6);
+        // [QA] 확률(랜덤) 손님을 강제로 정상/불량 고정 — 양쪽 변형을 다 확인. (확률 손님이 아니면 영향 없음)
+        GUILayout.Label("랜덤 변이 강제 (확률 손님)");
+        GUILayout.BeginHorizontal();
+        var fm = CustomerRoster.ForceMode;
+        if (GUILayout.Button((fm == CustomerRoster.VariantForce.Auto ? "● " : "") + "자동")) SetForce(mgr, CustomerRoster.VariantForce.Auto);
+        if (GUILayout.Button((fm == CustomerRoster.VariantForce.Normal ? "● " : "") + "정상")) SetForce(mgr, CustomerRoster.VariantForce.Normal);
+        if (GUILayout.Button((fm == CustomerRoster.VariantForce.Defect ? "● " : "") + "불량")) SetForce(mgr, CustomerRoster.VariantForce.Defect);
+        GUILayout.EndHorizontal();
+
         // 제목줄을 끌어 패널 이동.
         GUI.DragWindow(new Rect(0, 0, 10000, 20));
+    }
+
+    /// <summary>변이 강제 모드 설정 + 현재 일차 즉시 재적용(확률 손님에 반영).</summary>
+    private void SetForce(ImmigrationManager mgr, CustomerRoster.VariantForce mode)
+    {
+        if (CustomerRoster.ForceMode == mode) return;
+        CustomerRoster.ForceMode = mode;
+        if (mgr != null) mgr.DebugReapplyCurrentDay();
     }
 }
 #endif

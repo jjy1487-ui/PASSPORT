@@ -52,7 +52,7 @@ public sealed class CrossCheckConnectorView : MonoBehaviour
     [SerializeField] private Color _matchColor = new Color(0.180f, 0.545f, 0.341f);    // 일치 #2E8B57
     [SerializeField] private Color _mismatchColor = new Color(0.753f, 0.227f, 0.169f);  // 불일치 #C0392B
     [SerializeField] private Color _unrelatedColor = new Color(0.478f, 0.510f, 0.549f); // 관련 없음 #7A828C
-    [SerializeField] private Color _relatedColor = new Color(0.231f, 0.510f, 0.769f);   // (미사용) Related 는 표시상 회색 '비교 불가'로 합침. enum 보존용으로 남겨 둠.
+    [SerializeField] private Color _relatedColor = new Color(0.231f, 0.510f, 0.769f);   // 관련있음 #3B82C4 (같은 속성·값 비교 불가 / 규정 관련성)
 
     private Coroutine _blink;
 
@@ -63,6 +63,13 @@ public sealed class CrossCheckConnectorView : MonoBehaviour
     private Image _labelBoxImage;          // 라벨 칩 배경(불투명 종이색, 채움 유지)
     private Image _labelBoxBorderImage;    // 라벨 칩 9-slice 테두리(결과색, 채움 없음)
     private Color _currentColor = Color.white;
+
+    // 드래그 추종: 현재 연결 중인 두 대상·결과를 보관해 매 프레임 위치를 다시 계산한다.
+    private RectTransform _targetA;
+    private RectTransform _targetB;
+    private CrossCheckResult _result;
+    private string _overrideText;
+    private float _blinkAlpha = 1f;
 
     private void Awake()
     {
@@ -161,32 +168,52 @@ public sealed class CrossCheckConnectorView : MonoBehaviour
         EnsureLinesRoot();
         EnsureLabelBox();
 
+        // 추종을 위해 대상/결과를 보관 → LateUpdate 가 매 프레임 '현재' 위치로 다시 배치한다(드래그 추종).
+        _targetA = a; _targetB = b; _result = result; _overrideText = overrideText;
+
         _root.gameObject.SetActive(true);
         _root.SetAsLastSibling(); // 카드 위로
 
-        Color c = ColorFor(result);
+        Relayout();
+        StartBlink();
+    }
+
+    /// <summary>보관된 두 대상의 '현재' 위치로 박스·점선·라벨을 다시 배치한다(카드 드래그 추종).
+    /// 색은 결과색으로 두고, 마지막에 현재 깜빡임 알파를 다시 적용한다(재배치가 알파를 덮어쓰지 않게).</summary>
+    private void Relayout()
+    {
+        if (_targetA == null || _targetB == null || _root == null) return;
+
+        Color c = ColorFor(_result);
         _currentColor = c;
 
-        Vector2 centerA = PlaceBox(_boxA, _boxAImage, a, c, out Vector2 sizeA);
-        Vector2 centerB = PlaceBox(_boxB, _boxBImage, b, c, out Vector2 sizeB);
+        Vector2 centerA = PlaceBox(_boxA, _boxAImage, _targetA, c, out Vector2 sizeA);
+        Vector2 centerB = PlaceBox(_boxB, _boxBImage, _targetB, c, out Vector2 sizeB);
 
         // 라벨은 가운데 세로 세그먼트 중앙에 온다. 점선을 그리기 전에 라벨 위치/크기를 먼저 확정해,
         // 라벨 박스가 덮는 영역의 대시를 건너뛴다(라벨이 점선과 겹쳐 지저분해 보이던 문제 해소).
         Vector2 midPoint = ComputeMidPoint(centerA, centerB);
-        Rect labelRect = MeasureLabelRect(midPoint, result, overrideText);
+        Rect labelRect = MeasureLabelRect(midPoint, _result, _overrideText);
 
         // 직각 꺾은선 경로(가로→세로→가로). 라벨 박스 rect 와 겹치는 대시는 스킵.
         BuildElbowDashes(centerA, sizeA, centerB, sizeB, c, labelRect);
+        DrawLabel(midPoint, _result, c, _overrideText);
 
-        DrawLabel(midPoint, result, c, overrideText);
+        SetGroupAlpha(_blinkAlpha);
+    }
 
-        StartBlink();
+    /// <summary>매 프레임 대상 위치를 추종한다 — 드래그 중에도 박스·선·라벨이 카드를 따라간다.</summary>
+    private void LateUpdate()
+    {
+        if (_root != null && _root.gameObject.activeSelf && _targetA != null && _targetB != null)
+            Relayout();
     }
 
     /// <summary>연출을 숨기고 깜빡임을 멈춘다.</summary>
     public void Hide()
     {
         StopBlink();
+        _targetA = null; _targetB = null; // 추종 중단
         HideAllDashes();
         if (_labelBox != null) _labelBox.gameObject.SetActive(false);
         if (_root != null) _root.gameObject.SetActive(false);
@@ -396,6 +423,7 @@ public sealed class CrossCheckConnectorView : MonoBehaviour
             StopCoroutine(_blink);
             _blink = null;
         }
+        _blinkAlpha = 1f;
         SetGroupAlpha(1f);
     }
 
@@ -406,8 +434,8 @@ public sealed class CrossCheckConnectorView : MonoBehaviour
         {
             t += Time.unscaledDeltaTime;
             float phase = Mathf.PingPong(t / Mathf.Max(0.01f, _blinkPeriod), 1f);
-            float alpha = Mathf.Lerp(_blinkMinAlpha, 1f, phase);
-            SetGroupAlpha(alpha);
+            // 알파만 갱신 — 실제 적용은 Relayout(LateUpdate)에서 위치 재계산 직후 한다(드래그 추종과 충돌 방지).
+            _blinkAlpha = Mathf.Lerp(_blinkMinAlpha, 1f, phase);
             yield return null;
         }
     }
@@ -443,20 +471,20 @@ public sealed class CrossCheckConnectorView : MonoBehaviour
     }
 
     // ── 매핑 ──────────────────────────────────────────────────────
-    // 표시 통합: Related(관련 있음)는 Unrelated(관련 없음)와 동일하게 "비교 불가(회색)"로 보여 준다.
-    // 플레이어가 신경 쓸 건 일치(초록)/불일치(빨강)뿐 — 그 외 비교로 답이 안 나오는 경우는 하나로 묶는다.
-    // 내부 enum/로직(DetectScanUnlock 의 Match/Related 게이팅)은 그대로 유지하고, 색/라벨만 합친다.
+    // 일치(초록)/불일치(빨강)/관련있음(파랑, 같은 속성이나 값 비교 불가·규정 관련성)/비교 불가(회색, 관련 없음).
     private Color ColorFor(CrossCheckResult r) => r switch
     {
         CrossCheckResult.Match => _matchColor,
         CrossCheckResult.Mismatch => _mismatchColor,
-        _ => _unrelatedColor, // Unrelated + Related → 회색(비교 불가)
+        CrossCheckResult.Related => _relatedColor, // 관련있음(파랑)
+        _ => _unrelatedColor, // Unrelated → 회색(비교 불가)
     };
 
     private static string TextFor(CrossCheckResult r) => r switch
     {
         CrossCheckResult.Match => "일치",
         CrossCheckResult.Mismatch => "불일치",
-        _ => "비교 불가", // Unrelated + Related → "비교 불가"
+        CrossCheckResult.Related => "관련있음", // 같은 속성이지만 값 비교 불가 / 규정이 그 항목에 관련됨
+        _ => "비교 불가", // Unrelated → "비교 불가"
     };
 }

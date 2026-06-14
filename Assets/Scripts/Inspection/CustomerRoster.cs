@@ -133,6 +133,12 @@ public static class CustomerRoster
         }
     }
 
+    // [QA/검수] 확률 변이 강제 모드. QaJumpOverlay 가 설정한다.
+    //   Auto=valid_chance 확률 굴림(기본/정식 동작) · Normal=확률 손님 전원 정상 · Defect=전원 불량.
+    //   릴리스에선 항상 Auto(설정 UI가 개발빌드 전용)라 정식 플레이엔 영향 없음.
+    public enum VariantForce { Auto, Normal, Defect }
+    public static VariantForce ForceMode = VariantForce.Auto;
+
     /// <summary>
     /// 확률 변형 굴림: altVariant 를 가진 손님(박철수 등)을 매 플레이 valid_chance 로 굴려,
     /// 굴림 결과(정상/불량)가 baked 와 다르면 그 손님 위에 altVariant(서류·대사·정답·검사)를 덮어쓴다.
@@ -152,7 +158,10 @@ public static class CustomerRoster
             if (a == null || string.IsNullOrEmpty(a.correctResult)) continue;
 
             bool baseIsNormal = c.correctResult == CorrectApprove;
-            bool rollNormal = rng.NextDouble() < c.validChance;
+            // [QA] 강제 모드면 확률 대신 고정(정상=true/불량=false). Auto면 기존 valid_chance 굴림.
+            bool rollNormal = ForceMode == VariantForce.Normal ? true
+                            : ForceMode == VariantForce.Defect ? false
+                            : rng.NextDouble() < c.validChance;
             if (rollNormal == baseIsNormal) continue; // 굴림이 baked 와 같음 → 그대로 둠
 
             // 반대 변형으로 오버레이(신원 필드는 보존)

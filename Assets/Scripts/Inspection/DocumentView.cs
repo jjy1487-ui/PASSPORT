@@ -205,18 +205,31 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
         // 고지서도 다른 서류 카드와 동일하게 _cardPrefabs 매핑(documentType→프리팹)으로 해석한다.
         // "심사 오류 고지서" 항목이 등록돼 있으면 NoticeCard, 없으면 범용 _cardTemplate으로 폴백.
         DocumentCardView prefab = ResolveCardPrefab(notice.documentType);
+        Debug.Log($"[NoticeDBG] SpawnNotice type='{notice.documentType}' prefab={(prefab == null ? "NULL(스폰 불가)" : prefab.name)} container={(_cardContainer != null ? _cardContainer.name : "null")}");
         if (prefab == null) return null;
 
         DocumentCardView card = Instantiate(prefab, _cardContainer);
         card.gameObject.SetActive(true);
-        PositionNotice(card.transform as RectTransform, _notices.Count); // 좌상단부터 누적
         card.Bind(notice);
 
-        // 고지서도 닫힌 썸네일로 시작 → 책상(DocumentArea)으로 드래그하면 펼쳐진다(서류와 동일 규칙).
-        StartClosed(card);
+        // 고지서는 '접힌(닫힌) 표지'로 책상 좌하단 코너에 띄운다(작은 접힌 쪽지). 펼쳐 읽으려면 책상 안쪽으로 드래그.
+        PassportDocument pd = card.GetComponent<PassportDocument>();
+        if (pd != null)
+        {
+            if (_cardContainer is RectTransform crt) pd.ConfigureOpenZone(crt);
+            pd.SetOpen(false); // 접힌 상태로 등장(닫힘 표지 = '오류 고지서(접힌버전)')
+        }
+        if (card.transform is RectTransform nrt)
+        {
+            nrt.anchorMin = nrt.anchorMax = nrt.pivot = new Vector2(0.5f, 0.5f);
+            nrt.sizeDelta = _noticeSize; // 닫힌 썸네일 크기(인스펙터 _noticeSize) 적용 — 런타임 클론이라 코드로 고정.
+            // 코너 기준 위치(_noticeBasePos)에서 누적 장수만큼 어긋나게 → 2장 이상도 서로 겹치지 않게.
+            nrt.anchoredPosition = _noticeBasePos + new Vector2(_notices.Count * _noticeStagger.x, _notices.Count * _noticeStagger.y);
+        }
 
         // _spawned 가 아니라 _notices 에 보관 → Clear()(손님 교체) 에도 사라지지 않는다.
         _notices.Add(card);
+        Debug.Log($"[NoticeDBG] 고지서 스폰됨: pos={((RectTransform)card.transform).position} activeInHierarchy={card.gameObject.activeInHierarchy} 누적={_notices.Count}");
 
         // '닫기' 버튼: 누르면 이 고지서를 책상에서 제거한다.
         if (card.CloseButton != null)

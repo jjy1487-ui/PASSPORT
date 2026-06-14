@@ -265,6 +265,12 @@ public sealed class CrossCheckController : MonoBehaviour
         CrossCheckResult result;
         if (TryEvaluatePassportRule(a, b, out CrossCheckResult passportResult))
             result = passportResult;
+        else if (TryEvaluateIdentityGenderRule(a, b, out CrossCheckResult genderResult))
+            result = genderResult;
+        else if (TryEvaluatePcrResultRule(a, b, out CrossCheckResult pcrResult))
+            result = pcrResult;
+        else if (TryEvaluateLabNameRule(a, b, out CrossCheckResult labResult))
+            result = labResult;
         else if (TryEvaluateDate(a, b, out CrossCheckResult dateResult, out overrideText))
             result = dateResult;
         else
@@ -282,7 +288,7 @@ public sealed class CrossCheckController : MonoBehaviour
         }
 
         DetectScanUnlock(a, b, result);
-        DetectFaceMismatchUnlock(a, b, result); // 얼굴↔여권사진 불일치 → 지문 잠금해제(뉴스와 이중 트리거)
+        DetectFaceMismatchUnlock(a, b, result); // 얼굴↔여권사진 불일치 → (성형 고객) 지문 검사 화면 잠금해제
 
         // 여권번호 불일치(비자↔여권) → X-ray 잠금해제. 단, 즉시 열지 않고 "대사 먼저, 그 다음 X-ray" 순서로 연다.
         //  (대조하자마자 X-ray 가 튀어나오면 어색 → 불일치 지적 대사가 끝난 뒤 X-ray 를 연다.)
@@ -347,20 +353,25 @@ public sealed class CrossCheckController : MonoBehaviour
             ? scripted.customer
             : CustomerReactionFor(key, characterType); // 일반 반응(폴백)
 
-        // 기존 일반 대사와 동일한 데이터 구조로 2줄(검사관 → 손님)을 만들어 같은 위치·스타일로 재생.
+        // 기존 일반 대사와 동일한 데이터 구조로 검사관 → 손님(→ 검사관 마무리) 순으로 만들어 같은 위치·스타일로 재생.
         // 검사관 라인은 "심사관" 표기, 손님 라인은 실제 이름(예 "박철수")으로.
+        // 대사_스크립트에 검사관 마무리 줄(inspectorClose)이 있으면 3줄(지적→반응→마무리)로 재생한다(생략 방지).
+        List<DialogueLineData> lines = new List<DialogueLineData>
+        {
+            new DialogueLineData { order = 0, speaker = "심사관", text = inspectorLine },
+            new DialogueLineData { order = 1, speaker = customerName, text = customerLine },
+        };
+        if (scripted != null && !string.IsNullOrEmpty(scripted.inspectorClose))
+            lines.Add(new DialogueLineData { order = 2, speaker = "심사관", text = scripted.inspectorClose });
+
         DialogueCaseData mismatchCase = new DialogueCaseData
         {
             caseType = "대조 불일치",
             gameResult = "-",
             rejectCount = 0,
-            lines = new[]
-            {
-                new DialogueLineData { order = 0, speaker = "심사관", text = inspectorLine },
-                new DialogueLineData { order = 1, speaker = customerName, text = customerLine },
-            },
+            lines = lines.ToArray(),
         };
-        _mismatchDialogue.Play(mismatchCase, onComplete); // 2줄 대사 재생이 끝나면 후속(예: X-ray 열기) 실행
+        _mismatchDialogue.Play(mismatchCase, onComplete); // 대사 재생이 끝나면 후속(예: X-ray 열기) 실행
     }
 
     /// <summary>
@@ -587,6 +598,101 @@ public sealed class CrossCheckController : MonoBehaviour
     private static bool IsPassportRuleSelectable(ICrossCheckSelectable s)
         => s != null && s.SourceType == "규정" && NormalizeKey(s.AttributeKey) == "passport_no";
 
+    // ── 신분확인 규정 ↔ 여권 성별 대조 ────────────────────────────
+    /// <summary>
+    /// 규정집의 "신분 확인" 규정(SourceType="규정", attr="gender") ↔ 손님 여권의 성별 항목 특수 대조.
+    /// 여권에 적힌 성별이 손님 본인(데이터상 신원 성별)과 같으면 일치, 다르면 불일치(신분 위조 의심)로 본다.
+    /// 여권번호 규정 대조(TryEvaluatePassportRule)와 같은 보조 표시 — 판정/점수 무영향.
+    /// 한쪽이 신분확인 규정(attr=gender)일 때만 성립한다(여권 성별 ↔ 다른 서류 성별 같은 일반 값 대조는 가로채지 않음).
+    /// 성별 값은 클릭한 항목이 아니라 현재 손님 여권 본문/신원(InspectionController)에서 읽는다.
+    /// </summary>
+    private bool TryEvaluateIdentityGenderRule(ICrossCheckSelectable a, ICrossCheckSelectable b, out CrossCheckResult result)
+    {
+        result = CrossCheckResult.Unrelated;
+
+        ICrossCheckSelectable rule = IsIdentityGenderRuleSelectable(a) ? a : (IsIdentityGenderRuleSelectable(b) ? b : null);
+        if (rule == null) return false;
+        ICrossCheckSelectable other = ReferenceEquals(rule, a) ? b : a;
+        if (other == null || NormalizeKey(other.AttributeKey) != "gender") return false;
+
+        string passportGender = _inspection != null ? _inspection.CurrentPassportGender : null;
+        if (string.IsNullOrEmpty(passportGender)) passportGender = other.Value; // 폴백: 선택 항목 값
+        string trueGender = _inspection != null ? _inspection.CurrentCustomerGender : null;
+        if (string.IsNullOrEmpty(passportGender) || string.IsNullOrEmpty(trueGender)) return false; // 못 읽으면 일반 로직으로
+
+        result = Normalize(passportGender) == Normalize(trueGender) ? CrossCheckResult.Match : CrossCheckResult.Mismatch;
+        return true;
+    }
+
+    private static bool IsIdentityGenderRuleSelectable(ICrossCheckSelectable s)
+        => s != null && s.SourceType == "규정" && NormalizeKey(s.AttributeKey) == "gender";
+
+    // ── PCR 검사서 규정 ↔ 검사결과(양성) 대조 ──────────────────────
+    /// <summary>
+    /// 규정집 "PCR 검사서" 규정(SourceType="규정", attr="pcr_result") ↔ PCR 검사결과/진술 항목 특수 대조.
+    /// 검사결과가 양성(Positive/양성)이거나 미제출(검역 대상이 PCR 을 안 냄)이면 불일치(거부 대상), 음성/정상이면 일치로 본다.
+    /// 성별·여권번호 규정과 같은 보조 표시 — 판정/점수 무영향. 한쪽이 PCR 규정일 때만 성립한다.
+    /// (PCR 만료·이름·국적 불일치는 날짜/필드 대조가 이미 처리하므로 여기선 결과값만 본다.)
+    /// 미제출 손님(예: 조지호)은 PCR 카드가 없어, 대화 진술 줄의 claim(attr=pcr_result, value="미제출")이 대조 대상이 된다.
+    /// </summary>
+    private bool TryEvaluatePcrResultRule(ICrossCheckSelectable a, ICrossCheckSelectable b, out CrossCheckResult result)
+    {
+        result = CrossCheckResult.Unrelated;
+        ICrossCheckSelectable rule = IsPcrRuleSelectable(a) ? a : (IsPcrRuleSelectable(b) ? b : null);
+        if (rule == null) return false;
+        ICrossCheckSelectable other = ReferenceEquals(rule, a) ? b : a;
+        if (other == null || NormalizeKey(other.AttributeKey) != "pcr_result") return false;
+        string res = other.Value;
+        if (string.IsNullOrEmpty(res)) return false;
+        string r = res.Trim().ToLowerInvariant();
+        bool positive = r.Contains("positive") || r.Contains("양성");
+        // 미제출(진술/표기): 검역 대상자가 PCR 검사서를 안 냄 → 규정 위반(거부 대상). ToLowerInvariant 는 한글 불변.
+        bool unsubmitted = r.Contains("미제출") || r.Contains("none") || r.Contains("unsubmitted") || r.Contains("not submitted");
+        result = (positive || unsubmitted) ? CrossCheckResult.Mismatch : CrossCheckResult.Match; // 양성·미제출 = 불일치(거부 대상)
+        return true;
+    }
+
+    private static bool IsPcrRuleSelectable(ICrossCheckSelectable s)
+        => s != null && s.SourceType == "규정" && NormalizeKey(s.AttributeKey) == "pcr_result";
+
+    // ── PCR 인증 검사 기관 규정 ↔ 검사 기관(lab_name) 대조 ──────────
+    /// <summary>
+    /// 규정집 "PCR 인증 검사 기관" 규정(SourceType="규정", attr="lab_name") ↔ PCR 검사 기관 항목 대조.
+    /// 공인 기관 명단(<see cref="ApprovedLabs"/>)에 있으면 일치(유효), 없으면(사설·무허가) 불일치(거부 대상)로 본다.
+    /// 여권번호·성별·PCR결과 규정과 같은 보조 표시 — 판정/점수 무영향. 한쪽이 검사기관 규정일 때만 성립한다.
+    /// (rule_book "PCR 인증 검사 기관" 규정의 명단과 동기화 — 명단이 바뀌면 ApprovedLabs 도 같이 수정.)
+    /// </summary>
+    private bool TryEvaluateLabNameRule(ICrossCheckSelectable a, ICrossCheckSelectable b, out CrossCheckResult result)
+    {
+        result = CrossCheckResult.Unrelated;
+        ICrossCheckSelectable rule = IsLabRuleSelectable(a) ? a : (IsLabRuleSelectable(b) ? b : null);
+        if (rule == null) return false;
+        ICrossCheckSelectable other = ReferenceEquals(rule, a) ? b : a;
+        if (other == null || NormalizeKey(other.AttributeKey) != "lab_name") return false;
+        string lab = other.Value;
+        if (string.IsNullOrEmpty(lab)) return false;
+        result = IsApprovedLab(lab) ? CrossCheckResult.Match : CrossCheckResult.Mismatch; // 명단에 있으면 일치, 없으면 불일치
+        return true;
+    }
+
+    private static bool IsLabRuleSelectable(ICrossCheckSelectable s)
+        => s != null && s.SourceType == "규정" && NormalizeKey(s.AttributeKey) == "lab_name";
+
+    /// <summary>PCR 검사서를 발급할 수 있는 공인 검사 기관 명단(rule_book "PCR 인증 검사 기관" 규정과 동기화).</summary>
+    private static readonly string[] ApprovedLabs =
+    {
+        "국립검역소", "인천공항검역소", "질병관리청진단검사센터", "부산국제공항검역소", "삼성서울병원진단검사의학과",
+    };
+
+    /// <summary>검사 기관명이 공인 명단에 있는가(정규화 비교 — 공백·기호 무시).</summary>
+    private static bool IsApprovedLab(string lab)
+    {
+        string n = Normalize(lab);
+        foreach (string approved in ApprovedLabs)
+            if (Normalize(approved) == n) return true;
+        return false;
+    }
+
     /// <summary>발급 국가코드(KOR 등) → 여권번호 앞 2자리 규정 코드. day1 ruleId3 매핑(대한민국 KO / 미국 US / 중국 CN / 일본 JP). 미등록 국가는 국가코드 앞 2자리.</summary>
     private static string ExpectedPassportPrefix(string country)
     {
@@ -701,7 +807,8 @@ public sealed class CrossCheckController : MonoBehaviour
     private void DetectFaceMismatchUnlock(ICrossCheckSelectable a, ICrossCheckSelectable b, CrossCheckResult result)
     {
         if (result == CrossCheckResult.Unrelated) return;   // 실제 얼굴↔사진 대조가 성립한 경우만
-        if (!IsPhotoKey(a) && !IsPhotoKey(b)) return;        // 사진/얼굴 대조일 때만
+        if (!IsPhotoKey(a) || !IsPhotoKey(b)) return;        // 양쪽 다 얼굴/사진 항목일 때만
+        if (!IsCustomerSource(a.SourceType) || !IsCustomerSource(b.SourceType)) return; // 캐릭터 얼굴 ↔ 여권 사진(서류)만 — 규정(attr=face) ↔ 사진은 제외(규정 대조는 '관련있음'만)
         if (!IsPlasticSurgeryCustomer()) return;            // 성형수술 고객만
         OnScanUnlocked?.Invoke("fingerprint");
     }

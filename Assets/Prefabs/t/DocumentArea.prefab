@@ -615,9 +615,9 @@ MonoBehaviour:
     prefab: {fileID: 7000000000000000005, guid: 7e0c1a9b2d4f5a6c8b3e7d1f0a2c4e69, type: 3}
   _spawnStagger: {x: 40, y: 36}
   _cardHalfSize: {x: 30, y: 28}
-  _noticeBasePos: {x: -300, y: 300}
-  _noticeSize: {x: 83.8205, y: 86.6596}
-  _noticeStagger: {x: 26, y: 24}
+  _noticeBasePos: {x: -1147.1, y: -126.5}
+  _noticeSize: {x: 80, y: 80}
+  _noticeStagger: {x: 54, y: 20}
 --- !u!1 &2968834776527255774
 GameObject:
   m_ObjectHideFlags: 0

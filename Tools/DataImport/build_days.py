@@ -145,8 +145,7 @@ def resolve_defect_variant(character_type, is_normal, corruption_type, target_fi
     if dd == "pcr_test":
         if ct == "POSITIVE":          # 양성 = 백신 미접종/감염
             return "1-C 백신X"
-        if ct == "MISSING":           # 결과 누락 = 모두 미비
-            return "1-D 모두 미비"
+        # (검사결과 누락 결함은 시나리오에서 제거됨 — MISSING 미사용)
         if ct in ("FORGE_SOURCE", "EXPIRE"):  # 위조/만료 = 출국X/만료
             return "1-B 출국X/만료"
         return ""
@@ -606,7 +605,7 @@ def apply_defect(doc, fields, corruption_type, target_key, fake_pool, ctx,
 
     if corruption_type == "FORGE_SOURCE":
         if target_key == "lab_name":
-            fv = fake_value_for("lab_name", fake_pool, *ctx) or "무허가검진센터"
+            fv = fake_value_for("lab_name", fake_pool, *ctx) or "종합검진센터"
             set_field(fields, "검사 기관", fv)
             return "검사 기관"
         # company_name (취업증빙)
@@ -622,10 +621,7 @@ def apply_defect(doc, fields, corruption_type, target_key, fake_pool, ctx,
         set_field(fields, "입사일", bad_hire or "2099-01-01")
         return "입사일"
 
-    if corruption_type == "MISSING":
-        # PCR 결과 누락 처리
-        set_field(fields, "검사 결과", "(누락)")
-        return "검사 결과"
+    # (MISSING = PCR 검사결과 누락 결함은 시나리오에서 제거됨)
 
     # NONE / 알 수 없는 타입 → 결함 없음
     return None

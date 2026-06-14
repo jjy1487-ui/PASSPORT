@@ -265,6 +265,16 @@ public sealed class ImmigrationManager : MonoBehaviour
         if (inspectionController != null) inspectionController.DebugJumpToSlot(slot - 1);
     }
 
+    /// <summary>[QA] 현재 일차를 다시 로드해 변이 강제 모드(CustomerRoster.ForceMode)를 즉시 반영한다(현재 손님 번호 유지).</summary>
+    public void DebugReapplyCurrentDay()
+    {
+        if (_data == null) return;
+        int slot1 = CurrentSlot1Based;
+        BeginDay(CurrentDay, resetGold: false, openNews: false);
+        if (inspectionController != null)
+            inspectionController.DebugJumpToSlot(Mathf.Max(0, slot1 - 1));
+    }
+
     /// <summary>[QA] 현재 손님 번호(1-base, 손님 없으면 0). 오버레이 표시용.</summary>
     public int CurrentSlot1Based => inspectionController != null ? inspectionController.CurrentSlotIndex + 1 : 0;
 

@@ -1,1709 +1,1726 @@
 {
-  "day": 13,
-  "customers": [
+ "day": 13,
+ "customers": [
+  {
+   "customerId": 87,
+   "slot": 1,
+   "nameKr": "우 팅",
+   "nameEn": "WU TING",
+   "nationality": "중국(CHN)",
+   "gender": "남성",
+   "birthDate": "1993-12-05",
+   "age": 32,
+   "spriteRef": "왕 웨이",
+   "characterType": "외국인 관광객",
+   "defectVariant": "",
+   "correctResult": "정상 거절",
+   "documents": [
     {
-      "customerId": 87,
-      "slot": 1,
-      "nameKr": "우 팅",
-      "nameEn": "WU TING",
-      "nationality": "중국(CHN)",
-      "gender": "남성",
-      "birthDate": "1993-12-05",
-      "age": 32,
-      "spriteRef": "왕 웨이",
-      "characterType": "외국인 관광객",
-      "defectVariant": "",
-      "correctResult": "정상 거절",
-      "documents": [
-        {
-          "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "왕 웨이",
-          "country": "CHN",
-          "fields": [
-            {
-              "label": "여권번호",
-              "value": "CN6667788",
-              "key": "passport_no"
-            },
-            {
-              "label": "영문이름",
-              "value": "WU TING",
-              "key": "name"
-            },
-            {
-              "label": "성별",
-              "value": "남성",
-              "key": "gender"
-            },
-            {
-              "label": "생년월일",
-              "value": "1993-12-05",
-              "key": "birth_date"
-            },
-            {
-              "label": "국적",
-              "value": "CHN",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2017-03-28",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2027-03-28",
-              "key": "expiry_date"
-            }
-          ]
-        },
-        {
-          "documentType": "비자",
-          "variant": "비정상",
-          "violationField": "영문이름",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "영문이름",
-              "value": "WU TINGFANG",
-              "key": "name"
-            },
-            {
-              "label": "여권번호",
-              "value": "CN6667788",
-              "key": "passport_no"
-            },
-            {
-              "label": "비자 번호",
-              "value": "V-CHN-3766",
-              "key": "visa_no"
-            },
-            {
-              "label": "비자 종류",
-              "value": "관광",
-              "key": "visa_type"
-            },
-            {
-              "label": "국적",
-              "value": "CHN",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2024-09-17",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2026-09-17",
-              "key": "expiry_date"
-            },
-            {
-              "label": "입국 횟수",
-              "value": "단수",
-              "key": "entry_type"
-            },
-            {
-              "label": "비고",
-              "value": "외국인 정상 비자",
-              "key": "memo"
-            }
-          ]
-        }
-      ],
-      "dialogueCases": [
-        {
-          "caseType": "입장",
-          "gameResult": "-",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "우 팅",
-              "text": "您好，请帮我看看。 (안녕하세요, 좀 봐주세요.)"
-            },
-            {
-              "order": 2,
-              "speaker": "우 팅",
-              "text": "这是我的护照。 (여기 여권 드릴게요.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 승인",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "Have a pleasant trip!"
-            },
-            {
-              "order": 2,
-              "speaker": "우 팅",
-              "text": "谢谢！服务真好。 (감사합니다! 친절하시네요.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "비자의 이름이 여권과 일치하지 않아 입국하실 수 없습니다.",
-              "claim": {
-                "attr": "name",
-                "value": "WU TINGFANG",
-                "label": "비자 이름 불일치",
-                "unlocksScan": ""
-              }
-            },
-            {
-              "order": 2,
-              "speaker": "우 팅",
-              "text": "对不起，我不知道这个。 (죄송합니다. 이건 몰랐어요.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 허가",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "Have a pleasant trip!"
-            },
-            {
-              "order": 2,
-              "speaker": "우 팅",
-              "text": "谢谢！服务真好。 (감사합니다! 친절하시네요.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "우 팅",
-              "text": "对不起，我不知道这个。 (죄송합니다. 이건 몰랐어요.)"
-            }
-          ]
-        }
-      ],
-      "rejectAdvancedBranchKey": "",
-      "rejectGuidedCaseType": "",
-      "xray": null,
-      "fingerprint": null,
-      "crossCheckLines": [
-        {
-          "attr": "visa_type",
-          "inspector": "어… 여권엔 이 이름인데, 비자엔 다른 이름이 적혀 있네요? 이거 어떻게 된 거죠?",
-          "customer": "啊？应该没问题的…(어? 문제 없을 텐데요…)",
-          "unlocksScan": ""
-        }
-      ]
-    },
-    {
-      "customerId": 88,
-      "slot": 2,
-      "nameKr": "권서윤",
-      "nameEn": "KWON SEOYUN",
-      "nationality": "대한민국(KOR)",
-      "gender": "여성",
-      "birthDate": "1993-04-09",
-      "age": 33,
-      "spriteRef": "송하늘",
-      "characterType": "일반 고객",
-      "defectVariant": "",
-      "correctResult": "정상 승인",
-      "documents": [
-        {
-          "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "송하늘",
-          "country": "KOR",
-          "fields": [
-            {
-              "label": "여권번호",
-              "value": "KO1025691",
-              "key": "passport_no"
-            },
-            {
-              "label": "영문이름",
-              "value": "KWON SEOYUN",
-              "key": "name"
-            },
-            {
-              "label": "성별",
-              "value": "여성",
-              "key": "gender"
-            },
-            {
-              "label": "생년월일",
-              "value": "1993-04-09",
-              "key": "birth_date"
-            },
-            {
-              "label": "국적",
-              "value": "KOR",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2023-11-28",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2028-11-28",
-              "key": "expiry_date"
-            }
-          ]
-        }
-      ],
-      "dialogueCases": [
-        {
-          "caseType": "입장",
-          "gameResult": "-",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "권서윤",
-              "text": "안녕하세요. 테러 뉴스 보고 좀 망설였는데... 그래도 친척이 기다리고 있어서요. (조용히 여권 내밀며)"
-            },
-            {
-              "order": 2,
-              "speaker": "권서윤",
-              "text": "여권 확인 부탁드립니다."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 승인",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
-            },
-            {
-              "order": 2,
-              "speaker": "권서윤",
-              "text": "감사합니다. 잘 다녀오겠습니다."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "권서윤",
-              "text": "왜요? 문제가 뭔가요?"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 허가",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
-            },
-            {
-              "order": 2,
-              "speaker": "권서윤",
-              "text": "감사합니다. 잘 다녀오겠습니다."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "권서윤",
-              "text": "왜요? 문제가 뭔가요?"
-            }
-          ]
-        }
-      ],
-      "rejectAdvancedBranchKey": "",
-      "rejectGuidedCaseType": "",
-      "xray": null,
-      "fingerprint": null
-    },
-    {
-      "customerId": 89,
-      "slot": 3,
-      "nameKr": "다카하시 리쿠",
-      "nameEn": "TAKAHASHI RIKU",
-      "nationality": "일본(JPN)",
-      "gender": "남성",
-      "birthDate": "1989-11-25",
-      "age": 36,
-      "spriteRef": "다나카 하루토",
-      "characterType": "외국인 관광객",
-      "defectVariant": "",
-      "correctResult": "정상 거절",
-      "documents": [
-        {
-          "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "다나카 하루토",
-          "country": "JPN",
-          "fields": [
-            {
-              "label": "여권번호",
-              "value": "JP1029042",
-              "key": "passport_no"
-            },
-            {
-              "label": "영문이름",
-              "value": "TAKAHASHI RIKU",
-              "key": "name"
-            },
-            {
-              "label": "성별",
-              "value": "남성",
-              "key": "gender"
-            },
-            {
-              "label": "생년월일",
-              "value": "1989-11-25",
-              "key": "birth_date"
-            },
-            {
-              "label": "국적",
-              "value": "JPN",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2021-03-14",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2031-03-14",
-              "key": "expiry_date"
-            }
-          ]
-        },
-        {
-          "documentType": "비자",
-          "variant": "비정상",
-          "violationField": "국적",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "영문이름",
-              "value": "TAKAHASHI RIKU",
-              "key": "name"
-            },
-            {
-              "label": "여권번호",
-              "value": "JP1029042",
-              "key": "passport_no"
-            },
-            {
-              "label": "비자 번호",
-              "value": "V-JPN-8758",
-              "key": "visa_no"
-            },
-            {
-              "label": "비자 종류",
-              "value": "관광",
-              "key": "visa_type"
-            },
-            {
-              "label": "국적",
-              "value": "KOR",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2024-09-27",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2026-09-27",
-              "key": "expiry_date"
-            },
-            {
-              "label": "입국 횟수",
-              "value": "단수",
-              "key": "entry_type"
-            },
-            {
-              "label": "비고",
-              "value": "외국인 정상 비자",
-              "key": "memo"
-            }
-          ]
-        }
-      ],
-      "dialogueCases": [
-        {
-          "caseType": "입장",
-          "gameResult": "-",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "다카하시 리쿠",
-              "text": "色々あって…来るか迷いましたが、来ました。パスポートです。 (여러 일이 있어서… 올지 망설였는데, 결국 왔어요. 여권입니다.)"
-            },
-            {
-              "order": 2,
-              "speaker": "다카하시 리쿠",
-              "text": "パスポートをどうぞ。 (여기 여권 드릴게요.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 승인",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "Have a pleasant trip!"
-            },
-            {
-              "order": 2,
-              "speaker": "다카하시 리쿠",
-              "text": "ありがとう！早く見て回りたいです！ (고맙습니다! 빨리 둘러보고 싶어요!)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "여권과 비자의 국적이 일치하지 않아 입국하실 수 없습니다.",
-              "claim": {
-                "attr": "nationality",
-                "value": "KOR",
-                "label": "비자 국적 불일치",
-                "unlocksScan": ""
-              }
-            },
-            {
-              "order": 2,
-              "speaker": "다카하시 리쿠",
-              "text": "あ、そうなんですか。すみません。 (아, 그래요? 죄송합니다.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 허가",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "Have a pleasant trip!"
-            },
-            {
-              "order": 2,
-              "speaker": "다카하시 리쿠",
-              "text": "ありがとう！早く見て回りたいです！ (고맙습니다! 빨리 둘러보고 싶어요!)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "다카하시 리쿠",
-              "text": "あ、そうなんですか。すみません。 (아, 그래요? 죄송합니다.)"
-            }
-          ]
-        }
-      ],
-      "rejectAdvancedBranchKey": "",
-      "rejectGuidedCaseType": "",
-      "xray": null,
-      "fingerprint": null,
-      "crossCheckLines": [
-        {
-          "attr": "nationality",
-          "inspector": "여권과 비자의 국적이 다른데요?",
-          "customer": "え？問題ないはずですが…(네? 문제 없을 텐데요…)",
-          "unlocksScan": ""
-        }
-      ]
-    },
-    {
-      "customerId": 37,
-      "slot": 4,
-      "nameKr": "제시카 윌슨",
-      "nameEn": "JESSICA WILSON",
-      "nationality": "미국(USA)",
-      "gender": "남성",
-      "birthDate": "1988-11-30",
-      "age": 37,
-      "spriteRef": "제시카 윌슨",
-      "characterType": "장기체류자",
-      "defectVariant": "",
-      "correctResult": "정상 거절",
-      "documents": [
-        {
-          "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "제시카 윌슨",
-          "country": "USA",
-          "fields": [
-            {
-              "label": "여권번호",
-              "value": "US1041329",
-              "key": "passport_no"
-            },
-            {
-              "label": "영문이름",
-              "value": "WILSON JESSICA",
-              "key": "name"
-            },
-            {
-              "label": "성별",
-              "value": "남성",
-              "key": "gender"
-            },
-            {
-              "label": "생년월일",
-              "value": "1988-11-30",
-              "key": "birth_date"
-            },
-            {
-              "label": "국적",
-              "value": "USA",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2017-03-28",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2027-03-28",
-              "key": "expiry_date"
-            }
-          ]
-        },
-        {
-          "documentType": "비자",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "영문이름",
-              "value": "WILSON JESSICA",
-              "key": "name"
-            },
-            {
-              "label": "여권번호",
-              "value": "US1041329",
-              "key": "passport_no"
-            },
-            {
-              "label": "비자 번호",
-              "value": "V-USA-7094",
-              "key": "visa_no"
-            },
-            {
-              "label": "비자 종류",
-              "value": "취업",
-              "key": "visa_type"
-            },
-            {
-              "label": "국적",
-              "value": "USA",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2025-09-27",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2026-09-27",
-              "key": "expiry_date"
-            },
-            {
-              "label": "입국 횟수",
-              "value": "복수",
-              "key": "entry_type"
-            },
-            {
-              "label": "비고",
-              "value": "취업 정상 비자",
-              "key": "memo"
-            }
-          ]
-        },
-        {
-          "documentType": "취업증빙",
-          "variant": "비정상",
-          "violationField": "입사일",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "이름",
-              "value": "WILSON JESSICA",
-              "key": "name"
-            },
-            {
-              "label": "증빙 번호",
-              "value": "EMP-037",
-              "key": "cert_no"
-            },
-            {
-              "label": "고용 회사",
-              "value": "서해수산(주)",
-              "key": "company_name"
-            },
-            {
-              "label": "직종",
-              "value": "가공 작업",
-              "key": "job_title"
-            },
-            {
-              "label": "입사일",
-              "value": "2026-01-01",
-              "key": "hire_date"
-            },
-            {
-              "label": "발급일",
-              "value": "2025-01-01",
-              "key": "issue_date"
-            }
-          ]
-        }
-      ],
-      "dialogueCases": [
-        {
-          "caseType": "입장",
-          "gameResult": "-",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "제시카 윌슨",
-              "text": "Hello. Crowded places make me a little nervous, but what can you do. (억지로 웃으며) Here's my passport. (안녕하세요. 사람 많은 데 오는 게 좀 무섭긴 한데, 뭐 별 수 없죠. 여권 여기요.)"
-            },
-            {
-              "order": 2,
-              "speaker": "제시카 윌슨",
-              "text": "I'll give you my residence documents as well. (체류 관련 서류도 같이 드릴게요.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 승인",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "Best of luck with your studies!"
-            },
-            {
-              "order": 2,
-              "speaker": "제시카 윌슨",
-              "text": "Thank you! Have a good day. (감사합니다! 좋은 하루 보내세요.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "재직증명서 입사일이 비자 발급일보다 빨라 논리가 맞지 않습니다. 입국하실 수 없습니다.",
-              "claim": {
-                "attr": "hire_date",
-                "value": "2026-01-01",
-                "label": "입사일 모순",
-                "unlocksScan": ""
-              }
-            },
-            {
-              "order": 2,
-              "speaker": "제시카 윌슨",
-              "text": "I understand. I'll sort it out. (알겠습니다. 제가 정리할게요.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 허가",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "Best of luck with your studies!"
-            },
-            {
-              "order": 2,
-              "speaker": "제시카 윌슨",
-              "text": "Thank you! Have a good day. (감사합니다! 좋은 하루 보내세요.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "제시카 윌슨",
-              "text": "I understand. I'll sort it out. (알겠습니다. 제가 정리할게요.)"
-            }
-          ]
-        }
-      ],
-      "rejectAdvancedBranchKey": "",
-      "rejectGuidedCaseType": "",
-      "xray": null,
-      "fingerprint": null,
-      "crossCheckLines": [
-        {
-          "attr": "hire_date",
-          "inspector": "재직증명서 입사일이 비자 발급일보다 빠른데요? 모순됩니다.",
-          "customer": "What? That should be fine…(네? 문제 없을 텐데요…)",
-          "unlocksScan": ""
-        }
-      ]
-    },
-    {
-      "customerId": 90,
-      "slot": 5,
-      "nameKr": "황민서",
-      "nameEn": "HWANG MINSEO",
-      "nationality": "대한민국(KOR)",
-      "gender": "여성",
-      "birthDate": "1983-09-30",
-      "age": 42,
-      "spriteRef": "배수정",
-      "characterType": "진상 고객",
-      "defectVariant": "",
-      "correctResult": "정상 승인",
-      "documents": [
-        {
-          "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "배수정",
-          "country": "KOR",
-          "fields": [
-            {
-              "label": "여권번호",
-              "value": "KO1032393",
-              "key": "passport_no"
-            },
-            {
-              "label": "영문이름",
-              "value": "HWANG MINSEO",
-              "key": "name"
-            },
-            {
-              "label": "성별",
-              "value": "여성",
-              "key": "gender"
-            },
-            {
-              "label": "생년월일",
-              "value": "1983-09-30",
-              "key": "birth_date"
-            },
-            {
-              "label": "국적",
-              "value": "KOR",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2019-07-28",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2029-07-28",
-              "key": "expiry_date"
-            }
-          ]
-        }
-      ],
-      "dialogueCases": [
-        {
-          "caseType": "입장",
-          "gameResult": "-",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "황민서",
-              "text": "요즘 공항 오면 영 마음이 안 놓이네. 빨리 좀 처리해줘요."
-            },
-            {
-              "order": 2,
-              "speaker": "황민서",
-              "text": "여권 냈으니까 빨리 처리해."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 승인",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
-            },
-            {
-              "order": 2,
-              "speaker": "황민서",
-              "text": "뭘 이렇게 오래 걸려요. 됐어요."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "황민서",
-              "text": "말이 안 되잖아요!"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 허가",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
-            },
-            {
-              "order": 2,
-              "speaker": "황민서",
-              "text": "뭘 이렇게 오래 걸려요. 됐어요."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "황민서",
-              "text": "말이 안 되잖아요!"
-            }
-          ]
-        }
-      ],
-      "rejectAdvancedBranchKey": "",
-      "rejectGuidedCaseType": "",
-      "xray": null,
-      "fingerprint": null,
-      "validChance": 0.75,
-      "altVariant": {
-        "correctResult": "정상 거절",
-        "defectVariant": "",
-        "rejectAdvancedBranchKey": "",
-        "rejectGuidedCaseType": "",
-        "documents": [
-          {
-            "documentType": "여권",
-            "variant": "비정상",
-            "violationField": "만료일",
-            "spriteRef": "배수정",
-            "country": "KOR",
-            "fields": [
-              {
-                "label": "여권번호",
-                "value": "KO1032393",
-                "key": "passport_no"
-              },
-              {
-                "label": "영문이름",
-                "value": "HWANG MINSEO",
-                "key": "name"
-              },
-              {
-                "label": "성별",
-                "value": "여성",
-                "key": "gender"
-              },
-              {
-                "label": "생년월일",
-                "value": "1983-09-30",
-                "key": "birth_date"
-              },
-              {
-                "label": "국적",
-                "value": "KOR",
-                "key": "nationality"
-              },
-              {
-                "label": "발급일",
-                "value": "2019-07-28",
-                "key": "issue_date"
-              },
-              {
-                "label": "만료일",
-                "value": "2024-07-28",
-                "key": "expiry_date"
-              }
-            ]
-          }
-        ],
-        "dialogueCases": [
-          {
-            "caseType": "입장",
-            "gameResult": "-",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "황민서",
-                "text": "아 진짜, 빨리 좀요. 이런 때 공항에 오래 있고 싶지 않다고요."
-              }
-            ]
-          },
-          {
-            "caseType": "일반 심사",
-            "gameResult": "정상 승인",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "심사관",
-                "text": "즐거운 여행 되십시오."
-              },
-              {
-                "order": 2,
-                "speaker": "황민서",
-                "text": "뭘 이렇게 오래 걸려요. 됐어요."
-              }
-            ]
-          },
-          {
-            "caseType": "일반 심사",
-            "gameResult": "정상 거절",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "심사관",
-                "text": "여권 유효기간이 맞지 않아 입국하실 수 없습니다."
-              },
-              {
-                "order": 2,
-                "speaker": "황민서",
-                "text": "에이, 됐어요."
-              }
-            ]
-          },
-          {
-            "caseType": "일반 심사",
-            "gameResult": "잘못 허가",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "심사관",
-                "text": "즐거운 여행 되십시오."
-              },
-              {
-                "order": 2,
-                "speaker": "황민서",
-                "text": "뭘 이렇게 오래 걸려요. 됐어요."
-              }
-            ]
-          },
-          {
-            "caseType": "일반 심사",
-            "gameResult": "잘못 거절",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "심사관",
-                "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-              },
-              {
-                "order": 2,
-                "speaker": "황민서",
-                "text": "에이, 됐어요."
-              }
-            ]
-          }
-        ],
-        "xray": null,
-        "fingerprint": null,
-        "crossCheckLines": [
-          {
-            "attr": "expiry_date",
-            "inspector": "여권 만료일을 보겠습니다… 기간이 지나 있네요?",
-            "customer": "네? 그럴 리가요. 다시 확인해 주세요.",
-            "unlocksScan": ""
-          }
-        ]
-      }
-    },
-    {
-      "customerId": 91,
-      "slot": 6,
-      "nameKr": "배은서",
-      "nameEn": "BAE EUNSEO",
-      "nationality": "대한민국(KOR)",
-      "gender": "여성",
-      "birthDate": "1997-11-20",
-      "age": 28,
-      "spriteRef": "서지호",
-      "characterType": "성형 수술 고객",
-      "defectVariant": "",
-      "correctResult": "정상 승인",
-      "documents": [
-        {
-          "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "서지호(원본)",
-          "country": "KOR",
-          "fields": [
-            {
-              "label": "여권번호",
-              "value": "KO1023457",
-              "key": "passport_no"
-            },
-            {
-              "label": "영문이름",
-              "value": "BAE EUNSEO",
-              "key": "name"
-            },
-            {
-              "label": "성별",
-              "value": "여성",
-              "key": "gender"
-            },
-            {
-              "label": "생년월일",
-              "value": "1997-11-20",
-              "key": "birth_date"
-            },
-            {
-              "label": "국적",
-              "value": "KOR",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2019-07-28",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2029-07-28",
-              "key": "expiry_date"
-            }
-          ]
-        }
-      ],
-      "dialogueCases": [
-        {
-          "caseType": "입장",
-          "gameResult": "-",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "배은서",
-              "text": "안녕하세요. (마스크를 고쳐 쓰며) 테러 이후로 사람들이 긴장해 있는 것 같아요. 저는 수술하러 왔어요."
-            },
-            {
-              "order": 2,
-              "speaker": "배은서",
-              "text": "사진이랑 좀 달라 보여도 저 맞아요."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 승인",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
-            },
-            {
-              "order": 2,
-              "speaker": "배은서",
-              "text": "고마워요. (서둘러 창구를 빠져나간다.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
-            },
-            {
-              "order": 2,
-              "speaker": "배은서",
-              "text": "저 맞아요. 성형을 해서 좀 달라 보일 뿐이에요."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 허가",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
-            },
-            {
-              "order": 2,
-              "speaker": "배은서",
-              "text": "고마워요. (서둘러 창구를 빠져나간다.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "배은서",
-              "text": "저 맞아요. 성형을 해서 좀 달라 보일 뿐이에요."
-            }
-          ]
-        }
-      ],
-      "rejectAdvancedBranchKey": "",
-      "rejectGuidedCaseType": "",
-      "xray": null,
-      "fingerprint": {
-        "type": "fingerprint",
-        "result": "일치",
-        "detail": "본인 일치",
-        "extra": "BAE EUNSEO",
-        "claim": {
-          "attr": "name",
-          "value": "BAE EUNSEO",
-          "label": "지문 대조 신원",
-          "unlocksScan": ""
-        },
-        "record": {
-          "mode": "성형",
-          "dbName": "BAE EUNSEO",
-          "dbBirth": "1997-11-20",
-          "dbNationality": "KOR",
-          "criminalRecord": "없음",
-          "wantedNo": ""
-        }
+     "documentType": "여권",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "왕 웨이",
+     "country": "CHN",
+     "fields": [
+      {
+       "label": "여권번호",
+       "value": "CN6667788",
+       "key": "passport_no"
       },
-      "validChance": 0.7,
-      "altVariant": {
-        "correctResult": "정상 거절",
-        "defectVariant": "",
-        "rejectAdvancedBranchKey": "",
-        "rejectGuidedCaseType": "",
-        "documents": [
-          {
-            "documentType": "여권",
-            "variant": "정상",
-            "violationField": "없음",
-            "spriteRef": "서지호(원본)",
-            "country": "KOR",
-            "fields": [
-              {
-                "label": "여권번호",
-                "value": "KO1023457",
-                "key": "passport_no"
-              },
-              {
-                "label": "영문이름",
-                "value": "BAE EUNSEO",
-                "key": "name"
-              },
-              {
-                "label": "성별",
-                "value": "여성",
-                "key": "gender"
-              },
-              {
-                "label": "생년월일",
-                "value": "1997-11-20",
-                "key": "birth_date"
-              },
-              {
-                "label": "국적",
-                "value": "KOR",
-                "key": "nationality"
-              },
-              {
-                "label": "발급일",
-                "value": "2019-07-28",
-                "key": "issue_date"
-              },
-              {
-                "label": "만료일",
-                "value": "2029-07-28",
-                "key": "expiry_date"
-              }
-            ]
-          }
-        ],
-        "dialogueCases": [
-          {
-            "caseType": "입장",
-            "gameResult": "-",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "배은서",
-                "text": "안녕하세요. (조심스럽게) 요즘 공항 분위기가 무겁죠. 저는 성형 목적이에요."
-              }
-            ]
-          },
-          {
-            "caseType": "일반 심사",
-            "gameResult": "정상 승인",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "심사관",
-                "text": "즐거운 여행 되십시오."
-              },
-              {
-                "order": 2,
-                "speaker": "배은서",
-                "text": "감사합니다. (조용히 고개를 숙이고 이동한다.)"
-              }
-            ]
-          },
-          {
-            "caseType": "일반 심사",
-            "gameResult": "정상 거절",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "심사관",
-                "text": "지문 신원이 여권 국적과 일치하지 않습니다. 입국하실 수 없습니다.",
-                "claim": {
-                  "attr": "nationality",
-                  "value": "CHN",
-                  "label": "지문 대조 국적",
-                  "unlocksScan": ""
-                }
-              },
-              {
-                "order": 2,
-                "speaker": "배은서",
-                "text": "...알겠습니다. (침울하게 고개를 숙인다.)"
-              }
-            ]
-          },
-          {
-            "caseType": "일반 심사",
-            "gameResult": "잘못 허가",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "심사관",
-                "text": "즐거운 여행 되십시오."
-              },
-              {
-                "order": 2,
-                "speaker": "배은서",
-                "text": "감사합니다. (조용히 고개를 숙이고 이동한다.)"
-              }
-            ]
-          },
-          {
-            "caseType": "일반 심사",
-            "gameResult": "잘못 거절",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "심사관",
-                "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-              },
-              {
-                "order": 2,
-                "speaker": "배은서",
-                "text": "...알겠습니다. (침울하게 고개를 숙인다.)"
-              }
-            ]
-          }
-        ],
-        "xray": null,
-        "fingerprint": {
-          "type": "fingerprint",
-          "result": "불일치",
-          "detail": "국적 불일치",
-          "extra": "BAE EUNSEO",
-          "claim": {
-            "attr": "nationality",
-            "value": "CHN",
-            "label": "지문 대조 국적",
-            "unlocksScan": ""
-          },
-          "record": {
-            "mode": "성형",
-            "dbName": "BAE EUNSEO",
-            "dbBirth": "1997-11-20",
-            "dbNationality": "CHN",
-            "criminalRecord": "없음",
-            "wantedNo": ""
-          }
-        }
+      {
+       "label": "영문이름",
+       "value": "WU TING",
+       "key": "name"
+      },
+      {
+       "label": "성별",
+       "value": "남성",
+       "key": "gender"
+      },
+      {
+       "label": "생년월일",
+       "value": "1993-12-05",
+       "key": "birth_date"
+      },
+      {
+       "label": "국적",
+       "value": "CHN",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2017-03-28",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2027-03-28",
+       "key": "expiry_date"
       }
+     ]
     },
     {
-      "customerId": 92,
-      "slot": 7,
-      "nameKr": "쉬 펑",
-      "nameEn": "XU FENG",
-      "nationality": "중국(CHN)",
-      "gender": "남성",
-      "birthDate": "1991-06-14",
-      "age": 34,
-      "spriteRef": "장 웨이",
-      "characterType": "외국인 관광객",
-      "defectVariant": "",
-      "correctResult": "정상 거절",
-      "documents": [
-        {
-          "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "장 웨이",
-          "country": "CHN",
-          "fields": [
-            {
-              "label": "여권번호",
-              "value": "CN1030159",
-              "key": "passport_no"
-            },
-            {
-              "label": "영문이름",
-              "value": "XU FENG",
-              "key": "name"
-            },
-            {
-              "label": "성별",
-              "value": "남성",
-              "key": "gender"
-            },
-            {
-              "label": "생년월일",
-              "value": "1991-06-14",
-              "key": "birth_date"
-            },
-            {
-              "label": "국적",
-              "value": "CHN",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2023-03-28",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2028-03-28",
-              "key": "expiry_date"
-            }
-          ]
-        },
-        {
-          "documentType": "비자",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "영문이름",
-              "value": "XU FENG",
-              "key": "name"
-            },
-            {
-              "label": "여권번호",
-              "value": "CN1030159",
-              "key": "passport_no"
-            },
-            {
-              "label": "비자 번호",
-              "value": "V-CHN-7483",
-              "key": "visa_no"
-            },
-            {
-              "label": "비자 종류",
-              "value": "장기 체류",
-              "key": "visa_type"
-            },
-            {
-              "label": "국적",
-              "value": "CHN",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2025-09-12",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2026-09-12",
-              "key": "expiry_date"
-            },
-            {
-              "label": "입국 횟수",
-              "value": "단수",
-              "key": "entry_type"
-            },
-            {
-              "label": "비고",
-              "value": "외국인 정상 비자",
-              "key": "memo"
-            }
-          ]
-        }
-      ],
-      "dialogueCases": [
-        {
-          "caseType": "입장",
-          "gameResult": "-",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "쉬 펑",
-              "text": "你好～我是来短期旅游的。(안녕하세요~ 잠깐 여행 왔어요.)",
-              "claim": {
-                "attr": "visa_type",
-                "value": "여행",
-                "label": "방문 목적(진술)",
-                "unlocksScan": ""
-              }
-            },
-            {
-              "order": 2,
-              "speaker": "쉬 펑",
-              "text": "这是我的护照。 (여기 여권 드릴게요.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 승인",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "Have a pleasant trip!"
-            },
-            {
-              "order": 2,
-              "speaker": "쉬 펑",
-              "text": "谢谢！祝您愉快！ (감사합니다! 좋은 하루 되세요!)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "진술하신 방문 목적이 비자와 일치하지 않습니다. 입국하실 수 없습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "쉬 펑",
-              "text": "哦，原来那里有问题。 (아, 거기에 문제가 있었군요.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 허가",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "Have a pleasant trip!"
-            },
-            {
-              "order": 2,
-              "speaker": "쉬 펑",
-              "text": "谢谢！祝您愉快！ (감사합니다! 좋은 하루 되세요!)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "쉬 펑",
-              "text": "哦，原来那里有问题。 (아, 거기에 문제가 있었군요.)"
-            }
-          ]
-        }
-      ],
-      "rejectAdvancedBranchKey": "",
-      "rejectGuidedCaseType": "",
-      "xray": null,
-      "fingerprint": null,
-      "crossCheckLines": [
-        {
-          "attr": "visa_type",
-          "inspector": "방금 잠깐 여행 왔다고 하셨잖아요. 그런데 비자엔 방문 목적이 '장기 체류'로 돼 있는데요?",
-          "customer": "啊？应该没问题的…(어? 문제 없을 텐데요…)",
-          "unlocksScan": ""
-        }
-      ]
+     "documentType": "비자",
+     "variant": "비정상",
+     "violationField": "영문이름",
+     "spriteRef": "",
+     "country": "",
+     "fields": [
+      {
+       "label": "영문이름",
+       "value": "WU TINGFANG",
+       "key": "name"
+      },
+      {
+       "label": "여권번호",
+       "value": "CN6667788",
+       "key": "passport_no"
+      },
+      {
+       "label": "비자 번호",
+       "value": "V-CHN-3766",
+       "key": "visa_no"
+      },
+      {
+       "label": "비자 종류",
+       "value": "관광",
+       "key": "visa_type"
+      },
+      {
+       "label": "국적",
+       "value": "CHN",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2024-09-17",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2026-09-17",
+       "key": "expiry_date"
+      },
+      {
+       "label": "입국 횟수",
+       "value": "단수",
+       "key": "entry_type"
+      },
+      {
+       "label": "비고",
+       "value": "외국인 정상 비자",
+       "key": "memo"
+      }
+     ]
     }
-  ],
-  "rules": [],
-  "news": [
+   ],
+   "dialogueCases": [
     {
-      "newsId": 14,
-      "title": "사건 이후 이어지는 경계 보안 강화 조치 지속",
-      "content": "최근 발생한 폭발 사고 이후 관계 기관들은 주요 시설에 대한 보안 점검과 감시 활동을 이어가고 있다. 도심 곳곳에서는 안전 점검이 강화되고 있으며 시민들 역시 이전보다 주변 상황에 더욱 주의를 기울이는 모습이다.",
-      "iconRef": null,
-      "claims": []
+     "caseType": "입장",
+     "gameResult": "-",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "우 팅",
+       "text": "您好，请帮我看看。 (안녕하세요, 좀 봐주세요.)"
+      },
+      {
+       "order": 2,
+       "speaker": "우 팅",
+       "text": "这是我的护照。 (여기 여권 드릴게요.)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 승인",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "Have a pleasant trip!"
+      },
+      {
+       "order": 2,
+       "speaker": "우 팅",
+       "text": "谢谢！服务真好。 (감사합니다! 친절하시네요.)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "비자의 이름이 여권과 일치하지 않아 입국하실 수 없습니다.",
+       "claim": {
+        "attr": "name",
+        "value": "WU TINGFANG",
+        "label": "비자 이름 불일치",
+        "unlocksScan": ""
+       }
+      },
+      {
+       "order": 2,
+       "speaker": "우 팅",
+       "text": "对不起，我不知道这个。 (죄송합니다. 이건 몰랐어요.)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 허가",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "Have a pleasant trip!"
+      },
+      {
+       "order": 2,
+       "speaker": "우 팅",
+       "text": "谢谢！服务真好。 (감사합니다! 친절하시네요.)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "우 팅",
+       "text": "对不起，我不知道这个。 (죄송합니다. 이건 몰랐어요.)"
+      }
+     ]
     }
-  ]
+   ],
+   "rejectAdvancedBranchKey": "",
+   "rejectGuidedCaseType": "",
+   "xray": null,
+   "fingerprint": null,
+   "crossCheckLines": [
+    {
+     "attr": "visa_type",
+     "inspector": "어… 여권엔 이 이름인데, 비자엔 다른 이름이 적혀 있네요? 이거 어떻게 된 거죠?",
+     "customer": "啊？应该没问题的…(어? 문제 없을 텐데요…)",
+     "unlocksScan": ""
+    }
+   ]
+  },
+  {
+   "customerId": 88,
+   "slot": 2,
+   "nameKr": "권서윤",
+   "nameEn": "KWON SEOYUN",
+   "nationality": "대한민국(KOR)",
+   "gender": "여성",
+   "birthDate": "1993-04-09",
+   "age": 33,
+   "spriteRef": "송하늘",
+   "characterType": "일반 고객",
+   "defectVariant": "",
+   "correctResult": "정상 승인",
+   "documents": [
+    {
+     "documentType": "여권",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "송하늘",
+     "country": "KOR",
+     "fields": [
+      {
+       "label": "여권번호",
+       "value": "KO1025691",
+       "key": "passport_no"
+      },
+      {
+       "label": "영문이름",
+       "value": "KWON SEOYUN",
+       "key": "name"
+      },
+      {
+       "label": "성별",
+       "value": "여성",
+       "key": "gender"
+      },
+      {
+       "label": "생년월일",
+       "value": "1993-04-09",
+       "key": "birth_date"
+      },
+      {
+       "label": "국적",
+       "value": "KOR",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2023-11-28",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2028-11-28",
+       "key": "expiry_date"
+      }
+     ]
+    }
+   ],
+   "dialogueCases": [
+    {
+     "caseType": "입장",
+     "gameResult": "-",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "권서윤",
+       "text": "안녕하세요. 테러 뉴스 보고 좀 망설였는데... 그래도 친척이 기다리고 있어서요. (조용히 여권 내밀며)"
+      },
+      {
+       "order": 2,
+       "speaker": "권서윤",
+       "text": "여권 확인 부탁드립니다."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 승인",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "즐거운 여행 되십시오."
+      },
+      {
+       "order": 2,
+       "speaker": "권서윤",
+       "text": "감사합니다. 잘 다녀오겠습니다."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "서류 오류가 확인되어 입국하실 수 없습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "권서윤",
+       "text": "왜요? 문제가 뭔가요?"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 허가",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "즐거운 여행 되십시오."
+      },
+      {
+       "order": 2,
+       "speaker": "권서윤",
+       "text": "감사합니다. 잘 다녀오겠습니다."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "권서윤",
+       "text": "왜요? 문제가 뭔가요?"
+      }
+     ]
+    }
+   ],
+   "rejectAdvancedBranchKey": "",
+   "rejectGuidedCaseType": "",
+   "xray": null,
+   "fingerprint": null
+  },
+  {
+   "customerId": 89,
+   "slot": 3,
+   "nameKr": "다카하시 리쿠",
+   "nameEn": "TAKAHASHI RIKU",
+   "nationality": "일본(JPN)",
+   "gender": "남성",
+   "birthDate": "1989-11-25",
+   "age": 36,
+   "spriteRef": "다나카 하루토",
+   "characterType": "외국인 관광객",
+   "defectVariant": "",
+   "correctResult": "정상 거절",
+   "documents": [
+    {
+     "documentType": "여권",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "다나카 하루토",
+     "country": "JPN",
+     "fields": [
+      {
+       "label": "여권번호",
+       "value": "JP1029042",
+       "key": "passport_no"
+      },
+      {
+       "label": "영문이름",
+       "value": "TAKAHASHI RIKU",
+       "key": "name"
+      },
+      {
+       "label": "성별",
+       "value": "남성",
+       "key": "gender"
+      },
+      {
+       "label": "생년월일",
+       "value": "1989-11-25",
+       "key": "birth_date"
+      },
+      {
+       "label": "국적",
+       "value": "JPN",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2021-03-14",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2031-03-14",
+       "key": "expiry_date"
+      }
+     ]
+    },
+    {
+     "documentType": "비자",
+     "variant": "비정상",
+     "violationField": "국적",
+     "spriteRef": "",
+     "country": "",
+     "fields": [
+      {
+       "label": "영문이름",
+       "value": "TAKAHASHI RIKU",
+       "key": "name"
+      },
+      {
+       "label": "여권번호",
+       "value": "JP1029042",
+       "key": "passport_no"
+      },
+      {
+       "label": "비자 번호",
+       "value": "V-JPN-8758",
+       "key": "visa_no"
+      },
+      {
+       "label": "비자 종류",
+       "value": "관광",
+       "key": "visa_type"
+      },
+      {
+       "label": "국적",
+       "value": "KOR",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2024-09-27",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2026-09-27",
+       "key": "expiry_date"
+      },
+      {
+       "label": "입국 횟수",
+       "value": "단수",
+       "key": "entry_type"
+      },
+      {
+       "label": "비고",
+       "value": "외국인 정상 비자",
+       "key": "memo"
+      }
+     ]
+    }
+   ],
+   "dialogueCases": [
+    {
+     "caseType": "입장",
+     "gameResult": "-",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "다카하시 리쿠",
+       "text": "色々あって…来るか迷いましたが、来ました。パスポートです。 (여러 일이 있어서… 올지 망설였는데, 결국 왔어요. 여권입니다.)"
+      },
+      {
+       "order": 2,
+       "speaker": "다카하시 리쿠",
+       "text": "パスポートをどうぞ。 (여기 여권 드릴게요.)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 승인",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "Have a pleasant trip!"
+      },
+      {
+       "order": 2,
+       "speaker": "다카하시 리쿠",
+       "text": "ありがとう！早く見て回りたいです！ (고맙습니다! 빨리 둘러보고 싶어요!)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "여권과 비자의 국적이 일치하지 않아 입국하실 수 없습니다.",
+       "claim": {
+        "attr": "nationality",
+        "value": "KOR",
+        "label": "비자 국적 불일치",
+        "unlocksScan": ""
+       }
+      },
+      {
+       "order": 2,
+       "speaker": "다카하시 리쿠",
+       "text": "あ、そうなんですか。すみません。 (아, 그래요? 죄송합니다.)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 허가",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "Have a pleasant trip!"
+      },
+      {
+       "order": 2,
+       "speaker": "다카하시 리쿠",
+       "text": "ありがとう！早く見て回りたいです！ (고맙습니다! 빨리 둘러보고 싶어요!)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "다카하시 리쿠",
+       "text": "あ、そうなんですか。すみません。 (아, 그래요? 죄송합니다.)"
+      }
+     ]
+    }
+   ],
+   "rejectAdvancedBranchKey": "",
+   "rejectGuidedCaseType": "",
+   "xray": null,
+   "fingerprint": null,
+   "crossCheckLines": [
+    {
+     "attr": "nationality",
+     "inspector": "여권과 비자의 국적이 다른데요?",
+     "customer": "え？問題ないはずですが…(네? 문제 없을 텐데요…)",
+     "unlocksScan": ""
+    }
+   ]
+  },
+  {
+   "customerId": 37,
+   "slot": 4,
+   "nameKr": "제시카 윌슨",
+   "nameEn": "JESSICA WILSON",
+   "nationality": "미국(USA)",
+   "gender": "남성",
+   "birthDate": "1988-11-30",
+   "age": 37,
+   "spriteRef": "제시카 윌슨",
+   "characterType": "장기체류자",
+   "defectVariant": "",
+   "correctResult": "정상 거절",
+   "documents": [
+    {
+     "documentType": "여권",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "제시카 윌슨",
+     "country": "USA",
+     "fields": [
+      {
+       "label": "여권번호",
+       "value": "US1041329",
+       "key": "passport_no"
+      },
+      {
+       "label": "영문이름",
+       "value": "WILSON JESSICA",
+       "key": "name"
+      },
+      {
+       "label": "성별",
+       "value": "남성",
+       "key": "gender"
+      },
+      {
+       "label": "생년월일",
+       "value": "1988-11-30",
+       "key": "birth_date"
+      },
+      {
+       "label": "국적",
+       "value": "USA",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2017-03-28",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2027-03-28",
+       "key": "expiry_date"
+      }
+     ]
+    },
+    {
+     "documentType": "비자",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "",
+     "country": "",
+     "fields": [
+      {
+       "label": "영문이름",
+       "value": "WILSON JESSICA",
+       "key": "name"
+      },
+      {
+       "label": "여권번호",
+       "value": "US1041329",
+       "key": "passport_no"
+      },
+      {
+       "label": "비자 번호",
+       "value": "V-USA-7094",
+       "key": "visa_no"
+      },
+      {
+       "label": "비자 종류",
+       "value": "취업",
+       "key": "visa_type"
+      },
+      {
+       "label": "국적",
+       "value": "USA",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2025-09-27",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2026-09-27",
+       "key": "expiry_date"
+      },
+      {
+       "label": "입국 횟수",
+       "value": "복수",
+       "key": "entry_type"
+      },
+      {
+       "label": "비고",
+       "value": "취업 정상 비자",
+       "key": "memo"
+      }
+     ]
+    },
+    {
+     "documentType": "취업증빙",
+     "variant": "비정상",
+     "violationField": "입사일",
+     "spriteRef": "",
+     "country": "",
+     "fields": [
+      {
+       "label": "이름",
+       "value": "WILSON JESSICA",
+       "key": "name"
+      },
+      {
+       "label": "증빙 번호",
+       "value": "EMP-037",
+       "key": "cert_no"
+      },
+      {
+       "label": "고용 회사",
+       "value": "서해수산(주)",
+       "key": "company_name"
+      },
+      {
+       "label": "직종",
+       "value": "가공 작업",
+       "key": "job_title"
+      },
+      {
+       "label": "입사일",
+       "value": "2026-01-01",
+       "key": "hire_date"
+      },
+      {
+       "label": "발급일",
+       "value": "2025-01-01",
+       "key": "issue_date"
+      }
+     ]
+    }
+   ],
+   "dialogueCases": [
+    {
+     "caseType": "입장",
+     "gameResult": "-",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "제시카 윌슨",
+       "text": "Hello. Crowded places make me a little nervous, but what can you do. (억지로 웃으며) Here's my passport. (안녕하세요. 사람 많은 데 오는 게 좀 무섭긴 한데, 뭐 별 수 없죠. 여권 여기요.)"
+      },
+      {
+       "order": 2,
+       "speaker": "제시카 윌슨",
+       "text": "I'll give you my residence documents as well. (체류 관련 서류도 같이 드릴게요.)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 승인",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "Best of luck with your studies!"
+      },
+      {
+       "order": 2,
+       "speaker": "제시카 윌슨",
+       "text": "Thank you! Have a good day. (감사합니다! 좋은 하루 보내세요.)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "재직증명서 입사일이 비자 발급일보다 빨라 논리가 맞지 않습니다. 입국하실 수 없습니다.",
+       "claim": {
+        "attr": "hire_date",
+        "value": "2026-01-01",
+        "label": "입사일 모순",
+        "unlocksScan": ""
+       }
+      },
+      {
+       "order": 2,
+       "speaker": "제시카 윌슨",
+       "text": "I understand. I'll sort it out. (알겠습니다. 제가 정리할게요.)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 허가",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "Best of luck with your studies!"
+      },
+      {
+       "order": 2,
+       "speaker": "제시카 윌슨",
+       "text": "Thank you! Have a good day. (감사합니다! 좋은 하루 보내세요.)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "제시카 윌슨",
+       "text": "I understand. I'll sort it out. (알겠습니다. 제가 정리할게요.)"
+      }
+     ]
+    }
+   ],
+   "rejectAdvancedBranchKey": "",
+   "rejectGuidedCaseType": "",
+   "xray": null,
+   "fingerprint": null,
+   "crossCheckLines": [
+    {
+     "attr": "hire_date",
+     "inspector": "재직증명서 입사일이 비자 발급일보다 빠른데요? 모순됩니다.",
+     "customer": "What? That should be fine…(네? 문제 없을 텐데요…)",
+     "unlocksScan": ""
+    }
+   ]
+  },
+  {
+   "customerId": 90,
+   "slot": 5,
+   "nameKr": "황민서",
+   "nameEn": "HWANG MINSEO",
+   "nationality": "대한민국(KOR)",
+   "gender": "여성",
+   "birthDate": "1983-09-30",
+   "age": 42,
+   "spriteRef": "배수정",
+   "characterType": "진상 고객",
+   "defectVariant": "",
+   "correctResult": "정상 승인",
+   "documents": [
+    {
+     "documentType": "여권",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "배수정",
+     "country": "KOR",
+     "fields": [
+      {
+       "label": "여권번호",
+       "value": "KO1032393",
+       "key": "passport_no"
+      },
+      {
+       "label": "영문이름",
+       "value": "HWANG MINSEO",
+       "key": "name"
+      },
+      {
+       "label": "성별",
+       "value": "여성",
+       "key": "gender"
+      },
+      {
+       "label": "생년월일",
+       "value": "1983-09-30",
+       "key": "birth_date"
+      },
+      {
+       "label": "국적",
+       "value": "KOR",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2019-07-28",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2029-07-28",
+       "key": "expiry_date"
+      }
+     ]
+    }
+   ],
+   "dialogueCases": [
+    {
+     "caseType": "입장",
+     "gameResult": "-",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "황민서",
+       "text": "요즘 공항 오면 영 마음이 안 놓이네. 빨리 좀 처리해줘요."
+      },
+      {
+       "order": 2,
+       "speaker": "황민서",
+       "text": "여권 냈으니까 빨리 처리해."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 승인",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "즐거운 여행 되십시오."
+      },
+      {
+       "order": 2,
+       "speaker": "황민서",
+       "text": "뭘 이렇게 오래 걸려요. 됐어요."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "서류 오류가 확인되어 입국하실 수 없습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "황민서",
+       "text": "말이 안 되잖아요!"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 허가",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "즐거운 여행 되십시오."
+      },
+      {
+       "order": 2,
+       "speaker": "황민서",
+       "text": "뭘 이렇게 오래 걸려요. 됐어요."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "황민서",
+       "text": "말이 안 되잖아요!"
+      }
+     ]
+    }
+   ],
+   "rejectAdvancedBranchKey": "",
+   "rejectGuidedCaseType": "",
+   "xray": null,
+   "fingerprint": null,
+   "validChance": 0.75,
+   "altVariant": {
+    "correctResult": "정상 거절",
+    "defectVariant": "",
+    "rejectAdvancedBranchKey": "",
+    "rejectGuidedCaseType": "",
+    "documents": [
+     {
+      "documentType": "여권",
+      "variant": "비정상",
+      "violationField": "만료일",
+      "spriteRef": "배수정",
+      "country": "KOR",
+      "fields": [
+       {
+        "label": "여권번호",
+        "value": "KO1032393",
+        "key": "passport_no"
+       },
+       {
+        "label": "영문이름",
+        "value": "HWANG MINSEO",
+        "key": "name"
+       },
+       {
+        "label": "성별",
+        "value": "여성",
+        "key": "gender"
+       },
+       {
+        "label": "생년월일",
+        "value": "1983-09-30",
+        "key": "birth_date"
+       },
+       {
+        "label": "국적",
+        "value": "KOR",
+        "key": "nationality"
+       },
+       {
+        "label": "발급일",
+        "value": "2019-07-28",
+        "key": "issue_date"
+       },
+       {
+        "label": "만료일",
+        "value": "2024-07-28",
+        "key": "expiry_date"
+       }
+      ]
+     }
+    ],
+    "dialogueCases": [
+     {
+      "caseType": "입장",
+      "gameResult": "-",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "황민서",
+        "text": "아 진짜, 빨리 좀요. 이런 때 공항에 오래 있고 싶지 않다고요."
+       }
+      ]
+     },
+     {
+      "caseType": "일반 심사",
+      "gameResult": "정상 승인",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "심사관",
+        "text": "즐거운 여행 되십시오."
+       },
+       {
+        "order": 2,
+        "speaker": "황민서",
+        "text": "뭘 이렇게 오래 걸려요. 됐어요."
+       }
+      ]
+     },
+     {
+      "caseType": "일반 심사",
+      "gameResult": "정상 거절",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "심사관",
+        "text": "여권 유효기간이 맞지 않아 입국하실 수 없습니다."
+       },
+       {
+        "order": 2,
+        "speaker": "황민서",
+        "text": "에이, 됐어요."
+       }
+      ]
+     },
+     {
+      "caseType": "일반 심사",
+      "gameResult": "잘못 허가",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "심사관",
+        "text": "즐거운 여행 되십시오."
+       },
+       {
+        "order": 2,
+        "speaker": "황민서",
+        "text": "뭘 이렇게 오래 걸려요. 됐어요."
+       }
+      ]
+     },
+     {
+      "caseType": "일반 심사",
+      "gameResult": "잘못 거절",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "심사관",
+        "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+       },
+       {
+        "order": 2,
+        "speaker": "황민서",
+        "text": "에이, 됐어요."
+       }
+      ]
+     }
+    ],
+    "xray": null,
+    "fingerprint": null,
+    "crossCheckLines": [
+     {
+      "attr": "expiry_date",
+      "inspector": "여권 만료일을 보겠습니다… 기간이 지나 있네요?",
+      "customer": "네? 그럴 리가요. 다시 확인해 주세요.",
+      "unlocksScan": ""
+     }
+    ]
+   }
+  },
+  {
+   "customerId": 91,
+   "slot": 6,
+   "nameKr": "배은서",
+   "nameEn": "BAE EUNSEO",
+   "nationality": "대한민국(KOR)",
+   "gender": "여성",
+   "birthDate": "1997-11-20",
+   "age": 28,
+   "spriteRef": "서지호",
+   "characterType": "성형 수술 고객",
+   "defectVariant": "",
+   "correctResult": "정상 승인",
+   "documents": [
+    {
+     "documentType": "여권",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "서지호(원본)",
+     "country": "KOR",
+     "fields": [
+      {
+       "label": "여권번호",
+       "value": "KO1023457",
+       "key": "passport_no"
+      },
+      {
+       "label": "영문이름",
+       "value": "BAE EUNSEO",
+       "key": "name"
+      },
+      {
+       "label": "성별",
+       "value": "여성",
+       "key": "gender"
+      },
+      {
+       "label": "생년월일",
+       "value": "1997-11-20",
+       "key": "birth_date"
+      },
+      {
+       "label": "국적",
+       "value": "KOR",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2019-07-28",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2029-07-28",
+       "key": "expiry_date"
+      }
+     ]
+    }
+   ],
+   "dialogueCases": [
+    {
+     "caseType": "입장",
+     "gameResult": "-",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "배은서",
+       "text": "안녕하세요. 얼굴이 사진이랑 다르죠? 수술을 좀 했어요."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 승인",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "지문까지 확인했습니다. 본인 맞으시네요. 즐거운 여행 되세요."
+      },
+      {
+       "order": 2,
+       "speaker": "배은서",
+       "text": "감사합니다!"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
+      },
+      {
+       "order": 2,
+       "speaker": "배은서",
+       "text": "저 맞아요. 성형을 해서 좀 달라 보일 뿐이에요."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 허가",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "즐거운 여행 되십시오."
+      },
+      {
+       "order": 2,
+       "speaker": "배은서",
+       "text": "고마워요. (서둘러 창구를 빠져나간다.)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "배은서",
+       "text": "본인 맞는데요? 지문도 확인하셨잖아요."
+      }
+     ]
+    }
+   ],
+   "rejectAdvancedBranchKey": "",
+   "rejectGuidedCaseType": "",
+   "xray": null,
+   "fingerprint": {
+    "type": "fingerprint",
+    "result": "일치",
+    "detail": "본인 일치",
+    "extra": "BAE EUNSEO",
+    "claim": {
+     "attr": "name",
+     "value": "BAE EUNSEO",
+     "label": "지문 대조 신원",
+     "unlocksScan": ""
+    },
+    "record": {
+     "mode": "성형",
+     "dbName": "BAE EUNSEO",
+     "dbBirth": "1997-11-20",
+     "dbNationality": "KOR",
+     "criminalRecord": "없음",
+     "wantedNo": ""
+    }
+   },
+   "validChance": 0.7,
+   "altVariant": {
+    "correctResult": "정상 거절",
+    "defectVariant": "",
+    "rejectAdvancedBranchKey": "",
+    "rejectGuidedCaseType": "",
+    "documents": [
+     {
+      "documentType": "여권",
+      "variant": "정상",
+      "violationField": "없음",
+      "spriteRef": "서지호(원본)",
+      "country": "KOR",
+      "fields": [
+       {
+        "label": "여권번호",
+        "value": "KO1023457",
+        "key": "passport_no"
+       },
+       {
+        "label": "영문이름",
+        "value": "BAE EUNSEO",
+        "key": "name"
+       },
+       {
+        "label": "성별",
+        "value": "여성",
+        "key": "gender"
+       },
+       {
+        "label": "생년월일",
+        "value": "1997-11-20",
+        "key": "birth_date"
+       },
+       {
+        "label": "국적",
+        "value": "KOR",
+        "key": "nationality"
+       },
+       {
+        "label": "발급일",
+        "value": "2019-07-28",
+        "key": "issue_date"
+       },
+       {
+        "label": "만료일",
+        "value": "2029-07-28",
+        "key": "expiry_date"
+       }
+      ]
+     }
+    ],
+    "dialogueCases": [
+     {
+      "caseType": "입장",
+      "gameResult": "-",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "배은서",
+        "text": "안녕하세요. 성형해서 인상이 좀 바뀌었어요. 본인 맞아요."
+       }
+      ]
+     },
+     {
+      "caseType": "일반 심사",
+      "gameResult": "정상 승인",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "심사관",
+        "text": "즐거운 여행 되십시오."
+       },
+       {
+        "order": 2,
+        "speaker": "배은서",
+        "text": "감사합니다. (조용히 고개를 숙이고 이동한다.)"
+       }
+      ]
+     },
+     {
+      "caseType": "일반 심사",
+      "gameResult": "정상 거절",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "심사관",
+        "text": "지문 신원이 여권 이름과 일치하지 않습니다. 입국하실 수 없습니다.",
+        "claim": {
+         "attr": "name",
+         "value": "KIM TAEYANG",
+         "label": "지문 대조 신원",
+         "unlocksScan": ""
+        }
+       },
+       {
+        "order": 2,
+        "speaker": "배은서",
+        "text": "…죄송합니다."
+       }
+      ]
+     },
+     {
+      "caseType": "일반 심사",
+      "gameResult": "잘못 허가",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "심사관",
+        "text": "즐거운 여행 되십시오."
+       },
+       {
+        "order": 2,
+        "speaker": "배은서",
+        "text": "가, 감사합니다. (서둘러 지나간다)"
+       }
+      ]
+     },
+     {
+      "caseType": "일반 심사",
+      "gameResult": "잘못 거절",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "심사관",
+        "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+       },
+       {
+        "order": 2,
+        "speaker": "배은서",
+        "text": "...알겠습니다. (침울하게 고개를 숙인다.)"
+       }
+      ]
+     }
+    ],
+    "xray": null,
+    "fingerprint": {
+     "type": "fingerprint",
+     "result": "불일치",
+     "detail": "이름 불일치",
+     "extra": "KIM TAEYANG",
+     "claim": {
+      "attr": "name",
+      "value": "KIM TAEYANG",
+      "label": "지문 대조 신원",
+      "unlocksScan": ""
+     },
+     "record": {
+      "mode": "성형",
+      "dbName": "KIM TAEYANG",
+      "dbBirth": "1997-11-20",
+      "dbNationality": "KOR",
+      "criminalRecord": "없음",
+      "wantedNo": ""
+     }
+    },
+    "crossCheckLines": [
+     {
+      "attr": "face",
+      "inspector": "사진이랑 인상이 좀 다르시네요. 지문 한번 찍어볼게요. 손 올려주시겠어요?",
+      "customer": "(잠시 망설인다) …네.",
+      "unlocksScan": ""
+     },
+     {
+      "attr": "name",
+      "inspector": "지문 조회 결과… 신원이 'KIM TAEYANG'(으)로 나오는데요. 여권 이름 'BAE EUNSEO'과(와) 일치하지 않습니다. 지문은 성형으로도 바뀌지 않습니다.",
+      "customer": "어… 그건 시스템 오류 아닐까요? …(말을 잇지 못한다)",
+      "unlocksScan": ""
+     }
+    ]
+   },
+   "crossCheckLines": [
+    {
+     "attr": "face",
+     "inspector": "사진이랑 인상이 좀 다르시네요. 지문 한번 찍어볼게요. 손 올려주시겠어요?",
+     "customer": "네, 여기요. (손을 올린다)",
+     "unlocksScan": ""
+    }
+   ]
+  },
+  {
+   "customerId": 92,
+   "slot": 7,
+   "nameKr": "쉬 펑",
+   "nameEn": "XU FENG",
+   "nationality": "중국(CHN)",
+   "gender": "남성",
+   "birthDate": "1991-06-14",
+   "age": 34,
+   "spriteRef": "장 웨이",
+   "characterType": "외국인 관광객",
+   "defectVariant": "",
+   "correctResult": "정상 거절",
+   "documents": [
+    {
+     "documentType": "여권",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "장 웨이",
+     "country": "CHN",
+     "fields": [
+      {
+       "label": "여권번호",
+       "value": "CN1030159",
+       "key": "passport_no"
+      },
+      {
+       "label": "영문이름",
+       "value": "XU FENG",
+       "key": "name"
+      },
+      {
+       "label": "성별",
+       "value": "남성",
+       "key": "gender"
+      },
+      {
+       "label": "생년월일",
+       "value": "1991-06-14",
+       "key": "birth_date"
+      },
+      {
+       "label": "국적",
+       "value": "CHN",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2023-03-28",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2028-03-28",
+       "key": "expiry_date"
+      }
+     ]
+    },
+    {
+     "documentType": "비자",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "",
+     "country": "",
+     "fields": [
+      {
+       "label": "영문이름",
+       "value": "XU FENG",
+       "key": "name"
+      },
+      {
+       "label": "여권번호",
+       "value": "CN1030159",
+       "key": "passport_no"
+      },
+      {
+       "label": "비자 번호",
+       "value": "V-CHN-7483",
+       "key": "visa_no"
+      },
+      {
+       "label": "비자 종류",
+       "value": "장기 체류",
+       "key": "visa_type"
+      },
+      {
+       "label": "국적",
+       "value": "CHN",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2025-09-12",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2026-09-12",
+       "key": "expiry_date"
+      },
+      {
+       "label": "입국 횟수",
+       "value": "단수",
+       "key": "entry_type"
+      },
+      {
+       "label": "비고",
+       "value": "외국인 정상 비자",
+       "key": "memo"
+      }
+     ]
+    }
+   ],
+   "dialogueCases": [
+    {
+     "caseType": "입장",
+     "gameResult": "-",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "쉬 펑",
+       "text": "你好～我是来短期旅游的。(안녕하세요~ 잠깐 여행 왔어요.)",
+       "claim": {
+        "attr": "visa_type",
+        "value": "여행",
+        "label": "방문 목적(진술)",
+        "unlocksScan": ""
+       }
+      },
+      {
+       "order": 2,
+       "speaker": "쉬 펑",
+       "text": "这是我的护照。 (여기 여권 드릴게요.)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 승인",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "Have a pleasant trip!"
+      },
+      {
+       "order": 2,
+       "speaker": "쉬 펑",
+       "text": "谢谢！祝您愉快！ (감사합니다! 좋은 하루 되세요!)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "진술하신 방문 목적이 비자와 일치하지 않습니다. 입국하실 수 없습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "쉬 펑",
+       "text": "哦，原来那里有问题。 (아, 거기에 문제가 있었군요.)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 허가",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "Have a pleasant trip!"
+      },
+      {
+       "order": 2,
+       "speaker": "쉬 펑",
+       "text": "谢谢！祝您愉快！ (감사합니다! 좋은 하루 되세요!)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "쉬 펑",
+       "text": "哦，原来那里有问题。 (아, 거기에 문제가 있었군요.)"
+      }
+     ]
+    }
+   ],
+   "rejectAdvancedBranchKey": "",
+   "rejectGuidedCaseType": "",
+   "xray": null,
+   "fingerprint": null,
+   "crossCheckLines": [
+    {
+     "attr": "visa_type",
+     "inspector": "방금 잠깐 여행 왔다고 하셨잖아요. 그런데 비자엔 방문 목적이 '장기 체류'로 돼 있는데요?",
+     "customer": "啊？应该没问题的…(어? 문제 없을 텐데요…)",
+     "unlocksScan": ""
+    }
+   ]
+  }
+ ],
+ "rules": [],
+ "news": [
+  {
+   "newsId": 14,
+   "title": "사건 이후 이어지는 경계 보안 강화 조치 지속",
+   "content": "최근 발생한 폭발 사고 이후 관계 기관들은 주요 시설에 대한 보안 점검과 감시 활동을 이어가고 있다. 도심 곳곳에서는 안전 점검이 강화되고 있으며 시민들 역시 이전보다 주변 상황에 더욱 주의를 기울이는 모습이다.",
+   "iconRef": null,
+   "claims": []
+  }
+ ]
 }

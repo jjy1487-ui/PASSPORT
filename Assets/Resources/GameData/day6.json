@@ -597,7 +597,8 @@
           "attr": "gender",
           "inspector": "어, 여권에 적힌 성별이… 본인하고 안 맞는 것 같은데요?",
           "customer": "네? 그럴 리가요…",
-          "unlocksScan": ""
+          "unlocksScan": "",
+          "inspectorClose": "성별이 본인하고 같아야 들여보내 드릴 수 있어요."
         }
       ]
     },
@@ -752,7 +753,7 @@
             },
             {
               "label": "검사 기관",
-              "value": "튼튼메디 무허가검사소",
+              "value": "튼튼메디검사센터",
               "key": "lab_name"
             },
             {
@@ -772,7 +773,7 @@
             {
               "order": 1,
               "speaker": "마이클 데이비스",
-              "text": "Hello, I brought all my health documents just in case. I heard the requirements were updated. Here. (안녕하세요, 혹시 몰라 건강 서류를 다 챙겨 왔어요. 요건이 바뀌었다고 들어서요. 여기요.)"
+              "text": "Hello, I brought my health documents. (안녕하세요, 건강 서류 챙겨 왔어요.)"
             },
             {
               "order": 2,
@@ -809,7 +810,7 @@
               "text": "서류 오류가 확인되어 입국하실 수 없습니다.",
               "claim": {
                 "attr": "lab_name",
-                "value": "튼튼메디 무허가검사소",
+                "value": "튼튼메디검사센터",
                 "label": "검사 기관 불일치",
                 "unlocksScan": ""
               }
@@ -2129,8 +2130,8 @@
       "ruleId": 14,
       "title": "PCR 인증 검사 기관",
       "content": "PCR 검사서는 공인 기관(국립검역소·인천공항검역소·질병관리청진단검사센터)이 발급한 것만 유효하다. 명단에 없는 사설·무허가 기관의 검사서는 무효이며 입국을 거부한다.",
-      "relatedField": "",
-      "attr": "",
+      "relatedField": "검사기관",
+      "attr": "lab_name",
       "endDay": 7
     }
   ],

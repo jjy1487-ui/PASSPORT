@@ -20,6 +20,9 @@ STOLEN = [("박도윤","1995-02-18"),("강민호","1994-03-09"),("윤하늘","19
 # 방역 구간(5~7일) 진상 중 '불량 = PCR 미지참'으로 처리할 손님 customer_id.
 # 조지호(47)만 지정. 홍성민(day9 진상)·오은우(day6)·신유준(day7)은 기존 경로(여권 만료) 유지 — 여기 넣지 않는다.
 PCR_MISSING_CIDS = {47}
+# 타입 기본 결함(진상→만료일/일반→생년월일)이 설계 대사와 어긋나는 손님: 결함 필드를 강제 지정.
+#   박철수(5)=성별, 최서연(6)=만료일. make_defect 가 이 값을 보고 해당 필드 결함을 만든다.
+DEFECT_FIELD_OVERRIDE = {5: "gender", 6: "expiry_date"}
 
 # ── valid_chance per (day,slot) ──
 wb = openpyxl.load_workbook(SRC_XLSX, data_only=True)
@@ -120,6 +123,19 @@ def make_defect(docs, ctype, customer):
     docs = copy.deepcopy(docs)
     pp = find_passport(docs)
     if pp is None: return docs
+    # 설계 대사와 맞추기 위한 결함 필드 강제 지정(타입 기본보다 우선).
+    forced = DEFECT_FIELD_OVERRIDE.get(customer.get("customerId"))
+    if forced == "gender":                    # 성별 불일치
+        pp["variant"]="비정상"; pp["violationField"]="성별"
+        g = get_field(pp, "gender")
+        set_field(pp, "gender", "여성" if g == "남성" else "남성")
+        return docs
+    if forced == "expiry_date":               # 만료일 경과
+        pp["variant"]="비정상"; pp["violationField"]="만료일"
+        ex = get_field(pp,"expiry_date") or "2029-01-01"
+        m = re.match(r"(\d{4})(-\d{2}-\d{2})", ex)
+        if m: set_field(pp,"expiry_date", str(int(m.group(1))-5)+m.group(2))
+        return docs
     if "진상" in ctype:                       # 여권 기간 오류
         pp["variant"]="비정상"; pp["violationField"]="만료일"
         ex = get_field(pp,"expiry_date") or "2029-01-01"

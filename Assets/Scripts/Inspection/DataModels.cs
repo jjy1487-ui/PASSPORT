@@ -74,6 +74,7 @@ public sealed class CrossCheckLine
     public string attr;       // 불일치 속성 키(passport_no/gender/expiry_date/name/nationality/company_name/lab_name/pcr_result/test_date/hire_date 등). FieldEntry.key 어휘.
     public string inspector;  // 검사관 지적 대사(예: "비자에 적힌 여권번호와 여권의 번호가 다른데요? 본인 여권이 맞습니까?")
     public string customer;   // 손님 반응 대사(예: "…(말없이 주위를 살핀다)")
+    public string inspectorClose; // (선택) 손님 반응 뒤 검사관 마무리 한 줄(예: "성별이 본인하고 같아야 들여보내 드릴 수 있어요."). 비면 2줄로 끝.
 }
 
 /// <summary>

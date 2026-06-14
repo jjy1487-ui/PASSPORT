@@ -107,6 +107,12 @@ public sealed class InspectionController : MonoBehaviour
         }
     }
 
+    /// <summary>현재 손님 본인의 성별(데이터상 신원 — 변형이 적용돼도 보존된다). 신분확인 규정↔여권 성별 대조 보조용 — 판정 무영향.</summary>
+    public string CurrentCustomerGender => Current?.gender;
+
+    /// <summary>현재 손님 여권의 성별(gender 필드 값). 없으면 "". 신분확인 규정↔여권 성별 대조 보조용 — 판정 무영향.</summary>
+    public string CurrentPassportGender => PassportFieldValue("gender");
+
     /// <summary>현재 손님의 여권 문서를 찾는다(documentType 에 "여권" 포함). 없으면 null.</summary>
     private DocumentData FindPassportDocument()
     {
@@ -245,6 +251,7 @@ public sealed class InspectionController : MonoBehaviour
 
         // 입장 대사 후 판정 활성화
         DialogueCaseData entry = FindCaseByType(c, CaseTypes.Entry);
+        Debug.Log($"[EntryDBG] '{c.nameKr}' (cid{c.customerId}) entry={(entry == null ? "NULL(입장 케이스 못 찾음)" : entry.lines?.Length + "줄")} dialogueView={(_dialogueView == null ? "NULL" : "ok")} firstLineLen={(entry?.lines != null && entry.lines.Length > 0 ? entry.lines[0].text?.Length ?? 0 : -1)}");
         if (entry != null)
         {
             PlayThen(entry, EnableJudgment);
@@ -330,6 +337,7 @@ public sealed class InspectionController : MonoBehaviour
         if (_documentView != null) _documentView.StampPrimary(approve);
 
         bool shouldApprove = c.correctResult == GameResults.Approve;
+        Debug.Log($"[NoticeDBG] 판정: approve={approve} shouldApprove={shouldApprove} advBranch='{c.rejectAdvancedBranchKey}' → {(approve == shouldApprove ? "정답(고지서없음)" : (!approve ? "오거부→WrongRejectNotice" : "오허가→ViolationNotice"))}");
 
         // 고급 분기 손님(예: 성형 수술 지명수배 범죄자): 거부(approve=false) 시 정답 극성과 무관하게
         // 항상 데이터 지정 최선 분기(detect_montage_xray_reject 등)로 1회 정산 + 가이드 대사 재생.

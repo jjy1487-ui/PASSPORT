@@ -1,19 +1,17 @@
 using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 /// <summary>
 /// 음성기록(대화 기록) 팝업. 현재 손님이 한 대화를 모아 보여준다. 비활성 시작.
-/// claim != null 인 라인은 클릭 가능한 대조 항목(CrossCheckItemView)으로, 나머지는 일반 텍스트로 표시한다.
-/// (구조 라인 미연결 시 문자열 폴백을 사용한다.)
+/// 대화 각 줄을 그대로 클릭 가능한 대조 항목(CrossCheckItemView)으로 표시한다.
+/// claim 이 있는 줄은 그 attr/value 로 서류·규정과 대조되고, 없는 줄은 관련성만 노출된다.
 /// </summary>
 public sealed class DialogueLogPopup : MonoBehaviour, ICrossCheckProvider
 {
     [Header("UI 참조")]
     [SerializeField] private GameObject _root;
-    [SerializeField] private TMP_Text _logText;     // 일반(비-단서) 라인 폴백/표시
     [SerializeField] private Button _closeButton;
 
     [Header("교차 대조 단서(선택)")]
@@ -42,27 +40,29 @@ public sealed class DialogueLogPopup : MonoBehaviour, ICrossCheckProvider
         if (_closeButton != null) _closeButton.onClick.RemoveListener(Close);
     }
 
-    /// <summary>대화 기록을 문자열로 표시한다(폴백 — 대조 단서 없음).</summary>
-    public void Open(IReadOnlyList<string> lines)
+    /// <summary>대화 구조 라인을 표시한다. 각 줄을 그대로 클릭 가능한 대조 항목으로 만든다
+    /// (claim 있는 줄은 그 attr/value 로 대조, 없는 줄은 관련성만). 본문 전체를 ClaimContainer 가 채운다.</summary>
+    public void OpenLines(IReadOnlyList<DialogueLineData> lines)
     {
         ClearClaims();
-        if (_logText != null)
+
+        if (_claimContainer == null || _claimTemplate == null)
         {
-            if (lines == null || lines.Count == 0)
+            Debug.LogWarning("[DialogueLogPopup] _claimContainer/_claimTemplate 미연결 — 대화 항목을 표시할 수 없습니다.");
+        }
+        else if (lines == null || lines.Count == 0)
+        {
+            AddLineWidget("(아직 대화 내용이 없습니다)", null);
+        }
+        else
+        {
+            foreach (DialogueLineData ln in lines)
             {
-                _logText.text = "(아직 대화 내용이 없습니다)";
-            }
-            else
-            {
-                StringBuilder sb = new StringBuilder();
-                foreach (string line in lines)
-                {
-                    sb.Append("• ").Append(line).Append('\n');
-                }
-                _logText.text = sb.ToString().TrimEnd('\n');
+                if (ln == null) continue;
+                AddLineWidget($"{ln.speaker}: {ln.text}", ln.claim);
             }
         }
-        BindContentSelectable(null); // 문자열 폴백 — claim 정보 없음, 관련성만 노출
+
         if (_root != null)
         {
             _root.SetActive(true);
@@ -73,60 +73,21 @@ public sealed class DialogueLogPopup : MonoBehaviour, ICrossCheckProvider
         OnSelectablesChanged?.Invoke();
     }
 
-    /// <summary>대화 구조 라인을 표시한다. claim 있는 라인은 클릭 가능한 대조 항목으로.</summary>
-    public void OpenLines(IReadOnlyList<DialogueLineData> lines)
+    /// <summary>대화 한 줄을 클릭 가능한 대조 항목(CrossCheckItemView)으로 인스턴스화한다.
+    /// claim 이 있으면 그 attr/value/라벨/잠금단서를 부여하고, 없으면 본문 자체를 라벨로 쓴다(관련성만).</summary>
+    private void AddLineWidget(string disp, Claim claim)
     {
-        ClearClaims();
-
-        StringBuilder sb = new StringBuilder();
-        bool buildWidgets = _claimContainer != null && _claimTemplate != null;
-
-        if (lines == null || lines.Count == 0)
-        {
-            sb.Append("(아직 대화 내용이 없습니다)");
-        }
-        else
-        {
-            foreach (DialogueLineData ln in lines)
-            {
-                if (ln == null) continue;
-
-                if (buildWidgets)
-                {
-                    // 대화 '한 줄'을 그대로 클릭 가능한 대조 항목으로 만든다(라벨/표시=대사 본문).
-                    //  - claim 이 있는 진술(예: 방문목적 "관광") → 그 attr/value 부여 → 서류와 일치/불일치 대조.
-                    //  - claim 이 없는 줄(인삿말 등) → attr 없음 → 클릭은 되지만 비교 대상 아님(관련없음).
-                    //  ※ 옛 "대화 기록" 한 덩어리 항목 대신, 사용자가 실제 대사 줄을 골라 대조하게 한다.
-                    CrossCheckItemView v = Instantiate(_claimTemplate, _claimContainer);
-                    v.gameObject.SetActive(true);
-                    string disp = $"{ln.speaker}: {ln.text}";
-                    bool hasClaim = ln.claim != null && !string.IsNullOrEmpty(ln.claim.attr);
-                    string label = hasClaim && !string.IsNullOrEmpty(ln.claim.label) ? ln.claim.label : disp;
-                    v.Bind("대화",
-                        hasClaim ? ln.claim.attr : string.Empty,
-                        hasClaim ? ln.claim.value : string.Empty,
-                        label,
-                        disp,
-                        hasClaim ? ln.claim.unlocksScan : string.Empty);
-                    _claimViews.Add(v);
-                }
-                else
-                {
-                    sb.Append("• ").Append(ln.speaker).Append(": ").Append(ln.text).Append('\n');
-                }
-            }
-        }
-
-        if (_logText != null) _logText.text = sb.ToString().TrimEnd('\n');
-        // 줄 단위 항목으로 노출하므로 옛 generic "대화 기록" 항목(_contentSelectable)은 쓰지 않는다(ClearClaims 가 비활성 유지).
-        if (_root != null)
-        {
-            _root.SetActive(true);
-            // 최초 1회만 중앙 정렬, 이후엔 드래그한 위치 유지(맨 앞으로 올리기는 매번).
-            BringToFront(_root.transform, !_centeredOnce);
-            _centeredOnce = true;
-        }
-        OnSelectablesChanged?.Invoke();
+        CrossCheckItemView v = Instantiate(_claimTemplate, _claimContainer);
+        v.gameObject.SetActive(true);
+        bool hasClaim = claim != null && !string.IsNullOrEmpty(claim.attr);
+        string label = hasClaim && !string.IsNullOrEmpty(claim.label) ? claim.label : disp;
+        v.Bind("대화",
+            hasClaim ? claim.attr : string.Empty,
+            hasClaim ? claim.value : string.Empty,
+            label,
+            disp,
+            hasClaim ? claim.unlocksScan : string.Empty);
+        _claimViews.Add(v);
     }
 
     /// <summary>팝업을 닫는다.</summary>
@@ -151,22 +112,6 @@ public sealed class DialogueLogPopup : MonoBehaviour, ICrossCheckProvider
             rt.anchorMin = rt.anchorMax = rt.pivot = new Vector2(0.5f, 0.5f);
             rt.anchoredPosition = Vector2.zero;
         }
-    }
-
-    /// <summary>
-    /// 대화 본문 자체를 클릭 가능한 대조 항목으로 노출한다(뉴스 _contentSelectable / 규정 _ruleSelectable 과 동일 패턴).
-    /// claim 이 있으면 그 속성/값을 부여(예: 방문목적 attr=visa_type ↔ 비자 대조), 없으면 관련성만(값 비교 불가).
-    /// </summary>
-    private void BindContentSelectable(Claim claim)
-    {
-        if (_contentSelectable == null) return;
-        _contentSelectable.gameObject.SetActive(true);
-        _contentSelectable.Bind("대화",
-            claim != null ? claim.attr : "dialogue_content",
-            claim != null ? claim.value : string.Empty,
-            claim != null && !string.IsNullOrEmpty(claim.label) ? claim.label : "대화 기록",
-            null,                                   // displayText null → 라벨 텍스트 유지
-            claim != null ? claim.unlocksScan : string.Empty);
     }
 
     private void ClearClaims()

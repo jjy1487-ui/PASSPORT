@@ -456,15 +456,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1, g: 0.12, b: 0.16, a: 0.96}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 319740de7e7a1344eadbb96528aaa603, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -486,6 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScanResultPanel
   _controller: {fileID: 0}
+  _crossCheck: {fileID: 0}
   _kind: 1
   _root: {fileID: 1753009370833259585}
   _titleText: {fileID: 357886855071922240}
@@ -493,7 +494,18 @@ MonoBehaviour:
   _detailText: {fileID: 665088999275710123}
   _extraText: {fileID: 8960962594119005004}
   _closeButton: {fileID: 4788997075556778627}
+  _nextButton: {fileID: 0}
+  _scannerImage: {fileID: 0}
+  _stage1Group: {fileID: 0}
+  _stage2Group: {fileID: 0}
+  _scanText: {fileID: 0}
   _claimSelectable: {fileID: 2361093748190450030}
+  _dbRows: []
+  _useSequence: 0
+  _stageSeconds: 1.1
+  _stageColor: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+  _matchColor: {r: 0.88, g: 0.22, b: 0.22, a: 1}
+  _noMatchColor: {r: 0.2, g: 0.7, b: 0.35, a: 1}
 --- !u!1 &1954819046336029723
 GameObject:
   m_ObjectHideFlags: 0

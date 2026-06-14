@@ -70,17 +70,18 @@ public sealed class ScanResultPanel : MonoBehaviour, ICrossCheckProvider
     {
         if (_closeButton != null) _closeButton.onClick.AddListener(Close);
         if (_nextButton != null) _nextButton.gameObject.SetActive(false); // 자동판정 폐지로 미사용(숨김)
-        SetStage(0);                                                      // 두 레이어 모두 끔(스캔 시작 시 1로 켬)
-        if (_root != null) _root.SetActive(false);
-    }
 
-    private void Start()
-    {
+        // ⚠ 구독은 반드시 Awake 에서(아래 _root.SetActive(false) 전에) 한다.
+        //   _root 가 이 패널 자신이면 SetActive(false) 로 자기 자신이 꺼져 Start 가 호출되지 않는다
+        //   (X-ray 패널과 동일한 함정). 그러면 OnScanUnlocked 를 구독하지 못해, 대조로 지문이 잠금
+        //   해제돼도 패널이 열리지 않는다. C# 이벤트 구독은 GameObject 비활성과 무관하게 유지되므로,
+        //   여기서 구독해 두면 비활성 상태에서도 HandleScanUnlocked 가 호출돼 Open() 으로 다시 켜진다.
         if (_controller != null) _controller.OnCustomerChanged += HandleCustomerChanged;
         else Debug.LogWarning("[ScanResultPanel] _controller 가 연결되지 않았습니다.");
-
-        // 대조로 내 검사 종류가 잠금 해제되면 결과를 자동으로 연다(버튼 없이도 동작).
         if (_crossCheck != null) _crossCheck.OnScanUnlocked += HandleScanUnlocked;
+
+        SetStage(0);                                                      // 두 레이어 모두 끔(스캔 시작 시 1로 켬)
+        if (_root != null) _root.SetActive(false);
     }
 
     /// <summary>대조로 내 검사 종류가 잠금 해제되면 결과 패널을 자동으로 연다.</summary>

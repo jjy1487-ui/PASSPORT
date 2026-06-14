@@ -121,15 +121,9 @@
               "text": "건강 이상자 때문에 심사 강화됐다는 거 알겠는데, 저는 멀쩡하다고요. 어서 처리해줘요."
             },
             {
+              "order": 2,
               "speaker": "심사관",
-              "text": "오늘부터 방역 절차가 시행됩니다. 여권과 PCR 검사서를 함께 보여주세요.",
-              "claim": null,
-              "order": 2
-            },
-            {
-              "order": 3,
-              "speaker": "조지호",
-              "text": "여권 냈으니까 빨리 처리해."
+              "text": "오늘부터 방역 절차가 시행됩니다. 여권과 PCR 검사서를 함께 보여주세요."
             }
           ]
         },
@@ -267,20 +261,38 @@
               {
                 "order": 1,
                 "speaker": "조지호",
-                "text": "건강 이상자 때문에 심사 강화됐다는 거 알겠는데, 저는 멀쩡하다고요.",
-                "claim": null
+                "text": "여기 여권이요. 빨리 좀 부탁해요."
               },
               {
                 "order": 2,
                 "speaker": "심사관",
-                "text": "오늘부터 방역 절차가 시행됩니다. 여권과 PCR 검사서를 함께 보여주세요.",
-                "claim": null
+                "text": "오늘부터 방역 절차가 시행됩니다. 여권과 PCR 검사서를 함께 보여주세요."
               },
               {
                 "order": 3,
                 "speaker": "조지호",
                 "text": "어? PCR요? 그건 안 가져왔는데요.",
-                "claim": null
+                "claim": {
+                  "attr": "pcr_result",
+                  "value": "미제출",
+                  "label": "PCR 미제출(진술)",
+                  "unlocksScan": ""
+                }
+              },
+              {
+                "order": 4,
+                "speaker": "심사관",
+                "text": "검역 대상이신데 PCR 검사서를 안 내셨네요?"
+              },
+              {
+                "order": 5,
+                "speaker": "조지호",
+                "text": "그게 꼭 필요해요? 저 멀쩡한데."
+              },
+              {
+                "order": 6,
+                "speaker": "심사관",
+                "text": "방역 대상 입국자는 PCR 검사서가 반드시 있어야 합니다."
               }
             ]
           },
@@ -309,14 +321,12 @@
               {
                 "order": 1,
                 "speaker": "심사관",
-                "text": "방역 대상 입국자가 PCR 검사서를 제출하지 않아 입국하실 수 없습니다.",
-                "claim": null
+                "text": "방역 대상 입국자가 PCR 검사서를 제출하지 않아 입국하실 수 없습니다."
               },
               {
                 "order": 2,
                 "speaker": "조지호",
-                "text": "아니 그걸 꼭 가져와야 돼요? 난 멀쩡하다니까!",
-                "claim": null
+                "text": "아니 그걸 꼭 가져와야 돼요? 난 멀쩡하다니까!"
               }
             ]
           },
@@ -333,7 +343,7 @@
               {
                 "order": 2,
                 "speaker": "조지호",
-                "text": "됐어요, 고마워요."
+                "text": "됐어요."
               }
             ]
           },
@@ -356,7 +366,8 @@
           }
         ],
         "xray": null,
-        "fingerprint": null
+        "fingerprint": null,
+        "crossCheckLines": []
       }
     },
     {
@@ -736,18 +747,12 @@
             {
               "order": 1,
               "speaker": "로버트 존슨",
-              "text": "Hello, I heard there were some health concerns at the airport recently. I'm perfectly fine. Here's my passport. (안녕하세요, 요즘 공항에 방역 문제가 좀 있다고 들었어요. 저는 멀쩡합니다. 여권 여기요.)"
+              "text": "Hello, I heard there were some health concerns at the airport recently. I'm perfectly fine, here's my passport."
             },
             {
+              "order": 2,
               "speaker": "심사관",
-              "text": "PCR 검사서도 함께 보여주시겠어요?",
-              "claim": null,
-              "order": 2
-            },
-            {
-              "order": 3,
-              "speaker": "로버트 존슨",
-              "text": "I'll hand this over with my test result. (기침) (여기 검사서랑 같이 드릴게요.)"
+              "text": "PCR 검사서도 함께 보여주시겠어요?"
             }
           ]
         },
@@ -776,18 +781,18 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다.",
+              "text": "PCR 검사 결과가 기준에 맞지 않아 입국하실 수 없습니다.",
               "claim": {
                 "attr": "pcr_result",
-                "value": "",
-                "label": "검사 결과 불일치",
+                "value": "양성",
+                "label": "PCR 검사결과",
                 "unlocksScan": ""
               }
             },
             {
               "order": 2,
               "speaker": "로버트 존슨",
-              "text": "Oh, I see. Thank you for letting me know. (아, 그렇군요. 알려주셔서 감사해요.)"
+              "text": "Oh, I see. Thank you for letting me know."
             }
           ]
         },
@@ -804,7 +809,7 @@
             {
               "order": 2,
               "speaker": "로버트 존슨",
-              "text": "Thank you. I really need to rest. (감사합니다. 빨리 쉬어야 해서요.)"
+              "text": "Thank you! Have a great day!"
             }
           ]
         },
@@ -833,7 +838,7 @@
       "crossCheckLines": [
         {
           "attr": "pcr_result",
-          "inspector": "PCR 결과가… 양성으로 나오네요. 이거 확인 좀 할게요.",
+          "inspector": "PCR 결과가… 양성으로 나오네요. 이거 확인 좀 할게요. 양성 판정 시에는 입국이 거부됩니다.",
           "customer": "What? That should be fine…(네? 문제 없을 텐데요…)",
           "unlocksScan": ""
         }
@@ -956,18 +961,12 @@
             {
               "order": 1,
               "speaker": "윤건우",
-              "text": "안녕하세요. (짧게 인사하고 서류를 준비한다.)"
+              "text": "안녕하세요. 성형해서 인상이 좀 바뀌었어요. 본인 맞아요."
             },
             {
+              "order": 2,
               "speaker": "심사관",
-              "text": "방역 기간입니다. PCR 검사서도 함께 보여주세요.",
-              "claim": null,
-              "order": 2
-            },
-            {
-              "order": 3,
-              "speaker": "윤건우",
-              "text": "사진이랑 좀 달라 보여도 저 맞아요."
+              "text": "방역 기간입니다. PCR 검사서도 함께 보여주세요."
             }
           ]
         },
@@ -979,12 +978,12 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
+              "text": "본인 맞으시네요. 즐거운 여행 되세요."
             },
             {
               "order": 2,
               "speaker": "윤건우",
-              "text": "감사합니다! 수술 잘 됐다고 해주세요, 하하."
+              "text": "감사합니다!"
             }
           ]
         },
@@ -1035,7 +1034,7 @@
             {
               "order": 2,
               "speaker": "윤건우",
-              "text": "잠깐만요, 저 맞는데요! 지문 다시 확인해 주세요!"
+              "text": "본인 맞는데요? 지문도 확인하셨잖아요."
             }
           ]
         }
@@ -1173,13 +1172,12 @@
               {
                 "order": 1,
                 "speaker": "윤건우",
-                "text": "안녕하세요. (마스크를 고쳐 쓰며 서류를 꺼낸다.)"
+                "text": "안녕하세요. 사진이랑 좀 달라 보이죠? 얼마 전에 성형을 했어요."
               },
               {
+                "order": 2,
                 "speaker": "심사관",
-                "text": "방역 기간입니다. PCR 검사서도 함께 보여주세요.",
-                "claim": null,
-                "order": 2
+                "text": "방역 기간입니다. PCR 검사서도 함께 보여주세요."
               }
             ]
           },
@@ -1208,10 +1206,10 @@
               {
                 "order": 1,
                 "speaker": "심사관",
-                "text": "지문 신원이 여권과 일치하지 않습니다. 입국하실 수 없습니다.",
+                "text": "지문 신원이 여권 이름과 일치하지 않습니다. 입국하실 수 없습니다.",
                 "claim": {
                   "attr": "name",
-                  "value": "KIM TAEHYUN",
+                  "value": "KANG MINHO",
                   "label": "지문 대조 신원",
                   "unlocksScan": ""
                 }
@@ -1219,7 +1217,7 @@
               {
                 "order": 2,
                 "speaker": "윤건우",
-                "text": "알겠어요. 다시 확인하고 올게요."
+                "text": "…죄송합니다."
               }
             ]
           },
@@ -1236,7 +1234,7 @@
               {
                 "order": 2,
                 "speaker": "윤건우",
-                "text": "감사해요. 빨리 나가야 해서요."
+                "text": "가, 감사합니다. (서둘러 지나간다)"
               }
             ]
           },
@@ -1262,24 +1260,46 @@
         "fingerprint": {
           "type": "fingerprint",
           "result": "불일치",
-          "detail": "신원 불일치",
-          "extra": "KIM TAEHYUN",
+          "detail": "이름 불일치",
+          "extra": "KANG MINHO",
           "claim": {
             "attr": "name",
-            "value": "KIM TAEHYUN",
+            "value": "KANG MINHO",
             "label": "지문 대조 신원",
             "unlocksScan": ""
           },
           "record": {
             "mode": "성형",
-            "dbName": "KIM TAEHYUN",
+            "dbName": "KANG MINHO",
             "dbBirth": "1996-04-12",
             "dbNationality": "KOR",
             "criminalRecord": "없음",
             "wantedNo": ""
           }
+        },
+        "crossCheckLines": [
+          {
+            "attr": "face",
+            "inspector": "사진이랑 인상이 좀 다르시네요. 지문 한번 찍어볼게요. 손 올려주시겠어요?",
+            "customer": "(잠시 망설인다) …네.",
+            "unlocksScan": ""
+          },
+          {
+            "attr": "name",
+            "inspector": "지문 조회 결과… 신원이 'KANG MINHO'(으)로 나오는데요. 여권 이름 'YOON GEONWOO'과(와) 일치하지 않습니다. 지문은 성형으로도 바뀌지 않습니다.",
+            "customer": "어… 그건 시스템 오류 아닐까요? …(말을 잇지 못한다)",
+            "unlocksScan": ""
+          }
+        ]
+      },
+      "crossCheckLines": [
+        {
+          "attr": "face",
+          "inspector": "사진이랑 인상이 좀 다르시네요. 지문 한번 찍어볼게요. 손 올려주시겠어요?",
+          "customer": "네, 여기요. (손을 올린다)",
+          "unlocksScan": ""
         }
-      }
+      ]
     },
     {
       "customerId": 49,
@@ -1602,7 +1622,7 @@
         {
           "documentType": "PCR검사서",
           "variant": "비정상",
-          "violationField": "검사 결과",
+          "violationField": "검사일",
           "spriteRef": "",
           "country": "",
           "fields": [
@@ -1623,12 +1643,12 @@
             },
             {
               "label": "검사일",
-              "value": "2026-06-05",
+              "value": "2026-06-15",
               "key": "issue_date"
             },
             {
               "label": "검사 결과",
-              "value": "(누락)",
+              "value": "Negative",
               "key": "pcr_result"
             },
             {
@@ -1643,7 +1663,7 @@
             },
             {
               "label": "비고",
-              "value": "정상 PCR(음성)",
+              "value": "검사일 오류",
               "key": "memo"
             }
           ]
@@ -1698,11 +1718,11 @@
             {
               "order": 1,
               "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다.",
+              "text": "PCR 검사일이 올바르지 않아 입국하실 수 없습니다.",
               "claim": {
-                "attr": "pcr_result",
+                "attr": "issue_date",
                 "value": "",
-                "label": "검사 결과 불일치",
+                "label": "검사일 오류",
                 "unlocksScan": ""
               }
             },
@@ -1754,8 +1774,8 @@
       "fingerprint": null,
       "crossCheckLines": [
         {
-          "attr": "pcr_result",
-          "inspector": "어, PCR 결과 칸이… 비어 있는데요? 결과가 안 적혀 있어요.",
+          "attr": "issue_date",
+          "inspector": "어, 검사일이 6월 15일인데… 오늘보다 나중이네요? 날짜가 이상해요.",
           "customer": "啊？应该没问题的…(어? 문제 없을 텐데요…)",
           "unlocksScan": ""
         }
@@ -1973,8 +1993,8 @@
       "ruleId": 7,
       "title": "PCR 검사서",
       "content": "검역 대상 입국자는 PCR 검사서를 제출해야 한다. 검사 결과가 양성이거나, 유효 기간이 지났거나, 검사서의 이름·국적이 여권과 다르면 입국을 거부한다.",
-      "relatedField": "",
-      "attr": "",
+      "relatedField": "검사결과",
+      "attr": "pcr_result",
       "endDay": 7
     }
   ],
