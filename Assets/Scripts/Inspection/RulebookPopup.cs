@@ -41,7 +41,11 @@ public sealed class RulebookPopup : MonoBehaviour, ICrossCheckProvider
     private IReadOnlyList<RuleData> _items;
     private int _visibleCount;   // 현재 채워진(활성) 행 수
     private int _selectedIndex = -1;
-    private bool _centeredOnce;  // 최초 1회만 중앙 정렬. 이후엔 드래그한 위치를 유지.
+    private bool _centeredOnce;  // 최초 1회만 위치 정렬. 이후엔 드래그한 위치를 유지.
+
+    [Header("열림 위치")]
+    [Tooltip("규정집을 처음 열 때 놓일 위치(anchoredPosition, 앵커=화면 중앙 기준). 이후엔 드래그 위치 유지.")]
+    [SerializeField] private Vector2 _openPosition = new Vector2(572f, 297f);
 
     /// <summary>selectable 구성 변경 통지.</summary>
     public event System.Action OnSelectablesChanged;
@@ -108,14 +112,14 @@ public sealed class RulebookPopup : MonoBehaviour, ICrossCheckProvider
     /// 그 뒤엔 플레이어가 드래그(<see cref="DraggablePanel"/>)로 옮긴 위치를 유지한다.
     /// (NewsPopup/DialogueLogPopup 과 동일 패턴.)
     /// </summary>
-    private static void BringToFront(Transform t, bool recenter)
+    private void BringToFront(Transform t, bool recenter)
     {
         if (t == null) return;
         t.SetAsLastSibling();
         if (recenter && t is RectTransform rt)
         {
             rt.anchorMin = rt.anchorMax = rt.pivot = new Vector2(0.5f, 0.5f);
-            rt.anchoredPosition = Vector2.zero;
+            rt.anchoredPosition = _openPosition; // 첫 열림 위치(인스펙터 조정 가능). 기본 (572, 297).
         }
     }
 

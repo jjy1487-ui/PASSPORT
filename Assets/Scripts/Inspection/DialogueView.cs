@@ -39,7 +39,7 @@ public sealed class DialogueView : MonoBehaviour
 
     private void Update()
     {
-        // 대사 표시 중에는 화면 아무 곳이나 좌클릭하면 다음 줄로 진행.
+        // 대사 표시 중, '대화 창(_root)'을 직접 클릭했을 때만 다음 줄로 진행한다(아무 곳/팝업 클릭으론 안 넘어감).
         if (_root == null || !_root.activeSelf) return;
         Mouse mouse = Mouse.current;
         if (mouse == null || !mouse.leftButton.wasPressedThisFrame) return;
@@ -48,7 +48,27 @@ public sealed class DialogueView : MonoBehaviour
         if (_nextButton != null && _nextButton.gameObject.activeInHierarchy
             && IsPointerOver(_nextButton.gameObject)) return;
 
+        // 클릭의 '맨 위' 대상이 대화 창(_root)일 때만 진행 — 책상·배경·팝업을 클릭하면 넘어가지 않는다.
+        if (!IsTopmostOver(_root)) return;
+
         ShowNext();
+    }
+
+    /// <summary>현재 포인터 아래 '맨 위' UI가 해당 오브젝트(또는 그 자식)인지.
+    /// 다른 UI(팝업 등)가 위에 겹쳐 있으면 false — 그 위를 클릭한 것이므로 대사를 넘기지 않는다.</summary>
+    private static bool IsTopmostOver(GameObject go)
+    {
+        var es = UnityEngine.EventSystems.EventSystem.current;
+        if (es == null || Mouse.current == null) return false;
+        var data = new UnityEngine.EventSystems.PointerEventData(es)
+        {
+            position = Mouse.current.position.ReadValue()
+        };
+        var results = new List<UnityEngine.EventSystems.RaycastResult>();
+        es.RaycastAll(data, results);
+        if (results.Count == 0) return false;
+        GameObject top = results[0].gameObject;
+        return top == go || top.transform.IsChildOf(go.transform);
     }
 
     /// <summary>현재 포인터가 해당 UI 위에 있는지(레이캐스트).</summary>
