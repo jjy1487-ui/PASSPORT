@@ -38,6 +38,12 @@ public sealed class CustomerData
     public ScanData fingerprint;   // 보조검사 결과(없으면 null)
     public CrossCheckLine[] crossCheckLines; // 교차 대조 불일치 시 이 손님 전용 대사(없으면 빈/널 → 일반 문구 폴백)
 
+    // 입장 시 수하물 X-ray 자동 검사(day11 "보안 강화" 흐름). true 면 입장 대사 직후 X-ray 패널이 자동으로 열린다.
+    //  - day11 처럼 그날 전원 검사받는 날에만 켠다(기본 false). 다른 날 X-ray 손님(사토 등)은 false 라 입장 자동 오픈 안 됨.
+    //  - 자동 오픈은 그 손님이 xray 데이터를 가질 때만 실제로 열린다(없으면 무시).
+    //  - 변형 손님(altVariant)에도 적용하려면 손님 레벨에 두므로 RollVariants 오버레이(서류/검사만 교체)와 독립적으로 보존된다.
+    public bool autoScanOnEntry;
+
     // ── 확률 변형(박철수처럼 매 플레이 서류 정상/불량이 갈리는 손님) ──
     public float validChance;          // 정상(승인) 확률 0~1. 0/1 또는 altVariant 없음 → 굴리지 않음(고정).
     public CustomerVariant altVariant; // 반대 변형(없으면 null). 런타임에 validChance로 굴려 이 손님 위에 오버레이한다.
@@ -186,6 +192,7 @@ public sealed class RuleData
     public string relatedField; // 한글 필드명(표시용)
     public string attr;         // 속성 키. 매핑 불가/없으면 "".
     public int endDay;          // 이벤트성 규정의 종료 일차(이날까지만 규정집에 표시). 0=종료 없음(도입 후 계속). 예: PCR 규정=7.
+    public string coveredAttrs; // 이 규정 글이 '다루는' 항목 키들(쉼표 구분). 규정 ↔ 이 항목을 대조하면 관련없음 대신 관련있음(파랑)으로 표시. 핵심 판정 항목(attr)은 특수 평가기가 일치/불일치로 먼저 처리. 예: "name,nationality,valid_until".
 }
 
 /// <summary>1일차 뉴스 1건.</summary>

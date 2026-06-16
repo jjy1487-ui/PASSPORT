@@ -82,7 +82,7 @@
        "key": "visa_no"
       },
       {
-       "label": "비자 종류",
+       "label": "방문 목적",
        "value": "관광",
        "key": "visa_type"
       },
@@ -950,7 +950,7 @@
        "key": "visa_no"
       },
       {
-       "label": "비자 종류",
+       "label": "방문 목적",
        "value": "관광",
        "key": "visa_type"
       },
@@ -1218,7 +1218,7 @@
        "key": "visa_no"
       },
       {
-       "label": "비자 종류",
+       "label": "방문 목적",
        "value": "관광",
        "key": "visa_type"
       },

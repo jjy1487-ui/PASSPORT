@@ -670,10 +670,9 @@ def derive_news_claims(news_id, title, content):
 SCAN_TRIGGERS = [
     # day3 손님10 윤서린(지문, 성형 위장 지명수배) — day3 등장으로 이동. 영문이름 유일.
     (3, "10", "name", "YOON SEORIN", ["fingerprint"]),
-    # day11 손님8 존 카터(xray, 밀수품) — day11 slot1. 영문이름 유일.
-    (11, "8", "name", "JOHN CARTER", ["xray"]),
-    # day14 손님9 강도식(xray, 마약) — day14 slot3. 영문이름 유일.
-    (14, "9", "name", "KANG DOSIK", ["xray"]),
+    # day11 존 카터·day14 강도식: day11 '보안 강화' 이후 전원 입장 자동 X-ray(InspectionController)로
+    #   바뀌어, 이름 지목 뉴스 대조(unlocksScan) 없이도 X-ray 가 열린다 → 명단 트리거 제거(일반 경보로 대체).
+    #   (옛: (11,"8","name","JOHN CARTER",["xray"]) / (14,"9","name","KANG DOSIK",["xray"]))
     # day12 사토 하루키(테러범)는 이름 지목 뉴스로 해금하지 않는다(2026-06).
     #   → 비자↔여권 여권번호 불일치(visa JP1012287 ≠ passport JP9911287)를 적발하면 CrossCheckController 의
     #     DetectPassportNoMismatchUnlock 이 X-ray 를 잠금 해제한다(서류↔서류 passport_no Mismatch + 손님이 X-ray 보유).
@@ -690,6 +689,15 @@ GENERIC_ALERT_NEWS = [
     (12, "[속보] 위험물 반입 경보",
      "국제 공조 수사 결과 최근 입국 경로에서 폭발물 부품·밀수품 은닉 사례가 다수 적발되었습니다. "
      "여권·비자 등 서류 정보가 서로 일치하지 않는 입국자는 위험물 반입 가능성을 의심해 정밀 검사를 시행하십시오.",
+     "위험물 반입 주의"),
+    # day11·14: 보안 강화로 전원 입장 자동 X-ray 시행 → 이름 지목 없는 일반 경보(연출).
+    (11, "[속보] 위험물 반입 경보",
+     "보안 강화 조치에 따라 모든 입국자의 수하물을 X-ray로 정밀 검사합니다. "
+     "폭발물·마약·밀수품 등 금지 물품이 적발되면 입국이 거부됩니다.",
+     "위험물 반입 주의"),
+    (14, "[속보] 위험물 반입 경보",
+     "보안 강화 조치에 따라 모든 입국자의 수하물을 X-ray로 정밀 검사합니다. "
+     "폭발물·마약·밀수품 등 금지 물품이 적발되면 입국이 거부됩니다.",
      "위험물 반입 주의"),
 ]
 # day별 일반 경보 뉴스 ID(원본/스캔트리거 ID와 충돌 방지). SCAN_TRIGGER_NEWS_ID_BASE 와 동일 대역(900000)에서

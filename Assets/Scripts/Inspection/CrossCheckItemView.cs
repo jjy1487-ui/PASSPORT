@@ -26,6 +26,8 @@ public sealed class CrossCheckItemView : MonoBehaviour, ICrossCheckSelectable
     public string AttributeKey { get; private set; } = string.Empty;
     public string Value { get; private set; } = string.Empty;
     public string UnlocksScan { get; private set; } = string.Empty;
+    /// <summary>규정 항목 전용: 이 규정이 '다루는' 항목 키들(쉼표 구분). 비규정 항목은 빈 문자열. 대조 시 "관련있음" 판정에 사용.</summary>
+    public string CoveredAttrs { get; private set; } = string.Empty;
     public string DisplayLabel { get; private set; } = string.Empty;
     public RectTransform Rect => transform as RectTransform;
     public event Action<ICrossCheckSelectable> OnSelected;
@@ -72,12 +74,13 @@ public sealed class CrossCheckItemView : MonoBehaviour, ICrossCheckSelectable
     }
 
     /// <summary>항목을 채운다. displayText 가 없으면 label 을 그대로 보여준다. unlocksScan 은 스캔 잠금 해제 트리거 단서일 때만 채운다.</summary>
-    public void Bind(string sourceType, string attributeKey, string value, string label, string displayText = null, string unlocksScan = null)
+    public void Bind(string sourceType, string attributeKey, string value, string label, string displayText = null, string unlocksScan = null, string coveredAttrs = null)
     {
         SourceType = sourceType ?? string.Empty;
         AttributeKey = attributeKey ?? string.Empty;
         Value = value ?? string.Empty;
         UnlocksScan = unlocksScan ?? string.Empty;
+        CoveredAttrs = coveredAttrs ?? string.Empty;
         DisplayLabel = label ?? string.Empty;
 
         if (_labelText != null) _labelText.text = string.IsNullOrEmpty(displayText) ? DisplayLabel : displayText;

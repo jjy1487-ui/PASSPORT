@@ -884,7 +884,7 @@
        "key": "visa_no"
       },
       {
-       "label": "비자 종류",
+       "label": "방문 목적",
        "value": "관광",
        "key": "visa_type"
       },
@@ -1103,7 +1103,7 @@
        "key": "visa_no"
       },
       {
-       "label": "비자 종류",
+       "label": "방문 목적",
        "value": "장기체류",
        "key": "visa_type"
       },
@@ -1570,7 +1570,7 @@
    "nationality": "중국(CHN)",
    "gender": "남성",
    "birthDate": "1978-11-08",
-   "age": 47,
+   "age": 45,
    "spriteRef": "첸 웨이",
    "characterType": "외국인 관광객",
    "defectVariant": "",
@@ -1643,7 +1643,7 @@
        "key": "visa_no"
       },
       {
-       "label": "비자 종류",
+       "label": "방문 목적",
        "value": "관광",
        "key": "visa_type"
       },

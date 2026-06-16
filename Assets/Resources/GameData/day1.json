@@ -8,8 +8,8 @@
    "nameEn": "KIM MINJUN",
    "nationality": "대한민국(KOR)",
    "gender": "남성",
-   "birthDate": "1985-03-15",
-   "age": 41,
+   "birthDate": "1999-03-15",
+   "age": 27,
    "spriteRef": "김민준",
    "characterType": "일반 고객",
    "defectVariant": "",
@@ -39,7 +39,7 @@
       },
       {
        "label": "생년월일",
-       "value": "1985-03-15",
+       "value": "1999-03-15",
        "key": "birth_date"
       },
       {
@@ -307,7 +307,15 @@
    "rejectAdvancedBranchKey": "",
    "rejectGuidedCaseType": "",
    "xray": null,
-   "fingerprint": null
+   "fingerprint": null,
+   "crossCheckLines": [
+    {
+     "attr": "face",
+     "inspector": "음, 여권 사진이랑 좀 달라 보이시는데요? 잠깐 봐도 될까요?",
+     "customer": "What? That should be fine…(네? 문제 없을 텐데요…)",
+     "inspectorClose": "사진하고 본인이 같아야 통과돼요."
+    }
+   ]
   },
   {
    "customerId": 2,
@@ -316,8 +324,8 @@
    "nameEn": "LEE JIEUN",
    "nationality": "대한민국(KOR)",
    "gender": "여성",
-   "birthDate": "1990-07-22",
-   "age": 35,
+   "birthDate": "2002-07-22",
+   "age": 23,
    "spriteRef": "이지은",
    "characterType": "일반 고객",
    "defectVariant": "",
@@ -347,7 +355,7 @@
       },
       {
        "label": "생년월일",
-       "value": "1990-07-22",
+       "value": "2002-07-22",
        "key": "birth_date"
       },
       {
@@ -1373,23 +1381,26 @@
   {
    "ruleId": 1,
    "title": "기본 규정",
-   "content": "모든 입국자는 유효한 서류를 갖추고 심사관의 허가를 받아야 입국할 수 있다. 제출 서류·본인·진술의 정보가 모두 일치할 때만 허가하며, 어느 하나라도 어긋나면 입국을 거부한다.",
+   "content": "모든 입국자는 유효한 서류를 갖추어 심사를 받아야 한다. 제출 서류·본인·진술 정보가 모두 일치하는 경우에 한하여 입국을 허가한다.\n※ 하나라도 상이할 경우 입국을 불허한다.",
    "relatedField": "",
-   "attr": ""
+   "attr": "",
+   "coveredAttrs": ""
   },
   {
    "ruleId": 2,
    "title": "신분 확인",
-   "content": "여권의 이름·생년월일·성별·사진은 입국자 본인과 일치해야 한다. 어느 한 항목이라도 본인과 다르면 입국을 거부한다.",
+   "content": "여권 기재 사항을 입국자 본인과 대조·확인한다.\n　1. 사진(얼굴)\n　2. 성명\n　3. 생년월일\n　4. 성별\n※ 한 항목이라도 본인과 상이할 경우 입국을 불허한다.",
    "relatedField": "성별",
-   "attr": "gender"
+   "attr": "gender",
+   "coveredAttrs": "name,birth_date,gender,face"
   },
   {
    "ruleId": 3,
    "title": "여권 확인",
-   "content": "여권은 여권번호·영문 이름·성별·생년월일·국적·발급일·만료일을 모두 갖추어야 한다. 여권번호 앞 두 자리는 발급 국가 코드와 일치해야 한다(대한민국 KO·미국 US·중국 CN·일본 JP). 앞자리가 국적과 다르면 위조 여권이다. 정보가 본인이나 다른 서류와 다르거나 만료일이 오늘 이전이면 입국을 거부한다.",
+   "content": "여권의 진위·유효를 확인한다.\n　1. 여권번호 앞 2자리 = 발급국 코드(KO·US·CN·JP) — 불일치 시 위조\n　2. 만료일 = 당일 이후\n　3. 국적 = 타 서류와 일치\n※ 위조·만료·불일치 시 입국을 불허한다.",
    "relatedField": "여권번호",
-   "attr": "passport_no"
+   "attr": "passport_no",
+   "coveredAttrs": "passport_no,expiry_date,nationality"
   }
  ],
  "news": []

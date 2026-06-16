@@ -27,6 +27,23 @@ public sealed class InspectionController : MonoBehaviour
     private ScoreEconomyManager _economy;
     private ScoreEconomyManager Economy => _economy != null ? _economy : ScoreEconomyManager.Instance;
 
+    // 교차대조 컨트롤러(X-ray 잠금해제 발행처). 입장 시 X-ray 자동 검사(day11 보안 강화)에 쓴다.
+    // 씬 배선 없이 런타임 1회 조회로 캐시한다(Update 아님) — day1~14 모든 씬의 InspectionController 를 수정하지 않기 위함.
+    private CrossCheckController _crossCheck;
+    private bool _crossCheckResolved;
+    private CrossCheckController CrossCheck
+    {
+        get
+        {
+            if (_crossCheck == null && !_crossCheckResolved)
+            {
+                _crossCheck = FindObjectOfType<CrossCheckController>();
+                _crossCheckResolved = true; // 씬에 없으면 매번 탐색하지 않도록(없는 씬에서도 조용히 동작).
+            }
+            return _crossCheck;
+        }
+    }
+
     /// <summary>진행 매니저가 정산 허브를 주입한다(없으면 전역 싱글톤 폴백). UI 직접 참조 아님.</summary>
     public void SetEconomy(ScoreEconomyManager economy) => _economy = economy;
 
@@ -71,8 +88,36 @@ public sealed class InspectionController : MonoBehaviour
     /// <summary>현재 손님이 바뀌면 발행(검사기 버튼/패널이 구독해 갱신). 손님 없으면 false 시점에도 발행될 수 있음.</summary>
     public event System.Action OnCustomerChanged;
 
-    /// <summary>현재 손님의 X-ray 검사 결과(없으면 null). 검사기 UI 표시·대조용 — 판정에는 영향 없음.</summary>
-    public ScanData CurrentXray => Current?.xray;
+    /// <summary>day11 '보안 강화' 이후 전원 입장 시 수하물 X-ray 자동검사를 적용하는 시작 일차.</summary>
+    private const int SecurityScanFromDay = 11;
+
+    /// <summary>X-ray 데이터가 없는 손님을 위한 '이상 없음' 합성 결과(day11+ 보안 강화 전원 검사용, 읽기 전용 공유).</summary>
+    private static readonly ScanData CleanXray = new ScanData
+    {
+        type = "xray", result = "정상", detail = "", extra = "", claim = null,
+    };
+
+    /// <summary>현재 손님의 X-ray 검사 결과(없으면 null). 검사기 UI 표시·대조용 — 판정에는 영향 없음.
+    /// day11 '보안 강화' 이후에는 X-ray 데이터가 없는 손님도 '이상 없음'으로 합성한다(전원 수하물 검사).</summary>
+    public ScanData CurrentXray
+    {
+        get
+        {
+            ScanData x = Current?.xray;
+            if (!IsEmptyScan(x)) return x;                                              // 적발/실데이터 있으면 그대로
+            if (Current != null && CurrentDay >= SecurityScanFromDay) return CleanXray; // 전원검사 → 이상없음 합성
+            return x;                                                                   // 이전 날: 기존대로(null/빈)
+        }
+    }
+
+    /// <summary>ScanData 가 비었는가(type/result/detail/extra/claim 모두 빔). XrayInspectionPanel.IsEmpty 와 동일 기준.</summary>
+    private static bool IsEmptyScan(ScanData s) =>
+        s == null
+        || (string.IsNullOrEmpty(s.type)
+            && string.IsNullOrEmpty(s.result)
+            && string.IsNullOrEmpty(s.detail)
+            && string.IsNullOrEmpty(s.extra)
+            && (s.claim == null || string.IsNullOrEmpty(s.claim.attr)));
 
     /// <summary>현재 손님의 지문 검사 결과(없으면 null). 검사기 UI 표시·대조용 — 판정에는 영향 없음.</summary>
     public ScanData CurrentFingerprint => Current?.fingerprint;
@@ -254,12 +299,39 @@ public sealed class InspectionController : MonoBehaviour
         Debug.Log($"[EntryDBG] '{c.nameKr}' (cid{c.customerId}) entry={(entry == null ? "NULL(입장 케이스 못 찾음)" : entry.lines?.Length + "줄")} dialogueView={(_dialogueView == null ? "NULL" : "ok")} firstLineLen={(entry?.lines != null && entry.lines.Length > 0 ? entry.lines[0].text?.Length ?? 0 : -1)}");
         if (entry != null)
         {
-            PlayThen(entry, EnableJudgment);
+            PlayThen(entry, OnEntryDialogueDone);
         }
         else
         {
-            EnableJudgment();
+            OnEntryDialogueDone();
         }
+    }
+
+    /// <summary>
+    /// 입장 대사가 끝난 직후 호출. 이 손님이 입장 자동 X-ray 검사 대상(autoScanOnEntry)이고 X-ray 데이터를 가지면
+    /// X-ray 패널을 자동으로 연 뒤 판정을 활성화한다. 패널은 오버레이라 판정 활성화와 무관하게 닫고 진행한다.
+    /// (다른 날 X-ray 손님은 autoScanOnEntry=false → 기존 검사 과정 발견 흐름 유지.)
+    /// </summary>
+    private void OnEntryDialogueDone()
+    {
+        TryAutoOpenEntryScan();
+        EnableJudgment();
+    }
+
+    /// <summary>
+    /// 입장 자동 X-ray 검사 트리거. 손님이 autoScanOnEntry 이고 X-ray 데이터가 있으면
+    /// CrossCheckController 의 잠금해제 발행 경로로 X-ray 패널을 연다(XrayInspectionPanel 이 구독해 Open).
+    /// CrossCheckController 가 씬에 없으면 조용히 무시(기존 동작 유지).
+    /// </summary>
+    private void TryAutoOpenEntryScan()
+    {
+        CustomerData c = Current;
+        if (c == null) return;
+        // day11 '보안 강화' 이후: 전원 입장 자동 X-ray. 이전 날: 손님별 autoScanOnEntry 플래그만.
+        if (CurrentDay < SecurityScanFromDay && !c.autoScanOnEntry) return;
+        if (CurrentXray == null) return; // day11+ 는 합성 이상없음이라 null 아님(데이터 없는 이전 날만 차단)
+        CrossCheckController cc = CrossCheck;
+        if (cc != null) cc.RequestScanUnlock("xray");
     }
 
     private void EnableJudgment()

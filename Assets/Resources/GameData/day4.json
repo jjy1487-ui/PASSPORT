@@ -640,7 +640,7 @@
        "key": "visa_no"
       },
       {
-       "label": "비자 종류",
+       "label": "방문 목적",
        "value": "관광",
        "key": "visa_type"
       },
@@ -1805,7 +1805,7 @@
        "key": "visa_no"
       },
       {
-       "label": "비자 종류",
+       "label": "방문 목적",
        "value": "장기 체류",
        "key": "visa_type"
       },
@@ -1985,9 +1985,10 @@
   {
    "ruleId": 11,
    "title": "방문객 구두 확인",
-   "content": "심사관은 입국자에게 신원과 방문 정보를 직접 확인한다. 진술한 내용이 제출 서류와 다르면 입국을 거부한다.",
+   "content": "심사관은 입국자에게 신원·방문 목적을 구두로 확인한다.\n　1. 성명·생년월일 = 여권과 일치\n　2. 방문 목적 = 비자와 일치\n※ 진술이 제출 서류와 상이할 경우 입국을 불허한다.",
    "relatedField": "",
-   "attr": ""
+   "attr": "",
+   "coveredAttrs": "visa_type,name,birth_date"
   }
  ],
  "news": [

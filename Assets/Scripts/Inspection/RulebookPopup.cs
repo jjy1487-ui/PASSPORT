@@ -140,7 +140,8 @@ public sealed class RulebookPopup : MonoBehaviour, ICrossCheckProvider
                 RuleData item = _items[i];
                 string label = string.IsNullOrEmpty(item.title) ? item.relatedField : item.title;
                 // 표시=제목 라벨, 대조=attr(값 비교 없음 → 관련성만). attr 없으면 "" → 대조 비대상이나 클릭/표시는 정상.
-                row.Bind("규정", item.attr ?? string.Empty, string.Empty, label, label);
+                // coveredAttrs = 이 규정이 다루는 항목들 → 그 항목과 대조 시 "관련있음"(파랑)으로 안내.
+                row.Bind("규정", item.attr ?? string.Empty, string.Empty, label, label, null, item.coveredAttrs);
                 row.gameObject.SetActive(true);
                 _visibleCount++;
             }
@@ -181,7 +182,7 @@ public sealed class RulebookPopup : MonoBehaviour, ICrossCheckProvider
         // 오른쪽 Content 를 대조 항목으로 — 현재 표시 중인 규정의 attr/제목으로 바인딩한다.
         // (라벨 텍스트는 _contentSelectable 내부 _labelText 가 없으면 무시되고, 화면 본문은 _contentText 가 담당)
         if (_contentSelectable != null)
-            _contentSelectable.Bind("규정", item.attr ?? string.Empty, string.Empty, item.title, item.title);
+            _contentSelectable.Bind("규정", item.attr ?? string.Empty, string.Empty, item.title, item.title, null, item.coveredAttrs);
 
         if (_ruleRows != null && index < _ruleRows.Length)
         {

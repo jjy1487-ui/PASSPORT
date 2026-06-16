@@ -1369,8 +1369,8 @@
    "nameEn": "OH MANSEOK",
    "nationality": "대한민국(KOR)",
    "gender": "남성",
-   "birthDate": "1975-02-11",
-   "age": 51,
+   "birthDate": "1988-02-11",
+   "age": 38,
    "spriteRef": "오만석",
    "characterType": "진상 고객",
    "defectVariant": "",
@@ -1400,7 +1400,7 @@
       },
       {
        "label": "생년월일",
-       "value": "1975-02-11",
+       "value": "1988-02-11",
        "key": "birth_date"
       },
       {

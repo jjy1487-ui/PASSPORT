@@ -535,7 +535,7 @@
        "key": "visa_no"
       },
       {
-       "label": "비자 종류",
+       "label": "방문 목적",
        "value": "장기 체류",
        "key": "visa_type"
       },
@@ -801,7 +801,7 @@
        "key": "visa_no"
       },
       {
-       "label": "비자 종류",
+       "label": "방문 목적",
        "value": "장기체류",
        "key": "visa_type"
       },
@@ -1196,7 +1196,7 @@
        "key": "visa_no"
       },
       {
-       "label": "비자 종류",
+       "label": "방문 목적",
        "value": "관광",
        "key": "visa_type"
       },
@@ -1688,9 +1688,10 @@
   {
    "ruleId": 9,
    "title": "재직증명서",
-   "content": "취업 목적 입국자는 재직증명서를 제출해야 한다. 증빙번호·고용 회사·직종·입사일·발급일은 다른 서류와 일치해야 하며, 항목이 누락되거나 위조 흔적이 있으면 입국을 거부한다.",
+   "content": "취업 목적 입국자는 재직증명서를 제출하여야 한다. 다음을 확인한다.\n　1. 증빙번호·고용 회사·직종·입사일·발급일 = 타 서류와 일치\n　2. 항목 누락·위조 흔적 없음\n※ 누락·위조 시 입국 불허.",
    "relatedField": "",
-   "attr": ""
+   "attr": "",
+   "coveredAttrs": "cert_no,company_name,job_title,hire_date,issue_date"
   }
  ],
  "news": [

@@ -1,2010 +1,2011 @@
 {
-  "day": 5,
-  "customers": [
+ "day": 5,
+ "customers": [
+  {
+   "customerId": 47,
+   "slot": 1,
+   "nameKr": "조지호",
+   "nameEn": "JO JIHO",
+   "nationality": "대한민국(KOR)",
+   "gender": "남성",
+   "birthDate": "1975-02-11",
+   "age": 51,
+   "spriteRef": "오만석",
+   "characterType": "진상 고객",
+   "defectVariant": "",
+   "correctResult": "정상 승인",
+   "documents": [
     {
-      "customerId": 47,
-      "slot": 1,
-      "nameKr": "조지호",
-      "nameEn": "JO JIHO",
-      "nationality": "대한민국(KOR)",
-      "gender": "남성",
-      "birthDate": "1975-02-11",
-      "age": 51,
-      "spriteRef": "오만석",
-      "characterType": "진상 고객",
-      "defectVariant": "",
-      "correctResult": "정상 승인",
-      "documents": [
-        {
-          "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "오만석",
-          "country": "KOR",
-          "fields": [
-            {
-              "label": "여권번호",
-              "value": "KO1031276",
-              "key": "passport_no"
-            },
-            {
-              "label": "영문이름",
-              "value": "JO JIHO",
-              "key": "name"
-            },
-            {
-              "label": "성별",
-              "value": "남성",
-              "key": "gender"
-            },
-            {
-              "label": "생년월일",
-              "value": "1975-02-11",
-              "key": "birth_date"
-            },
-            {
-              "label": "국적",
-              "value": "KOR",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2017-03-14",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2027-03-14",
-              "key": "expiry_date"
-            }
-          ]
-        },
-        {
-          "documentType": "PCR검사서",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "이름",
-              "value": "JO JIHO",
-              "key": "name"
-            },
-            {
-              "label": "국적",
-              "value": "KOR",
-              "key": "nationality"
-            },
-            {
-              "label": "검사 번호",
-              "value": "PCR-028",
-              "key": "test_no"
-            },
-            {
-              "label": "검사일",
-              "value": "2026-05-30",
-              "key": "issue_date"
-            },
-            {
-              "label": "검사 결과",
-              "value": "Negative",
-              "key": "pcr_result"
-            },
-            {
-              "label": "유효 기한",
-              "value": "2026-06-20",
-              "key": "valid_until"
-            },
-            {
-              "label": "검사 기관",
-              "value": "질병관리청진단검사센터",
-              "key": "lab_name"
-            },
-            {
-              "label": "비고",
-              "value": "정상 PCR(음성)",
-              "key": "memo"
-            }
-          ]
-        }
-      ],
-      "dialogueCases": [
-        {
-          "caseType": "입장",
-          "gameResult": "-",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "조지호",
-              "text": "건강 이상자 때문에 심사 강화됐다는 거 알겠는데, 저는 멀쩡하다고요. 어서 처리해줘요."
-            },
-            {
-              "order": 2,
-              "speaker": "심사관",
-              "text": "오늘부터 방역 절차가 시행됩니다. 여권과 PCR 검사서를 함께 보여주세요."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 승인",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
-            },
-            {
-              "order": 2,
-              "speaker": "조지호",
-              "text": "이제 가겠어요."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "조지호",
-              "text": "이건 정말 아니에요!"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 허가",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
-            },
-            {
-              "order": 2,
-              "speaker": "조지호",
-              "text": "이제 가겠어요."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "조지호",
-              "text": "이건 정말 아니에요!"
-            }
-          ]
-        }
-      ],
-      "rejectAdvancedBranchKey": "",
-      "rejectGuidedCaseType": "",
-      "xray": null,
-      "fingerprint": null,
-      "validChance": 0.75,
-      "altVariant": {
-        "correctResult": "정상 거절",
-        "defectVariant": "PCR 미제출",
-        "rejectAdvancedBranchKey": "",
-        "rejectGuidedCaseType": "",
-        "documents": [
-          {
-            "documentType": "여권",
-            "variant": "정상",
-            "violationField": "없음",
-            "spriteRef": "오만석",
-            "country": "KOR",
-            "fields": [
-              {
-                "label": "여권번호",
-                "value": "KO1031276",
-                "key": "passport_no"
-              },
-              {
-                "label": "영문이름",
-                "value": "JO JIHO",
-                "key": "name"
-              },
-              {
-                "label": "성별",
-                "value": "남성",
-                "key": "gender"
-              },
-              {
-                "label": "생년월일",
-                "value": "1975-02-11",
-                "key": "birth_date"
-              },
-              {
-                "label": "국적",
-                "value": "KOR",
-                "key": "nationality"
-              },
-              {
-                "label": "발급일",
-                "value": "2017-03-14",
-                "key": "issue_date"
-              },
-              {
-                "label": "만료일",
-                "value": "2027-03-14",
-                "key": "expiry_date"
-              }
-            ]
-          }
-        ],
-        "dialogueCases": [
-          {
-            "caseType": "입장",
-            "gameResult": "-",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "조지호",
-                "text": "여기 여권이요. 빨리 좀 부탁해요."
-              },
-              {
-                "order": 2,
-                "speaker": "심사관",
-                "text": "오늘부터 방역 절차가 시행됩니다. 여권과 PCR 검사서를 함께 보여주세요."
-              },
-              {
-                "order": 3,
-                "speaker": "조지호",
-                "text": "어? PCR요? 그건 안 가져왔는데요.",
-                "claim": {
-                  "attr": "pcr_result",
-                  "value": "미제출",
-                  "label": "PCR 미제출(진술)",
-                  "unlocksScan": ""
-                }
-              },
-              {
-                "order": 4,
-                "speaker": "심사관",
-                "text": "검역 대상이신데 PCR 검사서를 안 내셨네요?"
-              },
-              {
-                "order": 5,
-                "speaker": "조지호",
-                "text": "그게 꼭 필요해요? 저 멀쩡한데."
-              },
-              {
-                "order": 6,
-                "speaker": "심사관",
-                "text": "방역 대상 입국자는 PCR 검사서가 반드시 있어야 합니다."
-              }
-            ]
-          },
-          {
-            "caseType": "일반 심사",
-            "gameResult": "정상 승인",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "심사관",
-                "text": "즐거운 여행 되십시오."
-              },
-              {
-                "order": 2,
-                "speaker": "조지호",
-                "text": "됐어요, 고마워요."
-              }
-            ]
-          },
-          {
-            "caseType": "일반 심사",
-            "gameResult": "정상 거절",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "심사관",
-                "text": "방역 대상 입국자가 PCR 검사서를 제출하지 않아 입국하실 수 없습니다."
-              },
-              {
-                "order": 2,
-                "speaker": "조지호",
-                "text": "아니 그걸 꼭 가져와야 돼요? 난 멀쩡하다니까!"
-              }
-            ]
-          },
-          {
-            "caseType": "일반 심사",
-            "gameResult": "잘못 허가",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "심사관",
-                "text": "즐거운 여행 되십시오."
-              },
-              {
-                "order": 2,
-                "speaker": "조지호",
-                "text": "됐어요."
-              }
-            ]
-          },
-          {
-            "caseType": "일반 심사",
-            "gameResult": "잘못 거절",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "심사관",
-                "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-              },
-              {
-                "order": 2,
-                "speaker": "조지호",
-                "text": "진짜 됐어요."
-              }
-            ]
-          }
-        ],
-        "xray": null,
-        "fingerprint": null,
-        "crossCheckLines": []
+     "documentType": "여권",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "오만석",
+     "country": "KOR",
+     "fields": [
+      {
+       "label": "여권번호",
+       "value": "KO1031276",
+       "key": "passport_no"
+      },
+      {
+       "label": "영문이름",
+       "value": "JO JIHO",
+       "key": "name"
+      },
+      {
+       "label": "성별",
+       "value": "남성",
+       "key": "gender"
+      },
+      {
+       "label": "생년월일",
+       "value": "1975-02-11",
+       "key": "birth_date"
+      },
+      {
+       "label": "국적",
+       "value": "KOR",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2017-03-14",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2027-03-14",
+       "key": "expiry_date"
       }
+     ]
     },
     {
-      "customerId": 24,
-      "slot": 2,
-      "nameKr": "임도현",
-      "nameEn": "IM DOHYUN",
-      "nationality": "대한민국(KOR)",
-      "gender": "남성",
-      "birthDate": "1986-08-17",
-      "age": 39,
-      "spriteRef": "임도현",
-      "characterType": "일반 고객",
-      "defectVariant": "",
-      "correctResult": "정상 승인",
-      "documents": [
-        {
-          "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "임도현",
-          "country": "KOR",
-          "fields": [
-            {
-              "label": "여권번호",
-              "value": "KO1026808",
-              "key": "passport_no"
-            },
-            {
-              "label": "영문이름",
-              "value": "IM DOHYUN",
-              "key": "name"
-            },
-            {
-              "label": "성별",
-              "value": "남성",
-              "key": "gender"
-            },
-            {
-              "label": "생년월일",
-              "value": "1986-08-17",
-              "key": "birth_date"
-            },
-            {
-              "label": "국적",
-              "value": "KOR",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2023-03-14",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2028-03-14",
-              "key": "expiry_date"
-            }
-          ]
-        },
-        {
-          "documentType": "PCR검사서",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "이름",
-              "value": "IM DOHYUN",
-              "key": "name"
-            },
-            {
-              "label": "국적",
-              "value": "KOR",
-              "key": "nationality"
-            },
-            {
-              "label": "검사 번호",
-              "value": "PCR-024",
-              "key": "test_no"
-            },
-            {
-              "label": "검사일",
-              "value": "2026-05-30",
-              "key": "issue_date"
-            },
-            {
-              "label": "검사 결과",
-              "value": "Negative",
-              "key": "pcr_result"
-            },
-            {
-              "label": "유효 기한",
-              "value": "2026-06-26",
-              "key": "valid_until"
-            },
-            {
-              "label": "검사 기관",
-              "value": "인천공항검역소",
-              "key": "lab_name"
-            },
-            {
-              "label": "비고",
-              "value": "정상 PCR(음성)",
-              "key": "memo"
-            }
-          ]
-        }
-      ],
-      "dialogueCases": [
-        {
-          "caseType": "입장",
-          "gameResult": "-",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "임도현",
-              "text": "안녕하세요. 방역 강화됐다고 들어서 PCR 검사서도 챙겨왔어요."
-            },
-            {
-              "speaker": "심사관",
-              "text": "방역 절차에 따라 PCR 검사서를 확인하겠습니다. 제출해 주세요.",
-              "claim": null,
-              "order": 2
-            },
-            {
-              "order": 3,
-              "speaker": "임도현",
-              "text": "여권 확인 부탁드립니다."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 승인",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
-            },
-            {
-              "order": 2,
-              "speaker": "임도현",
-              "text": "감사합니다~ 즐거운 하루 되세요!"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "임도현",
-              "text": "정말 이상하네요. 제가 확인했거든요."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 허가",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
-            },
-            {
-              "order": 2,
-              "speaker": "임도현",
-              "text": "감사합니다~ 즐거운 하루 되세요!"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "임도현",
-              "text": "정말 이상하네요. 제가 확인했거든요."
-            }
-          ]
-        }
-      ],
-      "rejectAdvancedBranchKey": "",
-      "rejectGuidedCaseType": "",
-      "xray": null,
-      "fingerprint": null
+     "documentType": "PCR검사서",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "",
+     "country": "",
+     "fields": [
+      {
+       "label": "이름",
+       "value": "JO JIHO",
+       "key": "name"
+      },
+      {
+       "label": "국적",
+       "value": "KOR",
+       "key": "nationality"
+      },
+      {
+       "label": "검사 번호",
+       "value": "PCR-028",
+       "key": "test_no"
+      },
+      {
+       "label": "검사일",
+       "value": "2026-05-30",
+       "key": "issue_date"
+      },
+      {
+       "label": "검사 결과",
+       "value": "Negative",
+       "key": "pcr_result"
+      },
+      {
+       "label": "유효 기한",
+       "value": "2026-06-20",
+       "key": "valid_until"
+      },
+      {
+       "label": "검사 기관",
+       "value": "질병관리청진단검사센터",
+       "key": "lab_name"
+      },
+      {
+       "label": "비고",
+       "value": "정상 PCR(음성)",
+       "key": "memo"
+      }
+     ]
+    }
+   ],
+   "dialogueCases": [
+    {
+     "caseType": "입장",
+     "gameResult": "-",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "조지호",
+       "text": "건강 이상자 때문에 심사 강화됐다는 거 알겠는데, 저는 멀쩡하다고요. 어서 처리해줘요."
+      },
+      {
+       "order": 2,
+       "speaker": "심사관",
+       "text": "오늘부터 방역 절차가 시행됩니다. 여권과 PCR 검사서를 함께 보여주세요."
+      }
+     ]
     },
     {
-      "customerId": 13,
-      "slot": 3,
-      "nameKr": "로버트 존슨",
-      "nameEn": "ROBERT JOHNSON",
-      "nationality": "미국(USA)",
-      "gender": "남성",
-      "birthDate": "1989-09-03",
-      "age": 36,
-      "spriteRef": "로버트 존슨",
-      "characterType": "전염병 환자",
-      "defectVariant": "1-C 백신X",
-      "correctResult": "정상 거절",
-      "documents": [
-        {
-          "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "로버트 존슨",
-          "country": "USA",
-          "fields": [
-            {
-              "label": "여권번호",
-              "value": "US1014521",
-              "key": "passport_no"
-            },
-            {
-              "label": "영문이름",
-              "value": "JOHNSON ROBERT",
-              "key": "name"
-            },
-            {
-              "label": "성별",
-              "value": "남성",
-              "key": "gender"
-            },
-            {
-              "label": "생년월일",
-              "value": "1989-09-03",
-              "key": "birth_date"
-            },
-            {
-              "label": "국적",
-              "value": "USA",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2023-11-28",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2028-11-28",
-              "key": "expiry_date"
-            }
-          ]
-        },
-        {
-          "documentType": "비자",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "영문이름",
-              "value": "JOHNSON ROBERT",
-              "key": "name"
-            },
-            {
-              "label": "여권번호",
-              "value": "US1014521",
-              "key": "passport_no"
-            },
-            {
-              "label": "비자 번호",
-              "value": "V-USA-1529",
-              "key": "visa_no"
-            },
-            {
-              "label": "비자 종류",
-              "value": "관광",
-              "key": "visa_type"
-            },
-            {
-              "label": "국적",
-              "value": "USA",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2025-12-03",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2027-12-03",
-              "key": "expiry_date"
-            },
-            {
-              "label": "입국 횟수",
-              "value": "단수",
-              "key": "entry_type"
-            },
-            {
-              "label": "비고",
-              "value": "외국인 정상 비자",
-              "key": "memo"
-            }
-          ]
-        },
-        {
-          "documentType": "PCR검사서",
-          "variant": "비정상",
-          "violationField": "검사 결과",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "이름",
-              "value": "JOHNSON ROBERT",
-              "key": "name"
-            },
-            {
-              "label": "국적",
-              "value": "USA",
-              "key": "nationality"
-            },
-            {
-              "label": "검사 번호",
-              "value": "PCR-013",
-              "key": "test_no"
-            },
-            {
-              "label": "검사일",
-              "value": "2026-05-20",
-              "key": "issue_date"
-            },
-            {
-              "label": "검사 결과",
-              "value": "Positive",
-              "key": "pcr_result"
-            },
-            {
-              "label": "유효 기한",
-              "value": "2026-06-17",
-              "key": "valid_until"
-            },
-            {
-              "label": "검사 기관",
-              "value": "인천공항검역소",
-              "key": "lab_name"
-            },
-            {
-              "label": "비고",
-              "value": "정상 PCR(음성)",
-              "key": "memo"
-            }
-          ]
-        }
-      ],
-      "dialogueCases": [
-        {
-          "caseType": "입장",
-          "gameResult": "-",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "로버트 존슨",
-              "text": "Hello, I heard there were some health concerns at the airport recently. I'm perfectly fine, here's my passport."
-            },
-            {
-              "order": 2,
-              "speaker": "심사관",
-              "text": "PCR 검사서도 함께 보여주시겠어요?"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 승인",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
-            },
-            {
-              "order": 2,
-              "speaker": "로버트 존슨",
-              "text": "Thank you. I really need to rest. (감사합니다. 빨리 쉬어야 해서요.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "PCR 검사 결과가 기준에 맞지 않아 입국하실 수 없습니다.",
-              "claim": {
-                "attr": "pcr_result",
-                "value": "양성",
-                "label": "PCR 검사결과",
-                "unlocksScan": ""
-              }
-            },
-            {
-              "order": 2,
-              "speaker": "로버트 존슨",
-              "text": "Oh, I see. Thank you for letting me know."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 허가",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
-            },
-            {
-              "order": 2,
-              "speaker": "로버트 존슨",
-              "text": "Thank you! Have a great day!"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "로버트 존슨",
-              "text": "Oh, I see. Thank you for letting me know. (아, 그렇군요. 알려주셔서 감사해요.)"
-            }
-          ]
-        }
-      ],
-      "rejectAdvancedBranchKey": "",
-      "rejectGuidedCaseType": "",
-      "xray": null,
-      "fingerprint": null,
-      "crossCheckLines": [
-        {
-          "attr": "pcr_result",
-          "inspector": "PCR 결과가… 양성으로 나오네요. 이거 확인 좀 할게요. 양성 판정 시에는 입국이 거부됩니다.",
-          "customer": "What? That should be fine…(네? 문제 없을 텐데요…)",
-          "unlocksScan": ""
-        }
+     "caseType": "일반 심사",
+     "gameResult": "정상 승인",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "즐거운 여행 되십시오."
+      },
+      {
+       "order": 2,
+       "speaker": "조지호",
+       "text": "이제 가겠어요."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "서류 오류가 확인되어 입국하실 수 없습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "조지호",
+       "text": "이건 정말 아니에요!"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 허가",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "즐거운 여행 되십시오."
+      },
+      {
+       "order": 2,
+       "speaker": "조지호",
+       "text": "이제 가겠어요."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "조지호",
+       "text": "이건 정말 아니에요!"
+      }
+     ]
+    }
+   ],
+   "rejectAdvancedBranchKey": "",
+   "rejectGuidedCaseType": "",
+   "xray": null,
+   "fingerprint": null,
+   "validChance": 0.75,
+   "altVariant": {
+    "correctResult": "정상 거절",
+    "defectVariant": "PCR 미제출",
+    "rejectAdvancedBranchKey": "",
+    "rejectGuidedCaseType": "",
+    "documents": [
+     {
+      "documentType": "여권",
+      "variant": "정상",
+      "violationField": "없음",
+      "spriteRef": "오만석",
+      "country": "KOR",
+      "fields": [
+       {
+        "label": "여권번호",
+        "value": "KO1031276",
+        "key": "passport_no"
+       },
+       {
+        "label": "영문이름",
+        "value": "JO JIHO",
+        "key": "name"
+       },
+       {
+        "label": "성별",
+        "value": "남성",
+        "key": "gender"
+       },
+       {
+        "label": "생년월일",
+        "value": "1975-02-11",
+        "key": "birth_date"
+       },
+       {
+        "label": "국적",
+        "value": "KOR",
+        "key": "nationality"
+       },
+       {
+        "label": "발급일",
+        "value": "2017-03-14",
+        "key": "issue_date"
+       },
+       {
+        "label": "만료일",
+        "value": "2027-03-14",
+        "key": "expiry_date"
+       }
       ]
-    },
-    {
-      "customerId": 48,
-      "slot": 4,
-      "nameKr": "윤건우",
-      "nameEn": "YOON GEONWOO",
-      "nationality": "대한민국(KOR)",
-      "gender": "여성",
-      "birthDate": "1996-04-12",
-      "age": 30,
-      "spriteRef": "정유나",
-      "characterType": "성형 수술 고객",
-      "defectVariant": "",
-      "correctResult": "정상 승인",
-      "documents": [
-        {
-          "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "정유나(원본)",
-          "country": "KOR",
-          "fields": [
-            {
-              "label": "여권번호",
-              "value": "KO1013404",
-              "key": "passport_no"
-            },
-            {
-              "label": "영문이름",
-              "value": "YOON GEONWOO",
-              "key": "name"
-            },
-            {
-              "label": "성별",
-              "value": "여성",
-              "key": "gender"
-            },
-            {
-              "label": "생년월일",
-              "value": "1996-04-12",
-              "key": "birth_date"
-            },
-            {
-              "label": "국적",
-              "value": "KOR",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2023-07-14",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2033-07-14",
-              "key": "expiry_date"
-            }
-          ]
-        },
-        {
-          "documentType": "PCR검사서",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "이름",
-              "value": "YOON GEONWOO",
-              "key": "name"
-            },
-            {
-              "label": "국적",
-              "value": "KOR",
-              "key": "nationality"
-            },
-            {
-              "label": "검사 번호",
-              "value": "PCR-012",
-              "key": "test_no"
-            },
-            {
-              "label": "검사일",
-              "value": "2026-05-28",
-              "key": "issue_date"
-            },
-            {
-              "label": "검사 결과",
-              "value": "Negative",
-              "key": "pcr_result"
-            },
-            {
-              "label": "유효 기한",
-              "value": "2026-06-18",
-              "key": "valid_until"
-            },
-            {
-              "label": "검사 기관",
-              "value": "국립검역소",
-              "key": "lab_name"
-            },
-            {
-              "label": "비고",
-              "value": "정상 PCR(음성)",
-              "key": "memo"
-            }
-          ]
-        }
-      ],
-      "dialogueCases": [
-        {
-          "caseType": "입장",
-          "gameResult": "-",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "윤건우",
-              "text": "안녕하세요. 성형해서 인상이 좀 바뀌었어요. 본인 맞아요."
-            },
-            {
-              "order": 2,
-              "speaker": "심사관",
-              "text": "방역 기간입니다. PCR 검사서도 함께 보여주세요."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 승인",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "본인 맞으시네요. 즐거운 여행 되세요."
-            },
-            {
-              "order": 2,
-              "speaker": "윤건우",
-              "text": "감사합니다!"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
-            },
-            {
-              "order": 2,
-              "speaker": "윤건우",
-              "text": "잠깐만요, 저 맞는데요! 지문 다시 확인해 주세요!"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 허가",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
-            },
-            {
-              "order": 2,
-              "speaker": "윤건우",
-              "text": "감사합니다! 수술 잘 됐다고 해주세요, 하하."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "윤건우",
-              "text": "본인 맞는데요? 지문도 확인하셨잖아요."
-            }
-          ]
-        }
-      ],
-      "rejectAdvancedBranchKey": "",
-      "rejectGuidedCaseType": "",
-      "xray": null,
-      "fingerprint": {
-        "type": "fingerprint",
-        "result": "일치",
-        "detail": "본인 일치",
-        "extra": "YOON GEONWOO",
+     }
+    ],
+    "dialogueCases": [
+     {
+      "caseType": "입장",
+      "gameResult": "-",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "조지호",
+        "text": "여기 여권이요. 빨리 좀 부탁해요."
+       },
+       {
+        "order": 2,
+        "speaker": "심사관",
+        "text": "오늘부터 방역 절차가 시행됩니다. 여권과 PCR 검사서를 함께 보여주세요."
+       },
+       {
+        "order": 3,
+        "speaker": "조지호",
+        "text": "어? PCR요? 그건 안 가져왔는데요.",
         "claim": {
-          "attr": "name",
-          "value": "YOON GEONWOO",
-          "label": "지문 대조 신원",
-          "unlocksScan": ""
-        },
-        "record": {
-          "mode": "성형",
-          "dbName": "YOON GEONWOO",
-          "dbBirth": "1996-04-12",
-          "dbNationality": "KOR",
-          "criminalRecord": "없음",
-          "wantedNo": ""
+         "attr": "pcr_result",
+         "value": "미제출",
+         "label": "PCR 미제출(진술)",
+         "unlocksScan": ""
         }
-      },
-      "validChance": 0.7,
-      "altVariant": {
-        "correctResult": "정상 거절",
-        "defectVariant": "",
-        "rejectAdvancedBranchKey": "",
-        "rejectGuidedCaseType": "",
-        "documents": [
-          {
-            "documentType": "여권",
-            "variant": "정상",
-            "violationField": "없음",
-            "spriteRef": "정유나(원본)",
-            "country": "KOR",
-            "fields": [
-              {
-                "label": "여권번호",
-                "value": "KO1013404",
-                "key": "passport_no"
-              },
-              {
-                "label": "영문이름",
-                "value": "YOON GEONWOO",
-                "key": "name"
-              },
-              {
-                "label": "성별",
-                "value": "여성",
-                "key": "gender"
-              },
-              {
-                "label": "생년월일",
-                "value": "1996-04-12",
-                "key": "birth_date"
-              },
-              {
-                "label": "국적",
-                "value": "KOR",
-                "key": "nationality"
-              },
-              {
-                "label": "발급일",
-                "value": "2023-07-14",
-                "key": "issue_date"
-              },
-              {
-                "label": "만료일",
-                "value": "2033-07-14",
-                "key": "expiry_date"
-              }
-            ]
-          },
-          {
-            "documentType": "PCR검사서",
-            "variant": "정상",
-            "violationField": "없음",
-            "spriteRef": "",
-            "country": "",
-            "fields": [
-              {
-                "label": "이름",
-                "value": "YOON GEONWOO",
-                "key": "name"
-              },
-              {
-                "label": "국적",
-                "value": "KOR",
-                "key": "nationality"
-              },
-              {
-                "label": "검사 번호",
-                "value": "PCR-012",
-                "key": "test_no"
-              },
-              {
-                "label": "검사일",
-                "value": "2026-05-28",
-                "key": "issue_date"
-              },
-              {
-                "label": "검사 결과",
-                "value": "Negative",
-                "key": "pcr_result"
-              },
-              {
-                "label": "유효 기한",
-                "value": "2026-06-18",
-                "key": "valid_until"
-              },
-              {
-                "label": "검사 기관",
-                "value": "삼성서울병원진단검사의학과",
-                "key": "lab_name"
-              },
-              {
-                "label": "비고",
-                "value": "정상 PCR(음성)",
-                "key": "memo"
-              }
-            ]
-          }
-        ],
-        "dialogueCases": [
-          {
-            "caseType": "입장",
-            "gameResult": "-",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "윤건우",
-                "text": "안녕하세요. 사진이랑 좀 달라 보이죠? 얼마 전에 성형을 했어요."
-              },
-              {
-                "order": 2,
-                "speaker": "심사관",
-                "text": "방역 기간입니다. PCR 검사서도 함께 보여주세요."
-              }
-            ]
-          },
-          {
-            "caseType": "일반 심사",
-            "gameResult": "정상 승인",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "심사관",
-                "text": "즐거운 여행 되십시오."
-              },
-              {
-                "order": 2,
-                "speaker": "윤건우",
-                "text": "감사해요. 빨리 나가야 해서요."
-              }
-            ]
-          },
-          {
-            "caseType": "일반 심사",
-            "gameResult": "정상 거절",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "심사관",
-                "text": "지문 신원이 여권 이름과 일치하지 않습니다. 입국하실 수 없습니다.",
-                "claim": {
-                  "attr": "name",
-                  "value": "KANG MINHO",
-                  "label": "지문 대조 신원",
-                  "unlocksScan": ""
-                }
-              },
-              {
-                "order": 2,
-                "speaker": "윤건우",
-                "text": "…죄송합니다."
-              }
-            ]
-          },
-          {
-            "caseType": "일반 심사",
-            "gameResult": "잘못 허가",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "심사관",
-                "text": "즐거운 여행 되십시오."
-              },
-              {
-                "order": 2,
-                "speaker": "윤건우",
-                "text": "가, 감사합니다. (서둘러 지나간다)"
-              }
-            ]
-          },
-          {
-            "caseType": "일반 심사",
-            "gameResult": "잘못 거절",
-            "rejectCount": 0,
-            "lines": [
-              {
-                "order": 1,
-                "speaker": "심사관",
-                "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-              },
-              {
-                "order": 2,
-                "speaker": "윤건우",
-                "text": "알겠어요. 다시 확인하고 올게요."
-              }
-            ]
-          }
-        ],
-        "xray": null,
-        "fingerprint": {
-          "type": "fingerprint",
-          "result": "불일치",
-          "detail": "이름 불일치",
-          "extra": "KANG MINHO",
-          "claim": {
-            "attr": "name",
-            "value": "KANG MINHO",
-            "label": "지문 대조 신원",
-            "unlocksScan": ""
-          },
-          "record": {
-            "mode": "성형",
-            "dbName": "KANG MINHO",
-            "dbBirth": "1996-04-12",
-            "dbNationality": "KOR",
-            "criminalRecord": "없음",
-            "wantedNo": ""
-          }
-        },
-        "crossCheckLines": [
-          {
-            "attr": "face",
-            "inspector": "사진이랑 인상이 좀 다르시네요. 지문 한번 찍어볼게요. 손 올려주시겠어요?",
-            "customer": "(잠시 망설인다) …네.",
-            "unlocksScan": ""
-          },
-          {
-            "attr": "name",
-            "inspector": "지문 조회 결과… 신원이 'KANG MINHO'(으)로 나오는데요. 여권 이름 'YOON GEONWOO'과(와) 일치하지 않습니다. 지문은 성형으로도 바뀌지 않습니다.",
-            "customer": "어… 그건 시스템 오류 아닐까요? …(말을 잇지 못한다)",
-            "unlocksScan": ""
-          }
-        ]
-      },
-      "crossCheckLines": [
-        {
-          "attr": "face",
-          "inspector": "사진이랑 인상이 좀 다르시네요. 지문 한번 찍어볼게요. 손 올려주시겠어요?",
-          "customer": "네, 여기요. (손을 올린다)",
-          "unlocksScan": ""
-        }
+       },
+       {
+        "order": 4,
+        "speaker": "심사관",
+        "text": "PCR 검사서는 꼭 필요합니다."
+       },
+       {
+        "order": 5,
+        "speaker": "조지호",
+        "text": "그게 꼭 필요해요? 저 멀쩡한데."
+       },
+       {
+        "order": 6,
+        "speaker": "심사관",
+        "text": "방역 대상 입국자는 PCR 검사서가 반드시 있어야 합니다."
+       }
       ]
-    },
-    {
-      "customerId": 49,
-      "slot": 5,
-      "nameKr": "장우진",
-      "nameEn": "JANG WOOJIN",
-      "nationality": "대한민국(KOR)",
-      "gender": "남성",
-      "birthDate": "1986-08-17",
-      "age": 39,
-      "spriteRef": "박지훈",
-      "characterType": "일반 고객",
-      "defectVariant": "",
-      "correctResult": "정상 승인",
-      "documents": [
-        {
-          "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "박지훈",
-          "country": "KOR",
-          "fields": [
-            {
-              "label": "여권번호",
-              "value": "KO1026808",
-              "key": "passport_no"
-            },
-            {
-              "label": "영문이름",
-              "value": "JANG WOOJIN",
-              "key": "name"
-            },
-            {
-              "label": "성별",
-              "value": "남성",
-              "key": "gender"
-            },
-            {
-              "label": "생년월일",
-              "value": "1986-08-17",
-              "key": "birth_date"
-            },
-            {
-              "label": "국적",
-              "value": "KOR",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2023-03-14",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2028-03-14",
-              "key": "expiry_date"
-            }
-          ]
-        },
-        {
-          "documentType": "PCR검사서",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "이름",
-              "value": "JANG WOOJIN",
-              "key": "name"
-            },
-            {
-              "label": "국적",
-              "value": "KOR",
-              "key": "nationality"
-            },
-            {
-              "label": "검사 번호",
-              "value": "PCR-024",
-              "key": "test_no"
-            },
-            {
-              "label": "검사일",
-              "value": "2026-05-26",
-              "key": "issue_date"
-            },
-            {
-              "label": "검사 결과",
-              "value": "Negative",
-              "key": "pcr_result"
-            },
-            {
-              "label": "유효 기한",
-              "value": "2026-06-16",
-              "key": "valid_until"
-            },
-            {
-              "label": "검사 기관",
-              "value": "인천공항검역소",
-              "key": "lab_name"
-            },
-            {
-              "label": "비고",
-              "value": "정상 PCR(음성)",
-              "key": "memo"
-            }
-          ]
-        }
-      ],
-      "dialogueCases": [
-        {
-          "caseType": "입장",
-          "gameResult": "-",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "장우진",
-              "text": "안녕하세요. (여권 내밀며)"
-            },
-            {
-              "speaker": "심사관",
-              "text": "방역 절차에 따라 PCR 검사서를 확인하겠습니다. 제출해 주세요.",
-              "claim": null,
-              "order": 2
-            },
-            {
-              "order": 3,
-              "speaker": "장우진",
-              "text": "여권 확인 부탁드립니다."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 승인",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
-            },
-            {
-              "order": 2,
-              "speaker": "장우진",
-              "text": "감사합니다~ 즐거운 하루 되세요!"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "장우진",
-              "text": "정말 이상하네요. 제가 확인했거든요."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 허가",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
-            },
-            {
-              "order": 2,
-              "speaker": "장우진",
-              "text": "감사합니다~ 즐거운 하루 되세요!"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "장우진",
-              "text": "정말 이상하네요. 제가 확인했거든요."
-            }
-          ]
-        }
-      ],
-      "rejectAdvancedBranchKey": "",
-      "rejectGuidedCaseType": "",
-      "xray": null,
-      "fingerprint": null
-    },
-    {
-      "customerId": 14,
-      "slot": 6,
-      "nameKr": "리 나",
-      "nameEn": "LI NA",
-      "nationality": "중국(CHN)",
-      "gender": "여성",
-      "birthDate": "1993-07-19",
-      "age": 32,
-      "spriteRef": "리 나",
-      "characterType": "전염병 환자",
-      "defectVariant": "1-D 모두 미비",
-      "correctResult": "정상 거절",
-      "documents": [
-        {
-          "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "리 나",
-          "country": "CHN",
-          "fields": [
-            {
-              "label": "여권번호",
-              "value": "CN1015638",
-              "key": "passport_no"
-            },
-            {
-              "label": "영문이름",
-              "value": "NA LI",
-              "key": "name"
-            },
-            {
-              "label": "성별",
-              "value": "여성",
-              "key": "gender"
-            },
-            {
-              "label": "생년월일",
-              "value": "1993-07-19",
-              "key": "birth_date"
-            },
-            {
-              "label": "국적",
-              "value": "CHN",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2023-03-14",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2033-03-14",
-              "key": "expiry_date"
-            }
-          ]
-        },
-        {
-          "documentType": "비자",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "영문이름",
-              "value": "NA LI",
-              "key": "name"
-            },
-            {
-              "label": "여권번호",
-              "value": "CN1015638",
-              "key": "passport_no"
-            },
-            {
-              "label": "비자 번호",
-              "value": "V-CHN-2082",
-              "key": "visa_no"
-            },
-            {
-              "label": "비자 종류",
-              "value": "관광",
-              "key": "visa_type"
-            },
-            {
-              "label": "국적",
-              "value": "CHN",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2024-09-17",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2026-09-17",
-              "key": "expiry_date"
-            },
-            {
-              "label": "입국 횟수",
-              "value": "단수",
-              "key": "entry_type"
-            },
-            {
-              "label": "비고",
-              "value": "외국인 정상 비자",
-              "key": "memo"
-            }
-          ]
-        },
-        {
-          "documentType": "PCR검사서",
-          "variant": "비정상",
-          "violationField": "검사일",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "이름",
-              "value": "NA LI",
-              "key": "name"
-            },
-            {
-              "label": "국적",
-              "value": "CHN",
-              "key": "nationality"
-            },
-            {
-              "label": "검사 번호",
-              "value": "PCR-014",
-              "key": "test_no"
-            },
-            {
-              "label": "검사일",
-              "value": "2026-06-15",
-              "key": "issue_date"
-            },
-            {
-              "label": "검사 결과",
-              "value": "Negative",
-              "key": "pcr_result"
-            },
-            {
-              "label": "유효 기한",
-              "value": "2026-06-19",
-              "key": "valid_until"
-            },
-            {
-              "label": "검사 기관",
-              "value": "질병관리청진단검사센터",
-              "key": "lab_name"
-            },
-            {
-              "label": "비고",
-              "value": "검사일 오류",
-              "key": "memo"
-            }
-          ]
-        }
-      ],
-      "dialogueCases": [
-        {
-          "caseType": "입장",
-          "gameResult": "-",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "리 나",
-              "text": "你好！第一次来韩国。 (안녕하세요! 한국은 처음이에요.)"
-            },
-            {
-              "speaker": "심사관",
-              "text": "PCR 검사서도 함께 보여주시겠어요?",
-              "claim": null,
-              "order": 2
-            },
-            {
-              "order": 3,
-              "speaker": "리 나",
-              "text": "我把检查报告一起给您。 (기침) (여기 검사서랑 같이 드릴게요.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 승인",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
-            },
-            {
-              "order": 2,
-              "speaker": "리 나",
-              "text": "谢谢，我得赶紧走了。 (감사합니다. 빨리 나가야겠어요.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "PCR 검사일이 올바르지 않아 입국하실 수 없습니다.",
-              "claim": {
-                "attr": "issue_date",
-                "value": "",
-                "label": "검사일 오류",
-                "unlocksScan": ""
-              }
-            },
-            {
-              "order": 2,
-              "speaker": "리 나",
-              "text": "哦，真的吗？我不知道，对不起。 (아, 정말요? 몰랐어요, 죄송합니다.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 허가",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
-            },
-            {
-              "order": 2,
-              "speaker": "리 나",
-              "text": "谢谢，我得赶紧走了。 (감사합니다. 빨리 나가야겠어요.)"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "리 나",
-              "text": "哦，真的吗？我不知道，对不起。 (아, 정말요? 몰랐어요, 죄송합니다.)"
-            }
-          ]
-        }
-      ],
-      "rejectAdvancedBranchKey": "",
-      "rejectGuidedCaseType": "",
-      "xray": null,
-      "fingerprint": null,
-      "crossCheckLines": [
-        {
-          "attr": "issue_date",
-          "inspector": "어, 검사일이 6월 15일인데… 오늘보다 나중이네요? 날짜가 이상해요.",
-          "customer": "啊？应该没问题的…(어? 문제 없을 텐데요…)",
-          "unlocksScan": ""
-        }
+     },
+     {
+      "caseType": "일반 심사",
+      "gameResult": "정상 승인",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "심사관",
+        "text": "즐거운 여행 되십시오."
+       },
+       {
+        "order": 2,
+        "speaker": "조지호",
+        "text": "됐어요, 고마워요."
+       }
       ]
+     },
+     {
+      "caseType": "일반 심사",
+      "gameResult": "정상 거절",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "심사관",
+        "text": "방역 대상 입국자가 PCR 검사서를 제출하지 않아 입국하실 수 없습니다."
+       },
+       {
+        "order": 2,
+        "speaker": "조지호",
+        "text": "아니 그걸 꼭 가져와야 돼요? 난 멀쩡하다니까!"
+       }
+      ]
+     },
+     {
+      "caseType": "일반 심사",
+      "gameResult": "잘못 허가",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "심사관",
+        "text": "이번만 봐드리겠습니다. 다음부터는 챙기셔야합니다. 즐거운 여행 되십시오."
+       },
+       {
+        "order": 2,
+        "speaker": "조지호",
+        "text": "됐어요."
+       }
+      ]
+     },
+     {
+      "caseType": "일반 심사",
+      "gameResult": "잘못 거절",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "심사관",
+        "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+       },
+       {
+        "order": 2,
+        "speaker": "조지호",
+        "text": "진짜 됐어요."
+       }
+      ]
+     }
+    ],
+    "xray": null,
+    "fingerprint": null,
+    "crossCheckLines": []
+   }
+  },
+  {
+   "customerId": 24,
+   "slot": 2,
+   "nameKr": "임도현",
+   "nameEn": "IM DOHYUN",
+   "nationality": "대한민국(KOR)",
+   "gender": "남성",
+   "birthDate": "1976-08-17",
+   "age": 49,
+   "spriteRef": "임도현",
+   "characterType": "일반 고객",
+   "defectVariant": "",
+   "correctResult": "정상 승인",
+   "documents": [
+    {
+     "documentType": "여권",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "임도현",
+     "country": "KOR",
+     "fields": [
+      {
+       "label": "여권번호",
+       "value": "KO1026808",
+       "key": "passport_no"
+      },
+      {
+       "label": "영문이름",
+       "value": "IM DOHYUN",
+       "key": "name"
+      },
+      {
+       "label": "성별",
+       "value": "남성",
+       "key": "gender"
+      },
+      {
+       "label": "생년월일",
+       "value": "1976-08-17",
+       "key": "birth_date"
+      },
+      {
+       "label": "국적",
+       "value": "KOR",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2023-03-14",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2028-03-14",
+       "key": "expiry_date"
+      }
+     ]
     },
     {
-      "customerId": 50,
-      "slot": 7,
-      "nameKr": "임선우",
-      "nameEn": "IM SEONWOO",
-      "nationality": "대한민국(KOR)",
-      "gender": "남성",
-      "birthDate": "1985-03-15",
-      "age": 41,
-      "spriteRef": "김민준",
-      "characterType": "일반 고객",
-      "defectVariant": "",
-      "correctResult": "정상 승인",
-      "documents": [
-        {
-          "documentType": "여권",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "김민준",
-          "country": "KOR",
-          "fields": [
-            {
-              "label": "여권번호",
-              "value": "KO1234567",
-              "key": "passport_no"
-            },
-            {
-              "label": "영문이름",
-              "value": "IM SEONWOO",
-              "key": "name"
-            },
-            {
-              "label": "성별",
-              "value": "남성",
-              "key": "gender"
-            },
-            {
-              "label": "생년월일",
-              "value": "1985-03-15",
-              "key": "birth_date"
-            },
-            {
-              "label": "국적",
-              "value": "KOR",
-              "key": "nationality"
-            },
-            {
-              "label": "발급일",
-              "value": "2017-07-28",
-              "key": "issue_date"
-            },
-            {
-              "label": "만료일",
-              "value": "2027-07-28",
-              "key": "expiry_date"
-            }
-          ]
-        },
-        {
-          "documentType": "PCR검사서",
-          "variant": "정상",
-          "violationField": "없음",
-          "spriteRef": "",
-          "country": "",
-          "fields": [
-            {
-              "label": "이름",
-              "value": "IM SEONWOO",
-              "key": "name"
-            },
-            {
-              "label": "국적",
-              "value": "KOR",
-              "key": "nationality"
-            },
-            {
-              "label": "검사 번호",
-              "value": "PCR-001",
-              "key": "test_no"
-            },
-            {
-              "label": "검사일",
-              "value": "2026-05-20",
-              "key": "issue_date"
-            },
-            {
-              "label": "검사 결과",
-              "value": "Negative",
-              "key": "pcr_result"
-            },
-            {
-              "label": "유효 기한",
-              "value": "2026-06-20",
-              "key": "valid_until"
-            },
-            {
-              "label": "검사 기관",
-              "value": "질병관리청진단검사센터",
-              "key": "lab_name"
-            },
-            {
-              "label": "비고",
-              "value": "정상 PCR(음성)",
-              "key": "memo"
-            }
-          ]
-        }
-      ],
-      "dialogueCases": [
-        {
-          "caseType": "입장",
-          "gameResult": "-",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "임선우",
-              "text": "안녕하세요. 공항에서 건강 이상자 있었다고 방송 들었는데, 저는 멀쩡해요. 바로 확인해 주세요."
-            },
-            {
-              "speaker": "심사관",
-              "text": "방역 기간입니다. PCR 검사서도 함께 보여주세요.",
-              "claim": null,
-              "order": 2
-            },
-            {
-              "order": 3,
-              "speaker": "임선우",
-              "text": "여권 확인 부탁드립니다."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 승인",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
-            },
-            {
-              "order": 2,
-              "speaker": "임선우",
-              "text": "고맙습니다. 빠르네요!"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "정상 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "서류 오류가 확인되어 입국하실 수 없습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "임선우",
-              "text": "그럴 리 없는데요. 다시 봐주세요."
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 허가",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "즐거운 여행 되십시오."
-            },
-            {
-              "order": 2,
-              "speaker": "임선우",
-              "text": "고맙습니다. 빠르네요!"
-            }
-          ]
-        },
-        {
-          "caseType": "일반 심사",
-          "gameResult": "잘못 거절",
-          "rejectCount": 0,
-          "lines": [
-            {
-              "order": 1,
-              "speaker": "심사관",
-              "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-            },
-            {
-              "order": 2,
-              "speaker": "임선우",
-              "text": "그럴 리 없는데요. 다시 봐주세요."
-            }
-          ]
-        }
-      ],
-      "rejectAdvancedBranchKey": "",
-      "rejectGuidedCaseType": "",
-      "xray": null,
-      "fingerprint": null
+     "documentType": "PCR검사서",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "",
+     "country": "",
+     "fields": [
+      {
+       "label": "이름",
+       "value": "IM DOHYUN",
+       "key": "name"
+      },
+      {
+       "label": "국적",
+       "value": "KOR",
+       "key": "nationality"
+      },
+      {
+       "label": "검사 번호",
+       "value": "PCR-024",
+       "key": "test_no"
+      },
+      {
+       "label": "검사일",
+       "value": "2026-05-30",
+       "key": "issue_date"
+      },
+      {
+       "label": "검사 결과",
+       "value": "Negative",
+       "key": "pcr_result"
+      },
+      {
+       "label": "유효 기한",
+       "value": "2026-06-26",
+       "key": "valid_until"
+      },
+      {
+       "label": "검사 기관",
+       "value": "인천공항검역소",
+       "key": "lab_name"
+      },
+      {
+       "label": "비고",
+       "value": "정상 PCR(음성)",
+       "key": "memo"
+      }
+     ]
     }
-  ],
-  "rules": [
+   ],
+   "dialogueCases": [
     {
-      "ruleId": 7,
-      "title": "PCR 검사서",
-      "content": "검역 대상 입국자는 PCR 검사서를 제출해야 한다. 검사 결과가 양성이거나, 유효 기간이 지났거나, 검사서의 이름·국적이 여권과 다르면 입국을 거부한다.",
-      "relatedField": "검사결과",
-      "attr": "pcr_result",
-      "endDay": 7
-    }
-  ],
-  "news": [
+     "caseType": "입장",
+     "gameResult": "-",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "임도현",
+       "text": "안녕하세요. 방역 강화됐다고 들어서 PCR 검사서도 챙겨왔어요."
+      },
+      {
+       "speaker": "심사관",
+       "text": "방역 절차에 따라 PCR 검사서를 확인하겠습니다. 제출해 주세요.",
+       "claim": null,
+       "order": 2
+      },
+      {
+       "order": 3,
+       "speaker": "임도현",
+       "text": "여권 확인 부탁드립니다."
+      }
+     ]
+    },
     {
-      "newsId": 5,
-      "title": "해외 감염병 확산 우려 각국 검역 체계 강화",
-      "content": "해외 일부 지역에서 감염병 사례가 증가하면서 여러 국가가 검역 절차를 강화하고 있다. 보건 당국은 해외 이동 과정에서의 감염 확산 가능성을 예의주시하고 있으며 관련 대응 체계를 점검하고 있다고 밝혔다.",
-      "iconRef": null,
-      "claims": []
+     "caseType": "일반 심사",
+     "gameResult": "정상 승인",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "즐거운 여행 되십시오."
+      },
+      {
+       "order": 2,
+       "speaker": "임도현",
+       "text": "감사합니다~ 즐거운 하루 되세요!"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "서류 오류가 확인되어 입국하실 수 없습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "임도현",
+       "text": "정말 이상하네요. 제가 확인했거든요."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 허가",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "즐거운 여행 되십시오."
+      },
+      {
+       "order": 2,
+       "speaker": "임도현",
+       "text": "감사합니다~ 즐거운 하루 되세요!"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "임도현",
+       "text": "정말 이상하네요. 제가 확인했거든요."
+      }
+     ]
     }
-  ]
+   ],
+   "rejectAdvancedBranchKey": "",
+   "rejectGuidedCaseType": "",
+   "xray": null,
+   "fingerprint": null
+  },
+  {
+   "customerId": 13,
+   "slot": 3,
+   "nameKr": "로버트 존슨",
+   "nameEn": "ROBERT JOHNSON",
+   "nationality": "미국(USA)",
+   "gender": "남성",
+   "birthDate": "1989-09-03",
+   "age": 36,
+   "spriteRef": "로버트 존슨",
+   "characterType": "전염병 환자",
+   "defectVariant": "1-C 백신X",
+   "correctResult": "정상 거절",
+   "documents": [
+    {
+     "documentType": "여권",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "로버트 존슨",
+     "country": "USA",
+     "fields": [
+      {
+       "label": "여권번호",
+       "value": "US1014521",
+       "key": "passport_no"
+      },
+      {
+       "label": "영문이름",
+       "value": "JOHNSON ROBERT",
+       "key": "name"
+      },
+      {
+       "label": "성별",
+       "value": "남성",
+       "key": "gender"
+      },
+      {
+       "label": "생년월일",
+       "value": "1989-09-03",
+       "key": "birth_date"
+      },
+      {
+       "label": "국적",
+       "value": "USA",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2023-11-28",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2028-11-28",
+       "key": "expiry_date"
+      }
+     ]
+    },
+    {
+     "documentType": "비자",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "",
+     "country": "",
+     "fields": [
+      {
+       "label": "영문이름",
+       "value": "JOHNSON ROBERT",
+       "key": "name"
+      },
+      {
+       "label": "여권번호",
+       "value": "US1014521",
+       "key": "passport_no"
+      },
+      {
+       "label": "비자 번호",
+       "value": "V-USA-1529",
+       "key": "visa_no"
+      },
+      {
+       "label": "방문 목적",
+       "value": "관광",
+       "key": "visa_type"
+      },
+      {
+       "label": "국적",
+       "value": "USA",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2025-12-03",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2027-12-03",
+       "key": "expiry_date"
+      },
+      {
+       "label": "입국 횟수",
+       "value": "단수",
+       "key": "entry_type"
+      },
+      {
+       "label": "비고",
+       "value": "외국인 정상 비자",
+       "key": "memo"
+      }
+     ]
+    },
+    {
+     "documentType": "PCR검사서",
+     "variant": "비정상",
+     "violationField": "검사 결과",
+     "spriteRef": "",
+     "country": "",
+     "fields": [
+      {
+       "label": "이름",
+       "value": "JOHNSON ROBERT",
+       "key": "name"
+      },
+      {
+       "label": "국적",
+       "value": "USA",
+       "key": "nationality"
+      },
+      {
+       "label": "검사 번호",
+       "value": "PCR-013",
+       "key": "test_no"
+      },
+      {
+       "label": "검사일",
+       "value": "2026-05-20",
+       "key": "issue_date"
+      },
+      {
+       "label": "검사 결과",
+       "value": "Positive",
+       "key": "pcr_result"
+      },
+      {
+       "label": "유효 기한",
+       "value": "2026-06-17",
+       "key": "valid_until"
+      },
+      {
+       "label": "검사 기관",
+       "value": "인천공항검역소",
+       "key": "lab_name"
+      },
+      {
+       "label": "비고",
+       "value": "정상 PCR(음성)",
+       "key": "memo"
+      }
+     ]
+    }
+   ],
+   "dialogueCases": [
+    {
+     "caseType": "입장",
+     "gameResult": "-",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "로버트 존슨",
+       "text": "Hello, I heard there were some health concerns at the airport recently. I'm perfectly fine, here's my passport."
+      },
+      {
+       "order": 2,
+       "speaker": "심사관",
+       "text": "PCR 검사서도 함께 보여주시겠어요?"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 승인",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "즐거운 여행 되십시오."
+      },
+      {
+       "order": 2,
+       "speaker": "로버트 존슨",
+       "text": "Thank you. I really need to rest. (감사합니다. 빨리 쉬어야 해서요.)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "PCR 검사 결과가 기준에 맞지 않아 입국하실 수 없습니다.",
+       "claim": {
+        "attr": "pcr_result",
+        "value": "양성",
+        "label": "PCR 검사결과",
+        "unlocksScan": ""
+       }
+      },
+      {
+       "order": 2,
+       "speaker": "로버트 존슨",
+       "text": "Oh, I see. Thank you for letting me know."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 허가",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "즐거운 여행 되십시오."
+      },
+      {
+       "order": 2,
+       "speaker": "로버트 존슨",
+       "text": "Thank you! Have a great day!"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "로버트 존슨",
+       "text": "Oh, I see. Thank you for letting me know. (아, 그렇군요. 알려주셔서 감사해요.)"
+      }
+     ]
+    }
+   ],
+   "rejectAdvancedBranchKey": "",
+   "rejectGuidedCaseType": "",
+   "xray": null,
+   "fingerprint": null,
+   "crossCheckLines": [
+    {
+     "attr": "pcr_result",
+     "inspector": "PCR 결과가… 양성으로 나오네요. 이거 확인 좀 할게요. 양성 판정 시에는 입국이 거부됩니다.",
+     "customer": "What? That should be fine…(네? 문제 없을 텐데요…)",
+     "unlocksScan": ""
+    }
+   ]
+  },
+  {
+   "customerId": 48,
+   "slot": 4,
+   "nameKr": "윤건우",
+   "nameEn": "YOON GEONWOO",
+   "nationality": "대한민국(KOR)",
+   "gender": "여성",
+   "birthDate": "1996-04-12",
+   "age": 30,
+   "spriteRef": "정유나",
+   "characterType": "성형 수술 고객",
+   "defectVariant": "",
+   "correctResult": "정상 승인",
+   "documents": [
+    {
+     "documentType": "여권",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "정유나(원본)",
+     "country": "KOR",
+     "fields": [
+      {
+       "label": "여권번호",
+       "value": "KO1013404",
+       "key": "passport_no"
+      },
+      {
+       "label": "영문이름",
+       "value": "YOON GEONWOO",
+       "key": "name"
+      },
+      {
+       "label": "성별",
+       "value": "여성",
+       "key": "gender"
+      },
+      {
+       "label": "생년월일",
+       "value": "1996-04-12",
+       "key": "birth_date"
+      },
+      {
+       "label": "국적",
+       "value": "KOR",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2023-07-14",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2033-07-14",
+       "key": "expiry_date"
+      }
+     ]
+    },
+    {
+     "documentType": "PCR검사서",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "",
+     "country": "",
+     "fields": [
+      {
+       "label": "이름",
+       "value": "YOON GEONWOO",
+       "key": "name"
+      },
+      {
+       "label": "국적",
+       "value": "KOR",
+       "key": "nationality"
+      },
+      {
+       "label": "검사 번호",
+       "value": "PCR-012",
+       "key": "test_no"
+      },
+      {
+       "label": "검사일",
+       "value": "2026-05-28",
+       "key": "issue_date"
+      },
+      {
+       "label": "검사 결과",
+       "value": "Negative",
+       "key": "pcr_result"
+      },
+      {
+       "label": "유효 기한",
+       "value": "2026-06-18",
+       "key": "valid_until"
+      },
+      {
+       "label": "검사 기관",
+       "value": "국립검역소",
+       "key": "lab_name"
+      },
+      {
+       "label": "비고",
+       "value": "정상 PCR(음성)",
+       "key": "memo"
+      }
+     ]
+    }
+   ],
+   "dialogueCases": [
+    {
+     "caseType": "입장",
+     "gameResult": "-",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "윤건우",
+       "text": "안녕하세요. 성형해서 인상이 좀 바뀌었어요. 본인 맞아요."
+      },
+      {
+       "order": 2,
+       "speaker": "심사관",
+       "text": "방역 기간입니다. PCR 검사서도 함께 보여주세요."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 승인",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "본인 맞으시네요. 즐거운 여행 되세요."
+      },
+      {
+       "order": 2,
+       "speaker": "윤건우",
+       "text": "감사합니다!"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "여권 사진과 현재 외모가 다르게 확인됩니다. 지문 인식을 진행하겠습니다. 손을 올려주세요."
+      },
+      {
+       "order": 2,
+       "speaker": "윤건우",
+       "text": "잠깐만요, 저 맞는데요! 지문 다시 확인해 주세요!"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 허가",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "즐거운 여행 되십시오."
+      },
+      {
+       "order": 2,
+       "speaker": "윤건우",
+       "text": "감사합니다! 수술 잘 됐다고 해주세요, 하하."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "윤건우",
+       "text": "본인 맞는데요? 지문도 확인하셨잖아요."
+      }
+     ]
+    }
+   ],
+   "rejectAdvancedBranchKey": "",
+   "rejectGuidedCaseType": "",
+   "xray": null,
+   "fingerprint": {
+    "type": "fingerprint",
+    "result": "일치",
+    "detail": "본인 일치",
+    "extra": "YOON GEONWOO",
+    "claim": {
+     "attr": "name",
+     "value": "YOON GEONWOO",
+     "label": "지문 대조 신원",
+     "unlocksScan": ""
+    },
+    "record": {
+     "mode": "성형",
+     "dbName": "YOON GEONWOO",
+     "dbBirth": "1996-04-12",
+     "dbNationality": "KOR",
+     "criminalRecord": "없음",
+     "wantedNo": ""
+    }
+   },
+   "validChance": 0.7,
+   "altVariant": {
+    "correctResult": "정상 거절",
+    "defectVariant": "",
+    "rejectAdvancedBranchKey": "",
+    "rejectGuidedCaseType": "",
+    "documents": [
+     {
+      "documentType": "여권",
+      "variant": "정상",
+      "violationField": "없음",
+      "spriteRef": "정유나(원본)",
+      "country": "KOR",
+      "fields": [
+       {
+        "label": "여권번호",
+        "value": "KO1013404",
+        "key": "passport_no"
+       },
+       {
+        "label": "영문이름",
+        "value": "YOON GEONWOO",
+        "key": "name"
+       },
+       {
+        "label": "성별",
+        "value": "여성",
+        "key": "gender"
+       },
+       {
+        "label": "생년월일",
+        "value": "1996-04-12",
+        "key": "birth_date"
+       },
+       {
+        "label": "국적",
+        "value": "KOR",
+        "key": "nationality"
+       },
+       {
+        "label": "발급일",
+        "value": "2023-07-14",
+        "key": "issue_date"
+       },
+       {
+        "label": "만료일",
+        "value": "2033-07-14",
+        "key": "expiry_date"
+       }
+      ]
+     },
+     {
+      "documentType": "PCR검사서",
+      "variant": "정상",
+      "violationField": "없음",
+      "spriteRef": "",
+      "country": "",
+      "fields": [
+       {
+        "label": "이름",
+        "value": "YOON GEONWOO",
+        "key": "name"
+       },
+       {
+        "label": "국적",
+        "value": "KOR",
+        "key": "nationality"
+       },
+       {
+        "label": "검사 번호",
+        "value": "PCR-012",
+        "key": "test_no"
+       },
+       {
+        "label": "검사일",
+        "value": "2026-05-28",
+        "key": "issue_date"
+       },
+       {
+        "label": "검사 결과",
+        "value": "Negative",
+        "key": "pcr_result"
+       },
+       {
+        "label": "유효 기한",
+        "value": "2026-06-18",
+        "key": "valid_until"
+       },
+       {
+        "label": "검사 기관",
+        "value": "삼성서울병원진단검사의학과",
+        "key": "lab_name"
+       },
+       {
+        "label": "비고",
+        "value": "정상 PCR(음성)",
+        "key": "memo"
+       }
+      ]
+     }
+    ],
+    "dialogueCases": [
+     {
+      "caseType": "입장",
+      "gameResult": "-",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "윤건우",
+        "text": "안녕하세요. 사진이랑 좀 달라 보이죠? 얼마 전에 성형을 했어요."
+       },
+       {
+        "order": 2,
+        "speaker": "심사관",
+        "text": "방역 기간입니다. PCR 검사서도 함께 보여주세요."
+       }
+      ]
+     },
+     {
+      "caseType": "일반 심사",
+      "gameResult": "정상 승인",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "심사관",
+        "text": "즐거운 여행 되십시오."
+       },
+       {
+        "order": 2,
+        "speaker": "윤건우",
+        "text": "감사해요. 빨리 나가야 해서요."
+       }
+      ]
+     },
+     {
+      "caseType": "일반 심사",
+      "gameResult": "정상 거절",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "심사관",
+        "text": "지문 신원이 여권 이름과 일치하지 않습니다. 입국하실 수 없습니다.",
+        "claim": {
+         "attr": "name",
+         "value": "KANG MINHO",
+         "label": "지문 대조 신원",
+         "unlocksScan": ""
+        }
+       },
+       {
+        "order": 2,
+        "speaker": "윤건우",
+        "text": "…죄송합니다."
+       }
+      ]
+     },
+     {
+      "caseType": "일반 심사",
+      "gameResult": "잘못 허가",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "심사관",
+        "text": "즐거운 여행 되십시오."
+       },
+       {
+        "order": 2,
+        "speaker": "윤건우",
+        "text": "가, 감사합니다. (서둘러 지나간다)"
+       }
+      ]
+     },
+     {
+      "caseType": "일반 심사",
+      "gameResult": "잘못 거절",
+      "rejectCount": 0,
+      "lines": [
+       {
+        "order": 1,
+        "speaker": "심사관",
+        "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+       },
+       {
+        "order": 2,
+        "speaker": "윤건우",
+        "text": "알겠어요. 다시 확인하고 올게요."
+       }
+      ]
+     }
+    ],
+    "xray": null,
+    "fingerprint": {
+     "type": "fingerprint",
+     "result": "불일치",
+     "detail": "이름 불일치",
+     "extra": "KANG MINHO",
+     "claim": {
+      "attr": "name",
+      "value": "KANG MINHO",
+      "label": "지문 대조 신원",
+      "unlocksScan": ""
+     },
+     "record": {
+      "mode": "성형",
+      "dbName": "KANG MINHO",
+      "dbBirth": "1996-04-12",
+      "dbNationality": "KOR",
+      "criminalRecord": "없음",
+      "wantedNo": ""
+     }
+    },
+    "crossCheckLines": [
+     {
+      "attr": "face",
+      "inspector": "사진이랑 인상이 좀 다르시네요. 지문 한번 찍어볼게요. 손 올려주시겠어요?",
+      "customer": "(잠시 망설인다) …네.",
+      "unlocksScan": ""
+     },
+     {
+      "attr": "name",
+      "inspector": "지문 조회 결과… 신원이 'KANG MINHO'(으)로 나오는데요. 여권 이름 'YOON GEONWOO'과(와) 일치하지 않습니다. 지문은 성형으로도 바뀌지 않습니다.",
+      "customer": "어… 그건 시스템 오류 아닐까요? …(말을 잇지 못한다)",
+      "unlocksScan": ""
+     }
+    ]
+   },
+   "crossCheckLines": [
+    {
+     "attr": "face",
+     "inspector": "사진이랑 인상이 좀 다르시네요. 지문 한번 찍어볼게요. 손 올려주시겠어요?",
+     "customer": "네, 여기요. (손을 올린다)",
+     "unlocksScan": ""
+    }
+   ]
+  },
+  {
+   "customerId": 49,
+   "slot": 5,
+   "nameKr": "장우진",
+   "nameEn": "JANG WOOJIN",
+   "nationality": "대한민국(KOR)",
+   "gender": "남성",
+   "birthDate": "1986-08-17",
+   "age": 39,
+   "spriteRef": "박지훈",
+   "characterType": "일반 고객",
+   "defectVariant": "",
+   "correctResult": "정상 승인",
+   "documents": [
+    {
+     "documentType": "여권",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "박지훈",
+     "country": "KOR",
+     "fields": [
+      {
+       "label": "여권번호",
+       "value": "KO1026808",
+       "key": "passport_no"
+      },
+      {
+       "label": "영문이름",
+       "value": "JANG WOOJIN",
+       "key": "name"
+      },
+      {
+       "label": "성별",
+       "value": "남성",
+       "key": "gender"
+      },
+      {
+       "label": "생년월일",
+       "value": "1986-08-17",
+       "key": "birth_date"
+      },
+      {
+       "label": "국적",
+       "value": "KOR",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2023-03-14",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2028-03-14",
+       "key": "expiry_date"
+      }
+     ]
+    },
+    {
+     "documentType": "PCR검사서",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "",
+     "country": "",
+     "fields": [
+      {
+       "label": "이름",
+       "value": "JANG WOOJIN",
+       "key": "name"
+      },
+      {
+       "label": "국적",
+       "value": "KOR",
+       "key": "nationality"
+      },
+      {
+       "label": "검사 번호",
+       "value": "PCR-024",
+       "key": "test_no"
+      },
+      {
+       "label": "검사일",
+       "value": "2026-05-26",
+       "key": "issue_date"
+      },
+      {
+       "label": "검사 결과",
+       "value": "Negative",
+       "key": "pcr_result"
+      },
+      {
+       "label": "유효 기한",
+       "value": "2026-06-16",
+       "key": "valid_until"
+      },
+      {
+       "label": "검사 기관",
+       "value": "인천공항검역소",
+       "key": "lab_name"
+      },
+      {
+       "label": "비고",
+       "value": "정상 PCR(음성)",
+       "key": "memo"
+      }
+     ]
+    }
+   ],
+   "dialogueCases": [
+    {
+     "caseType": "입장",
+     "gameResult": "-",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "장우진",
+       "text": "안녕하세요. (여권 내밀며)"
+      },
+      {
+       "speaker": "심사관",
+       "text": "방역 절차에 따라 PCR 검사서를 확인하겠습니다. 제출해 주세요.",
+       "claim": null,
+       "order": 2
+      },
+      {
+       "order": 3,
+       "speaker": "장우진",
+       "text": "여권 확인 부탁드립니다."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 승인",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "즐거운 여행 되십시오."
+      },
+      {
+       "order": 2,
+       "speaker": "장우진",
+       "text": "감사합니다~ 즐거운 하루 되세요!"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "서류 오류가 확인되어 입국하실 수 없습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "장우진",
+       "text": "정말 이상하네요. 제가 확인했거든요."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 허가",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "즐거운 여행 되십시오."
+      },
+      {
+       "order": 2,
+       "speaker": "장우진",
+       "text": "감사합니다~ 즐거운 하루 되세요!"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "장우진",
+       "text": "정말 이상하네요. 제가 확인했거든요."
+      }
+     ]
+    }
+   ],
+   "rejectAdvancedBranchKey": "",
+   "rejectGuidedCaseType": "",
+   "xray": null,
+   "fingerprint": null
+  },
+  {
+   "customerId": 14,
+   "slot": 6,
+   "nameKr": "리 나",
+   "nameEn": "LI NA",
+   "nationality": "중국(CHN)",
+   "gender": "여성",
+   "birthDate": "1993-07-19",
+   "age": 32,
+   "spriteRef": "리 나",
+   "characterType": "전염병 환자",
+   "defectVariant": "1-D 모두 미비",
+   "correctResult": "정상 거절",
+   "documents": [
+    {
+     "documentType": "여권",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "리 나",
+     "country": "CHN",
+     "fields": [
+      {
+       "label": "여권번호",
+       "value": "CN1015638",
+       "key": "passport_no"
+      },
+      {
+       "label": "영문이름",
+       "value": "NA LI",
+       "key": "name"
+      },
+      {
+       "label": "성별",
+       "value": "여성",
+       "key": "gender"
+      },
+      {
+       "label": "생년월일",
+       "value": "1993-07-19",
+       "key": "birth_date"
+      },
+      {
+       "label": "국적",
+       "value": "CHN",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2023-03-14",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2033-03-14",
+       "key": "expiry_date"
+      }
+     ]
+    },
+    {
+     "documentType": "비자",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "",
+     "country": "",
+     "fields": [
+      {
+       "label": "영문이름",
+       "value": "NA LI",
+       "key": "name"
+      },
+      {
+       "label": "여권번호",
+       "value": "CN1015638",
+       "key": "passport_no"
+      },
+      {
+       "label": "비자 번호",
+       "value": "V-CHN-2082",
+       "key": "visa_no"
+      },
+      {
+       "label": "방문 목적",
+       "value": "관광",
+       "key": "visa_type"
+      },
+      {
+       "label": "국적",
+       "value": "CHN",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2024-09-17",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2026-09-17",
+       "key": "expiry_date"
+      },
+      {
+       "label": "입국 횟수",
+       "value": "단수",
+       "key": "entry_type"
+      },
+      {
+       "label": "비고",
+       "value": "외국인 정상 비자",
+       "key": "memo"
+      }
+     ]
+    },
+    {
+     "documentType": "PCR검사서",
+     "variant": "비정상",
+     "violationField": "검사일",
+     "spriteRef": "",
+     "country": "",
+     "fields": [
+      {
+       "label": "이름",
+       "value": "NA LI",
+       "key": "name"
+      },
+      {
+       "label": "국적",
+       "value": "CHN",
+       "key": "nationality"
+      },
+      {
+       "label": "검사 번호",
+       "value": "PCR-014",
+       "key": "test_no"
+      },
+      {
+       "label": "검사일",
+       "value": "2026-06-15",
+       "key": "issue_date"
+      },
+      {
+       "label": "검사 결과",
+       "value": "Negative",
+       "key": "pcr_result"
+      },
+      {
+       "label": "유효 기한",
+       "value": "2026-06-19",
+       "key": "valid_until"
+      },
+      {
+       "label": "검사 기관",
+       "value": "질병관리청진단검사센터",
+       "key": "lab_name"
+      },
+      {
+       "label": "비고",
+       "value": "검사일 오류",
+       "key": "memo"
+      }
+     ]
+    }
+   ],
+   "dialogueCases": [
+    {
+     "caseType": "입장",
+     "gameResult": "-",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "리 나",
+       "text": "你好！第一次来韩国。 (안녕하세요! 한국은 처음이에요.)"
+      },
+      {
+       "speaker": "심사관",
+       "text": "PCR 검사서도 함께 보여주시겠어요?",
+       "claim": null,
+       "order": 2
+      },
+      {
+       "order": 3,
+       "speaker": "리 나",
+       "text": "我把检查报告一起给您。 (기침) (여기 검사서랑 같이 드릴게요.)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 승인",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "즐거운 여행 되십시오."
+      },
+      {
+       "order": 2,
+       "speaker": "리 나",
+       "text": "谢谢，我得赶紧走了。 (감사합니다. 빨리 나가야겠어요.)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "PCR 검사일이 올바르지 않아 입국하실 수 없습니다.",
+       "claim": {
+        "attr": "issue_date",
+        "value": "",
+        "label": "검사일 오류",
+        "unlocksScan": ""
+       }
+      },
+      {
+       "order": 2,
+       "speaker": "리 나",
+       "text": "哦，真的吗？我不知道，对不起。 (아, 정말요? 몰랐어요, 죄송합니다.)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 허가",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "즐거운 여행 되십시오."
+      },
+      {
+       "order": 2,
+       "speaker": "리 나",
+       "text": "谢谢，我得赶紧走了。 (감사합니다. 빨리 나가야겠어요.)"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "리 나",
+       "text": "哦，真的吗？我不知道，对不起。 (아, 정말요? 몰랐어요, 죄송합니다.)"
+      }
+     ]
+    }
+   ],
+   "rejectAdvancedBranchKey": "",
+   "rejectGuidedCaseType": "",
+   "xray": null,
+   "fingerprint": null,
+   "crossCheckLines": [
+    {
+     "attr": "issue_date",
+     "inspector": "어, 검사일이 6월 15일인데… 오늘보다 나중이네요? 날짜가 이상해요.",
+     "customer": "啊？应该没问题的…(어? 문제 없을 텐데요…)",
+     "unlocksScan": ""
+    }
+   ]
+  },
+  {
+   "customerId": 50,
+   "slot": 7,
+   "nameKr": "임선우",
+   "nameEn": "IM SEONWOO",
+   "nationality": "대한민국(KOR)",
+   "gender": "남성",
+   "birthDate": "1985-03-15",
+   "age": 41,
+   "spriteRef": "김민준",
+   "characterType": "일반 고객",
+   "defectVariant": "",
+   "correctResult": "정상 승인",
+   "documents": [
+    {
+     "documentType": "여권",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "김민준",
+     "country": "KOR",
+     "fields": [
+      {
+       "label": "여권번호",
+       "value": "KO1234567",
+       "key": "passport_no"
+      },
+      {
+       "label": "영문이름",
+       "value": "IM SEONWOO",
+       "key": "name"
+      },
+      {
+       "label": "성별",
+       "value": "남성",
+       "key": "gender"
+      },
+      {
+       "label": "생년월일",
+       "value": "1985-03-15",
+       "key": "birth_date"
+      },
+      {
+       "label": "국적",
+       "value": "KOR",
+       "key": "nationality"
+      },
+      {
+       "label": "발급일",
+       "value": "2017-07-28",
+       "key": "issue_date"
+      },
+      {
+       "label": "만료일",
+       "value": "2027-07-28",
+       "key": "expiry_date"
+      }
+     ]
+    },
+    {
+     "documentType": "PCR검사서",
+     "variant": "정상",
+     "violationField": "없음",
+     "spriteRef": "",
+     "country": "",
+     "fields": [
+      {
+       "label": "이름",
+       "value": "IM SEONWOO",
+       "key": "name"
+      },
+      {
+       "label": "국적",
+       "value": "KOR",
+       "key": "nationality"
+      },
+      {
+       "label": "검사 번호",
+       "value": "PCR-001",
+       "key": "test_no"
+      },
+      {
+       "label": "검사일",
+       "value": "2026-05-20",
+       "key": "issue_date"
+      },
+      {
+       "label": "검사 결과",
+       "value": "Negative",
+       "key": "pcr_result"
+      },
+      {
+       "label": "유효 기한",
+       "value": "2026-06-20",
+       "key": "valid_until"
+      },
+      {
+       "label": "검사 기관",
+       "value": "질병관리청진단검사센터",
+       "key": "lab_name"
+      },
+      {
+       "label": "비고",
+       "value": "정상 PCR(음성)",
+       "key": "memo"
+      }
+     ]
+    }
+   ],
+   "dialogueCases": [
+    {
+     "caseType": "입장",
+     "gameResult": "-",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "임선우",
+       "text": "안녕하세요. 공항에서 건강 이상자 있었다고 방송 들었는데, 저는 멀쩡해요. 바로 확인해 주세요."
+      },
+      {
+       "speaker": "심사관",
+       "text": "방역 기간입니다. PCR 검사서도 함께 보여주세요.",
+       "claim": null,
+       "order": 2
+      },
+      {
+       "order": 3,
+       "speaker": "임선우",
+       "text": "여권 확인 부탁드립니다."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 승인",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "즐거운 여행 되십시오."
+      },
+      {
+       "order": 2,
+       "speaker": "임선우",
+       "text": "고맙습니다. 빠르네요!"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "서류 오류가 확인되어 입국하실 수 없습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "임선우",
+       "text": "그럴 리 없는데요. 다시 봐주세요."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 허가",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "즐거운 여행 되십시오."
+      },
+      {
+       "order": 2,
+       "speaker": "임선우",
+       "text": "고맙습니다. 빠르네요!"
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "잘못 거절",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "임선우",
+       "text": "그럴 리 없는데요. 다시 봐주세요."
+      }
+     ]
+    }
+   ],
+   "rejectAdvancedBranchKey": "",
+   "rejectGuidedCaseType": "",
+   "xray": null,
+   "fingerprint": null
+  }
+ ],
+ "rules": [
+  {
+   "ruleId": 7,
+   "title": "PCR 검사서",
+   "content": "검역 대상 입국자는 PCR 검사서를 제출하여야 한다. 다음을 확인한다.\n　1. 검사 결과 = 음성\n　2. 검사일·유효기간 = 유효(당일 기준)\n　3. 성명·국적 = 여권과 일치\n　4. 검사 기관 = 공인 기관(별도 규정)\n※ 하나라도 부적합 시 입국 불허.",
+   "relatedField": "검사결과",
+   "attr": "pcr_result",
+   "endDay": 7,
+   "coveredAttrs": "pcr_result,valid_until,issue_date,name,nationality"
+  }
+ ],
+ "news": [
+  {
+   "newsId": 5,
+   "title": "해외 감염병 확산 우려 각국 검역 체계 강화",
+   "content": "해외 일부 지역에서 감염병 사례가 증가하면서 여러 국가가 검역 절차를 강화하고 있다. 보건 당국은 해외 이동 과정에서의 감염 확산 가능성을 예의주시하고 있으며 관련 대응 체계를 점검하고 있다고 밝혔다.",
+   "iconRef": null,
+   "claims": []
+  }
+ ]
 }

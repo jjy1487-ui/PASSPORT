@@ -64,6 +64,18 @@ public sealed class CrossCheckController : MonoBehaviour
     /// </summary>
     public event System.Action<string> OnScanUnlocked;
 
+    /// <summary>
+    /// 외부(InspectionController 등)에서 스캔 잠금 해제를 명시적으로 요청한다(예: day11 입장 시 X-ray 자동 검사).
+    /// event 는 선언 클래스 밖에서 Invoke 할 수 없으므로, 같은 발행 경로를 공개 메서드로 노출한다.
+    /// 대조(워치리스트/여권번호 불일치) 경로와 동일하게 <see cref="OnScanUnlocked"/> 구독자(XrayInspectionPanel 등)가 받는다.
+    /// 판정/점수에는 영향 없음 — 표시·게이팅 전용.
+    /// </summary>
+    public void RequestScanUnlock(string scanType)
+    {
+        if (string.IsNullOrEmpty(scanType)) return;
+        OnScanUnlocked?.Invoke(scanType);
+    }
+
     /// <summary>두 항목 비교 직후 발행(a, b, 결과). 불일치 대사 등 보조 연출용.</summary>
     public event System.Action<ICrossCheckSelectable, ICrossCheckSelectable, CrossCheckResult> OnCompared;
 
@@ -271,8 +283,12 @@ public sealed class CrossCheckController : MonoBehaviour
             result = pcrResult;
         else if (TryEvaluateLabNameRule(a, b, out CrossCheckResult labResult))
             result = labResult;
+        else if (TryEvaluateContrabandRule(a, b, out CrossCheckResult contrabandResult))
+            result = contrabandResult; // 금지물품 규정 ↔ X-ray 적발물: 적발물 있으면 일치(입국 불허 사유)
         else if (TryEvaluateDate(a, b, out CrossCheckResult dateResult, out overrideText))
             result = dateResult;
+        else if (TryEvaluateRuleScope(a, b, out CrossCheckResult scopeResult))
+            result = scopeResult; // 규정 글이 '다루는' 항목 → 관련없음 대신 관련있음(내용상 관련 표시)
         else
             result = Evaluate(a, b);
 
@@ -306,7 +322,8 @@ public sealed class CrossCheckController : MonoBehaviour
         }
         else if (result == CrossCheckResult.Match)
         {
-            ShowWatchlistAlertIfAny(a, b);
+            // 금지물품 규정 ↔ X-ray 적발물 일치 → 적발 고지 대사. 아니면 경보(워치리스트) 일치 대사.
+            if (!TryShowContrabandComment(a, b)) ShowWatchlistAlertIfAny(a, b);
         }
         OnCompared?.Invoke(a, b, result);
 
@@ -499,6 +516,59 @@ public sealed class CrossCheckController : MonoBehaviour
     }
 
     /// <summary>
+    /// X-ray 적발물이 금지물품 규정과 "일치"할 때 검사관 적발 고지 + 손님 반응 2~3줄 대사를 재생한다(보조 연출, 판정 무영향).
+    /// 데이터(crossCheckLines attr="contraband")가 있으면 그 손님 구체 대사를, 없으면 일반 적발 문구로 폴백한다.
+    /// 선택 두 항목 중 적발물(attr="contraband")이 없으면(=다른 일치) 아무것도 안 하고 false 를 돌려준다.
+    /// 처리했으면 true(→ 호출부가 워치리스트 경고 대사를 생략).
+    /// </summary>
+    private bool TryShowContrabandComment(ICrossCheckSelectable a, ICrossCheckSelectable b)
+    {
+        if (_mismatchDialogue == null) return false;
+        string item = ContrabandValue(a, b);
+        if (item == null) return false; // 선택지에 적발물 항목이 없음 → 비대상
+
+        string customerName = _inspection != null && !string.IsNullOrEmpty(_inspection.CurrentCustomerName)
+            ? _inspection.CurrentCustomerName : "손님";
+        string characterType = _inspection != null ? _inspection.CurrentCharacterType : null;
+
+        // 1순위: 이 손님의 contraband 대조 대사(crossCheckLines)가 있으면 그것. 2순위: 일반 적발 문구.
+        CrossCheckLine scripted = FindCrossCheckLine("contraband");
+        string shown = string.IsNullOrEmpty(item) ? "금지 물품" : item;
+        string inspectorLine = scripted != null && !string.IsNullOrEmpty(scripted.inspector)
+            ? scripted.inspector
+            : $"X-ray 검사에서 {shown}{Josa(shown, "이", "가")} 적발되었습니다. 규정상 입국 불허 대상입니다.";
+        string customerLine = scripted != null && !string.IsNullOrEmpty(scripted.customer)
+            ? scripted.customer
+            : CustomerReactionFor("contraband", characterType);
+
+        List<DialogueLineData> lines = new List<DialogueLineData>
+        {
+            new DialogueLineData { order = 0, speaker = "심사관", text = inspectorLine },
+            new DialogueLineData { order = 1, speaker = customerName, text = customerLine },
+        };
+        if (scripted != null && !string.IsNullOrEmpty(scripted.inspectorClose))
+            lines.Add(new DialogueLineData { order = 2, speaker = "심사관", text = scripted.inspectorClose });
+
+        DialogueCaseData contrabandCase = new DialogueCaseData
+        {
+            caseType = "금지물품 적발",
+            gameResult = "-",
+            rejectCount = 0,
+            lines = lines.ToArray(),
+        };
+        _mismatchDialogue.Play(contrabandCase, null);
+        return true;
+    }
+
+    /// <summary>선택 두 항목 중 X-ray 적발물(attr="contraband") 값을 고른다. 적발물 항목이 없으면 null(=비대상).</summary>
+    private static string ContrabandValue(ICrossCheckSelectable a, ICrossCheckSelectable b)
+    {
+        if (a != null && NormalizeKey(a.AttributeKey) == "contraband") return a.Value ?? string.Empty;
+        if (b != null && NormalizeKey(b.AttributeKey) == "contraband") return b.Value ?? string.Empty;
+        return null;
+    }
+
+    /// <summary>
     /// 불일치 항목 종류(key) + 손님 유형(characterType)별 반응 대사.
     /// 진상 고객은 사과 대신 거만/따지는 톤, 성형 의심 고객은 사진/머리스타일 톤, 그 외는 고분고분한 사과 톤.
     /// 표시·대사 텍스트 전용 — 판정/점수 무영향.
@@ -519,6 +589,8 @@ public sealed class CrossCheckController : MonoBehaviour
                     return "그게 뭐 대수라고. 빨리 통과시켜.";
                 case "passport_no":
                     return "번호 좀 틀릴 수도 있지, 까다롭게 구네.";
+                case "contraband":
+                    return "그게 뭐? 증거 있어? 함부로 사람 잡지 마.";
                 default:
                     return "별걸 다 트집이네. 그냥 보내 줘.";
             }
@@ -553,6 +625,8 @@ public sealed class CrossCheckController : MonoBehaviour
                 return "앗, 제가 날짜를 잘못 봤네요. 죄송합니다.";
             case "passport_no":
                 return "사실… 제 여권이 아니에요. 사정이 있었어요.";
+            case "contraband":
+                return "그… 그건 제 것이 아니에요. 누가 넣었는지 몰라요!";
             default:
                 return "어… 그건… 죄송합니다.";
         }
@@ -677,6 +751,64 @@ public sealed class CrossCheckController : MonoBehaviour
 
     private static bool IsLabRuleSelectable(ICrossCheckSelectable s)
         => s != null && s.SourceType == "규정" && NormalizeKey(s.AttributeKey) == "lab_name";
+
+    // ── 금지물품 규정 ↔ X-ray 적발물 대조 ──────────────────────────
+    /// <summary>
+    /// 규정집 "금지 물품" 규정(SourceType="규정", attr 또는 coveredAttrs 가 "contraband") ↔ X-ray 적발물(attr="contraband") 대조.
+    /// X-ray 에 적발물이 잡혔으면(value 비어있지 않음) 규정과 일치(=입국 불허 사유), 안 잡혔으면 관련있음으로 본다.
+    /// 다른 규정 특수 평가기(여권번호/성별/PCR/검사기관)와 같은 보조 표시 — 판정/점수 무영향.
+    /// (X-ray 항목은 손님 소스가 아니라 TryEvaluateRuleScope/일반 Evaluate 로는 '관련없음'만 떠서, 전용 평가기로 처리한다.)
+    /// </summary>
+    private bool TryEvaluateContrabandRule(ICrossCheckSelectable a, ICrossCheckSelectable b, out CrossCheckResult result)
+    {
+        result = CrossCheckResult.Unrelated;
+        ICrossCheckSelectable rule = IsContrabandRuleSelectable(a) ? a : (IsContrabandRuleSelectable(b) ? b : null);
+        if (rule == null) return false;
+        ICrossCheckSelectable other = ReferenceEquals(rule, a) ? b : a;
+        if (other == null || NormalizeKey(other.AttributeKey) != "contraband") return false;
+        // 적발물이 실제로 검출됐으면(값 있음) 금지물품 규정과 일치, 없으면 관련성만.
+        result = !string.IsNullOrEmpty(other.Value) ? CrossCheckResult.Match : CrossCheckResult.Related;
+        return true;
+    }
+
+    /// <summary>금지물품 규정 항목인가(SourceType="규정" + attr 또는 coveredAttrs 가 "contraband").
+    /// day11 "금지 물품" 규정은 attr="" / coveredAttrs="contraband" 라서 coveredAttrs 까지 본다.</summary>
+    private static bool IsContrabandRuleSelectable(ICrossCheckSelectable s)
+    {
+        if (s == null || s.SourceType != "규정") return false;
+        if (NormalizeKey(s.AttributeKey) == "contraband") return true;
+        string covered = (s as CrossCheckItemView)?.CoveredAttrs;
+        if (string.IsNullOrEmpty(covered)) return false;
+        foreach (string cov in covered.Split(','))
+            if (NormalizeKey(cov.Trim()) == "contraband") return true;
+        return false;
+    }
+
+    // ── 규정이 '다루는' 항목 ↔ 서류 필드 = 관련있음 ──────────────────
+    /// <summary>
+    /// 규정(SourceType="규정")의 coveredAttrs(글이 다루는 항목 키 목록)에 상대 서류 필드의 attr이 들면
+    /// 관련없음(회색) 대신 관련있음(파랑)을 돌려준다. "규정 글엔 국적이 적혀 있는데 대보니 관련없음"이라는
+    /// 혼란을 없애기 위함 — '이 규정이 다루는 항목 맞다'는 힌트만 줄 뿐, 일치/불일치(정답)는 알려주지 않는다.
+    /// 핵심 판정 항목(passport_no/gender/pcr_result/lab_name)은 위 특수 평가기가 먼저 일치/불일치로 처리하므로
+    /// 여기까지 오지 않는다. 표시 보조 — 판정/점수 무영향.
+    /// </summary>
+    private bool TryEvaluateRuleScope(ICrossCheckSelectable a, ICrossCheckSelectable b, out CrossCheckResult result)
+    {
+        result = CrossCheckResult.Unrelated;
+        ICrossCheckSelectable rule = IsRuleSource(a) ? a : (IsRuleSource(b) ? b : null);
+        if (rule == null) return false;
+        ICrossCheckSelectable other = ReferenceEquals(rule, a) ? b : a;
+        if (other == null || !IsCustomerSource(other.SourceType)) return false; // 규정 ↔ 서류(손님) 항목일 때만
+        string covered = (rule as CrossCheckItemView)?.CoveredAttrs;
+        if (string.IsNullOrEmpty(covered)) return false;
+        string key = NormalizeKey(other.AttributeKey);
+        if (string.IsNullOrEmpty(key)) return false;
+        foreach (string cov in covered.Split(','))
+        {
+            if (NormalizeKey(cov.Trim()) == key) { result = CrossCheckResult.Related; return true; }
+        }
+        return false;
+    }
 
     /// <summary>PCR 검사서를 발급할 수 있는 공인 검사 기관 명단(rule_book "PCR 인증 검사 기관" 규정과 동기화).</summary>
     private static readonly string[] ApprovedLabs =
