@@ -52,8 +52,10 @@ __pycache__/
 
 # Tool-generated backups (canonical state is committed in git)
 *.bak_*
+*.bak.meta
 _backup_*
 _bak_*
+/_disabled_briefing/
 _inject_crosscheck_log.txt
 
 # Unity crash recovery
