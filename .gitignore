@@ -40,6 +40,8 @@ desktop.ini
 *.apk
 *.aab
 *.unitypackage
+# Releases: track packaged .zip only, ignore raw build output folders
+/Releases/*/
 
 # Python
 __pycache__/
