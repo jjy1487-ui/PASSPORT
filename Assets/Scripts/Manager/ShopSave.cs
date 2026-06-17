@@ -9,6 +9,7 @@ public static class ShopSave
 {
     private const string KActive     = "SHOP_Active";      // '|' 구분(effect_type 집합)
     private const string KConsumable = "SHOP_Consumable";  // "effect:count|effect:count"
+    private const string KSlots      = "SHOP_Slots";       // 칸 배치 "fx|fx||fx.." (위치 보존, 빈 칸="")
     private const char Sep = '|';
 
     /// <summary>현재 상태를 PlayerPrefs 에 저장.</summary>
@@ -17,6 +18,7 @@ public static class ShopSave
         if (s == null) return;
         PlayerPrefs.SetString(KActive, Join(s.ActiveEffectsRaw));
         PlayerPrefs.SetString(KConsumable, JoinCounts(s.ConsumablesRaw));
+        PlayerPrefs.SetString(KSlots, JoinSlots(s.SlotLayoutRaw));
         PlayerPrefs.Save();
     }
 
@@ -27,6 +29,7 @@ public static class ShopSave
         var active = Split(PlayerPrefs.GetString(KActive, ""));
         var consumables = SplitCounts(PlayerPrefs.GetString(KConsumable, ""));
         s.RestoreState(active, consumables);
+        s.RestoreSlots(SplitSlots(PlayerPrefs.GetString(KSlots, "")));
     }
 
     /// <summary>세이브 삭제(새 게임).</summary>
@@ -34,6 +37,7 @@ public static class ShopSave
     {
         PlayerPrefs.DeleteKey(KActive);
         PlayerPrefs.DeleteKey(KConsumable);
+        PlayerPrefs.DeleteKey(KSlots);
         PlayerPrefs.Save();
     }
 
@@ -71,5 +75,22 @@ public static class ShopSave
             if (int.TryParse(part.Substring(idx + 1), out int n) && n > 0) d[key] = n;
         }
         return d;
+    }
+
+    // 칸 배치는 '위치'가 의미 있으므로 빈 칸("")도 보존해 join/split 한다(Split 가 빈 항목을 버리면 안 됨).
+    private static string JoinSlots(string[] slots)
+    {
+        if (slots == null || slots.Length == 0) return "";
+        var parts = new string[slots.Length];
+        for (int i = 0; i < slots.Length; i++) parts[i] = slots[i] ?? "";
+        return string.Join(Sep.ToString(), parts);
+    }
+
+    private static List<string> SplitSlots(string s)
+    {
+        var list = new List<string>();
+        if (string.IsNullOrEmpty(s)) return list;
+        foreach (var part in s.Split(Sep)) list.Add(part); // 빈 칸("") 위치 보존
+        return list;
     }
 }

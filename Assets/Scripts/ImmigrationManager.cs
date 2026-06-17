@@ -23,6 +23,8 @@ public sealed class ImmigrationManager : MonoBehaviour
     [Header("심사/팝업")]
     [SerializeField] private InspectionController inspectionController;
     [SerializeField] private NewsPopup newsPopup;
+    [Tooltip("1일차 조작 안내(Space 대조) 튜토리얼 팝업. 뉴스 닫은 뒤 떴다가 닫으면 첫 손님이 입장한다.")]
+    [SerializeField] private TutorialPopup tutorialPopup;
     [SerializeField] private RulebookPopup rulebookPopup;
     [SerializeField] private DialogueLogPopup dialogueLogPopup;
     [Tooltip("엔딩 화면. 비활성으로 시작하므로 매니저가 직접 띄운다(구독 누락=소프트락 방지).")]
@@ -94,6 +96,7 @@ public sealed class ImmigrationManager : MonoBehaviour
         {
             _economy.OnEarlyEndingTriggered -= HandleEarlyEnding;
         }
+        if (newsPopup != null) newsPopup.OnClosed -= HandleStartNewsClosed;
     }
 
     private ScoreEconomyManager _economy;
@@ -180,10 +183,7 @@ public sealed class ImmigrationManager : MonoBehaviour
         }
 
         BeginDay(CurrentDay, resetGold: true);
-
-        // 2일차 이후에는 그날 뉴스를 자동 표시(브리핑 다음 단계). 1일차는 브리핑만.
-        if (CurrentDay > FirstDay) OpenNews();
-
+        // 뉴스 자동 표시 + "뉴스 닫으면 첫 손님 입장" 게이트는 BeginDay 안에서 처리한다.
         StartCoroutine(FadeIn()); // 페이드는 시각 연출 전용
     }
 
@@ -226,19 +226,59 @@ public sealed class ImmigrationManager : MonoBehaviour
         //  (InspectionController.Initialize 가 BeginDay/SettleDay 로 잔액을 바꾸기 전에 기록.)
         _dayStartMoney = _economy != null ? _economy.Money : 0;
         WireController(); // 구독 누락 방지(늦은 주입 대비, 멱등)
+
+        // 하루 시작에 그날 뉴스를 자동으로 띄울지:
+        //  - 게임 첫 진입(resetGold=true): 2일차부터(1일차는 브리핑만).
+        //  - 일차 전환(resetGold=false)+openNews: 띄움.  - QA 점프(openNews=false): 끔.
+        bool showNews = openNews && (resetGold ? day > FirstDay : true);
+        // 1일차 조작 안내 튜토리얼(QA 점프 땐 끔). 뉴스가 없는 1일차에서 첫 안내로 뜬다.
+        bool showTutorial = openNews && day == FirstDay;
+        bool gate = showNews || showTutorial; // 둘 중 하나라도 있으면 첫 손님은 그 뒤에 등장
+
         if (inspectionController != null)
         {
             if (_economy != null) inspectionController.SetEconomy(_economy);
-            inspectionController.Initialize(_data, resetGold);
+            // 게이트가 있으면 첫 손님을 '팝업 닫은 뒤' 등장시킨다(autoShowFirst:false → BeginInspection 대기).
+            inspectionController.Initialize(_data, resetGold, autoShowFirst: !gate);
         }
         Debug.Log($"[ImmigrationManager] {day}일차 시작");
 
-        // 일차 전환(이전 일차 종료 → 다음 일차 진입) 사이에 해당 일자 뉴스 자동 표시.
-        // 최초 게임 시작(resetGold=true)에는 띄우지 않는다(수동 뉴스 버튼/브리핑으로 처리).
-        if (!resetGold && openNews)
+        if (gate) RunStartSequence(showNews, showTutorial);
+    }
+
+    private System.Action _afterNewsAction; // 시작 뉴스 닫힘 → 실행할 다음 단계(튜토리얼 or 첫 손님)
+
+    /// <summary>하루 시작 시퀀스: (뉴스) → (1일차 튜토리얼) → 첫 손님 입장. 각 단계는 '닫기'로 진행한다.
+    /// 데이터/참조가 없으면 그 단계는 건너뛴다(소프트락 방지).</summary>
+    private void RunStartSequence(bool showNews, bool showTutorial)
+    {
+        System.Action proceed = () => { if (inspectionController != null) inspectionController.BeginInspection(); };
+        System.Action afterNews = () =>
         {
-            OpenNews();
+            if (showTutorial && tutorialPopup != null) tutorialPopup.Open(proceed); // 튜토리얼 닫으면 첫 손님
+            else proceed();
+        };
+
+        bool hasNews = newsPopup != null && _data != null && _data.news != null && _data.news.Length > 0;
+        if (showNews && hasNews)
+        {
+            _afterNewsAction = afterNews;
+            newsPopup.OnClosed -= HandleStartNewsClosed; // 중복 구독 방지
+            newsPopup.OnClosed += HandleStartNewsClosed;
+            newsPopup.Open(_data.news);
         }
+        else
+        {
+            afterNews(); // 뉴스 없으면 곧장 튜토리얼(또는 첫 손님)
+        }
+    }
+
+    /// <summary>하루 시작 뉴스가 닫히면 다음 단계(튜토리얼/첫 손님) 진행. 1회만 동작.</summary>
+    private void HandleStartNewsClosed()
+    {
+        if (newsPopup != null) newsPopup.OnClosed -= HandleStartNewsClosed;
+        System.Action a = _afterNewsAction; _afterNewsAction = null;
+        a?.Invoke();
     }
 
 #if UNITY_EDITOR || DEVELOPMENT_BUILD

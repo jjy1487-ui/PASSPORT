@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 /// - 책상(_openZone) 안에 놓으면 펼쳐짐(필드 표시)
 /// - 책상 밖에 놓으면 접힘(표지만)
 /// </summary>
-public sealed class PassportDocument : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public sealed class PassportDocument : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDragBoundsReceiver
 {
     [Header("상태 뷰")]
     [SerializeField] private GameObject _openView;    // 펼친 여권(필드)
@@ -17,6 +17,12 @@ public sealed class PassportDocument : MonoBehaviour, IBeginDragHandler, IDragHa
 
     private RectTransform _rt;
     private Canvas _canvas;
+
+    // 상태별 드래그 영역(월드 사각형). DocumentView 가 SpawnArea(닫힘)·DocumentArea(펼침)를 주입한다.
+    // 비어 있으면(_hasDragBounds=false) 클램프하지 않는다(예전 동작).
+    private Rect _spawnZone;     // 닫힘(ClosedView)이 머무는 영역
+    private Rect _documentZone;  // 펼침(OpenView)이 머무는 영역(책상)
+    private bool _hasDragBounds;
 
     private void Awake()
     {
@@ -44,6 +50,15 @@ public sealed class PassportDocument : MonoBehaviour, IBeginDragHandler, IDragHa
         if (zone != null && _openZone == null) _openZone = zone;
     }
 
+    /// <summary>상태별 드래그 허용 영역(월드 사각형)을 코드로 주입한다.
+    /// 닫힘=spawnZone, 펼침=documentZone 에 카드가 머문다.</summary>
+    public void ConfigureDragBounds(Rect spawnZone, Rect documentZone)
+    {
+        _spawnZone = spawnZone;
+        _documentZone = documentZone;
+        _hasDragBounds = true;
+    }
+
     private GameObject ChildGo(string n)
     {
         Transform t = transform.Find(n);
@@ -60,6 +75,8 @@ public sealed class PassportDocument : MonoBehaviour, IBeginDragHandler, IDragHa
         if (_rt == null) return;
         float scale = (_canvas != null && _canvas.scaleFactor > 0f) ? _canvas.scaleFactor : 1f;
         _rt.anchoredPosition += eventData.delta / scale;
+        // 드래그 중엔 영역 클램프를 하지 않는다 — 손가락 따라 자유롭게 움직여 '벽에 막히는' 느낌 제거.
+        // 영역(스폰=닫힘 / 책상=펼침) 정렬은 손을 뗄 때(OnEndDrag)만 부드럽게 처리한다.
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -75,5 +92,10 @@ public sealed class PassportDocument : MonoBehaviour, IBeginDragHandler, IDragHa
         bool onDesk = zone != null
             && RectTransformUtility.RectangleContainsScreenPoint(zone, eventData.position, cam);
         SetOpen(onDesk); // 책상 위면 펼침, 밖이면 접힘
+
+        // 상태가 막 바뀌었으니(특히 펼침→닫힘) 새 상태에 맞는 영역으로 즉시 끌어들인다.
+        // 책상 밖에서 놓아 닫힘이 되면 작은 표지를 스폰 영역 안으로 되당기고,
+        // 책상 위에서 놓아 펼침이 되면 큰 루트를 책상 안으로 정렬한다.
+        DragBoundsClamp.ClampForState(_rt, _hasDragBounds, _spawnZone, _documentZone);
     }
 }

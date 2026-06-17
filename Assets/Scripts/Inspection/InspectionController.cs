@@ -185,6 +185,18 @@ public sealed class InspectionController : MonoBehaviour
     public string CurrentDocState =>
         Current != null ? (Current.correctResult == GameResults.Approve ? DocStates.Normal : DocStates.Defect) : null;
 
+    /// <summary>지금 심사 중인 손님이 있는가(없으면 false). 심리상담집 등 '현재 손님 대상' 아이템의 사용 가능 판단용.</summary>
+    public bool HasCurrentCustomer => Current != null;
+
+    /// <summary>
+    /// 현재 손님이 결함(위반)이 있는가 = 정답 판정이 '거절'이면 true, '승인'이면 false.
+    /// 확률 변형(altVariant)은 이미 RollVariants 가 이 데이터(correctResult)에 반영해 두므로,
+    /// 이번 플레이에 실제 적용된 변형 기준으로 판정된다. 손님이 없으면 false.
+    /// 정보 제공용(심리상담집 등) — 판정/점수에는 영향 없음.
+    /// </summary>
+    public bool CurrentCustomerHasDefect =>
+        Current != null && Current.correctResult != GameResults.Approve;
+
     /// <summary>지금 '대화/심문' 버튼으로 대사를 요청할 수 있는가(재생 중이 아니고 요청 케이스 존재).</summary>
     public bool CanRequestDialogue =>
         !_dialoguePlaying && _requestableCase != null
@@ -218,6 +230,68 @@ public sealed class InspectionController : MonoBehaviour
 
     private void RaiseRequestable() => OnRequestableChanged?.Invoke(CanRequestDialogue);
 
+    [Header("효과음")]
+    [Tooltip("손님이 입장(등장)할 때 재생할 발자국 소리. 비워두면 Resources/Audio/Footstep 에서 자동 로드.")]
+    [SerializeField] private AudioClip _footstepClip;
+    [Range(0f, 1f)]
+    [SerializeField] private float _footstepVolume = 1f;
+    [Tooltip("손님 입장 후 발자국만 들리다가 대사가 자동으로 뜨기까지의 간격(초). 작을수록 대사가 빨리 뜸. 이 시점에 발자국은 멈춤(겹침 방지). 키우면 발자국이 더 길게 들린 뒤 대사.")]
+    [SerializeField] private float _entryDialogueDelay = 0.8f;
+    private AudioSource _sfx;
+
+    private void Awake()
+    {
+        // 발자국 등 효과음용 2D AudioSource(없으면 추가). 같은 클립을 PlayOneShot 으로 매번 재생.
+        _sfx = GetComponent<AudioSource>();
+        if (_sfx == null) _sfx = gameObject.AddComponent<AudioSource>();
+        _sfx.playOnAwake = false;
+        _sfx.spatialBlend = 0f; // 2D
+        if (_footstepClip == null) _footstepClip = Resources.Load<AudioClip>("Audio/Footstep");
+    }
+
+    /// <summary>손님 입장 시 발자국 소리 1회 재생. 재생한 클립 길이(초)를 반환(없으면 0).
+    /// 실행 순서(Awake 전에 Initialize→ShowCustomer 가 불릴 수 있음)에 안전하도록 여기서도 지연 초기화한다.</summary>
+    private float PlayFootstep()
+    {
+        if (_sfx == null)
+        {
+            _sfx = GetComponent<AudioSource>();
+            if (_sfx == null) _sfx = gameObject.AddComponent<AudioSource>();
+            _sfx.playOnAwake = false;
+            _sfx.spatialBlend = 0f;
+        }
+        if (_footstepClip == null) _footstepClip = Resources.Load<AudioClip>("Audio/Footstep");
+        if (_footstepClip == null) return 0f;
+        _sfx.PlayOneShot(_footstepClip, _footstepVolume);
+        return _footstepClip.length;
+    }
+
+    private Coroutine _entryCo;
+
+    /// <summary>입장 후 짧은 간격(_entryDialogueDelay) 뒤 발자국을 멈추고 입장 대사를 자동 시작한다.
+    /// 클릭 없이도 대사가 뜨며, 그 시점에 발자국을 멈춰 '발소리 + 말소리' 겹침을 막는다.</summary>
+    private System.Collections.IEnumerator BeginEntryDialogueAfter(DialogueCaseData entry)
+    {
+        if (_entryDialogueDelay > 0f) yield return new WaitForSeconds(_entryDialogueDelay);
+        if (_sfx != null) _sfx.Stop(); // 발자국 멈춤 → 대사와 겹치지 않게
+        _entryCo = null;
+        if (entry != null) PlayThen(entry, OnEntryDialogueDone);
+        else OnEntryDialogueDone();
+    }
+
+    /// <summary>플레이어가 입장 대사를 기다리지 않고 먼저 검사(대조 등)를 시작했을 때 호출한다.
+    /// 아직 '재생 대기 중'인 입장 대사 코루틴이 있으면 취소한다 — 추궁 대사 뒤에 인삿말이 뒤늦게 뜨는 버그 방지.
+    /// 발자국도 멈추고, 판정/자동검사는 정상 활성화(OnEntryDialogueDone)해 소프트락을 막는다.
+    /// 입장 대사가 이미 떴거나 진행 중이면(_entryCo==null) 아무것도 하지 않는다.</summary>
+    public void NotifyInspectionStarted()
+    {
+        if (_entryCo == null) return;
+        StopCoroutine(_entryCo);
+        _entryCo = null;
+        if (_sfx != null) _sfx.Stop();
+        OnEntryDialogueDone();
+    }
+
     private void OnEnable()
     {
         if (_judgmentPanel != null)
@@ -234,14 +308,21 @@ public sealed class InspectionController : MonoBehaviour
         }
     }
 
+    private bool _awaitingFirstCustomer; // true면 첫 손님이 BeginInspection() 호출 전까지 대기(뉴스 닫기 게이트)
+
     /// <summary>데이터를 받아 해당 일차를 시작한다(첫날: 골드 초기화).</summary>
-    public void Initialize(Day1Data data) => Initialize(data, true);
+    public void Initialize(Day1Data data) => Initialize(data, true, true);
+
+    /// <summary>데이터를 받아 해당 일차를 시작한다(resetGold=false 면 누적 골드 유지).</summary>
+    public void Initialize(Day1Data data, bool resetGold) => Initialize(data, resetGold, true);
 
     /// <summary>
     /// 데이터를 받아 해당 일차를 시작한다.
     /// resetGold=false 면 누적 골드를 유지(2일차 이후 재초기화용).
+    /// autoShowFirst=false 면 첫 손님을 바로 등장시키지 않고 <see cref="BeginInspection"/> 호출을 기다린다
+    /// (하루 시작 시 뉴스를 먼저 띄우고, 뉴스를 닫아야 첫 손님이 입장하도록 게이트).
     /// </summary>
-    public void Initialize(Day1Data data, bool resetGold)
+    public void Initialize(Day1Data data, bool resetGold, bool autoShowFirst)
     {
         if (data == null || data.customers == null || data.customers.Length == 0)
         {
@@ -263,6 +344,27 @@ public sealed class InspectionController : MonoBehaviour
         UpdateGold();
         if (_dayCompleteRoot != null) _dayCompleteRoot.SetActive(false);
         if (_documentView != null) _documentView.ClearNotices(); // 날짜 넘어가면 누적 고지서 정리
+
+        if (autoShowFirst)
+        {
+            _awaitingFirstCustomer = false;
+            ShowCustomer(0);
+        }
+        else
+        {
+            // 뉴스를 먼저 띄우는 흐름: 첫 손님은 BeginInspection() 이 불릴 때(뉴스 닫은 뒤) 등장한다.
+            _awaitingFirstCustomer = true;
+            if (_customerView != null) _customerView.Hide();   // 손님 자리 비움(발자국/대사 전)
+            if (_documentView != null) _documentView.Clear();  // 서류도 비움
+            if (_dialogueView != null) _dialogueView.Hide();
+        }
+    }
+
+    /// <summary>보류했던 첫 손님을 등장시킨다(뉴스 닫은 뒤 1회). autoShowFirst=false 로 시작했을 때만 동작.</summary>
+    public void BeginInspection()
+    {
+        if (!_awaitingFirstCustomer) return;
+        _awaitingFirstCustomer = false;
         ShowCustomer(0);
     }
 
@@ -286,25 +388,20 @@ public sealed class InspectionController : MonoBehaviour
         _dialogueLines.Clear();
         _requestableCase = null;
         _dialoguePlaying = false;
+        if (_dialogueView != null) _dialogueView.Hide(); // 발자국 동안 대화창 숨김 → 발소리 끝난 뒤 다시 출력
         RaiseRequestable();
         OnCustomerChanged?.Invoke();
 
         if (_customerView != null) _customerView.Show(c, FacePhotoRef(c));
+        PlayFootstep(); // 손님 등장 발자국 소리(잠시 뒤 대사 시작 시 멈춤)
         if (_documentView != null) _documentView.Show(c.documents);
         if (_slotCounterText != null) _slotCounterText.text = $"{index + 1} / {_data.customers.Length}";
         if (_judgmentPanel != null) _judgmentPanel.ResetForNextCustomer(false);
 
-        // 입장 대사 후 판정 활성화
+        // 입장 대사: 짧은 간격 뒤 클릭 없이 자동 시작(그때 발자국 멈춤). 끝나면 OnEntryDialogueDone 에서 판정 활성화.
         DialogueCaseData entry = FindCaseByType(c, CaseTypes.Entry);
-        Debug.Log($"[EntryDBG] '{c.nameKr}' (cid{c.customerId}) entry={(entry == null ? "NULL(입장 케이스 못 찾음)" : entry.lines?.Length + "줄")} dialogueView={(_dialogueView == null ? "NULL" : "ok")} firstLineLen={(entry?.lines != null && entry.lines.Length > 0 ? entry.lines[0].text?.Length ?? 0 : -1)}");
-        if (entry != null)
-        {
-            PlayThen(entry, OnEntryDialogueDone);
-        }
-        else
-        {
-            OnEntryDialogueDone();
-        }
+        if (_entryCo != null) StopCoroutine(_entryCo);
+        _entryCo = StartCoroutine(BeginEntryDialogueAfter(entry));
     }
 
     /// <summary>

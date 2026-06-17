@@ -42,12 +42,16 @@ public sealed class ResultSceneManager : MonoBehaviour
     private ScoreEconomyManager _economy;
     private int _day;
     private bool _endingShown; // 14일차 엔딩 중복 발동 가드
+    private static int _jingleDayPlayed = -1; // 결과화면 인트로(일차 마치는 소리)을 이미 재생한 일차(상점 왕복 재진입 시 중복 방지)
+    private AudioSource _sfx; // 일차 마치는 소리(원샷)용
 
     private void Start()
     {
         EnsureEconomy(); // ResultScene 단독 실행에도 안전하도록 매니저 보장(ImmigrationManager 패턴 모방)
 
         _day = PlayerPrefs.GetInt(CurrentDayKey, 1);
+
+        PlayResultAudioOnce(); // 결과화면 진입 시: 일차 마치는 소리 → 상점 배경음악(연속) (일자당 1회)
 
         // 상점 구매로 잔액이 바뀌면 정산 표시를 갱신(DaySettlementView 가 구독하던 이벤트와 동일).
         if (_economy != null) _economy.OnMoneyChanged += HandleMoneyChanged;
@@ -80,6 +84,31 @@ public sealed class ResultSceneManager : MonoBehaviour
         {
             new GameObject("ShopService").AddComponent<ShopService>();
         }
+    }
+
+    /// <summary>결과화면 진입 시 일차당 1회: ①일차 마치는 소리 → ②상점 배경음악(상점 씬까지 연속) 순서로 재생.
+    /// 상점 → [돌아가기]로 재진입하면 다시 울리지 않는다(상점 BGM 은 이미 재생 중).</summary>
+    private void PlayResultAudioOnce()
+    {
+        if (_jingleDayPlayed == _day) return; // 같은 일차 결과 재진입 → 인트로 음악 다시 안 함
+        _jingleDayPlayed = _day;
+        if (_sfx == null)
+        {
+            _sfx = GetComponent<AudioSource>();
+            if (_sfx == null) _sfx = gameObject.AddComponent<AudioSource>();
+            _sfx.playOnAwake = false;
+            _sfx.spatialBlend = 0f; // 2D
+        }
+        StartCoroutine(ResultAudioSequence());
+    }
+
+    /// <summary>①일차 마치는 소리 → (끝나면) ②상점 배경음악 시작(상점 씬까지 연속). 소리가 없으면 그 단계는 건너뛴다.</summary>
+    private System.Collections.IEnumerator ResultAudioSequence()
+    {
+        var dayClip = Resources.Load<AudioClip>("Audio/DayComplete");
+        if (dayClip != null) { _sfx.PlayOneShot(dayClip, 1f); yield return new WaitForSeconds(dayClip.length); }
+
+        if (ShopBgmManager.Instance != null) ShopBgmManager.Instance.Play(); // 상점 BGM 시작(상점 씬까지 연속)
     }
 
     // ── 정산 표시 ─────────────────────────────────────────────

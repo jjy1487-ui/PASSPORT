@@ -25,9 +25,12 @@ public sealed class ManualShopItem : MonoBehaviour
     [SerializeField] private Image    _iconImage;        // 아이콘(구매=보유 시 어둡게)
 
     // UI-CONVENTIONS 2장 색 토큰(이 프로젝트는 UITheme 부재 — ShopItemCardView 와 동일 상수).
-    private static readonly Color Neutral    = new Color32(0x7A, 0x82, 0x8C, 0xFF); // 비활성/보유
-    private static readonly Color Reject     = new Color32(0xC0, 0x39, 0x2B, 0xFF); // 자금 부족 경고
-    private static readonly Color TextOnDark = new Color32(0xEC, 0xEC, 0xEC, 0xFF); // 구매 가능
+    // 라벨 색 규약(상점):
+    //  - UnifiedLabel: 이름·가격·'구매(가능)' 일반 라벨을 한 색으로 통일(어두운 패널/버튼에서 읽힘).
+    //  - Owned/Reject: '보유 중'·'자금 부족' 상태만 색으로 구분 — 서로, 그리고 통일색과도 명확히 다름.
+    private static readonly Color UnifiedLabel = new Color32(0xEC, 0xEC, 0xEC, 0xFF); // 이름/가격/구매 통일색(밝은 회백)
+    private static readonly Color Owned        = new Color32(0x8F, 0xA1, 0xB3, 0xFF); // 보유 중(차분한 블루그레이)
+    private static readonly Color Reject       = new Color32(0xE8, 0x50, 0x3A, 0xFF); // 자금 부족 경고(주황빨강)
 
     private ShopService Shop => ShopService.Instance;
     private ScoreEconomyManager Economy => ScoreEconomyManager.Instance;
@@ -108,7 +111,10 @@ public sealed class ManualShopItem : MonoBehaviour
         int price = row.GetInt("price", 0);
         int money = Economy != null ? Economy.Money : 0;
 
-        bool owned = Shop.IsOwned(effectType);
+        // 1개만 구매 가능: 영구 효과는 보유 시, 소비품은 1개 보유 시 "보유 중"(더 못 삼).
+        //  소비품은 사용해 0개가 되면 다시 "구매" 가능.
+        bool owned = Shop.IsOwned(effectType)
+                     || (Shop.IsConsumable(effectType) && Shop.GetConsumableCount(effectType) >= 1);
         bool poor  = !owned && money < price;
 
         // 구매(보유) 시 아이콘을 어둡게 칠해 "선택됨/보유 중"을 시각으로 표시(판정 아님 — 표시만).
@@ -117,9 +123,9 @@ public sealed class ManualShopItem : MonoBehaviour
         if (_buyButton != null) _buyButton.interactable = !owned && !poor;
 
         if (_buyButtonLabel == null) return;
-        if (owned)      { _buyButtonLabel.text = "보유 중";   _buyButtonLabel.color = Neutral; }
+        if (owned)      { _buyButtonLabel.text = "보유 중";   _buyButtonLabel.color = Owned; }
         else if (poor)  { _buyButtonLabel.text = "자금 부족"; _buyButtonLabel.color = Reject; }
-        else            { _buyButtonLabel.text = "구매";       _buyButtonLabel.color = TextOnDark; }
+        else            { _buyButtonLabel.text = "구매";       _buyButtonLabel.color = UnifiedLabel; }
     }
 
     /// <summary>현재 일차 기준 구매 가능 목록에서 이 칸의 shop_item_id 행을 찾는다(공개 API 만 사용).</summary>

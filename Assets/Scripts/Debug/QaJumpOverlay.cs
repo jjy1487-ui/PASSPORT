@@ -47,8 +47,10 @@ public sealed class QaJumpOverlay : MonoBehaviour
 
     private void OnGUI()
     {
-        // 심사 씬이 아닐 때(메뉴/결과 씬 등)는 화면을 가리지 않도록 아무것도 그리지 않는다.
-        if (Mgr == null) return;
+        // 점프는 심사 씬(ImmigrationManager)에서만, 자금 조정은 경제 매니저만 있으면 어디서나(상점 씬 포함).
+        // 둘 다 없는 씬(타이틀 등)은 화면을 가리지 않도록 아무것도 그리지 않는다.
+        bool hasEcon = ScoreEconomyManager.Instance != null;
+        if (Mgr == null && !hasEcon) return;
 
         // 백틱( ` )으로 패널 토글.
         Event e = Event.current;
@@ -64,46 +66,70 @@ public sealed class QaJumpOverlay : MonoBehaviour
             return;
         }
 
-        _win = GUILayout.Window(WinId, _win, DrawWindow, "검수 점프  ( ` 토글 )");
+        _win = GUILayout.Window(WinId, _win, DrawWindow, "검수  ( ` 토글 )");
     }
 
     private void DrawWindow(int id)
     {
         ImmigrationManager mgr = Mgr;
 
-        GUILayout.Label($"현재: {mgr.CurrentDay}일차 · 손님 {mgr.CurrentSlot1Based}/{mgr.CurrentDayCustomerCount}");
-        GUILayout.Space(4);
-
-        // 목표 일차 선택(1~14)
-        GUILayout.BeginHorizontal();
-        GUILayout.Label("일차", GUILayout.Width(36));
-        if (GUILayout.Button("◀", GUILayout.Width(30))) _day = Mathf.Max(1, _day - 1);
-        GUILayout.Label(_day.ToString(), GUILayout.Width(30));
-        if (GUILayout.Button("▶", GUILayout.Width(30))) _day = Mathf.Min(14, _day + 1);
-        GUILayout.EndHorizontal();
-
-        // 목표 손님 선택(1~7)
-        GUILayout.BeginHorizontal();
-        GUILayout.Label("손님", GUILayout.Width(36));
-        if (GUILayout.Button("◀", GUILayout.Width(30))) _slot = Mathf.Max(1, _slot - 1);
-        GUILayout.Label(_slot.ToString(), GUILayout.Width(30));
-        if (GUILayout.Button("▶", GUILayout.Width(30))) _slot = Mathf.Min(7, _slot + 1);
-        GUILayout.EndHorizontal();
-
-        GUILayout.Space(4);
-        if (GUILayout.Button($"▶ {_day}일차 {_slot}번째 손님으로 이동", GUILayout.Height(30)))
+        // ── 손님 점프(심사 씬에서만) ──────────────────────────────
+        if (mgr != null)
         {
-            mgr.DebugJumpTo(_day, _slot);
+            GUILayout.Label($"현재: {mgr.CurrentDay}일차 · 손님 {mgr.CurrentSlot1Based}/{mgr.CurrentDayCustomerCount}");
+            GUILayout.Space(4);
+
+            // 목표 일차 선택(1~14)
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("일차", GUILayout.Width(36));
+            if (GUILayout.Button("◀", GUILayout.Width(30))) _day = Mathf.Max(1, _day - 1);
+            GUILayout.Label(_day.ToString(), GUILayout.Width(30));
+            if (GUILayout.Button("▶", GUILayout.Width(30))) _day = Mathf.Min(14, _day + 1);
+            GUILayout.EndHorizontal();
+
+            // 목표 손님 선택(1~7)
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("손님", GUILayout.Width(36));
+            if (GUILayout.Button("◀", GUILayout.Width(30))) _slot = Mathf.Max(1, _slot - 1);
+            GUILayout.Label(_slot.ToString(), GUILayout.Width(30));
+            if (GUILayout.Button("▶", GUILayout.Width(30))) _slot = Mathf.Min(7, _slot + 1);
+            GUILayout.EndHorizontal();
+
+            GUILayout.Space(4);
+            if (GUILayout.Button($"▶ {_day}일차 {_slot}번째 손님으로 이동", GUILayout.Height(30)))
+            {
+                mgr.DebugJumpTo(_day, _slot);
+            }
+
+            GUILayout.Space(2);
+            // 현재 일차 안에서 빠른 이전/다음(데이터 리로드 없음 → 셔플/변형 보존).
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("◀ 이전 손님"))
+                mgr.DebugJumpTo(mgr.CurrentDay, Mathf.Max(1, mgr.CurrentSlot1Based - 1));
+            if (GUILayout.Button("다음 손님 ▶"))
+                mgr.DebugJumpTo(mgr.CurrentDay, mgr.CurrentSlot1Based + 1);
+            GUILayout.EndHorizontal();
         }
 
-        GUILayout.Space(2);
-        // 현재 일차 안에서 빠른 이전/다음(데이터 리로드 없음 → 셔플/변형 보존).
-        GUILayout.BeginHorizontal();
-        if (GUILayout.Button("◀ 이전 손님"))
-            mgr.DebugJumpTo(mgr.CurrentDay, Mathf.Max(1, mgr.CurrentSlot1Based - 1));
-        if (GUILayout.Button("다음 손님 ▶"))
-            mgr.DebugJumpTo(mgr.CurrentDay, mgr.CurrentSlot1Based + 1);
-        GUILayout.EndHorizontal();
+        // ── 자금 조정(테스트용) — 상점에서 아이템을 사보려면 돈이 필요 ──
+        var econ = ScoreEconomyManager.Instance;
+        if (econ != null)
+        {
+            GUILayout.Space(6);
+            GUILayout.Label($"자금(테스트): {econ.Money}원");
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("+100"))   econ.AddMoney(100);
+            if (GUILayout.Button("+500"))   econ.AddMoney(500);
+            if (GUILayout.Button("+1000"))  econ.AddMoney(1000);
+            if (GUILayout.Button("+5000"))  econ.AddMoney(5000);
+            GUILayout.EndHorizontal();
+        }
+
+        if (mgr == null)
+        {
+            GUI.DragWindow(new Rect(0, 0, 10000, 20));
+            return; // 심사 씬이 아니면(상점/결과 씬) 변이 강제 섹션은 생략
+        }
 
         GUILayout.Space(6);
         // [QA] 확률(랜덤) 손님을 강제로 정상/불량 고정 — 양쪽 변형을 다 확인. (확률 손님이 아니면 영향 없음)

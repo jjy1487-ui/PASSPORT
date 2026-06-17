@@ -22,12 +22,21 @@ public sealed class NewsPopup : MonoBehaviour, ICrossCheckProvider
     [Header("교차 대조")]
     [SerializeField] private CrossCheckItemView _contentSelectable; // 본문(content) 자체가 클릭 대조 항목
 
+    [Header("모달/효과음")]
+    [Tooltip("풀스크린 클릭 차단판(모달). 열릴 때 켜고 닫을 때 끈다. 비우면 모달 아님.")]
+    [SerializeField] private GameObject _backdrop;
+
     private IReadOnlyList<NewsData> _items;
     private int _index;
     private bool _centeredOnce;  // 최초 1회만 중앙 정렬. 이후엔 드래그한 위치를 유지.
+    private AudioSource _sfx;     // 뉴스 등장 효과음(정산 타이핑) 2D 재생용
+    private AudioClip _typeSound; // Resources/Audio/Settlement (정산내역 타이핑음과 동일)
 
     /// <summary>selectable 구성 변경 통지.</summary>
     public event System.Action OnSelectablesChanged;
+
+    /// <summary>팝업이 닫힐 때 발행(하루 시작 시 "뉴스 닫으면 첫 손님 입장" 게이트에 사용).</summary>
+    public event System.Action OnClosed;
 
     private void Awake()
     {
@@ -35,6 +44,14 @@ public sealed class NewsPopup : MonoBehaviour, ICrossCheckProvider
         if (_nextButton != null) _nextButton.onClick.AddListener(Next);
         if (_closeButton != null) _closeButton.onClick.AddListener(Close);
         if (_root != null) _root.SetActive(false);
+        if (_backdrop != null) _backdrop.SetActive(false);
+
+        // 뉴스 등장음(정산 타이핑) 2D AudioSource + 클립 로드(ShopService 구매음과 동일 클립).
+        _sfx = GetComponent<AudioSource>();
+        if (_sfx == null) _sfx = gameObject.AddComponent<AudioSource>();
+        _sfx.playOnAwake = false;
+        _sfx.spatialBlend = 0f;
+        _typeSound = Resources.Load<AudioClip>("Audio/Settlement");
     }
 
     private void OnDestroy()
@@ -49,6 +66,7 @@ public sealed class NewsPopup : MonoBehaviour, ICrossCheckProvider
     {
         _items = items;
         _index = 0;
+        if (_backdrop != null) _backdrop.SetActive(true);        // 모달: 바깥 클릭 차단
         if (_root != null)
         {
             _root.SetActive(true);
@@ -56,6 +74,7 @@ public sealed class NewsPopup : MonoBehaviour, ICrossCheckProvider
             BringToFront(_root.transform, !_centeredOnce);
             _centeredOnce = true;
         }
+        if (_sfx != null && _typeSound != null) _sfx.PlayOneShot(_typeSound); // 정산 타이핑음
         Render();
     }
 
@@ -79,7 +98,9 @@ public sealed class NewsPopup : MonoBehaviour, ICrossCheckProvider
     public void Close()
     {
         if (_root != null) _root.SetActive(false);
+        if (_backdrop != null) _backdrop.SetActive(false);  // 모달 해제
         OnSelectablesChanged?.Invoke();
+        OnClosed?.Invoke();
     }
 
     private void Prev()

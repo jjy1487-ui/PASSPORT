@@ -461,8 +461,8 @@
    "nameEn": "JEONG DAEUN",
    "nationality": "대한민국(KOR)",
    "gender": "여성",
-   "birthDate": "1997-11-20",
-   "age": 28,
+   "birthDate": "1996-04-12",
+   "age": 30,
    "spriteRef": "서지호",
    "characterType": "성형 수술 고객",
    "defectVariant": "",
@@ -492,7 +492,7 @@
       },
       {
        "label": "생년월일",
-       "value": "1997-11-20",
+       "value": "1996-04-12",
        "key": "birth_date"
       },
       {
@@ -612,7 +612,7 @@
     "record": {
      "mode": "성형",
      "dbName": "JEONG DAEUN",
-     "dbBirth": "1997-11-20",
+     "dbBirth": "1996-04-12",
      "dbNationality": "KOR",
      "criminalRecord": "없음",
      "wantedNo": ""
@@ -649,7 +649,7 @@
        },
        {
         "label": "생년월일",
-        "value": "1997-11-20",
+        "value": "1996-04-12",
         "key": "birth_date"
        },
        {
@@ -788,7 +788,7 @@
      },
      {
       "attr": "birth_date",
-      "inspector": "지문 조회 결과… 등록 생년월일이 1994-11-20인데, 여권은 1997-11-20네요. 일치하지 않습니다. 지문은 성형으로도 바뀌지 않습니다.",
+      "inspector": "지문 조회 결과… 등록 생년월일이 1994-11-20인데, 여권은 1996-04-12네요. 일치하지 않습니다. 지문은 성형으로도 바뀌지 않습니다.",
       "customer": "어… 그건 시스템 오류 아닐까요? …(말을 잇지 못한다)",
       "unlocksScan": ""
      }

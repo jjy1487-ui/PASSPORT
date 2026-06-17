@@ -408,8 +408,8 @@
    "nameEn": "HAN JIA",
    "nationality": "대한민국(KOR)",
    "gender": "여성",
-   "birthDate": "1997-11-20",
-   "age": 28,
+   "birthDate": "1999-09-25",
+   "age": 26,
    "spriteRef": "서지호",
    "characterType": "성형 수술 고객",
    "defectVariant": "",
@@ -439,7 +439,7 @@
       },
       {
        "label": "생년월일",
-       "value": "1997-11-20",
+       "value": "1999-09-25",
        "key": "birth_date"
       },
       {
@@ -580,7 +580,7 @@
     "record": {
      "mode": "성형",
      "dbName": "KANG MINHO",
-     "dbBirth": "1997-11-20",
+     "dbBirth": "1999-09-25",
      "dbNationality": "KOR",
      "criminalRecord": "없음",
      "wantedNo": ""

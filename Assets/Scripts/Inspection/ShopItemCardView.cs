@@ -24,11 +24,13 @@ public sealed class ShopItemCardView : MonoBehaviour
     [SerializeField] private Button   _buyButton;
     [SerializeField] private TMP_Text _buyButtonLabel; // "구매" / "보유" / "잠김" / "돈 부족"
 
-    // UI-CONVENTIONS 2장 색 토큰(이 프로젝트는 UITheme 부재 — ScoreHudView 와 동일하게 상수로 둠).
-    private static readonly Color MoneyGold  = new Color32(0xD4, 0xA0, 0x17, 0xFF); // 가격
-    private static readonly Color Neutral    = new Color32(0x7A, 0x82, 0x8C, 0xFF); // 비활성/보유
-    private static readonly Color Reject     = new Color32(0xC0, 0x39, 0x2B, 0xFF); // 돈 부족 경고
-    private static readonly Color TextOnDark = new Color32(0xEC, 0xEC, 0xEC, 0xFF);
+    // UI-CONVENTIONS 2장 색 토큰(이 프로젝트는 UITheme 부재 — ManualShopItem 와 동일 상수).
+    // 라벨 색 규약(상점):
+    //  - UnifiedLabel: 이름·가격·'구매(가능)' 일반 라벨을 한 색으로 통일(어두운 패널/버튼에서 읽힘).
+    //  - Owned/Reject: '보유 중'·'자금 부족' 상태만 색으로 구분 — 서로, 그리고 통일색과도 명확히 다름.
+    private static readonly Color UnifiedLabel = new Color32(0xEC, 0xEC, 0xEC, 0xFF); // 이름/가격/구매 통일색(밝은 회백)
+    private static readonly Color Owned        = new Color32(0x8F, 0xA1, 0xB3, 0xFF); // 보유 중(차분한 블루그레이)
+    private static readonly Color Reject        = new Color32(0xE8, 0x50, 0x3A, 0xFF); // 자금 부족 경고(주황빨강)
 
     private string _shopItemId;
     private Action<string> _onBuy; // ShopPanelView 가 주입(구매 요청 콜백)
@@ -52,12 +54,16 @@ public sealed class ShopItemCardView : MonoBehaviour
 
         BindIcon(row.Get("icon"));
 
-        if (_nameText != null) _nameText.text = Safe(row.Get("item_name"));
+        if (_nameText != null)
+        {
+            _nameText.text = Safe(row.Get("item_name"));
+            _nameText.color = UnifiedLabel; // 이름·가격·구매 통일색
+        }
         if (_categoryText != null) _categoryText.text = Safe(row.Get("category"));
         if (_priceText != null)
         {
             _priceText.text = row.GetInt("price", 0).ToString();
-            _priceText.color = MoneyGold;
+            _priceText.color = UnifiedLabel; // 가격도 통일색으로(이전 MoneyGold → 통일)
         }
         if (_effectText != null) _effectText.text = Safe(row.Get("effect"));
     }
@@ -102,11 +108,11 @@ public sealed class ShopItemCardView : MonoBehaviour
         {
             case State.Buyable:
                 _buyButtonLabel.text = "구매";
-                _buyButtonLabel.color = TextOnDark;
+                _buyButtonLabel.color = UnifiedLabel;
                 break;
             case State.Owned:
                 _buyButtonLabel.text = "보유 중";
-                _buyButtonLabel.color = Neutral;
+                _buyButtonLabel.color = Owned;
                 break;
             case State.NotEnoughMoney:
                 _buyButtonLabel.text = "자금 부족";
@@ -114,7 +120,7 @@ public sealed class ShopItemCardView : MonoBehaviour
                 break;
             case State.Locked:
                 _buyButtonLabel.text = "잠김";
-                _buyButtonLabel.color = Neutral;
+                _buyButtonLabel.color = Owned;
                 break;
         }
     }

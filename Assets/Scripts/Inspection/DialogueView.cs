@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,9 +17,28 @@ public sealed class DialogueView : MonoBehaviour
     [SerializeField] private TMP_Text _bodyText;
     [SerializeField] private Button _nextButton;
 
+    [Header("타자기 효과 (언더테일식)")]
+    [Tooltip("글자 하나가 나오는 간격(초). 작을수록 빠르게 타이핑.")]
+    [SerializeField] private float _charInterval = 0.07f;
+    [Tooltip("타이핑 '진행 중' 표시(예: ...). SpeechBubble 우측하단. 비우면 미사용.")]
+    [SerializeField] private GameObject _typingIndicator;
+    [Tooltip("대사 '완료' 표시(엔터 아이콘). SpeechBubble 우측하단. 비우면 미사용.")]
+    [SerializeField] private GameObject _doneIndicator;
+
+    [Header("말소리 (타자기 블립)")]
+    [Tooltip("타이핑 중 글자마다 낼 말소리(랜덤 재생). 비우면 Resources/Audio/Talk1~3 자동 로드.")]
+    [SerializeField] private AudioClip[] _talkClips;
+    [Range(0f, 1f)]
+    [SerializeField] private float _talkVolume = 0.5f;
+    [Tooltip("몇 글자마다 말소리를 낼지(2=두 글자마다 한 번).")]
+    [SerializeField] private int _blipEvery = 2;
+    private AudioSource _talkSource;
+
     private DialogueLineData[] _lines;
     private int _index;
     private Action _onComplete;
+    private Coroutine _typingCo;
+    private bool _isTyping;
 
     private void Awake()
     {
@@ -27,6 +47,21 @@ public sealed class DialogueView : MonoBehaviour
         {
             _nextButton.onClick.AddListener(ShowNext);
         }
+
+        // 타자기 말소리용 2D AudioSource + 클립 자동 로드(인스펙터 미연결 시 Resources 폴백).
+        _talkSource = gameObject.AddComponent<AudioSource>();
+        _talkSource.playOnAwake = false;
+        _talkSource.spatialBlend = 0f;
+        if (_talkClips == null || _talkClips.Length == 0)
+        {
+            _talkClips = new[]
+            {
+                Resources.Load<AudioClip>("Audio/Talk1"),
+                Resources.Load<AudioClip>("Audio/Talk2"),
+                Resources.Load<AudioClip>("Audio/Talk3"),
+            };
+        }
+        if (_blipEvery < 1) _blipEvery = 1;
     }
 
     private void OnDestroy()
@@ -115,6 +150,10 @@ public sealed class DialogueView : MonoBehaviour
     /// <summary>대화창을 숨긴다.</summary>
     public void Hide()
     {
+        if (_typingCo != null) { StopCoroutine(_typingCo); _typingCo = null; }
+        _isTyping = false;
+        if (_typingIndicator != null) _typingIndicator.SetActive(false);
+        if (_doneIndicator != null) _doneIndicator.SetActive(false);
         if (_root != null)
         {
             _root.SetActive(false);
@@ -123,6 +162,12 @@ public sealed class DialogueView : MonoBehaviour
 
     private void ShowNext()
     {
+        // 타이핑 중이면 먼저 전체 문장만 드러내고(스킵), 다음 줄로는 넘어가지 않는다.
+        if (_isTyping)
+        {
+            RevealAll();
+            return;
+        }
         _index++;
         if (_lines == null || _index >= _lines.Length)
         {
@@ -144,8 +189,63 @@ public sealed class DialogueView : MonoBehaviour
         }
         if (_bodyText != null)
         {
-            _bodyText.text = line.text;
+            if (_typingCo != null) StopCoroutine(_typingCo);
+            _typingCo = StartCoroutine(TypeLine(line.text ?? string.Empty));
         }
+    }
+
+    /// <summary>한 글자씩 드러내는 타자기 연출(언더테일식). 진행 중엔 '...' 표시, 끝나면 엔터 아이콘.</summary>
+    private IEnumerator TypeLine(string full)
+    {
+        _isTyping = true;
+        SetIndicator(typing: true);
+        _bodyText.text = full;
+        _bodyText.maxVisibleCharacters = 0;
+        _bodyText.ForceMeshUpdate();
+        int total = _bodyText.textInfo.characterCount;
+        for (int shown = 0; shown <= total; shown++)
+        {
+            _bodyText.maxVisibleCharacters = shown;
+            // 새 글자가 드러날 때 일정 간격마다 말소리 블립(언더테일식). 공백 글자엔 안 냄.
+            if (shown >= 1 && shown % _blipEvery == 0) PlayBlip(shown - 1);
+            if (shown < total && _charInterval > 0f) yield return new WaitForSeconds(_charInterval);
+        }
+        _typingCo = null;
+        _isTyping = false;
+        SetIndicator(typing: false);
+    }
+
+    /// <summary>지정한 글자 인덱스가 공백이 아니면 말소리 클립 하나를 랜덤 재생한다.</summary>
+    private void PlayBlip(int charIndex)
+    {
+        if (_talkSource == null || _talkClips == null || _talkClips.Length == 0) return;
+        if (_bodyText != null && charIndex >= 0 && charIndex < _bodyText.textInfo.characterCount)
+        {
+            char ch = _bodyText.textInfo.characterInfo[charIndex].character;
+            if (char.IsWhiteSpace(ch)) return; // 공백엔 말소리 X
+        }
+        AudioClip clip = _talkClips[UnityEngine.Random.Range(0, _talkClips.Length)];
+        if (clip != null) _talkSource.PlayOneShot(clip, _talkVolume);
+    }
+
+    /// <summary>타이핑을 즉시 끝내 전체 문장을 보여준다(타이핑 중 클릭 1회 = 스킵).</summary>
+    private void RevealAll()
+    {
+        if (_typingCo != null) { StopCoroutine(_typingCo); _typingCo = null; }
+        if (_bodyText != null)
+        {
+            _bodyText.ForceMeshUpdate();
+            _bodyText.maxVisibleCharacters = _bodyText.textInfo.characterCount;
+        }
+        _isTyping = false;
+        SetIndicator(typing: false);
+    }
+
+    /// <summary>진행 표시 전환: 타이핑 중 = '...'(_typingIndicator) / 완료 = 엔터 아이콘(_doneIndicator).</summary>
+    private void SetIndicator(bool typing)
+    {
+        if (_typingIndicator != null) _typingIndicator.SetActive(typing);
+        if (_doneIndicator != null) _doneIndicator.SetActive(!typing);
     }
 
     private static DialogueLineData[] SortByOrder(DialogueLineData[] src)

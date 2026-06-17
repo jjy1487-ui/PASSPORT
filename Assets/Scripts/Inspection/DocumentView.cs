@@ -100,9 +100,12 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
         {
             DocumentCardView card = Instantiate(ResolveCardPrefab(documents[i].documentType), _cardContainer);
             card.gameObject.SetActive(true);
-            PositionAtSpawn(card.transform as RectTransform, i);
             card.Bind(documents[i]);
+            // 닫힌 표지(ClosedView)를 먼저 활성화한 뒤 배치한다 → PositionAtSpawn 이 실제로 보이는
+            // 닫힌 표지 크기로 클램프할 수 있다(루트는 329×440이지만 보이는 표지는 60×55라 루트 기준 클램프는 빗나간다).
+            // StartClosed 는 표지 토글만 할 뿐 루트 위치를 옮기지 않으므로 PositionAtSpawn 보다 먼저 호출해도 안전.
             StartClosed(card); // 스폰 시 닫힌 표지만(열림+닫힘 동시표시 방지). 책상으로 드래그하면 펼쳐진다.
+            PositionAtSpawn(card.transform as RectTransform, i);
             _spawned.Add(card);
         }
 
@@ -115,6 +118,20 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
     private void StartClosed(DocumentCardView card)
     {
         if (card == null) return;
+
+        // 상태별 드래그 허용 영역을 카드에 주입한다(닫힘=SpawnArea, 펼침=DocumentArea).
+        // 여권/일반 카드 둘 다 IDragBoundsReceiver 를 구현하므로 한 줄로 처리.
+        // 둘 중 하나라도 유효하면 주입한다(닫힘만/펼침만 있어도 그 상태는 가둬짐).
+        IDragBoundsReceiver bounds = card.GetComponent<IDragBoundsReceiver>();
+        if (bounds != null)
+        {
+            Rect spawnZone = WorldRectOf(_spawnArea);
+            Rect documentZone = WorldRectOf(_cardContainer as RectTransform);
+            if ((spawnZone.width > 0f && spawnZone.height > 0f)
+                || (documentZone.width > 0f && documentZone.height > 0f))
+                bounds.ConfigureDragBounds(spawnZone, documentZone);
+        }
+
         PassportDocument pd = card.GetComponent<PassportDocument>();
         if (pd != null)
         {
@@ -126,6 +143,19 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
         Transform closed = card.transform.Find("ClosedView");
         if (open != null) open.gameObject.SetActive(false);
         if (closed != null) closed.gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// RectTransform 의 월드 사각형을 구한다(상태별 클램프 영역 주입용).
+    /// _spawnArea → 닫힘 영역, _cardContainer → 펼침(책상) 영역으로 따로 쓴다.
+    /// null 이면 빈 Rect(클램프 미적용 신호).
+    /// </summary>
+    private static Rect WorldRectOf(RectTransform rt)
+    {
+        if (rt == null) return new Rect(0f, 0f, 0f, 0f);
+        Vector3[] c = new Vector3[4];
+        rt.GetWorldCorners(c); // 0=좌하 1=좌상 2=우상 3=우하
+        return Rect.MinMaxRect(c[0].x, c[0].y, c[2].x, c[1].y);
     }
 
     /// <summary>
@@ -141,8 +171,16 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
         {
             Vector3[] c = new Vector3[4];
             _spawnArea.GetWorldCorners(c); // 0=좌하 1=좌상 2=우상 3=우하
-            float minX = c[0].x + _cardHalfSize.x, maxX = c[2].x - _cardHalfSize.x;
-            float minY = c[0].y + _cardHalfSize.y, maxY = c[1].y - _cardHalfSize.y;
+
+            // 클램프 기준은 '루트(329×440)'가 아니라 '실제로 보이는 닫힌 표지(ClosedView, 보통 60×55)'다.
+            // 닫힌 표지의 월드 반(半)크기와 표지 중심이 루트 위치에서 얼마나 떨어졌는지(offset)를 구해,
+            // (루트위치 + offset ± 반크기)가 영역 안에 들도록 클램프한다. ClosedView 가 없으면 _cardHalfSize 폴백.
+            Vector2 half, offset;
+            GetVisibleClosedExtents(card, out half, out offset);
+
+            // 표지가 영역 안에 완전히 들어오도록, 표지 중심이 놓일 수 있는 범위를 계산한다.
+            float minX = c[0].x + half.x - offset.x, maxX = c[2].x - half.x - offset.x;
+            float minY = c[0].y + half.y - offset.y, maxY = c[1].y - half.y - offset.y;
 
             // 영역 정중앙을 기준으로 배치(첫 장은 정확히 중앙, 여러 장은 중앙에서 약간씩 어긋나게).
             float cx = (minX + maxX) * 0.5f;
@@ -161,6 +199,28 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
     }
 
     /// <summary>
+    /// 카드에서 '보이는 닫힌 표지(ClosedView)'의 월드 반(半)크기 half 와, 표지 중심이 카드 루트 위치에서
+    /// 떨어진 월드 offset 을 구한다. ClosedView 를 찾을 수 없으면 기존 _cardHalfSize / offset 0 으로 폴백.
+    /// (Show() 에서 StartClosed 를 먼저 호출해 ClosedView 가 활성화된 뒤에 불려야 GetWorldCorners 가 유효.)
+    /// </summary>
+    private void GetVisibleClosedExtents(RectTransform card, out Vector2 half, out Vector2 offset)
+    {
+        Transform closed = card != null ? card.Find("ClosedView") : null;
+        if (closed != null && closed.gameObject.activeInHierarchy && closed is RectTransform crt)
+        {
+            Vector3[] cc = new Vector3[4];
+            crt.GetWorldCorners(cc); // 0=좌하 1=좌상 2=우상 3=우하
+            half = new Vector2((cc[3].x - cc[0].x) * 0.5f, (cc[1].y - cc[0].y) * 0.5f);
+            Vector3 center = (cc[0] + cc[2]) * 0.5f;
+            offset = new Vector2(center.x - card.position.x, center.y - card.position.y);
+            return;
+        }
+        // 폴백: 보이는 표지를 못 찾으면 루트 중심 기준의 추정 반크기를 쓴다(예전 동작).
+        half = _cardHalfSize;
+        offset = Vector2.zero;
+    }
+
+    /// <summary>
     /// 고지서를 일반 서류와 같은 출현 영역(_spawnArea = 검사 데스크의 서류 스폰 자리)에 띄운다.
     /// 서있는 캐릭터(CustomerArea) 위/중앙을 가리지 않도록, 서류가 뜨는 곳과 동일한 위치에 둔다.
     /// _spawnArea 가 없으면 기존 고정 기준 위치(_noticeBasePos) 폴백.
@@ -176,8 +236,12 @@ public sealed class DocumentView : MonoBehaviour, ICrossCheckProvider
             // 일반 서류 스폰과 동일한 영역(SpawnArea) 중앙을 기준으로, 누적 인덱스만큼만 어긋나게.
             Vector3[] c = new Vector3[4];
             _spawnArea.GetWorldCorners(c); // 0=좌하 1=좌상 2=우상 3=우하
-            float minX = c[0].x + _cardHalfSize.x, maxX = c[2].x - _cardHalfSize.x;
-            float minY = c[0].y + _cardHalfSize.y, maxY = c[1].y - _cardHalfSize.y;
+
+            // 고지서도 루트 추정치(_cardHalfSize)가 아니라 '보이는 닫힌 표지' 크기(_noticeSize, 중심 정렬)로 클램프한다.
+            // 고지서 카드의 ClosedView 는 루트에 꽉 차게 늘어나 있어, 방금 루트를 _noticeSize 로 잡았으니 표지=_noticeSize.
+            Vector2 half = _noticeSize * 0.5f;
+            float minX = c[0].x + half.x, maxX = c[2].x - half.x;
+            float minY = c[0].y + half.y, maxY = c[1].y - half.y;
 
             float cx = (minX + maxX) * 0.5f;
             float cy = (minY + maxY) * 0.5f;

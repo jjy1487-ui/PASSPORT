@@ -21,17 +21,30 @@ public sealed class JudgmentPanel : MonoBehaviour
     [Tooltip("두 도장(허가/거부) 한 변 크기(px). 이 숫자만 바꾸면 양쪽 도장이 같이 커지고, 아래 안내문구와 안 겹치게 줄 높이도 자동 조절됩니다. 0 이하면 건드리지 않음(프리팹 값 유지). 에디터에서 바꾸면(플레이 안 해도) 즉시 반영.")]
     [SerializeField] private float _stampSize = 110f;
 
+    [Header("효과음")]
+    [Tooltip("도장 찍을 때(허가/거부 공통) 재생할 소리.")]
+    [SerializeField] private AudioClip _stampSound;
+    [Range(0f, 1f)]
+    [SerializeField] private float _stampVolume = 1f;
+
     /// <summary>true=승인, false=거부.</summary>
     public event Action<bool> OnDecision;
 
     private bool _ready;
     private bool _decided;
+    private AudioSource _sfx;
 
     private void Awake()
     {
         if (_drawerButton != null) _drawerButton.onClick.AddListener(OpenTray);
         if (_approveStampButton != null) _approveStampButton.onClick.AddListener(StampApprove);
         if (_rejectStampButton != null) _rejectStampButton.onClick.AddListener(StampReject);
+
+        // 도장 효과음용 2D AudioSource(없으면 추가). 같은 클립을 PlayOneShot 으로 매번 재생.
+        _sfx = GetComponent<AudioSource>();
+        if (_sfx == null) _sfx = gameObject.AddComponent<AudioSource>();
+        _sfx.playOnAwake = false;
+        _sfx.spatialBlend = 0f;
         // (도장 크기는 Awake 에서 강제 적용하지 않는다 — 그러면 수동으로 옮기거나 키운 도장이 플레이마다
         //  _stampSize 값으로 덮어써져 "되돌아감". 크기 조절은 에디터에서 OnValidate 로만 반영(아래) → 직렬화 값이 유지됨.)
         ResetForNextCustomer(false);
@@ -106,6 +119,7 @@ public sealed class JudgmentPanel : MonoBehaviour
     {
         if (!_ready || _decided) return;
         _decided = true;
+        if (_stampSound != null && _sfx != null) _sfx.PlayOneShot(_stampSound, _stampVolume); // 도장 찍는 소리
         CloseTray();
         if (_drawerButton != null) _drawerButton.interactable = false;
         OnDecision?.Invoke(approve); // 도장 자국은 컨트롤러가 여권 위에 찍는다

@@ -269,6 +269,10 @@ public sealed class CrossCheckController : MonoBehaviour
 
     private void Compare(ICrossCheckSelectable a, ICrossCheckSelectable b)
     {
+        // 플레이어가 입장 대사를 기다리지 않고 먼저 대조를 시작했다면, 대기 중이던 입장 대사를 취소한다
+        // (추궁 대사 뒤에 인삿말이 뒤늦게 재출력되는 문제 방지). 입장 대사가 이미 떴으면 무영향.
+        _inspection?.NotifyInspectionStarted();
+
         // 보조 평가(판정/점수 무영향) 우선순위:
         //  1) 규정(여권번호 규정) ↔ 여권번호: 앞 2자리=발급국 코드면 일치(정상), 다르면 불일치(위조 의심).
         //  2) 오늘 날짜 ↔ 날짜 필드: 문자열 일치 대신 날짜 유효성(만료됨/유효 등). 성립 시 라벨 오버라이드.
@@ -304,12 +308,16 @@ public sealed class CrossCheckController : MonoBehaviour
         }
 
         DetectScanUnlock(a, b, result);
-        DetectFaceMismatchUnlock(a, b, result); // 얼굴↔여권사진 불일치 → (성형 고객) 지문 검사 화면 잠금해제
 
-        // 여권번호 불일치(비자↔여권) → X-ray 잠금해제. 단, 즉시 열지 않고 "대사 먼저, 그 다음 X-ray" 순서로 연다.
-        //  (대조하자마자 X-ray 가 튀어나오면 어색 → 불일치 지적 대사가 끝난 뒤 X-ray 를 연다.)
-        bool xrayPending = ShouldUnlockXrayOnPassportMismatch(a, b, result);
-        System.Action openXray = xrayPending ? (System.Action)(() => OnScanUnlocked?.Invoke("xray")) : null;
+        // 보조검사(X-ray/지문)는 "대사 먼저, 그 다음 검사 패널" 순서로 연다. 대조하자마자 패널이 튀어나와
+        // 대사보다 먼저 뜨면 어색하므로, 불일치 지적 대사가 끝난 뒤(onComplete) 연다.
+        bool xrayPending = ShouldUnlockXrayOnPassportMismatch(a, b, result);            // 여권번호 불일치(비자↔여권) → X-ray
+        bool fingerprintPending = ShouldUnlockFingerprintOnFaceMismatch(a, b, result);  // 얼굴↔여권사진 불일치(성형 고객) → 지문
+        System.Action openScans = (xrayPending || fingerprintPending) ? (System.Action)(() =>
+        {
+            if (xrayPending) OnScanUnlocked?.Invoke("xray");
+            if (fingerprintPending) OnScanUnlocked?.Invoke("fingerprint");
+        }) : null;
 
         // 결과별 보조 대사:
         // - 불일치: 서류 정합 항목이면 "안 맞네요" 지적. 단, 경보(워치리스트) 단서와의 불일치는
@@ -317,8 +325,8 @@ public sealed class CrossCheckController : MonoBehaviour
         // - 일치: 경보 단서가 손님과 일치하면 위험 경고 대사(해당 스캔 안내).
         if (result == CrossCheckResult.Mismatch)
         {
-            if (!IsWatchlistInvolved(a, b)) ShowMismatchComment(a, b, openXray); // 대사 재생 끝나면 X-ray 열기
-            else openXray?.Invoke();                                             // 대사 생략(워치리스트)이면 즉시
+            if (!IsWatchlistInvolved(a, b)) ShowMismatchComment(a, b, openScans); // 대사 재생 끝나면 보조검사(X-ray/지문) 열기
+            else openScans?.Invoke();                                            // 대사 생략(워치리스트)이면 즉시
         }
         else if (result == CrossCheckResult.Match)
         {
@@ -933,16 +941,17 @@ public sealed class CrossCheckController : MonoBehaviour
         sourceType == "서류" || sourceType == "캐릭터";
 
     /// <summary>
-    /// 성형수술 고객(마스크 착용 → 얼굴 확인 불가)에 한해, 얼굴↔여권 사진을 대조하면 지문 스캔 잠금 해제.
+    /// 성형수술 고객(마스크 착용 → 얼굴 확인 불가)에 한해, 얼굴↔여권 사진을 대조했을 때 지문 스캔을 열어야 하는지 여부.
+    /// 실제 열기(OnScanUnlocked)는 호출부가 '불일치 지적 대사가 끝난 뒤'에 한다 — 대사보다 패널이 먼저 뜨지 않게.
     /// 다른 종류 손님은 사진을 대조해도 지문판독기가 열리지 않는다(설계: 성형수술 전용).
     /// </summary>
-    private void DetectFaceMismatchUnlock(ICrossCheckSelectable a, ICrossCheckSelectable b, CrossCheckResult result)
+    private bool ShouldUnlockFingerprintOnFaceMismatch(ICrossCheckSelectable a, ICrossCheckSelectable b, CrossCheckResult result)
     {
-        if (result == CrossCheckResult.Unrelated) return;   // 실제 얼굴↔사진 대조가 성립한 경우만
-        if (!IsPhotoKey(a) || !IsPhotoKey(b)) return;        // 양쪽 다 얼굴/사진 항목일 때만
-        if (!IsCustomerSource(a.SourceType) || !IsCustomerSource(b.SourceType)) return; // 캐릭터 얼굴 ↔ 여권 사진(서류)만 — 규정(attr=face) ↔ 사진은 제외(규정 대조는 '관련있음'만)
-        if (!IsPlasticSurgeryCustomer()) return;            // 성형수술 고객만
-        OnScanUnlocked?.Invoke("fingerprint");
+        if (result == CrossCheckResult.Unrelated) return false;   // 실제 얼굴↔사진 대조가 성립한 경우만
+        if (!IsPhotoKey(a) || !IsPhotoKey(b)) return false;        // 양쪽 다 얼굴/사진 항목일 때만
+        if (!IsCustomerSource(a.SourceType) || !IsCustomerSource(b.SourceType)) return false; // 캐릭터 얼굴 ↔ 여권 사진(서류)만
+        if (!IsPlasticSurgeryCustomer()) return false;            // 성형수술 고객만
+        return true;
     }
 
     /// <summary>현재 손님이 성형수술 관련 종류인가(성형 의심 고객 / 범죄자(성형수술)).</summary>
