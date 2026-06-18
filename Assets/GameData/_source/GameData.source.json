@@ -5291,7 +5291,7 @@
      "unlock_day": "1",
      "effect_type": "COUNSEL_BOOK",
      "effect_value": null,
-     "effect": null,
+     "effect": "장기체류 손님에게 사용하면 그 손님에게 문제가 있는지 알려주는 상담 도구입니다.",
      "icon": "심리상담집"
     },
     {

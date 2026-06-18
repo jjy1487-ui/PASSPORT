@@ -153,7 +153,7 @@ public sealed class CounselBookButton : MonoBehaviour
             {
                 ShopService.OwnedItem it = items[i];
                 Sprite sprite = string.IsNullOrEmpty(it.Icon) ? null : Resources.Load<Sprite>("Shop/" + it.Icon);
-                _slots[i].Bind(sprite, it.EffectType);
+                _slots[i].Bind(sprite, it.EffectType, it.Description);
             }
             else
             {
@@ -244,7 +244,7 @@ public sealed class CounselBookButton : MonoBehaviour
 
         RefreshSlots(); // 소비 후 남은 수량으로 칸 다시 채움
 
-        string msg = hasDefect ? "결함 있음 — 이상 소견" : "결함 없음 — 정상";
+        string msg = hasDefect ? "이 손님, 어딘가 켕기는 구석이 있습니다." : "딱히 의심스러운 점은 없습니다.";
         if (_resultText != null) _resultText.text = msg;
         ShowToast(msg);
     }

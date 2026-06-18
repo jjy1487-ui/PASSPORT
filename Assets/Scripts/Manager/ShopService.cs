@@ -121,12 +121,14 @@ public sealed class ShopService : MonoBehaviour
         public readonly string Icon;
         /// <summary>effect_type(사용 가능 판정용 — 예: COUNSEL_BOOK).</summary>
         public readonly string EffectType;
+        /// <summary>shop 테이블 effect(아이템 설명, 마우스오버 툴팁용).</summary>
+        public readonly string Description;
         /// <summary>소비품 보유 수량(영구 효과는 0).</summary>
         public readonly int Count;
         /// <summary>true=소비품(수량 표시), false=영구 효과.</summary>
         public readonly bool Consumable;
-        public OwnedItem(string name, string icon, string effectType, int count, bool consumable)
-        { Name = name; Icon = icon; EffectType = effectType; Count = count; Consumable = consumable; }
+        public OwnedItem(string name, string icon, string effectType, string description, int count, bool consumable)
+        { Name = name; Icon = icon; EffectType = effectType; Description = description; Count = count; Consumable = consumable; }
     }
 
     /// <summary>구매(보유)한 상점 아이템 목록(가방 표시용). 소비품은 수량&gt;0, 영구 효과는 활성된 것만.
@@ -142,14 +144,15 @@ public sealed class ShopService : MonoBehaviour
             string nm = r.Get("item_name");
             string ic = r.Get("icon");
             if (string.IsNullOrEmpty(fx) || string.IsNullOrEmpty(nm)) continue;
+            string desc = r.Get("effect");
             if (ConsumableEffects.Contains(fx))
             {
                 int c = GetConsumableCount(fx);
-                if (c > 0) result.Add(new OwnedItem(nm, ic, fx, c, true));
+                if (c > 0) result.Add(new OwnedItem(nm, ic, fx, desc, c, true));
             }
             else if (IsEffectActive(fx))
             {
-                result.Add(new OwnedItem(nm, ic, fx, 0, false));
+                result.Add(new OwnedItem(nm, ic, fx, desc, 0, false));
             }
         }
         return result;
@@ -201,7 +204,7 @@ public sealed class ShopService : MonoBehaviour
             DataRow r = Shop.FindByEffect(fx);
             if (r == null) continue;
             bool cons = ConsumableEffects.Contains(fx);
-            arr[i] = new OwnedItem(r.Get("item_name"), r.Get("icon"), fx, cons ? GetConsumableCount(fx) : 0, cons);
+            arr[i] = new OwnedItem(r.Get("item_name"), r.Get("icon"), fx, r.Get("effect"), cons ? GetConsumableCount(fx) : 0, cons);
         }
         return arr;
     }

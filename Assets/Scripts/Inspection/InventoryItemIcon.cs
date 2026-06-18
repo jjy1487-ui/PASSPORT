@@ -12,7 +12,8 @@ using UnityEngine.EventSystems;
 /// 빈 칸(아이콘 없음)은 드래그를 잡지 않는다.
 /// </summary>
 [RequireComponent(typeof(Image))]
-public sealed class InventoryItemIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public sealed class InventoryItemIcon : MonoBehaviour,
+    IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image _icon;   // 비우면 자기 Image 사용
 
@@ -20,6 +21,7 @@ public sealed class InventoryItemIcon : MonoBehaviour, IBeginDragHandler, IDragH
     private Canvas _canvas;
     private int _slotIndex = -1;
     private string _effectType;
+    private string _description;   // 마우스오버 툴팁에 띄울 설명(shop effect)
     private bool _draggable;
     private System.Action<int, string, Vector2> _onDropped;
     private Vector2 _home;
@@ -39,10 +41,11 @@ public sealed class InventoryItemIcon : MonoBehaviour, IBeginDragHandler, IDragH
         _onDropped = onDropped;
     }
 
-    /// <summary>이 칸을 채운다. sprite=null 이면 빈 칸(아이콘 숨김·드래그 안 잡음).</summary>
-    public void Bind(Sprite sprite, string effectType)
+    /// <summary>이 칸을 채운다. sprite=null 이면 빈 칸(아이콘 숨김·드래그/툴팁 안 잡음).</summary>
+    public void Bind(Sprite sprite, string effectType, string description)
     {
         _effectType = effectType;
+        _description = description;
         bool filled = sprite != null;
         _draggable = filled;
         if (_icon != null)
@@ -55,11 +58,25 @@ public sealed class InventoryItemIcon : MonoBehaviour, IBeginDragHandler, IDragH
     }
 
     /// <summary>빈 칸으로 비운다.</summary>
-    public void Clear() => Bind(null, null);
+    public void Clear() => Bind(null, null, null);
+
+    // ── 마우스오버 툴팁(상점과 동일한 ShopTooltip 재사용) ───────────
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (!_draggable || string.IsNullOrEmpty(_description) || ShopTooltip.Instance == null) return;
+        Vector2 pos = eventData != null ? eventData.position : (Vector2)Input.mousePosition;
+        ShopTooltip.Instance.Show(_description, pos);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (ShopTooltip.Instance != null) ShopTooltip.Instance.Hide();
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (!_draggable) return;
+        if (ShopTooltip.Instance != null) ShopTooltip.Instance.Hide(); // 드래그 중엔 툴팁 숨김
         if (_rt == null) _rt = transform as RectTransform;
         _dragging = true;
         _home = _rt.anchoredPosition;
