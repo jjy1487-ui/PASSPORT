@@ -533,7 +533,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -573,7 +573,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -927,12 +927,12 @@
    "spriteRef": "한지원",
    "characterType": "특수(연예인)★",
    "defectVariant": "",
-   "correctResult": "정상 승인",
+   "correctResult": "정상 거절",
    "documents": [
     {
      "documentType": "여권",
-     "variant": "정상",
-     "violationField": "없음",
+     "variant": "비정상",
+     "violationField": "만료일",
      "spriteRef": "한지원",
      "country": "KOR",
      "fields": [
@@ -963,12 +963,12 @@
       },
       {
        "label": "발급일",
-       "value": "2025-03-28",
+       "value": "2014-08-13",
        "key": "issue_date"
       },
       {
        "label": "만료일",
-       "value": "2035-03-28",
+       "value": "2024-08-12",
        "key": "expiry_date"
       }
      ]
@@ -983,46 +983,98 @@
       {
        "order": 1,
        "speaker": "한지원",
-       "text": "안녕하세요. (모자를 눌러쓰며) 팬분들이 공항까지 와 계셔서 좀 정신없네요."
+       "text": "(선글라스를 살짝 내리며) 안녕하세요~ 아유, 밖에 팬분들 때문에 정신이 하나도 없네요."
       },
       {
        "order": 2,
        "speaker": "한지원",
-       "text": "여권 확인 부탁드립니다."
-      }
-     ]
-    },
-    {
-     "caseType": "일반 심사",
-     "gameResult": "정상 승인",
-     "rejectCount": 0,
-     "lines": [
-      {
-       "order": 1,
-       "speaker": "심사관",
-       "text": "즐거운 여행 되십시오."
-      },
-      {
-       "order": 2,
-       "speaker": "한지원",
-       "text": "감사합니다. 무대에서 좋은 모습 보여드릴게요!"
+       "text": "저 곧 해외 무대 리허설이 있어서요. 빨리 좀 부탁드릴게요. (여권을 내민다)"
       }
      ]
     },
     {
      "caseType": "일반 심사",
      "gameResult": "정상 거절",
-     "rejectCount": 0,
+     "rejectCount": 1,
      "lines": [
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "서류 오류가 확인되어 입국하실 수 없습니다."
+       "text": "여권 유효기간이 만료되어 입국하실 수 없습니다."
       },
       {
        "order": 2,
        "speaker": "한지원",
-       "text": "네? 제가요? 뭔가 착오가 있는 것 같은데요."
+       "text": "네? 그럴 리가요. (당황) 다시 한 번만 봐주세요, 분명히 갱신했을 거예요."
+      },
+      {
+       "order": 3,
+       "speaker": "심사관",
+       "text": "다시 확인해도 만료일이 지났습니다."
+      },
+      {
+       "order": 4,
+       "speaker": "한지원",
+       "text": "아니, 이게… 매니저가 처리했다고 했는데. 잠깐만요, 제가 전화 한 통만 해볼게요."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 거절",
+     "rejectCount": 2,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "규정상 만료된 여권으로는 입국이 불가합니다."
+      },
+      {
+       "order": 2,
+       "speaker": "한지원",
+       "text": "하… 저 진짜 큰일나요. 오늘 못 들어가면 무대가 펑크 난단 말이에요. 그거 누가 책임져요?"
+      },
+      {
+       "order": 3,
+       "speaker": "심사관",
+       "text": "죄송하지만 규정엔 예외가 없습니다."
+      },
+      {
+       "order": 4,
+       "speaker": "한지원",
+       "text": "한 번만요, 네? 저 누군지 아시잖아요. 우리 좋게좋게 넘어가요."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 거절",
+     "rejectCount": 3,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "마지막으로 말씀드립니다. 만료 여권은 입국이 불가합니다."
+      },
+      {
+       "order": 2,
+       "speaker": "한지원",
+       "text": "(웃음기가 사라지며) …지금 진심으로 저 막으시는 거예요?"
+      },
+      {
+       "order": 3,
+       "speaker": "한지원",
+       "text": "이거 제 팬들이 알면 가만 안 있어요. 버블에 실시간으로 올라가면 어떻게 되는지 아세요?!"
+      },
+      {
+       "order": 4,
+       "speaker": "심사관",
+       "text": "그래도 입국은 허가해 드릴 수 없습니다. 돌아가 주십시오."
+      },
+      {
+       "order": 5,
+       "speaker": "한지원",
+       "text": "(분을 삭이며 돌아선다) …이 일, 절대 그냥 안 넘어가요."
       }
      ]
     },
@@ -1034,29 +1086,12 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "즐거운 여행 되십시오."
+       "text": "…입국 허가합니다. 즐거운 방문 되십시오."
       },
       {
        "order": 2,
        "speaker": "한지원",
-       "text": "감사합니다. 무대에서 좋은 모습 보여드릴게요!"
-      }
-     ]
-    },
-    {
-     "caseType": "일반 심사",
-     "gameResult": "잘못 거절",
-     "rejectCount": 0,
-     "lines": [
-      {
-       "order": 1,
-       "speaker": "심사관",
-       "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-      },
-      {
-       "order": 2,
-       "speaker": "한지원",
-       "text": "네? 제가요? 뭔가 착오가 있는 것 같은데요."
+       "text": "어머, 감사합니다~! 역시 말이 통하네요. (선글라스 고쳐 쓰며 빠르게 사라진다)"
       }
      ]
     }
@@ -1064,7 +1099,16 @@
    "rejectAdvancedBranchKey": "",
    "rejectGuidedCaseType": "",
    "xray": null,
-   "fingerprint": null
+   "fingerprint": null,
+   "crossCheckLines": [
+    {
+     "attr": "expiry_date",
+     "inspector": "여권 좀 보겠습니다.",
+     "customer": "네네, 보세요~ 문제 없을 거예요. 매니저가 다 챙겼거든요.",
+     "inspectorClose": "…이 여권, 기간이 지나 있는데요?",
+     "unlocksScan": ""
+    }
+   ]
   },
   {
    "customerId": 26,
@@ -1151,7 +1195,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -1185,7 +1229,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -1534,7 +1578,7 @@
    "newsId": 1,
    "title": "\"한국에서 만나자!\" H엔터 팬미팅에 해외 팬 몰린다",
    "content": "국내 대형 엔터테인먼트 기업 H엔터가 서울에서 대규모 팬미팅 행사를 개최한다고 발표했다. 행사 소식이 알려지자 해외 팬들의 항공권 예약과 숙박 문의가 급증하고 있으며, 관광업계 역시 방문객 증가에 대한 기대감을 나타내고 있다.",
-   "iconRef": null,
+   "iconRef": "News1",
    "claims": []
   }
  ]

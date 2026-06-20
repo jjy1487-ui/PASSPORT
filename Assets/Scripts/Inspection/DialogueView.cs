@@ -72,6 +72,13 @@ public sealed class DialogueView : MonoBehaviour
         }
     }
 
+    /// <summary>타이핑·말소리(타자기 블립)를 즉시 중단한다(엔딩 컷씬 진입 등 외부 인터럽트용).</summary>
+    public void StopSpeaking()
+    {
+        if (_typingCo != null) { StopCoroutine(_typingCo); _typingCo = null; }
+        if (_talkSource != null && _talkSource.isPlaying) _talkSource.Stop();
+    }
+
     private void Update()
     {
         // 대사 표시 중, '대화 창(_root)'을 직접 클릭했을 때만 다음 줄로 진행한다(아무 곳/팝업 클릭으론 안 넘어감).

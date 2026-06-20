@@ -26,114 +26,259 @@ MonoBehaviour:
   - key: rule_content
     label: "\uADDC\uC815 \uB0B4\uC6A9"
     type: varchar(1000)
+  - key: related_field
+    label: "\uC5F0\uACC4 \uD56D\uBAA9"
+    type: varchar(50)
+  - key: end_day
+    label: "\uC885\uB8CC \uC77C\uCC28"
+    type: int
+  - key: covered_attrs
+    label: "\uB2E4\uB8E8\uB294 \uD56D\uBAA9(\uAD00\uB828\uC131 \uD45C\uC2DC)"
+    type: varchar(200)
   rows:
   - keys:
     - rule_id
     - day
     - rule_title
     - rule_content
+    - related_field
+    - end_day
+    - covered_attrs
     values:
     - 1
     - 1
     - "\uAE30\uBCF8 \uADDC\uC815"
-    - "\uBAA8\uB4E0 \uC785\uAD6D\uC790\uB294 \uC2EC\uC0AC\uAD00\uC758 \uD5C8\uAC00\uB97C
-      \uBC1B\uC544\uC57C\uD55C\uB2E4. \uC11C\uB958\uC640 \uC9C4\uC220\uC774 \uC11C\uB85C
-      \uB2E4\uB974\uBA74 \uC785\uAD6D\uC744 \uAC70\uBD80\uD55C\uB2E4."
+    - "\uBAA8\uB4E0 \uC785\uAD6D\uC790\uB294 \uC720\uD6A8\uD55C \uC11C\uB958\uB97C
+      \uAC16\uCD94\uC5B4 \uC2EC\uC0AC\uB97C \uBC1B\uC544\uC57C \uD55C\uB2E4. \uC81C\uCD9C
+      \uC11C\uB958\xB7\uBCF8\uC778\xB7\uC9C4\uC220 \uC815\uBCF4\uAC00 \uBAA8\uB450
+      \uC77C\uCE58\uD558\uB294 \uACBD\uC6B0\uC5D0 \uD55C\uD558\uC5EC \uC785\uAD6D\uC744
+      \uD5C8\uAC00\uD55C\uB2E4.\n\u203B \uD558\uB098\uB77C\uB3C4 \uC0C1\uC774\uD560
+      \uACBD\uC6B0 \uC785\uAD6D\uC744 \uBD88\uD5C8\uD55C\uB2E4."
+    - 
+    - 
+    - 
   - keys:
     - rule_id
     - day
     - rule_title
     - rule_content
+    - related_field
+    - end_day
+    - covered_attrs
     values:
     - 2
     - 1
     - "\uC2E0\uBD84 \uD655\uC778"
-    - "\uC5EC\uAD8C \uC0AC\uC9C4\uACFC \uBC29\uBB38\uC790\uC758 \uC5BC\uAD74\uC744
-      \uBC18\uB4DC\uC2DC \uBE44\uAD50\uD574\uC57C \uD55C\uB2E4."
+    - "\uC5EC\uAD8C \uAE30\uC7AC \uC0AC\uD56D\uC744 \uC785\uAD6D\uC790 \uBCF8\uC778\uACFC
+      \uB300\uC870\xB7\uD655\uC778\uD55C\uB2E4.\n\u30001. \uC0AC\uC9C4(\uC5BC\uAD74)\n\u30002.
+      \uC131\uBA85\n\u30003. \uC0DD\uB144\uC6D4\uC77C\n\u30004. \uC131\uBCC4\n\u203B
+      \uD55C \uD56D\uBAA9\uC774\uB77C\uB3C4 \uBCF8\uC778\uACFC \uC0C1\uC774\uD560
+      \uACBD\uC6B0 \uC785\uAD6D\uC744 \uBD88\uD5C8\uD55C\uB2E4."
+    - "\uC131\uBCC4"
+    - 
+    - name,birth_date,gender,face
   - keys:
     - rule_id
     - day
     - rule_title
     - rule_content
+    - related_field
+    - end_day
+    - covered_attrs
     values:
     - 3
     - 1
-    - "\uC5EC\uAD8C \uC720\uD6A8\uAE30\uAC04"
-    - "\uBAA8\uB4E0 \uC785\uAD6D\uC790\uB294 \uC720\uD6A8\uD55C \uC5EC\uAD8C\uC744
-      \uC18C\uC9C0\uD574\uC57C \uD55C\uB2E4,"
+    - "\uC5EC\uAD8C \uD655\uC778"
+    - "\uC5EC\uAD8C\uC758 \uC9C4\uC704\xB7\uC720\uD6A8\uB97C \uD655\uC778\uD55C\uB2E4.\n\u30001.
+      \uC5EC\uAD8C\uBC88\uD638 \uC55E 2\uC790\uB9AC = \uBC1C\uAE09\uAD6D \uCF54\uB4DC(KO\xB7US\xB7CN\xB7JP)
+      \u2014 \uBD88\uC77C\uCE58 \uC2DC \uC704\uC870\n\u30002. \uB9CC\uB8CC\uC77C
+      = \uB2F9\uC77C \uC774\uD6C4\n\u30003. \uAD6D\uC801 = \uD0C0 \uC11C\uB958\uC640
+      \uC77C\uCE58\n\u203B \uC704\uC870\xB7\uB9CC\uB8CC\xB7\uBD88\uC77C\uCE58 \uC2DC
+      \uC785\uAD6D\uC744 \uBD88\uD5C8\uD55C\uB2E4."
+    - "\uC5EC\uAD8C\uBC88\uD638"
+    - 
+    - passport_no,expiry_date,nationality
   - keys:
     - rule_id
     - day
     - rule_title
     - rule_content
+    - related_field
+    - end_day
+    - covered_attrs
     values:
     - 4
-    - 1
+    - 11
     - "\uAE08\uC9C0 \uBB3C\uD488"
-    - "\uB9C8\uC57D\uACFC \uBC00\uC218\uD488\uC740 \uBC18\uC785\uD560 \uC218 \uC5C6\uB2E4"
+    - "\uBB34\uAE30\xB7\uB9C8\uC57D\xB7\uD3ED\uBC1C\uBB3C\xB7\uBC00\uC218\uD488 \uB4F1\uC758
+      \uBC18\uC785\uC744 \uAE08\uD55C\uB2E4.\n\u30001. \uC2E0\uC6D0 \uC758\uC2EC\xB7\uACBD\uBCF4
+      \uB300\uC0C1\uC790 \u2192 X-ray \uC815\uBC00 \uAC80\uC0AC\n\u30002. \uAE08\uC9C0
+      \uBB3C\uD488 \uC801\uBC1C \u2192 \uC785\uAD6D \uBD88\uD5C8"
+    - 
+    - 
+    - contraband
   - keys:
     - rule_id
     - day
     - rule_title
     - rule_content
-    values:
-    - 5
-    - 5
-    - "\uBC29\uC5ED \uC9C0\uC2DC"
-    - "\uAC10\uC5FC\uC758\uC2EC\uC790\uB294 PCR \uAC80\uC0AC\uC11C\uB97C \uC81C\uCD9C\uD574\uC57C
-      \uD55C\uB2E4."
-  - keys:
-    - rule_id
-    - day
-    - rule_title
-    - rule_content
-    values:
-    - 6
-    - 12
-    - "\uD14C\uB7EC \uBC1C\uC0DD \uC9C0\uC2DC"
-    - "\uD14C\uB7EC \uBC1C\uC0DD \uC2DC \uC9C0\uC815 \uB300\uC0C1\uC790\uB294 \uC785\uAD6D\uD560
-      \uC218 \uC5C6\uB2E4."
-  - keys:
-    - rule_id
-    - day
-    - rule_title
-    - rule_content
-    values:
-    - 7
-    - 5
-    - "PCR \uAC80\uC0AC\uC11C"
-    - "\uAC80\uC5ED\uB300\uC0C1\uC790\uB294 PCR \uAC80\uC0AC\uC11C\uB97C \uC81C\uCD9C\uD574\uC57C
-      \uD55C\uB2E4."
-  - keys:
-    - rule_id
-    - day
-    - rule_title
-    - rule_content
+    - related_field
+    - end_day
+    - covered_attrs
     values:
     - 8
     - 3
     - "\uC785\uAD6D \uBE44\uC790"
-    - "\uBE44\uC790 \uC815\uBCF4\uB294 \uC5EC\uAD8C \uC815\uBCF4\uC640 \uC77C\uCE58\uD574\uC57C
-      \uD55C\uB2E4."
+    - "\uC678\uAD6D\uC778 \uBC29\uBB38\uAC1D\uC740 \uBC29\uBB38 \uBAA9\uC801\uC5D0
+      \uB9DE\uB294 \uBE44\uC790\uB97C \uC81C\uCD9C\uD558\uC5EC\uC57C \uD55C\uB2E4.
+      \uB2E4\uC74C\uC744 \uD655\uC778\uD55C\uB2E4.\n\u30001. \uBE44\uC790\uBC88\uD638\xB7\uAD6D\uC801\xB7\uBC1C\uAE09\uC77C\xB7\uB9CC\uB8CC\uC77C
+      = \uC5EC\uAD8C\uACFC \uC77C\uCE58, \uB9CC\uB8CC \uC804\n\u30002. \uBC29\uBB38
+      \uBAA9\uC801 = \uC9C4\uC220\uACFC \uC77C\uCE58\n\u203B \uC704\uC870\xB7\uB9CC\uB8CC\xB7\uBD88\uC77C\uCE58
+      \uC2DC \uC785\uAD6D \uBD88\uD5C8."
+    - 
+    - 
+    - visa_no,visa_type,nationality,issue_date,expiry_date,passport_no
   - keys:
     - rule_id
     - day
     - rule_title
     - rule_content
+    - related_field
+    - end_day
+    - covered_attrs
+    values:
+    - 15
+    - 3
+    - "\uC9C0\uBB38 \uC2E0\uC6D0 \uD655\uC778"
+    - "\uAC70\uB3D9\uC774 \uC218\uC0C1\uD558\uAC70\uB098 \uC5BC\uAD74\uC774 \uC5EC\uAD8C
+      \uC0AC\uC9C4\uACFC \uC0C1\uC774\uD55C \uC785\uAD6D\uC790\uB294 \uC9C0\uBB38\uC73C\uB85C
+      \uC2E4\uC81C \uC2E0\uC6D0\uC744 \uD655\uC778\uD55C\uB2E4.\n\u3000\u25B8 \uC9C0\uBB38
+      \uC2E0\uC6D0(\uC131\uBA85\xB7\uC0DD\uB144\uC6D4\uC77C\xB7\uAD6D\uC801) = \uC5EC\uAD8C\uACFC
+      \uC77C\uCE58\n\u203B \uC9C0\uBB38 \uC2E0\uC6D0\uC774 \uC5EC\uAD8C\uACFC \uC0C1\uC774\uD560
+      \uACBD\uC6B0 \uC2E0\uBD84 \uB3C4\uC6A9\xB7\uC704\uC870\uB85C \uC785\uAD6D\uC744
+      \uBD88\uD5C8\uD55C\uB2E4."
+    - "\uC0AC\uC9C4"
+    - 
+    - face,name,birth_date,nationality
+  - keys:
+    - rule_id
+    - day
+    - rule_title
+    - rule_content
+    - related_field
+    - end_day
+    - covered_attrs
+    values:
+    - 11
+    - 4
+    - "\uBC29\uBB38\uAC1D \uAD6C\uB450 \uD655\uC778"
+    - "\uC2EC\uC0AC\uAD00\uC740 \uC785\uAD6D\uC790\uC5D0\uAC8C \uC2E0\uC6D0\xB7\uBC29\uBB38
+      \uBAA9\uC801\uC744 \uAD6C\uB450\uB85C \uD655\uC778\uD55C\uB2E4.\n\u30001. \uC131\uBA85\xB7\uC0DD\uB144\uC6D4\uC77C
+      = \uC5EC\uAD8C\uACFC \uC77C\uCE58\n\u30002. \uBC29\uBB38 \uBAA9\uC801 = \uBE44\uC790\uC640
+      \uC77C\uCE58\n\u203B \uC9C4\uC220\uC774 \uC81C\uCD9C \uC11C\uB958\uC640 \uC0C1\uC774\uD560
+      \uACBD\uC6B0 \uC785\uAD6D\uC744 \uBD88\uD5C8\uD55C\uB2E4."
+    - 
+    - 
+    - visa_type,name,birth_date
+  - keys:
+    - rule_id
+    - day
+    - rule_title
+    - rule_content
+    - related_field
+    - end_day
+    - covered_attrs
+    values:
+    - 7
+    - 5
+    - "PCR \uAC80\uC0AC\uC11C"
+    - "\uAC80\uC5ED \uB300\uC0C1 \uC785\uAD6D\uC790\uB294 PCR \uAC80\uC0AC\uC11C\uB97C
+      \uC81C\uCD9C\uD558\uC5EC\uC57C \uD55C\uB2E4. \uB2E4\uC74C\uC744 \uD655\uC778\uD55C\uB2E4.\n\u30001.
+      \uAC80\uC0AC \uACB0\uACFC = \uC74C\uC131\n\u30002. \uAC80\uC0AC\uC77C\xB7\uC720\uD6A8\uAE30\uAC04
+      = \uC720\uD6A8(\uB2F9\uC77C \uAE30\uC900)\n\u30003. \uC131\uBA85\xB7\uAD6D\uC801
+      = \uC5EC\uAD8C\uACFC \uC77C\uCE58\n\u30004. \uAC80\uC0AC \uAE30\uAD00 = \uACF5\uC778
+      \uAE30\uAD00(\uBCC4\uB3C4 \uADDC\uC815)\n\u203B \uD558\uB098\uB77C\uB3C4 \uBD80\uC801\uD569
+      \uC2DC \uC785\uAD6D \uBD88\uD5C8."
+    - "\uAC80\uC0AC\uACB0\uACFC"
+    - 7
+    - pcr_result,valid_until,issue_date,name,nationality
+  - keys:
+    - rule_id
+    - day
+    - rule_title
+    - rule_content
+    - related_field
+    - end_day
+    - covered_attrs
+    values:
+    - 14
+    - 6
+    - "PCR \uC778\uC99D \uAC80\uC0AC \uAE30\uAD00"
+    - "PCR \uAC80\uC0AC\uC11C\uB294 \uACF5\uC778 \uAE30\uAD00\uC774 \uBC1C\uAE09\uD55C
+      \uAC83\uC774\uC5B4\uC57C \uD55C\uB2E4.\n\u3000\u25B8 \uACF5\uC778 \uAE30\uAD00
+      : \uAD6D\uB9BD\uAC80\uC5ED\uC18C\xB7\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C\xB7\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130\n\u203B
+      \uBA85\uB2E8 \uC678 \uC0AC\uC124\xB7\uBB34\uD5C8\uAC00 \uAE30\uAD00\uC758 \uAC80\uC0AC\uC11C\uB294
+      \uBB34\uD6A8, \uC785\uAD6D \uBD88\uD5C8."
+    - "\uAC80\uC0AC\uAE30\uAD00"
+    - 7
+    - lab_name
+  - keys:
+    - rule_id
+    - day
+    - rule_title
+    - rule_content
+    - related_field
+    - end_day
+    - covered_attrs
     values:
     - 9
     - 8
     - "\uC7AC\uC9C1\uC99D\uBA85\uC11C"
     - "\uCDE8\uC5C5 \uBAA9\uC801 \uC785\uAD6D\uC790\uB294 \uC7AC\uC9C1\uC99D\uBA85\uC11C\uB97C
-      \uC81C\uCD9C\uD574\uC57C \uD55C\uB2E4."
+      \uC81C\uCD9C\uD558\uC5EC\uC57C \uD55C\uB2E4. \uB2E4\uC74C\uC744 \uD655\uC778\uD55C\uB2E4.\n\u30001.
+      \uC99D\uBE59\uBC88\uD638\xB7\uACE0\uC6A9 \uD68C\uC0AC\xB7\uC9C1\uC885\xB7\uC785\uC0AC\uC77C\xB7\uBC1C\uAE09\uC77C
+      = \uD0C0 \uC11C\uB958\uC640 \uC77C\uCE58\n\u30002. \uD56D\uBAA9 \uB204\uB77D\xB7\uC704\uC870
+      \uD754\uC801 \uC5C6\uC74C\n\u203B \uB204\uB77D\xB7\uC704\uC870 \uC2DC \uC785\uAD6D
+      \uBD88\uD5C8."
+    - 
+    - 
+    - cert_no,company_name,job_title,hire_date,issue_date
   - keys:
     - rule_id
     - day
     - rule_title
     - rule_content
+    - related_field
+    - end_day
+    - covered_attrs
     values:
-    - 10
-    - 8
-    - "\uD569\uACA9\uD1B5\uC9C0\uC11C"
-    - "\uC720\uD559 \uBAA9\uC801 \uC785\uAD6D\uC790\uB294 \uD569\uACA9\uD1B5\uC9C0\uC11C\uB97C
-      \uC81C\uCD9C\uD574\uC57C \uD55C\uB2E4."
+    - 13
+    - 9
+    - "\uC785\uAD6D \uAE08\uC9C0 \uD68C\uC0AC"
+    - "\uC7AC\uC9C1\uC99D\uBA85\uC11C\uC758 \uACE0\uC6A9 \uD68C\uC0AC\uAC00 \uC785\uAD6D
+      \uAE08\uC9C0 \uBA85\uB2E8\uC5D0 \uD574\uB2F9\uD558\uBA74 \uC11C\uB958\uAC00
+      \uC815\uC0C1\uC774\uC5B4\uB3C4 \uC785\uAD6D\uC744 \uBD88\uD5C8\uD55C\uB2E4.\n\u3000\u25B8
+      \uC785\uAD6D \uAE08\uC9C0 \uD68C\uC0AC : \uC2E0\uC6B0\uD1B5\uC0C1(\uC8FC)\xB7\uD55C\uC131\uBB3C\uB958(\uC8FC)\xB7\uB300\uBA85\uAC74\uC124(\uC8FC)\xB7\uC815\uC6D0\uC0B0\uC5C5(\uC8FC)"
+    - "\uACE0\uC6A9 \uD68C\uC0AC"
+    - 
+    - company_name
+  - keys:
+    - rule_id
+    - day
+    - rule_title
+    - rule_content
+    - related_field
+    - end_day
+    - covered_attrs
+    values:
+    - 6
+    - 12
+    - "\uD14C\uB7EC \uBC1C\uC0DD \uC9C0\uC2DC"
+    - "\uD2B9\uBCC4 \uBCF4\uC548 \uACBD\uBCF4 \uBC1C\uB839 \uAE30\uAC04\uC5D0\uB294
+      \uC2EC\uC0AC\uB97C \uAC15\uD654\uD55C\uB2E4.\n\u30001. \uC11C\uB958\xB7\uC2E0\uC6D0
+      \uC758\uC2EC\uC790 \u2192 X-ray \uAC80\uC0AC \uBC0F \uBCF4\uC548 \uBA85\uB2E8
+      \uB300\uC870\n\u30002. \uC704\uD5D8\uBB3C \uC801\uBC1C\xB7\uC218\uBC30\uC790
+      \uD655\uC778 \u2192 \uC989\uC2DC \uC785\uAD6D \uBD88\uD5C8"
+    - "\uC704\uD5D8\uBB3C"
+    - 
+    - contraband,name

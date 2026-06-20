@@ -47,9 +47,29 @@ public sealed class InspectionController : MonoBehaviour
     /// <summary>진행 매니저가 정산 허브를 주입한다(없으면 전역 싱글톤 폴백). UI 직접 참조 아님.</summary>
     public void SetEconomy(ScoreEconomyManager economy) => _economy = economy;
 
+    // X-ray 패널(입장 자동 검사 개방처). 검사후 대사 흐름에서 '실제로 열렸는지' 확인하고 '닫힘'을 1회 구독하기 위해
+    // 런타임 1회 탐색해 캐시한다(비활성 포함). 씬에 없으면 조용히 폴백(검사후 대사 즉시 재생).
+    // UI 직접 참조가 아니라 패널의 OnClosed 이벤트만 구독한다(공통 규약 5장 — 이벤트 통신).
+    private XrayInspectionPanel _xrayPanel;
+    private bool _xrayPanelResolved;
+    private XrayInspectionPanel XrayPanel
+    {
+        get
+        {
+            if (_xrayPanel == null && !_xrayPanelResolved)
+            {
+                _xrayPanel = FindObjectOfType<XrayInspectionPanel>(true); // true = 비활성 포함(루트가 꺼져 있을 수 있음)
+                _xrayPanelResolved = true;
+            }
+            return _xrayPanel;
+        }
+    }
+
     private Day1Data _data;
     private int _index;
     private bool _customerSettled; // 현재 손님 확정 정산 1회 가드(중복 정산·이중 진행 방지)
+    private int _rejectRound;       // 연예인 재거절 '티키타카' 단계(0=아직, 1~3). 일반 손님은 항상 0.
+    private const int VipForceEntryRound = 3; // 이 횟수째 거부 → 강제입국(감액: approve_after_reject_3 → 평판 -6/돈 +5). 그 전엔 재제출(티키타카).
     private bool _ended;           // 엔딩 확정 시 true → 손님 진행/일자완료 패널 차단(엔딩 패널이 화면 점유)
     private readonly List<string> _dialogueLog = new List<string>(); // 현재 손님의 대화 기록(표시용 문자열)
     private readonly List<DialogueLineData> _dialogueLines = new List<DialogueLineData>(); // 구조 라인(대조 단서용)
@@ -87,6 +107,30 @@ public sealed class InspectionController : MonoBehaviour
 
     /// <summary>현재 손님이 바뀌면 발행(검사기 버튼/패널이 구독해 갱신). 손님 없으면 false 시점에도 발행될 수 있음.</summary>
     public event System.Action OnCustomerChanged;
+
+    // 지문으로 수배자를 적발(자동 연출)했는가 — 거부 대사를 체념/연행(적발) vs 항의(그냥 거부)로 가른다.
+    private bool _fingerprintRevealed;
+    /// <summary>지문 자동 적발 연출(CrossCheckController.PlayFingerprintReveal)이 현재 손님에게 재생됐음을 표시.</summary>
+    public void MarkFingerprintRevealed() => _fingerprintRevealed = true;
+
+    /// <summary>
+    /// 지문으로 수배자를 적발한 뒤(적발 대사 종료 시) 호출: 플레이어가 도장을 찍지 않아도
+    /// 자동으로 거부 정산(적발 보너스) + 체념/연행 대사 재생 → 다음 손님(그냥 끌려감).
+    /// 이미 확정됐거나 엔딩이면 무시. PlayFingerprintReveal 의 onComplete 로 배선된다.
+    /// </summary>
+    public void AutoDetainWantedCustomer()
+    {
+        CustomerData c = Current;
+        if (c == null || _customerSettled || _ended) return;
+        if (_judgmentPanel != null) _judgmentPanel.SetReady(false); // 도장 비활성 — 적발됐으니 끌려간다(도장 안 찍음)
+
+        string advVariant = string.IsNullOrEmpty(c.defectVariant) ? null : c.defectVariant;
+        string key = string.IsNullOrEmpty(c.rejectAdvancedBranchKey) ? BranchKeys.DetectMontageReject : c.rejectAdvancedBranchKey;
+        BranchResult advBranch = BranchKeyResolver.ResolveAdvanced(DocStates.Defect, key, advVariant);
+        SettleBranch(c.characterType, advBranch, wasCorrect: true, wasDetection: true); // 적발 보너스
+        DialogueCaseData guided = FindCaseByType(c, c.rejectGuidedCaseType) ?? FindCase(c, GameResults.Reject, -1);
+        PlayThen(guided, AdvanceNext); // 체념/연행 대사 → 다음 손님
+    }
 
     /// <summary>day11 '보안 강화' 이후 전원 입장 시 수하물 X-ray 자동검사를 적용하는 시작 일차.</summary>
     private const int SecurityScanFromDay = 11;
@@ -189,6 +233,14 @@ public sealed class InspectionController : MonoBehaviour
     public bool HasCurrentCustomer => Current != null;
 
     /// <summary>
+    /// 현재 손님이 '검사후' 대사(CaseTypes.PostScan)를 가지는가(없으면 false).
+    /// 이 손님(현재 존 카터)만 'X-ray 패널 닫힘 → 저작된 검사후 대사 재생' 지연 흐름을 탄다.
+    /// CrossCheckController 가 금지물품 Match 시 자동 추궁 라인을 억제하고 창을 닫아 검사후 흐름으로 흡수할지
+    /// 판단하는 게이트로 쓴다 — 표시·흐름 게이팅 전용, 판정/점수 무영향.
+    /// </summary>
+    public bool CurrentHasPostScanCase => FindCaseByType(Current, CaseTypes.PostScan) != null;
+
+    /// <summary>
     /// 현재 손님이 결함(위반)이 있는가 = 정답 판정이 '거절'이면 true, '승인'이면 false.
     /// 확률 변형(altVariant)은 이미 RollVariants 가 이 데이터(correctResult)에 반영해 두므로,
     /// 이번 플레이에 실제 적용된 변형 기준으로 판정된다. 손님이 없으면 false.
@@ -237,6 +289,12 @@ public sealed class InspectionController : MonoBehaviour
     [SerializeField] private float _footstepVolume = 1f;
     [Tooltip("손님 입장 후 발자국만 들리다가 대사가 자동으로 뜨기까지의 간격(초). 작을수록 대사가 빨리 뜸. 이 시점에 발자국은 멈춤(겹침 방지). 키우면 발자국이 더 길게 들린 뒤 대사.")]
     [SerializeField] private float _entryDialogueDelay = 0.8f;
+    [Tooltip("테러범 폭탄 투척(시나리오 폭탄 결말) 시 재생할 폭발음. 비워두면 Resources/Audio/Bomb 에서 자동 로드.")]
+    [SerializeField] private AudioClip _bombClip;
+    [Range(0f, 1f)]
+    [SerializeField] private float _bombVolume = 1f;
+    [Tooltip("뇌물 손님(존 카터·강도식) 선택 제한시간(초). 0=무제한. 카운트다운 중 1초마다 틱, 시간초과 시 수락(공범 #11 조기엔딩)으로 자동 처리.")]
+    [SerializeField] private float _bribeTimerSeconds = 15f;
     private AudioSource _sfx;
 
     private void Awake()
@@ -264,6 +322,22 @@ public sealed class InspectionController : MonoBehaviour
         if (_footstepClip == null) return 0f;
         _sfx.PlayOneShot(_footstepClip, _footstepVolume);
         return _footstepClip.length;
+    }
+
+    /// <summary>테러범 폭탄 투척(시나리오 폭탄 결말) 시 폭발음 1회 재생. 클립 없으면 조용히 무시.</summary>
+    private void PlayBombSfx()
+    {
+        if (_sfx == null)
+        {
+            _sfx = GetComponent<AudioSource>();
+            if (_sfx == null) _sfx = gameObject.AddComponent<AudioSource>();
+            _sfx.playOnAwake = false;
+            _sfx.spatialBlend = 0f;
+        }
+        if (_bombClip == null) _bombClip = Resources.Load<AudioClip>("Audio/Bomb");
+        if (_bombClip == null) { Debug.LogWarning("[InspectionController] 폭발음(Audio/Bomb) 로드 실패"); return; }
+        _sfx.Stop(); // 발자국 등 잔여음 중단 후 폭발음
+        _sfx.PlayOneShot(_bombClip, _bombVolume);
     }
 
     private Coroutine _entryCo;
@@ -306,6 +380,7 @@ public sealed class InspectionController : MonoBehaviour
         {
             _judgmentPanel.OnDecision -= HandleDecision;
         }
+        UnsubscribePostScan(); // 컨트롤러 비활성 시 X-ray 닫힘 구독이 남지 않게 정리
     }
 
     private bool _awaitingFirstCustomer; // true면 첫 손님이 BeginInspection() 호출 전까지 대기(뉴스 닫기 게이트)
@@ -384,6 +459,11 @@ public sealed class InspectionController : MonoBehaviour
 
         CustomerData c = _data.customers[index];
         _customerSettled = false;
+        _rejectRound = 0;
+        _fingerprintRevealed = false; // 새 손님 = 아직 지문 적발 안 됨(거부 대사 항의/체념 분기용)
+        _scenarioRunner = null; // 이전 손님의 시나리오 러너 폐기(스테일 콜백/진행 방지)
+        UnsubscribePostScan(); // 이전 손님의 검사후 대사 대기 구독이 남아 있으면 정리(다음 손님에게 오발화 방지)
+        UnsubscribeScenarioScan(); // 이전 손님의 시나리오 검사 닫힘 구독 정리
         _dialogueLog.Clear();
         _dialogueLines.Clear();
         _requestableCase = null;
@@ -398,21 +478,184 @@ public sealed class InspectionController : MonoBehaviour
         if (_slotCounterText != null) _slotCounterText.text = $"{index + 1} / {_data.customers.Length}";
         if (_judgmentPanel != null) _judgmentPanel.ResetForNextCustomer(false);
 
+        // ── 분기 시나리오(노드그래프) 손님(예: day12 사토 하루키) ──
+        //  scenario 가 유효하면 도장 판정·입장 대사·자동 X-ray 흐름을 전부 우회하고 ScenarioRunner 가 진행을 대신한다.
+        //  (intro 노드가 인삿말~X-ray 적발 대사까지 대사로 서술하므로 입장 케이스/자동 검색을 띄우지 않는다.)
+        //  scenario 없는 손님은 아래 기존 입장 대사 흐름 그대로 — 다른 손님 불변.
+        if (c.scenario != null && c.scenario.IsValid)
+        {
+            if (CrossCheck != null) CrossCheck.SetLocked(true); // 시나리오 손님: 대조 사용 안 함(X-ray 자동닫힘으로 진행). 대조 멘트 오발화 방지.
+            BeginScenario(c);
+            return;
+        }
+        if (CrossCheck != null) CrossCheck.SetLocked(false); // 일반 손님: 대조 사용 가능(잠금 해제)
+
         // 입장 대사: 짧은 간격 뒤 클릭 없이 자동 시작(그때 발자국 멈춤). 끝나면 OnEntryDialogueDone 에서 판정 활성화.
         DialogueCaseData entry = FindCaseByType(c, CaseTypes.Entry);
         if (_entryCo != null) StopCoroutine(_entryCo);
         _entryCo = StartCoroutine(BeginEntryDialogueAfter(entry));
     }
 
+    // 진행 중인 시나리오 러너(노드그래프 손님 1명당 1개). 다음 손님으로 넘어가면 폐기.
+    private ScenarioRunner _scenarioRunner;
+
+    /// <summary>지금 분기 시나리오(사토 등)가 진행 중인가. CrossCheckController 가 적발 멘트 억제 판단에 쓴다.</summary>
+    public bool IsScenarioActive => _scenarioRunner != null;
+
     /// <summary>
-    /// 입장 대사가 끝난 직후 호출. 이 손님이 입장 자동 X-ray 검사 대상(autoScanOnEntry)이고 X-ray 데이터를 가지면
-    /// X-ray 패널을 자동으로 연 뒤 판정을 활성화한다. 패널은 오버레이라 판정 활성화와 무관하게 닫고 진행한다.
-    /// (다른 날 X-ray 손님은 autoScanOnEntry=false → 기존 검사 과정 발견 흐름 유지.)
+    /// 분기 시나리오 손님(사토 등)의 진행을 ScenarioRunner 에 위임한다.
+    ///  - 도장 판정 비활성(판정은 시나리오 결과가 대신).
+    ///  - 발자국이 끝나도록 짧은 간격을 두고 start 노드부터 굴린다(입장 발소리 ↔ 대사 겹침 방지, 기존 입장 흐름과 톤 일치).
+    ///  - 러너는 UI(대사 재생/선택 버튼)만 쓰고, 결과(테러방지=계속 / 폭탄=종착)는 콜백으로 돌려준다.
+    /// </summary>
+    private void BeginScenario(CustomerData c)
+    {
+        if (_judgmentPanel != null) _judgmentPanel.SetReady(false); // 도장 판정 우회(시나리오가 판정을 대신)
+        _scenarioRunner = new ScenarioRunner(
+            c.scenario,
+            _dialogueView,
+            FindRejectPopup,                 // 선택 버튼 UI 재활용(2지선다)
+            OnScenarioResolved,
+            OpenScenarioScanThenProceed,     // 노드 openScanAfter("xray") → X-ray 표시 + 위험물 대조 일치(또는 닫기) 시 다음 노드 진행
+            c.nameKr);
+
+        if (_entryCo != null) StopCoroutine(_entryCo);
+        _entryCo = StartCoroutine(BeginScenarioAfterFootstep());
+    }
+
+    private System.Collections.IEnumerator BeginScenarioAfterFootstep()
+    {
+        if (_entryDialogueDelay > 0f) yield return new WaitForSeconds(_entryDialogueDelay);
+        if (_sfx != null) _sfx.Stop(); // 발자국 멈춤 → 대사와 겹치지 않게(기존 입장 흐름과 동일)
+        _entryCo = null;
+        if (_scenarioRunner != null) _scenarioRunner.Begin();
+    }
+
+    /// <summary>
+    /// 시나리오 종착 콜백(Stage 2 범위).
+    ///   - 테러방지 → 정상 해결: 기존 진행처럼 다음 손님으로(AdvanceNext).
+    ///   - 폭탄     → 게임오버 종착: 진행을 정지(HaltForEnding)해 다음 손님/일자완료를 막는다.
+    ///     (폭발 연출·사운드=Stage 3, 점수·조기엔딩 연결=Stage 4. 여기서는 명확한 종착 + 소프트락 방지만.)
+    /// 점수/돈(outcome.score/reward)은 이번 단계에서 적용하지 않는다(로그는 ScenarioRunner 가 남김).
+    /// </summary>
+    private void OnScenarioResolved(ScenarioRunner.Resolution res, ScenarioOutcome outcome)
+    {
+        _scenarioRunner = null;
+        if (res == ScenarioRunner.Resolution.Bomb)
+        {
+            Debug.Log("[InspectionController] 시나리오 종착: 폭탄 → 퍼엉! 조기엔딩 트리거.");
+            if (_dialogueView != null) _dialogueView.Hide();
+            PlayBombSfx(); // 폭발음(Audio/Bomb)
+
+            // 폭탄 → 퍼엉! 조기엔딩: ScoreEconomyManager.TriggerEvent → ImmigrationManager.HandleEarlyEnding
+            //  → EndingResolver.ResolveEarly(TerrorBomb) → RaiseEnding(엔딩 패널 표시 + HaltForEnding).
+            ScoreEconomyManager economy = Economy;
+            if (economy != null) economy.TriggerEvent(EventIds.TerrorBomb);
+            // 엔딩이 안 떠도(매니저 부재 등) 진행은 정지(소프트락 방지). 엔딩이 떴으면 이미 _ended=true 라 중복 없음.
+            if (!_ended) HaltForEnding();
+            return;
+        }
+
+        Debug.Log("[InspectionController] 시나리오 종착: 테러방지(정상 해결) — 다음 손님으로 진행.");
+        AdvanceNext();
+    }
+
+    /// <summary>
+    /// 입장 대사가 끝난 직후 호출. 이 손님이 입장 자동 X-ray 검사 대상(autoScanOnEntry/day11+)이고 X-ray 데이터를 가지면
+    /// X-ray 패널을 자동으로 연다.
+    ///
+    /// 손님이 '검사후 대사'(CaseTypes.PostScan, 예: 존 카터의 적발 지적 + 뇌물 제안)를 가지면:
+    ///   ① 패널이 실제로 열렸으면 → 판정 활성화를 보류하고 패널 닫힘(OnClosed)을 1회 구독한다.
+    ///      플레이어가 X-ray 를 보고 닫으면 그때 검사후 대사를 재생하고, 끝나면 판정을 활성화한다(원하는 순서).
+    ///   ② 패널이 안 열렸으면(패널 미존재/X-ray 없음/검색 면제) → 소프트락 방지로 검사후 대사를 즉시 재생 후 판정 활성화.
+    /// 검사후 대사가 없는 손님(일반 손님·윤정호 등)은 기존 동작 그대로 — 입장 끝나면 바로 판정.
     /// </summary>
     private void OnEntryDialogueDone()
     {
         TryAutoOpenEntryScan();
-        EnableJudgment();
+
+        CustomerData c = Current;
+        DialogueCaseData postScan = FindCaseByType(c, CaseTypes.PostScan);
+        if (postScan == null)
+        {
+            // 검사후 대사 없는 손님: 기존 동작 — 바로 판정 활성화(X-ray 는 오버레이라 판정과 독립적으로 보고 닫음).
+            EnableJudgment();
+            return;
+        }
+
+        XrayInspectionPanel panel = XrayPanel;
+        if (panel != null && panel.IsOpen)
+        {
+            // 패널이 실제로 열렸다 → 닫힐 때 검사후 대사 재생 후 판정. (구독은 1회만)
+            DeferPostScanUntilPanelClosed(panel, postScan);
+        }
+        else
+        {
+            // 폴백: 패널이 안 열림 → 검사후 대사를 즉시 재생하고 검사후 완료 라우팅(소프트락 방지).
+            PlayThen(postScan, OnPostScanDone);
+        }
+    }
+
+    /// <summary>
+    /// 검사후 대사 종료 후 라우팅. 뇌물 손님(bribeOnReject)은 도장 판정 대신 자동 뇌물 팝업(2버튼)으로
+    /// 직행하고, 그 외(검사후 케이스를 가진 일반 손님, 현재 없음)는 기존대로 판정을 활성화한다.
+    /// </summary>
+    private void OnPostScanDone()
+    {
+        CustomerData c = Current;
+        if (c != null && c.bribeOnReject) ShowBribePopup(c);
+        else EnableJudgment(); // 검사후 케이스 있는 일반 손님(현재 없음) 대비
+    }
+
+    /// <summary>
+    /// 뇌물 팝업(자동, 도장 아님): "뇌물을 받으시겠습니까?" [안 받는다]/[받는다].
+    ///   - [안 받는다](좌) = 정답: 밀수품 적발 거절(ResolveBribeRefuse).
+    ///   - [받는다](우)   = 공범: 입국 허가 + 금괴 + 조기엔딩 #11(ResolveBribeAccept).
+    /// 팝업을 못 찾으면 소프트락 방지로 안전하게 정답 거절로 폴백한다.
+    /// </summary>
+    private void ShowBribePopup(CustomerData c)
+    {
+        if (_judgmentPanel != null) _judgmentPanel.SetReady(false);
+        RejectConfirmPopup popup = FindRejectPopup();
+        if (popup == null) { ResolveBribeRefuse(c); return; } // 폴백: 안전하게 정답 거절(소프트락 없음)
+        popup.ShowConfirm(
+            "뇌물을 받으시겠습니까?",
+            "안 받는다",                  // 좌(onReview): 거부 — 정답 적발 거절
+            "받는다",                     // 우(onConfirm): 수락 — 공범(금괴/조기엔딩)
+            () => ResolveBribeRefuse(c),  // 좌 = 안 받는다 = 정답 거절
+            () => ResolveBribeAccept(c),  // 우 = 받는다 = 공범
+            _bribeTimerSeconds,           // 제한시간(카운트다운+1초틱)
+            () => ResolveBribeAccept(c)); // 시간초과 → 수락(공범 #11): 시간 내 결정 못 하면 묵인=공범으로 간주
+    }
+
+    // 검사후 대사 지연 흐름의 1회 구독 가드(중복 구독·이중 발화 방지).
+    private XrayInspectionPanel _postScanPanel;
+    private System.Action _postScanHandler;
+
+    /// <summary>
+    /// X-ray 패널 닫힘(OnClosed)을 1회 구독해, 닫히면 검사후 대사를 재생하고 판정을 활성화한다.
+    /// 손님이 바뀌어 구독이 정리되지 않은 채로 남지 않게, 발화 시 즉시 해제한다(1회성).
+    /// </summary>
+    private void DeferPostScanUntilPanelClosed(XrayInspectionPanel panel, DialogueCaseData postScan)
+    {
+        UnsubscribePostScan(); // 혹시 남아 있던 이전 구독 정리(같은 손님 재진입 등)
+
+        _postScanPanel = panel;
+        _postScanHandler = () =>
+        {
+            UnsubscribePostScan();
+            PlayThen(postScan, OnPostScanDone);
+        };
+        panel.OnClosed += _postScanHandler;
+    }
+
+    /// <summary>검사후 대사용 X-ray 닫힘 구독을 해제한다(있으면). 1회 발화 후·손님 교체 시 호출.</summary>
+    private void UnsubscribePostScan()
+    {
+        if (_postScanPanel != null && _postScanHandler != null)
+            _postScanPanel.OnClosed -= _postScanHandler;
+        _postScanPanel = null;
+        _postScanHandler = null;
     }
 
     /// <summary>
@@ -424,11 +667,60 @@ public sealed class InspectionController : MonoBehaviour
     {
         CustomerData c = Current;
         if (c == null) return;
+        if (c.skipAutoScan) return; // 검색 면제 손님(검사 거부 특혜 등): day11+ 라도 자동 검색 안 띄움.
         // day11 '보안 강화' 이후: 전원 입장 자동 X-ray. 이전 날: 손님별 autoScanOnEntry 플래그만.
         if (CurrentDay < SecurityScanFromDay && !c.autoScanOnEntry) return;
         if (CurrentXray == null) return; // day11+ 는 합성 이상없음이라 null 아님(데이터 없는 이전 날만 차단)
         CrossCheckController cc = CrossCheck;
         if (cc != null) cc.RequestScanUnlock("xray");
+    }
+
+    // ── 시나리오(사토) 노드 중간 X-ray 표시 ──────────────────────────────
+    // 시나리오 손님은 입장 자동검사를 우회하므로, 노드 openScanAfter("xray") 지점에서 X-ray 를 띄운다.
+    // 적발물이 뜨면 X-ray 가 N초 뒤 자동으로 닫히고(또는 수동 닫기), 닫히면 다음 노드(검문관 발각 대사)로 진행한다.
+    // (대조 불필요 — 존카터/강도식의 '검사후 대사' 흐름과 동일하게 X-ray 닫힘이 트리거.)
+    private XrayInspectionPanel _scnPanel;
+    private System.Action _scnProceed;
+    private System.Action _scnClosedHandler;
+
+    /// <summary>
+    /// 시나리오 노드 openScanAfter 처리(현재 "xray"). X-ray 를 열고, 닫히면(자동 N초/수동) onProceed 로 다음 노드 진행.
+    /// 패널 부재·데이터 없음(안 열림)이면 false → 러너가 즉시 다음으로 진행(소프트락 방지).
+    /// </summary>
+    private bool OpenScenarioScanThenProceed(string kind, System.Action onProceed)
+    {
+        if (string.IsNullOrEmpty(kind)) return false;
+        if (!string.Equals(kind, "xray", System.StringComparison.OrdinalIgnoreCase)) return false;
+
+        XrayInspectionPanel panel = XrayPanel;
+        if (panel == null) return false;
+
+        panel.Open();                    // X-ray 표시(적발 시 N초 뒤 자동 닫힘)
+        if (!panel.IsOpen) return false; // 데이터 없음/미개방 → 진행 위임
+
+        UnsubscribeScenarioScan(); // 혹시 남은 이전 구독 정리
+        _scnPanel = panel;
+        _scnProceed = onProceed;
+        _scnClosedHandler = () => ScenarioScanProceed(); // 닫히면(자동/수동) 다음 노드 진행
+        panel.OnClosed += _scnClosedHandler;
+        return true;
+    }
+
+    /// <summary>시나리오 X-ray 닫힘 → 다음 노드 진행(1회 가드).</summary>
+    private void ScenarioScanProceed()
+    {
+        System.Action proceed = _scnProceed;
+        UnsubscribeScenarioScan();
+        proceed?.Invoke();
+    }
+
+    /// <summary>시나리오 X-ray 닫힘 구독 해제. 발화 후·손님 교체 시 호출.</summary>
+    private void UnsubscribeScenarioScan()
+    {
+        if (_scnPanel != null && _scnClosedHandler != null) _scnPanel.OnClosed -= _scnClosedHandler;
+        _scnPanel = null;
+        _scnProceed = null;
+        _scnClosedHandler = null;
     }
 
     private void EnableJudgment()
@@ -497,16 +789,32 @@ public sealed class InspectionController : MonoBehaviour
         if (_goldText != null) _goldText.text = _gold.ToString();
     }
 
+    /// <summary>손님이 외국인인가(국적이 한국이 아니면 외국인). #16 등잔 밑이 어둡다 판정용.
+    /// 국적 필드는 "대한민국(KOR)"/"미국(USA)"/"중국(CHN)" 형식.</summary>
+    private static bool IsForeignCustomer(CustomerData c)
+    {
+        if (c == null) return false;
+        string n = (c.nationality ?? string.Empty).ToUpperInvariant();
+        return !(n.Contains("대한민국") || n.Contains("한국") || n.Contains("KOR"));
+    }
+
     private void HandleDecision(bool approve)
     {
         CustomerData c = Current;
         if (c == null) return;
+
+        // 판정(도장)을 찍으면 X-ray 창을 닫는다 — 도장이 X-ray 창에 가려지지 않게(검사후 트리거 OnClosed 는 발화 안 함).
+        if (XrayPanel != null) XrayPanel.HideSilently();
 
         // 여권 종이 위에 도장 자국
         if (_documentView != null) _documentView.StampPrimary(approve);
 
         bool shouldApprove = c.correctResult == GameResults.Approve;
         Debug.Log($"[NoticeDBG] 판정: approve={approve} shouldApprove={shouldApprove} advBranch='{c.rejectAdvancedBranchKey}' → {(approve == shouldApprove ? "정답(고지서없음)" : (!approve ? "오거부→WrongRejectNotice" : "오허가→ViolationNotice"))}");
+
+        // #16 등잔 밑이 어둡다: 외국인 + 결함(거절 대상) 손님을 잘못 승인 → 누적(BlindspotThreshold 회 도달 시 엔딩).
+        if (approve && !shouldApprove && IsForeignCustomer(c))
+            Economy?.TriggerEvent(EventIds.OverstayApprove);
 
         // 고급 분기 손님(예: 성형 수술 지명수배 범죄자): 거부(approve=false) 시 정답 극성과 무관하게
         // 항상 데이터 지정 최선 분기(detect_montage_xray_reject 등)로 1회 정산 + 가이드 대사 재생.
@@ -520,25 +828,73 @@ public sealed class InspectionController : MonoBehaviour
                 DocStates.Defect, c.rejectAdvancedBranchKey, advVariant);
             // 적발(apprehension): wasCorrect=true(오판 미집계·WARNING 회피), wasDetection=true(일자 DETECTION 보너스).
             SettleBranch(c.characterType, advBranch, wasCorrect: true, wasDetection: true);
-            DialogueCaseData guided = FindCaseByType(c, c.rejectGuidedCaseType)
-                                      ?? FindCase(c, GameResults.Reject, -1);
+            // 거부 대사 분리: 지문으로 적발한 뒤 거부 = 체념/연행(분기 거부 케이스),
+            //                그냥 거부(조사 안 함) = 일반 손님처럼 항의(정상 거절 케이스).
+            DialogueCaseData guided = _fingerprintRevealed
+                ? (FindCaseByType(c, c.rejectGuidedCaseType) ?? FindCase(c, GameResults.Reject, -1))
+                : (FindCase(c, GameResults.Reject, -1) ?? FindCaseByType(c, c.rejectGuidedCaseType));
             PlayThen(guided, AdvanceNext);
             return;
         }
 
+        // ── 연예인/정치인 등 '재거절 감액' 캐릭터: 정상 서류를 거부하면 단발 오거부 대신 '3번 티키타카' ──
+        //  거부할 때마다 단계↑. 1~2회 = 그 단계 대사(심사관 안내 + 한지원 반응)를 대사창에 재생하고 서류를
+        //  다시 내밀어(재제출) 또 도장 찍게 한다(정산·진행 보류). VipForceEntryRound(3)회째 = 항의 대사 +
+        //  상급자 호출 → 강제입국 + 감액 정산(approve_after_reject_3 → 평판 -6 / 돈 +5).
+        //  전용 단계 대사(잘못 거절 rejectCount=1)가 저작된 손님만 — 미저작 연예인은 아래 일반 오거부로 폴백.
+        if (!approve && shouldApprove
+            && BranchKeyResolver.UsesAccrueScale(c.characterType)
+            && FindCase(c, GameResults.WrongReject, 1) != null)
+        {
+            // 거절 도장 → '정말 거절?' 확인 팝업. [예]=이번 단계 진행(단계 대사 + 재제출/강제입국), [아니오]=취소.
+            if (_judgmentPanel != null) _judgmentPanel.SetReady(false);
+            RejectConfirmPopup popup = FindRejectPopup();
+            Debug.Log($"[VipReject] {c.nameKr} 거절 도장 — 팝업={(popup == null ? "NULL(못찾음→팝업없이 대사로 진행)" : "FOUND(표시 시도)")}");
+            if (popup == null)
+            {
+                AdvanceVipReject(c); // 팝업 못 찾으면 팝업 없이 단계 진행(대사 티키타카만)
+                return;
+            }
+            popup.ShowConfirm(
+                "정말 거절하시겠습니까?",
+                "아니오",
+                "예",
+                RearmForRejectRetry,        // 아니오: 취소(재무장, 단계 변화 없음)
+                () => AdvanceVipReject(c));  // 예: 이번 단계 진행
+            return;
+        }
+
+        // ── 결함 VIP(연예인/정치인 + 거절 정답): 거절(정답)해도 순순히 안 물러나고 3번 버티다 입국 거부 확정 ──
+        //  정상서류 루프(위)의 대칭. 거부할 때마다 단계↑. 1~2회 = 그 단계 대사(심사관↔VIP 티키타카) 재생 + 재제출.
+        //  VipForceEntryRound(3)회째 = 거절 확정(reject_correct 정산, 적발 보너스) + 최종 대사 → 다음 손님.
+        //  전용 단계 대사(정상 거절 rejectCount=1)가 저작된 손님만 — 미저작 결함 손님은 아래 일반 거절로 폴백.
+        if (!approve && !shouldApprove
+            && BranchKeyResolver.UsesAccrueScale(c.characterType)
+            && FindCase(c, GameResults.Reject, 1) != null)
+        {
+            // 거절 도장 → '정말 거절?' 확인 팝업(대조 거절과 공용). [예]=이번 단계 진행, [아니오]=취소.
+            ShowGuiltyRejectConfirm(c);
+            return;
+        }
+
+        // ── 뇌물 제안 손님(밀수품 범죄자 존 카터 등): 도장 판정을 쓰지 않는다 ──
+        //  검사후 대사가 끝나면 OnPostScanDone 이 자동으로 뇌물 팝업(2버튼)을 띄워 판정한다(ShowBribePopup).
+        //  [안 받는다]=정답 거절(ResolveBribeRefuse) / [받는다]=공범(ResolveBribeAccept). 오판/거절팝업 도장 트리거는 제거됨.
+
         if (approve == shouldApprove)
         {
             // 정답: 정상 승인 / 정상 거절. 확정 → 정산(점수≠돈, 캐릭터별 테이블).
-            SettleCustomer(c, approve, 0, forcedPass: false);
+            //  연예인이 1~2회 거절 뒤 승인하면 _rejectRound>0 → approve_after_reject_N 감액(돈 25/15).
+            SettleCustomer(c, approve, _rejectRound, forcedPass: false);
             DialogueCaseData ok = FindCase(c, c.correctResult, -1);
             PlayThen(ok, AdvanceNext);
         }
         else if (!approve)
         {
-            // 정상 서류 손님을 거부(오판). 손글 스크립트 모델대로 작성된 항의 대사 1교환
+            // 일반 손님을 거부(오판). 손글 스크립트 모델대로 작성된 항의 대사 1교환
             // (검문관 거부 안내 → 방문객 항의)을 그대로 재생하고, 페널티 확정 후 다음 손님으로 넘어간다.
-            // 오거부 횟수·재심사·강제통과 루프는 없다(연예인/정치인 포함 모두 동일).
-            // (고급 분기 손님은 위 if-체인 앞에서 이미 인터셉트되어 여기 도달하지 않는다.)
+            // 단발 처리 — 재제출/강제통과 없음(연예인/정치인 '재거절 감액' 루프는 위 블록에서 이미 처리·return).
+            // (고급 분기 손님도 위 if-체인 앞에서 인터셉트되어 여기 도달하지 않는다.)
             SettleCustomer(c, approve, 0, forcedPass: false); // 오거부 페널티 확정
             SpawnWrongRejectNotice(c);                        // 정상 서류를 거부 → 오류 고지서로 피드백
             DialogueCaseData wrongReject = FindCase(c, GameResults.WrongReject, -1) ?? new DialogueCaseData
@@ -566,17 +922,18 @@ public sealed class InspectionController : MonoBehaviour
     {
         if (_documentView == null || c?.documents == null) return;
 
-        // 첫 결함 서류를 찾아, 사유 문구는 엑셀 inspection_notice 시트에서 가져온다(데이터 주도).
-        DocumentData defectDoc = null;
+        // 결함 서류를 '전부' 찾아, 각 서류의 결함 항목(필드)·값·사유를 한 줄씩 구체적으로 적는다.
+        // (유저가 어떤 항목으로 틀렸는지 명확히 알 수 있게 — 일반 문구 대신 상세 표기.)
+        var lines = new System.Collections.Generic.List<string>();
         foreach (DocumentData d in c.documents)
         {
             if (d == null) continue;
             bool isDefect = (!string.IsNullOrEmpty(d.variant) && d.variant.Contains("비정상"))
                          || (!string.IsNullOrEmpty(d.violationField) && d.violationField != "없음");
-            if (isDefect) { defectDoc = d; break; }
+            if (isDefect) lines.Add(DetailedViolationLine(d));
         }
-        string reason = defectDoc != null
-            ? NoticeReason(defectDoc.documentType, defectDoc.violationField)
+        string reason = lines.Count > 0
+            ? "입국 거부 대상을 허가했습니다. 결함 항목:\n" + string.Join("\n", lines)
             : "입국 거부 대상인 손님을 통과시켰습니다.";
 
         var notice = new DocumentData
@@ -643,6 +1000,44 @@ public sealed class InspectionController : MonoBehaviour
 
         string body = row.Get("body") ?? "";
         return body.Replace("{field}", fieldLabel).Replace("{document}", docType);
+    }
+
+    /// <summary>결함 서류 1건 → "· {사람이 바로 이해할 사유}" 한 줄. 항목/값 나열 대신 쉬운 문장으로.</summary>
+    private string DetailedViolationLine(DocumentData d)
+    {
+        string field = string.IsNullOrEmpty(d.violationField) || d.violationField == "없음" ? "" : d.violationField;
+        return "· " + ViolationReason(d.documentType, NoticeErrorType(d.documentType, field), field);
+    }
+
+    /// <summary>error_type(+필드/서류) → 사람이 바로 이해하는 짧은 거부 사유 한 줄. (띄어쓰기 정규화)</summary>
+    private static string ViolationReason(string docType, string errorType, string field)
+    {
+        string f = (field ?? "").Replace(" ", "");
+        switch (errorType)
+        {
+            case "위조":      return "여권번호가 위조되었습니다.";
+            case "기간만료":  return $"{docType} 유효기간이 지났습니다.";
+            case "사진불일치": return "여권 사진과 본인 외모가 다릅니다.";
+            case "검사부적합":
+                if (f == "검사결과") return "PCR 검사 결과가 양성입니다.";
+                if (f == "검사일")   return "PCR 검사일이 유효 기간을 벗어났습니다.";
+                if (f == "검사기관") return "공인되지 않은 검사기관입니다.";
+                return "PCR 검사서가 규정에 맞지 않습니다.";
+            default:
+                if (f == "성별") return "여권 성별이 본인과 다릅니다.";
+                return string.IsNullOrEmpty(field)
+                    ? $"{docType} 정보가 규정과 맞지 않습니다."
+                    : $"{field} 정보가 규정과 맞지 않습니다.";
+        }
+    }
+
+    /// <summary>서류에서 violationField(라벨/키)에 해당하는 값을 찾는다. 없으면 빈 문자열.</summary>
+    private static string FindFieldValue(DocumentData d, string violationField)
+    {
+        if (d?.fields == null || string.IsNullOrEmpty(violationField)) return "";
+        foreach (FieldEntry f in d.fields)
+            if (f != null && (f.label == violationField || f.key == violationField)) return f.value ?? "";
+        return "";
     }
 
     /// <summary>위반 항목(한글 라벨)/서류 종류 → inspection_notice 의 error_type 으로 매핑.</summary>
@@ -718,6 +1113,15 @@ public sealed class InspectionController : MonoBehaviour
 
     private void PlayThen(DialogueCaseData dialogueCase, System.Action onComplete)
     {
+        // 엔딩 확정(HaltForEnding → _ended) 후엔 결과 대사를 재생하지 않는다.
+        // 오판 승인은 SettleCustomer(정산)에서 조기엔딩을 띄운 '직후' 이 대사(잘못 허가 등)를 호출하므로,
+        // 가드가 없으면 엔딩 컷씬 위로 대사가 계속 재생된다. 진행(onComplete=AdvanceNext)도 막는다(엔딩=종착).
+        if (_ended)
+        {
+            if (_dialogueView != null) { _dialogueView.StopSpeaking(); _dialogueView.Hide(); }
+            return;
+        }
+
         AppendLog(dialogueCase);
 
         // 이 케이스를 "요청 가능한 대사"로 보관(입장/오거부 항의 등 현재 손님 맥락 대사).
@@ -760,6 +1164,147 @@ public sealed class InspectionController : MonoBehaviour
     private void AdvanceNext()
     {
         ShowCustomer(_index + 1);
+    }
+
+    /// <summary>
+    /// 거절 팝업 [아니오] 처리: 거부 도장을 지우고(서류를 돌려받음) 다시 판정 가능하게 재무장한다.
+    /// 같은 손님이 그대로 남아 다음 판정을 기다린다(페널티·진행 없음).
+    /// </summary>
+    private void RearmForRejectRetry()
+    {
+        if (_documentView != null) _documentView.ClearStamps();          // 거부 도장 자국 제거(다시 드릴게요)
+        if (_judgmentPanel != null) _judgmentPanel.ResetForNextCustomer(true); // 다시 도장 찍을 수 있게
+    }
+
+    /// <summary>
+    /// 팝업 [예](또는 팝업 미발견 폴백): 거절 단계를 한 칸 올린다.
+    /// 1~2회 = 그 단계 대사(심사관 안내 + 한지원 반응)를 대사창에 재생하고 서류 재제출(다시 도장 가능).
+    /// VipForceEntryRound(3)회째 = 항의 대사 → 강제입국 + 감액 정산(approve_after_reject_3 → 평판 -6 / 돈 +5).
+    /// </summary>
+    private void AdvanceVipReject(CustomerData c)
+    {
+        _rejectRound++;
+        Debug.Log($"[VipReject] {c.nameKr} {_rejectRound}회 확정 → {(_rejectRound >= VipForceEntryRound ? "강제입국" : "재제출(티키타카)")}");
+        if (_rejectRound < VipForceEntryRound)
+        {
+            DialogueCaseData step = FindCase(c, GameResults.WrongReject, _rejectRound)
+                                    ?? FindCase(c, GameResults.WrongReject, -1);
+            PlayThen(step, RearmForRejectRetry);
+            return;
+        }
+        SettleCustomer(c, approved: true, wrongRejectCount: _rejectRound, forcedPass: true);
+        DialogueCaseData protest = FindCase(c, GameResults.WrongReject, _rejectRound)
+                                   ?? FindCase(c, GameResults.WrongReject, -1);
+        PlayThen(protest, AdvanceNext);
+    }
+
+    /// <summary>정상 거절 + 재거절 손님(윤정호 등)의 '정말 거절?' 확인 팝업. 도장·대조 거절 공용. [예]=라운드 진행, [아니오]=취소.</summary>
+    private void ShowGuiltyRejectConfirm(CustomerData c)
+    {
+        if (_judgmentPanel != null) _judgmentPanel.SetReady(false);
+        RejectConfirmPopup popup = FindRejectPopup();
+        Debug.Log($"[VipRejectGuilty] {c.nameKr} 거절 확인 — 팝업={(popup == null ? "NULL→대사로 진행" : "표시")}");
+        if (popup == null) { AdvanceGuiltyReject(c); return; }
+        popup.ShowConfirm("정말 거절하시겠습니까?", "아니오", "예",
+            RearmForRejectRetry, () => AdvanceGuiltyReject(c));
+    }
+
+    /// <summary>현재 손님이 '전신검사 거부 → 정상 거절 + 재거절' 대상(윤정호 등)인가. 대조 거절 트리거 게이트.</summary>
+    public bool IsScanRefusalRejectActive
+    {
+        get
+        {
+            CustomerData c = Current;
+            return c != null
+                && c.correctResult == GameResults.Reject
+                && BranchKeyResolver.UsesAccrueScale(c.characterType)
+                && FindCase(c, GameResults.Reject, 1) != null;
+        }
+    }
+
+    /// <summary>대조(전신검사 거부 음성 ↔ 규정 일치)로 거절을 트리거(도장과 공존, 같은 라운드 흐름).</summary>
+    public void TriggerScanRefusalReject()
+    {
+        if (IsScanRefusalRejectActive) ShowGuiltyRejectConfirm(Current);
+    }
+
+    /// <summary>
+    /// 팝업 [예](또는 팝업 미발견 폴백): 결함 VIP 거절 단계를 한 칸 올린다.
+    /// 1~2회 = 그 단계 대사(심사관↔VIP 티키타카) 재생 + 재제출. 3회째 = 거절 확정(reject_correct + 적발) → 다음 손님.
+    /// </summary>
+    private void AdvanceGuiltyReject(CustomerData c)
+    {
+        _rejectRound++;
+        Debug.Log($"[VipRejectGuilty] {c.nameKr} {_rejectRound}회 확정 → {(_rejectRound >= VipForceEntryRound ? "입국 거부 확정" : "재제출(티키타카)")}");
+        if (_rejectRound < VipForceEntryRound)
+        {
+            DialogueCaseData step = FindCase(c, GameResults.Reject, _rejectRound)
+                                    ?? FindCase(c, GameResults.Reject, -1);
+            PlayThen(step, RearmForRejectRetry);
+            return;
+        }
+        SettleCustomer(c, approved: false, wrongRejectCount: 0, forcedPass: false);
+        DialogueCaseData last = FindCase(c, GameResults.Reject, _rejectRound)
+                                ?? FindCase(c, GameResults.Reject, -1);
+        PlayThen(last, AdvanceNext);
+    }
+
+    /// <summary>
+    /// 뇌물 팝업 [거절한다](또는 팝업 미발견 폴백) = 정답: 밀수품 적발 거절.
+    /// bribeRefuseBranchKey(기본 detect_montage_reject)로 1회 정산(정답·적발 보너스) + 거부 대사 → 다음 손님.
+    /// </summary>
+    private void ResolveBribeRefuse(CustomerData c)
+    {
+        string key = string.IsNullOrEmpty(c.bribeRefuseBranchKey)
+            ? BranchKeys.DetectMontageReject : c.bribeRefuseBranchKey;
+        // 밀수품 적발 거절은 결함(거부 정답) 손님이므로 doc_state=Defect 로 명시 매칭.
+        BranchResult branch = BranchKeyResolver.ResolveAdvanced(DocStates.Defect, key, NullIfEmpty(c.defectVariant));
+        // 적발: wasCorrect=true(오판 미집계), wasDetection=true(일자 DETECTION 보너스).
+        SettleBranch(c.characterType, branch, wasCorrect: true, wasDetection: true);
+
+        // 거부 대사: 전용 caseType(bribeRefuseCaseType) 우선, 없으면 정답 거절(정상 거절) 케이스.
+        DialogueCaseData refuse = FindCaseByType(c, c.bribeRefuseCaseType)
+                                  ?? FindCase(c, GameResults.Reject, -1);
+        PlayThen(refuse, AdvanceNext);
+    }
+
+    /// <summary>
+    /// 뇌물 팝업 [받는다] = 공범: 수락 대사 재생 후 corrupt_accept_gold(기본)로 부패 정산.
+    /// 정산 시 ScoreEconomyManager 가 금괴 + 조기엔딩(#11)을 발동한다(엔딩 패널이 화면 점유).
+    /// 수락 대사를 먼저 재생하고 '완료 시' 정산해, 정산이 트리거하는 엔딩 패널이 대사 위로 뜨지 않게 한다.
+    /// </summary>
+    private void ResolveBribeAccept(CustomerData c)
+    {
+        DialogueCaseData accept = FindCaseByType(c, c.bribeAcceptCaseType);
+        PlayThen(accept, () => SettleBribeAccept(c));
+    }
+
+    /// <summary>[받는다] 수락 대사 종료 후 1회 정산(금괴/조기엔딩 #11). 엔딩이 진행을 정지하므로 AdvanceNext 하지 않는다.</summary>
+    private void SettleBribeAccept(CustomerData c)
+    {
+        string key = string.IsNullOrEmpty(c.bribeAcceptBranchKey)
+            ? BranchKeys.CorruptAcceptGold : c.bribeAcceptBranchKey;
+        // 부패 입국: 결함 손님을 들여보냄 → doc_state=Defect, wasCorrect=false(오판), 적발 아님.
+        BranchResult branch = BranchKeyResolver.ResolveAdvanced(DocStates.Defect, key, NullIfEmpty(c.defectVariant));
+        SettleBranch(c.characterType, branch, wasCorrect: false);
+        // 정산이 #11 조기엔딩을 트리거하면 ImmigrationManager.HaltForEnding 가 진행을 멈추고 엔딩 패널을 띄운다.
+        //  엔딩이 안 떠도(테이블 미로드 등) 소프트락이 없도록 다음 손님으로 진행한다.
+        if (!_ended) AdvanceNext();
+    }
+
+    private static string NullIfEmpty(string s) => string.IsNullOrEmpty(s) ? null : s;
+
+    // 거절 확인 팝업(CoreRig). 인스펙터 배선 의존 없이 1회 탐색(비활성 포함)해 캐시. 못 찾으면 팝업 없이 폴백.
+    private RejectConfirmPopup _rejectPopup;
+    private bool _rejectPopupResolved;
+    private RejectConfirmPopup FindRejectPopup()
+    {
+        if (!_rejectPopupResolved)
+        {
+            _rejectPopup = FindObjectOfType<RejectConfirmPopup>(true); // true = 비활성 오브젝트도 포함
+            _rejectPopupResolved = true;
+        }
+        return _rejectPopup;
     }
 
     private void ShowDayComplete()

@@ -57,6 +57,8 @@ public sealed class BriefingManager : MonoBehaviour
 
     // 브리핑 종료 후 로드할 일차별 심사 씬 이름(Start 에서 결정). 폴백은 _nextScene.
     private string _targetScene;
+    // 이 브리핑이 책임지는 일차(Day씬 로드 직전 '브리핑 완료' 표식으로 기록 → Day씬이 브리핑 경유 여부 판단).
+    private int _briefedDay = 1;
 
     private void Start()
     {
@@ -69,6 +71,7 @@ public sealed class BriefingManager : MonoBehaviour
         _targetScene = (clampedDay >= FirstDay && clampedDay <= LastDay)
             ? $"Day{clampedDay}Scene"
             : _nextScene;
+        _briefedDay = clampedDay; // 이 브리핑이 책임지는 일차(Day씬 진입 시 '브리핑 경유' 확인용)
 
         if (_dayLabelText != null) _dayLabelText.text = $"{day}일차";
 
@@ -83,8 +86,54 @@ public sealed class BriefingManager : MonoBehaviour
             return;
         }
 
+        ApplyFullscreenLayout(); // 이미지 전체화면 + 텍스트 하단 오버레이(엔딩 컷씬 스타일)
         ShowSlide(0);
         StartCoroutine(FadeIn());
+    }
+
+    /// <summary>브리핑 이미지를 엔딩 컷씬처럼 전체화면으로, 안내 텍스트는 하단에 반투명 띠로 겹쳐 표시한다.
+    /// 씬을 직접 수정하지 않고 런타임에 레이아웃만 조정한다(가역적).</summary>
+    private void ApplyFullscreenLayout()
+    {
+        // 이미지: 화면 꽉 채우기(stretch) + 맨 뒤로(텍스트·일차·힌트가 위에 보이게).
+        if (_slideImage != null && _slideImage.transform is RectTransform irt)
+        {
+            irt.anchorMin = Vector2.zero;
+            irt.anchorMax = Vector2.one;
+            irt.pivot = new Vector2(0.5f, 0.5f);
+            irt.offsetMin = Vector2.zero;
+            irt.offsetMax = Vector2.zero;
+            _slideImage.preserveAspect = true; // 비율 유지하며 화면에 최대로(왜곡 방지)
+            irt.SetAsFirstSibling();
+        }
+
+        // 자막 모드일 때만 하단 오버레이/검은 띠 구성(_imageOnly면 생략 → 빈 검은 띠 방지)
+        if (!_imageOnly && _slideText != null && _slideText.transform is RectTransform trt)
+        {
+            Transform parent = trt.parent;
+            // 가독성용 하단 반투명 띠(최초 1회 생성, 텍스트 바로 뒤).
+            if (parent != null && parent.Find("BriefingTextBackdrop") == null)
+            {
+                var bg = new GameObject("BriefingTextBackdrop", typeof(RectTransform), typeof(Image));
+                var brt = bg.GetComponent<RectTransform>();
+                brt.SetParent(parent, false);
+                brt.anchorMin = new Vector2(0f, 0f);
+                brt.anchorMax = new Vector2(1f, 0.33f);
+                brt.offsetMin = Vector2.zero;
+                brt.offsetMax = Vector2.zero;
+                var bimg = bg.GetComponent<Image>();
+                bimg.color = new Color(0f, 0f, 0f, 0.5f);
+                bimg.raycastTarget = false;
+                brt.SetSiblingIndex(trt.GetSiblingIndex()); // 텍스트 바로 뒤(이미지 위)
+            }
+            // 텍스트: 하단 중앙 오버레이(흰색).
+            trt.anchorMin = new Vector2(0.08f, 0.03f);
+            trt.anchorMax = new Vector2(0.92f, 0.3f);
+            trt.offsetMin = Vector2.zero;
+            trt.offsetMax = Vector2.zero;
+            _slideText.alignment = TMPro.TextAlignmentOptions.Center;
+            _slideText.color = Color.white;
+        }
     }
 
     /// <summary>
@@ -208,6 +257,10 @@ public sealed class BriefingManager : MonoBehaviour
         }
         // 일차별 심사 씬으로 진입(Start 에서 결정). 미설정 시 기존 _nextScene 폴백.
         string target = string.IsNullOrEmpty(_targetScene) ? _nextScene : _targetScene;
+        // 'Day씬 = 브리핑 먼저' 성립용: 심사 씬 로드 직전 이 날을 '브리핑 완료'로 표식한다.
+        //  (ImmigrationManager.Start 가 이 값과 그날을 비교 → 미경유면 브리핑으로 돌려보냄)
+        PlayerPrefs.SetInt(ImmigrationManager.BriefedForDayKey, _briefedDay);
+        PlayerPrefs.Save();
         SceneManager.LoadScene(target);
     }
 }

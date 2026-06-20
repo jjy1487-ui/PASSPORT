@@ -43,6 +43,9 @@ public sealed class RulebookPopup : MonoBehaviour, ICrossCheckProvider
     private int _selectedIndex = -1;
     private bool _centeredOnce;  // 최초 1회만 위치 정렬. 이후엔 드래그한 위치를 유지.
 
+    private AudioSource _sfx;     // 규정집 등장 효과음(뉴스와 동일: 정산 타이핑) 2D 재생용
+    private AudioClip _typeSound; // Resources/Audio/Settlement (NewsPopup 과 동일 클립)
+
     [Header("열림 위치")]
     [Tooltip("규정집을 처음 열 때 놓일 위치(anchoredPosition, 앵커=화면 중앙 기준). 이후엔 드래그 위치 유지.")]
     [SerializeField] private Vector2 _openPosition = new Vector2(572f, 297f);
@@ -50,9 +53,19 @@ public sealed class RulebookPopup : MonoBehaviour, ICrossCheckProvider
     /// <summary>selectable 구성 변경 통지.</summary>
     public event System.Action OnSelectablesChanged;
 
+    /// <summary>팝업이 닫힐 때 통지(하루 시작 시퀀스 연결용). NewsPopup.OnClosed 와 동일 패턴.</summary>
+    public event System.Action OnClosed;
+
     private void Awake()
     {
         if (_closeButton != null) _closeButton.onClick.AddListener(Close);
+
+        // 규정집 등장음(뉴스와 동일 정산 타이핑) — NewsPopup 과 같은 2D AudioSource + 클립.
+        _sfx = GetComponent<AudioSource>();
+        if (_sfx == null) _sfx = gameObject.AddComponent<AudioSource>();
+        _sfx.playOnAwake = false;
+        _sfx.spatialBlend = 0f;
+        _typeSound = Resources.Load<AudioClip>("Audio/Settlement");
 
         // 각 행 클릭 → 오른쪽 내용 갱신(대조 처리는 CrossCheckController 가 별도로 받음).
         // 람다 대신 명명 핸들러를 써서 OnDestroy 에서 정확히 짝 해제한다.
@@ -100,6 +113,7 @@ public sealed class RulebookPopup : MonoBehaviour, ICrossCheckProvider
             BringToFront(_root.transform, !_centeredOnce);
             _centeredOnce = true;
         }
+        if (_sfx != null && _typeSound != null) _sfx.PlayOneShot(_typeSound); // 뉴스와 동일 등장음
         HideLegacyControls();
         FillRows();
         ShowRule(_visibleCount > 0 ? 0 : -1);
@@ -210,6 +224,7 @@ public sealed class RulebookPopup : MonoBehaviour, ICrossCheckProvider
     {
         if (_root != null) _root.SetActive(false);
         OnSelectablesChanged?.Invoke();
+        OnClosed?.Invoke(); // 하루 시작 시퀀스(뉴스→규정집→첫손님) 연결용. NewsPopup 과 동일.
     }
 
     // ── ICrossCheckProvider ──────────────────────────────────────

@@ -150,7 +150,13 @@ public sealed class ScoreEconomyManager : MonoBehaviour
         bool forgiven = !wasCorrect && MistakeForgiveHook != null && MistakeForgiveHook();
 
         if (wasCorrect) CorrectCount++;
-        else if (!forgiven) _dayWrongCount++;
+        else if (!forgiven)
+        {
+            _dayWrongCount++;
+            // #18 자넨 적성에 안 맞는 것 같네: 단일 일자 오판이 과반(4명+)에 도달하는 순간 즉시 발동(1~3일 한정).
+            if (_dayWrongCount == WarningWrongThreshold && UnityEngine.PlayerPrefs.GetInt("CurrentDay", 1) <= 3)
+                TriggerEvent(EventIds.UnfitJob);
+        }
         if (wasDetection) _dayDetectionCount++;
 
         int scoreDelta = LookupScore(characterType, branch, wasCorrect, out string scoreEvent, out string title);
@@ -179,7 +185,10 @@ public sealed class ScoreEconomyManager : MonoBehaviour
         // 조기/누적 엔딩 트리거: 두 테이블(score.event_id / payout.early_ending)의 합집합.
         //  (#15/#16 은 score 표에만, 일부 #11 은 payout 표에만 있어 양쪽을 모두 본다.)
         string evt = !string.IsNullOrEmpty(scoreEvent) ? scoreEvent : payoutEvent;
-        if (!string.IsNullOrEmpty(evt)) TriggerEvent(evt);
+        // #16(등잔 밑이 어둡다)은 InspectionController.HandleDecision 에서 '모든 외국인 결함 오승인'으로
+        //  직접 카운트한다 → 데이터 태그(character_score/payout #16)로 중복 트리거하지 않도록 여기선 건너뛴다.
+        //  (점수/돈 값은 그대로 적용됨 — 이벤트 카운트만 제외.)
+        if (!string.IsNullOrEmpty(evt) && evt != EventIds.OverstayApprove) TriggerEvent(evt);
 
         OnVerdictResolved?.Invoke(wasCorrect);
         GameProgressSave.SaveFrom(this);
@@ -222,13 +231,9 @@ public sealed class ScoreEconomyManager : MonoBehaviour
         else if (_dayWrongCount >= WarningWrongThreshold)
         {
             delta += RewardAmount("WARNING", FallbackWarning); // 음수(차감)
-            // 경고 누적 → 관련 엔딩 트리거(reward.related_ending_id, 기본 17).
-            //  TriggerEvent 는 카운터 증가 + OnEarlyEndingTriggered 통지를 한다. 진행 매니저가
-            //  이 id 를 EndingResolver 로 해석해(해당 행 존재 시) 엔딩 진입 여부를 결정한다.
-            string endingId = Db != null && Db.reward != null
-                ? Db.reward.GetRelatedEndingId("WARNING") : string.Empty;
-            if (string.IsNullOrEmpty(endingId)) endingId = FallbackWarningEnding.ToString();
-            TriggerEvent(WarningEndingTriggerPrefix + endingId);
+            // 엔딩 트리거는 여기서 하지 않는다 — #18(자넨 적성에 안 맞는 것 같네)은 Settle 에서
+            //  '단일 일자 오판 4명+ 도달 즉시(1~3일)' 발동하므로, 일자 종료 시 중복/지연 발동을 막는다.
+            //  (과거엔 related_ending_id=17(퍼엉!)을 잘못 가리키는 버그도 있었음 → 제거.)
         }
 
         if (delta != 0) ApplyMoney(delta);

@@ -17,4 +17,8 @@ public static class CaseTypes
     public const string NormalCheck = "일반 심사";   // 일반 심사 진행
     public const string NoPassport = "여권 없음";    // 여권 미제출
     public const string NoEntryStamp = "입국 도장 없음"; // 입국 도장 누락
+
+    // 입장 자동 X-ray 패널을 '플레이어가 닫은 직후' 재생하는 검사후 대사(예: 존 카터의 적발 지적 + 뇌물 제안).
+    //  이 케이스가 있는 손님만 '입장→X-ray 개방→(닫으면)검사후 대사→판정' 지연 흐름을 탄다(없으면 입장 끝나면 바로 판정).
+    public const string PostScan = "검사후";
 }

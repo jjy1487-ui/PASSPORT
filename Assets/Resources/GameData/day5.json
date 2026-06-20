@@ -368,7 +368,15 @@
     "xray": null,
     "fingerprint": null,
     "crossCheckLines": []
-   }
+   },
+   "crossCheckLines": [
+    {
+     "attr": "pcr_result",
+     "inspector": "PCR 검사서는 꼭 필요합니다.",
+     "customer": "그게 꼭 필요해요? 저 멀쩡한데.",
+     "inspectorClose": "방역 대상 입국자는 PCR 검사서가 반드시 있어야 합니다."
+    }
+   ]
   },
   {
    "customerId": 24,
@@ -747,7 +755,7 @@
       {
        "order": 1,
        "speaker": "로버트 존슨",
-       "text": "Hello, I heard there were some health concerns at the airport recently. I'm perfectly fine, here's my passport."
+       "text": "Hello, I heard there were some health concerns at the airport recently. I'm perfectly fine, here's my passport. (안녕하세요, 최근 공항에서 건강 문제가 있다고 들었어요. 저는 괜찮아요, 여기 제 여권이에요.)"
       },
       {
        "order": 2,
@@ -792,7 +800,7 @@
       {
        "order": 2,
        "speaker": "로버트 존슨",
-       "text": "Oh, I see. Thank you for letting me know."
+       "text": "Oh, I see. Thank you for letting me know. (아, 그래. 알려 주셔서 감사합니다.)"
       }
      ]
     },
@@ -809,7 +817,7 @@
       {
        "order": 2,
        "speaker": "로버트 존슨",
-       "text": "Thank you! Have a great day!"
+       "text": "Thank you! Have a great day! (감사합니다! 좋은 하루 되세요!)"
       }
      ]
     },
@@ -826,7 +834,7 @@
       {
        "order": 2,
        "speaker": "로버트 존슨",
-       "text": "Oh, I see. Thank you for letting me know. (아, 그렇군요. 알려주셔서 감사해요.)"
+       "text": "Oh, I see. Thank you for letting me know. (아, 그렇군요. 알려주셔서 감사해요.) (아, 그래. 알려 주셔서 감사합니다.)"
       }
      ]
     }
@@ -2004,7 +2012,7 @@
    "newsId": 5,
    "title": "해외 감염병 확산 우려 각국 검역 체계 강화",
    "content": "해외 일부 지역에서 감염병 사례가 증가하면서 여러 국가가 검역 절차를 강화하고 있다. 보건 당국은 해외 이동 과정에서의 감염 확산 가능성을 예의주시하고 있으며 관련 대응 체계를 점검하고 있다고 밝혔다.",
-   "iconRef": null,
+   "iconRef": "News7",
    "claims": []
   }
  ]

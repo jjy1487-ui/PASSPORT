@@ -55,6 +55,8 @@ public sealed class ScanResultPanel : MonoBehaviour, ICrossCheckProvider
     [SerializeField] private bool _useSequence = false;
     [Tooltip("각 단계(스캔중/DB조회) 표시 시간(초).")]
     [SerializeField] private float _stageSeconds = 1.1f;
+    [Tooltip("수배자 지문(윤서린): DB 결과를 보여준 뒤 자동으로 닫고 적발 대사를 띄우기까지의 시간(초). 대조 불필요.")]
+    [SerializeField] private float _wantedAutoRevealSeconds = 2.5f;
     [SerializeField] private Color _stageColor = new Color(0.85f, 0.85f, 0.85f);
     [SerializeField] private Color _matchColor = new Color(0.88f, 0.22f, 0.22f);   // 일치=수배=빨강
     [SerializeField] private Color _noMatchColor = new Color(0.20f, 0.70f, 0.35f); // 불일치=정상=초록
@@ -64,6 +66,7 @@ public sealed class ScanResultPanel : MonoBehaviour, ICrossCheckProvider
 
     private ScanData _injected;   // 자립 재생용 주입 데이터(있으면 컨트롤러 대신 사용)
     private Coroutine _seq;       // 진행 중 단계 연출 코루틴
+    private Coroutine _autoReveal; // 수배자 지문: N초 후 자동 닫고 적발 대사 재생하는 코루틴
     private bool _dbShown;        // 현재 손님에 대해 DB 조회 결과(③단계)를 이미 표시했는가
 
     private void Awake()
@@ -184,6 +187,7 @@ public sealed class ScanResultPanel : MonoBehaviour, ICrossCheckProvider
     public void Close()
     {
         if (_seq != null) { StopCoroutine(_seq); _seq = null; }
+        if (_autoReveal != null) { StopCoroutine(_autoReveal); _autoReveal = null; } // 수동 닫기 시 자동 적발 연출 취소
         if (_nextButton != null) _nextButton.gameObject.SetActive(false);
         SetStage(0);
         HideDbSelectables();
@@ -302,6 +306,27 @@ public sealed class ScanResultPanel : MonoBehaviour, ICrossCheckProvider
                 : "범죄 기록    없음";
         }
         OnSelectablesChanged?.Invoke();
+
+        // 수배자 지문(윤서린): 플레이어 대조 없이 N초 후 자동으로 닫고 적발 대사를 재생(가이드 연출).
+        // 수배 기록 없는 일반 성형 고객은 기존대로 플레이어가 직접 대조한다.
+        if (_kind == ScanKind.Fingerprint && r.IsWanted && _crossCheck != null)
+        {
+            if (_autoReveal != null) StopCoroutine(_autoReveal);
+            _autoReveal = StartCoroutine(AutoCloseAndReveal());
+        }
+    }
+
+    /// <summary>수배자 지문 결과를 N초 보여준 뒤 자동으로 닫고, 적발 대사를 재생한다.
+    /// 적발 대사가 끝나면 도장 없이 자동 연행(거부 정산 + 체념 대사 → 다음 손님)으로 이어진다.</summary>
+    private IEnumerator AutoCloseAndReveal()
+    {
+        yield return new WaitForSeconds(_wantedAutoRevealSeconds);
+        _autoReveal = null;
+        Close();
+        _crossCheck.PlayFingerprintReveal(() =>
+        {
+            if (_controller != null) _controller.AutoDetainWantedCustomer(); // 도장 안 찍고 끌려감
+        });
     }
 
     private void HideDbSelectables()

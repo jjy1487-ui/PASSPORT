@@ -30,8 +30,11 @@ public readonly struct EndingResult
 /// </summary>
 public static class EndingResolver
 {
-    /// <summary>#15/#16 누적 엔딩 발동 임계치(임의 기본값 — 결정 필요/보고 명시).</summary>
+    /// <summary>#15 방역 실패 누적 엔딩 발동 임계치.</summary>
     public const int CumulativeThreshold = 3;
+
+    /// <summary>#16 등잔 밑이 어둡다: 외국인 결함(불일치) 손님 잘못 승인 누적 임계치.</summary>
+    public const int BlindspotThreshold = 10;
 
     /// <summary>조기엔딩 트리거 발동 시 즉시 엔딩 결정. 트리거가 아니면 IsValid=false.</summary>
     public static EndingResult ResolveEarly(string eventId, ScoreEconomyManager m)
@@ -47,6 +50,9 @@ public static class EndingResolver
 
         switch (eventId)
         {
+            // 퍼엉!(테러범 폭탄 투척) 즉시 엔딩. ending 테이블에 '퍼엉!' 행이 있으면 그걸 쓰고(이름으로 조회),
+            // 없으면 코드 폴백으로 띄운다(테이블 미동기화여도 동작). 숫자 event_id 와 충돌하지 않는 전용 키.
+            case EventIds.TerrorBomb:       return DataByName("퍼엉!") ?? new EndingResult("END_BOMB", "퍼엉!", "early", eventId);
             case EventIds.CorruptGoldDrugs: return Data(eventId) ?? new EndingResult("END_CORRUPT", "부패한 검문관", "early", eventId);
             case EventIds.PlasticDrugs:     return Data(eventId) ?? new EndingResult("END_DRUG_BRIBE", "마약 밀반입 묵인", "early", eventId);
             case EventIds.CultBrainwash:    return Data(eventId) ?? new EndingResult("END_CULT_CONVERT", "포교당한 검문관", "early", eventId);
@@ -57,10 +63,15 @@ public static class EndingResolver
                 if (m != null && m.GetEventCount(eventId) >= CumulativeThreshold)
                     return Data(eventId) ?? new EndingResult("END_QUARANTINE_FAIL", "방역 붕괴", "cumulative", eventId);
                 return default;
+            // #16 등잔 밑이 어둡다: 외국인 결함 손님 오승인 누적(BlindspotThreshold 회).
             case EventIds.OverstayApprove:
-                if (m != null && m.GetEventCount(eventId) >= CumulativeThreshold)
-                    return Data(eventId) ?? new EndingResult("END_OVERSTAY", "불법체류 범람", "cumulative", eventId);
+                if (m != null && m.GetEventCount(eventId) >= BlindspotThreshold)
+                    return DataByName("등잔 밑이 어둡다") ?? Data(eventId) ?? new EndingResult("END_BLINDSPOT", "등잔 밑이 어둡다", "cumulative", eventId);
                 return default;
+
+            // #18 자넨 적성에 안 맞는 것 같네: 단일 일자 오판 4명+(1~3일) 즉시 발동.
+            case EventIds.UnfitJob:
+                return DataByName("자넨 적성에 안 맞는 것 같네") ?? Data(eventId) ?? new EndingResult("END_UNFIT", "자넨 적성에 안 맞는 것 같네", "early", eventId);
         }
         return default;
     }
@@ -97,6 +108,21 @@ public static class EndingResolver
             if (r == null) continue;
             if (r.Get("ending_id") == endingId)
                 return new EndingResult(r.Get("ending_id"), r.Get("ending_name"), r.Get("ending_type") ?? "normal", "warning");
+        }
+        return null;
+    }
+
+    /// <summary>ending_name 으로 ending 행 조회(이름 지정 엔딩용, 예: 퍼엉!). 없으면 null.</summary>
+    private static EndingResult? DataByName(string endingName)
+    {
+        var t = GameDatabaseProvider.Database != null ? GameDatabaseProvider.Database.ending : null;
+        if (t == null || string.IsNullOrEmpty(endingName)) return null;
+        foreach (var r in t.rows)
+        {
+            if (r == null) continue;
+            if (r.Get("ending_name") == endingName)
+                return new EndingResult(r.Get("ending_id"), r.Get("ending_name"),
+                    NormalizeType(r.Get("ending_type")), "event");
         }
         return null;
     }

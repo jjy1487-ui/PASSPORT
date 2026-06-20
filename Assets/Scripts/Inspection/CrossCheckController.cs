@@ -57,6 +57,13 @@ public sealed class CrossCheckController : MonoBehaviour
     private ICrossCheckSelectable _second;
     private bool _active;
 
+    // 검사후 흐름 흡수용 패널 참조(없으면 1회 FindObjectOfType(true)로 캐시). UI를 직접 참조하지 않는 규약에 따라
+    // 컨트롤러를 직접 알지 않고, '검사후' 손님의 금지물품 Match 때만 공개 Close API로 창을 닫는 데 쓴다.
+    private XrayInspectionPanel _xrayPanelCache;
+    private bool _xrayPanelSearched;
+    private RulebookPopup _rulebookPopupCache;
+    private bool _rulebookPopupSearched;
+
     /// <summary>
     /// 잠금 해제 트리거 발생 통지. 인자 = 잠금 해제할 스캔 종류("xray"|"fingerprint").
     /// 뉴스/규정 단서(UnlocksScan!="")가 손님 소스(서류/캐릭터)와 Match/Related 되면 발행한다.
@@ -105,9 +112,21 @@ public sealed class CrossCheckController : MonoBehaviour
         UnsubscribeAll();
     }
 
-    /// <summary>대조 도구 on/off(스페이스바/버튼에서 호출). off 시 선택 초기화.</summary>
+    // 시나리오 손님(사토 등)처럼 대조 판정이 의미 없는 손님 동안 대조를 잠근다(스페이스/클릭/비교 무효).
+    // 잠겨 있으면 SetActive 가 항상 off 로 강제되므로 토글·키 입력도 켜지지 않는다.
+    private bool _locked;
+
+    /// <summary>대조 도구 잠금(시나리오 손님 등). 잠그면 즉시 끄고, 이후 켜기 요청도 무시한다.</summary>
+    public void SetLocked(bool locked)
+    {
+        _locked = locked;
+        if (locked) SetActive(false);
+    }
+
+    /// <summary>대조 도구 on/off(스페이스바/버튼에서 호출). off 시 선택 초기화. 잠금 중이면 항상 off.</summary>
     public void SetActive(bool active)
     {
+        if (_locked) active = false; // 잠금 중에는 어떤 경로로도 켜지지 않음
         _active = active;
         if (_modeIndicator != null) _modeIndicator.SetActive(active);
         if (active)
@@ -115,6 +134,10 @@ public sealed class CrossCheckController : MonoBehaviour
             // 새 대조 진입 → 이전 결과/대사 정리
             if (_mismatchDialogue != null) _mismatchDialogue.Hide();
             if (_connectorView != null) _connectorView.Hide();
+            // 진입 시점의 모든 선택 가능 항목을 다시 구독한다(현재 선택은 보존). 규정집/서류 카드가
+            // 공급자 변경 알림 없이 늦게 활성화되면 첫 클릭이 구독 누락(listeners=False)으로 불발돼
+            // '첫 대조만 결과가 안 뜨는' 증상이 생긴다 — 진입마다 Rebind 로 그 틈을 없앤다.
+            Rebind();
         }
         if (!active) ClearSelection();
     }
@@ -281,16 +304,26 @@ public sealed class CrossCheckController : MonoBehaviour
         CrossCheckResult result;
         if (TryEvaluatePassportRule(a, b, out CrossCheckResult passportResult))
             result = passportResult;
+        else if (TryEvaluateNationalityPassportRule(a, b, out CrossCheckResult natPassResult))
+            result = natPassResult; // 국적/발급국 ↔ 여권번호: 앞2자리 국가코드 다르면 불일치(위조)
         else if (TryEvaluateIdentityGenderRule(a, b, out CrossCheckResult genderResult))
             result = genderResult;
+        else if (TryEvaluateFaceGenderRule(a, b, out CrossCheckResult faceGenderResult))
+            result = faceGenderResult; // 여권사진(얼굴) ↔ 성별: 사진 성별 ≠ 성별 필드면 불일치(성별 위조)
         else if (TryEvaluatePcrResultRule(a, b, out CrossCheckResult pcrResult))
             result = pcrResult;
         else if (TryEvaluateLabNameRule(a, b, out CrossCheckResult labResult))
             result = labResult;
+        else if (TryEvaluateBannedCompanyRule(a, b, out CrossCheckResult bannedCompanyResult))
+            result = bannedCompanyResult; // 입국금지회사 규정 ↔ 취업증빙 고용회사: 금지 명단과 일치=적발(일치), 아니면 관련있음
         else if (TryEvaluateContrabandRule(a, b, out CrossCheckResult contrabandResult))
             result = contrabandResult; // 금지물품 규정 ↔ X-ray 적발물: 적발물 있으면 일치(입국 불허 사유)
+        else if (TryEvaluateScanRefusalRule(a, b, out CrossCheckResult scanRefusalResult))
+            result = scanRefusalResult; // 전신검사 거부 음성 ↔ 거부=입국불가 규정: 위반 확정(일치) → 거절(윤정호)
         else if (TryEvaluateDate(a, b, out CrossCheckResult dateResult, out overrideText))
             result = dateResult;
+        else if (TryEvaluateDateLogic(a, b, out CrossCheckResult dateLogicResult))
+            result = dateLogicResult; // 발급일↔만료일: 만료가 발급보다 빠르면 논리적 위조(불일치)
         else if (TryEvaluateRuleScope(a, b, out CrossCheckResult scopeResult))
             result = scopeResult; // 규정 글이 '다루는' 항목 → 관련없음 대신 관련있음(내용상 관련 표시)
         else
@@ -330,8 +363,13 @@ public sealed class CrossCheckController : MonoBehaviour
         }
         else if (result == CrossCheckResult.Match)
         {
+            // 전신검사 거부 음성 ↔ 규정 일치(윤정호): '일치' 잠깐 보여준 뒤 규정집 닫고 거절('정말 거절?' 팝업)로.
+            if (IsScanRefusalPair(a, b) && _inspection != null && _inspection.IsScanRefusalRejectActive)
+                StartCoroutine(CloseWindowsAndScanRefusalReject());
+            // 입국 금지 회사 명단과 일치 → 추궁 대사("재직 회사가 입국 금지 명단에…"). crossCheckLine 재생을 그대로 재사용.
+            else if (IsBannedCompanyMatch(a, b)) ShowMismatchComment(a, b);
             // 금지물품 규정 ↔ X-ray 적발물 일치 → 적발 고지 대사. 아니면 경보(워치리스트) 일치 대사.
-            if (!TryShowContrabandComment(a, b)) ShowWatchlistAlertIfAny(a, b);
+            else if (!TryShowContrabandComment(a, b)) ShowWatchlistAlertIfAny(a, b);
         }
         OnCompared?.Invoke(a, b, result);
 
@@ -400,6 +438,37 @@ public sealed class CrossCheckController : MonoBehaviour
     }
 
     /// <summary>
+    /// 지문 자동 적발 연출용: 현재 손님의 "name" 대조대사(수배 적발: "지문 조회에 수배자로 걸렸습니다…")를
+    /// 플레이어의 Space 대조 없이 곧바로 재생한다. 윤서린처럼 지문에 수배 기록이 있는 손님 전용(ScanResultPanel 자동닫기 후 호출).
+    /// </summary>
+    public void PlayFingerprintReveal(System.Action onComplete = null)
+    {
+        CrossCheckLine scripted = FindCrossCheckLine("name");
+        if (scripted == null || _mismatchDialogue == null) { onComplete?.Invoke(); return; }
+
+        if (_inspection != null) _inspection.MarkFingerprintRevealed(); // 적발됨 → 거부 시 체념/연행 대사로 분기
+
+        string customerName = _inspection != null && !string.IsNullOrEmpty(_inspection.CurrentCustomerName)
+            ? _inspection.CurrentCustomerName : "손님";
+        List<DialogueLineData> lines = new List<DialogueLineData>();
+        if (!string.IsNullOrEmpty(scripted.inspector))
+            lines.Add(new DialogueLineData { order = 0, speaker = "심사관", text = scripted.inspector });
+        if (!string.IsNullOrEmpty(scripted.customer))
+            lines.Add(new DialogueLineData { order = 1, speaker = customerName, text = scripted.customer });
+        if (!string.IsNullOrEmpty(scripted.inspectorClose))
+            lines.Add(new DialogueLineData { order = 2, speaker = "심사관", text = scripted.inspectorClose });
+        if (lines.Count == 0) { onComplete?.Invoke(); return; }
+
+        _mismatchDialogue.Play(new DialogueCaseData
+        {
+            caseType = "지문 적발",
+            gameResult = "-",
+            rejectCount = 0,
+            lines = lines.ToArray(),
+        }, onComplete);
+    }
+
+    /// <summary>
     /// 불일치 두 항목에서 "실질 속성 키"를 고른다. 한쪽이 보조 소스('today' 또는 규정)면 다른 쪽(서류 필드)
     /// 키를 우선한다. 그래야 만료일↔오늘 대조가 'today' 가 아니라 'expiry_date' 로 대사를 선택한다.
     /// 둘 다 실질 키면 a 우선(기존 동작 보존). 둘 다 비면 빈 문자열.
@@ -408,6 +477,17 @@ public sealed class CrossCheckController : MonoBehaviour
     {
         string ka = a != null ? NormalizeKey(a.AttributeKey) : string.Empty;
         string kb = b != null ? NormalizeKey(b.AttributeKey) : string.Empty;
+
+        // 국적(또는 발급국)↔여권번호 불일치는 '번호 앞자리'가 발급국과 안 맞는 문제이므로 passport_no 대사를 쓴다
+        // ("국적 정보가 서류마다 다른데" 가 아니라 "여권번호 앞자리가… 발급국이랑 안 맞는데요").
+        if ((ka == "passport_no" && (kb == "nationality" || kb == "issue_country"))
+            || (kb == "passport_no" && (ka == "nationality" || ka == "issue_country")))
+            return "passport_no";
+
+        // 여권사진(얼굴)↔성별 불일치는 성별 위조이므로 성별 대사를 쓴다(사진 대사 아님).
+        if ((ka == "gender" && IsPhotoKeyName(kb)) || (kb == "gender" && IsPhotoKeyName(ka)))
+            return "gender";
+
         bool aGeneric = IsGenericKey(ka) || IsRuleSource(a);
         bool bGeneric = IsGenericKey(kb) || IsRuleSource(b);
 
@@ -535,6 +615,25 @@ public sealed class CrossCheckController : MonoBehaviour
         string item = ContrabandValue(a, b);
         if (item == null) return false; // 선택지에 적발물 항목이 없음 → 비대상
 
+        // ── '검사후' 케이스 보유 손님(현재 존 카터): 금지물품 Match 를 저작된 검사후 흐름으로 흡수 ──
+        // 자동 생성 추궁 라인을 띄우지 않고(억제), 규정집·X-ray 창을 닫는다. X-ray 는 Close()(notify=true)로 닫아
+        // InspectionController 의 기존 검사후 지연 핸들러(DeferPostScanUntilPanelClosed)가 발화하게 한다 →
+        // 저작된 '검사후' 대사(가슴 쪽 물품 지적 + 뇌물 제안)가 재생되고 끝나면 판정 활성화로 이어진다.
+        // 검사후 케이스가 없는 손님(사토·강도식 등)은 이 분기를 건너뛰어 기존 자동 적발 대사 동작을 유지한다(회귀 금지).
+        if (_inspection != null && _inspection.CurrentHasPostScanCase)
+        {
+            // '일치' 결과(연결선)를 잠깐 보여준 뒤 규정집·X-ray 창을 닫고 검사후 흐름으로 넘긴다.
+            // 즉시 닫으면 플레이어가 일치 표시를 못 보므로 짧은 딜레이를 둔다(X-ray Close→기존 검사후 트리거).
+            StartCoroutine(CloseWindowsForPostScanAfterMatch());
+            return true;                      // 자동 적발 대사 억제(여기서 Play 하지 않음)
+        }
+
+        // ── 분기 시나리오 손님(사토 등): 위험물 일치를 '진행 트리거'로만 쓴다 ──
+        // 자동 적발 멘트("적발…입국 불허")는 억제하고, 발각 반응 대사는 시나리오(introReveal)가 주도한다.
+        // 진행은 InspectionController 가 OnCompared(이 메서드 직후 발행)를 구독해 다음 노드로 잇는다.
+        if (_inspection != null && _inspection.IsScenarioActive)
+            return true;                      // 자동 적발 대사 억제(시나리오가 대사 주도)
+
         string customerName = _inspection != null && !string.IsNullOrEmpty(_inspection.CurrentCustomerName)
             ? _inspection.CurrentCustomerName : "손님";
         string characterType = _inspection != null ? _inspection.CurrentCharacterType : null;
@@ -566,6 +665,79 @@ public sealed class CrossCheckController : MonoBehaviour
         };
         _mismatchDialogue.Play(contrabandCase, null);
         return true;
+    }
+
+    /// <summary>
+    /// 규정집(RulebookPopup)이 열려 있으면 닫는다. 참조가 없으면 1회 FindObjectOfType(true)로 캐시(기존 컨벤션).
+    /// 저작된 '검사후' 대사가 규정집 창에 가리지 않게 하기 위함.
+    /// </summary>
+    private void CloseRulebookPopupIfOpen()
+    {
+        if (!_rulebookPopupSearched)
+        {
+            _rulebookPopupCache = FindObjectOfType<RulebookPopup>(true);
+            _rulebookPopupSearched = true;
+        }
+        if (_rulebookPopupCache != null) _rulebookPopupCache.Close();
+    }
+
+    /// <summary>
+    /// X-ray 패널을 닫아 기존 검사후(PostScan) 흐름을 트리거한다. 참조가 없으면 1회 FindObjectOfType(true)로 캐시.
+    /// 반드시 공개 <see cref="XrayInspectionPanel.Close"/>(내부 notify=true)로 닫아야 InspectionController 의
+    /// OnClosed 구독(DeferPostScanUntilPanelClosed)이 발화해 저작 검사후 대사가 재생된다(손님이 직접 닫은 것과 동일 경로).
+    /// 패널이 닫혀 있으면 Close 가 OnClosed 를 발행하지 않으므로(가드) 안전 — 이중 트리거 없음.
+    /// </summary>
+    private void CloseXrayPanelForPostScan()
+    {
+        if (!_xrayPanelSearched)
+        {
+            _xrayPanelCache = FindObjectOfType<XrayInspectionPanel>(true);
+            _xrayPanelSearched = true;
+        }
+        if (_xrayPanelCache != null) _xrayPanelCache.Close(); // notify=true → 검사후 트리거
+    }
+
+    // 대조 '일치' 표시를 보여주는 시간(초). 이후 창을 닫고 저작 검사후 대사로 넘어간다.
+    private const float PostScanMatchRevealSeconds = 3.5f;
+
+    /// <summary>대조 '일치'를 잠깐 보여준 뒤(딜레이) 규정집·X-ray 창을 닫아 저작 검사후 대사로 넘어가게 한다.</summary>
+    private System.Collections.IEnumerator CloseWindowsForPostScanAfterMatch()
+    {
+        yield return new WaitForSeconds(PostScanMatchRevealSeconds);
+        CloseRulebookPopupIfOpen();      // 규정집 닫기(저작 검사후 대사를 가리지 않게)
+        CloseXrayPanelForPostScan();     // X-ray Close(notify=true) → 기존 검사후 트리거 발화
+    }
+
+    /// <summary>
+    /// 규정집 "전신 검색 거부 시 입국 불가"(SourceType="규정", attr="xray") ↔ 손님 검사거부 음성(claim attr="xray") 대조.
+    /// 현재 손님이 '전신검사 거부 거절' 대상(윤정호)일 때만 '일치'(위반 확정)로 판정 → 거절 트리거.
+    /// 그 외 손님은 비대상(false) → 기존 RuleScope 가 '관련있음'(힌트)으로 처리.
+    /// </summary>
+    private bool TryEvaluateScanRefusalRule(ICrossCheckSelectable a, ICrossCheckSelectable b, out CrossCheckResult result)
+    {
+        result = default;
+        if (_inspection == null || !_inspection.IsScanRefusalRejectActive) return false;
+        if (!IsScanRefusalPair(a, b)) return false;
+        result = CrossCheckResult.Match; // 거부 음성 ↔ '거부=입국불가' 규정 = 위반 확정(일치)
+        return true;
+    }
+
+    /// <summary>한쪽=규정(attr xray), 다른쪽=손님 음성 claim(attr xray) 짝인가.</summary>
+    private static bool IsScanRefusalPair(ICrossCheckSelectable a, ICrossCheckSelectable b)
+    {
+        bool aRule = IsRuleSource(a), bRule = IsRuleSource(b);
+        if (aRule == bRule) return false; // 정확히 한쪽만 규정
+        ICrossCheckSelectable rule = aRule ? a : b;
+        ICrossCheckSelectable claim = aRule ? b : a;
+        return NormalizeKey(rule.AttributeKey) == "xray" && NormalizeKey(claim.AttributeKey) == "xray";
+    }
+
+    /// <summary>'일치' 잠깐 보여준 뒤 규정집 닫고 거절 트리거('정말 거절?' 팝업 → 라운드). 도장 거절과 공존.</summary>
+    private System.Collections.IEnumerator CloseWindowsAndScanRefusalReject()
+    {
+        yield return new WaitForSeconds(PostScanMatchRevealSeconds);
+        CloseRulebookPopupIfOpen();
+        if (_inspection != null) _inspection.TriggerScanRefusalReject();
     }
 
     /// <summary>선택 두 항목 중 X-ray 적발물(attr="contraband") 값을 고른다. 적발물 항목이 없으면 null(=비대상).</summary>
@@ -666,19 +838,53 @@ public sealed class CrossCheckController : MonoBehaviour
         ICrossCheckSelectable other = ReferenceEquals(rule, a) ? b : a;
         if (other == null || NormalizeKey(other.AttributeKey) != "passport_no") return false;
 
-        string number = _inspection != null ? _inspection.CurrentPassportNumber : null;
-        if (string.IsNullOrEmpty(number)) number = other.Value; // 폴백: 선택 항목 값
-        string expect = ExpectedPassportPrefix(_inspection != null ? _inspection.CurrentPassportCountry : null);
-        if (string.IsNullOrEmpty(number) || string.IsNullOrEmpty(expect)) return false; // 못 읽으면 일반 로직으로
+        // 규정집의 "여권번호 규정"↔여권번호 = 관련있음(Related). 규정은 가이드일 뿐이라 그 자체로 불일치 판정하지 않는다.
+        // 실제 위조(앞 2자리 ≠ 발급국 코드) 판정은 국적↔여권번호 대조(TryEvaluateNationalityPassportRule)가 담당한다.
+        result = CrossCheckResult.Related;
+        return true;
+    }
 
+    private static bool IsPassportRuleSelectable(ICrossCheckSelectable s)
+        => s != null && s.SourceType == "규정" && NormalizeKey(s.AttributeKey) == "passport_no";
+
+    // ── 국적/발급국 ↔ 여권번호 대조 ──────────────────────────────
+    /// <summary>
+    /// 손님 서류의 국적(또는 발급국가) ↔ 여권번호 특수 대조. 여권번호 앞 2자리가 국적 코드의 발급
+    /// prefix(KOR→KO/USA→US/CHN→CN/JPN→JP)와 같으면 일치, 다르면 불일치(위조 의심).
+    /// 예: 국적 CHN(→CN) vs 여권번호 JP6667788(JP) → 불일치. 규정↔번호(TryEvaluatePassportRule)와 별개.
+    /// 손님 서류끼리일 때만 성립. 표시 보조 — 판정/점수 무영향.
+    /// </summary>
+    private bool TryEvaluateNationalityPassportRule(ICrossCheckSelectable a, ICrossCheckSelectable b, out CrossCheckResult result)
+    {
+        result = CrossCheckResult.Unrelated;
+
+        ICrossCheckSelectable num = NormalizeKey(a.AttributeKey) == "passport_no" ? a
+                                  : (NormalizeKey(b.AttributeKey) == "passport_no" ? b : null);
+        if (num == null) return false;
+        ICrossCheckSelectable nat = ReferenceEquals(num, a) ? b : a;
+        if (nat == null) return false;
+        string natKey = NormalizeKey(nat.AttributeKey);
+        if (natKey != "nationality" && natKey != "issue_country") return false;
+        if (!IsCustomerSource(num.SourceType) || !IsCustomerSource(nat.SourceType)) return false; // 규정↔번호는 별도 평가기
+
+        string expect = ExpectedPassportPrefix(CountryCode(nat.Value));
+        string number = num.Value;
+        if (string.IsNullOrEmpty(expect) || string.IsNullOrEmpty(number)) return false;
         string actual = number.Trim().ToUpperInvariant();
         if (actual.Length >= 2) actual = actual.Substring(0, 2);
         result = actual == expect ? CrossCheckResult.Match : CrossCheckResult.Mismatch;
         return true;
     }
 
-    private static bool IsPassportRuleSelectable(ICrossCheckSelectable s)
-        => s != null && s.SourceType == "규정" && NormalizeKey(s.AttributeKey) == "passport_no";
+    /// <summary>국적 값에서 국가코드 추출: "중국(CHN)"→CHN, "CHN"→CHN.</summary>
+    private static string CountryCode(string nationality)
+    {
+        if (string.IsNullOrEmpty(nationality)) return null;
+        int lp = nationality.LastIndexOf('(');
+        int rp = nationality.LastIndexOf(')');
+        if (lp >= 0 && rp > lp) return nationality.Substring(lp + 1, rp - lp - 1).Trim();
+        return nationality.Trim();
+    }
 
     // ── 신분확인 규정 ↔ 여권 성별 대조 ────────────────────────────
     /// <summary>
@@ -708,6 +914,29 @@ public sealed class CrossCheckController : MonoBehaviour
 
     private static bool IsIdentityGenderRuleSelectable(ICrossCheckSelectable s)
         => s != null && s.SourceType == "규정" && NormalizeKey(s.AttributeKey) == "gender";
+
+    // ── 여권사진(얼굴) ↔ 성별 대조 ────────────────────────────────
+    /// <summary>
+    /// 손님 서류의 여권사진(얼굴) ↔ 성별 특수 대조. 사진 속 인물의 실제 성별(본인 성별)과 성별 필드가
+    /// 다르면 불일치(성별 위조). 예: 사진=남성인데 성별 "여" → 불일치. 규정↔성별(TryEvaluateIdentityGenderRule)과 별개.
+    /// 본인/여권 성별은 클릭 값이 아니라 현재 손님 데이터(InspectionController)에서 읽는다. 표시 보조 — 판정/점수 무영향.
+    /// </summary>
+    private bool TryEvaluateFaceGenderRule(ICrossCheckSelectable a, ICrossCheckSelectable b, out CrossCheckResult result)
+    {
+        result = CrossCheckResult.Unrelated;
+
+        bool pair = (IsPhotoKey(a) && NormalizeKey(b.AttributeKey) == "gender")
+                 || (IsPhotoKey(b) && NormalizeKey(a.AttributeKey) == "gender");
+        if (!pair) return false;
+        if (!IsCustomerSource(a.SourceType) || !IsCustomerSource(b.SourceType)) return false; // 손님 서류끼리만
+
+        string passportGender = _inspection != null ? _inspection.CurrentPassportGender : null;
+        string trueGender = _inspection != null ? _inspection.CurrentCustomerGender : null;
+        if (string.IsNullOrEmpty(passportGender) || string.IsNullOrEmpty(trueGender)) return false;
+
+        result = Normalize(passportGender) == Normalize(trueGender) ? CrossCheckResult.Match : CrossCheckResult.Mismatch;
+        return true;
+    }
 
     // ── PCR 검사서 규정 ↔ 검사결과(양성) 대조 ──────────────────────
     /// <summary>
@@ -760,6 +989,65 @@ public sealed class CrossCheckController : MonoBehaviour
     private static bool IsLabRuleSelectable(ICrossCheckSelectable s)
         => s != null && s.SourceType == "규정" && NormalizeKey(s.AttributeKey) == "lab_name";
 
+    // ── 입국 금지 회사 규정 ↔ 취업증빙 고용회사(company_name) 대조 ──────
+    /// <summary>
+    /// 규정집 "입국 금지 회사" 규정(SourceType="규정", coveredAttrs 에 "company_name") ↔ 취업증빙 고용회사 대조.
+    /// 고용회사가 금지 명단(<see cref="BannedCompanies"/>)에 있으면 불일치(서류 정상이어도 입국 불허), 없으면 일치.
+    /// 이 규정은 attr="" / coveredAttrs="company_name" 라서 coveredAttrs 까지 본다(금지물품 규정과 같은 식별).
+    /// (rule_book "입국 금지 회사" 규정의 명단과 동기화 — 명단이 바뀌면 BannedCompanies 도 같이 수정.)
+    /// </summary>
+    private bool TryEvaluateBannedCompanyRule(ICrossCheckSelectable a, ICrossCheckSelectable b, out CrossCheckResult result)
+    {
+        result = CrossCheckResult.Unrelated;
+        ICrossCheckSelectable rule = IsBannedCompanyRuleSelectable(a) ? a : (IsBannedCompanyRuleSelectable(b) ? b : null);
+        if (rule == null) return false;
+        ICrossCheckSelectable other = ReferenceEquals(rule, a) ? b : a;
+        if (other == null || NormalizeKey(other.AttributeKey) != "company_name") return false;
+        string company = other.Value;
+        if (string.IsNullOrEmpty(company)) return false;
+        // 금지 명단과 '일치'하면 적발(=입국 불허) → 일치. 명단에 없으면 위반 아님 → 관련있음(빨강 불일치로 오해 방지).
+        // (금지물품/워치리스트와 같은 극성: 금지 목록에 매칭되면 '일치'가 곧 적발 신호다.)
+        result = IsBannedCompany(company) ? CrossCheckResult.Match : CrossCheckResult.Related;
+        return true;
+    }
+
+    /// <summary>이번 대조 쌍이 '입국 금지 회사 규정 ↔ 금지 명단에 있는 고용회사'인가(일치 분기에서 추궁 대사를 띄울지 판단).</summary>
+    private bool IsBannedCompanyMatch(ICrossCheckSelectable a, ICrossCheckSelectable b)
+    {
+        ICrossCheckSelectable rule = IsBannedCompanyRuleSelectable(a) ? a : (IsBannedCompanyRuleSelectable(b) ? b : null);
+        if (rule == null) return false;
+        ICrossCheckSelectable other = ReferenceEquals(rule, a) ? b : a;
+        return other != null && NormalizeKey(other.AttributeKey) == "company_name" && IsBannedCompany(other.Value);
+    }
+
+    /// <summary>입국 금지 회사 규정 항목인가(SourceType="규정" + attr 또는 coveredAttrs 가 "company_name").
+    /// "입국 금지 회사" 규정은 attr="" / coveredAttrs="company_name" 라서 coveredAttrs 까지 본다.</summary>
+    private static bool IsBannedCompanyRuleSelectable(ICrossCheckSelectable s)
+    {
+        if (s == null || s.SourceType != "규정") return false;
+        if (NormalizeKey(s.AttributeKey) == "company_name") return true;
+        string covered = (s as CrossCheckItemView)?.CoveredAttrs;
+        if (string.IsNullOrEmpty(covered)) return false;
+        foreach (string cov in covered.Split(','))
+            if (NormalizeKey(cov.Trim()) == "company_name") return true;
+        return false;
+    }
+
+    /// <summary>입국 금지 회사 명단(rule_book "입국 금지 회사" 규정과 동기화). 명단이 바뀌면 같이 수정.</summary>
+    private static readonly string[] BannedCompanies =
+    {
+        "신우통상(주)", "한성물류(주)", "대명건설(주)", "정원산업(주)",
+    };
+
+    /// <summary>고용회사명이 입국 금지 명단에 있는가(정규화 비교 — 공백·기호 무시).</summary>
+    private static bool IsBannedCompany(string company)
+    {
+        string n = Normalize(company);
+        foreach (string banned in BannedCompanies)
+            if (Normalize(banned) == n) return true;
+        return false;
+    }
+
     // ── 금지물품 규정 ↔ X-ray 적발물 대조 ──────────────────────────
     /// <summary>
     /// 규정집 "금지 물품" 규정(SourceType="규정", attr 또는 coveredAttrs 가 "contraband") ↔ X-ray 적발물(attr="contraband") 대조.
@@ -806,7 +1094,9 @@ public sealed class CrossCheckController : MonoBehaviour
         ICrossCheckSelectable rule = IsRuleSource(a) ? a : (IsRuleSource(b) ? b : null);
         if (rule == null) return false;
         ICrossCheckSelectable other = ReferenceEquals(rule, a) ? b : a;
-        if (other == null || !IsCustomerSource(other.SourceType)) return false; // 규정 ↔ 서류(손님) 항목일 때만
+        // 규정 ↔ 손님 서류/캐릭터, 또는 규정 ↔ 음성기록(대화 진술)일 때 관련성 매칭 허용
+        //  (검사 거부 같은 '행동 진술'도 규정 범위에 들어가면 관련있음으로 표시 — 값 비교 대상 없는 행동 위반용).
+        if (other == null || !(IsCustomerSource(other.SourceType) || other.SourceType == "대화")) return false;
         string covered = (rule as CrossCheckItemView)?.CoveredAttrs;
         if (string.IsNullOrEmpty(covered)) return false;
         string key = NormalizeKey(other.AttributeKey);
@@ -904,6 +1194,32 @@ public sealed class CrossCheckController : MonoBehaviour
         _ => false,
     };
 
+    // ── 발급일 ↔ 만료일 논리 대조 ────────────────────────────────
+    /// <summary>
+    /// 같은 서류의 발급일 ↔ 만료일 대조. 만료일이 발급일보다 빠르면(만료 &lt; 발급) 논리적 위조 → 불일치.
+    /// 정상(만료 ≥ 발급)이면 일치. 손님 서류끼리일 때만(오늘↔날짜는 TryEvaluateDate 담당).
+    /// 예: 비자 발급 2026-03-03 / 만료 2025-08-03 → 불일치. 표시 보조 — 판정/점수 무영향.
+    /// </summary>
+    private bool TryEvaluateDateLogic(ICrossCheckSelectable a, ICrossCheckSelectable b, out CrossCheckResult result)
+    {
+        result = CrossCheckResult.Unrelated;
+        string ka = NormalizeKey(a.AttributeKey), kb = NormalizeKey(b.AttributeKey);
+        bool aIssue = ka == "issue_date" || ka == "test_date";
+        bool aExpiry = ka == "expiry_date" || ka == "valid_until";
+        bool bIssue = kb == "issue_date" || kb == "test_date";
+        bool bExpiry = kb == "expiry_date" || kb == "valid_until";
+
+        string issueVal, expiryVal;
+        if (aIssue && bExpiry) { issueVal = a.Value; expiryVal = b.Value; }
+        else if (bIssue && aExpiry) { issueVal = b.Value; expiryVal = a.Value; }
+        else return false;
+        if (!IsCustomerSource(a.SourceType) || !IsCustomerSource(b.SourceType)) return false;
+        if (!TryParseDate(issueVal, out System.DateTime issue) || !TryParseDate(expiryVal, out System.DateTime expiry)) return false;
+
+        result = expiry.Date < issue.Date ? CrossCheckResult.Mismatch : CrossCheckResult.Match;
+        return true;
+    }
+
     private static bool TryParseDate(string value, out System.DateTime date)
     {
         date = default;
@@ -962,11 +1278,10 @@ public sealed class CrossCheckController : MonoBehaviour
     }
 
     private static bool IsPhotoKey(ICrossCheckSelectable s)
-    {
-        if (s == null) return false;
-        string k = NormalizeKey(s.AttributeKey);
-        return k == "photo" || k == "photo_ref" || k == "face";
-    }
+        => s != null && IsPhotoKeyName(NormalizeKey(s.AttributeKey));
+
+    /// <summary>정규화된 키가 얼굴/사진 항목인가.</summary>
+    private static bool IsPhotoKeyName(string k) => k == "photo" || k == "photo_ref" || k == "face";
 
     /// <summary>
     /// 여권번호 불일치(서류↔서류, 예 비자 ↔ 여권 의 passport_no 가 다름)가 X-ray 잠금해제 조건을 만족하는가.

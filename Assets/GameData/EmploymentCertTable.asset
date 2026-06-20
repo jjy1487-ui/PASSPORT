@@ -61,7 +61,7 @@ MonoBehaviour:
     - hire_date
     - issue_date
     values:
-    - 3
+    - 2
     - 18
     - EMP-018
     - "\uB300\uC131\uBB3C\uB958(\uC8FC)"
@@ -77,7 +77,7 @@ MonoBehaviour:
     - hire_date
     - issue_date
     values:
-    - 4
+    - 3
     - 35
     - EMP-035
     - "\uD55C\uBE5B\uC804\uC790(\uC8FC)"
@@ -93,7 +93,7 @@ MonoBehaviour:
     - hire_date
     - issue_date
     values:
-    - 6
+    - 4
     - 36
     - EMP-036
     - "\uB3D9\uBC29\uAC74\uC124(\uC8FC)"
@@ -109,7 +109,7 @@ MonoBehaviour:
     - hire_date
     - issue_date
     values:
-    - 8
+    - 5
     - 37
     - EMP-037
     - "\uC11C\uD574\uC218\uC0B0(\uC8FC)"
@@ -125,8 +125,8 @@ MonoBehaviour:
     - hire_date
     - issue_date
     values:
-    - 1009
-    - 1009
+    - 6
+    - 46
     - EMP-FR-2023X
     - "\uC0BC\uC131\uC804\uC790"
     - "\uC5D4\uC9C0\uB2C8\uC5B4"
@@ -141,8 +141,8 @@ MonoBehaviour:
     - hire_date
     - issue_date
     values:
-    - 1030
-    - 1030
+    - 7
+    - 67
     - EMP-FR-2023X
     - "\uC0BC\uC131\uC804\uC790"
     - "\uC5D4\uC9C0\uB2C8\uC5B4"
@@ -157,8 +157,8 @@ MonoBehaviour:
     - hire_date
     - issue_date
     values:
-    - 1037
-    - 1037
+    - 8
+    - 74
     - EMP-018
     - "\uB300\uC131\uBB3C\uB958(\uC8FC)"
     - "\uBB3C\uB958 \uAD00\uB9AC\uC790"
@@ -173,8 +173,8 @@ MonoBehaviour:
     - hire_date
     - issue_date
     values:
-    - 1050
-    - 1050
+    - 9
+    - 87
     - EMP-FR-2023X
     - "\uC0BC\uC131\uC804\uC790"
     - "\uC5D4\uC9C0\uB2C8\uC5B4"

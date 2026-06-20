@@ -42,6 +42,12 @@ public sealed class ImmigrationManager : MonoBehaviour
     [Tooltip("일차 시작 시 거치는 브리핑 씬 이름. '다음 날' → 이 씬 → 해당 일차 브리핑 → 다시 심사 씬.")]
     [SerializeField] private string briefingScene = "BriefingScene";
 
+    [Tooltip("켜면 어느 경로로 들어와도 Day씬 진입 전 그날 브리핑을 먼저 거치게 한다(에디터에서 Day씬 직접 Play 포함). QA 점프(백틱)는 영향 없음.")]
+    [SerializeField] private bool requireBriefingBeforeDay = true;
+
+    /// <summary>브리핑을 거친 일차 표식(PlayerPrefs). BriefingManager 가 Day씬 로드 직전에 그 날로 적는다.</summary>
+    public const string BriefedForDayKey = "BriefedForDay";
+
     private System.Random _rng; // 손님 셔플 난수원(시드 주입 가능)
 
     private readonly GameDataLoader _loader = new GameDataLoader();
@@ -97,6 +103,7 @@ public sealed class ImmigrationManager : MonoBehaviour
             _economy.OnEarlyEndingTriggered -= HandleEarlyEnding;
         }
         if (newsPopup != null) newsPopup.OnClosed -= HandleStartNewsClosed;
+        if (rulebookPopup != null) rulebookPopup.OnClosed -= HandleStartRulebookClosed;
     }
 
     private ScoreEconomyManager _economy;
@@ -170,6 +177,20 @@ public sealed class ImmigrationManager : MonoBehaviour
             day = PlayerPrefs.GetInt(CurrentDayKey, startDay);
         }
         CurrentDay = Mathf.Clamp(day, FirstDay, LastDay);
+
+        // 어느 경로로 들어와도 'Day씬 = 브리핑 먼저': 그날 브리핑을 안 거쳤으면 브리핑씬으로 돌려보낸다.
+        //  브리핑이 Day씬을 로드하기 직전 BriefedForDayKey 를 그 날로 적어둔다. 일치하면 소비하고 진행,
+        //  불일치(=브리핑 미경유 직접 진입)면 브리핑씬으로 보낸다. (QA 점프는 BeginDay 직접 호출이라 Start 미경유 → 영향 없음)
+        if (requireBriefingBeforeDay)
+        {
+            if (PlayerPrefs.GetInt(BriefedForDayKey, -1) != CurrentDay)
+            {
+                Debug.Log($"[ImmigrationManager] day{CurrentDay} 브리핑 미경유 → {briefingScene} 으로 먼저 보냄.");
+                SceneManager.LoadScene(briefingScene);
+                return;
+            }
+            PlayerPrefs.DeleteKey(BriefedForDayKey); // 소비: 다음에 이 씬으로 또 들어오면 다시 브리핑
+        }
 
         // 1일차 시작 = 새 게임의 첫날 → 누적 진행(점수/정확도/누적 엔딩 카운터)은 0이어야 한다.
         //  메인 메뉴 '게임 시작'을 거치지 않고 ImmigrationScene/DayNScene 을 직접 Play 하면
@@ -248,15 +269,17 @@ public sealed class ImmigrationManager : MonoBehaviour
 
     private System.Action _afterNewsAction; // 시작 뉴스 닫힘 → 실행할 다음 단계(튜토리얼 or 첫 손님)
 
-    /// <summary>하루 시작 시퀀스: (뉴스) → (1일차 튜토리얼) → 첫 손님 입장. 각 단계는 '닫기'로 진행한다.
-    /// 데이터/참조가 없으면 그 단계는 건너뛴다(소프트락 방지).</summary>
+    /// <summary>하루 시작 시퀀스: (뉴스) → (1일차 튜토리얼) → (그날 신규 규정 규정집) → 첫 손님 입장.
+    /// 각 단계는 '닫기'로 진행한다. 데이터/참조가 없으면 그 단계는 건너뛴다(소프트락 방지).</summary>
     private void RunStartSequence(bool showNews, bool showTutorial)
     {
         System.Action proceed = () => { if (inspectionController != null) inspectionController.BeginInspection(); };
+        // 튜토리얼/뉴스 다음 → 그날 새로 생긴 규정이 있으면 규정집을 한 번 보여주고 → 첫 손님
+        System.Action showRulebookThenProceed = () => ShowNewRulesThen(proceed);
         System.Action afterNews = () =>
         {
-            if (showTutorial && tutorialPopup != null) tutorialPopup.Open(proceed); // 튜토리얼 닫으면 첫 손님
-            else proceed();
+            if (showTutorial && tutorialPopup != null) tutorialPopup.Open(showRulebookThenProceed); // 튜토리얼 닫으면 규정집(또는 첫 손님)
+            else showRulebookThenProceed();
         };
 
         bool hasNews = newsPopup != null && _data != null && _data.news != null && _data.news.Length > 0;
@@ -273,11 +296,44 @@ public sealed class ImmigrationManager : MonoBehaviour
         }
     }
 
-    /// <summary>하루 시작 뉴스가 닫히면 다음 단계(튜토리얼/첫 손님) 진행. 1회만 동작.</summary>
+    /// <summary>하루 시작 뉴스가 닫히면 다음 단계(튜토리얼/규정집/첫 손님) 진행. 1회만 동작.</summary>
     private void HandleStartNewsClosed()
     {
         if (newsPopup != null) newsPopup.OnClosed -= HandleStartNewsClosed;
         System.Action a = _afterNewsAction; _afterNewsAction = null;
+        a?.Invoke();
+    }
+
+    private System.Action _afterRulebookAction; // 시작 규정집 닫힘 → 실행할 다음 단계(첫 손님)
+
+    /// <summary>그날 새로 생긴 규정(_data.rules 중 아직 유효한 것)이 있으면 규정집 팝업을 띄우고,
+    /// 닫으면 <paramref name="next"/> 진행. 신규 규정이 없거나 참조가 없으면 곧장 next(소프트락 방지).
+    /// 각 dayN.json 의 rules 는 '그날 신규 규정'만 담으므로 그대로 표시한다(누적 전체는 책상 버튼). </summary>
+    private void ShowNewRulesThen(System.Action next)
+    {
+        var newRules = new List<RuleData>();
+        if (_data != null && _data.rules != null)
+            foreach (RuleData r in _data.rules)
+                if (r != null && (r.endDay <= 0 || CurrentDay <= r.endDay)) newRules.Add(r); // 이미 종료된 이벤트 규정은 제외
+
+        if (rulebookPopup != null && newRules.Count > 0)
+        {
+            _afterRulebookAction = next;
+            rulebookPopup.OnClosed -= HandleStartRulebookClosed; // 중복 구독 방지
+            rulebookPopup.OnClosed += HandleStartRulebookClosed;
+            rulebookPopup.Open(newRules);
+        }
+        else
+        {
+            next();
+        }
+    }
+
+    /// <summary>하루 시작 규정집이 닫히면 첫 손님 진행. 1회만 동작.</summary>
+    private void HandleStartRulebookClosed()
+    {
+        if (rulebookPopup != null) rulebookPopup.OnClosed -= HandleStartRulebookClosed;
+        System.Action a = _afterRulebookAction; _afterRulebookAction = null;
         a?.Invoke();
     }
 
@@ -378,6 +434,7 @@ public sealed class ImmigrationManager : MonoBehaviour
     /// <summary>현재 일차 뉴스 팝업을 연다(자동 전환·수동 버튼 공용). 데이터/참조 없으면 무시.</summary>
     private void OpenNews()
     {
+        if (CurrentDay <= FirstDay) return; // 1일차엔 뉴스가 없음 → 버튼 눌러도 안 열림
         if (_data != null && newsPopup != null)
         {
             newsPopup.Open(_data.news);

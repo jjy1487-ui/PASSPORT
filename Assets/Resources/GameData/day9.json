@@ -626,7 +626,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -666,7 +666,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -1496,7 +1496,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -1536,7 +1536,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -1754,7 +1754,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Best of luck with your studies!"
+       "text": "즐거운 여행 되십시오."
       },
       {
        "order": 2,
@@ -1794,7 +1794,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Best of luck with your studies!"
+       "text": "즐거운 여행 되십시오."
       },
       {
        "order": 2,
@@ -1850,7 +1850,7 @@
    "newsId": 9,
    "title": "[속보] 취업 알선 위장 회사 무더기 적발... 입국 금지 회사 명단 배포",
    "content": "취업을 미끼로 입국을 알선해 온 회사들이 무더기로 적발됐다. 당국은 이들 회사 명의로 발급된 취업증빙은 모두 무효라며, 입국 금지 회사 명단을 심사대에 배포하고 명단에 오른 회사의 증빙을 제출한 입국자는 서류가 정상으로 보여도 입국을 거부하라고 지시했다.",
-   "iconRef": null,
+   "iconRef": "News11",
    "claims": []
   }
  ]

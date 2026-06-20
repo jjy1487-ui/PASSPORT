@@ -131,13 +131,8 @@ public sealed class AdvancedBranchPanel : MonoBehaviour
                 right = new Choice("거부", BranchKeys.CultReject);
                 return true;
 
-            // 연예인/정치인: 마스크 벗기 / 본인 확인. 좌=즉시 입국, 우=마스크 요청(턴 누적).
-            case CharacterTypes.Celebrity:
-            case CharacterTypes.Politician:
-                prompt = "신원 확인이 필요합니다.";
-                left = new Choice("즉시 입국", BranchKeys.ApproveImmediate);
-                right = new Choice("마스크 벗기 요청", BranchKeys.MaskRequestTurn1);
-                return true;
+            // 연예인/정치인은 '마스크 벗기' 선지 폐지(260619) — 이제 결함(만료/검사거부) 거절 캐릭터라
+            //  고급 선택지 없이 일반 거절 흐름을 탄다. 패널이 켜져도 이들에겐 뜨지 않는다.
         }
         return false;
     }

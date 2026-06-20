@@ -53,6 +53,10 @@ public sealed class XrayInspectionPanel : MonoBehaviour, ICrossCheckProvider
     [SerializeField] private GameObject _resultGroup;
     [SerializeField] private float _scanSeconds = 1.2f;
 
+    [Header("자동 닫힘")]
+    [Tooltip("적발물이 떴을 때(사토/존카터/강도식 등) 결과 표시 후 이 시간(초) 뒤 자동으로 닫는다 → 닫히면 다음 대사로 이어짐.\n0 이면 자동닫힘 없음(수동 닫기만). 정상(이상 없음)은 자동닫힘하지 않음(검사 오버레이 유지).")]
+    [SerializeField] private float _autoCloseSeconds = 2.5f;
+
     [Header("은닉 부위 좌표 (스켈레톤 기준 anchoredPosition, 에디터에서 미세조정)")]
     [SerializeField] private Vector2 _posChest = new Vector2(0f, 120f);  // 가슴
     [SerializeField] private Vector2 _posBelly = new Vector2(0f, 0f);    // 복부
@@ -60,6 +64,16 @@ public sealed class XrayInspectionPanel : MonoBehaviour, ICrossCheckProvider
 
     /// <summary>selectable 구성 변경 통지(ICrossCheckProvider).</summary>
     public event System.Action OnSelectablesChanged;
+
+    /// <summary>
+    /// 패널이 '실제로 열려 있다가 닫힐 때' 1회 발행한다(플레이어가 X-ray 를 보고 닫음).
+    /// 손님 교체로 인한 자동 닫힘(<see cref="HandleCustomerChanged"/>)이나, 애초에 안 열린 상태의 Close 에는 발행하지 않는다
+    /// (열려 있었을 때만). 존 카터 '입장→X-ray→검사후 대사' 순서 제어에서 검사후 대사 트리거로 쓴다.
+    /// </summary>
+    public event System.Action OnClosed;
+
+    /// <summary>지금 X-ray 패널이 열려 있는가(루트 활성). 컨트롤러가 자동 개방 성공 여부 판단에 쓴다.</summary>
+    public bool IsOpen => _root != null && _root.activeSelf;
 
     private ScanData _injected;  // 자립 재생용 주입 데이터(UIPreview)
     private Coroutine _seq;
@@ -71,7 +85,7 @@ public sealed class XrayInspectionPanel : MonoBehaviour, ICrossCheckProvider
 
     private void Awake()
     {
-        if (_closeButton != null) _closeButton.onClick.AddListener(Close);
+        if (_closeButton != null) _closeButton.onClick.AddListener(OnCloseButton);
         CacheItemHome();
 
         // 구독은 반드시 Awake 에서(아래 _root.SetActive(false) 보다 먼저) 한다.
@@ -88,7 +102,7 @@ public sealed class XrayInspectionPanel : MonoBehaviour, ICrossCheckProvider
 
     private void OnDestroy()
     {
-        if (_closeButton != null) _closeButton.onClick.RemoveListener(Close);
+        if (_closeButton != null) _closeButton.onClick.RemoveListener(OnCloseButton);
         if (_controller != null) _controller.OnCustomerChanged -= HandleCustomerChanged;
         if (_crossCheck != null) _crossCheck.OnScanUnlocked -= HandleScanUnlocked;
     }
@@ -131,6 +145,9 @@ public sealed class XrayInspectionPanel : MonoBehaviour, ICrossCheckProvider
         if (_root.activeSelf) Close(); else Open();
     }
 
+    /// <summary>닫기 버튼 클릭 처리 — 사용자가 직접 닫은 것이므로 <see cref="OnClosed"/> 통지를 동반해 닫는다.</summary>
+    private void OnCloseButton() => Close();
+
     /// <summary>X-ray 검사를 연다(데이터 없으면 무시). 스캔 연출부터 시작.</summary>
     public void Open()
     {
@@ -152,10 +169,23 @@ public sealed class XrayInspectionPanel : MonoBehaviour, ICrossCheckProvider
         if (_root == null) return;
         _root.SetActive(true);
         if (!_root.activeSelf) _root.SetActive(true);
+        // 맨 앞으로 올린다 → 시나리오 도중(대사창이 떠 있을 때) 열려도 닫기 버튼이 다른 UI에 가려 클릭이 막히지 않게.
+        _root.transform.SetAsLastSibling();
     }
 
-    public void Close()
+    /// <summary>사용자 닫기(닫기 버튼/Toggle): 열려 있었으면 <see cref="OnClosed"/> 1회 발행하고 닫는다.</summary>
+    public void Close() => CloseInternal(notify: true);
+
+    /// <summary>판정(도장)·손님 교체 등 외부 사유로 조용히 닫는다 — 검사후 트리거(OnClosed)는 발화하지 않는다.</summary>
+    public void HideSilently() => CloseInternal(notify: false);
+
+    /// <summary>
+    /// 패널을 닫는다. notify=true 이고 '실제로 열려 있던' 경우에만 <see cref="OnClosed"/> 를 1회 발행한다.
+    /// 손님 교체 자동 닫힘 등은 notify=false 로 호출해 검사후 대사 트리거가 잘못 발화하지 않게 한다.
+    /// </summary>
+    private void CloseInternal(bool notify)
     {
+        bool wasOpen = _root != null && _root.activeSelf;
         if (_seq != null) { StopCoroutine(_seq); _seq = null; }
         SetStage(0);
         HideContraband();
@@ -164,15 +194,14 @@ public sealed class XrayInspectionPanel : MonoBehaviour, ICrossCheckProvider
         _injected = null;
         if (_root != null) _root.SetActive(false);
         OnSelectablesChanged?.Invoke();
+        if (notify && wasOpen) OnClosed?.Invoke();
     }
 
     private void HandleCustomerChanged()
     {
-        if (_root != null && _root.activeSelf)
-        {
-            if (CurrentScan == null) Close();
-            else RenderResult(CurrentScan); // 갱신은 즉시
-        }
+        // 손님이 바뀌면 X-ray 창을 닫는다 — 이전 손님 X-ray 결과가 다음 손님으로 넘어가 그대로 남던 문제 방지.
+        // 새 손님이 X-ray 대상이면(day11+ 전원) 입장 자동검사 흐름이 다시 연다. 검사후 트리거(OnClosed)는 발화 안 함.
+        if (_root != null && _root.activeSelf) CloseInternal(notify: false);
         else OnSelectablesChanged?.Invoke();
     }
 
@@ -192,7 +221,7 @@ public sealed class XrayInspectionPanel : MonoBehaviour, ICrossCheckProvider
     private IEnumerator PlaySequence()
     {
         ScanData s = CurrentScan;
-        if (s == null) { Close(); yield break; }
+        if (s == null) { CloseInternal(notify: false); yield break; }
 
         HideContraband();
         if (_highlight != null) _highlight.gameObject.SetActive(false);
@@ -208,6 +237,26 @@ public sealed class XrayInspectionPanel : MonoBehaviour, ICrossCheckProvider
         // ② 결과
         RenderResult(s);
         _seq = null;
+
+        // ③ 적발물이 떴으면 N초 뒤 자동 닫힘 → OnClosed 로 다음 흐름(검사후 대사 / 시나리오 발각 대사)이 이어진다.
+        //    정상(이상 없음)은 자동닫힘 없이 오버레이 유지(기존 동작).
+        //    _autoCloseSeconds 가 0(인스펙터 미설정/신규 필드 기본 0)이면 2.5초로 보정 — 적발은 항상 자동닫힘.
+        bool detected = !string.IsNullOrEmpty(s.detail);
+        if (detected)
+        {
+            float delay = _autoCloseSeconds > 0f ? _autoCloseSeconds : 2.5f;
+            Debug.Log($"[XrayDBG] 적발 → {delay}s 뒤 자동닫힘 예약 (detail={s.detail})");
+            _seq = StartCoroutine(AutoCloseAfter(delay));
+        }
+    }
+
+    /// <summary>결과 표시 후 N초 뒤 자동으로 닫는다(notify=true → OnClosed 발행 → 후속 대사 흐름). 그 전에 수동으로 닫으면 이 코루틴은 취소됨.</summary>
+    private IEnumerator AutoCloseAfter(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Debug.Log("[XrayDBG] 자동닫힘 실행 → CloseInternal(notify:true)");
+        _seq = null;
+        CloseInternal(notify: true);
     }
 
     private void RenderResult(ScanData s)

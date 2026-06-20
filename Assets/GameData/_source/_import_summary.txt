@@ -5,20 +5,20 @@ visa                   layout=relational cols=7 rows=40
 pcr_test               layout=relational cols=9 rows=58
 employment_cert        layout=relational cols=7 rows=9
 news                   layout=relational cols=7 rows=16
-rule_book              layout=relational cols=6 rows=12
+rule_book              layout=relational cols=7 rows=12
 xray                   layout=relational cols=6 rows=3
 fingerprint            layout=relational cols=8 rows=13
 ending                 layout=relational cols=8 rows=23
 shop                   layout=relational cols=9 rows=4
 reward                 layout=relational cols=7 rows=7
 defect_rule            layout=flat       cols=12 rows=30
-defect_assign          layout=relational cols=7 rows=8
+defect_assign          layout=relational cols=7 rows=9
 fake_value_pool        layout=flat       cols=4 rows=28
 document_requirement   layout=flat       cols=6 rows=4
 score_model            layout=config     cols=3 rows=12
 inspection_notice      layout=relational cols=10 rows=9
 rule_section           layout=relational cols=13 rows=6
-character_payout       layout=relational cols=14 rows=62
+character_payout       layout=relational cols=14 rows=64
 character_score        layout=relational cols=11 rows=83
 --- warnings ---
 알 수 없는 시트(스킵): 고객순서(유형·이름)

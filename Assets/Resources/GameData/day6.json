@@ -496,7 +496,7 @@
        },
        {
         "label": "검사 기관",
-        "value": "부산국제공항검역소",
+        "value": "인천공항검역소",
         "key": "lab_name"
        },
        {
@@ -865,7 +865,7 @@
     {
      "attr": "lab_name",
      "inspector": "이 검사 기관… 인증된 데가 아닌데요? 여기서 받으신 거예요?",
-     "customer": "I feel completely fine, though.",
+     "customer": "Yes, that's where I had the test. Is something wrong? (네, 거기서 검사받았는데요. 뭐가 문제죠?)",
      "unlocksScan": ""
     }
    ]
@@ -1536,7 +1536,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -1576,7 +1576,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -1771,7 +1771,7 @@
        {
         "order": 1,
         "speaker": "다니엘 테일러",
-        "text": "Hello, could you check this please?"
+        "text": "Hello, could you check this please? (안녕하세요, 이것 좀 확인해 주시겠어요?)"
        }
       ]
      },
@@ -1788,7 +1788,7 @@
        {
         "order": 2,
         "speaker": "다니엘 테일러",
-        "text": "Thank you! Appreciate your help."
+        "text": "Thank you! Appreciate your help. (감사합니다! 도와주셔서 고마워요.)"
        }
       ]
      },
@@ -1805,7 +1805,7 @@
        {
         "order": 2,
         "speaker": "다니엘 테일러",
-        "text": "I'm positive everything is in order."
+        "text": "I'm positive everything is in order. (전부 이상 없을 텐데요.)"
        }
       ]
      },
@@ -1822,7 +1822,7 @@
        {
         "order": 2,
         "speaker": "다니엘 테일러",
-        "text": "Thank you! Appreciate your help."
+        "text": "Thank you! Appreciate your help. (감사합니다! 도와주셔서 고마워요.)"
        }
       ]
      },
@@ -1839,7 +1839,7 @@
        {
         "order": 2,
         "speaker": "다니엘 테일러",
-        "text": "I'm positive everything is in order."
+        "text": "I'm positive everything is in order. (전부 이상 없을 텐데요.)"
        }
       ]
      }
@@ -2044,7 +2044,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -2084,7 +2084,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -2141,7 +2141,7 @@
    "newsId": 6,
    "title": "강화된 방역 장기화 공항 현장 부담 증가",
    "content": "강화된 방역 장기화 관련 업계 긴장 지속 검역 절차가 장기간 이어지면서 여행업계와 관련 기관들이 상황을 예의주시하고 있다. 보건 당국은 현재 대응 체계를 유지하며 추가 확산 여부를 관찰하고 있다고 밝혔다.",
-   "iconRef": null,
+   "iconRef": "News8",
    "claims": []
   }
  ]

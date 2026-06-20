@@ -27,6 +27,16 @@ public sealed class BgmManager : MonoBehaviour
 
     private AudioSource _src;
 
+    // ── 10.5~12.5일차 전용 브리핑 테마 ───────────────────────────────
+    // 브리핑씬에서 진행 일차가 이 범위면 전용 곡으로 바꾼다(그 외 씬/일차는 기본 Main Theme).
+    private const string CurrentDayKey = "CurrentDay";   // 브리핑/메인메뉴와 공유하는 진행 일차
+    private const string VariantScene = "BriefingScene"; // 전용 테마 적용 씬
+    private const int VariantStartDay = 11;              // 10.5일차~  (필요시 숫자만 변경)
+    private const int VariantEndDay = 12;                // ~12.5일차
+    private const string VariantClipResource = "Audio/MainTheme_Day11_12";
+    private AudioClip _variantClip;
+    private bool _variantTried;
+
     private void Awake()
     {
         // 이미 BGM 매니저가 살아 있으면(다른 음악 씬에서 넘어옴) 이 인스턴스는 파괴 →
@@ -65,11 +75,46 @@ public sealed class BgmManager : MonoBehaviour
         bool shouldPlay = System.Array.IndexOf(_playScenes, sceneName) >= 0;
         if (shouldPlay)
         {
+            // 11~12일차(10.5~12.5) 브리핑씬은 전용 테마, 그 외엔 기본 Main Theme.
+            AudioClip desired = ClipForScene(sceneName);
+            if (desired != null && _src.clip != desired)
+            {
+                _src.Stop();          // 곡이 바뀌면 새 곡으로 재시작
+                _src.clip = desired;
+            }
             if (_src.clip != null && !_src.isPlaying) _src.Play();
         }
         else
         {
             if (_src.isPlaying) _src.Stop();
+        }
+    }
+
+    /// <summary>씬·진행 일차에 맞는 BGM 클립. 11~12일차 브리핑씬은 전용 테마, 그 외는 기본 _clip.</summary>
+    private AudioClip ClipForScene(string sceneName)
+    {
+        if (sceneName == VariantScene)
+        {
+            int day = PlayerPrefs.GetInt(CurrentDayKey, 1);
+            if (day >= VariantStartDay && day <= VariantEndDay && VariantClip != null)
+                return VariantClip;
+        }
+        return _clip;
+    }
+
+    /// <summary>전용 테마(Resources)를 1회 로드해 캐시. 없으면 경고 후 null(→ 기본 테마 유지).</summary>
+    private AudioClip VariantClip
+    {
+        get
+        {
+            if (_variantClip == null && !_variantTried)
+            {
+                _variantTried = true;
+                _variantClip = Resources.Load<AudioClip>(VariantClipResource);
+                if (_variantClip == null)
+                    Debug.LogWarning($"[BgmManager] 전용 테마를 찾지 못함: Resources/{VariantClipResource}");
+            }
+            return _variantClip;
         }
     }
 }

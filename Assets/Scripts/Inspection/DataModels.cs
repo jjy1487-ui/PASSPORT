@@ -44,9 +44,104 @@ public sealed class CustomerData
     //  - 변형 손님(altVariant)에도 적용하려면 손님 레벨에 두므로 RollVariants 오버레이(서류/검사만 교체)와 독립적으로 보존된다.
     public bool autoScanOnEntry;
 
+    // 입장 자동 X-ray(전신 검색) 면제. true 면 day11+ '전원 자동 검색' 날에도 이 손님만 검색 패널을 띄우지 않는다.
+    //  (예: 검사를 거부하는 특혜 손님 — 윤정호. 거부 자체가 거절 사유라 검색은 건너뛴다.) 기본 false.
+    public bool skipAutoScan;
+
+    // 거절 도장 시 '뇌물 제안' YES/NO 팝업을 띄우는 손님(예: 밀수품 범죄자 존 카터). 기본 false.
+    //  true 이면: 거절(reject) 판정 시 정산 전에 RejectConfirmPopup 으로 "뇌물을 받으시겠습니까?"(거절한다/받는다)를 띄운다.
+    //   - [거절한다] → bribeRefuseBranchKey 로 적발 거절 정산(정답·적발) + bribeRefuseCaseType 대사 → 다음 손님.
+    //   - [받는다]   → bribeAcceptCaseType 대사 재생 후 bribeAcceptBranchKey 로 부패 정산(금괴/조기엔딩 #11).
+    //  데이터 주도(이름 하드코딩 아님). 키/케이스가 비면 합리적 기본값으로 폴백.
+    public bool bribeOnReject;
+    public string bribeRefuseBranchKey;  // [거절한다] 정산 키(비면 detect_montage_reject)
+    public string bribeAcceptBranchKey;  // [받는다] 정산 키(비면 corrupt_accept_gold)
+    public string bribeApproveBranchKey; // 승인(오판) 정산 키(비면 approve_wrong_no_montage)
+    public string bribeRefuseCaseType;   // [거절한다] 대사 caseType(비면 gameResult="정상 거절" 케이스로 폴백)
+    public string bribeAcceptCaseType;   // [받는다] 대사 caseType(비면 무대사)
+
     // ── 확률 변형(박철수처럼 매 플레이 서류 정상/불량이 갈리는 손님) ──
     public float validChance;          // 정상(승인) 확률 0~1. 0/1 또는 altVariant 없음 → 굴리지 않음(고정).
     public CustomerVariant altVariant; // 반대 변형(없으면 null). 런타임에 validChance로 굴려 이 손님 위에 오버레이한다.
+
+    // ── 분기 시나리오(노드그래프) — day12 사토 하루키(테러범) 전용 흐름 ──
+    //  이 필드가 채워지면(scenario.nodes 비어있지 않으면) 그 손님은 도장 판정 대신
+    //  ScenarioRunner 가 노드그래프 FSM(대사→선택→분기/종착)으로 진행한다(SHARED-CONVENTIONS 4-A 의 특수 흐름).
+    //  scenario 가 없는(=대부분의) 손님은 기존 흐름 그대로다(영향 없음). null/빈 nodes 면 일반 손님 취급.
+    public ScenarioData scenario;
+}
+
+/// <summary>
+/// 분기 시나리오 그래프(노드 FSM). day12 사토 하루키처럼 도장 판정이 아니라
+/// 대사·선택지로 결말이 갈리는 손님에게 붙는다. JsonUtility 호환을 위해 nodes 는 배열(각 노드에 id).
+/// 데이터 계약(day12.json): start(시작 노드 id), nodes[](각 노드 id/lines/choices/next/outcome).
+/// </summary>
+[Serializable]
+public sealed class ScenarioData
+{
+    public string start;          // 시작 노드 id (예: "intro")
+    public ScenarioNode[] nodes;  // 노드 목록(JsonUtility 호환: dict 아님, 각 노드에 id 포함)
+
+    /// <summary>id 로 노드를 찾는다(없으면 null). nodes 가 작으므로 선형 탐색으로 충분.</summary>
+    public ScenarioNode Find(string id)
+    {
+        if (nodes == null || string.IsNullOrEmpty(id)) return null;
+        foreach (ScenarioNode n in nodes)
+            if (n != null && n.id == id) return n;
+        return null;
+    }
+
+    /// <summary>그래프가 실제로 쓸 수 있는가(시작 노드와 노드 1개 이상 존재).</summary>
+    public bool IsValid => nodes != null && nodes.Length > 0 && Find(start) != null;
+}
+
+/// <summary>
+/// 시나리오 노드 1개. lines(대사) 재생 후 분기:
+///   - choices 가 있으면 → 선택 버튼(현재 사토는 항상 2지선다) → 고른 choice.next 노드로 전이.
+///   - outcome 이 있으면 → 종착(테러방지=정상해결→다음 손님 / 폭탄=게임오버 종착).
+///   - 둘 다 없고 next 가 있으면 → 그 노드로(선형). 사토는 미사용이나 범용 지원.
+/// timer/timeoutNext 는 Stage 3(타이머/폭탄사운드)용 — 이번 단계에서는 읽지 않는다.
+/// </summary>
+[Serializable]
+public sealed class ScenarioNode
+{
+    public string id;                 // 노드 식별자(전이 키)
+    public DialogueLineData[] lines;  // 이 노드에서 재생할 대사(speaker: 사토 하루키|심사관|시스템)
+    public ScenarioChoice[] choices;  // 분기 선택지(현재 항상 2개). 없으면 빈 배열.
+    public string next;               // 선형 다음 노드 id(choices/outcome 없을 때만). 없으면 "".
+    public int timer;                 // [Stage 3] 선택 제한 시간(초). 0=무제한. 이번엔 무시.
+    public string timeoutNext;        // [Stage 3] 시간 초과 시 전이 노드 id. 이번엔 무시.
+    public string openScanAfter;      // 이 노드 lines 재생 후 띄울 검사 패널 종류("xray" 등). 비면 안 띄움.
+                                      //  러너가 패널을 열고 '닫힐 때까지' 분기/다음노드 진행을 보류한다(없거나 못 열면 즉시 진행).
+    public ScenarioOutcome outcome;   // 종착 결과(있으면 종료 노드). 없으면 null.
+
+    /// <summary>종착 노드인가(outcome 이 실효 = result 가 채워짐).</summary>
+    public bool HasOutcome => outcome != null && !string.IsNullOrEmpty(outcome.result);
+
+    /// <summary>분기 노드인가(선택지 보유).</summary>
+    public bool HasChoices => choices != null && choices.Length > 0;
+}
+
+/// <summary>시나리오 선택지 1개(버튼 라벨 + 선택 시 전이할 노드 id).</summary>
+[Serializable]
+public sealed class ScenarioChoice
+{
+    public string label; // 버튼에 표시할 문구
+    public string next;  // 이 선택 시 전이할 노드 id
+}
+
+/// <summary>
+/// 시나리오 종착 결과. result 로 결말 종류를 가른다("테러방지"=정상 해결 / "폭탄"=게임오버 종착).
+/// score/reward/branch 는 Stage 4(점수·엔딩 연결)에서 소비할 메타 — Stage 2 에서는 로그로만 남긴다(점수 강제 연결 금지).
+/// </summary>
+[Serializable]
+public sealed class ScenarioOutcome
+{
+    public string branch; // 분기 식별("분기1"~"분기6")
+    public string result; // "테러방지" | "폭탄"
+    public int score;     // [Stage 4] 점수(이번엔 미적용 — 로그만)
+    public string reward; // [Stage 4] 보상/호칭 텍스트(이번엔 표시/로그만)
+    public string note;
 }
 
 /// <summary>

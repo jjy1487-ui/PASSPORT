@@ -35,12 +35,6 @@ MonoBehaviour:
   - key: expiry_date
     label: "\uB9CC\uB8CC\uC77C"
     type: date
-  - key: entry_type
-    label: "\uC785\uAD6D \uD69F\uC218"
-    type: varchar(20)
-  - key: memo
-    label: "\uBE44\uACE0"
-    type: varchar(200)
   rows:
   - keys:
     - visa_id
@@ -50,8 +44,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1
     - 3
@@ -60,8 +52,6 @@ MonoBehaviour:
     - CHN
     - 2023-09-20
     - 2024-03-20
-    - "\uB2E8\uC218"
-    - "\uCCB8\uC6E8\uC774 \uC815\uC0C1 \uAD00\uAD11\uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -70,8 +60,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 3
     - 4
@@ -80,8 +68,6 @@ MonoBehaviour:
     - USA
     - 2025-08-12
     - 2027-08-12
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -90,8 +76,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 4
     - 7
@@ -100,8 +84,6 @@ MonoBehaviour:
     - CHN
     - 2024-09-17
     - 2026-09-17
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -110,8 +92,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 5
     - 8
@@ -120,8 +100,6 @@ MonoBehaviour:
     - USA
     - 2026-03-22
     - 2026-09-22
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -130,8 +108,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 6
     - 11
@@ -140,8 +116,6 @@ MonoBehaviour:
     - JPN
     - 2024-09-08
     - 2026-09-08
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -150,8 +124,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 7
     - 13
@@ -160,8 +132,6 @@ MonoBehaviour:
     - USA
     - 2025-12-03
     - 2027-12-03
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -170,8 +140,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 8
     - 14
@@ -180,8 +148,6 @@ MonoBehaviour:
     - CHN
     - 2024-09-17
     - 2026-09-17
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -190,8 +156,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 9
     - 18
@@ -200,8 +164,6 @@ MonoBehaviour:
     - CHN
     - 2025-09-03
     - 2026-09-03
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -210,8 +172,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 10
     - 19
@@ -220,8 +180,6 @@ MonoBehaviour:
     - JPN
     - 2026-03-08
     - 2026-09-08
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -230,8 +188,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 11
     - 25
@@ -240,8 +196,6 @@ MonoBehaviour:
     - USA
     - 2025-04-03
     - 2027-04-03
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -250,8 +204,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 12
     - 26
@@ -260,8 +212,6 @@ MonoBehaviour:
     - JPN
     - 2024-09-27
     - 2026-09-27
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -270,8 +220,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 13
     - 27
@@ -280,8 +228,6 @@ MonoBehaviour:
     - CHN
     - 2025-09-12
     - 2026-09-12
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -290,8 +236,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 14
     - 31
@@ -300,8 +244,6 @@ MonoBehaviour:
     - JPN
     - 2025-09-08
     - 2026-09-08
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -310,8 +252,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 15
     - 32
@@ -320,8 +260,6 @@ MonoBehaviour:
     - USA
     - 2025-09-12
     - 2026-09-12
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -330,8 +268,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 16
     - 33
@@ -340,8 +276,6 @@ MonoBehaviour:
     - CHN
     - 2024-09-27
     - 2026-09-27
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -350,8 +284,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 17
     - 34
@@ -360,8 +292,6 @@ MonoBehaviour:
     - JPN
     - 2026-03-03
     - 2026-09-03
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -370,8 +300,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 23
     - 35
@@ -380,8 +308,6 @@ MonoBehaviour:
     - CHN
     - 2025-09-08
     - 2026-09-08
-    - "\uBCF5\uC218"
-    - "\uCDE8\uC5C5 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -390,8 +316,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 24
     - 36
@@ -400,8 +324,6 @@ MonoBehaviour:
     - CHN
     - 2025-04-22
     - 2027-04-22
-    - "\uBCF5\uC218"
-    - "\uCDE8\uC5C5 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -410,8 +332,6 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 25
     - 37
@@ -420,8 +340,6 @@ MonoBehaviour:
     - USA
     - 2025-09-27
     - 2026-09-27
-    - "\uBCF5\uC218"
-    - "\uCDE8\uC5C5 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -430,18 +348,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1001
-    - 1001
+    - 38
     - V-USA-1189
     - "\uAD00\uAD11"
     - USA
     - 2025-04-03
     - 2027-04-03
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -450,18 +364,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1006
-    - 1006
+    - 43
     - V-USA-2269
     - "\uAD00\uAD11"
     - USA
     - 2025-08-12
     - 2027-08-12
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -470,18 +380,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1009
-    - 1009
+    - 46
     - V-CHN-3766
     - "\uAD00\uAD11"
     - CHN
     - 2024-09-17
     - 2026-09-17
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -490,18 +396,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1017
-    - 1017
+    - 54
     - V-USA-1189
     - "\uAD00\uAD11"
     - USA
     - 2025-04-03
     - 2027-04-03
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -510,18 +412,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1018
-    - 1018
+    - 55
     - V-JPN-8758
     - "\uAD00\uAD11"
     - JPN
     - 2024-09-27
     - 2026-09-27
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -530,18 +428,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1021
-    - 1021
+    - 58
     - V-CHN-7483
     - "\uAD00\uAD11"
     - CHN
     - 2025-09-12
     - 2026-09-12
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -550,18 +444,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1025
-    - 1025
+    - 62
     - V-CHN-7483
     - "\uAD00\uAD11"
     - CHN
     - 2025-09-12
     - 2026-09-12
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -570,18 +460,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1026
-    - 1026
+    - 63
     - V-USA-2269
     - "\uAD00\uAD11"
     - USA
     - 2025-08-12
     - 2027-08-12
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -590,18 +476,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1030
-    - 1030
+    - 67
     - V-CHN-3766
     - "\uAD00\uAD11"
     - CHN
     - 2024-09-17
     - 2026-09-17
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -610,18 +492,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1032
-    - 1032
+    - 69
     - V-USA-1189
     - "\uAD00\uAD11"
     - USA
     - 2025-04-03
     - 2027-04-03
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -630,18 +508,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1036
-    - 1036
+    - 73
     - V-JPN-8758
     - "\uAD00\uAD11"
     - JPN
     - 2024-09-27
     - 2026-09-27
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -650,18 +524,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1037
-    - 1037
+    - 74
     - V-CHN-3887
     - "\uC7A5\uAE30\uCCB4\uB958"
     - CHN
     - 2025-09-03
     - 2026-09-03
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -670,18 +540,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1040
-    - 1040
+    - 77
     - V-CN-9864
     - "\uAD00\uAD11"
     - CHN
     - 2023-09-20
     - 2024-03-20
-    - "\uB2E8\uC218"
-    - "\uCCB8\uC6E8\uC774 \uC815\uC0C1 \uAD00\uAD11\uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -690,18 +556,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1043
-    - 1043
+    - 80
     - V-USA-2269
     - "\uAD00\uAD11"
     - USA
     - 2025-08-12
     - 2027-08-12
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -710,18 +572,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1048
-    - 1048
+    - 85
     - V-CN-9864
     - "\uAD00\uAD11"
     - CHN
     - 2023-09-20
     - 2024-03-20
-    - "\uB2E8\uC218"
-    - "\uCCB8\uC6E8\uC774 \uC815\uC0C1 \uAD00\uAD11\uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -730,18 +588,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1050
-    - 1050
+    - 87
     - V-CHN-3766
     - "\uAD00\uAD11"
     - CHN
     - 2024-09-17
     - 2026-09-17
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -750,18 +604,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1052
-    - 1052
+    - 89
     - V-JPN-8758
     - "\uAD00\uAD11"
     - JPN
     - 2024-09-27
     - 2026-09-27
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -770,18 +620,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1055
-    - 1055
+    - 92
     - V-CHN-7483
     - "\uAD00\uAD11"
     - CHN
     - 2025-09-12
     - 2026-09-12
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -790,18 +636,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1057
-    - 1057
+    - 94
     - V-CN-9864
     - "\uAD00\uAD11"
     - CHN
     - 2023-09-20
     - 2024-03-20
-    - "\uB2E8\uC218"
-    - "\uCCB8\uC6E8\uC774 \uC815\uC0C1 \uAD00\uAD11\uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -810,18 +652,14 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1058
-    - 1058
+    - 95
     - V-JPN-8863
     - "\uAD00\uAD11"
     - JPN
     - 2026-03-03
     - 2026-09-03
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"
   - keys:
     - visa_id
     - customer_id
@@ -830,15 +668,11 @@ MonoBehaviour:
     - nationality
     - issue_date
     - expiry_date
-    - entry_type
-    - memo
     values:
     - 1060
-    - 1060
+    - 97
     - V-USA-2269
     - "\uAD00\uAD11"
     - USA
     - 2025-08-12
     - 2027-08-12
-    - "\uB2E8\uC218"
-    - "\uC678\uAD6D\uC778 \uC815\uC0C1 \uBE44\uC790"

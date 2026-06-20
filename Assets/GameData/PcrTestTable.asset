@@ -35,9 +35,12 @@ MonoBehaviour:
   - key: lab_name
     label: "\uAC80\uC0AC \uAE30\uAD00"
     type: varchar(50)
-  - key: memo
-    label: "\uBE44\uACE0"
-    type: varchar(200)
+  - key: name
+    label: "\uC774\uB984"
+    type: varchar(50)
+  - key: nationality
+    label: "\uAD6D\uC801"
+    type: varchar(10)
   rows:
   - keys:
     - pcr_id
@@ -47,16 +50,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 1
     - 4
     - PCR-ES-2024A
     - 2025-06-26
-    - "\uC74C\uC131"
+    - Negative
     - 2025-06-29
     - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uB9C8\uB9AC\uC544 \uC815\uC0C1 \uC74C\uC131"
+    - JAMES MILLER
+    - USA
   - keys:
     - pcr_id
     - customer_id
@@ -65,7 +70,8 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 3
     - 1
@@ -73,8 +79,9 @@ MonoBehaviour:
     - 2026-05-20
     - Negative
     - 2026-06-20
-    - "\uD55C\uAD6D\uACF5\uD56D\uAC80\uC5ED\uBCF8\uBD80"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - KIM MINJUN
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -83,7 +90,8 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 4
     - 5
@@ -91,8 +99,9 @@ MonoBehaviour:
     - 2026-05-20
     - Negative
     - 2026-06-17
-    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - PARK CHEOLSU
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -101,7 +110,8 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 5
     - 12
@@ -109,8 +119,9 @@ MonoBehaviour:
     - 2026-05-28
     - Negative
     - 2026-06-18
-    - "\uC0BC\uC131\uC11C\uC6B8\uBCD1\uC6D0\uC9C4\uB2E8\uAC80\uC0AC\uC758\uD559\uACFC"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - JEONG YUNA
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -119,16 +130,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 6
     - 13
     - PCR-013
     - 2026-05-20
-    - Negative
+    - Positive
     - 2026-06-17
-    - "\uC11C\uC6B8\uC2DC\uB9BD\uBCF4\uAC74\uC5F0\uAD6C\uC6D0"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - ROBERT JOHNSON
+    - USA
   - keys:
     - pcr_id
     - customer_id
@@ -137,16 +150,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 7
     - 14
     - PCR-014
-    - 2026-06-05
+    - 2026-06-15
     - Negative
     - 2026-06-19
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - LI NA
+    - CHN
   - keys:
     - pcr_id
     - customer_id
@@ -155,7 +170,8 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 8
     - 15
@@ -163,8 +179,9 @@ MonoBehaviour:
     - 2026-05-22
     - Negative
     - 2026-06-19
-    - "\uC5F0\uC138\uB300\uD559\uAD50\uC758\uB8CC\uC6D0\uAC80\uC0AC\uC13C\uD130"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - HAN JIWON
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -173,16 +190,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 9
     - 19
     - PCR-019
     - 2026-05-24
-    - Negative
+    - Positive
     - 2026-06-14
-    - "\uBD80\uC0B0\uAD6D\uC81C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - TANAKA YUI
+    - JPN
   - keys:
     - pcr_id
     - customer_id
@@ -191,7 +210,8 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 10
     - 21
@@ -199,8 +219,9 @@ MonoBehaviour:
     - 2026-06-05
     - Negative
     - 2026-06-26
-    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - SEO JIHO
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -209,7 +230,8 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 11
     - 23
@@ -217,8 +239,9 @@ MonoBehaviour:
     - 2026-05-24
     - Negative
     - 2026-06-14
-    - "\uD55C\uAD6D\uACF5\uD56D\uAC80\uC5ED\uBCF8\uBD80"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - SONG HANEUL
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -227,7 +250,8 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 12
     - 24
@@ -235,8 +259,9 @@ MonoBehaviour:
     - 2026-05-26
     - Negative
     - 2026-06-16
-    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - IM DOHYUN
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -245,7 +270,8 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 13
     - 25
@@ -253,8 +279,9 @@ MonoBehaviour:
     - 2026-05-28
     - Negative
     - 2026-06-14
-    - "\uC0BC\uC131\uC11C\uC6B8\uBCD1\uC6D0\uC9C4\uB2E8\uAC80\uC0AC\uC758\uD559\uACFC"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - WILLIAM BROWN
+    - USA
   - keys:
     - pcr_id
     - customer_id
@@ -263,7 +290,8 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 14
     - 26
@@ -271,8 +299,9 @@ MonoBehaviour:
     - 2026-06-02
     - Negative
     - 2026-06-16
-    - "\uC11C\uC6B8\uC2DC\uB9BD\uBCF4\uAC74\uC5F0\uAD6C\uC6D0"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - TANAKA HARUTO
+    - JPN
   - keys:
     - pcr_id
     - customer_id
@@ -281,7 +310,8 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 15
     - 27
@@ -290,7 +320,8 @@ MonoBehaviour:
     - Negative
     - 2026-06-17
     - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - ZHANG WEI
+    - CHN
   - keys:
     - pcr_id
     - customer_id
@@ -299,7 +330,8 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 16
     - 28
@@ -307,8 +339,9 @@ MonoBehaviour:
     - 2026-05-30
     - Negative
     - 2026-06-20
-    - "\uC5F0\uC138\uB300\uD559\uAD50\uC758\uB8CC\uC6D0\uAC80\uC0AC\uC13C\uD130"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - OH MANSEOK
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -317,7 +350,8 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 17
     - 29
@@ -325,8 +359,9 @@ MonoBehaviour:
     - 2026-06-05
     - Negative
     - 2026-06-26
-    - "\uBD80\uC0B0\uAD6D\uC81C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - BAE SUJEONG
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -335,7 +370,8 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 18
     - 31
@@ -343,8 +379,9 @@ MonoBehaviour:
     - 2026-05-26
     - Negative
     - 2026-06-16
-    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uD035\uBA54\uB514\uAC80\uC0AC\uC13C\uD130"
+    - SUZUKI AOI
+    - JPN
   - keys:
     - pcr_id
     - customer_id
@@ -353,7 +390,8 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 19
     - 32
@@ -361,8 +399,9 @@ MonoBehaviour:
     - 2026-06-02
     - Negative
     - 2026-06-23
-    - "\uD55C\uAD6D\uACF5\uD56D\uAC80\uC5ED\uBCF8\uBD80"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uD2BC\uD2BC\uBA54\uB514\uAC80\uC0AC\uC13C\uD130"
+    - MICHAEL DAVIS
+    - USA
   - keys:
     - pcr_id
     - customer_id
@@ -371,7 +410,8 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
     - 20
     - 33
@@ -379,8 +419,9 @@ MonoBehaviour:
     - 2026-06-05
     - Negative
     - 2026-06-19
-    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "24\uC2DC\uC5F0\uD569\uAC80\uC0AC\uC13C\uD130"
+    - LIU YANG
+    - CHN
   - keys:
     - pcr_id
     - customer_id
@@ -389,16 +430,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1001
-    - 1001
+    - 21
+    - 38
     - PCR-025
     - 2026-05-28
     - Negative
     - 2026-06-14
-    - "\uC0BC\uC131\uC11C\uC6B8\uBCD1\uC6D0\uC9C4\uB2E8\uAC80\uC0AC\uC758\uD559\uACFC"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - DAVID SMITH
+    - USA
   - keys:
     - pcr_id
     - customer_id
@@ -407,16 +450,118 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1002
-    - 1002
+    - 22
+    - 39
+    - PCR-024
+    - 2026-05-26
+    - Negative
+    - 2026-06-16
+    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - KIM DOYUN
+    - KOR
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - name
+    - nationality
+    values:
+    - 23
+    - 41
+    - PCR-005
+    - 2026-05-20
+    - Negative
+    - 2026-06-17
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - PARK HAJUN
+    - KOR
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - name
+    - nationality
+    values:
+    - 24
+    - 43
+    - PCR-ES-2024A
+    - 2025-06-26
+    - Negative
+    - 2025-06-29
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - THOMAS MOORE
+    - USA
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - name
+    - nationality
+    values:
+    - 25
+    - 47
+    - PCR-028
+    - 2026-05-30
+    - Negative
+    - 2026-06-20
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - JO JIHO
+    - KOR
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - name
+    - nationality
+    values:
+    - 26
+    - 48
+    - PCR-012
+    - 2026-05-28
+    - Negative
+    - 2026-06-18
+    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - YOON GEONWOO
+    - KOR
+  - keys:
+    - pcr_id
+    - customer_id
+    - test_no
+    - test_date
+    - result
+    - valid_until
+    - lab_name
+    - name
+    - nationality
+    values:
+    - 27
+    - 49
     - PCR-024
     - 2026-05-26
     - Negative
     - 2026-06-16
     - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - JANG WOOJIN
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -425,16 +570,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1004
-    - 1004
-    - PCR-005
+    - 28
+    - 50
+    - PCR-001
     - 2026-05-20
     - Negative
-    - 2026-06-17
-    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - 2026-06-20
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - IM SEONWOO
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -443,34 +590,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1006
-    - 1006
-    - PCR-ES-2024A
-    - 2025-06-26
-    - "\uC74C\uC131"
-    - 2025-06-29
-    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uB9C8\uB9AC\uC544 \uC815\uC0C1 \uC74C\uC131"
-  - keys:
-    - pcr_id
-    - customer_id
-    - test_no
-    - test_date
-    - result
-    - valid_until
-    - lab_name
-    - memo
-    values:
-    - 1010
-    - 1010
-    - PCR-028
-    - 2026-05-30
+    - 29
+    - 51
+    - PCR-001
+    - 2026-05-20
     - Negative
     - 2026-06-20
-    - "\uC5F0\uC138\uB300\uD559\uAD50\uC758\uB8CC\uC6D0\uAC80\uC0AC\uC13C\uD130"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - HAN HYUNWOO
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -479,16 +610,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1011
-    - 1011
-    - PCR-012
-    - 2026-05-28
+    - 30
+    - 52
+    - PCR-029
+    - 2026-06-05
     - Negative
-    - 2026-06-18
-    - "\uC0BC\uC131\uC11C\uC6B8\uBCD1\uC6D0\uC9C4\uB2E8\uAC80\uC0AC\uC758\uD559\uACFC"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - 2026-06-26
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - OH EUNWOO
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -497,16 +630,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1012
-    - 1012
+    - 31
+    - 53
     - PCR-024
     - 2026-05-26
     - Negative
     - 2026-06-16
-    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - SEO JIAN
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -515,88 +650,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1013
-    - 1013
-    - PCR-001
-    - 2026-05-20
-    - Negative
-    - 2026-06-20
-    - "\uD55C\uAD6D\uACF5\uD56D\uAC80\uC5ED\uBCF8\uBD80"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
-  - keys:
-    - pcr_id
-    - customer_id
-    - test_no
-    - test_date
-    - result
-    - valid_until
-    - lab_name
-    - memo
-    values:
-    - 1014
-    - 1014
-    - PCR-001
-    - 2026-05-20
-    - Negative
-    - 2026-06-20
-    - "\uD55C\uAD6D\uACF5\uD56D\uAC80\uC5ED\uBCF8\uBD80"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
-  - keys:
-    - pcr_id
-    - customer_id
-    - test_no
-    - test_date
-    - result
-    - valid_until
-    - lab_name
-    - memo
-    values:
-    - 1015
-    - 1015
-    - PCR-029
-    - 2026-06-05
-    - Negative
-    - 2026-06-26
-    - "\uBD80\uC0B0\uAD6D\uC81C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
-  - keys:
-    - pcr_id
-    - customer_id
-    - test_no
-    - test_date
-    - result
-    - valid_until
-    - lab_name
-    - memo
-    values:
-    - 1016
-    - 1016
-    - PCR-024
-    - 2026-05-26
-    - Negative
-    - 2026-06-16
-    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
-  - keys:
-    - pcr_id
-    - customer_id
-    - test_no
-    - test_date
-    - result
-    - valid_until
-    - lab_name
-    - memo
-    values:
-    - 1017
-    - 1017
+    - 32
+    - 54
     - PCR-025
     - 2026-05-28
     - Negative
     - 2026-06-14
-    - "\uC0BC\uC131\uC11C\uC6B8\uBCD1\uC6D0\uC9C4\uB2E8\uAC80\uC0AC\uC758\uD559\uACFC"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - DANIEL TAYLOR
+    - USA
   - keys:
     - pcr_id
     - customer_id
@@ -605,16 +670,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1018
-    - 1018
+    - 33
+    - 55
     - PCR-026
     - 2026-06-02
     - Negative
     - 2026-06-16
-    - "\uC11C\uC6B8\uC2DC\uB9BD\uBCF4\uAC74\uC5F0\uAD6C\uC6D0"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - SATO YUTO
+    - JPN
   - keys:
     - pcr_id
     - customer_id
@@ -623,16 +690,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1019
-    - 1019
+    - 34
+    - 56
     - PCR-005
     - 2026-05-20
     - Negative
     - 2026-06-17
-    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - SHIN YUJUN
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -641,16 +710,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1020
-    - 1020
+    - 35
+    - 57
     - PCR-023
     - 2026-05-24
     - Negative
     - 2026-06-14
-    - "\uD55C\uAD6D\uACF5\uD56D\uAC80\uC5ED\uBCF8\uBD80"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - KWON MINJAE
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -659,16 +730,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1021
-    - 1021
+    - 36
+    - 58
     - PCR-027
     - 2026-05-20
     - Negative
     - 2026-06-17
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - WANG FANG
+    - CHN
   - keys:
     - pcr_id
     - customer_id
@@ -677,16 +750,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1022
-    - 1022
+    - 37
+    - 59
     - PCR-001
     - 2026-05-20
     - Negative
     - 2026-06-20
-    - "\uD55C\uAD6D\uACF5\uD56D\uAC80\uC5ED\uBCF8\uBD80"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - HWANG JIHWAN
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -695,16 +770,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1025
-    - 1025
+    - 38
+    - 62
     - PCR-027
     - 2026-05-20
     - Negative
     - 2026-06-17
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - ZHANG MIN
+    - CHN
   - keys:
     - pcr_id
     - customer_id
@@ -713,16 +790,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1026
-    - 1026
+    - 39
+    - 63
     - PCR-ES-2024A
     - 2025-06-26
-    - "\uC74C\uC131"
+    - Negative
     - 2025-06-29
-    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uB9C8\uB9AC\uC544 \uC815\uC0C1 \uC74C\uC131"
+    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - MATTHEW ANDERSON
+    - USA
   - keys:
     - pcr_id
     - customer_id
@@ -731,16 +810,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1028
-    - 1028
+    - 40
+    - 65
     - PCR-028
     - 2026-05-30
     - Negative
     - 2026-06-20
-    - "\uC5F0\uC138\uB300\uD559\uAD50\uC758\uB8CC\uC6D0\uAC80\uC0AC\uC13C\uD130"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - HONG SEONGMIN
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -749,16 +830,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1031
-    - 1031
+    - 41
+    - 68
     - PCR-012
     - 2026-05-28
     - Negative
     - 2026-06-18
-    - "\uC0BC\uC131\uC11C\uC6B8\uBCD1\uC6D0\uC9C4\uB2E8\uAC80\uC0AC\uC758\uD559\uACFC"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - LEE JIWOO
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -767,16 +850,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1032
-    - 1032
+    - 42
+    - 69
     - PCR-025
     - 2026-05-28
     - Negative
     - 2026-06-14
-    - "\uC0BC\uC131\uC11C\uC6B8\uBCD1\uC6D0\uC9C4\uB2E8\uAC80\uC0AC\uC758\uD559\uACFC"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - CHRIS THOMAS
+    - USA
   - keys:
     - pcr_id
     - customer_id
@@ -785,16 +870,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1033
-    - 1033
+    - 43
+    - 70
     - PCR-023
     - 2026-05-24
     - Negative
     - 2026-06-14
-    - "\uD55C\uAD6D\uACF5\uD56D\uAC80\uC5ED\uBCF8\uBD80"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - PARK HAYUN
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -803,16 +890,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1034
-    - 1034
+    - 44
+    - 71
     - PCR-029
     - 2026-06-05
     - Negative
     - 2026-06-26
-    - "\uBD80\uC0B0\uAD6D\uC81C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - CHOI SUAH
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -821,16 +910,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1035
-    - 1035
+    - 45
+    - 72
     - PCR-021
     - 2026-06-05
     - Negative
     - 2026-06-26
-    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - JEONG DAEUN
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -839,16 +930,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1036
-    - 1036
+    - 46
+    - 73
     - PCR-026
     - 2026-06-02
     - Negative
     - 2026-06-16
-    - "\uC11C\uC6B8\uC2DC\uB9BD\uBCF4\uAC74\uC5F0\uAD6C\uC6D0"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - SUZUKI SORA
+    - JPN
   - keys:
     - pcr_id
     - customer_id
@@ -857,16 +950,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1038
-    - 1038
+    - 47
+    - 75
     - PCR-005
     - 2026-05-20
     - Negative
     - 2026-06-17
-    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - KANG YERIN
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -875,16 +970,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1039
-    - 1039
+    - 48
+    - 76
     - PCR-001
     - 2026-05-20
     - Negative
     - 2026-06-20
-    - "\uD55C\uAD6D\uACF5\uD56D\uAC80\uC5ED\uBCF8\uBD80"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - JO YUJIN
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -893,16 +990,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1043
-    - 1043
+    - 49
+    - 80
     - PCR-ES-2024A
     - 2025-06-26
-    - "\uC74C\uC131"
+    - Negative
     - 2025-06-29
-    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uB9C8\uB9AC\uC544 \uC815\uC0C1 \uC74C\uC131"
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - ANDREW WHITE
+    - USA
   - keys:
     - pcr_id
     - customer_id
@@ -911,16 +1010,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1045
-    - 1045
+    - 50
+    - 82
     - PCR-021
     - 2026-06-05
     - Negative
     - 2026-06-26
-    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - HAN JIA
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -929,16 +1030,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1046
-    - 1046
+    - 51
+    - 83
     - PCR-028
     - 2026-05-30
     - Negative
     - 2026-06-20
-    - "\uC5F0\uC138\uB300\uD559\uAD50\uC758\uB8CC\uC6D0\uAC80\uC0AC\uC13C\uD130"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - OH NAEUN
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -947,16 +1050,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1047
-    - 1047
+    - 52
+    - 84
     - PCR-012
     - 2026-05-28
     - Negative
     - 2026-06-18
-    - "\uC0BC\uC131\uC11C\uC6B8\uBCD1\uC6D0\uC9C4\uB2E8\uAC80\uC0AC\uC758\uD559\uACFC"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - SEO HARIN
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -965,16 +1070,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1051
-    - 1051
+    - 53
+    - 88
     - PCR-023
     - 2026-05-24
     - Negative
     - 2026-06-14
-    - "\uD55C\uAD6D\uACF5\uD56D\uAC80\uC5ED\uBCF8\uBD80"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - KWON SEOYUN
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -983,16 +1090,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1052
-    - 1052
+    - 54
+    - 89
     - PCR-026
     - 2026-06-02
     - Negative
     - 2026-06-16
-    - "\uC11C\uC6B8\uC2DC\uB9BD\uBCF4\uAC74\uC5F0\uAD6C\uC6D0"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - TAKAHASHI RIKU
+    - JPN
   - keys:
     - pcr_id
     - customer_id
@@ -1001,16 +1110,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1053
-    - 1053
+    - 55
+    - 90
     - PCR-029
     - 2026-06-05
     - Negative
     - 2026-06-26
-    - "\uBD80\uC0B0\uAD6D\uC81C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - HWANG MINSEO
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -1019,16 +1130,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1054
-    - 1054
+    - 56
+    - 91
     - PCR-021
     - 2026-06-05
     - Negative
     - 2026-06-26
-    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
+    - BAE EUNSEO
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -1037,16 +1150,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1055
-    - 1055
+    - 57
+    - 92
     - PCR-027
     - 2026-05-20
     - Negative
     - 2026-06-17
-    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uC9C8\uBCD1\uAD00\uB9AC\uCCAD\uC9C4\uB2E8\uAC80\uC0AC\uC13C\uD130"
+    - XU FENG
+    - CHN
   - keys:
     - pcr_id
     - customer_id
@@ -1055,16 +1170,18 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1056
-    - 1056
+    - 58
+    - 93
     - PCR-001
     - 2026-05-20
     - Negative
     - 2026-06-20
-    - "\uD55C\uAD6D\uACF5\uD56D\uAC80\uC5ED\uBCF8\uBD80"
-    - "\uC815\uC0C1 PCR(\uC74C\uC131)"
+    - "\uAD6D\uB9BD\uAC80\uC5ED\uC18C"
+    - MOON JIYU
+    - KOR
   - keys:
     - pcr_id
     - customer_id
@@ -1073,13 +1190,15 @@ MonoBehaviour:
     - result
     - valid_until
     - lab_name
-    - memo
+    - name
+    - nationality
     values:
-    - 1060
-    - 1060
+    - 59
+    - 97
     - PCR-ES-2024A
     - 2025-06-26
-    - "\uC74C\uC131"
+    - Negative
     - 2025-06-29
     - "\uC778\uCC9C\uACF5\uD56D\uAC80\uC5ED\uC18C"
-    - "\uB9C8\uB9AC\uC544 \uC815\uC0C1 \uC74C\uC131"
+    - EMILY CLARK
+    - USA

@@ -23,14 +23,14 @@ MonoBehaviour:
   - key: mode
     label: "\uBAA8\uB4DC"
     type: varchar(20)
-  - key: alt_name
-    label: "\uC704\uC7A5\uC774\uB984"
+  - key: name
+    label: "\uC774\uB984"
     type: varchar(40)
-  - key: alt_birth
-    label: "\uC704\uC7A5\uC0DD\uB144\uC6D4\uC77C"
+  - key: birth
+    label: "\uC0DD\uB144\uC6D4\uC77C"
     type: varchar(20)
-  - key: alt_nationality
-    label: "\uC704\uC7A5\uAD6D\uC801"
+  - key: nationality
+    label: "\uAD6D\uC801"
     type: varchar(20)
   - key: criminal_record
     label: "\uBC94\uC8C4\uAE30\uB85D"
@@ -43,9 +43,9 @@ MonoBehaviour:
     - fingerprint_id
     - customer_id
     - mode
-    - alt_name
-    - alt_birth
-    - alt_nationality
+    - name
+    - birth
+    - nationality
     - criminal_record
     - wanted_no
     values:
@@ -61,9 +61,9 @@ MonoBehaviour:
     - fingerprint_id
     - customer_id
     - mode
-    - alt_name
-    - alt_birth
-    - alt_nationality
+    - name
+    - birth
+    - nationality
     - criminal_record
     - wanted_no
     values:
@@ -79,9 +79,9 @@ MonoBehaviour:
     - fingerprint_id
     - customer_id
     - mode
-    - alt_name
-    - alt_birth
-    - alt_nationality
+    - name
+    - birth
+    - nationality
     - criminal_record
     - wanted_no
     values:
@@ -97,9 +97,9 @@ MonoBehaviour:
     - fingerprint_id
     - customer_id
     - mode
-    - alt_name
-    - alt_birth
-    - alt_nationality
+    - name
+    - birth
+    - nationality
     - criminal_record
     - wanted_no
     values:
@@ -115,14 +115,14 @@ MonoBehaviour:
     - fingerprint_id
     - customer_id
     - mode
-    - alt_name
-    - alt_birth
-    - alt_nationality
+    - name
+    - birth
+    - nationality
     - criminal_record
     - wanted_no
     values:
-    - 1011
-    - 1011
+    - 5
+    - 48
     - "\uC131\uD615"
     - "\uBC15\uB3C4\uC724"
     - 1995-02-18
@@ -133,14 +133,14 @@ MonoBehaviour:
     - fingerprint_id
     - customer_id
     - mode
-    - alt_name
-    - alt_birth
-    - alt_nationality
+    - name
+    - birth
+    - nationality
     - criminal_record
     - wanted_no
     values:
-    - 1027
-    - 1027
+    - 6
+    - 64
     - "\uC131\uD615"
     - "\uC724\uD558\uB298"
     - 1996-12-01
@@ -151,14 +151,14 @@ MonoBehaviour:
     - fingerprint_id
     - customer_id
     - mode
-    - alt_name
-    - alt_birth
-    - alt_nationality
+    - name
+    - birth
+    - nationality
     - criminal_record
     - wanted_no
     values:
-    - 1031
-    - 1031
+    - 7
+    - 68
     - "\uC131\uD615"
     - "\uBC15\uB3C4\uC724"
     - 1995-02-18
@@ -169,14 +169,14 @@ MonoBehaviour:
     - fingerprint_id
     - customer_id
     - mode
-    - alt_name
-    - alt_birth
-    - alt_nationality
+    - name
+    - birth
+    - nationality
     - criminal_record
     - wanted_no
     values:
-    - 1035
-    - 1035
+    - 8
+    - 72
     - "\uC131\uD615"
     - "\uAC15\uBBFC\uD638"
     - 1994-03-09
@@ -187,14 +187,14 @@ MonoBehaviour:
     - fingerprint_id
     - customer_id
     - mode
-    - alt_name
-    - alt_birth
-    - alt_nationality
+    - name
+    - birth
+    - nationality
     - criminal_record
     - wanted_no
     values:
-    - 1042
-    - 1042
+    - 9
+    - 79
     - "\uC131\uD615"
     - "\uC724\uD558\uB298"
     - 1996-12-01
@@ -205,14 +205,14 @@ MonoBehaviour:
     - fingerprint_id
     - customer_id
     - mode
-    - alt_name
-    - alt_birth
-    - alt_nationality
+    - name
+    - birth
+    - nationality
     - criminal_record
     - wanted_no
     values:
-    - 1045
-    - 1045
+    - 10
+    - 82
     - "\uC131\uD615"
     - "\uAC15\uBBFC\uD638"
     - 1994-03-09
@@ -223,14 +223,14 @@ MonoBehaviour:
     - fingerprint_id
     - customer_id
     - mode
-    - alt_name
-    - alt_birth
-    - alt_nationality
+    - name
+    - birth
+    - nationality
     - criminal_record
     - wanted_no
     values:
-    - 1047
-    - 1047
+    - 11
+    - 84
     - "\uC131\uD615"
     - "\uBC15\uB3C4\uC724"
     - 1995-02-18
@@ -241,14 +241,14 @@ MonoBehaviour:
     - fingerprint_id
     - customer_id
     - mode
-    - alt_name
-    - alt_birth
-    - alt_nationality
+    - name
+    - birth
+    - nationality
     - criminal_record
     - wanted_no
     values:
-    - 1054
-    - 1054
+    - 12
+    - 91
     - "\uC131\uD615"
     - "\uAC15\uBBFC\uD638"
     - 1994-03-09
@@ -259,14 +259,14 @@ MonoBehaviour:
     - fingerprint_id
     - customer_id
     - mode
-    - alt_name
-    - alt_birth
-    - alt_nationality
+    - name
+    - birth
+    - nationality
     - criminal_record
     - wanted_no
     values:
-    - 1059
-    - 1059
+    - 13
+    - 96
     - "\uC131\uD615"
     - "\uC724\uD558\uB298"
     - 1996-12-01

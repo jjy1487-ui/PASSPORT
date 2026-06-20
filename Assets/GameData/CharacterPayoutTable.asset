@@ -1104,7 +1104,7 @@ MonoBehaviour:
     - -80
     - "160 \xD7 (-0.5)"
     - 
-    - 
+    - "#12"
     - true
     - 
   - keys:
@@ -1134,7 +1134,7 @@ MonoBehaviour:
     - 350
     - "\uB9C8\uC57D\xB7\uBC00\uC218\uD488"
     - "\uB9C8\uC57D"
-    - '#12'
+    - 
     - false
     - "#12 \uBC1C\uB3D9"
   - keys:
@@ -1917,3 +1917,63 @@ MonoBehaviour:
     - 
     - false
     - "\uB2E8\uC21C \uD1B5\uACFC"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 63
+    - "\uBC94\uC8C4\uC790(\uB9C8\uC57D \uBC94\uC8C4\uC790)"
+    - 
+    - defect
+    - 
+    - detect_montage_reject
+    - 160
+    - 80
+    - 240
+    - "160 + 80 \uD3EC\uC0C1\uAE08"
+    - 
+    - 
+    - true
+    - "\uC801\uBC1C \uC815\uB2F5"
+  - keys:
+    - payout_id
+    - character_type
+    - visit_round
+    - doc_state
+    - defect_variant
+    - branch_key
+    - base_tier
+    - bounty
+    - payout
+    - formula
+    - item_drop
+    - early_ending
+    - appears_round1
+    - note
+    values:
+    - 64
+    - "\uBC94\uC8C4\uC790(\uB9C8\uC57D \uBC94\uC8C4\uC790)"
+    - 
+    - defect
+    - 
+    - corrupt_accept_gold
+    - 160
+    - 80
+    - 500
+    - "\uAE08\uAD34"
+    - "\uAE08\uAD34"
+    - '#11'
+    - false
+    - "#11 \uBC1C\uB3D9"

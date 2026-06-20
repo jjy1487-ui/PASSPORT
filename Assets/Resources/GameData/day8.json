@@ -640,7 +640,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -680,7 +680,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -932,7 +932,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Best of luck with your studies!"
+       "text": "즐거운 여행 되십시오."
       },
       {
        "order": 2,
@@ -1254,7 +1254,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -1294,7 +1294,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -1699,7 +1699,7 @@
    "newsId": 8,
    "title": "\"한국에서 일하고 싶습니다\" 취업 비자 신청 증가",
    "content": "국내 기업들의 해외 인재 채용 확대에 따라 취업 비자 신청 건수가 꾸준히 증가하고 있다. 특히 전문 기술 인력을 중심으로 한국 취업을 희망하는 외국인들의 문의가 이어지고 있으며 해외 취업 설명회도 활발하게 진행되고 있다.",
-   "iconRef": null,
+   "iconRef": "News10",
    "claims": []
   }
  ]

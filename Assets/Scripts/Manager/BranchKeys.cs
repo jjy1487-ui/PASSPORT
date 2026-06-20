@@ -77,5 +77,7 @@ public static class EventIds
     public const string CultBrainwash    = "#13"; // 사이비 포교 성공(즉시)
     public const string CultFollower     = "#14"; // 사이비 추종(즉시)
     public const string QuarantineFail   = "#15"; // 방역 실패 누적
-    public const string OverstayApprove  = "#16"; // 출국X 입국 누적
+    public const string OverstayApprove  = "#16"; // 등잔 밑이 어둡다: 외국인 결함 오승인 누적
+    public const string UnfitJob         = "#18"; // 자넨 적성에 안 맞는 것 같네: 단일 일자 오판 4명+(1~3일) 즉시
+    public const string TerrorBomb       = "#TERROR_BOMB"; // 퍼엉!(테러범 시한폭탄 투척) 즉시 엔딩 — 숫자id 비충돌용 전용 키
 }

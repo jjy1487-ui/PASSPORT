@@ -123,22 +123,130 @@
       {
        "order": 1,
        "speaker": "존 카터",
-       "text": "Morning. Just here on business — nothing to declare. (안녕하세요. 사업차 왔어요. 신고할 것도 없고요.)"
+       "text": "Morning, officer. (여유로운 미소로 여권을 내민다.)"
       },
       {
        "order": 2,
        "speaker": "심사관",
-       "text": "요즘 보안이 강화돼서, 오늘부터 수하물도 X-ray로 함께 봅니다. 가방 좀 올려주시겠어요?"
+       "text": "안녕하세요. 입국 목적이 어떻게 되십니까?"
       },
       {
        "order": 3,
        "speaker": "존 카터",
-       "text": "Oh. Sure, of course. (아… 네, 그럼요.)"
+       "text": "Business. Import-export, mostly. I come through here a couple times a year. (사업이요. 주로 수출입. 일 년에 두어 번씩 옵니다.)"
+      },
+      {
+       "order": 4,
+       "speaker": "심사관",
+       "text": "머무시는 기간은요?"
+      },
+      {
+       "order": 5,
+       "speaker": "존 카터",
+       "text": "Three days, four at most. In and out. (사흘, 길어야 나흘. 금방 나가요.)"
+      },
+      {
+       "order": 6,
+       "speaker": "심사관",
+       "text": "신고하실 물품 있으십니까?"
+      },
+      {
+       "order": 7,
+       "speaker": "존 카터",
+       "text": "No, nothing. Just personal belongings. (없어요. 그냥 개인 소지품이에요.)"
+      },
+      {
+       "order": 8,
+       "speaker": "심사관",
+       "text": "…눈을 잘 안 마주치시네요. 안색도 좀 안 좋으시고."
+      },
+      {
+       "order": 9,
+       "speaker": "존 카터",
+       "text": "(살짝 웃으며) Ha. Long flight, that's all. Just tired. (하하, 긴 비행이라요. 좀 피곤할 뿐이에요.)"
+      },
+      {
+       "order": 10,
+       "speaker": "심사관",
+       "text": "손도 떨고 계시는군요. 긴장되는 일이라도 있으십니까?"
+      },
+      {
+       "order": 11,
+       "speaker": "존 카터",
+       "text": "Not at all. Nothing strange about it. (전혀요. 이상할 거 없어요.)"
+      },
+      {
+       "order": 12,
+       "speaker": "심사관",
+       "text": "오늘부터 전신 X-ray 검색이 있습니다. 검색대로 들어가 주시겠어요?"
+      },
+      {
+       "order": 13,
+       "speaker": "존 카터",
+       "text": "(잠깐 멈칫) …X-ray? Is that really necessary? I'm in a bit of a hurry. (…그게 꼭 필요해요? 제가 좀 급해서.)"
+      },
+      {
+       "order": 14,
+       "speaker": "심사관",
+       "text": "전원 필수입니다. 잠깐이면 됩니다."
+      },
+      {
+       "order": 15,
+       "speaker": "존 카터",
+       "text": "(마지못해) …Fine. Sure. No problem at all. (…알았어요. 그럼요. 전혀 문제없어요.)"
+      }
+     ]
+    },
+    {
+     "caseType": "검사후",
+     "gameResult": "-",
+     "rejectCount": 0,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "(화면을 보다 멈칫) …잠깐. 가슴 쪽에 신고되지 않은 물품이… 몸 곳곳에 잡히는데요. 이거 뭡니까?",
+       "claim": {
+        "attr": "contraband",
+        "value": "밀수품",
+        "label": "X-ray 적발물",
+        "unlocksScan": ""
+       }
+      },
+      {
+       "order": 2,
+       "speaker": "존 카터",
+       "text": "(표정이 굳는다) That's— ...wait. (그건— …잠깐.)"
+      },
+      {
+       "order": 3,
+       "speaker": "존 카터",
+       "text": "(말문이 막혀 한숨을 쉬고는 목소리를 낮춘다) ...Okay. Look. (…좋아요. 잠깐 들어봐요.)"
       },
       {
        "order": 4,
        "speaker": "존 카터",
-       "text": "Here's my passport. Please make it quick. (여권 여기 있어요. 빨리 좀 부탁드려요.)"
+       "text": "We're both adults here. Let's be smart about this. (우리 둘 다 어른이잖아요. 똑똑하게 갑시다.)"
+      },
+      {
+       "order": 5,
+       "speaker": "존 카터",
+       "text": "(주머니에서 묵직한 것을 꺼내 보인다) You see this? A gold bullion. Pure gold, the real thing. (이거 보여요? 금괴예요. 순금, 진짜배기.)"
+      },
+      {
+       "order": 6,
+       "speaker": "존 카터",
+       "text": "That's more than you make in a year. Maybe two. (당신 일 년 연봉보다 많아요. 어쩌면 이 년치.)"
+      },
+      {
+       "order": 7,
+       "speaker": "존 카터",
+       "text": "Just take one and close your eyes. No one will ever know. (딱 하나만 가지고 눈 감아요. 아무도 모릅니다.)"
+      },
+      {
+       "order": 8,
+       "speaker": "존 카터",
+       "text": "You didn't see anything. I was never here. Easy. (아무것도 못 봤어요. 난 여기 온 적도 없고. 간단하죠.)"
       }
      ]
     },
@@ -167,7 +275,27 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "X-ray 검사에서 밀수품이 적발되었습니다. 입국하실 수 없습니다.",
+       "text": "…손 치우세요. 뇌물은 받지 않습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "존 카터",
+       "text": "Come on. Don't be like that. Everyone's got a price. (이봐요. 그러지 말아요. 다 가격이 있는 거예요.)"
+      },
+      {
+       "order": 3,
+       "speaker": "심사관",
+       "text": "제 가격은 없습니다. 보안팀, 이쪽으로 와주세요."
+      },
+      {
+       "order": 4,
+       "speaker": "존 카터",
+       "text": "(당황) Wait— wait, let's talk. Two bullions. Three! (잠깐— 잠깐, 얘기 좀 해요. 두 개. 세 개 줄게요!)"
+      },
+      {
+       "order": 5,
+       "speaker": "심사관",
+       "text": "밀수품 소지 및 공무원 매수 시도로 입국이 거부됩니다.",
        "claim": {
         "attr": "contraband",
         "value": "밀수품",
@@ -176,26 +304,41 @@
        }
       },
       {
-       "order": 2,
+       "order": 6,
        "speaker": "존 카터",
-       "text": "Sorry about that, I'll sort it out. (죄송해요, 제가 정리하겠습니다.)"
+       "text": "(끌려가며) You'll regret this. (…이거, 후회하게 될 거야.)"
       }
      ]
     },
     {
-     "caseType": "일반 심사",
-     "gameResult": "잘못 허가",
+     "caseType": "뇌물 수락",
+     "gameResult": "-",
      "rejectCount": 0,
      "lines": [
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "서류 검토 결과 입국이 어렵습니다."
+       "text": "(주위를 한 번 둘러보고 금괴를 슬쩍 챙긴다) …시시한 물건이었으면 가만 안 뒀어."
       },
       {
        "order": 2,
        "speaker": "존 카터",
-       "text": "...Thank you. (서둘러 이동한다.) (...감사합니다.)"
+       "text": "(안도하며 씩 웃는다) See? That wasn't so hard. Smart man. (거 봐요. 어렵지 않잖아요. 현명한 양반이네.)"
+      },
+      {
+       "order": 3,
+       "speaker": "심사관",
+       "text": "(도장을 찍는다) 빨리 가세요. 다음 사람 오기 전에."
+      },
+      {
+       "order": 4,
+       "speaker": "존 카터",
+       "text": "Always a pleasure doing business with reasonable people. (말 통하는 사람이랑 거래하는 건 늘 즐겁죠.)"
+      },
+      {
+       "order": 5,
+       "speaker": "존 카터",
+       "text": "(지나가며 낮게) …I'll be back next month. Same time. (…다음 달에 또 올게요. 같은 시간에.)"
       }
      ]
     },
@@ -219,6 +362,12 @@
    ],
    "rejectAdvancedBranchKey": "",
    "rejectGuidedCaseType": "",
+   "bribeOnReject": true,
+   "bribeRefuseBranchKey": "detect_montage_reject",
+   "bribeAcceptBranchKey": "corrupt_accept_gold",
+   "bribeApproveBranchKey": "approve_wrong_no_montage",
+   "bribeRefuseCaseType": "",
+   "bribeAcceptCaseType": "뇌물 수락",
    "autoScanOnEntry": true,
    "xray": {
     "type": "xray",
@@ -313,12 +462,12 @@
       {
        "order": 3,
        "speaker": "심사관",
-       "text": "네, 오늘부터 수하물도 X-ray로 함께 봅니다. 가방 올려주시겠어요?"
+       "text": "네, 오늘부터 전신 X-ray 검색을 함께 합니다. 검색대로 들어가 주시겠어요?"
       },
       {
        "order": 4,
        "speaker": "조유진",
-       "text": "네, 여기요."
+       "text": "네, 통과할게요."
       }
      ]
     },
@@ -535,12 +684,12 @@
       {
        "order": 3,
        "speaker": "심사관",
-       "text": "오늘부터 수하물도 X-ray 검사를 합니다. 가방 올려주세요."
+       "text": "오늘부터 전신 X-ray 검색을 합니다. 검색대를 통과해 주세요."
       },
       {
        "order": 4,
        "speaker": "자오 친",
-       "text": "好的。(네, 여기요.)"
+       "text": "好的，我过去。(네, 통과할게요.)"
       }
      ]
     },
@@ -552,7 +701,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -592,7 +741,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -651,7 +800,7 @@
    "spriteRef": "윤정호",
    "characterType": "특수(정치인)★",
    "defectVariant": "",
-   "correctResult": "정상 승인",
+   "correctResult": "정상 거절",
    "documents": [
     {
      "documentType": "여권",
@@ -707,56 +856,109 @@
       {
        "order": 1,
        "speaker": "윤정호",
-       "text": "안녕하세요. 외교 일정 마치고 왔는데, 요즘 입국 목적이 다양해졌다고 들었습니다. 여권 드리겠습니다."
+       "text": "수고들 많으십니다. (느긋하게) 윤정호요. 외교 일정 마치고 들어가려는데."
       },
       {
        "order": 2,
        "speaker": "윤정호",
-       "text": "(수행원이 대신 서류를 내밀며) 의원님 일정이 빠듯하오. 신속히 처리해 주시오."
+       "text": "오래 안 걸리죠? 위에서 기다리는 사람들이 많아서. (여권을 내려놓는다)"
       },
       {
        "order": 3,
        "speaker": "심사관",
-       "text": "의원님께도 동일하게 적용됩니다. 오늘부터 수하물 X-ray 검사가 있습니다. 가방 올려주시겠어요?"
+       "text": "의원님, 오늘부터 전원 전신 X-ray 검색을 받으셔야 합니다. 검색대로 들어가 주시겠습니까?"
       },
       {
        "order": 4,
        "speaker": "윤정호",
-       "text": "(수행원이 가방을 올리며) 의원님 짐이오. 신속히 부탁하오."
-      }
-     ]
-    },
-    {
-     "caseType": "일반 심사",
-     "gameResult": "정상 승인",
-     "rejectCount": 0,
-     "lines": [
-      {
-       "order": 1,
-       "speaker": "심사관",
-       "text": "성공적인 회담 되십시오, 의원님."
-      },
-      {
-       "order": 2,
-       "speaker": "윤정호",
-       "text": "감사합니다! 수고 많으세요."
+       "text": "(손을 휘저으며) 됐소, 됐어. 나 같은 사람을 뭘 검사를 해. 그런 건 생략하고 빨리 진행합시다.",
+       "claim": {
+        "attr": "xray",
+        "value": "",
+        "label": "전신 검색 거부",
+        "unlocksScan": ""
+       }
       }
      ]
     },
     {
      "caseType": "일반 심사",
      "gameResult": "정상 거절",
-     "rejectCount": 0,
+     "rejectCount": 1,
      "lines": [
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "서류 항목에 문제가 있습니다. 입국은 어렵습니다."
+       "text": "의원님, 전신 X-ray 검색은 오늘부터 예외 없이 전원 필수입니다. 거부하시면 입국이 불가합니다."
       },
       {
        "order": 2,
        "speaker": "윤정호",
-       "text": "저 분명히 제대로 챙겨왔는데요."
+       "text": "허, 이 사람 보게. 내가 무슨 밀수꾼이라도 되나? 그냥 좀 넘어갑시다."
+      },
+      {
+       "order": 3,
+       "speaker": "심사관",
+       "text": "규정상 검사를 거부하시면 입국하실 수 없습니다."
+      },
+      {
+       "order": 4,
+       "speaker": "윤정호",
+       "text": "거참 융통성하고는. 나 윤정호요. 이런 걸로 사람 붙잡는 거 아니야."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 거절",
+     "rejectCount": 2,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "검사에 응하지 않으시면 입국을 허가할 수 없습니다."
+      },
+      {
+       "order": 2,
+       "speaker": "윤정호",
+       "text": "(눈썹을 치켜올리며) 자네, 지금 내가 누군지 알고 이러는 건가?"
+      },
+      {
+       "order": 3,
+       "speaker": "심사관",
+       "text": "규정은 누구에게나 동일합니다. 검색을 받으시거나, 돌아가셔야 합니다."
+      },
+      {
+       "order": 4,
+       "speaker": "윤정호",
+       "text": "허, 내가 위에 한마디만 하면 자네 자리가 어떻게 될지 모르는데 말이야."
+      }
+     ]
+    },
+    {
+     "caseType": "일반 심사",
+     "gameResult": "정상 거절",
+     "rejectCount": 3,
+     "lines": [
+      {
+       "order": 1,
+       "speaker": "심사관",
+       "text": "마지막입니다. 검사 거부 시 입국 불가입니다."
+      },
+      {
+       "order": 2,
+       "speaker": "윤정호",
+       "text": "(언성을 높이며) 내가 누군지 알고 이러나?! 윗선에 얘기 들어가면 자네 하나 날리는 건 일도 아니야!"
+      },
+      {
+       "order": 3,
+       "speaker": "심사관",
+       "text": "그러셔도 규정은 바뀌지 않습니다. 검사를 거부하셨으므로 입국은 거부됩니다."
+      },
+      {
+       "order": 4,
+       "speaker": "윤정호",
+       "text": "…좋아. 두고 보지. 이 일, 절대 그냥 안 넘어갈 줄 알아. (씩씩대며 돌아선다)"
       }
      ]
     },
@@ -768,29 +970,12 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "확인 완료되었습니다. 지나가셔도 됩니다."
+       "text": "…입국 허가합니다. 들어가십시오."
       },
       {
        "order": 2,
        "speaker": "윤정호",
-       "text": "감사합니다! 수고 많으세요."
-      }
-     ]
-    },
-    {
-     "caseType": "일반 심사",
-     "gameResult": "잘못 거절",
-     "rejectCount": 0,
-     "lines": [
-      {
-       "order": 1,
-       "speaker": "심사관",
-       "text": "죄송합니다. 좀 걸리는 부분이 있어서… 이번엔 입국이 어렵겠습니다."
-      },
-      {
-       "order": 2,
-       "speaker": "윤정호",
-       "text": "저 분명히 제대로 챙겨왔는데요."
+       "text": "그럼 그렇지. 진작 그럴 것이지. (거드름 피우며 지나간다)"
       }
      ]
     }
@@ -805,7 +990,9 @@
     "extra": "",
     "claim": null
    },
-   "fingerprint": null
+   "fingerprint": null,
+   "skipAutoScan": true,
+   "crossCheckLines": []
   },
   {
    "customerId": 79,
@@ -880,12 +1067,12 @@
       {
        "order": 2,
        "speaker": "심사관",
-       "text": "본인 확인 전에, 오늘부터 수하물도 X-ray로 함께 봅니다. 가방 올려주시겠어요?"
+       "text": "본인 확인 전에, 오늘부터 전신 X-ray 검색을 함께 합니다. 검색대로 들어가 주시겠어요?"
       },
       {
        "order": 3,
        "speaker": "장소율",
-       "text": "네, 올릴게요."
+       "text": "네, 들어갈게요."
       }
      ]
     },
@@ -1060,7 +1247,7 @@
        {
         "order": 2,
         "speaker": "심사관",
-        "text": "본인 확인 전에, 오늘부터 수하물도 X-ray로 함께 봅니다. 가방 올려주시겠어요?"
+        "text": "본인 확인 전에, 오늘부터 전신 X-ray 검색을 함께 합니다. 검색대로 들어가 주시겠어요?"
        },
        {
         "order": 3,
@@ -1321,12 +1508,12 @@
       {
        "order": 3,
        "speaker": "심사관",
-       "text": "오늘부터 수하물 X-ray 검사가 있습니다. 가방 올려주시겠어요?"
+       "text": "오늘부터 전신 X-ray 검색이 있습니다. 검색대로 들어가 주시겠어요?"
       },
       {
        "order": 4,
        "speaker": "앤드류 화이트",
-       "text": "Sure, here you go. (네, 여기요.)"
+       "text": "Sure, I'll go through. (네, 통과할게요.)"
       }
      ]
     },
@@ -1338,7 +1525,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -1372,7 +1559,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -1580,7 +1767,13 @@
       {
        "order": 1,
        "speaker": "천 징",
-       "text": "您好。听说机场在查什么。我是来探亲的，应该没关系吧？ (조심스럽게) (안녕하세요. 공항에서 뭔가 조사한다는 얘기 들었어요. 저는 친척 방문이라 별 관계 없겠죠?)"
+       "text": "您好。听说机场在查什么。我是来工作的，应该没关系吧？ (조심스럽게) (안녕하세요. 공항에서 뭔가 조사한다는 얘기 들었어요. 저는 일하러 온 거라 별 문제 없겠죠?)",
+       "claim": {
+        "attr": "visa_type",
+        "value": "취업",
+        "label": "방문 목적(진술)",
+        "unlocksScan": ""
+       }
       },
       {
        "order": 2,
@@ -1590,12 +1783,12 @@
       {
        "order": 3,
        "speaker": "심사관",
-       "text": "오늘부터 수하물도 X-ray 검사를 합니다. 가방 올려주세요. 금방 끝납니다."
+       "text": "오늘부터 전신 X-ray 검색을 합니다. 검색대를 통과해 주세요. 금방 끝납니다."
       },
       {
        "order": 4,
        "speaker": "천 징",
-       "text": "好的，给您。(네, 드릴게요.)"
+       "text": "好的，我这就过去。(네, 바로 통과할게요.)"
       }
      ]
     },
@@ -1607,12 +1800,12 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Best of luck with your studies!"
+       "text": "즐거운 여행 되십시오."
       },
       {
        "order": 2,
        "speaker": "천 징",
-       "text": "谢谢，我会好好的。 (감사합니다. 잘 다녀오겠습니다.)"
+       "text": "谢谢！祝您愉快！(감사합니다! 좋은 하루 되세요!)"
       }
      ]
     },
@@ -1624,13 +1817,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "이전 출국 기록이 확인되지 않아 입국하실 수 없습니다.",
-       "claim": {
-        "attr": "company_name",
-        "value": "",
-        "label": "고용 회사 불일치",
-        "unlocksScan": ""
-       }
+       "text": "이전 출국 기록이 확인되지 않아 입국하실 수 없습니다."
       },
       {
        "order": 2,
@@ -1647,12 +1834,12 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Best of luck with your studies!"
+       "text": "즐거운 여행 되십시오."
       },
       {
        "order": 2,
        "speaker": "천 징",
-       "text": "谢谢，我会好好的。 (감사합니다. 잘 다녀오겠습니다.)"
+       "text": "谢谢！祝您愉快！(감사합니다! 좋은 하루 되세요!)"
       }
      ]
     },
@@ -1695,6 +1882,15 @@
    "relatedField": "",
    "attr": "",
    "coveredAttrs": "contraband"
+  },
+  {
+   "ruleId": 5,
+   "title": "전신 검색 거부 시 입국 불가",
+   "content": "전신 X-ray 검색은 전원 필수이며, 검색을 거부하는 입국자는 입국을 거부한다.",
+   "relatedField": "",
+   "attr": "xray",
+   "endDay": 0,
+   "coveredAttrs": "xray"
   }
  ],
  "news": [
@@ -1702,29 +1898,15 @@
    "newsId": 11,
    "title": "국제 공조 수사 확대 감시 대상 이동 정황 확인",
    "content": "국제 수사기관들이 공조 수사를 확대하는 가운데 특정 감시 대상의 이동 정황이 확인 된 것으로 알려졌다. 관계 기관은 관련 정보를 공유하며 이동 경로를 추적하고 있으나 구체적인 위험 징후는 확인되지 않았다고 밝혔다.",
-   "iconRef": null,
+   "iconRef": "News13",
    "claims": []
   },
   {
    "newsId": 12,
    "title": "국제 평화 포럼 서울 개최 세계 각국 주요 인사 집결",
    "content": "서울에서 열리는 국제 평화 포럼에 세계 각국의 정치인과 정부 관계자들이 참석할 예정이다. 행사 준비를 위해 도심 주요 시설에 대한 안전 점검과 경계 활동도 함께 진행되고 있는 것으로 알려졌다.",
-   "iconRef": null,
+   "iconRef": "News14",
    "claims": []
-  },
-  {
-   "newsId": 911000,
-   "title": "[속보] 위험물 반입 경보",
-   "content": "보안 강화 조치에 따라 모든 입국자의 수하물을 X-ray로 정밀 검사합니다. 폭발물·마약·밀수품 등 금지 물품이 적발되면 입국이 거부됩니다.",
-   "iconRef": "",
-   "claims": [
-    {
-     "attr": "contraband",
-     "value": "",
-     "label": "위험물 반입 주의",
-     "unlocksScan": ""
-    }
-   ]
   }
  ]
 }

@@ -45,6 +45,13 @@ public sealed class AmbienceManager : MonoBehaviour
         if (_instance == this) SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    /// <summary>엔딩 컷씬 등에서 군중 앰비언스를 즉시 멈춘다(다음 씬 로드 시 규칙대로 재평가됨).</summary>
+    public static void Suspend()
+    {
+        if (_instance != null && _instance._src != null && _instance._src.isPlaying)
+            _instance._src.Stop();
+    }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) => ApplyForScene(scene.name);
 
     /// <summary>심사(게임플레이) 씬이면 (이미 재생 중이 아닐 때만) 재생, 아니면 정지.</summary>

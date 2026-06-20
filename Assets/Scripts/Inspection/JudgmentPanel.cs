@@ -45,6 +45,14 @@ public sealed class JudgmentPanel : MonoBehaviour
         if (_sfx == null) _sfx = gameObject.AddComponent<AudioSource>();
         _sfx.playOnAwake = false;
         _sfx.spatialBlend = 0f;
+
+        // 도장 패널을 X-ray 위로 올린다(overrideSorting). X-ray 가 Open 시 SetAsLastSibling(소팅값 없음=0)으로
+        // 맨 앞에 와서 도장 버튼을 가리던 문제 해결 → 도장은 X-ray(0)보다 위(30), 뉴스/규정집 팝업(50)보다 아래.
+        Canvas canvas = GetComponent<Canvas>();
+        if (canvas == null) canvas = gameObject.AddComponent<Canvas>();
+        canvas.overrideSorting = true;
+        canvas.sortingOrder = 30;
+        if (GetComponent<GraphicRaycaster>() == null) gameObject.AddComponent<GraphicRaycaster>();
         // (도장 크기는 Awake 에서 강제 적용하지 않는다 — 그러면 수동으로 옮기거나 키운 도장이 플레이마다
         //  _stampSize 값으로 덮어써져 "되돌아감". 크기 조절은 에디터에서 OnValidate 로만 반영(아래) → 직렬화 값이 유지됨.)
         ResetForNextCustomer(false);

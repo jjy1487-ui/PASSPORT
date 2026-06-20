@@ -1341,7 +1341,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -1375,7 +1375,7 @@
       {
        "order": 1,
        "speaker": "심사관",
-       "text": "Have a pleasant trip!"
+       "text": "즐거운 여행 되세요!"
       },
       {
        "order": 2,
@@ -2069,7 +2069,7 @@
    "newsId": 7,
    "title": "장기화되는 검역 체계 현장 피로 누적 우려",
    "content": "감염병 확산 방지를 위한 검역 절차가 장기간 이어지면서 관련 기관과 현장 인력의 피로 누적에 대한 우려가 나오고 있다. 보건 당국은 현재 대응 체계를 유지하고 있으며 해외 이동과 관련된 상황을 지속적으로 관찰하고 있다고 밝혔다.",
-   "iconRef": null,
+   "iconRef": "News9",
    "claims": []
   }
  ]
