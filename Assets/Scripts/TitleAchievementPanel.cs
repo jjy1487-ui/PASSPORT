@@ -1,6 +1,7 @@
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using TMPro;
 
 /// <summary>
@@ -33,7 +34,7 @@ public sealed class TitleAchievementPanel : MonoBehaviour
 
     private void Update()
     {
-        if (_shown && Input.GetKeyDown(KeyCode.Escape)) Close();
+        if (_shown && Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame) Close();
     }
 
     /// <summary>패널 열기(메인 메뉴 업적 버튼). 호칭 목록을 새로 읽어 갱신한다.</summary>

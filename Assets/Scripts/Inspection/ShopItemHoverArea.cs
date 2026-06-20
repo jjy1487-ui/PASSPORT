@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// 상점 아이템 한 칸에서 "아이콘 영역"에만 붙는 마우스오버 감지기.
@@ -31,7 +32,7 @@ public sealed class ShopItemHoverArea : MonoBehaviour, IPointerEnterHandler, IPo
         string effect = _item.EffectDescription;
         if (string.IsNullOrEmpty(effect)) return; // 설명 없으면 굳이 안 띄움
 
-        Vector2 screenPos = eventData != null ? eventData.position : (Vector2)Input.mousePosition;
+        Vector2 screenPos = eventData != null ? eventData.position : (Mouse.current != null ? Mouse.current.position.ReadValue() : Vector2.zero);
         ShopTooltip.Instance.Show(effect, screenPos);
     }
 

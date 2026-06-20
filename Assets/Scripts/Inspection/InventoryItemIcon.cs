@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// 가방(인벤토리) 한 칸. 보유 아이템 1개를 아이콘으로 표시하고, 드래그할 수 있다.
@@ -64,7 +65,7 @@ public sealed class InventoryItemIcon : MonoBehaviour,
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (!_draggable || string.IsNullOrEmpty(_description) || ShopTooltip.Instance == null) return;
-        Vector2 pos = eventData != null ? eventData.position : (Vector2)Input.mousePosition;
+        Vector2 pos = eventData != null ? eventData.position : (Mouse.current != null ? Mouse.current.position.ReadValue() : Vector2.zero);
         ShopTooltip.Instance.Show(_description, pos);
     }
 

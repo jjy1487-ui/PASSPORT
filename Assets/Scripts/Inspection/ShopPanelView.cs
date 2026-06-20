@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using TMPro;
 
 /// <summary>
@@ -96,7 +97,7 @@ public sealed class ShopPanelView : MonoBehaviour
     private void Update()
     {
         // Esc 로 닫기(UI-CONVENTIONS 1장: 닫기 단축키 Esc).
-        if (_root != null && _root.activeSelf && Input.GetKeyDown(KeyCode.Escape)) Close();
+        if (_root != null && _root.activeSelf && Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame) Close();
     }
 
     // ── 빌드/갱신 ──────────────────────────────────────────────

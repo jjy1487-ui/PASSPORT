@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 using TMPro;
 
 /// <summary>
@@ -59,7 +60,8 @@ public class PauseMenuController : MonoBehaviour
     void Update()
     {
         if (_canvas == null || !_canvas.gameObject.activeSelf) return;
-        if (Input.GetKeyDown(KeyCode.Escape))
+        var kb = Keyboard.current; // 신 Input System(이 프로젝트는 UnityEngine.Input 못 씀)
+        if (kb != null && kb.escapeKey.wasPressedThisFrame)
         {
             if (_confirmPanel != null && _confirmPanel.activeSelf) { _confirmPanel.SetActive(false); return; }
             SetPaused(!(_pausePanel != null && _pausePanel.activeSelf));
