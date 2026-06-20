@@ -45,5 +45,37 @@ public static class DevBuildScript
         else
             Debug.LogError($"[DevBuild] 실패: {s.result} (오류 {s.totalErrors}개)");
     }
+
+    // ── 유저(릴리스) 빌드: 일반 빌드라 워터마크·개발콘솔·QA토글(DEVELOPMENT_BUILD 가드)이 전부 빠진다 ──
+    private const string UserOutDir = "Build/Day1to14_Play";
+
+    [MenuItem("빌드/유저 빌드 (일반 · 디버그UI 없음)")]
+    public static void BuildUserWin64()
+    {
+        string[] scenes = EditorBuildSettings.scenes.Where(s => s.enabled).Select(s => s.path).ToArray();
+        if (scenes.Length == 0)
+        {
+            Debug.LogError("[UserBuild] Build Settings 에 활성 씬이 없습니다. 씬을 추가하세요.");
+            return;
+        }
+
+        Directory.CreateDirectory(UserOutDir);
+        string outPath = Path.Combine(UserOutDir, ExeName);
+
+        var opts = new BuildPlayerOptions
+        {
+            scenes = scenes,
+            locationPathName = outPath,
+            target = BuildTarget.StandaloneWindows64,
+            options = BuildOptions.None, // 일반 빌드: DEVELOPMENT_BUILD 미정의 → 워터마크·개발콘솔·QA토글 전부 없음
+        };
+
+        var report = BuildPipeline.BuildPlayer(opts);
+        var s = report.summary;
+        if (s.result == UnityEditor.Build.Reporting.BuildResult.Succeeded)
+            Debug.Log($"[UserBuild] 성공 → {outPath}  ({s.totalSize / (1024 * 1024)} MB)  씬 {scenes.Length}개");
+        else
+            Debug.LogError($"[UserBuild] 실패: {s.result} (오류 {s.totalErrors}개)");
+    }
 }
 #endif

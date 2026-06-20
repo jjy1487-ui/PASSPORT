@@ -268,7 +268,9 @@ public sealed class ImmigrationManager : MonoBehaviour
     }
 
     private System.Action _afterNewsAction; // 시작 뉴스 닫힘 → 실행할 다음 단계(튜토리얼 or 첫 손님)
-    private int? _pendingJumpSlot; // QA 점프로 새 일차 진입 시: 시작 시퀀스가 끝나면 이 슬롯(0-based)으로 이동
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    private int? _pendingJumpSlot; // QA 점프(DebugJumpTo) 전용: 시작 시퀀스가 끝나면 이 슬롯(0-based)으로 이동
+#endif
 
     /// <summary>하루 시작 시퀀스: (뉴스) → (1일차 튜토리얼) → (그날 신규 규정 규정집) → 첫 손님 입장.
     /// 각 단계는 '닫기'로 진행한다. 데이터/참조가 없으면 그 단계는 건너뛴다(소프트락 방지).</summary>
@@ -278,8 +280,11 @@ public sealed class ImmigrationManager : MonoBehaviour
         {
             if (inspectionController == null) return;
             inspectionController.BeginInspection();
-            // QA 점프로 들어온 경우: 시퀀스가 끝나면 사용자가 고른 슬롯으로 이동(아니면 첫 손님 유지)
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            // QA 점프(DebugJumpTo)로 들어온 경우: 시퀀스가 끝나면 고른 슬롯으로 이동.
+            // DebugJumpToSlot 은 개발빌드 전용(가드)이라 일반 빌드에선 이 블록째 컴파일 제외해야 한다.
             if (_pendingJumpSlot.HasValue) { int s = _pendingJumpSlot.Value; _pendingJumpSlot = null; inspectionController.DebugJumpToSlot(s); }
+#endif
         };
         // 튜토리얼/뉴스 다음 → 그날 새로 생긴 규정이 있으면 규정집을 한 번 보여주고 → 첫 손님
         System.Action showRulebookThenProceed = () => ShowNewRulesThen(proceed);
