@@ -150,7 +150,7 @@ public sealed class ImmigrationManager : MonoBehaviour
         //  (조기엔딩 때 DayCompletePanel 이 대신 뜨던 문제 차단).
         if (inspectionController != null) inspectionController.HaltForEnding();
         // 비활성으로 시작하는 엔딩 패널은 이벤트 구독을 못 거므로 직접 띄운다(소프트락 방지).
-        if (endingPanel != null) endingPanel.Show(e);
+        if (endingPanel != null) { endingPanel.SetTitleScene("MainMenuScene"); endingPanel.Show(e); } // 엔딩 종료 시 메인메뉴로 복귀
         OnEndingResolved?.Invoke(e);
         // 엔딩 화면 전환은 UI(3단계) 가 OnEndingResolved 를 구독해 처리한다.
     }
@@ -288,7 +288,7 @@ public sealed class ImmigrationManager : MonoBehaviour
             _afterNewsAction = afterNews;
             newsPopup.OnClosed -= HandleStartNewsClosed; // 중복 구독 방지
             newsPopup.OnClosed += HandleStartNewsClosed;
-            newsPopup.Open(_data.news);
+            newsPopup.Open(FilterBranchNews(_data.news));
         }
         else
         {
@@ -431,13 +431,32 @@ public sealed class ImmigrationManager : MonoBehaviour
     /// <summary>뉴스 버튼: 현재 일차 뉴스 팝업.</summary>
     public void OnNewsButton() => OpenNews();
 
+    /// <summary>분기 뉴스 표식 키 접두사(InspectionController 가 손님 판정 시 PlayerPrefs 로 기록).</summary>
+    public const string NewsBranchKeyPrefix = "newsbranch_";
+
+    /// <summary>분기 뉴스 필터: branchGroup 이 있는 뉴스는 그 인물의 직전 판정(PlayerPrefs)과 일치할 때만 남긴다.
+    /// 일반 뉴스(branchGroup 빈값)는 항상 포함. 판정 기록이 없으면 'approve'(성공쪽)로 본다.</summary>
+    private NewsData[] FilterBranchNews(NewsData[] news)
+    {
+        if (news == null) return null;
+        var list = new List<NewsData>();
+        foreach (NewsData n in news)
+        {
+            if (n == null) continue;
+            if (string.IsNullOrEmpty(n.branchGroup)) { list.Add(n); continue; } // 일반 뉴스는 항상
+            string outcome = PlayerPrefs.GetString(NewsBranchKeyPrefix + n.branchGroup, "approve");
+            if (outcome == n.branchValue) list.Add(n); // 그 인물 처리 결과와 일치할 때만
+        }
+        return list.ToArray();
+    }
+
     /// <summary>현재 일차 뉴스 팝업을 연다(자동 전환·수동 버튼 공용). 데이터/참조 없으면 무시.</summary>
     private void OpenNews()
     {
         if (CurrentDay <= FirstDay) return; // 1일차엔 뉴스가 없음 → 버튼 눌러도 안 열림
         if (_data != null && newsPopup != null)
         {
-            newsPopup.Open(_data.news);
+            newsPopup.Open(FilterBranchNews(_data.news));
         }
     }
 

@@ -803,6 +803,10 @@ public sealed class InspectionController : MonoBehaviour
         CustomerData c = Current;
         if (c == null) return;
 
+        // 분기 뉴스용: 이 손님 처리 결과(승인/거절)를 기록 → 다음 일차 뉴스가 이 값으로 갈린다(예: 한지원→day3, 윤정호→day12).
+        if (!string.IsNullOrEmpty(c.nameKr))
+            PlayerPrefs.SetString(ImmigrationManager.NewsBranchKeyPrefix + c.nameKr, approve ? "approve" : "reject");
+
         // 판정(도장)을 찍으면 X-ray 창을 닫는다 — 도장이 X-ray 창에 가려지지 않게(검사후 트리거 OnClosed 는 발화 안 함).
         if (XrayPanel != null) XrayPanel.HideSilently();
 

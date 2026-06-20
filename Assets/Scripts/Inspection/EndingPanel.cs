@@ -171,6 +171,7 @@ public sealed class EndingPanel : MonoBehaviour
         var dialogueView = FindObjectOfType<DialogueView>();
         if (dialogueView != null) dialogueView.StopSpeaking();
         AmbienceManager.Suspend();
+        ShopBgmManager.Suspend(); // 결과화면 상점 BGM이 엔딩 컷씬 밑에 깔려 두 곡이 겹치던 문제 차단
 
         PlayCutsceneMusic(cutsceneKey);
     }

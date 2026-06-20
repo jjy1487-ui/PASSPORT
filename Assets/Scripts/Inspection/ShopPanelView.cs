@@ -144,7 +144,7 @@ public sealed class ShopPanelView : MonoBehaviour
             int price = row.GetInt("price", 0);
 
             ShopItemCardView.State state;
-            if (Shop.IsOwned(effectType)) state = ShopItemCardView.State.Owned;       // 영구 효과 보유
+            if (Shop.WasEverPurchased(card.ShopItemId) || Shop.IsOwned(effectType)) state = ShopItemCardView.State.Owned; // 한번이라도 산 것(영구 1회) / 영구 효과
             else if (money < price) state = ShopItemCardView.State.NotEnoughMoney;     // 자금 부족
             else state = ShopItemCardView.State.Buyable;
 

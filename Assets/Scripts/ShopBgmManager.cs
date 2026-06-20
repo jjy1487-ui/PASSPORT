@@ -74,4 +74,13 @@ public sealed class ShopBgmManager : MonoBehaviour
         if (_src == null || _clip == null) return;
         if (!_src.isPlaying) _src.Play();
     }
+
+    /// <summary>엔딩 컷씬 진입 시 상점 BGM을 즉시 멈춘다(엔딩 음악만 들리게). 엔딩 컷씬은 ResultScene 위에
+    /// 얹는 오버레이라 씬 로드가 없어 ApplyForScene 가 안 불린다 → 명시적으로 정지해야 겹침이 안 생긴다.
+    /// 다음 실제 씬 로드 시 ApplyForScene 가 다시 결정하므로 타이틀/상점 복귀엔 영향 없음.</summary>
+    public static void Suspend()
+    {
+        if (Instance != null && Instance._src != null && Instance._src.isPlaying)
+            Instance._src.Stop();
+    }
 }

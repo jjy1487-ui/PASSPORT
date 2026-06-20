@@ -10,6 +10,7 @@ public static class ShopSave
     private const string KActive     = "SHOP_Active";      // '|' 구분(effect_type 집합)
     private const string KConsumable = "SHOP_Consumable";  // "effect:count|effect:count"
     private const string KSlots      = "SHOP_Slots";       // 칸 배치 "fx|fx||fx.." (위치 보존, 빈 칸="")
+    private const string KBought     = "SHOP_Bought";      // '|' 구분(한번이라도 산 shop_item_id 집합 — 영구 1회 구매)
     private const char Sep = '|';
 
     /// <summary>현재 상태를 PlayerPrefs 에 저장.</summary>
@@ -19,6 +20,7 @@ public static class ShopSave
         PlayerPrefs.SetString(KActive, Join(s.ActiveEffectsRaw));
         PlayerPrefs.SetString(KConsumable, JoinCounts(s.ConsumablesRaw));
         PlayerPrefs.SetString(KSlots, JoinSlots(s.SlotLayoutRaw));
+        PlayerPrefs.SetString(KBought, Join(s.PurchasedIdsRaw));
         PlayerPrefs.Save();
     }
 
@@ -30,6 +32,7 @@ public static class ShopSave
         var consumables = SplitCounts(PlayerPrefs.GetString(KConsumable, ""));
         s.RestoreState(active, consumables);
         s.RestoreSlots(SplitSlots(PlayerPrefs.GetString(KSlots, "")));
+        s.RestorePurchased(Split(PlayerPrefs.GetString(KBought, "")));
     }
 
     /// <summary>세이브 삭제(새 게임).</summary>
@@ -38,6 +41,7 @@ public static class ShopSave
         PlayerPrefs.DeleteKey(KActive);
         PlayerPrefs.DeleteKey(KConsumable);
         PlayerPrefs.DeleteKey(KSlots);
+        PlayerPrefs.DeleteKey(KBought);
         PlayerPrefs.Save();
     }
 

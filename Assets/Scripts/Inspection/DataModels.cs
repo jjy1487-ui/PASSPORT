@@ -300,4 +300,10 @@ public sealed class NewsData
     public string content;
     public string iconRef;
     public Claim[] claims;   // 본문 도출 단서. 없으면 빈 배열.
+
+    // ── 분기 뉴스(연예인/정치인 등) ───────────────────────────────
+    // branchGroup 이 비어 있으면 일반 뉴스(항상 표시). 값이 있으면 '그 인물'의 직전 처리 결과에 따라 하나만 표시.
+    //  예) branchGroup="한지원", branchValue="approve" → 한지원을 승인했을 때만 이 뉴스를 띄운다.
+    public string branchGroup;   // 기준 인물(손님 nameKr). 비면 일반 뉴스.
+    public string branchValue;   // "approve" | "reject" — 그 인물 판정 결과와 일치할 때만 표시.
 }

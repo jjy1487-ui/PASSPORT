@@ -39,6 +39,13 @@ public sealed class ShopService : MonoBehaviour
     /// <summary>1회성 소비형 보유 수량(effect_type → 남은 횟수).</summary>
     private readonly Dictionary<string, int> _consumables = new Dictionary<string, int>();
 
+    /// <summary>한 번이라도 구매한 shop_item_id 집합 — 영구 1회 구매(재구매 금지)용. 새 게임에만 초기화.</summary>
+    private readonly HashSet<string> _purchasedIds = new HashSet<string>();
+    internal IReadOnlyCollection<string> PurchasedIdsRaw => _purchasedIds;
+    /// <summary>이 shop_item_id 를 한 번이라도 샀는가(소비해 0개가 됐어도 true) — UI '보유 중' 표시·재구매 차단용.</summary>
+    public bool WasEverPurchased(string shopItemId)
+        => !string.IsNullOrEmpty(shopItemId) && _purchasedIds.Contains(shopItemId);
+
     // ── 이벤트(UI 구독) ───────────────────────────────────────
     /// <summary>구매 성공(effect_type). UI 가 구매 피드백·잠금 해제 갱신에 사용.</summary>
     public event Action<string> OnItemPurchased;
@@ -241,8 +248,9 @@ public sealed class ShopService : MonoBehaviour
         if (GameProgressSave.CurrentPlaythrough < row.GetInt("unlock_run", 1)) return false; // 아직 잠김(회차)
 
         string effectType = row.Get("effect_type");
-        // 1개만 구매 가능: 영구 효과는 이미 보유 시, 소비품도 1개 보유 시 구매 차단(중복/비축 방지).
-        //  소비품은 사용해 0개가 되면 다시 살 수 있다.
+        // 영구 1회 구매: 한 번이라도 산 아이템은 (소비해 0개가 됐더라도) 다시 못 산다.
+        if (_purchasedIds.Contains(shopItemId)) return false;
+        // (보조) 영구 효과는 이미 보유 시, 소비품도 1개 보유 시 구매 차단.
         if (ConsumableEffects.Contains(effectType))
         {
             if (GetConsumableCount(effectType) >= 1) return false;
@@ -258,6 +266,7 @@ public sealed class ShopService : MonoBehaviour
         if (!econ.TrySpend(price)) return false; // 돈 부족
 
         GrantEffect(effectType, row.GetInt("effect_value", 0));
+        _purchasedIds.Add(shopItemId); // 영구 1회 구매 기록(소비 후에도 재구매 금지)
         ShopSave.SaveFrom(this);
         // 구매 성공 시에만 정산 타이핑 효과음 재생(여기 도달 = 돈 차감·효과 부여 확정).
         if (_purchaseSound != null && _sfx != null) _sfx.PlayOneShot(_purchaseSound, PurchaseVolume);
@@ -327,6 +336,13 @@ public sealed class ShopService : MonoBehaviour
         OnEffectsChanged?.Invoke();
     }
 
+    /// <summary>구매 기록(영구 1회) 복원(ShopSave 전용).</summary>
+    internal void RestorePurchased(IEnumerable<string> ids)
+    {
+        _purchasedIds.Clear();
+        if (ids != null) foreach (var id in ids) if (!string.IsNullOrEmpty(id)) _purchasedIds.Add(id);
+    }
+
     /// <summary>칸 배치 복원(ShopSave 전용). 빈 문자열/누락은 빈 칸(null)으로.</summary>
     internal void RestoreSlots(IList<string> slots)
     {
@@ -339,6 +355,7 @@ public sealed class ShopService : MonoBehaviour
     {
         _activeEffects.Clear();
         _consumables.Clear();
+        _purchasedIds.Clear();
         for (int i = 0; i < SlotCount; i++) _slotLayout[i] = null;
         ShopSave.Clear();
         OnEffectsChanged?.Invoke();

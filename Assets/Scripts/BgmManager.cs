@@ -19,10 +19,11 @@ public sealed class BgmManager : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float _volume = 0.6f;
 
-    [Tooltip("이 BGM 이 재생될 씬 이름들. 그 외 씬에선 정지한다.")]
+    [Tooltip("이 BGM 이 재생될 씬 이름들. 그 외 씬에선 정지한다.\n" +
+             "ResultScene 은 ShopBgmManager(상점 BGM) 전용이라 제외 — 넣으면 메인테마와 상점BGM 이 겹친다.")]
     [SerializeField] private string[] _playScenes =
     {
-        "TitleScene", "MainMenuScene", "BriefingScene", "ResultScene",
+        "TitleScene", "MainMenuScene", "BriefingScene",
     };
 
     private AudioSource _src;

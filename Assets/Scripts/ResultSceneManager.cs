@@ -51,6 +51,9 @@ public sealed class ResultSceneManager : MonoBehaviour
 
         _day = PlayerPrefs.GetInt(CurrentDayKey, 1);
 
+        // 14일차 종료 결과 화면은 정산내역을 띄우지 않고 곧장 엔딩으로 간다(정산 표시·인트로 음악 건너뜀).
+        if (_day >= LastDay) { ShowEnding(); return; }
+
         PlayResultAudioOnce(); // 결과화면 진입 시: 일차 마치는 소리 → 상점 배경음악(연속) (일자당 1회)
 
         // 상점 구매로 잔액이 바뀌면 정산 표시를 갱신(DaySettlementView 가 구독하던 이벤트와 동일).
@@ -163,16 +166,7 @@ public sealed class ResultSceneManager : MonoBehaviour
     {
         if (_day >= LastDay)
         {
-            if (_endingShown) return; // 중복 발동 가드
-            _endingShown = true;
-
-            // 회차 완료(14일 엔딩 도달) → 회차 카운터 +1. 다음 플레이가 '2회차'가 되어 회차 해금 상점템이 열린다.
-            GameProgressSave.IncrementCompletedRuns();
-
-            int score = _economy != null ? _economy.Score : 0;
-            EndingResult e = EndingResolver.ResolveByScore(score);
-            if (_endingPanel != null) _endingPanel.Show(e);
-            else Debug.LogWarning("[ResultSceneManager] EndingPanel 참조가 없습니다. 엔딩 표시 비활성.");
+            ShowEnding(); // 보통은 Start 에서 이미 자동 진입함 — 폴백 경로
             return;
         }
 
@@ -181,5 +175,21 @@ public sealed class ResultSceneManager : MonoBehaviour
         PlayerPrefs.DeleteKey(EarnedMoneyKey); // 다음 일자에 이월되지 않도록 정리
         PlayerPrefs.Save();
         SceneManager.LoadScene("BriefingScene");
+    }
+
+    /// <summary>14일 종료 엔딩을 띄운다(정산 건너뛰고 곧장). 누적 점수로 엔딩을 결정하고,
+    /// 종료 시 메인메뉴로 복귀하도록 지정한다(정산화면 잔류·BGM 겹침 방지). 중복 발동은 가드.</summary>
+    private void ShowEnding()
+    {
+        if (_endingShown) return; // 중복 발동 가드
+        _endingShown = true;
+
+        // 회차 완료(14일 엔딩 도달) → 회차 카운터 +1. 다음 플레이가 '2회차'가 되어 회차 해금 상점템이 열린다.
+        GameProgressSave.IncrementCompletedRuns();
+
+        int score = _economy != null ? _economy.Score : 0;
+        EndingResult e = EndingResolver.ResolveByScore(score);
+        if (_endingPanel != null) { _endingPanel.SetTitleScene("MainMenuScene"); _endingPanel.Show(e); }
+        else Debug.LogWarning("[ResultSceneManager] EndingPanel 참조가 없습니다. 엔딩 표시 비활성.");
     }
 }

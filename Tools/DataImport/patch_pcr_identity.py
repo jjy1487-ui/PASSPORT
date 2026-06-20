@@ -41,6 +41,15 @@ def patch_pcr_doc(doc, documents):
     if name is None or nat is None:
         return False, "여권 name/nationality 없음(건너뜀)"
 
+    # ★회귀 방지: 이름 불일치 결함(violationField=이름/성명)인 PCR은 검사서 이름을
+    #   여권 이름으로 덮어쓰지 않는다. 검사서 이름이 일부러 여권과 달라야 '검사서≠여권'
+    #   결함이 성립하기 때문(예: day6 사토 유토). 안 지키면 이 스크립트가 결함을 지운다.
+    if doc.get("violationField") in ("이름", "성명"):
+        for f in doc.get("fields", []):
+            if f.get("key") == "name" and f.get("value"):
+                name = f.get("value")  # 기존(불일치) 검사서 이름 보존
+                break
+
     fields = doc.get("fields", [])
     # 기존 name/nationality 항목 제거(과거 불완전 주입/불일치 값 보정)
     before = [(f.get("key"), f.get("value")) for f in fields]
@@ -82,7 +91,7 @@ def main():
 
         if changed_any:
             with open(path, "w", encoding="utf-8") as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
+                json.dump(data, f, ensure_ascii=False, indent=1)
         print(f"day{day}: {'patched' if changed_any else 'no-change'} -> {path}")
 
     print("\n=== 패치 리포트 (day, cid, variant, changed, info) ===")

@@ -1751,7 +1751,7 @@
        },
        {
         "label": "검사 기관",
-        "value": "삼성서울병원진단검사의학과",
+        "value": "국립검역소",
         "key": "lab_name"
        },
        {
@@ -1849,7 +1849,7 @@
    },
    "crossCheckLines": [
     {
-     "attr": "visa_type",
+     "attr": "name",
      "inspector": "어… 여권엔 이 이름인데, 비자엔 다른 이름이 적혀 있네요? 이거 어떻게 된 거죠?",
      "customer": "What? That should be fine…(네? 문제 없을 텐데요…)",
      "unlocksScan": ""
@@ -1977,7 +1977,7 @@
      "fields": [
       {
        "label": "이름",
-       "value": "SATO YUTO",
+       "value": "TANAKA HARUTO",
        "key": "name"
       },
       {
@@ -2064,7 +2064,7 @@
        "text": "PCR 검사서의 이름이 여권과 일치하지 않아 입국하실 수 없습니다.",
        "claim": {
         "attr": "name",
-        "value": "",
+        "value": "TANAKA HARUTO",
         "label": "검사서 이름 불일치",
         "unlocksScan": ""
        }
@@ -2138,7 +2138,7 @@
  ],
  "news": [
   {
-   "newsId": 6,
+   "newsId": 8,
    "title": "강화된 방역 장기화 공항 현장 부담 증가",
    "content": "강화된 방역 장기화 관련 업계 긴장 지속 검역 절차가 장기간 이어지면서 여행업계와 관련 기관들이 상황을 예의주시하고 있다. 보건 당국은 현재 대응 체계를 유지하며 추가 확산 여부를 관찰하고 있다고 밝혔다.",
    "iconRef": "News8",
