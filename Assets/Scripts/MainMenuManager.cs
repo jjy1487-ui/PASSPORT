@@ -9,6 +9,7 @@ public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] GameObject achieveButton;
     [SerializeField] GameObject endingButton;
+    [SerializeField] GameObject continueButton; // 이어하기(저장 있을 때만 표시). 시작 버튼 복제본, 엔딩 아래 배치.
     [SerializeField] CanvasGroup fadePanel;
     [SerializeField] float fadeInDuration = 0.8f;
     [SerializeField] float fadeOutDuration = 0.5f;
@@ -24,9 +25,13 @@ public class MainMenuManager : MonoBehaviour
     void Start()
     {
         bool hasSave = PlayerPrefs.HasKey(SAVE_KEY);
-        achieveButton.SetActive(hasSave);
-        endingButton.SetActive(hasSave);
-        StartCoroutine(FadeIn());
+        // null 가드: 씬에 미연결(achieveButton 등)이라도 여기서 NRE 로 멈추지 않게 한다.
+        //  (예전엔 achieveButton 미연결이면 이 줄에서 예외 → 아래 이어하기 생성까지 도달을 못 했음)
+        if (achieveButton != null) achieveButton.SetActive(hasSave);
+        if (endingButton != null) endingButton.SetActive(hasSave);
+        // 이어하기 버튼: 진행 중인 세이브가 있을 때만 보인다(엔딩/업적과 동일 패턴).
+        if (continueButton != null) continueButton.SetActive(GameProgressSave.HasSave());
+        if (fadePanel != null) StartCoroutine(FadeIn());
     }
 
     public void OnStartGame()
@@ -38,6 +43,21 @@ public class MainMenuManager : MonoBehaviour
         PlayerPrefs.SetInt("CurrentDay", 1);  // 1일차 시작
         PlayerPrefs.Save();
         StartCoroutine(TransitionToScene("BriefingScene")); // 브리핑 → 심사 씬
+    }
+
+    /// <summary>
+    /// [이어하기] 저장된 진행을 리셋하지 않고 그대로 재개한다(저장된 CurrentDay 의 브리핑부터).
+    /// 새 게임(OnStartGame)과 달리 ClearProgressKeepMeta/CurrentDay=1 을 하지 않는다.
+    /// </summary>
+    public void OnContinue()
+    {
+        if (isTransitioning) return;
+        PlayerPrefs.SetInt(SAVE_KEY, 1);
+        PlayerPrefs.Save();
+        // 세션 중(앱 안 끄고) 재개 시엔 매니저가 살아 있어 Awake 의 LoadInto 가 다시 안 돈다 → 직접 복원해 '그날 시작' 상태로.
+        if (ScoreEconomyManager.Instance != null)
+            GameProgressSave.LoadInto(ScoreEconomyManager.Instance);
+        StartCoroutine(TransitionToScene("BriefingScene"));
     }
 
     public void OnAchievement()

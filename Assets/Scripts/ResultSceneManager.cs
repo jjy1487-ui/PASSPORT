@@ -173,6 +173,8 @@ public sealed class ResultSceneManager : MonoBehaviour
         int next = _day + 1;
         PlayerPrefs.SetInt(CurrentDayKey, next);
         PlayerPrefs.DeleteKey(EarnedMoneyKey); // 다음 일자에 이월되지 않도록 정리
+        // 일차 단위 세이브: 다음 날로 넘어가는 시점 상태(=다음 날 시작값)를 저장 → 이어하기 기준점(CurrentDay 와 정합).
+        if (_economy != null) GameProgressSave.SaveFrom(_economy);
         PlayerPrefs.Save();
         SceneManager.LoadScene("BriefingScene");
     }
@@ -186,6 +188,10 @@ public sealed class ResultSceneManager : MonoBehaviour
 
         // 회차 완료(14일 엔딩 도달) → 회차 카운터 +1. 다음 플레이가 '2회차'가 되어 회차 해금 상점템이 열린다.
         GameProgressSave.IncrementCompletedRuns();
+        // 14일 클리어 → 이어하기용 세이브 정리(끝난 게임은 메인메뉴 '이어하기' 안 뜨게). 호칭/아이템 메타는 보존.
+        GameProgressSave.ClearProgressKeepMeta();
+        PlayerPrefs.DeleteKey(CurrentDayKey);
+        PlayerPrefs.Save();
 
         int score = _economy != null ? _economy.Score : 0;
         EndingResult e = EndingResolver.ResolveByScore(score);

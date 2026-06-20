@@ -191,7 +191,7 @@ public sealed class ScoreEconomyManager : MonoBehaviour
         if (!string.IsNullOrEmpty(evt) && evt != EventIds.OverstayApprove) TriggerEvent(evt);
 
         OnVerdictResolved?.Invoke(wasCorrect);
-        GameProgressSave.SaveFrom(this);
+        // (세이브는 하루 시작(BeginDay)에만 — 손님별 저장 제거로 이어하기가 '그날 처음'부터 깔끔히 재개)
     }
 
     // ── 일자(day) 단위 보상 — reward 테이블(DAILY_BASE/PERFECT_DAY/WARNING/DETECTION) ──
@@ -204,6 +204,9 @@ public sealed class ScoreEconomyManager : MonoBehaviour
     {
         _dayWrongCount = 0;
         _dayDetectionCount = 0;
+        // 일차 단위 세이브: 하루 '시작' 시점 상태를 저장 → 이어하기/죽음 재시작의 기준점.
+        // (손님별·도중 저장은 제거 → 세이브가 항상 "그날 처음" 상태라 재개 시 점수 안 꼬임)
+        GameProgressSave.SaveFrom(this);
     }
 
     /// <summary>
@@ -243,8 +246,7 @@ public sealed class ScoreEconomyManager : MonoBehaviour
         _dayWrongCount = 0;
         _dayDetectionCount = 0;
 
-        GameProgressSave.SaveFrom(this);
-        return delta;
+        return delta; // (저장은 BeginDay / 다음날 넘어갈 때만 — 정산 직후 저장 제거)
     }
 
     // ── 테이블 조회 ────────────────────────────────────────────
@@ -354,12 +356,11 @@ public sealed class ScoreEconomyManager : MonoBehaviour
     public bool TrySpend(int amount)
     {
         if (amount > Money) return false;
-        ApplyMoney(-amount);
-        GameProgressSave.SaveFrom(this);
+        ApplyMoney(-amount); // (상점 구매는 메모리에만 — 다음날 넘어갈 때 그 상태가 세이브됨)
         return true;
     }
 
-    public void AddMoney(int amount) { ApplyMoney(amount); GameProgressSave.SaveFrom(this); }
+    public void AddMoney(int amount) { ApplyMoney(amount); }
 
     // ── 세이브 직렬화 헬퍼(GameProgressSave 전용) ──────────────
 
