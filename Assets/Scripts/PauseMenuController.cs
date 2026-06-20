@@ -20,6 +20,7 @@ public class PauseMenuController : MonoBehaviour
     GameObject _pausePanel;
     GameObject _confirmPanel;
     TMP_FontAsset _font;
+    bool _fontApplied; // 빌드에선 부팅 시점에 MalgunGothic 미로드 → 게임 진입 후 씬 폰트로 1회 재적용
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     static void Bootstrap()
@@ -60,12 +61,37 @@ public class PauseMenuController : MonoBehaviour
     void Update()
     {
         if (_canvas == null || !_canvas.gameObject.activeSelf) return;
+        if (!_fontApplied) TryApplyKoreanFont(); // 빌드: 씬 한글폰트 로드되면 1회 재적용(□ 방지)
         var kb = Keyboard.current; // 신 Input System(이 프로젝트는 UnityEngine.Input 못 씀)
         if (kb != null && kb.escapeKey.wasPressedThisFrame)
         {
             if (_confirmPanel != null && _confirmPanel.activeSelf) { _confirmPanel.SetActive(false); return; }
             SetPaused(!(_pausePanel != null && _pausePanel.activeSelf));
         }
+    }
+
+    /// <summary>빌드에선 부팅 시점에 MalgunGothic 이 아직 안 떠 기본폰트(한글□)로 만들어진다.
+    /// 게임 씬의 기존 한글 텍스트(HUD)가 쓰는 폰트를 찾아 내 UI 전체에 1회 재적용한다(못 찾으면 다음 프레임 재시도).</summary>
+    void TryApplyKoreanFont()
+    {
+        TMP_FontAsset korean = FindKoreanFontFromScene();
+        if (korean == null || korean == TMP_Settings.defaultFontAsset) return; // 아직 못 찾음 → 다음 프레임
+        foreach (var t in _canvas.GetComponentsInChildren<TMP_Text>(true)) t.font = korean;
+        _font = korean;
+        _fontApplied = true;
+    }
+
+    /// <summary>씬에 떠 있는 TMP 텍스트(HUD 등) 중 malgun 한글 폰트를 쓰는 것을 찾아 그 폰트를 반환(내 패널 제외).</summary>
+    TMP_FontAsset FindKoreanFontFromScene()
+    {
+        foreach (var t in FindObjectsByType<TMP_Text>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if (t == null || t.font == null) continue;
+            if (_canvas != null && t.transform.IsChildOf(_canvas.transform)) continue; // 내 패널은 제외
+            string n = t.font.name;
+            if (n != null && n.ToLowerInvariant().Contains("malgun")) return t.font;
+        }
+        return FindMalgunFont(); // 폴백(로드된 폰트 스캔)
     }
 
     void SetPaused(bool paused)
