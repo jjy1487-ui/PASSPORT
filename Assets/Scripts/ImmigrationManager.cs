@@ -268,12 +268,19 @@ public sealed class ImmigrationManager : MonoBehaviour
     }
 
     private System.Action _afterNewsAction; // 시작 뉴스 닫힘 → 실행할 다음 단계(튜토리얼 or 첫 손님)
+    private int? _pendingJumpSlot; // QA 점프로 새 일차 진입 시: 시작 시퀀스가 끝나면 이 슬롯(0-based)으로 이동
 
     /// <summary>하루 시작 시퀀스: (뉴스) → (1일차 튜토리얼) → (그날 신규 규정 규정집) → 첫 손님 입장.
     /// 각 단계는 '닫기'로 진행한다. 데이터/참조가 없으면 그 단계는 건너뛴다(소프트락 방지).</summary>
     private void RunStartSequence(bool showNews, bool showTutorial)
     {
-        System.Action proceed = () => { if (inspectionController != null) inspectionController.BeginInspection(); };
+        System.Action proceed = () =>
+        {
+            if (inspectionController == null) return;
+            inspectionController.BeginInspection();
+            // QA 점프로 들어온 경우: 시퀀스가 끝나면 사용자가 고른 슬롯으로 이동(아니면 첫 손님 유지)
+            if (_pendingJumpSlot.HasValue) { int s = _pendingJumpSlot.Value; _pendingJumpSlot = null; inspectionController.DebugJumpToSlot(s); }
+        };
         // 튜토리얼/뉴스 다음 → 그날 새로 생긴 규정이 있으면 규정집을 한 번 보여주고 → 첫 손님
         System.Action showRulebookThenProceed = () => ShowNewRulesThen(proceed);
         System.Action afterNews = () =>
@@ -350,15 +357,20 @@ public sealed class ImmigrationManager : MonoBehaviour
         _endingTriggered = false; // 점프 시 엔딩 차단 해제(이전 점프에서 엔딩이 떴을 수 있음)
 
         // 날짜가 바뀌거나 아직 데이터가 없을 때만 해당 일차를 새로 로드한다(같은 날이면 셔플/변형 보존).
-        if (day != CurrentDay || _data == null)
+        bool dayChanged = (day != CurrentDay || _data == null);
+        if (dayChanged)
         {
             EnsureEconomy();
             PlayerPrefs.SetInt(CurrentDayKey, day);
             PlayerPrefs.Save();
-            BeginDay(day, resetGold: false, openNews: false);
+            // 새 일차로 점프 → 정상 진입처럼 시작 시퀀스(뉴스→규정집)를 띄우고, 닫으면 지정 슬롯으로 이동.
+            _pendingJumpSlot = slot - 1;
+            BeginDay(day, resetGold: false, openNews: true);
         }
-
-        if (inspectionController != null) inspectionController.DebugJumpToSlot(slot - 1);
+        else if (inspectionController != null)
+        {
+            inspectionController.DebugJumpToSlot(slot - 1); // 같은 날: 시퀀스 없이 즉시 손님 이동
+        }
     }
 
     /// <summary>[QA] 현재 일차를 다시 로드해 변이 강제 모드(CustomerRoster.ForceMode)를 즉시 반영한다(현재 손님 번호 유지).</summary>
