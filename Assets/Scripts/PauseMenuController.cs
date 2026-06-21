@@ -20,6 +20,7 @@ public class PauseMenuController : MonoBehaviour
     GameObject _pausePanel;
     GameObject _confirmPanel;
     TMP_FontAsset _font;
+    Sprite _panelSprite; // Resources/UI/패널이미지 (9슬라이스 패널 배경)
     bool _fontApplied; // 빌드에선 부팅 시점에 MalgunGothic 미로드 → 게임 진입 후 씬 폰트로 1회 재적용
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
@@ -138,6 +139,7 @@ public class PauseMenuController : MonoBehaviour
         var scaler = cgo.GetComponent<CanvasScaler>();
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         scaler.referenceResolution = new Vector2(1920, 1080);
+        _panelSprite = Resources.Load<Sprite>("UI/패널이미지"); // 패널 배경 스프라이트
 
         // 메뉴 버튼 (좌측 상단, 항상 보임) — 원래 단색 버튼 그대로, 위치만 좌상단
         _menuButton = MakeButton(_canvas.transform, "PauseMenuButton", "≡ 메뉴", 20, new Color(0.12f, 0.14f, 0.18f, 0.92f));
@@ -150,8 +152,8 @@ public class PauseMenuController : MonoBehaviour
 
         // 일시정지 패널
         _pausePanel = BuildModal("PausePanel", "일시정지", out var pFrame);
-        var resume = MakeButton(pFrame.transform, "ResumeButton", "계속하기", 34, new Color(0.18f, 0.42f, 0.28f));
-        Place(resume, new Vector2(0, 45), new Vector2(380, 92));
+        var resume = MakeButton(pFrame.transform, "ResumeButton", "계속하기", 34, Color.black);
+        Place(resume, new Vector2(0, 40), new Vector2(380, 92));
         resume.GetComponent<Button>().onClick.AddListener(() => SetPaused(false));
         var toMenu = MakeButton(pFrame.transform, "ToMenuButton", "메인메뉴로", 34, new Color(0.45f, 0.22f, 0.18f));
         Place(toMenu, new Vector2(0, -70), new Vector2(380, 92));
@@ -161,12 +163,12 @@ public class PauseMenuController : MonoBehaviour
         // 확인 패널
         _confirmPanel = BuildModal("ConfirmPanel", "메인메뉴로 가시겠어요?", out var cFrame);
         var msg = AddText(cFrame.transform, "Msg", "현재 일차는 다음에 처음부터 다시 시작됩니다.", 24, TextAlignmentOptions.Center);
-        Place(msg.gameObject, new Vector2(0, 95), new Vector2(600, 80));
-        msg.color = new Color(1f, 0.85f, 0.6f);
+        Place(msg.gameObject, new Vector2(0, 70), new Vector2(600, 80));
+        msg.color = Color.black;
         var yes = MakeButton(cFrame.transform, "YesButton", "예, 나가기", 30, new Color(0.45f, 0.22f, 0.18f));
         Place(yes, new Vector2(-135, -35), new Vector2(240, 84));
         yes.GetComponent<Button>().onClick.AddListener(OnConfirmYes);
-        var no = MakeButton(cFrame.transform, "NoButton", "아니오", 30, new Color(0.25f, 0.28f, 0.34f));
+        var no = MakeButton(cFrame.transform, "NoButton", "아니오", 30, Color.black);
         Place(no, new Vector2(135, -35), new Vector2(240, 84));
         no.GetComponent<Button>().onClick.AddListener(OnConfirmNo);
         _confirmPanel.SetActive(false);
@@ -182,16 +184,17 @@ public class PauseMenuController : MonoBehaviour
         var frt = frame.GetComponent<RectTransform>();
         frt.sizeDelta = new Vector2(700, 470);
         var fimg = frame.AddComponent<Image>();
-        fimg.color = new Color(0.10f, 0.12f, 0.16f, 0.99f);
+        if (_panelSprite != null) { fimg.sprite = _panelSprite; fimg.type = Image.Type.Sliced; }
+        fimg.color = Color.white;
 
         var t = AddText(frame.transform, "Title", title, 38, TextAlignmentOptions.Center);
         var trt = t.GetComponent<RectTransform>();
         trt.anchorMin = trt.anchorMax = new Vector2(0.5f, 1f);
         trt.pivot = new Vector2(0.5f, 1f);
         trt.sizeDelta = new Vector2(660, 90);
-        trt.anchoredPosition = new Vector2(0, -34);
+        trt.anchoredPosition = new Vector2(0, -50);
         t.fontStyle = FontStyles.Bold;
-        t.color = new Color(1f, 0.9f, 0.6f);
+        t.color = Color.black;
         return root;
     }
 

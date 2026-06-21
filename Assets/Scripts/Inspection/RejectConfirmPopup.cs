@@ -62,7 +62,8 @@ public sealed class RejectConfirmPopup : MonoBehaviour
         _onReview = onReview;
         _onConfirm = onConfirm;
         _onTimeout = onTimeout;
-        _baseMessage = message ?? string.Empty;
+        // 안내문이 비어 있으면(예: 사토 시나리오) 기본 선택 프롬프트를 띄운다 — 빈 화면 방지.
+        _baseMessage = string.IsNullOrEmpty(message) ? "어떻게 하시겠습니까?" : message;
         if (_messageText != null) _messageText.text = _baseMessage;
         if (_reviewLabel != null && !string.IsNullOrEmpty(reviewLabel)) _reviewLabel.text = reviewLabel;
         if (_confirmLabel != null && !string.IsNullOrEmpty(confirmLabel)) _confirmLabel.text = confirmLabel;
@@ -86,7 +87,7 @@ public sealed class RejectConfirmPopup : MonoBehaviour
     private void SetCountdownText(int secondsLeft)
     {
         if (_messageText == null) return;
-        string clock = $"⏳ {secondsLeft}초";
+        string clock = $"남은 시간 {secondsLeft}초"; // ⏳ 모래시계는 MalgunGothic에 없어 □ 깨짐 → 글자로
         _messageText.text = string.IsNullOrEmpty(_baseMessage) ? clock : _baseMessage + "\n" + clock;
     }
 
